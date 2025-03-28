@@ -1,0 +1,134 @@
+# SpotGetAccountCommissionV3RespStandardCommission
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Buyer** | Pointer to **string** |  | [optional] 
+**Maker** | Pointer to **string** |  | [optional] 
+**Seller** | Pointer to **string** |  | [optional] 
+**Taker** | Pointer to **string** |  | [optional] 
+
+## Methods
+
+### NewSpotGetAccountCommissionV3RespStandardCommission
+
+`func NewSpotGetAccountCommissionV3RespStandardCommission() *SpotGetAccountCommissionV3RespStandardCommission`
+
+NewSpotGetAccountCommissionV3RespStandardCommission instantiates a new SpotGetAccountCommissionV3RespStandardCommission object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewSpotGetAccountCommissionV3RespStandardCommissionWithDefaults
+
+`func NewSpotGetAccountCommissionV3RespStandardCommissionWithDefaults() *SpotGetAccountCommissionV3RespStandardCommission`
+
+NewSpotGetAccountCommissionV3RespStandardCommissionWithDefaults instantiates a new SpotGetAccountCommissionV3RespStandardCommission object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetBuyer
+
+`func (o *SpotGetAccountCommissionV3RespStandardCommission) GetBuyer() string`
+
+GetBuyer returns the Buyer field if non-nil, zero value otherwise.
+
+### GetBuyerOk
+
+`func (o *SpotGetAccountCommissionV3RespStandardCommission) GetBuyerOk() (*string, bool)`
+
+GetBuyerOk returns a tuple with the Buyer field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBuyer
+
+`func (o *SpotGetAccountCommissionV3RespStandardCommission) SetBuyer(v string)`
+
+SetBuyer sets Buyer field to given value.
+
+### HasBuyer
+
+`func (o *SpotGetAccountCommissionV3RespStandardCommission) HasBuyer() bool`
+
+HasBuyer returns a boolean if a field has been set.
+
+### GetMaker
+
+`func (o *SpotGetAccountCommissionV3RespStandardCommission) GetMaker() string`
+
+GetMaker returns the Maker field if non-nil, zero value otherwise.
+
+### GetMakerOk
+
+`func (o *SpotGetAccountCommissionV3RespStandardCommission) GetMakerOk() (*string, bool)`
+
+GetMakerOk returns a tuple with the Maker field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaker
+
+`func (o *SpotGetAccountCommissionV3RespStandardCommission) SetMaker(v string)`
+
+SetMaker sets Maker field to given value.
+
+### HasMaker
+
+`func (o *SpotGetAccountCommissionV3RespStandardCommission) HasMaker() bool`
+
+HasMaker returns a boolean if a field has been set.
+
+### GetSeller
+
+`func (o *SpotGetAccountCommissionV3RespStandardCommission) GetSeller() string`
+
+GetSeller returns the Seller field if non-nil, zero value otherwise.
+
+### GetSellerOk
+
+`func (o *SpotGetAccountCommissionV3RespStandardCommission) GetSellerOk() (*string, bool)`
+
+GetSellerOk returns a tuple with the Seller field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSeller
+
+`func (o *SpotGetAccountCommissionV3RespStandardCommission) SetSeller(v string)`
+
+SetSeller sets Seller field to given value.
+
+### HasSeller
+
+`func (o *SpotGetAccountCommissionV3RespStandardCommission) HasSeller() bool`
+
+HasSeller returns a boolean if a field has been set.
+
+### GetTaker
+
+`func (o *SpotGetAccountCommissionV3RespStandardCommission) GetTaker() string`
+
+GetTaker returns the Taker field if non-nil, zero value otherwise.
+
+### GetTakerOk
+
+`func (o *SpotGetAccountCommissionV3RespStandardCommission) GetTakerOk() (*string, bool)`
+
+GetTakerOk returns a tuple with the Taker field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTaker
+
+`func (o *SpotGetAccountCommissionV3RespStandardCommission) SetTaker(v string)`
+
+SetTaker sets Taker field to given value.
+
+### HasTaker
+
+`func (o *SpotGetAccountCommissionV3RespStandardCommission) HasTaker() bool`
+
+HasTaker returns a boolean if a field has been set.
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
