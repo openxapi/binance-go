@@ -79,7 +79,7 @@ Method | HTTP request | Description
 
 ## UfuturesCreateBatchOrdersV1
 
-> []UfuturesCreateBatchOrdersV1200ResponseInner UfuturesCreateBatchOrdersV1(ctx).BatchOrders(batchOrders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> []UfuturesCreateBatchOrdersV1RespInner UfuturesCreateBatchOrdersV1(ctx).BatchOrders(batchOrders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Place Multiple Orders(TRADE)
 
@@ -109,7 +109,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `V1API.UfuturesCreateBatchOrdersV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesCreateBatchOrdersV1`: []UfuturesCreateBatchOrdersV1200ResponseInner
+	// response from `UfuturesCreateBatchOrdersV1`: []UfuturesCreateBatchOrdersV1RespInner
 	fmt.Fprintf(os.Stdout, "Response from `V1API.UfuturesCreateBatchOrdersV1`: %v\n", resp)
 }
 ```
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesCreateBatchOrdersV1200ResponseInner**](UfuturesCreateBatchOrdersV1200ResponseInner.md)
+[**[]UfuturesCreateBatchOrdersV1RespInner**](UfuturesCreateBatchOrdersV1RespInner.md)
 
 ### Authorization
 
@@ -1136,7 +1136,7 @@ Name | Type | Description  | Notes
 
 ## UfuturesDeleteBatchOrdersV1
 
-> []UfuturesDeleteBatchOrdersV1200ResponseInner UfuturesDeleteBatchOrdersV1(ctx).Symbol(symbol).Timestamp(timestamp).OrderIdList(orderIdList).OrigClientOrderIdList(origClientOrderIdList).RecvWindow(recvWindow).Execute()
+> []UfuturesDeleteBatchOrdersV1RespInner UfuturesDeleteBatchOrdersV1(ctx).Symbol(symbol).Timestamp(timestamp).OrderIdList(orderIdList).OrigClientOrderIdList(origClientOrderIdList).RecvWindow(recvWindow).Execute()
 
 Cancel Multiple Orders (TRADE)
 
@@ -1168,7 +1168,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `V1API.UfuturesDeleteBatchOrdersV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesDeleteBatchOrdersV1`: []UfuturesDeleteBatchOrdersV1200ResponseInner
+	// response from `UfuturesDeleteBatchOrdersV1`: []UfuturesDeleteBatchOrdersV1RespInner
 	fmt.Fprintf(os.Stdout, "Response from `V1API.UfuturesDeleteBatchOrdersV1`: %v\n", resp)
 }
 ```
@@ -1192,7 +1192,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesDeleteBatchOrdersV1200ResponseInner**](UfuturesDeleteBatchOrdersV1200ResponseInner.md)
+[**[]UfuturesDeleteBatchOrdersV1RespInner**](UfuturesDeleteBatchOrdersV1RespInner.md)
 
 ### Authorization
 
@@ -1907,7 +1907,7 @@ No authorization required
 
 ## UfuturesGetContinuousKlinesV1
 
-> [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner UfuturesGetContinuousKlinesV1(ctx).Pair(pair).ContractType(contractType).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+> [][]UfuturesGetContinuousKlinesV1RespInnerInner UfuturesGetContinuousKlinesV1(ctx).Pair(pair).ContractType(contractType).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 
 Continuous Contract Kline/Candlestick Data
 
@@ -1940,7 +1940,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `V1API.UfuturesGetContinuousKlinesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetContinuousKlinesV1`: [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
+	// response from `UfuturesGetContinuousKlinesV1`: [][]UfuturesGetContinuousKlinesV1RespInnerInner
 	fmt.Fprintf(os.Stdout, "Response from `V1API.UfuturesGetContinuousKlinesV1`: %v\n", resp)
 }
 ```
@@ -1965,7 +1965,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[][]UfuturesGetContinuousKlinesV1200ResponseInnerInner**](array.md)
+[**[][]UfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
 
 ### Authorization
 
@@ -2885,7 +2885,7 @@ No authorization required
 
 ## UfuturesGetIndexPriceKlinesV1
 
-> [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner UfuturesGetIndexPriceKlinesV1(ctx).Pair(pair).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+> [][]UfuturesGetContinuousKlinesV1RespInnerInner UfuturesGetIndexPriceKlinesV1(ctx).Pair(pair).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 
 Index Price Kline/Candlestick Data
 
@@ -2917,7 +2917,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `V1API.UfuturesGetIndexPriceKlinesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetIndexPriceKlinesV1`: [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
+	// response from `UfuturesGetIndexPriceKlinesV1`: [][]UfuturesGetContinuousKlinesV1RespInnerInner
 	fmt.Fprintf(os.Stdout, "Response from `V1API.UfuturesGetIndexPriceKlinesV1`: %v\n", resp)
 }
 ```
@@ -2941,7 +2941,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[][]UfuturesGetContinuousKlinesV1200ResponseInnerInner**](array.md)
+[**[][]UfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
 
 ### Authorization
 
@@ -2959,7 +2959,7 @@ No authorization required
 
 ## UfuturesGetKlinesV1
 
-> [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner UfuturesGetKlinesV1(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+> [][]UfuturesGetContinuousKlinesV1RespInnerInner UfuturesGetKlinesV1(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 
 Kline/Candlestick Data
 
@@ -2991,7 +2991,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `V1API.UfuturesGetKlinesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetKlinesV1`: [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
+	// response from `UfuturesGetKlinesV1`: [][]UfuturesGetContinuousKlinesV1RespInnerInner
 	fmt.Fprintf(os.Stdout, "Response from `V1API.UfuturesGetKlinesV1`: %v\n", resp)
 }
 ```
@@ -3015,7 +3015,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[][]UfuturesGetContinuousKlinesV1200ResponseInnerInner**](array.md)
+[**[][]UfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
 
 ### Authorization
 
@@ -3103,7 +3103,7 @@ Name | Type | Description  | Notes
 
 ## UfuturesGetMarkPriceKlinesV1
 
-> [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner UfuturesGetMarkPriceKlinesV1(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+> [][]UfuturesGetContinuousKlinesV1RespInnerInner UfuturesGetMarkPriceKlinesV1(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 
 Mark Price Kline/Candlestick Data
 
@@ -3135,7 +3135,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `V1API.UfuturesGetMarkPriceKlinesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetMarkPriceKlinesV1`: [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
+	// response from `UfuturesGetMarkPriceKlinesV1`: [][]UfuturesGetContinuousKlinesV1RespInnerInner
 	fmt.Fprintf(os.Stdout, "Response from `V1API.UfuturesGetMarkPriceKlinesV1`: %v\n", resp)
 }
 ```
@@ -3159,7 +3159,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[][]UfuturesGetContinuousKlinesV1200ResponseInnerInner**](array.md)
+[**[][]UfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
 
 ### Authorization
 
@@ -4028,7 +4028,7 @@ Name | Type | Description  | Notes
 
 ## UfuturesGetPremiumIndexKlinesV1
 
-> [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner UfuturesGetPremiumIndexKlinesV1(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+> [][]UfuturesGetContinuousKlinesV1RespInnerInner UfuturesGetPremiumIndexKlinesV1(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 
 Premium index Kline Data
 
@@ -4060,7 +4060,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `V1API.UfuturesGetPremiumIndexKlinesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetPremiumIndexKlinesV1`: [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
+	// response from `UfuturesGetPremiumIndexKlinesV1`: [][]UfuturesGetContinuousKlinesV1RespInnerInner
 	fmt.Fprintf(os.Stdout, "Response from `V1API.UfuturesGetPremiumIndexKlinesV1`: %v\n", resp)
 }
 ```
@@ -4084,7 +4084,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[][]UfuturesGetContinuousKlinesV1200ResponseInnerInner**](array.md)
+[**[][]UfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
 
 ### Authorization
 

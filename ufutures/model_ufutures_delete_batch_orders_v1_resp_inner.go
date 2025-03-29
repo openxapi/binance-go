@@ -16,29 +16,29 @@ import (
 	"gopkg.in/validator.v2"
 )
 
-// UfuturesDeleteBatchOrdersV1200ResponseInner - struct for UfuturesDeleteBatchOrdersV1200ResponseInner
-type UfuturesDeleteBatchOrdersV1200ResponseInner struct {
+// UfuturesDeleteBatchOrdersV1RespInner - struct for UfuturesDeleteBatchOrdersV1RespInner
+type UfuturesDeleteBatchOrdersV1RespInner struct {
 	APIError *APIError
 	UfuturesDeleteBatchOrdersV1RespItem *UfuturesDeleteBatchOrdersV1RespItem
 }
 
-// APIErrorAsUfuturesDeleteBatchOrdersV1200ResponseInner is a convenience function that returns APIError wrapped in UfuturesDeleteBatchOrdersV1200ResponseInner
-func APIErrorAsUfuturesDeleteBatchOrdersV1200ResponseInner(v *APIError) UfuturesDeleteBatchOrdersV1200ResponseInner {
-	return UfuturesDeleteBatchOrdersV1200ResponseInner{
+// APIErrorAsUfuturesDeleteBatchOrdersV1RespInner is a convenience function that returns APIError wrapped in UfuturesDeleteBatchOrdersV1RespInner
+func APIErrorAsUfuturesDeleteBatchOrdersV1RespInner(v *APIError) UfuturesDeleteBatchOrdersV1RespInner {
+	return UfuturesDeleteBatchOrdersV1RespInner{
 		APIError: v,
 	}
 }
 
-// UfuturesDeleteBatchOrdersV1RespItemAsUfuturesDeleteBatchOrdersV1200ResponseInner is a convenience function that returns UfuturesDeleteBatchOrdersV1RespItem wrapped in UfuturesDeleteBatchOrdersV1200ResponseInner
-func UfuturesDeleteBatchOrdersV1RespItemAsUfuturesDeleteBatchOrdersV1200ResponseInner(v *UfuturesDeleteBatchOrdersV1RespItem) UfuturesDeleteBatchOrdersV1200ResponseInner {
-	return UfuturesDeleteBatchOrdersV1200ResponseInner{
+// UfuturesDeleteBatchOrdersV1RespItemAsUfuturesDeleteBatchOrdersV1RespInner is a convenience function that returns UfuturesDeleteBatchOrdersV1RespItem wrapped in UfuturesDeleteBatchOrdersV1RespInner
+func UfuturesDeleteBatchOrdersV1RespItemAsUfuturesDeleteBatchOrdersV1RespInner(v *UfuturesDeleteBatchOrdersV1RespItem) UfuturesDeleteBatchOrdersV1RespInner {
+	return UfuturesDeleteBatchOrdersV1RespInner{
 		UfuturesDeleteBatchOrdersV1RespItem: v,
 	}
 }
 
 
 // Unmarshal JSON data into one of the pointers in the struct
-func (dst *UfuturesDeleteBatchOrdersV1200ResponseInner) UnmarshalJSON(data []byte) error {
+func (dst *UfuturesDeleteBatchOrdersV1RespInner) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into APIError
@@ -80,16 +80,16 @@ func (dst *UfuturesDeleteBatchOrdersV1200ResponseInner) UnmarshalJSON(data []byt
 		dst.APIError = nil
 		dst.UfuturesDeleteBatchOrdersV1RespItem = nil
 
-		return fmt.Errorf("data matches more than one schema in oneOf(UfuturesDeleteBatchOrdersV1200ResponseInner)")
+		return fmt.Errorf("data matches more than one schema in oneOf(UfuturesDeleteBatchOrdersV1RespInner)")
 	} else if match == 1 {
 		return nil // exactly one match
 	} else { // no match
-		return fmt.Errorf("data failed to match schemas in oneOf(UfuturesDeleteBatchOrdersV1200ResponseInner)")
+		return fmt.Errorf("data failed to match schemas in oneOf(UfuturesDeleteBatchOrdersV1RespInner)")
 	}
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src UfuturesDeleteBatchOrdersV1200ResponseInner) MarshalJSON() ([]byte, error) {
+func (src UfuturesDeleteBatchOrdersV1RespInner) MarshalJSON() ([]byte, error) {
 	if src.APIError != nil {
 		return json.Marshal(&src.APIError)
 	}
@@ -102,7 +102,7 @@ func (src UfuturesDeleteBatchOrdersV1200ResponseInner) MarshalJSON() ([]byte, er
 }
 
 // Get the actual instance
-func (obj *UfuturesDeleteBatchOrdersV1200ResponseInner) GetActualInstance() (interface{}) {
+func (obj *UfuturesDeleteBatchOrdersV1RespInner) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
@@ -119,7 +119,7 @@ func (obj *UfuturesDeleteBatchOrdersV1200ResponseInner) GetActualInstance() (int
 }
 
 // Get the actual instance value
-func (obj UfuturesDeleteBatchOrdersV1200ResponseInner) GetActualInstanceValue() (interface{}) {
+func (obj UfuturesDeleteBatchOrdersV1RespInner) GetActualInstanceValue() (interface{}) {
 	if obj.APIError != nil {
 		return *obj.APIError
 	}
@@ -132,38 +132,38 @@ func (obj UfuturesDeleteBatchOrdersV1200ResponseInner) GetActualInstanceValue() 
 	return nil
 }
 
-type NullableUfuturesDeleteBatchOrdersV1200ResponseInner struct {
-	value *UfuturesDeleteBatchOrdersV1200ResponseInner
+type NullableUfuturesDeleteBatchOrdersV1RespInner struct {
+	value *UfuturesDeleteBatchOrdersV1RespInner
 	isSet bool
 }
 
-func (v NullableUfuturesDeleteBatchOrdersV1200ResponseInner) Get() *UfuturesDeleteBatchOrdersV1200ResponseInner {
+func (v NullableUfuturesDeleteBatchOrdersV1RespInner) Get() *UfuturesDeleteBatchOrdersV1RespInner {
 	return v.value
 }
 
-func (v *NullableUfuturesDeleteBatchOrdersV1200ResponseInner) Set(val *UfuturesDeleteBatchOrdersV1200ResponseInner) {
+func (v *NullableUfuturesDeleteBatchOrdersV1RespInner) Set(val *UfuturesDeleteBatchOrdersV1RespInner) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableUfuturesDeleteBatchOrdersV1200ResponseInner) IsSet() bool {
+func (v NullableUfuturesDeleteBatchOrdersV1RespInner) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableUfuturesDeleteBatchOrdersV1200ResponseInner) Unset() {
+func (v *NullableUfuturesDeleteBatchOrdersV1RespInner) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableUfuturesDeleteBatchOrdersV1200ResponseInner(val *UfuturesDeleteBatchOrdersV1200ResponseInner) *NullableUfuturesDeleteBatchOrdersV1200ResponseInner {
-	return &NullableUfuturesDeleteBatchOrdersV1200ResponseInner{value: val, isSet: true}
+func NewNullableUfuturesDeleteBatchOrdersV1RespInner(val *UfuturesDeleteBatchOrdersV1RespInner) *NullableUfuturesDeleteBatchOrdersV1RespInner {
+	return &NullableUfuturesDeleteBatchOrdersV1RespInner{value: val, isSet: true}
 }
 
-func (v NullableUfuturesDeleteBatchOrdersV1200ResponseInner) MarshalJSON() ([]byte, error) {
+func (v NullableUfuturesDeleteBatchOrdersV1RespInner) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableUfuturesDeleteBatchOrdersV1200ResponseInner) UnmarshalJSON(src []byte) error {
+func (v *NullableUfuturesDeleteBatchOrdersV1RespInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

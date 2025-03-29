@@ -161,4 +161,10 @@ model_spot_rate_limit.go
 model_spot_symbol_filter.go
 response.go
 signing.go
+test/api_account_test.go
+test/api_general_test.go
+test/api_market_data_test.go
+test/api_trading_test.go
+test/api_user_data_stream_test.go
+test/api_v3_test.go
 utils.go

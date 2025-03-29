@@ -46,7 +46,7 @@ func (r V1APIUfuturesCreateBatchOrdersV1Request) RecvWindow(recvWindow int64) V1
 	return r
 }
 
-func (r V1APIUfuturesCreateBatchOrdersV1Request) Execute() ([]UfuturesCreateBatchOrdersV1200ResponseInner, *http.Response, error) {
+func (r V1APIUfuturesCreateBatchOrdersV1Request) Execute() ([]UfuturesCreateBatchOrdersV1RespInner, *http.Response, error) {
 	return r.ApiService.UfuturesCreateBatchOrdersV1Execute(r)
 }
 
@@ -66,13 +66,13 @@ func (a *V1APIService) UfuturesCreateBatchOrdersV1(ctx context.Context) V1APIUfu
 }
 
 // Execute executes the request
-//  @return []UfuturesCreateBatchOrdersV1200ResponseInner
-func (a *V1APIService) UfuturesCreateBatchOrdersV1Execute(r V1APIUfuturesCreateBatchOrdersV1Request) ([]UfuturesCreateBatchOrdersV1200ResponseInner, *http.Response, error) {
+//  @return []UfuturesCreateBatchOrdersV1RespInner
+func (a *V1APIService) UfuturesCreateBatchOrdersV1Execute(r V1APIUfuturesCreateBatchOrdersV1Request) ([]UfuturesCreateBatchOrdersV1RespInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []UfuturesCreateBatchOrdersV1200ResponseInner
+		localVarReturnValue  []UfuturesCreateBatchOrdersV1RespInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V1APIService.UfuturesCreateBatchOrdersV1")
@@ -2595,7 +2595,7 @@ func (r V1APIUfuturesDeleteBatchOrdersV1Request) RecvWindow(recvWindow int64) V1
 	return r
 }
 
-func (r V1APIUfuturesDeleteBatchOrdersV1Request) Execute() ([]UfuturesDeleteBatchOrdersV1200ResponseInner, *http.Response, error) {
+func (r V1APIUfuturesDeleteBatchOrdersV1Request) Execute() ([]UfuturesDeleteBatchOrdersV1RespInner, *http.Response, error) {
 	return r.ApiService.UfuturesDeleteBatchOrdersV1Execute(r)
 }
 
@@ -2615,13 +2615,13 @@ func (a *V1APIService) UfuturesDeleteBatchOrdersV1(ctx context.Context) V1APIUfu
 }
 
 // Execute executes the request
-//  @return []UfuturesDeleteBatchOrdersV1200ResponseInner
-func (a *V1APIService) UfuturesDeleteBatchOrdersV1Execute(r V1APIUfuturesDeleteBatchOrdersV1Request) ([]UfuturesDeleteBatchOrdersV1200ResponseInner, *http.Response, error) {
+//  @return []UfuturesDeleteBatchOrdersV1RespInner
+func (a *V1APIService) UfuturesDeleteBatchOrdersV1Execute(r V1APIUfuturesDeleteBatchOrdersV1Request) ([]UfuturesDeleteBatchOrdersV1RespInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []UfuturesDeleteBatchOrdersV1200ResponseInner
+		localVarReturnValue  []UfuturesDeleteBatchOrdersV1RespInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V1APIService.UfuturesDeleteBatchOrdersV1")
@@ -4338,7 +4338,7 @@ func (r V1APIUfuturesGetContinuousKlinesV1Request) Limit(limit int32) V1APIUfutu
 	return r
 }
 
-func (r V1APIUfuturesGetContinuousKlinesV1Request) Execute() ([][]UfuturesGetContinuousKlinesV1200ResponseInnerInner, *http.Response, error) {
+func (r V1APIUfuturesGetContinuousKlinesV1Request) Execute() ([][]UfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	return r.ApiService.UfuturesGetContinuousKlinesV1Execute(r)
 }
 
@@ -4359,13 +4359,13 @@ func (a *V1APIService) UfuturesGetContinuousKlinesV1(ctx context.Context) V1APIU
 }
 
 // Execute executes the request
-//  @return [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
-func (a *V1APIService) UfuturesGetContinuousKlinesV1Execute(r V1APIUfuturesGetContinuousKlinesV1Request) ([][]UfuturesGetContinuousKlinesV1200ResponseInnerInner, *http.Response, error) {
+//  @return [][]UfuturesGetContinuousKlinesV1RespInnerInner
+func (a *V1APIService) UfuturesGetContinuousKlinesV1Execute(r V1APIUfuturesGetContinuousKlinesV1Request) ([][]UfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
+		localVarReturnValue  [][]UfuturesGetContinuousKlinesV1RespInnerInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V1APIService.UfuturesGetContinuousKlinesV1")
@@ -6526,7 +6526,7 @@ func (r V1APIUfuturesGetIndexPriceKlinesV1Request) Limit(limit int32) V1APIUfutu
 	return r
 }
 
-func (r V1APIUfuturesGetIndexPriceKlinesV1Request) Execute() ([][]UfuturesGetContinuousKlinesV1200ResponseInnerInner, *http.Response, error) {
+func (r V1APIUfuturesGetIndexPriceKlinesV1Request) Execute() ([][]UfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	return r.ApiService.UfuturesGetIndexPriceKlinesV1Execute(r)
 }
 
@@ -6547,13 +6547,13 @@ func (a *V1APIService) UfuturesGetIndexPriceKlinesV1(ctx context.Context) V1APIU
 }
 
 // Execute executes the request
-//  @return [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
-func (a *V1APIService) UfuturesGetIndexPriceKlinesV1Execute(r V1APIUfuturesGetIndexPriceKlinesV1Request) ([][]UfuturesGetContinuousKlinesV1200ResponseInnerInner, *http.Response, error) {
+//  @return [][]UfuturesGetContinuousKlinesV1RespInnerInner
+func (a *V1APIService) UfuturesGetIndexPriceKlinesV1Execute(r V1APIUfuturesGetIndexPriceKlinesV1Request) ([][]UfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
+		localVarReturnValue  [][]UfuturesGetContinuousKlinesV1RespInnerInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V1APIService.UfuturesGetIndexPriceKlinesV1")
@@ -6698,7 +6698,7 @@ func (r V1APIUfuturesGetKlinesV1Request) Limit(limit int32) V1APIUfuturesGetKlin
 	return r
 }
 
-func (r V1APIUfuturesGetKlinesV1Request) Execute() ([][]UfuturesGetContinuousKlinesV1200ResponseInnerInner, *http.Response, error) {
+func (r V1APIUfuturesGetKlinesV1Request) Execute() ([][]UfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	return r.ApiService.UfuturesGetKlinesV1Execute(r)
 }
 
@@ -6719,13 +6719,13 @@ func (a *V1APIService) UfuturesGetKlinesV1(ctx context.Context) V1APIUfuturesGet
 }
 
 // Execute executes the request
-//  @return [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
-func (a *V1APIService) UfuturesGetKlinesV1Execute(r V1APIUfuturesGetKlinesV1Request) ([][]UfuturesGetContinuousKlinesV1200ResponseInnerInner, *http.Response, error) {
+//  @return [][]UfuturesGetContinuousKlinesV1RespInnerInner
+func (a *V1APIService) UfuturesGetKlinesV1Execute(r V1APIUfuturesGetKlinesV1Request) ([][]UfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
+		localVarReturnValue  [][]UfuturesGetContinuousKlinesV1RespInnerInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V1APIService.UfuturesGetKlinesV1")
@@ -7027,7 +7027,7 @@ func (r V1APIUfuturesGetMarkPriceKlinesV1Request) Limit(limit int32) V1APIUfutur
 	return r
 }
 
-func (r V1APIUfuturesGetMarkPriceKlinesV1Request) Execute() ([][]UfuturesGetContinuousKlinesV1200ResponseInnerInner, *http.Response, error) {
+func (r V1APIUfuturesGetMarkPriceKlinesV1Request) Execute() ([][]UfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	return r.ApiService.UfuturesGetMarkPriceKlinesV1Execute(r)
 }
 
@@ -7048,13 +7048,13 @@ func (a *V1APIService) UfuturesGetMarkPriceKlinesV1(ctx context.Context) V1APIUf
 }
 
 // Execute executes the request
-//  @return [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
-func (a *V1APIService) UfuturesGetMarkPriceKlinesV1Execute(r V1APIUfuturesGetMarkPriceKlinesV1Request) ([][]UfuturesGetContinuousKlinesV1200ResponseInnerInner, *http.Response, error) {
+//  @return [][]UfuturesGetContinuousKlinesV1RespInnerInner
+func (a *V1APIService) UfuturesGetMarkPriceKlinesV1Execute(r V1APIUfuturesGetMarkPriceKlinesV1Request) ([][]UfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
+		localVarReturnValue  [][]UfuturesGetContinuousKlinesV1RespInnerInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V1APIService.UfuturesGetMarkPriceKlinesV1")
@@ -9132,7 +9132,7 @@ func (r V1APIUfuturesGetPremiumIndexKlinesV1Request) Limit(limit int32) V1APIUfu
 	return r
 }
 
-func (r V1APIUfuturesGetPremiumIndexKlinesV1Request) Execute() ([][]UfuturesGetContinuousKlinesV1200ResponseInnerInner, *http.Response, error) {
+func (r V1APIUfuturesGetPremiumIndexKlinesV1Request) Execute() ([][]UfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	return r.ApiService.UfuturesGetPremiumIndexKlinesV1Execute(r)
 }
 
@@ -9152,13 +9152,13 @@ func (a *V1APIService) UfuturesGetPremiumIndexKlinesV1(ctx context.Context) V1AP
 }
 
 // Execute executes the request
-//  @return [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
-func (a *V1APIService) UfuturesGetPremiumIndexKlinesV1Execute(r V1APIUfuturesGetPremiumIndexKlinesV1Request) ([][]UfuturesGetContinuousKlinesV1200ResponseInnerInner, *http.Response, error) {
+//  @return [][]UfuturesGetContinuousKlinesV1RespInnerInner
+func (a *V1APIService) UfuturesGetPremiumIndexKlinesV1Execute(r V1APIUfuturesGetPremiumIndexKlinesV1Request) ([][]UfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
+		localVarReturnValue  [][]UfuturesGetContinuousKlinesV1RespInnerInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V1APIService.UfuturesGetPremiumIndexKlinesV1")

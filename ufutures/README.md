@@ -307,8 +307,8 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [APIError](docs/APIError.md)
- - [UfuturesCreateBatchOrdersV1200ResponseInner](docs/UfuturesCreateBatchOrdersV1200ResponseInner.md)
  - [UfuturesCreateBatchOrdersV1ReqBatchOrdersItem](docs/UfuturesCreateBatchOrdersV1ReqBatchOrdersItem.md)
+ - [UfuturesCreateBatchOrdersV1RespInner](docs/UfuturesCreateBatchOrdersV1RespInner.md)
  - [UfuturesCreateBatchOrdersV1RespItem](docs/UfuturesCreateBatchOrdersV1RespItem.md)
  - [UfuturesCreateConvertAcceptQuoteV1Resp](docs/UfuturesCreateConvertAcceptQuoteV1Resp.md)
  - [UfuturesCreateConvertGetQuoteV1Resp](docs/UfuturesCreateConvertGetQuoteV1Resp.md)
@@ -324,7 +324,7 @@ Class | Method | HTTP request | Description
  - [UfuturesCreatePositionMarginV1Resp](docs/UfuturesCreatePositionMarginV1Resp.md)
  - [UfuturesCreatePositionSideDualV1Resp](docs/UfuturesCreatePositionSideDualV1Resp.md)
  - [UfuturesDeleteAllOpenOrdersV1Resp](docs/UfuturesDeleteAllOpenOrdersV1Resp.md)
- - [UfuturesDeleteBatchOrdersV1200ResponseInner](docs/UfuturesDeleteBatchOrdersV1200ResponseInner.md)
+ - [UfuturesDeleteBatchOrdersV1RespInner](docs/UfuturesDeleteBatchOrdersV1RespInner.md)
  - [UfuturesDeleteBatchOrdersV1RespItem](docs/UfuturesDeleteBatchOrdersV1RespItem.md)
  - [UfuturesDeleteOrderV1Resp](docs/UfuturesDeleteOrderV1Resp.md)
  - [UfuturesGetAccountConfigV1Resp](docs/UfuturesGetAccountConfigV1Resp.md)
@@ -346,7 +346,7 @@ Class | Method | HTTP request | Description
  - [UfuturesGetCommissionRateV1Resp](docs/UfuturesGetCommissionRateV1Resp.md)
  - [UfuturesGetConstituentsV1Resp](docs/UfuturesGetConstituentsV1Resp.md)
  - [UfuturesGetConstituentsV1RespConstituentsInner](docs/UfuturesGetConstituentsV1RespConstituentsInner.md)
- - [UfuturesGetContinuousKlinesV1200ResponseInnerInner](docs/UfuturesGetContinuousKlinesV1200ResponseInnerInner.md)
+ - [UfuturesGetContinuousKlinesV1RespInnerInner](docs/UfuturesGetContinuousKlinesV1RespInnerInner.md)
  - [UfuturesGetConvertExchangeInfoV1RespItem](docs/UfuturesGetConvertExchangeInfoV1RespItem.md)
  - [UfuturesGetConvertOrderStatusV1Resp](docs/UfuturesGetConvertOrderStatusV1Resp.md)
  - [UfuturesGetDepthV1Resp](docs/UfuturesGetDepthV1Resp.md)

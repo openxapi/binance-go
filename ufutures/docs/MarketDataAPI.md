@@ -245,7 +245,7 @@ No authorization required
 
 ## UfuturesGetContinuousKlinesV1
 
-> [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner UfuturesGetContinuousKlinesV1(ctx).Pair(pair).ContractType(contractType).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+> [][]UfuturesGetContinuousKlinesV1RespInnerInner UfuturesGetContinuousKlinesV1(ctx).Pair(pair).ContractType(contractType).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 
 Continuous Contract Kline/Candlestick Data
 
@@ -278,7 +278,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetContinuousKlinesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetContinuousKlinesV1`: [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
+	// response from `UfuturesGetContinuousKlinesV1`: [][]UfuturesGetContinuousKlinesV1RespInnerInner
 	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetContinuousKlinesV1`: %v\n", resp)
 }
 ```
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[][]UfuturesGetContinuousKlinesV1200ResponseInnerInner**](array.md)
+[**[][]UfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
 
 ### Authorization
 
@@ -1231,7 +1231,7 @@ No authorization required
 
 ## UfuturesGetIndexPriceKlinesV1
 
-> [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner UfuturesGetIndexPriceKlinesV1(ctx).Pair(pair).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+> [][]UfuturesGetContinuousKlinesV1RespInnerInner UfuturesGetIndexPriceKlinesV1(ctx).Pair(pair).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 
 Index Price Kline/Candlestick Data
 
@@ -1263,7 +1263,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetIndexPriceKlinesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetIndexPriceKlinesV1`: [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
+	// response from `UfuturesGetIndexPriceKlinesV1`: [][]UfuturesGetContinuousKlinesV1RespInnerInner
 	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetIndexPriceKlinesV1`: %v\n", resp)
 }
 ```
@@ -1287,7 +1287,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[][]UfuturesGetContinuousKlinesV1200ResponseInnerInner**](array.md)
+[**[][]UfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
 
 ### Authorization
 
@@ -1305,7 +1305,7 @@ No authorization required
 
 ## UfuturesGetKlinesV1
 
-> [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner UfuturesGetKlinesV1(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+> [][]UfuturesGetContinuousKlinesV1RespInnerInner UfuturesGetKlinesV1(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 
 Kline/Candlestick Data
 
@@ -1337,7 +1337,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetKlinesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetKlinesV1`: [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
+	// response from `UfuturesGetKlinesV1`: [][]UfuturesGetContinuousKlinesV1RespInnerInner
 	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetKlinesV1`: %v\n", resp)
 }
 ```
@@ -1361,7 +1361,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[][]UfuturesGetContinuousKlinesV1200ResponseInnerInner**](array.md)
+[**[][]UfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
 
 ### Authorization
 
@@ -1379,7 +1379,7 @@ No authorization required
 
 ## UfuturesGetMarkPriceKlinesV1
 
-> [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner UfuturesGetMarkPriceKlinesV1(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+> [][]UfuturesGetContinuousKlinesV1RespInnerInner UfuturesGetMarkPriceKlinesV1(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 
 Mark Price Kline/Candlestick Data
 
@@ -1411,7 +1411,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetMarkPriceKlinesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetMarkPriceKlinesV1`: [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
+	// response from `UfuturesGetMarkPriceKlinesV1`: [][]UfuturesGetContinuousKlinesV1RespInnerInner
 	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetMarkPriceKlinesV1`: %v\n", resp)
 }
 ```
@@ -1435,7 +1435,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[][]UfuturesGetContinuousKlinesV1200ResponseInnerInner**](array.md)
+[**[][]UfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
 
 ### Authorization
 
@@ -1580,7 +1580,7 @@ No authorization required
 
 ## UfuturesGetPremiumIndexKlinesV1
 
-> [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner UfuturesGetPremiumIndexKlinesV1(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+> [][]UfuturesGetContinuousKlinesV1RespInnerInner UfuturesGetPremiumIndexKlinesV1(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 
 Premium index Kline Data
 
@@ -1612,7 +1612,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetPremiumIndexKlinesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetPremiumIndexKlinesV1`: [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
+	// response from `UfuturesGetPremiumIndexKlinesV1`: [][]UfuturesGetContinuousKlinesV1RespInnerInner
 	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetPremiumIndexKlinesV1`: %v\n", resp)
 }
 ```
@@ -1636,7 +1636,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[][]UfuturesGetContinuousKlinesV1200ResponseInnerInner**](array.md)
+[**[][]UfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
 
 ### Authorization
 

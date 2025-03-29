@@ -46,7 +46,7 @@ func (r TradeAPIUfuturesCreateBatchOrdersV1Request) RecvWindow(recvWindow int64)
 	return r
 }
 
-func (r TradeAPIUfuturesCreateBatchOrdersV1Request) Execute() ([]UfuturesCreateBatchOrdersV1200ResponseInner, *http.Response, error) {
+func (r TradeAPIUfuturesCreateBatchOrdersV1Request) Execute() ([]UfuturesCreateBatchOrdersV1RespInner, *http.Response, error) {
 	return r.ApiService.UfuturesCreateBatchOrdersV1Execute(r)
 }
 
@@ -66,13 +66,13 @@ func (a *TradeAPIService) UfuturesCreateBatchOrdersV1(ctx context.Context) Trade
 }
 
 // Execute executes the request
-//  @return []UfuturesCreateBatchOrdersV1200ResponseInner
-func (a *TradeAPIService) UfuturesCreateBatchOrdersV1Execute(r TradeAPIUfuturesCreateBatchOrdersV1Request) ([]UfuturesCreateBatchOrdersV1200ResponseInner, *http.Response, error) {
+//  @return []UfuturesCreateBatchOrdersV1RespInner
+func (a *TradeAPIService) UfuturesCreateBatchOrdersV1Execute(r TradeAPIUfuturesCreateBatchOrdersV1Request) ([]UfuturesCreateBatchOrdersV1RespInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []UfuturesCreateBatchOrdersV1200ResponseInner
+		localVarReturnValue  []UfuturesCreateBatchOrdersV1RespInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.UfuturesCreateBatchOrdersV1")
@@ -1967,7 +1967,7 @@ func (r TradeAPIUfuturesDeleteBatchOrdersV1Request) RecvWindow(recvWindow int64)
 	return r
 }
 
-func (r TradeAPIUfuturesDeleteBatchOrdersV1Request) Execute() ([]UfuturesDeleteBatchOrdersV1200ResponseInner, *http.Response, error) {
+func (r TradeAPIUfuturesDeleteBatchOrdersV1Request) Execute() ([]UfuturesDeleteBatchOrdersV1RespInner, *http.Response, error) {
 	return r.ApiService.UfuturesDeleteBatchOrdersV1Execute(r)
 }
 
@@ -1987,13 +1987,13 @@ func (a *TradeAPIService) UfuturesDeleteBatchOrdersV1(ctx context.Context) Trade
 }
 
 // Execute executes the request
-//  @return []UfuturesDeleteBatchOrdersV1200ResponseInner
-func (a *TradeAPIService) UfuturesDeleteBatchOrdersV1Execute(r TradeAPIUfuturesDeleteBatchOrdersV1Request) ([]UfuturesDeleteBatchOrdersV1200ResponseInner, *http.Response, error) {
+//  @return []UfuturesDeleteBatchOrdersV1RespInner
+func (a *TradeAPIService) UfuturesDeleteBatchOrdersV1Execute(r TradeAPIUfuturesDeleteBatchOrdersV1Request) ([]UfuturesDeleteBatchOrdersV1RespInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []UfuturesDeleteBatchOrdersV1200ResponseInner
+		localVarReturnValue  []UfuturesDeleteBatchOrdersV1RespInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.UfuturesDeleteBatchOrdersV1")

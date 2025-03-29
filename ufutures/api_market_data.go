@@ -500,7 +500,7 @@ func (r MarketDataAPIUfuturesGetContinuousKlinesV1Request) Limit(limit int32) Ma
 	return r
 }
 
-func (r MarketDataAPIUfuturesGetContinuousKlinesV1Request) Execute() ([][]UfuturesGetContinuousKlinesV1200ResponseInnerInner, *http.Response, error) {
+func (r MarketDataAPIUfuturesGetContinuousKlinesV1Request) Execute() ([][]UfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	return r.ApiService.UfuturesGetContinuousKlinesV1Execute(r)
 }
 
@@ -521,13 +521,13 @@ func (a *MarketDataAPIService) UfuturesGetContinuousKlinesV1(ctx context.Context
 }
 
 // Execute executes the request
-//  @return [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
-func (a *MarketDataAPIService) UfuturesGetContinuousKlinesV1Execute(r MarketDataAPIUfuturesGetContinuousKlinesV1Request) ([][]UfuturesGetContinuousKlinesV1200ResponseInnerInner, *http.Response, error) {
+//  @return [][]UfuturesGetContinuousKlinesV1RespInnerInner
+func (a *MarketDataAPIService) UfuturesGetContinuousKlinesV1Execute(r MarketDataAPIUfuturesGetContinuousKlinesV1Request) ([][]UfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
+		localVarReturnValue  [][]UfuturesGetContinuousKlinesV1RespInnerInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.UfuturesGetContinuousKlinesV1")
@@ -2691,7 +2691,7 @@ func (r MarketDataAPIUfuturesGetIndexPriceKlinesV1Request) Limit(limit int32) Ma
 	return r
 }
 
-func (r MarketDataAPIUfuturesGetIndexPriceKlinesV1Request) Execute() ([][]UfuturesGetContinuousKlinesV1200ResponseInnerInner, *http.Response, error) {
+func (r MarketDataAPIUfuturesGetIndexPriceKlinesV1Request) Execute() ([][]UfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	return r.ApiService.UfuturesGetIndexPriceKlinesV1Execute(r)
 }
 
@@ -2712,13 +2712,13 @@ func (a *MarketDataAPIService) UfuturesGetIndexPriceKlinesV1(ctx context.Context
 }
 
 // Execute executes the request
-//  @return [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
-func (a *MarketDataAPIService) UfuturesGetIndexPriceKlinesV1Execute(r MarketDataAPIUfuturesGetIndexPriceKlinesV1Request) ([][]UfuturesGetContinuousKlinesV1200ResponseInnerInner, *http.Response, error) {
+//  @return [][]UfuturesGetContinuousKlinesV1RespInnerInner
+func (a *MarketDataAPIService) UfuturesGetIndexPriceKlinesV1Execute(r MarketDataAPIUfuturesGetIndexPriceKlinesV1Request) ([][]UfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
+		localVarReturnValue  [][]UfuturesGetContinuousKlinesV1RespInnerInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.UfuturesGetIndexPriceKlinesV1")
@@ -2863,7 +2863,7 @@ func (r MarketDataAPIUfuturesGetKlinesV1Request) Limit(limit int32) MarketDataAP
 	return r
 }
 
-func (r MarketDataAPIUfuturesGetKlinesV1Request) Execute() ([][]UfuturesGetContinuousKlinesV1200ResponseInnerInner, *http.Response, error) {
+func (r MarketDataAPIUfuturesGetKlinesV1Request) Execute() ([][]UfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	return r.ApiService.UfuturesGetKlinesV1Execute(r)
 }
 
@@ -2884,13 +2884,13 @@ func (a *MarketDataAPIService) UfuturesGetKlinesV1(ctx context.Context) MarketDa
 }
 
 // Execute executes the request
-//  @return [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
-func (a *MarketDataAPIService) UfuturesGetKlinesV1Execute(r MarketDataAPIUfuturesGetKlinesV1Request) ([][]UfuturesGetContinuousKlinesV1200ResponseInnerInner, *http.Response, error) {
+//  @return [][]UfuturesGetContinuousKlinesV1RespInnerInner
+func (a *MarketDataAPIService) UfuturesGetKlinesV1Execute(r MarketDataAPIUfuturesGetKlinesV1Request) ([][]UfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
+		localVarReturnValue  [][]UfuturesGetContinuousKlinesV1RespInnerInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.UfuturesGetKlinesV1")
@@ -3035,7 +3035,7 @@ func (r MarketDataAPIUfuturesGetMarkPriceKlinesV1Request) Limit(limit int32) Mar
 	return r
 }
 
-func (r MarketDataAPIUfuturesGetMarkPriceKlinesV1Request) Execute() ([][]UfuturesGetContinuousKlinesV1200ResponseInnerInner, *http.Response, error) {
+func (r MarketDataAPIUfuturesGetMarkPriceKlinesV1Request) Execute() ([][]UfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	return r.ApiService.UfuturesGetMarkPriceKlinesV1Execute(r)
 }
 
@@ -3056,13 +3056,13 @@ func (a *MarketDataAPIService) UfuturesGetMarkPriceKlinesV1(ctx context.Context)
 }
 
 // Execute executes the request
-//  @return [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
-func (a *MarketDataAPIService) UfuturesGetMarkPriceKlinesV1Execute(r MarketDataAPIUfuturesGetMarkPriceKlinesV1Request) ([][]UfuturesGetContinuousKlinesV1200ResponseInnerInner, *http.Response, error) {
+//  @return [][]UfuturesGetContinuousKlinesV1RespInnerInner
+func (a *MarketDataAPIService) UfuturesGetMarkPriceKlinesV1Execute(r MarketDataAPIUfuturesGetMarkPriceKlinesV1Request) ([][]UfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
+		localVarReturnValue  [][]UfuturesGetContinuousKlinesV1RespInnerInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.UfuturesGetMarkPriceKlinesV1")
@@ -3457,7 +3457,7 @@ func (r MarketDataAPIUfuturesGetPremiumIndexKlinesV1Request) Limit(limit int32) 
 	return r
 }
 
-func (r MarketDataAPIUfuturesGetPremiumIndexKlinesV1Request) Execute() ([][]UfuturesGetContinuousKlinesV1200ResponseInnerInner, *http.Response, error) {
+func (r MarketDataAPIUfuturesGetPremiumIndexKlinesV1Request) Execute() ([][]UfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	return r.ApiService.UfuturesGetPremiumIndexKlinesV1Execute(r)
 }
 
@@ -3477,13 +3477,13 @@ func (a *MarketDataAPIService) UfuturesGetPremiumIndexKlinesV1(ctx context.Conte
 }
 
 // Execute executes the request
-//  @return [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
-func (a *MarketDataAPIService) UfuturesGetPremiumIndexKlinesV1Execute(r MarketDataAPIUfuturesGetPremiumIndexKlinesV1Request) ([][]UfuturesGetContinuousKlinesV1200ResponseInnerInner, *http.Response, error) {
+//  @return [][]UfuturesGetContinuousKlinesV1RespInnerInner
+func (a *MarketDataAPIService) UfuturesGetPremiumIndexKlinesV1Execute(r MarketDataAPIUfuturesGetPremiumIndexKlinesV1Request) ([][]UfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  [][]UfuturesGetContinuousKlinesV1200ResponseInnerInner
+		localVarReturnValue  [][]UfuturesGetContinuousKlinesV1RespInnerInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.UfuturesGetPremiumIndexKlinesV1")

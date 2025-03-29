@@ -18,8 +18,8 @@ docs/ConvertAPI.md
 docs/MarketDataAPI.md
 docs/PortfolioMarginEndpointsAPI.md
 docs/TradeAPI.md
-docs/UfuturesCreateBatchOrdersV1200ResponseInner.md
 docs/UfuturesCreateBatchOrdersV1ReqBatchOrdersItem.md
+docs/UfuturesCreateBatchOrdersV1RespInner.md
 docs/UfuturesCreateBatchOrdersV1RespItem.md
 docs/UfuturesCreateConvertAcceptQuoteV1Resp.md
 docs/UfuturesCreateConvertGetQuoteV1Resp.md
@@ -35,7 +35,7 @@ docs/UfuturesCreateOrderV1Resp.md
 docs/UfuturesCreatePositionMarginV1Resp.md
 docs/UfuturesCreatePositionSideDualV1Resp.md
 docs/UfuturesDeleteAllOpenOrdersV1Resp.md
-docs/UfuturesDeleteBatchOrdersV1200ResponseInner.md
+docs/UfuturesDeleteBatchOrdersV1RespInner.md
 docs/UfuturesDeleteBatchOrdersV1RespItem.md
 docs/UfuturesDeleteOrderV1Resp.md
 docs/UfuturesGetAccountConfigV1Resp.md
@@ -57,7 +57,7 @@ docs/UfuturesGetBalanceV3RespItem.md
 docs/UfuturesGetCommissionRateV1Resp.md
 docs/UfuturesGetConstituentsV1Resp.md
 docs/UfuturesGetConstituentsV1RespConstituentsInner.md
-docs/UfuturesGetContinuousKlinesV1200ResponseInnerInner.md
+docs/UfuturesGetContinuousKlinesV1RespInnerInner.md
 docs/UfuturesGetConvertExchangeInfoV1RespItem.md
 docs/UfuturesGetConvertOrderStatusV1Resp.md
 docs/UfuturesGetDepthV1Resp.md
@@ -127,8 +127,8 @@ docs/V1API.md
 docs/V2API.md
 docs/V3API.md
 model_api_error.go
-model_ufutures_create_batch_orders_v1_200_response_inner.go
 model_ufutures_create_batch_orders_v1_req_batch_orders_item.go
+model_ufutures_create_batch_orders_v1_resp_inner.go
 model_ufutures_create_batch_orders_v1_resp_item.go
 model_ufutures_create_convert_accept_quote_v1_resp.go
 model_ufutures_create_convert_get_quote_v1_resp.go
@@ -144,7 +144,7 @@ model_ufutures_create_order_v1_resp.go
 model_ufutures_create_position_margin_v1_resp.go
 model_ufutures_create_position_side_dual_v1_resp.go
 model_ufutures_delete_all_open_orders_v1_resp.go
-model_ufutures_delete_batch_orders_v1_200_response_inner.go
+model_ufutures_delete_batch_orders_v1_resp_inner.go
 model_ufutures_delete_batch_orders_v1_resp_item.go
 model_ufutures_delete_order_v1_resp.go
 model_ufutures_get_account_config_v1_resp.go
@@ -166,7 +166,7 @@ model_ufutures_get_balance_v3_resp_item.go
 model_ufutures_get_commission_rate_v1_resp.go
 model_ufutures_get_constituents_v1_resp.go
 model_ufutures_get_constituents_v1_resp_constituents_inner.go
-model_ufutures_get_continuous_klines_v1_200_response_inner_inner.go
+model_ufutures_get_continuous_klines_v1_resp_inner_inner.go
 model_ufutures_get_convert_exchange_info_v1_resp_item.go
 model_ufutures_get_convert_order_status_v1_resp.go
 model_ufutures_get_depth_v1_resp.go
@@ -233,4 +233,13 @@ model_ufutures_update_listen_key_v1_resp.go
 model_ufutures_update_order_v1_resp.go
 response.go
 signing.go
+test/api_account_test.go
+test/api_convert_test.go
+test/api_market_data_test.go
+test/api_portfolio_margin_endpoints_test.go
+test/api_trade_test.go
+test/api_user_data_streams_test.go
+test/api_v1_test.go
+test/api_v2_test.go
+test/api_v3_test.go
 utils.go

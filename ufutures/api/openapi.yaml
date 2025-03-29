@@ -100,13 +100,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"symbol\": \"ETHUSDT\", \"adlQuantile\": { \"LONG\"\
-                  : 3, \"SHORT\": 3, \"HEDGE\": 0    } }, { \"symbol\": \"BTCUSDT\"\
-                  , \"adlQuantile\": { \"LONG\": 1,  \"SHORT\": 2,  \"BOTH\": 0 }\
-                  \ } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetAdlQuantileV1RespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetAdlQuantileV1Resp'
           description: Successful operation
       security:
       - ApiKey: []
@@ -183,12 +177,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"a\": 26129,          \"p\": \"0.01633102\",   \"q\"\
-                  : \"4.70443515\",   \"f\": 27781,          \"l\": 27781,       \
-                  \   \"T\": 1498793709153,  \"m\": true           } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetAggTradesV1RespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetAggTradesV1Resp'
           description: Successful operation
       summary: Compressed/Aggregate Trades List
       tags:
@@ -328,21 +317,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"avgPrice\": \"0.00000\", \"clientOrderId\": \"abc\"\
-                  , \"cumQuote\": \"0\", \"executedQty\": \"0\", \"orderId\": 1917641,\
-                  \ \"origQty\": \"0.40\", \"origType\": \"TRAILING_STOP_MARKET\"\
-                  , \"price\": \"0\", \"reduceOnly\": false, \"side\": \"BUY\", \"\
-                  positionSide\": \"SHORT\", \"status\": \"NEW\", \"stopPrice\": \"\
-                  9300\", \"closePosition\": false,    \"symbol\": \"BTCUSDT\", \"\
-                  time\": 1579276756075, \"timeInForce\": \"GTC\", \"type\": \"TRAILING_STOP_MARKET\"\
-                  , \"activatePrice\": \"9020\", \"priceRate\": \"0.3\", \"updateTime\"\
-                  : 1579276756075, \"workingType\": \"CONTRACT_PRICE\", \"priceProtect\"\
-                  : false,               \"priceMatch\": \"NONE\",               \"\
-                  selfTradePreventionMode\": \"NONE\",  \"goodTillDate\": 0      \
-                  \ } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetAllOrdersV1RespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetAllOrdersV1Resp'
           description: Successful operation
       security:
       - ApiKey: []
@@ -510,21 +485,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"clientOrderId\": \"myOrder1\", \"cumQty\": \"0\",\
-                  \ \"cumQuote\": \"0\", \"executedQty\": \"0\", \"orderId\": 283194212,\
-                  \ \"origQty\": \"11\", \"origType\": \"TRAILING_STOP_MARKET\", \"\
-                  price\": \"0\", \"reduceOnly\": false, \"side\": \"BUY\", \"positionSide\"\
-                  : \"SHORT\", \"status\": \"CANCELED\", \"stopPrice\": \"9300\",\
-                  \ \"closePosition\": false,    \"symbol\": \"BTCUSDT\", \"timeInForce\"\
-                  : \"GTC\", \"type\": \"TRAILING_STOP_MARKET\", \"activatePrice\"\
-                  : \"9020\", \"priceRate\": \"0.3\", \"updateTime\": 1571110484038,\
-                  \ \"workingType\": \"CONTRACT_PRICE\", \"priceProtect\": false,\
-                  \             \"priceMatch\": \"NONE\",               \"selfTradePreventionMode\"\
-                  : \"NONE\",  \"goodTillDate\": 1693207680000       }, { \"code\"\
-                  : -2011, \"msg\": \"Unknown order sent.\" } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesDeleteBatchOrdersV1_200_response_inner'
-                type: array
+                $ref: '#/components/schemas/UfuturesDeleteBatchOrdersV1Resp'
           description: Successful operation
       security:
       - ApiKey: []
@@ -559,21 +520,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"clientOrderId\": \"testOrder\", \"cumQty\": \"0\"\
-                  , \"cumQuote\": \"0\", \"executedQty\": \"0\", \"orderId\": 22542179,\
-                  \ \"avgPrice\": \"0.00000\", \"origQty\": \"10\", \"price\": \"\
-                  0\", \"reduceOnly\": false, \"side\": \"BUY\", \"positionSide\"\
-                  : \"SHORT\", \"status\": \"NEW\", \"stopPrice\": \"9300\", \"symbol\"\
-                  : \"BTCUSDT\", \"timeInForce\": \"GTC\", \"type\": \"TRAILING_STOP_MARKET\"\
-                  , \"origType\": \"TRAILING_STOP_MARKET\", \"activatePrice\": \"\
-                  9020\", \"priceRate\": \"0.3\", \"updateTime\": 1566818724722, \"\
-                  workingType\": \"CONTRACT_PRICE\", \"priceProtect\": false,    \
-                  \   \"priceMatch\": \"NONE\",               \"selfTradePreventionMode\"\
-                  : \"NONE\",  \"goodTillDate\": 1693207680000       }, { \"code\"\
-                  : -2022, \"msg\": \"ReduceOnly Order is rejected.\" } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesCreateBatchOrdersV1_200_response_inner'
-                type: array
+                $ref: '#/components/schemas/UfuturesCreateBatchOrdersV1Resp'
           description: Successful operation
       security:
       - ApiKey: []
@@ -608,21 +555,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"orderId\": 20072994037, \"symbol\": \"BTCUSDT\", \"\
-                  pair\": \"BTCUSDT\", \"status\": \"NEW\", \"clientOrderId\": \"\
-                  LJ9R4QZDihCaS8UAOOLpgW\", \"price\": \"30005\", \"avgPrice\": \"\
-                  0.0\", \"origQty\": \"1\", \"executedQty\": \"0\", \"cumQty\": \"\
-                  0\", \"cumBase\": \"0\", \"timeInForce\": \"GTC\", \"type\": \"\
-                  LIMIT\", \"reduceOnly\": false, \"closePosition\": false, \"side\"\
-                  : \"BUY\", \"positionSide\": \"LONG\", \"stopPrice\": \"0\", \"\
-                  workingType\": \"CONTRACT_PRICE\", \"priceProtect\": false, \"origType\"\
-                  : \"LIMIT\", \"priceMatch\": \"NONE\",               \"selfTradePreventionMode\"\
-                  : \"NONE\",  \"goodTillDate\": 0,                  \"updateTime\"\
-                  : 1629182711600 }, { \"code\": -2022, \"msg\": \"ReduceOnly Order\
-                  \ is rejected.\" } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesUpdateBatchOrdersV1RespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesUpdateBatchOrdersV1Resp'
           description: Successful operation
       security:
       - ApiKey: []
@@ -794,16 +727,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ [ 1607444700000,      \t \"18879.99\",       \t \t \"\
-                  18900.00\",       \t \t \"18878.98\",       \t \t \"18896.13\",\
-                  \      \t \t \"492.363\", \t\t\t \t 1607444759999,       \t \"9302145.66080\"\
-                  ,    \t 1874,             \t\t \"385.983\",    \t\t\t \"7292402.33267\"\
-                  ,      \t \"0\" \t\t\t\t\t ] ]"
-                items:
-                  items:
-                    $ref: '#/components/schemas/UfuturesGetContinuousKlinesV1_200_response_inner_inner'
-                  type: array
-                type: array
+                $ref: '#/components/schemas/UfuturesGetContinuousKlinesV1Resp'
           description: Successful operation
       summary: Continuous Contract Kline/Candlestick Data
       tags:
@@ -886,12 +810,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"fromAsset\":\"BTC\", \"toAsset\":\"USDT\", \"fromAssetMinAmount\"\
-                  :\"0.0004\", \"fromAssetMaxAmount\":\"50\", \"toAssetMinAmount\"\
-                  :\"20\", \"toAssetMaxAmount\":\"2500000\" } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetConvertExchangeInfoV1RespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetConvertExchangeInfoV1Resp'
           description: Successful operation
       summary: List All Convert Pairs
       tags:
@@ -1254,26 +1173,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"orderId\": 6071832819, \"symbol\": \"BTCUSDT\", \"\
-                  status\": \"FILLED\", \"clientOrderId\": \"autoclose-1596107620040000020\"\
-                  , \"price\": \"10871.09\", \"avgPrice\": \"10913.21000\", \"origQty\"\
-                  : \"0.001\", \"executedQty\": \"0.001\", \"cumQuote\": \"10.91321\"\
-                  , \"timeInForce\": \"IOC\", \"type\": \"LIMIT\", \"reduceOnly\"\
-                  : false, \"closePosition\": false, \"side\": \"SELL\", \"positionSide\"\
-                  : \"BOTH\", \"stopPrice\": \"0\", \"workingType\": \"CONTRACT_PRICE\"\
-                  , \"origType\": \"LIMIT\", \"time\": 1596107620044, \"updateTime\"\
-                  : 1596107620087 }, { \"orderId\": 6072734303, \"symbol\": \"BTCUSDT\"\
-                  , \"status\": \"FILLED\", \"clientOrderId\": \"adl_autoclose\",\
-                  \ \"price\": \"11023.14\", \"avgPrice\": \"10979.82000\", \"origQty\"\
-                  : \"0.001\", \"executedQty\": \"0.001\", \"cumQuote\": \"10.97982\"\
-                  , \"timeInForce\": \"GTC\", \"type\": \"LIMIT\", \"reduceOnly\"\
-                  : false, \"closePosition\": false, \"side\": \"BUY\", \"positionSide\"\
-                  : \"SHORT\", \"stopPrice\": \"0\", \"workingType\": \"CONTRACT_PRICE\"\
-                  , \"origType\": \"LIMIT\", \"time\": 1596110725059, \"updateTime\"\
-                  : 1596110725071 } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetForceOrdersV1RespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetForceOrdersV1Resp'
           description: Successful operation
       security:
       - ApiKey: []
@@ -1303,12 +1203,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"symbol\": \"BLZUSDT\", \"adjustedFundingRateCap\"\
-                  : \"0.02500000\", \"adjustedFundingRateFloor\": \"-0.02500000\"\
-                  , \"fundingIntervalHours\": 8, \"disclaimer\": false    } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetFundingInfoV1RespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetFundingInfoV1Resp'
           description: Successful operation
       summary: Get Funding Rate Info
       tags:
@@ -1372,14 +1267,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"symbol\": \"BTCUSDT\", \"fundingRate\": \"-0.03750000\"\
-                  , \"fundingTime\": 1570608000000, \"markPrice\": \"34287.54619963\"\
-                  \    }, { \"symbol\": \"BTCUSDT\", \"fundingRate\": \"0.00010000\"\
-                  , \"fundingTime\": 1570636800000, \"markPrice\": \"34287.54619963\"\
-                  \ } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetFundingRateV1RespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetFundingRateV1Resp'
           description: Successful operation
       summary: Get Funding Rate History
       tags:
@@ -1434,12 +1322,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"id\": 28457, \"price\": \"4.00000100\", \"qty\": \"\
-                  12.00000000\", \"quoteQty\": \"8000.00\", \"time\": 1499865549590,\
-                  \ \"isBuyerMaker\": true } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetHistoricalTradesV1RespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetHistoricalTradesV1Resp'
           description: Successful operation
       summary: Old Trades Lookup (MARKET_DATA)
       tags:
@@ -1540,16 +1423,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"symbol\": \"\", \"incomeType\": \"TRANSFER\", \"income\"\
-                  : \"-0.37500000\",   \"asset\": \"USDT\", \"info\":\"TRANSFER\"\
-                  , \"time\": 1570608000000, \"tranId\":9689322392, \"tradeId\":\"\
-                  \" }, { \"symbol\": \"BTCUSDT\", \"incomeType\": \"COMMISSION\"\
-                  , \"income\": \"-0.01000000\", \"asset\": \"USDT\", \"info\":\"\
-                  COMMISSION\", \"time\": 1570636800000, \"tranId\":9689322392, \"\
-                  tradeId\":\"2059192\" } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetIncomeV1RespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetIncomeV1Resp'
           description: Successful operation
       security:
       - ApiKey: []
@@ -1706,15 +1580,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"symbol\": \"DEFIUSDT\", \"time\": 1589437530011, \
-                  \    \"component\": \"baseAsset\",  \"baseAssetList\":[ { \"baseAsset\"\
-                  :\"BAL\", \"quoteAsset\": \"USDT\", \"weightInQuantity\":\"1.04406228\"\
-                  , \"weightInPercentage\":\"0.02783900\" }, { \"baseAsset\":\"BAND\"\
-                  , \"quoteAsset\": \"USDT\", \"weightInQuantity\":\"3.53782729\"\
-                  , \"weightInPercentage\":\"0.03935200\" } ] } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetIndexInfoV1RespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetIndexInfoV1Resp'
           description: Successful operation
       summary: Composite Index Symbol Information
       tags:
@@ -1786,15 +1652,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ [ 1591256400000,       \"9653.69440000\",     \"9653.69640000\"\
-                  ,      \"9651.38600000\",      \"9651.55200000\",      \"0\",  1591256459999,\
-                  \       \"0\",     60,                 \"0\",     \"0\",       \"\
-                  0\"  ] ]"
-                items:
-                  items:
-                    $ref: '#/components/schemas/UfuturesGetContinuousKlinesV1_200_response_inner_inner'
-                  type: array
-                type: array
+                $ref: '#/components/schemas/UfuturesGetIndexPriceKlinesV1Resp'
           description: Successful operation
       summary: Index Price Kline/Candlestick Data
       tags:
@@ -1866,16 +1724,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ [ 1499040000000,       \"0.01634790\",        \"0.80000000\"\
-                  ,        \"0.01575800\",        \"0.01577100\",        \"148976.11427815\"\
-                  ,   1499644799999,       \"2434.19055334\",     308,           \
-                  \      \"1756.87402397\",     \"28.46694368\",       \"17928899.62484339\"\
-                  \  ] ]"
-                items:
-                  items:
-                    $ref: '#/components/schemas/UfuturesGetContinuousKlinesV1_200_response_inner_inner'
-                  type: array
-                type: array
+                $ref: '#/components/schemas/UfuturesGetKlinesV1Resp'
           description: Successful operation
       summary: Kline/Candlestick Data
       tags:
@@ -2162,15 +2011,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ [ 1591256460000,      \"9653.29201333\",     \"9654.56401333\"\
-                  ,      \"9653.07367333\",      \"9653.07367333\",      \"0\",  1591256519999,\
-                  \       \"0\",     60,                  \"0\",     \"0\",      \
-                  \  \"0\"  ] ]"
-                items:
-                  items:
-                    $ref: '#/components/schemas/UfuturesGetContinuousKlinesV1_200_response_inner_inner'
-                  type: array
-                type: array
+                $ref: '#/components/schemas/UfuturesGetMarkPriceKlinesV1Resp'
           description: Successful operation
       summary: Mark Price Kline/Candlestick Data
       tags:
@@ -2411,21 +2252,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"avgPrice\": \"0.00000\", \"clientOrderId\": \"abc\"\
-                  , \"cumQuote\": \"0\", \"executedQty\": \"0\", \"orderId\": 1917641,\
-                  \ \"origQty\": \"0.40\", \"origType\": \"TRAILING_STOP_MARKET\"\
-                  , \"price\": \"0\", \"reduceOnly\": false, \"side\": \"BUY\", \"\
-                  positionSide\": \"SHORT\", \"status\": \"NEW\", \"stopPrice\": \"\
-                  9300\", \"closePosition\": false,    \"symbol\": \"BTCUSDT\", \"\
-                  time\": 1579276756075, \"timeInForce\": \"GTC\", \"type\": \"TRAILING_STOP_MARKET\"\
-                  , \"activatePrice\": \"9020\", \"priceRate\": \"0.3\", \"updateTime\"\
-                  : 1579276756075, \"workingType\": \"CONTRACT_PRICE\", \"priceProtect\"\
-                  : false,             \"priceMatch\": \"NONE\",               \"\
-                  selfTradePreventionMode\": \"NONE\",  \"goodTillDate\": 0      \
-                  \ } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetOpenOrdersV1RespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetOpenOrdersV1Resp'
           description: Successful operation
       security:
       - ApiKey: []
@@ -2889,24 +2716,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"amendmentId\": 5363, \"symbol\": \"BTCUSDT\", \"pair\"\
-                  : \"BTCUSDT\", \"orderId\": 20072994037, \"clientOrderId\": \"LJ9R4QZDihCaS8UAOOLpgW\"\
-                  , \"time\": 1629184560899, \"amendment\": { \"price\": { \"before\"\
-                  : \"30004\", \"after\": \"30003.2\" }, \"origQty\": { \"before\"\
-                  : \"1\", \"after\": \"1\" }, \"count\": 3 } }, { \"amendmentId\"\
-                  : 5361, \"symbol\": \"BTCUSDT\", \"pair\": \"BTCUSDT\", \"orderId\"\
-                  : 20072994037, \"clientOrderId\": \"LJ9R4QZDihCaS8UAOOLpgW\", \"\
-                  time\": 1629184533946, \"amendment\": { \"price\": { \"before\"\
-                  : \"30005\", \"after\": \"30004\" }, \"origQty\": { \"before\":\
-                  \ \"1\", \"after\": \"1\" }, \"count\": 2 } }, { \"amendmentId\"\
-                  : 5325, \"symbol\": \"BTCUSDT\", \"pair\": \"BTCUSDT\", \"orderId\"\
-                  : 20072994037, \"clientOrderId\": \"LJ9R4QZDihCaS8UAOOLpgW\", \"\
-                  time\": 1629182711787, \"amendment\": { \"price\": { \"before\"\
-                  : \"30002\", \"after\": \"30005\" }, \"origQty\": { \"before\":\
-                  \ \"1\", \"after\": \"1\" }, \"count\": 1 } } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetOrderAmendmentV1RespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetOrderAmendmentV1Resp'
           description: Successful operation
       security:
       - ApiKey: []
@@ -3111,15 +2921,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"symbol\": \"BTCUSDT\", \"type\": 1, \"deltaType\"\
-                  : \"USER_ADJUST\", \"amount\": \"23.36332311\", \"asset\": \"USDT\"\
-                  , \"time\": 1578047897183, \"positionSide\": \"BOTH\" }, { \"symbol\"\
-                  : \"BTCUSDT\", \"type\": 1, \"deltaType\": \"USER_ADJUST\", \"amount\"\
-                  : \"100\", \"asset\": \"USDT\", \"time\": 1578047900425, \"positionSide\"\
-                  : \"LONG\" } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetPositionMarginHistoryV1RespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetPositionMarginHistoryV1Resp'
           description: Successful operation
       security:
       - ApiKey: []
@@ -3311,17 +3113,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ [ 1691603820000,           \"-0.00042931\",          \
-                  \ \"-0.00023641\",           \"-0.00059406\",           \"-0.00043659\"\
-                  ,           \"0\",                     1691603879999,          \
-                  \ \"0\",                     12,                      \"0\",   \
-                  \                  \"0\",                     \"0\"            \
-                  \          ] ]"
-                items:
-                  items:
-                    $ref: '#/components/schemas/UfuturesGetContinuousKlinesV1_200_response_inner_inner'
-                  type: array
-                type: array
+                $ref: '#/components/schemas/UfuturesGetPremiumIndexKlinesV1Resp'
           description: Successful operation
       summary: Premium index Kline Data
       tags:
@@ -3365,13 +3157,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"rateLimitType\": \"ORDERS\", \"interval\": \"SECOND\"\
-                  , \"intervalNum\": 10, \"limit\": 10000 }, { \"rateLimitType\":\
-                  \ \"ORDERS\", \"interval\": \"MINUTE\", \"intervalNum\": 1, \"limit\"\
-                  : 20000 } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetRateLimitOrderV1RespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetRateLimitOrderV1Resp'
           description: Successful operation
       security:
       - ApiKey: []
@@ -3425,12 +3211,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"symbol\": \"BTCUSDT\", \"marginType\": \"CROSSED\"\
-                  , \"isAutoAddMargin\": \"false\", \"leverage\": 21, \"maxNotionalValue\"\
-                  : \"1000000\" } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetSymbolConfigV1RespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetSymbolConfigV1Resp'
           description: Successful operation
       security:
       - ApiKey: []
@@ -3734,12 +3515,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"id\": 28457, \"price\": \"4.00000100\", \"qty\": \"\
-                  12.00000000\", \"quoteQty\": \"48.00\", \"time\": 1499865549590,\
-                  \ \"isBuyerMaker\": true } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetTradesV1RespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetTradesV1Resp'
           description: Successful operation
       summary: Recent Trades List
       tags:
@@ -3835,15 +3611,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"buyer\": false, \"commission\": \"-0.07819010\", \"\
-                  commissionAsset\": \"USDT\", \"id\": 698759, \"maker\": false, \"\
-                  orderId\": 25851813, \"price\": \"7819.01\", \"qty\": \"0.002\"\
-                  , \"quoteQty\": \"15.63802\", \"realizedPnl\": \"-0.91539999\",\
-                  \ \"side\": \"SELL\", \"positionSide\": \"SHORT\", \"symbol\": \"\
-                  BTCUSDT\", \"time\": 1569514978020 } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetUserTradesV1RespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetUserTradesV1Resp'
           description: Successful operation
       security:
       - ApiKey: []
@@ -3936,15 +3704,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"accountAlias\": \"SgsR\",     \"asset\": \"USDT\"\
-                  ,   \"balance\": \"122607.35137903\",  \"crossWalletBalance\": \"\
-                  23.72469206\",  \"crossUnPnl\": \"0.00000000\",   \"availableBalance\"\
-                  : \"23.72469206\",        \"maxWithdrawAmount\": \"23.72469206\"\
-                  ,      \"marginAvailable\": true,     \"updateTime\": 1617939110373\
-                  \ } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetBalanceV2RespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetBalanceV2Resp'
           description: Successful operation
       security:
       - ApiKey: []
@@ -3998,17 +3758,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"entryPrice\": \"0.00000\", \"breakEvenPrice\": \"\
-                  0.0\", \"marginType\": \"isolated\", \"isAutoAddMargin\": \"false\"\
-                  , \"isolatedMargin\": \"0.00000000\", \"leverage\": \"10\", \"liquidationPrice\"\
-                  : \"0\", \"markPrice\": \"6679.50671178\", \"maxNotionalValue\"\
-                  : \"20000000\", \"positionAmt\": \"0.000\", \"notional\": \"0\"\
-                  , \"isolatedWallet\": \"0\", \"symbol\": \"BTCUSDT\", \"unRealizedProfit\"\
-                  : \"0.00000000\", \"positionSide\": \"BOTH\", \"updateTime\": 0\
-                  \ } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetPositionRiskV2RespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetPositionRiskV2Resp'
           description: Successful operation
       security:
       - ApiKey: []
@@ -4137,15 +3887,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"accountAlias\": \"SgsR\",               \"asset\"\
-                  : \"USDT\",                   \"balance\": \"122607.35137903\",\
-                  \         \"crossWalletBalance\": \"23.72469206\",  \"crossUnPnl\"\
-                  : \"0.00000000\",           \"availableBalance\": \"23.72469206\"\
-                  ,    \"maxWithdrawAmount\": \"23.72469206\",   \"marginAvailable\"\
-                  : true,              \"updateTime\": 1617939110373 } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetBalanceV3RespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetBalanceV3Resp'
           description: Successful operation
       security:
       - ApiKey: []
@@ -4200,20 +3942,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"symbol\": \"ADAUSDT\", \"positionSide\": \"BOTH\"\
-                  ,                \"positionAmt\": \"30\", \"entryPrice\": \"0.385\"\
-                  , \"breakEvenPrice\": \"0.385077\", \"markPrice\": \"0.41047590\"\
-                  , \"unRealizedProfit\": \"0.76427700\",      \"liquidationPrice\"\
-                  : \"0\", \"isolatedMargin\": \"0\", \"notional\": \"12.31427700\"\
-                  , \"marginAsset\": \"USDT\", \"isolatedWallet\": \"0\", \"initialMargin\"\
-                  : \"0.61571385\",         \"maintMargin\": \"0.08004280\",     \
-                  \      \"positionInitialMargin\": \"0.61571385\", \"openOrderInitialMargin\"\
-                  : \"0\",         \"adl\": 2, \"bidNotional\": \"0\",           \
-                  \         \"askNotional\": \"0\",                    \"updateTime\"\
-                  : 1720736417660 } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetPositionRiskV3RespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetPositionRiskV3Resp'
           description: Successful operation
       security:
       - ApiKey: []
@@ -4297,13 +4026,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"indexPrice\": \"34400.15945055\", \"contractType\"\
-                  : \"PERPETUAL\", \"basisRate\": \"0.0004\", \"futuresPrice\": \"\
-                  34414.10\", \"annualizedBasisRate\": \"\", \"basis\": \"13.94054945\"\
-                  , \"pair\": \"BTCUSDT\", \"timestamp\": 1698742800000 } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetFuturesDataBasisRespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetFuturesDataBasisResp'
           description: Successful operation
       summary: Basis
       tags:
@@ -4339,14 +4062,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"deliveryTime\": 1695945600000, \"deliveryPrice\":\
-                  \ 27103.00000000 }, { \"deliveryTime\": 1688083200000, \"deliveryPrice\"\
-                  : 30733.60000000 }, { \"deliveryTime\": 1680220800000, \"deliveryPrice\"\
-                  : 27814.20000000 }, { \"deliveryTime\": 1648166400000, \"deliveryPrice\"\
-                  : 44066.30000000 } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetFuturesDataDelivery-PriceRespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetFuturesDataDelivery-PriceResp'
           description: Successful operation
       summary: Quarterly Contract Settlement Price
       tags:
@@ -4417,14 +4133,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"symbol\":\"BTCUSDT\",   \"longShortRatio\":\"0.1960\"\
-                  ,   \"longAccount\": \"0.6622\",    \"shortAccount\":\"0.3378\"\
-                  , \"timestamp\":\"1583139600000\" }, { \"symbol\":\"BTCUSDT\", \"\
-                  longShortRatio\":\"1.9559\", \"longAccount\": \"0.6617\", \"shortAccount\"\
-                  :\"0.3382\", \"timestamp\":\"1583139900000\" } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetFuturesDataGlobalLongShortAccountRatioRespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetFuturesDataGlobalLongShortAccountRatioResp'
           description: Successful operation
       summary: Long/Short Ratio
       tags:
@@ -4495,14 +4204,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"symbol\":\"BTCUSDT\", \"sumOpenInterest\":\"20403.63700000\"\
-                  ,   \"sumOpenInterestValue\": \"150570784.07809979\",    \"timestamp\"\
-                  :\"1583127900000\" }, { \"symbol\":\"BTCUSDT\", \"sumOpenInterest\"\
-                  :\"20401.36700000\", \"sumOpenInterestValue\":\"149940752.14464448\"\
-                  , \"timestamp\":\"1583128200000\" } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetFuturesDataOpenInterestHistRespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetFuturesDataOpenInterestHistResp'
           description: Successful operation
       summary: Open Interest Statistics
       tags:
@@ -4573,13 +4275,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"buySellRatio\":\"1.5586\", \"buyVol\": \"387.3300\"\
-                  , \"sellVol\":\"248.5030\", \"timestamp\":\"1585614900000\" }, {\
-                  \ \"buySellRatio\":\"1.3104\", \"buyVol\": \"343.9290\", \"sellVol\"\
-                  :\"248.5030\", \"timestamp\":\"1583139900000\" } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetFuturesDataTakerlongshortRatioRespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetFuturesDataTakerlongshortRatioResp'
           description: Successful operation
       summary: Taker Buy/Sell Volume
       tags:
@@ -4654,14 +4350,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"symbol\":\"BTCUSDT\", \"longShortRatio\":\"1.8105\"\
-                  ,   \"longAccount\": \"0.6442\",    \"shortAccount\":\"0.3558\"\
-                  ,    \"timestamp\":\"1583139600000\" }, { \"symbol\":\"BTCUSDT\"\
-                  , \"longShortRatio\":\"0.5576\", \"longAccount\": \"0.3580\", \"\
-                  shortAccount\":\"0.6420\", \"timestamp\":\"1583139900000\" } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetFuturesDataTopLongShortAccountRatioRespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetFuturesDataTopLongShortAccountRatioResp'
           description: Successful operation
       summary: Top Trader Long/Short Ratio (Accounts)
       tags:
@@ -4736,14 +4425,7 @@ paths:
           content:
             application/json:
               schema:
-                example: "[ { \"symbol\":\"BTCUSDT\", \"longShortRatio\":\"1.4342\"\
-                  , \"longAccount\": \"0.5891\",  \"shortAccount\":\"0.4108\",  \"\
-                  timestamp\":\"1583139600000\" }, { \"symbol\":\"BTCUSDT\", \"longShortRatio\"\
-                  :\"1.4337\", \"longAccount\": \"0.3583\", \"shortAccount\":\"0.6417\"\
-                  , \"timestamp\":\"1583139900000\" } ]"
-                items:
-                  $ref: '#/components/schemas/UfuturesGetFuturesDataTopLongShortPositionRatioRespItem'
-                type: array
+                $ref: '#/components/schemas/UfuturesGetFuturesDataTopLongShortPositionRatioResp'
           description: Successful operation
       summary: Top Trader Long/Short Ratio (Positions)
       tags:
@@ -4838,6 +4520,21 @@ components:
       - side
       - symbol
       - type
+    UfuturesCreateBatchOrdersV1Resp:
+      example: "[ { \"clientOrderId\": \"testOrder\", \"cumQty\": \"0\", \"cumQuote\"\
+        : \"0\", \"executedQty\": \"0\", \"orderId\": 22542179, \"avgPrice\": \"0.00000\"\
+        , \"origQty\": \"10\", \"price\": \"0\", \"reduceOnly\": false, \"side\":\
+        \ \"BUY\", \"positionSide\": \"SHORT\", \"status\": \"NEW\", \"stopPrice\"\
+        : \"9300\", \"symbol\": \"BTCUSDT\", \"timeInForce\": \"GTC\", \"type\": \"\
+        TRAILING_STOP_MARKET\", \"origType\": \"TRAILING_STOP_MARKET\", \"activatePrice\"\
+        : \"9020\", \"priceRate\": \"0.3\", \"updateTime\": 1566818724722, \"workingType\"\
+        : \"CONTRACT_PRICE\", \"priceProtect\": false,       \"priceMatch\": \"NONE\"\
+        ,               \"selfTradePreventionMode\": \"NONE\",  \"goodTillDate\":\
+        \ 1693207680000       }, { \"code\": -2022, \"msg\": \"ReduceOnly Order is\
+        \ rejected.\" } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesCreateBatchOrdersV1Resp_inner'
+      type: array
     UfuturesCreateBatchOrdersV1RespItem:
       properties:
         activatePrice:
@@ -5456,6 +5153,21 @@ components:
         msg:
           type: string
       type: object
+    UfuturesDeleteBatchOrdersV1Resp:
+      example: "[ { \"clientOrderId\": \"myOrder1\", \"cumQty\": \"0\", \"cumQuote\"\
+        : \"0\", \"executedQty\": \"0\", \"orderId\": 283194212, \"origQty\": \"11\"\
+        , \"origType\": \"TRAILING_STOP_MARKET\", \"price\": \"0\", \"reduceOnly\"\
+        : false, \"side\": \"BUY\", \"positionSide\": \"SHORT\", \"status\": \"CANCELED\"\
+        , \"stopPrice\": \"9300\", \"closePosition\": false,    \"symbol\": \"BTCUSDT\"\
+        , \"timeInForce\": \"GTC\", \"type\": \"TRAILING_STOP_MARKET\", \"activatePrice\"\
+        : \"9020\", \"priceRate\": \"0.3\", \"updateTime\": 1571110484038, \"workingType\"\
+        : \"CONTRACT_PRICE\", \"priceProtect\": false,             \"priceMatch\"\
+        : \"NONE\",               \"selfTradePreventionMode\": \"NONE\",  \"goodTillDate\"\
+        : 1693207680000       }, { \"code\": -2011, \"msg\": \"Unknown order sent.\"\
+        \ } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesDeleteBatchOrdersV1Resp_inner'
+      type: array
     UfuturesDeleteBatchOrdersV1RespItem:
       properties:
         activatePrice:
@@ -5745,6 +5457,13 @@ components:
         totalWalletBalance:
           type: string
       type: object
+    UfuturesGetAdlQuantileV1Resp:
+      example: "[ { \"symbol\": \"ETHUSDT\", \"adlQuantile\": { \"LONG\": 3, \"SHORT\"\
+        : 3, \"HEDGE\": 0    } }, { \"symbol\": \"BTCUSDT\", \"adlQuantile\": { \"\
+        LONG\": 1,  \"SHORT\": 2,  \"BOTH\": 0 } } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetAdlQuantileV1RespItem'
+      type: array
     UfuturesGetAdlQuantileV1RespItem:
       properties:
         adlQuantile:
@@ -5752,6 +5471,13 @@ components:
         symbol:
           type: string
       type: object
+    UfuturesGetAggTradesV1Resp:
+      example: "[ { \"a\": 26129,          \"p\": \"0.01633102\",   \"q\": \"4.70443515\"\
+        ,   \"f\": 27781,          \"l\": 27781,          \"T\": 1498793709153,  \"\
+        m\": true           } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetAggTradesV1RespItem'
+      type: array
     UfuturesGetAggTradesV1RespItem:
       properties:
         T:
@@ -5770,6 +5496,20 @@ components:
         q:
           type: string
       type: object
+    UfuturesGetAllOrdersV1Resp:
+      example: "[ { \"avgPrice\": \"0.00000\", \"clientOrderId\": \"abc\", \"cumQuote\"\
+        : \"0\", \"executedQty\": \"0\", \"orderId\": 1917641, \"origQty\": \"0.40\"\
+        , \"origType\": \"TRAILING_STOP_MARKET\", \"price\": \"0\", \"reduceOnly\"\
+        : false, \"side\": \"BUY\", \"positionSide\": \"SHORT\", \"status\": \"NEW\"\
+        , \"stopPrice\": \"9300\", \"closePosition\": false,    \"symbol\": \"BTCUSDT\"\
+        , \"time\": 1579276756075, \"timeInForce\": \"GTC\", \"type\": \"TRAILING_STOP_MARKET\"\
+        , \"activatePrice\": \"9020\", \"priceRate\": \"0.3\", \"updateTime\": 1579276756075,\
+        \ \"workingType\": \"CONTRACT_PRICE\", \"priceProtect\": false,          \
+        \     \"priceMatch\": \"NONE\",               \"selfTradePreventionMode\"\
+        : \"NONE\",  \"goodTillDate\": 0       } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetAllOrdersV1RespItem'
+      type: array
     UfuturesGetAllOrdersV1RespItem:
       properties:
         activatePrice:
@@ -5879,6 +5619,15 @@ components:
           format: int64
           type: integer
       type: object
+    UfuturesGetBalanceV2Resp:
+      example: "[ { \"accountAlias\": \"SgsR\",     \"asset\": \"USDT\",   \"balance\"\
+        : \"122607.35137903\",  \"crossWalletBalance\": \"23.72469206\",  \"crossUnPnl\"\
+        : \"0.00000000\",   \"availableBalance\": \"23.72469206\",        \"maxWithdrawAmount\"\
+        : \"23.72469206\",      \"marginAvailable\": true,     \"updateTime\": 1617939110373\
+        \ } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetBalanceV2RespItem'
+      type: array
     UfuturesGetBalanceV2RespItem:
       properties:
         accountAlias:
@@ -5901,6 +5650,15 @@ components:
           format: int64
           type: integer
       type: object
+    UfuturesGetBalanceV3Resp:
+      example: "[ { \"accountAlias\": \"SgsR\",               \"asset\": \"USDT\"\
+        ,                   \"balance\": \"122607.35137903\",         \"crossWalletBalance\"\
+        : \"23.72469206\",  \"crossUnPnl\": \"0.00000000\",           \"availableBalance\"\
+        : \"23.72469206\",    \"maxWithdrawAmount\": \"23.72469206\",   \"marginAvailable\"\
+        : true,              \"updateTime\": 1617939110373 } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetBalanceV3RespItem'
+      type: array
     UfuturesGetBalanceV3RespItem:
       properties:
         accountAlias:
@@ -5951,6 +5709,24 @@ components:
           format: int64
           type: integer
       type: object
+    UfuturesGetContinuousKlinesV1Resp:
+      example: "[ [ 1607444700000,      \t \"18879.99\",       \t \t \"18900.00\"\
+        ,       \t \t \"18878.98\",       \t \t \"18896.13\",      \t \t \"492.363\"\
+        , \t\t\t \t 1607444759999,       \t \"9302145.66080\",    \t 1874,       \
+        \      \t\t \"385.983\",    \t\t\t \"7292402.33267\",      \t \"0\" \t\t\t\
+        \t\t ] ]"
+      items:
+        items:
+          $ref: '#/components/schemas/UfuturesGetContinuousKlinesV1Resp_inner_inner'
+        type: array
+      type: array
+    UfuturesGetConvertExchangeInfoV1Resp:
+      example: "[ { \"fromAsset\":\"BTC\", \"toAsset\":\"USDT\", \"fromAssetMinAmount\"\
+        :\"0.0004\", \"fromAssetMaxAmount\":\"50\", \"toAssetMinAmount\":\"20\", \"\
+        toAssetMaxAmount\":\"2500000\" } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetConvertExchangeInfoV1RespItem'
+      type: array
     UfuturesGetConvertExchangeInfoV1RespItem:
       properties:
         fromAsset:
@@ -6074,6 +5850,25 @@ components:
         feeBurn:
           type: boolean
       type: object
+    UfuturesGetForceOrdersV1Resp:
+      example: "[ { \"orderId\": 6071832819, \"symbol\": \"BTCUSDT\", \"status\":\
+        \ \"FILLED\", \"clientOrderId\": \"autoclose-1596107620040000020\", \"price\"\
+        : \"10871.09\", \"avgPrice\": \"10913.21000\", \"origQty\": \"0.001\", \"\
+        executedQty\": \"0.001\", \"cumQuote\": \"10.91321\", \"timeInForce\": \"\
+        IOC\", \"type\": \"LIMIT\", \"reduceOnly\": false, \"closePosition\": false,\
+        \ \"side\": \"SELL\", \"positionSide\": \"BOTH\", \"stopPrice\": \"0\", \"\
+        workingType\": \"CONTRACT_PRICE\", \"origType\": \"LIMIT\", \"time\": 1596107620044,\
+        \ \"updateTime\": 1596107620087 }, { \"orderId\": 6072734303, \"symbol\":\
+        \ \"BTCUSDT\", \"status\": \"FILLED\", \"clientOrderId\": \"adl_autoclose\"\
+        , \"price\": \"11023.14\", \"avgPrice\": \"10979.82000\", \"origQty\": \"\
+        0.001\", \"executedQty\": \"0.001\", \"cumQuote\": \"10.97982\", \"timeInForce\"\
+        : \"GTC\", \"type\": \"LIMIT\", \"reduceOnly\": false, \"closePosition\":\
+        \ false, \"side\": \"BUY\", \"positionSide\": \"SHORT\", \"stopPrice\": \"\
+        0\", \"workingType\": \"CONTRACT_PRICE\", \"origType\": \"LIMIT\", \"time\"\
+        : 1596110725059, \"updateTime\": 1596110725071 } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetForceOrdersV1RespItem'
+      type: array
     UfuturesGetForceOrdersV1RespItem:
       properties:
         avgPrice:
@@ -6120,6 +5915,13 @@ components:
         workingType:
           type: string
       type: object
+    UfuturesGetFundingInfoV1Resp:
+      example: "[ { \"symbol\": \"BLZUSDT\", \"adjustedFundingRateCap\": \"0.02500000\"\
+        , \"adjustedFundingRateFloor\": \"-0.02500000\", \"fundingIntervalHours\"\
+        : 8, \"disclaimer\": false    } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetFundingInfoV1RespItem'
+      type: array
     UfuturesGetFundingInfoV1RespItem:
       properties:
         adjustedFundingRateCap:
@@ -6133,6 +5935,14 @@ components:
         symbol:
           type: string
       type: object
+    UfuturesGetFundingRateV1Resp:
+      example: "[ { \"symbol\": \"BTCUSDT\", \"fundingRate\": \"-0.03750000\", \"\
+        fundingTime\": 1570608000000, \"markPrice\": \"34287.54619963\"    }, { \"\
+        symbol\": \"BTCUSDT\", \"fundingRate\": \"0.00010000\", \"fundingTime\": 1570636800000,\
+        \ \"markPrice\": \"34287.54619963\" } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetFundingRateV1RespItem'
+      type: array
     UfuturesGetFundingRateV1RespItem:
       properties:
         fundingRate:
@@ -6145,6 +5955,14 @@ components:
         symbol:
           type: string
       type: object
+    UfuturesGetFuturesDataBasisResp:
+      example: "[ { \"indexPrice\": \"34400.15945055\", \"contractType\": \"PERPETUAL\"\
+        , \"basisRate\": \"0.0004\", \"futuresPrice\": \"34414.10\", \"annualizedBasisRate\"\
+        : \"\", \"basis\": \"13.94054945\", \"pair\": \"BTCUSDT\", \"timestamp\":\
+        \ 1698742800000 } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetFuturesDataBasisRespItem'
+      type: array
     UfuturesGetFuturesDataBasisRespItem:
       properties:
         annualizedBasisRate:
@@ -6165,6 +5983,15 @@ components:
           format: int64
           type: integer
       type: object
+    UfuturesGetFuturesDataDelivery-PriceResp:
+      example: "[ { \"deliveryTime\": 1695945600000, \"deliveryPrice\": 27103.00000000\
+        \ }, { \"deliveryTime\": 1688083200000, \"deliveryPrice\": 30733.60000000\
+        \ }, { \"deliveryTime\": 1680220800000, \"deliveryPrice\": 27814.20000000\
+        \ }, { \"deliveryTime\": 1648166400000, \"deliveryPrice\": 44066.30000000\
+        \ } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetFuturesDataDelivery-PriceRespItem'
+      type: array
     UfuturesGetFuturesDataDelivery-PriceRespItem:
       properties:
         deliveryPrice:
@@ -6173,6 +6000,15 @@ components:
           format: int64
           type: integer
       type: object
+    UfuturesGetFuturesDataGlobalLongShortAccountRatioResp:
+      example: "[ { \"symbol\":\"BTCUSDT\",   \"longShortRatio\":\"0.1960\",   \"\
+        longAccount\": \"0.6622\",    \"shortAccount\":\"0.3378\", \"timestamp\":\"\
+        1583139600000\" }, { \"symbol\":\"BTCUSDT\", \"longShortRatio\":\"1.9559\"\
+        , \"longAccount\": \"0.6617\", \"shortAccount\":\"0.3382\", \"timestamp\"\
+        :\"1583139900000\" } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetFuturesDataGlobalLongShortAccountRatioRespItem'
+      type: array
     UfuturesGetFuturesDataGlobalLongShortAccountRatioRespItem:
       properties:
         longAccount:
@@ -6186,6 +6022,15 @@ components:
         timestamp:
           type: string
       type: object
+    UfuturesGetFuturesDataOpenInterestHistResp:
+      example: "[ { \"symbol\":\"BTCUSDT\", \"sumOpenInterest\":\"20403.63700000\"\
+        ,   \"sumOpenInterestValue\": \"150570784.07809979\",    \"timestamp\":\"\
+        1583127900000\" }, { \"symbol\":\"BTCUSDT\", \"sumOpenInterest\":\"20401.36700000\"\
+        , \"sumOpenInterestValue\":\"149940752.14464448\", \"timestamp\":\"1583128200000\"\
+        \ } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetFuturesDataOpenInterestHistRespItem'
+      type: array
     UfuturesGetFuturesDataOpenInterestHistRespItem:
       properties:
         sumOpenInterest:
@@ -6197,6 +6042,14 @@ components:
         timestamp:
           type: string
       type: object
+    UfuturesGetFuturesDataTakerlongshortRatioResp:
+      example: "[ { \"buySellRatio\":\"1.5586\", \"buyVol\": \"387.3300\", \"sellVol\"\
+        :\"248.5030\", \"timestamp\":\"1585614900000\" }, { \"buySellRatio\":\"1.3104\"\
+        , \"buyVol\": \"343.9290\", \"sellVol\":\"248.5030\", \"timestamp\":\"1583139900000\"\
+        \ } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetFuturesDataTakerlongshortRatioRespItem'
+      type: array
     UfuturesGetFuturesDataTakerlongshortRatioRespItem:
       properties:
         buySellRatio:
@@ -6208,6 +6061,15 @@ components:
         timestamp:
           type: string
       type: object
+    UfuturesGetFuturesDataTopLongShortAccountRatioResp:
+      example: "[ { \"symbol\":\"BTCUSDT\", \"longShortRatio\":\"1.8105\",   \"longAccount\"\
+        : \"0.6442\",    \"shortAccount\":\"0.3558\",    \"timestamp\":\"1583139600000\"\
+        \ }, { \"symbol\":\"BTCUSDT\", \"longShortRatio\":\"0.5576\", \"longAccount\"\
+        : \"0.3580\", \"shortAccount\":\"0.6420\", \"timestamp\":\"1583139900000\"\
+        \ } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetFuturesDataTopLongShortAccountRatioRespItem'
+      type: array
     UfuturesGetFuturesDataTopLongShortAccountRatioRespItem:
       properties:
         longAccount:
@@ -6221,6 +6083,15 @@ components:
         timestamp:
           type: string
       type: object
+    UfuturesGetFuturesDataTopLongShortPositionRatioResp:
+      example: "[ { \"symbol\":\"BTCUSDT\", \"longShortRatio\":\"1.4342\", \"longAccount\"\
+        : \"0.5891\",  \"shortAccount\":\"0.4108\",  \"timestamp\":\"1583139600000\"\
+        \ }, { \"symbol\":\"BTCUSDT\", \"longShortRatio\":\"1.4337\", \"longAccount\"\
+        : \"0.3583\", \"shortAccount\":\"0.6417\", \"timestamp\":\"1583139900000\"\
+        \ } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetFuturesDataTopLongShortPositionRatioRespItem'
+      type: array
     UfuturesGetFuturesDataTopLongShortPositionRatioRespItem:
       properties:
         longAccount:
@@ -6234,6 +6105,13 @@ components:
         timestamp:
           type: string
       type: object
+    UfuturesGetHistoricalTradesV1Resp:
+      example: "[ { \"id\": 28457, \"price\": \"4.00000100\", \"qty\": \"12.00000000\"\
+        , \"quoteQty\": \"8000.00\", \"time\": 1499865549590, \"isBuyerMaker\": true\
+        \ } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetHistoricalTradesV1RespItem'
+      type: array
     UfuturesGetHistoricalTradesV1RespItem:
       properties:
         id:
@@ -6279,6 +6157,16 @@ components:
         downloadId:
           type: string
       type: object
+    UfuturesGetIncomeV1Resp:
+      example: "[ { \"symbol\": \"\", \"incomeType\": \"TRANSFER\", \"income\": \"\
+        -0.37500000\",   \"asset\": \"USDT\", \"info\":\"TRANSFER\", \"time\": 1570608000000,\
+        \ \"tranId\":9689322392, \"tradeId\":\"\" }, { \"symbol\": \"BTCUSDT\", \"\
+        incomeType\": \"COMMISSION\", \"income\": \"-0.01000000\", \"asset\": \"USDT\"\
+        , \"info\":\"COMMISSION\", \"time\": 1570636800000, \"tranId\":9689322392,\
+        \ \"tradeId\":\"2059192\" } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetIncomeV1RespItem'
+      type: array
     UfuturesGetIncomeV1RespItem:
       properties:
         asset:
@@ -6300,6 +6188,15 @@ components:
           format: int64
           type: integer
       type: object
+    UfuturesGetIndexInfoV1Resp:
+      example: "[ { \"symbol\": \"DEFIUSDT\", \"time\": 1589437530011,     \"component\"\
+        : \"baseAsset\",  \"baseAssetList\":[ { \"baseAsset\":\"BAL\", \"quoteAsset\"\
+        : \"USDT\", \"weightInQuantity\":\"1.04406228\", \"weightInPercentage\":\"\
+        0.02783900\" }, { \"baseAsset\":\"BAND\", \"quoteAsset\": \"USDT\", \"weightInQuantity\"\
+        :\"3.53782729\", \"weightInPercentage\":\"0.03935200\" } ] } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetIndexInfoV1RespItem'
+      type: array
     UfuturesGetIndexInfoV1RespItem:
       properties:
         baseAssetList:
@@ -6314,6 +6211,25 @@ components:
           format: int64
           type: integer
       type: object
+    UfuturesGetIndexPriceKlinesV1Resp:
+      example: "[ [ 1591256400000,       \"9653.69440000\",     \"9653.69640000\"\
+        ,      \"9651.38600000\",      \"9651.55200000\",      \"0\",  1591256459999,\
+        \       \"0\",     60,                 \"0\",     \"0\",       \"0\"  ] ]"
+      items:
+        items:
+          $ref: '#/components/schemas/UfuturesGetContinuousKlinesV1Resp_inner_inner'
+        type: array
+      type: array
+    UfuturesGetKlinesV1Resp:
+      example: "[ [ 1499040000000,       \"0.01634790\",        \"0.80000000\",  \
+        \      \"0.01575800\",        \"0.01577100\",        \"148976.11427815\",\
+        \   1499644799999,       \"2434.19055334\",     308,                 \"1756.87402397\"\
+        ,     \"28.46694368\",       \"17928899.62484339\"  ] ]"
+      items:
+        items:
+          $ref: '#/components/schemas/UfuturesGetContinuousKlinesV1Resp_inner_inner'
+        type: array
+      type: array
     UfuturesGetLeverageBracketV1Resp:
       oneOf:
       - items:
@@ -6335,6 +6251,16 @@ components:
         symbol:
           type: string
       type: object
+    UfuturesGetMarkPriceKlinesV1Resp:
+      example: "[ [ 1591256460000,      \"9653.29201333\",     \"9654.56401333\",\
+        \      \"9653.07367333\",      \"9653.07367333\",      \"0\",  1591256519999,\
+        \       \"0\",     60,                  \"0\",     \"0\",        \"0\"  ]\
+        \ ]"
+      items:
+        items:
+          $ref: '#/components/schemas/UfuturesGetContinuousKlinesV1Resp_inner_inner'
+        type: array
+      type: array
     UfuturesGetMultiAssetsMarginV1Resp:
       example: "{ \"multiAssetsMargin\": true  }"
       properties:
@@ -6422,6 +6348,20 @@ components:
         workingType:
           type: string
       type: object
+    UfuturesGetOpenOrdersV1Resp:
+      example: "[ { \"avgPrice\": \"0.00000\", \"clientOrderId\": \"abc\", \"cumQuote\"\
+        : \"0\", \"executedQty\": \"0\", \"orderId\": 1917641, \"origQty\": \"0.40\"\
+        , \"origType\": \"TRAILING_STOP_MARKET\", \"price\": \"0\", \"reduceOnly\"\
+        : false, \"side\": \"BUY\", \"positionSide\": \"SHORT\", \"status\": \"NEW\"\
+        , \"stopPrice\": \"9300\", \"closePosition\": false,    \"symbol\": \"BTCUSDT\"\
+        , \"time\": 1579276756075, \"timeInForce\": \"GTC\", \"type\": \"TRAILING_STOP_MARKET\"\
+        , \"activatePrice\": \"9020\", \"priceRate\": \"0.3\", \"updateTime\": 1579276756075,\
+        \ \"workingType\": \"CONTRACT_PRICE\", \"priceProtect\": false,          \
+        \   \"priceMatch\": \"NONE\",               \"selfTradePreventionMode\": \"\
+        NONE\",  \"goodTillDate\": 0       } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetOpenOrdersV1RespItem'
+      type: array
     UfuturesGetOpenOrdersV1RespItem:
       properties:
         activatePrice:
@@ -6481,6 +6421,23 @@ components:
         workingType:
           type: string
       type: object
+    UfuturesGetOrderAmendmentV1Resp:
+      example: "[ { \"amendmentId\": 5363, \"symbol\": \"BTCUSDT\", \"pair\": \"BTCUSDT\"\
+        , \"orderId\": 20072994037, \"clientOrderId\": \"LJ9R4QZDihCaS8UAOOLpgW\"\
+        , \"time\": 1629184560899, \"amendment\": { \"price\": { \"before\": \"30004\"\
+        , \"after\": \"30003.2\" }, \"origQty\": { \"before\": \"1\", \"after\": \"\
+        1\" }, \"count\": 3 } }, { \"amendmentId\": 5361, \"symbol\": \"BTCUSDT\"\
+        , \"pair\": \"BTCUSDT\", \"orderId\": 20072994037, \"clientOrderId\": \"LJ9R4QZDihCaS8UAOOLpgW\"\
+        , \"time\": 1629184533946, \"amendment\": { \"price\": { \"before\": \"30005\"\
+        , \"after\": \"30004\" }, \"origQty\": { \"before\": \"1\", \"after\": \"\
+        1\" }, \"count\": 2 } }, { \"amendmentId\": 5325, \"symbol\": \"BTCUSDT\"\
+        , \"pair\": \"BTCUSDT\", \"orderId\": 20072994037, \"clientOrderId\": \"LJ9R4QZDihCaS8UAOOLpgW\"\
+        , \"time\": 1629182711787, \"amendment\": { \"price\": { \"before\": \"30002\"\
+        , \"after\": \"30005\" }, \"origQty\": { \"before\": \"1\", \"after\": \"\
+        1\" }, \"count\": 1 } } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetOrderAmendmentV1RespItem'
+      type: array
     UfuturesGetOrderAmendmentV1RespItem:
       properties:
         amendment:
@@ -6614,6 +6571,15 @@ components:
         maxWithdrawAmountUSD:
           type: string
       type: object
+    UfuturesGetPositionMarginHistoryV1Resp:
+      example: "[ { \"symbol\": \"BTCUSDT\", \"type\": 1, \"deltaType\": \"USER_ADJUST\"\
+        , \"amount\": \"23.36332311\", \"asset\": \"USDT\", \"time\": 1578047897183,\
+        \ \"positionSide\": \"BOTH\" }, { \"symbol\": \"BTCUSDT\", \"type\": 1, \"\
+        deltaType\": \"USER_ADJUST\", \"amount\": \"100\", \"asset\": \"USDT\", \"\
+        time\": 1578047900425, \"positionSide\": \"LONG\" } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetPositionMarginHistoryV1RespItem'
+      type: array
     UfuturesGetPositionMarginHistoryV1RespItem:
       properties:
         amount:
@@ -6632,6 +6598,16 @@ components:
         type:
           type: integer
       type: object
+    UfuturesGetPositionRiskV2Resp:
+      example: "[ { \"entryPrice\": \"0.00000\", \"breakEvenPrice\": \"0.0\", \"marginType\"\
+        : \"isolated\", \"isAutoAddMargin\": \"false\", \"isolatedMargin\": \"0.00000000\"\
+        , \"leverage\": \"10\", \"liquidationPrice\": \"0\", \"markPrice\": \"6679.50671178\"\
+        , \"maxNotionalValue\": \"20000000\", \"positionAmt\": \"0.000\", \"notional\"\
+        : \"0\", \"isolatedWallet\": \"0\", \"symbol\": \"BTCUSDT\", \"unRealizedProfit\"\
+        : \"0.00000000\", \"positionSide\": \"BOTH\", \"updateTime\": 0 } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetPositionRiskV2RespItem'
+      type: array
     UfuturesGetPositionRiskV2RespItem:
       properties:
         breakEvenPrice:
@@ -6668,6 +6644,19 @@ components:
           format: int64
           type: integer
       type: object
+    UfuturesGetPositionRiskV3Resp:
+      example: "[ { \"symbol\": \"ADAUSDT\", \"positionSide\": \"BOTH\",         \
+        \       \"positionAmt\": \"30\", \"entryPrice\": \"0.385\", \"breakEvenPrice\"\
+        : \"0.385077\", \"markPrice\": \"0.41047590\", \"unRealizedProfit\": \"0.76427700\"\
+        ,      \"liquidationPrice\": \"0\", \"isolatedMargin\": \"0\", \"notional\"\
+        : \"12.31427700\", \"marginAsset\": \"USDT\", \"isolatedWallet\": \"0\", \"\
+        initialMargin\": \"0.61571385\",         \"maintMargin\": \"0.08004280\",\
+        \           \"positionInitialMargin\": \"0.61571385\", \"openOrderInitialMargin\"\
+        : \"0\",         \"adl\": 2, \"bidNotional\": \"0\",                    \"\
+        askNotional\": \"0\",                    \"updateTime\": 1720736417660 } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetPositionRiskV3RespItem'
+      type: array
     UfuturesGetPositionRiskV3RespItem:
       properties:
         adl:
@@ -6718,6 +6707,17 @@ components:
         dualSidePosition:
           type: boolean
       type: object
+    UfuturesGetPremiumIndexKlinesV1Resp:
+      example: "[ [ 1691603820000,           \"-0.00042931\",           \"-0.00023641\"\
+        ,           \"-0.00059406\",           \"-0.00043659\",           \"0\", \
+        \                    1691603879999,           \"0\",                     12,\
+        \                      \"0\",                     \"0\",                 \
+        \    \"0\"                      ] ]"
+      items:
+        items:
+          $ref: '#/components/schemas/UfuturesGetContinuousKlinesV1Resp_inner_inner'
+        type: array
+      type: array
     UfuturesGetPremiumIndexV1Resp:
       oneOf:
       - items:
@@ -6749,6 +6749,13 @@ components:
           format: int64
           type: integer
       type: object
+    UfuturesGetRateLimitOrderV1Resp:
+      example: "[ { \"rateLimitType\": \"ORDERS\", \"interval\": \"SECOND\", \"intervalNum\"\
+        : 10, \"limit\": 10000 }, { \"rateLimitType\": \"ORDERS\", \"interval\": \"\
+        MINUTE\", \"intervalNum\": 1, \"limit\": 20000 } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetRateLimitOrderV1RespItem'
+      type: array
     UfuturesGetRateLimitOrderV1RespItem:
       properties:
         interval:
@@ -6760,6 +6767,12 @@ components:
         rateLimitType:
           type: string
       type: object
+    UfuturesGetSymbolConfigV1Resp:
+      example: "[ { \"symbol\": \"BTCUSDT\", \"marginType\": \"CROSSED\", \"isAutoAddMargin\"\
+        : \"false\", \"leverage\": 21, \"maxNotionalValue\": \"1000000\" } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetSymbolConfigV1RespItem'
+      type: array
     UfuturesGetSymbolConfigV1RespItem:
       properties:
         isAutoAddMargin:
@@ -6920,6 +6933,13 @@ components:
         downloadId:
           type: string
       type: object
+    UfuturesGetTradesV1Resp:
+      example: "[ { \"id\": 28457, \"price\": \"4.00000100\", \"qty\": \"12.00000000\"\
+        , \"quoteQty\": \"48.00\", \"time\": 1499865549590, \"isBuyerMaker\": true\
+        \ } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetTradesV1RespItem'
+      type: array
     UfuturesGetTradesV1RespItem:
       properties:
         id:
@@ -6936,6 +6956,15 @@ components:
           format: int64
           type: integer
       type: object
+    UfuturesGetUserTradesV1Resp:
+      example: "[ { \"buyer\": false, \"commission\": \"-0.07819010\", \"commissionAsset\"\
+        : \"USDT\", \"id\": 698759, \"maker\": false, \"orderId\": 25851813, \"price\"\
+        : \"7819.01\", \"qty\": \"0.002\", \"quoteQty\": \"15.63802\", \"realizedPnl\"\
+        : \"-0.91539999\", \"side\": \"SELL\", \"positionSide\": \"SHORT\", \"symbol\"\
+        : \"BTCUSDT\", \"time\": 1569514978020 } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesGetUserTradesV1RespItem'
+      type: array
     UfuturesGetUserTradesV1RespItem:
       properties:
         buyer:
@@ -7014,6 +7043,20 @@ components:
       - side
       - symbol
       type: object
+    UfuturesUpdateBatchOrdersV1Resp:
+      example: "[ { \"orderId\": 20072994037, \"symbol\": \"BTCUSDT\", \"pair\": \"\
+        BTCUSDT\", \"status\": \"NEW\", \"clientOrderId\": \"LJ9R4QZDihCaS8UAOOLpgW\"\
+        , \"price\": \"30005\", \"avgPrice\": \"0.0\", \"origQty\": \"1\", \"executedQty\"\
+        : \"0\", \"cumQty\": \"0\", \"cumBase\": \"0\", \"timeInForce\": \"GTC\",\
+        \ \"type\": \"LIMIT\", \"reduceOnly\": false, \"closePosition\": false, \"\
+        side\": \"BUY\", \"positionSide\": \"LONG\", \"stopPrice\": \"0\", \"workingType\"\
+        : \"CONTRACT_PRICE\", \"priceProtect\": false, \"origType\": \"LIMIT\", \"\
+        priceMatch\": \"NONE\",               \"selfTradePreventionMode\": \"NONE\"\
+        ,  \"goodTillDate\": 0,                  \"updateTime\": 1629182711600 },\
+        \ { \"code\": -2022, \"msg\": \"ReduceOnly Order is rejected.\" } ]"
+      items:
+        $ref: '#/components/schemas/UfuturesUpdateBatchOrdersV1RespItem'
+      type: array
     UfuturesUpdateBatchOrdersV1RespItem:
       properties:
         avgPrice:
@@ -7177,20 +7220,14 @@ components:
         workingType:
           type: string
       type: object
-    UfuturesCreateBatchOrdersV1_200_response_inner:
+    UfuturesCreateBatchOrdersV1Resp_inner:
       oneOf:
       - $ref: '#/components/schemas/UfuturesCreateBatchOrdersV1RespItem'
       - $ref: '#/components/schemas/APIError'
-    UfuturesDeleteBatchOrdersV1_200_response_inner:
+    UfuturesDeleteBatchOrdersV1Resp_inner:
       oneOf:
       - $ref: '#/components/schemas/UfuturesDeleteBatchOrdersV1RespItem'
       - $ref: '#/components/schemas/APIError'
-    UfuturesGetContinuousKlinesV1_200_response_inner_inner:
-      oneOf:
-      - type: string
-      - format: int64
-        type: integer
-      - type: integer
     UfuturesGetAccountV2Resp_assets_inner:
       properties:
         asset:
@@ -7327,6 +7364,11 @@ components:
         symbol:
           type: string
       type: object
+    UfuturesGetContinuousKlinesV1Resp_inner_inner:
+      oneOf:
+      - type: string
+      - format: int64
+        type: integer
     UfuturesGetExchangeInfoV1Resp_assets_inner:
       properties:
         asset:

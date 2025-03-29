@@ -16,29 +16,29 @@ import (
 	"gopkg.in/validator.v2"
 )
 
-// UfuturesCreateBatchOrdersV1200ResponseInner - struct for UfuturesCreateBatchOrdersV1200ResponseInner
-type UfuturesCreateBatchOrdersV1200ResponseInner struct {
+// UfuturesCreateBatchOrdersV1RespInner - struct for UfuturesCreateBatchOrdersV1RespInner
+type UfuturesCreateBatchOrdersV1RespInner struct {
 	APIError *APIError
 	UfuturesCreateBatchOrdersV1RespItem *UfuturesCreateBatchOrdersV1RespItem
 }
 
-// APIErrorAsUfuturesCreateBatchOrdersV1200ResponseInner is a convenience function that returns APIError wrapped in UfuturesCreateBatchOrdersV1200ResponseInner
-func APIErrorAsUfuturesCreateBatchOrdersV1200ResponseInner(v *APIError) UfuturesCreateBatchOrdersV1200ResponseInner {
-	return UfuturesCreateBatchOrdersV1200ResponseInner{
+// APIErrorAsUfuturesCreateBatchOrdersV1RespInner is a convenience function that returns APIError wrapped in UfuturesCreateBatchOrdersV1RespInner
+func APIErrorAsUfuturesCreateBatchOrdersV1RespInner(v *APIError) UfuturesCreateBatchOrdersV1RespInner {
+	return UfuturesCreateBatchOrdersV1RespInner{
 		APIError: v,
 	}
 }
 
-// UfuturesCreateBatchOrdersV1RespItemAsUfuturesCreateBatchOrdersV1200ResponseInner is a convenience function that returns UfuturesCreateBatchOrdersV1RespItem wrapped in UfuturesCreateBatchOrdersV1200ResponseInner
-func UfuturesCreateBatchOrdersV1RespItemAsUfuturesCreateBatchOrdersV1200ResponseInner(v *UfuturesCreateBatchOrdersV1RespItem) UfuturesCreateBatchOrdersV1200ResponseInner {
-	return UfuturesCreateBatchOrdersV1200ResponseInner{
+// UfuturesCreateBatchOrdersV1RespItemAsUfuturesCreateBatchOrdersV1RespInner is a convenience function that returns UfuturesCreateBatchOrdersV1RespItem wrapped in UfuturesCreateBatchOrdersV1RespInner
+func UfuturesCreateBatchOrdersV1RespItemAsUfuturesCreateBatchOrdersV1RespInner(v *UfuturesCreateBatchOrdersV1RespItem) UfuturesCreateBatchOrdersV1RespInner {
+	return UfuturesCreateBatchOrdersV1RespInner{
 		UfuturesCreateBatchOrdersV1RespItem: v,
 	}
 }
 
 
 // Unmarshal JSON data into one of the pointers in the struct
-func (dst *UfuturesCreateBatchOrdersV1200ResponseInner) UnmarshalJSON(data []byte) error {
+func (dst *UfuturesCreateBatchOrdersV1RespInner) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into APIError
@@ -80,16 +80,16 @@ func (dst *UfuturesCreateBatchOrdersV1200ResponseInner) UnmarshalJSON(data []byt
 		dst.APIError = nil
 		dst.UfuturesCreateBatchOrdersV1RespItem = nil
 
-		return fmt.Errorf("data matches more than one schema in oneOf(UfuturesCreateBatchOrdersV1200ResponseInner)")
+		return fmt.Errorf("data matches more than one schema in oneOf(UfuturesCreateBatchOrdersV1RespInner)")
 	} else if match == 1 {
 		return nil // exactly one match
 	} else { // no match
-		return fmt.Errorf("data failed to match schemas in oneOf(UfuturesCreateBatchOrdersV1200ResponseInner)")
+		return fmt.Errorf("data failed to match schemas in oneOf(UfuturesCreateBatchOrdersV1RespInner)")
 	}
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src UfuturesCreateBatchOrdersV1200ResponseInner) MarshalJSON() ([]byte, error) {
+func (src UfuturesCreateBatchOrdersV1RespInner) MarshalJSON() ([]byte, error) {
 	if src.APIError != nil {
 		return json.Marshal(&src.APIError)
 	}
@@ -102,7 +102,7 @@ func (src UfuturesCreateBatchOrdersV1200ResponseInner) MarshalJSON() ([]byte, er
 }
 
 // Get the actual instance
-func (obj *UfuturesCreateBatchOrdersV1200ResponseInner) GetActualInstance() (interface{}) {
+func (obj *UfuturesCreateBatchOrdersV1RespInner) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
@@ -119,7 +119,7 @@ func (obj *UfuturesCreateBatchOrdersV1200ResponseInner) GetActualInstance() (int
 }
 
 // Get the actual instance value
-func (obj UfuturesCreateBatchOrdersV1200ResponseInner) GetActualInstanceValue() (interface{}) {
+func (obj UfuturesCreateBatchOrdersV1RespInner) GetActualInstanceValue() (interface{}) {
 	if obj.APIError != nil {
 		return *obj.APIError
 	}
@@ -132,38 +132,38 @@ func (obj UfuturesCreateBatchOrdersV1200ResponseInner) GetActualInstanceValue() 
 	return nil
 }
 
-type NullableUfuturesCreateBatchOrdersV1200ResponseInner struct {
-	value *UfuturesCreateBatchOrdersV1200ResponseInner
+type NullableUfuturesCreateBatchOrdersV1RespInner struct {
+	value *UfuturesCreateBatchOrdersV1RespInner
 	isSet bool
 }
 
-func (v NullableUfuturesCreateBatchOrdersV1200ResponseInner) Get() *UfuturesCreateBatchOrdersV1200ResponseInner {
+func (v NullableUfuturesCreateBatchOrdersV1RespInner) Get() *UfuturesCreateBatchOrdersV1RespInner {
 	return v.value
 }
 
-func (v *NullableUfuturesCreateBatchOrdersV1200ResponseInner) Set(val *UfuturesCreateBatchOrdersV1200ResponseInner) {
+func (v *NullableUfuturesCreateBatchOrdersV1RespInner) Set(val *UfuturesCreateBatchOrdersV1RespInner) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableUfuturesCreateBatchOrdersV1200ResponseInner) IsSet() bool {
+func (v NullableUfuturesCreateBatchOrdersV1RespInner) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableUfuturesCreateBatchOrdersV1200ResponseInner) Unset() {
+func (v *NullableUfuturesCreateBatchOrdersV1RespInner) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableUfuturesCreateBatchOrdersV1200ResponseInner(val *UfuturesCreateBatchOrdersV1200ResponseInner) *NullableUfuturesCreateBatchOrdersV1200ResponseInner {
-	return &NullableUfuturesCreateBatchOrdersV1200ResponseInner{value: val, isSet: true}
+func NewNullableUfuturesCreateBatchOrdersV1RespInner(val *UfuturesCreateBatchOrdersV1RespInner) *NullableUfuturesCreateBatchOrdersV1RespInner {
+	return &NullableUfuturesCreateBatchOrdersV1RespInner{value: val, isSet: true}
 }
 
-func (v NullableUfuturesCreateBatchOrdersV1200ResponseInner) MarshalJSON() ([]byte, error) {
+func (v NullableUfuturesCreateBatchOrdersV1RespInner) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableUfuturesCreateBatchOrdersV1200ResponseInner) UnmarshalJSON(src []byte) error {
+func (v *NullableUfuturesCreateBatchOrdersV1RespInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -34,7 +34,7 @@ Method | HTTP request | Description
 
 ## UfuturesCreateBatchOrdersV1
 
-> []UfuturesCreateBatchOrdersV1200ResponseInner UfuturesCreateBatchOrdersV1(ctx).BatchOrders(batchOrders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> []UfuturesCreateBatchOrdersV1RespInner UfuturesCreateBatchOrdersV1(ctx).BatchOrders(batchOrders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Place Multiple Orders(TRADE)
 
@@ -64,7 +64,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesCreateBatchOrdersV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesCreateBatchOrdersV1`: []UfuturesCreateBatchOrdersV1200ResponseInner
+	// response from `UfuturesCreateBatchOrdersV1`: []UfuturesCreateBatchOrdersV1RespInner
 	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesCreateBatchOrdersV1`: %v\n", resp)
 }
 ```
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesCreateBatchOrdersV1200ResponseInner**](UfuturesCreateBatchOrdersV1200ResponseInner.md)
+[**[]UfuturesCreateBatchOrdersV1RespInner**](UfuturesCreateBatchOrdersV1RespInner.md)
 
 ### Authorization
 
@@ -812,7 +812,7 @@ Name | Type | Description  | Notes
 
 ## UfuturesDeleteBatchOrdersV1
 
-> []UfuturesDeleteBatchOrdersV1200ResponseInner UfuturesDeleteBatchOrdersV1(ctx).Symbol(symbol).Timestamp(timestamp).OrderIdList(orderIdList).OrigClientOrderIdList(origClientOrderIdList).RecvWindow(recvWindow).Execute()
+> []UfuturesDeleteBatchOrdersV1RespInner UfuturesDeleteBatchOrdersV1(ctx).Symbol(symbol).Timestamp(timestamp).OrderIdList(orderIdList).OrigClientOrderIdList(origClientOrderIdList).RecvWindow(recvWindow).Execute()
 
 Cancel Multiple Orders (TRADE)
 
@@ -844,7 +844,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesDeleteBatchOrdersV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesDeleteBatchOrdersV1`: []UfuturesDeleteBatchOrdersV1200ResponseInner
+	// response from `UfuturesDeleteBatchOrdersV1`: []UfuturesDeleteBatchOrdersV1RespInner
 	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesDeleteBatchOrdersV1`: %v\n", resp)
 }
 ```
@@ -868,7 +868,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesDeleteBatchOrdersV1200ResponseInner**](UfuturesDeleteBatchOrdersV1200ResponseInner.md)
+[**[]UfuturesDeleteBatchOrdersV1RespInner**](UfuturesDeleteBatchOrdersV1RespInner.md)
 
 ### Authorization
 
