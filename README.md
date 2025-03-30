@@ -13,18 +13,13 @@ If you need to update the API client, please submit an issue or a PR to [OpenXAP
 ## Supported Products
 
 - [x] [Spot Trading](./spot)
-  - [x] General
-  - [x] Market Data
-  - [x] Trading
-  - [x] Account
-  - [x] User Data Stream
-- [ ] Derivatives Trading
+- [x] Derivatives Trading
   - [x] [USDS-M Futures](./ufutures)
-  - [ ] COIN-M Futures
-  - [ ] Options
-  - [ ] Portfolio Margin
-  - [ ] Portfolio Margin Pro
-  - [ ] Futures Data
+  - [x] [COIN-M Futures](./cfutures)
+  - [x] [Options](./options)
+  - [x] [Portfolio Margin](./pmargin)
+  - [x] [Portfolio Margin Pro](./pmarginpro)
+  - [x] [Futures Data](./futuresdata)
 - [ ] Margin Trading
 - [ ] Algo Trading
 - [ ] Wallet
