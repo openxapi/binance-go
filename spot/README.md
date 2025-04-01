@@ -9,8 +9,6 @@ Please do not edit the generated code manually, but rather regenerate it from [O
 
 - API version: 0.1.0
 - Package version: 0.1.0
-- Generator version: 7.13.0-SNAPSHOT
-- Build package: org.openapitools.codegen.languages.GoClientCodegen
 
 ## Installation
 
@@ -116,23 +114,6 @@ For using other server than the one defined on index 0 set context value `spot.C
 
 ```go
 ctx := context.WithValue(context.Background(), spot.ContextServerIndex, 1)
-```
-
-### URLs Configuration per Operation
-
-Each operation can use different server URL defined using `OperationServers` map in the `Configuration`.
-An operation is uniquely identified by `"{classname}Service.{nickname}"` string.
-Similar rules for overriding default operation server index and variables applies by using `spot.ContextOperationServerIndices` and `spot.ContextOperationServerVariables` context maps.
-
-```go
-ctx := context.WithValue(context.Background(), spot.ContextOperationServerIndices, map[string]int{
-    "{classname}Service.{nickname}": 2,
-})
-ctx = context.WithValue(context.Background(), spot.ContextOperationServerVariables, map[string]map[string]string{
-    "{classname}Service.{nickname}": {
-        "port": "8443",
-    },
-})
 ```
 
 ## Documentation for API Endpoints

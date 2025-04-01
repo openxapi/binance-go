@@ -4,33 +4,33 @@ All URIs are relative to *https://fapi.binance.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**UfuturesCreateFeeBurnV1**](AccountAPI.md#UfuturesCreateFeeBurnV1) | **Post** /fapi/v1/feeBurn | Toggle BNB Burn On Futures Trade (TRADE)
-[**UfuturesGetAccountConfigV1**](AccountAPI.md#UfuturesGetAccountConfigV1) | **Get** /fapi/v1/accountConfig | Futures Account Configuration(USER_DATA)
-[**UfuturesGetAccountV2**](AccountAPI.md#UfuturesGetAccountV2) | **Get** /fapi/v2/account | Account Information V2(USER_DATA)
-[**UfuturesGetAccountV3**](AccountAPI.md#UfuturesGetAccountV3) | **Get** /fapi/v3/account | Account Information V3(USER_DATA)
-[**UfuturesGetApiTradingStatusV1**](AccountAPI.md#UfuturesGetApiTradingStatusV1) | **Get** /fapi/v1/apiTradingStatus | Futures Trading Quantitative Rules Indicators (USER_DATA)
-[**UfuturesGetBalanceV2**](AccountAPI.md#UfuturesGetBalanceV2) | **Get** /fapi/v2/balance | Futures Account Balance V2 (USER_DATA)
-[**UfuturesGetBalanceV3**](AccountAPI.md#UfuturesGetBalanceV3) | **Get** /fapi/v3/balance | Futures Account Balance V3 (USER_DATA)
-[**UfuturesGetCommissionRateV1**](AccountAPI.md#UfuturesGetCommissionRateV1) | **Get** /fapi/v1/commissionRate | User Commission Rate (USER_DATA)
-[**UfuturesGetFeeBurnV1**](AccountAPI.md#UfuturesGetFeeBurnV1) | **Get** /fapi/v1/feeBurn | Get BNB Burn Status (USER_DATA)
-[**UfuturesGetIncomeAsynIdV1**](AccountAPI.md#UfuturesGetIncomeAsynIdV1) | **Get** /fapi/v1/income/asyn/id | Get Futures Transaction History Download Link by Id (USER_DATA)
-[**UfuturesGetIncomeAsynV1**](AccountAPI.md#UfuturesGetIncomeAsynV1) | **Get** /fapi/v1/income/asyn | Get Download Id For Futures Transaction History(USER_DATA)
-[**UfuturesGetIncomeV1**](AccountAPI.md#UfuturesGetIncomeV1) | **Get** /fapi/v1/income | Get Income History (USER_DATA)
-[**UfuturesGetLeverageBracketV1**](AccountAPI.md#UfuturesGetLeverageBracketV1) | **Get** /fapi/v1/leverageBracket | Notional and Leverage Brackets (USER_DATA)
-[**UfuturesGetMultiAssetsMarginV1**](AccountAPI.md#UfuturesGetMultiAssetsMarginV1) | **Get** /fapi/v1/multiAssetsMargin | Get Current Multi-Assets Mode (USER_DATA)
-[**UfuturesGetOrderAsynIdV1**](AccountAPI.md#UfuturesGetOrderAsynIdV1) | **Get** /fapi/v1/order/asyn/id | Get Futures Order History Download Link by Id (USER_DATA)
-[**UfuturesGetOrderAsynV1**](AccountAPI.md#UfuturesGetOrderAsynV1) | **Get** /fapi/v1/order/asyn | Get Download Id For Futures Order History (USER_DATA)
-[**UfuturesGetPositionSideDualV1**](AccountAPI.md#UfuturesGetPositionSideDualV1) | **Get** /fapi/v1/positionSide/dual | Get Current Position Mode(USER_DATA)
-[**UfuturesGetRateLimitOrderV1**](AccountAPI.md#UfuturesGetRateLimitOrderV1) | **Get** /fapi/v1/rateLimit/order | Query User Rate Limit (USER_DATA)
-[**UfuturesGetSymbolConfigV1**](AccountAPI.md#UfuturesGetSymbolConfigV1) | **Get** /fapi/v1/symbolConfig | Symbol Configuration(USER_DATA)
-[**UfuturesGetTradeAsynIdV1**](AccountAPI.md#UfuturesGetTradeAsynIdV1) | **Get** /fapi/v1/trade/asyn/id | Get Futures Trade Download Link by Id(USER_DATA)
-[**UfuturesGetTradeAsynV1**](AccountAPI.md#UfuturesGetTradeAsynV1) | **Get** /fapi/v1/trade/asyn | Get Download Id For Futures Trade History (USER_DATA)
+[**UmfuturesCreateFeeBurnV1**](AccountAPI.md#UmfuturesCreateFeeBurnV1) | **Post** /fapi/v1/feeBurn | Toggle BNB Burn On Futures Trade (TRADE)
+[**UmfuturesGetAccountConfigV1**](AccountAPI.md#UmfuturesGetAccountConfigV1) | **Get** /fapi/v1/accountConfig | Futures Account Configuration(USER_DATA)
+[**UmfuturesGetAccountV2**](AccountAPI.md#UmfuturesGetAccountV2) | **Get** /fapi/v2/account | Account Information V2(USER_DATA)
+[**UmfuturesGetAccountV3**](AccountAPI.md#UmfuturesGetAccountV3) | **Get** /fapi/v3/account | Account Information V3(USER_DATA)
+[**UmfuturesGetApiTradingStatusV1**](AccountAPI.md#UmfuturesGetApiTradingStatusV1) | **Get** /fapi/v1/apiTradingStatus | Futures Trading Quantitative Rules Indicators (USER_DATA)
+[**UmfuturesGetBalanceV2**](AccountAPI.md#UmfuturesGetBalanceV2) | **Get** /fapi/v2/balance | Futures Account Balance V2 (USER_DATA)
+[**UmfuturesGetBalanceV3**](AccountAPI.md#UmfuturesGetBalanceV3) | **Get** /fapi/v3/balance | Futures Account Balance V3 (USER_DATA)
+[**UmfuturesGetCommissionRateV1**](AccountAPI.md#UmfuturesGetCommissionRateV1) | **Get** /fapi/v1/commissionRate | User Commission Rate (USER_DATA)
+[**UmfuturesGetFeeBurnV1**](AccountAPI.md#UmfuturesGetFeeBurnV1) | **Get** /fapi/v1/feeBurn | Get BNB Burn Status (USER_DATA)
+[**UmfuturesGetIncomeAsynIdV1**](AccountAPI.md#UmfuturesGetIncomeAsynIdV1) | **Get** /fapi/v1/income/asyn/id | Get Futures Transaction History Download Link by Id (USER_DATA)
+[**UmfuturesGetIncomeAsynV1**](AccountAPI.md#UmfuturesGetIncomeAsynV1) | **Get** /fapi/v1/income/asyn | Get Download Id For Futures Transaction History(USER_DATA)
+[**UmfuturesGetIncomeV1**](AccountAPI.md#UmfuturesGetIncomeV1) | **Get** /fapi/v1/income | Get Income History (USER_DATA)
+[**UmfuturesGetLeverageBracketV1**](AccountAPI.md#UmfuturesGetLeverageBracketV1) | **Get** /fapi/v1/leverageBracket | Notional and Leverage Brackets (USER_DATA)
+[**UmfuturesGetMultiAssetsMarginV1**](AccountAPI.md#UmfuturesGetMultiAssetsMarginV1) | **Get** /fapi/v1/multiAssetsMargin | Get Current Multi-Assets Mode (USER_DATA)
+[**UmfuturesGetOrderAsynIdV1**](AccountAPI.md#UmfuturesGetOrderAsynIdV1) | **Get** /fapi/v1/order/asyn/id | Get Futures Order History Download Link by Id (USER_DATA)
+[**UmfuturesGetOrderAsynV1**](AccountAPI.md#UmfuturesGetOrderAsynV1) | **Get** /fapi/v1/order/asyn | Get Download Id For Futures Order History (USER_DATA)
+[**UmfuturesGetPositionSideDualV1**](AccountAPI.md#UmfuturesGetPositionSideDualV1) | **Get** /fapi/v1/positionSide/dual | Get Current Position Mode(USER_DATA)
+[**UmfuturesGetRateLimitOrderV1**](AccountAPI.md#UmfuturesGetRateLimitOrderV1) | **Get** /fapi/v1/rateLimit/order | Query User Rate Limit (USER_DATA)
+[**UmfuturesGetSymbolConfigV1**](AccountAPI.md#UmfuturesGetSymbolConfigV1) | **Get** /fapi/v1/symbolConfig | Symbol Configuration(USER_DATA)
+[**UmfuturesGetTradeAsynIdV1**](AccountAPI.md#UmfuturesGetTradeAsynIdV1) | **Get** /fapi/v1/trade/asyn/id | Get Futures Trade Download Link by Id(USER_DATA)
+[**UmfuturesGetTradeAsynV1**](AccountAPI.md#UmfuturesGetTradeAsynV1) | **Get** /fapi/v1/trade/asyn | Get Download Id For Futures Trade History (USER_DATA)
 
 
 
-## UfuturesCreateFeeBurnV1
+## UmfuturesCreateFeeBurnV1
 
-> UfuturesCreateFeeBurnV1Resp UfuturesCreateFeeBurnV1(ctx).FeeBurn(feeBurn).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> UmfuturesCreateFeeBurnV1Resp UmfuturesCreateFeeBurnV1(ctx).FeeBurn(feeBurn).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Toggle BNB Burn On Futures Trade (TRADE)
 
@@ -55,13 +55,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.UfuturesCreateFeeBurnV1(context.Background()).FeeBurn(feeBurn).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.UmfuturesCreateFeeBurnV1(context.Background()).FeeBurn(feeBurn).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UfuturesCreateFeeBurnV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UmfuturesCreateFeeBurnV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesCreateFeeBurnV1`: UfuturesCreateFeeBurnV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UfuturesCreateFeeBurnV1`: %v\n", resp)
+	// response from `UmfuturesCreateFeeBurnV1`: UmfuturesCreateFeeBurnV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UmfuturesCreateFeeBurnV1`: %v\n", resp)
 }
 ```
 
@@ -71,7 +71,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesCreateFeeBurnV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesCreateFeeBurnV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesCreateFeeBurnV1Resp**](UfuturesCreateFeeBurnV1Resp.md)
+[**UmfuturesCreateFeeBurnV1Resp**](UmfuturesCreateFeeBurnV1Resp.md)
 
 ### Authorization
 
@@ -98,9 +98,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetAccountConfigV1
+## UmfuturesGetAccountConfigV1
 
-> UfuturesGetAccountConfigV1Resp UfuturesGetAccountConfigV1(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> UmfuturesGetAccountConfigV1Resp UmfuturesGetAccountConfigV1(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Futures Account Configuration(USER_DATA)
 
@@ -124,13 +124,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.UfuturesGetAccountConfigV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.UmfuturesGetAccountConfigV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UfuturesGetAccountConfigV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UmfuturesGetAccountConfigV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetAccountConfigV1`: UfuturesGetAccountConfigV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UfuturesGetAccountConfigV1`: %v\n", resp)
+	// response from `UmfuturesGetAccountConfigV1`: UmfuturesGetAccountConfigV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UmfuturesGetAccountConfigV1`: %v\n", resp)
 }
 ```
 
@@ -140,7 +140,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetAccountConfigV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetAccountConfigV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetAccountConfigV1Resp**](UfuturesGetAccountConfigV1Resp.md)
+[**UmfuturesGetAccountConfigV1Resp**](UmfuturesGetAccountConfigV1Resp.md)
 
 ### Authorization
 
@@ -166,9 +166,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetAccountV2
+## UmfuturesGetAccountV2
 
-> UfuturesGetAccountV2Resp UfuturesGetAccountV2(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> UmfuturesGetAccountV2Resp UmfuturesGetAccountV2(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Account Information V2(USER_DATA)
 
@@ -192,13 +192,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.UfuturesGetAccountV2(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.UmfuturesGetAccountV2(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UfuturesGetAccountV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UmfuturesGetAccountV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetAccountV2`: UfuturesGetAccountV2Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UfuturesGetAccountV2`: %v\n", resp)
+	// response from `UmfuturesGetAccountV2`: UmfuturesGetAccountV2Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UmfuturesGetAccountV2`: %v\n", resp)
 }
 ```
 
@@ -208,7 +208,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetAccountV2Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetAccountV2Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetAccountV2Resp**](UfuturesGetAccountV2Resp.md)
+[**UmfuturesGetAccountV2Resp**](UmfuturesGetAccountV2Resp.md)
 
 ### Authorization
 
@@ -234,9 +234,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetAccountV3
+## UmfuturesGetAccountV3
 
-> UfuturesGetAccountV3Resp UfuturesGetAccountV3(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> UmfuturesGetAccountV3Resp UmfuturesGetAccountV3(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Account Information V3(USER_DATA)
 
@@ -260,13 +260,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.UfuturesGetAccountV3(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.UmfuturesGetAccountV3(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UfuturesGetAccountV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UmfuturesGetAccountV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetAccountV3`: UfuturesGetAccountV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UfuturesGetAccountV3`: %v\n", resp)
+	// response from `UmfuturesGetAccountV3`: UmfuturesGetAccountV3Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UmfuturesGetAccountV3`: %v\n", resp)
 }
 ```
 
@@ -276,7 +276,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetAccountV3Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetAccountV3Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -286,7 +286,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetAccountV3Resp**](UfuturesGetAccountV3Resp.md)
+[**UmfuturesGetAccountV3Resp**](UmfuturesGetAccountV3Resp.md)
 
 ### Authorization
 
@@ -302,9 +302,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetApiTradingStatusV1
+## UmfuturesGetApiTradingStatusV1
 
-> UfuturesGetApiTradingStatusV1Resp UfuturesGetApiTradingStatusV1(ctx).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+> UmfuturesGetApiTradingStatusV1Resp UmfuturesGetApiTradingStatusV1(ctx).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 
 Futures Trading Quantitative Rules Indicators (USER_DATA)
 
@@ -329,13 +329,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.UfuturesGetApiTradingStatusV1(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.UmfuturesGetApiTradingStatusV1(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UfuturesGetApiTradingStatusV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UmfuturesGetApiTradingStatusV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetApiTradingStatusV1`: UfuturesGetApiTradingStatusV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UfuturesGetApiTradingStatusV1`: %v\n", resp)
+	// response from `UmfuturesGetApiTradingStatusV1`: UmfuturesGetApiTradingStatusV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UmfuturesGetApiTradingStatusV1`: %v\n", resp)
 }
 ```
 
@@ -345,7 +345,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetApiTradingStatusV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetApiTradingStatusV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -356,7 +356,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetApiTradingStatusV1Resp**](UfuturesGetApiTradingStatusV1Resp.md)
+[**UmfuturesGetApiTradingStatusV1Resp**](UmfuturesGetApiTradingStatusV1Resp.md)
 
 ### Authorization
 
@@ -372,9 +372,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetBalanceV2
+## UmfuturesGetBalanceV2
 
-> []UfuturesGetBalanceV2RespItem UfuturesGetBalanceV2(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> []UmfuturesGetBalanceV2RespItem UmfuturesGetBalanceV2(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Futures Account Balance V2 (USER_DATA)
 
@@ -398,13 +398,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.UfuturesGetBalanceV2(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.UmfuturesGetBalanceV2(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UfuturesGetBalanceV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UmfuturesGetBalanceV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetBalanceV2`: []UfuturesGetBalanceV2RespItem
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UfuturesGetBalanceV2`: %v\n", resp)
+	// response from `UmfuturesGetBalanceV2`: []UmfuturesGetBalanceV2RespItem
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UmfuturesGetBalanceV2`: %v\n", resp)
 }
 ```
 
@@ -414,7 +414,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetBalanceV2Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetBalanceV2Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -424,7 +424,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetBalanceV2RespItem**](UfuturesGetBalanceV2RespItem.md)
+[**[]UmfuturesGetBalanceV2RespItem**](UmfuturesGetBalanceV2RespItem.md)
 
 ### Authorization
 
@@ -440,9 +440,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetBalanceV3
+## UmfuturesGetBalanceV3
 
-> []UfuturesGetBalanceV3RespItem UfuturesGetBalanceV3(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> []UmfuturesGetBalanceV3RespItem UmfuturesGetBalanceV3(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Futures Account Balance V3 (USER_DATA)
 
@@ -466,13 +466,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.UfuturesGetBalanceV3(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.UmfuturesGetBalanceV3(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UfuturesGetBalanceV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UmfuturesGetBalanceV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetBalanceV3`: []UfuturesGetBalanceV3RespItem
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UfuturesGetBalanceV3`: %v\n", resp)
+	// response from `UmfuturesGetBalanceV3`: []UmfuturesGetBalanceV3RespItem
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UmfuturesGetBalanceV3`: %v\n", resp)
 }
 ```
 
@@ -482,7 +482,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetBalanceV3Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetBalanceV3Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -492,7 +492,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetBalanceV3RespItem**](UfuturesGetBalanceV3RespItem.md)
+[**[]UmfuturesGetBalanceV3RespItem**](UmfuturesGetBalanceV3RespItem.md)
 
 ### Authorization
 
@@ -508,9 +508,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetCommissionRateV1
+## UmfuturesGetCommissionRateV1
 
-> UfuturesGetCommissionRateV1Resp UfuturesGetCommissionRateV1(ctx).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> UmfuturesGetCommissionRateV1Resp UmfuturesGetCommissionRateV1(ctx).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 User Commission Rate (USER_DATA)
 
@@ -535,13 +535,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.UfuturesGetCommissionRateV1(context.Background()).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.UmfuturesGetCommissionRateV1(context.Background()).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UfuturesGetCommissionRateV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UmfuturesGetCommissionRateV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetCommissionRateV1`: UfuturesGetCommissionRateV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UfuturesGetCommissionRateV1`: %v\n", resp)
+	// response from `UmfuturesGetCommissionRateV1`: UmfuturesGetCommissionRateV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UmfuturesGetCommissionRateV1`: %v\n", resp)
 }
 ```
 
@@ -551,7 +551,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetCommissionRateV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetCommissionRateV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -562,7 +562,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetCommissionRateV1Resp**](UfuturesGetCommissionRateV1Resp.md)
+[**UmfuturesGetCommissionRateV1Resp**](UmfuturesGetCommissionRateV1Resp.md)
 
 ### Authorization
 
@@ -578,9 +578,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetFeeBurnV1
+## UmfuturesGetFeeBurnV1
 
-> UfuturesGetFeeBurnV1Resp UfuturesGetFeeBurnV1(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> UmfuturesGetFeeBurnV1Resp UmfuturesGetFeeBurnV1(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Get BNB Burn Status (USER_DATA)
 
@@ -604,13 +604,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.UfuturesGetFeeBurnV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.UmfuturesGetFeeBurnV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UfuturesGetFeeBurnV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UmfuturesGetFeeBurnV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetFeeBurnV1`: UfuturesGetFeeBurnV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UfuturesGetFeeBurnV1`: %v\n", resp)
+	// response from `UmfuturesGetFeeBurnV1`: UmfuturesGetFeeBurnV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UmfuturesGetFeeBurnV1`: %v\n", resp)
 }
 ```
 
@@ -620,7 +620,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetFeeBurnV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetFeeBurnV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -630,7 +630,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetFeeBurnV1Resp**](UfuturesGetFeeBurnV1Resp.md)
+[**UmfuturesGetFeeBurnV1Resp**](UmfuturesGetFeeBurnV1Resp.md)
 
 ### Authorization
 
@@ -646,9 +646,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetIncomeAsynIdV1
+## UmfuturesGetIncomeAsynIdV1
 
-> UfuturesGetIncomeAsynIdV1Resp UfuturesGetIncomeAsynIdV1(ctx).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> UmfuturesGetIncomeAsynIdV1Resp UmfuturesGetIncomeAsynIdV1(ctx).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Get Futures Transaction History Download Link by Id (USER_DATA)
 
@@ -673,13 +673,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.UfuturesGetIncomeAsynIdV1(context.Background()).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.UmfuturesGetIncomeAsynIdV1(context.Background()).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UfuturesGetIncomeAsynIdV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UmfuturesGetIncomeAsynIdV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetIncomeAsynIdV1`: UfuturesGetIncomeAsynIdV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UfuturesGetIncomeAsynIdV1`: %v\n", resp)
+	// response from `UmfuturesGetIncomeAsynIdV1`: UmfuturesGetIncomeAsynIdV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UmfuturesGetIncomeAsynIdV1`: %v\n", resp)
 }
 ```
 
@@ -689,7 +689,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetIncomeAsynIdV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetIncomeAsynIdV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -700,7 +700,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetIncomeAsynIdV1Resp**](UfuturesGetIncomeAsynIdV1Resp.md)
+[**UmfuturesGetIncomeAsynIdV1Resp**](UmfuturesGetIncomeAsynIdV1Resp.md)
 
 ### Authorization
 
@@ -716,9 +716,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetIncomeAsynV1
+## UmfuturesGetIncomeAsynV1
 
-> UfuturesGetIncomeAsynV1Resp UfuturesGetIncomeAsynV1(ctx).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> UmfuturesGetIncomeAsynV1Resp UmfuturesGetIncomeAsynV1(ctx).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Get Download Id For Futures Transaction History(USER_DATA)
 
@@ -744,13 +744,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.UfuturesGetIncomeAsynV1(context.Background()).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.UmfuturesGetIncomeAsynV1(context.Background()).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UfuturesGetIncomeAsynV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UmfuturesGetIncomeAsynV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetIncomeAsynV1`: UfuturesGetIncomeAsynV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UfuturesGetIncomeAsynV1`: %v\n", resp)
+	// response from `UmfuturesGetIncomeAsynV1`: UmfuturesGetIncomeAsynV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UmfuturesGetIncomeAsynV1`: %v\n", resp)
 }
 ```
 
@@ -760,7 +760,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetIncomeAsynV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetIncomeAsynV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -772,7 +772,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetIncomeAsynV1Resp**](UfuturesGetIncomeAsynV1Resp.md)
+[**UmfuturesGetIncomeAsynV1Resp**](UmfuturesGetIncomeAsynV1Resp.md)
 
 ### Authorization
 
@@ -788,9 +788,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetIncomeV1
+## UmfuturesGetIncomeV1
 
-> []UfuturesGetIncomeV1RespItem UfuturesGetIncomeV1(ctx).Timestamp(timestamp).Symbol(symbol).IncomeType(incomeType).StartTime(startTime).EndTime(endTime).Page(page).Limit(limit).RecvWindow(recvWindow).Execute()
+> []UmfuturesGetIncomeV1RespItem UmfuturesGetIncomeV1(ctx).Timestamp(timestamp).Symbol(symbol).IncomeType(incomeType).StartTime(startTime).EndTime(endTime).Page(page).Limit(limit).RecvWindow(recvWindow).Execute()
 
 Get Income History (USER_DATA)
 
@@ -820,13 +820,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.UfuturesGetIncomeV1(context.Background()).Timestamp(timestamp).Symbol(symbol).IncomeType(incomeType).StartTime(startTime).EndTime(endTime).Page(page).Limit(limit).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.UmfuturesGetIncomeV1(context.Background()).Timestamp(timestamp).Symbol(symbol).IncomeType(incomeType).StartTime(startTime).EndTime(endTime).Page(page).Limit(limit).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UfuturesGetIncomeV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UmfuturesGetIncomeV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetIncomeV1`: []UfuturesGetIncomeV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UfuturesGetIncomeV1`: %v\n", resp)
+	// response from `UmfuturesGetIncomeV1`: []UmfuturesGetIncomeV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UmfuturesGetIncomeV1`: %v\n", resp)
 }
 ```
 
@@ -836,7 +836,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetIncomeV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetIncomeV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -852,7 +852,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetIncomeV1RespItem**](UfuturesGetIncomeV1RespItem.md)
+[**[]UmfuturesGetIncomeV1RespItem**](UmfuturesGetIncomeV1RespItem.md)
 
 ### Authorization
 
@@ -868,9 +868,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetLeverageBracketV1
+## UmfuturesGetLeverageBracketV1
 
-> UfuturesGetLeverageBracketV1Resp UfuturesGetLeverageBracketV1(ctx).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+> UmfuturesGetLeverageBracketV1Resp UmfuturesGetLeverageBracketV1(ctx).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 
 Notional and Leverage Brackets (USER_DATA)
 
@@ -895,13 +895,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.UfuturesGetLeverageBracketV1(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.UmfuturesGetLeverageBracketV1(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UfuturesGetLeverageBracketV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UmfuturesGetLeverageBracketV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetLeverageBracketV1`: UfuturesGetLeverageBracketV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UfuturesGetLeverageBracketV1`: %v\n", resp)
+	// response from `UmfuturesGetLeverageBracketV1`: UmfuturesGetLeverageBracketV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UmfuturesGetLeverageBracketV1`: %v\n", resp)
 }
 ```
 
@@ -911,7 +911,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetLeverageBracketV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetLeverageBracketV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -922,7 +922,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetLeverageBracketV1Resp**](UfuturesGetLeverageBracketV1Resp.md)
+[**UmfuturesGetLeverageBracketV1Resp**](UmfuturesGetLeverageBracketV1Resp.md)
 
 ### Authorization
 
@@ -938,9 +938,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetMultiAssetsMarginV1
+## UmfuturesGetMultiAssetsMarginV1
 
-> UfuturesGetMultiAssetsMarginV1Resp UfuturesGetMultiAssetsMarginV1(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> UmfuturesGetMultiAssetsMarginV1Resp UmfuturesGetMultiAssetsMarginV1(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Get Current Multi-Assets Mode (USER_DATA)
 
@@ -964,13 +964,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.UfuturesGetMultiAssetsMarginV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.UmfuturesGetMultiAssetsMarginV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UfuturesGetMultiAssetsMarginV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UmfuturesGetMultiAssetsMarginV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetMultiAssetsMarginV1`: UfuturesGetMultiAssetsMarginV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UfuturesGetMultiAssetsMarginV1`: %v\n", resp)
+	// response from `UmfuturesGetMultiAssetsMarginV1`: UmfuturesGetMultiAssetsMarginV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UmfuturesGetMultiAssetsMarginV1`: %v\n", resp)
 }
 ```
 
@@ -980,7 +980,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetMultiAssetsMarginV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetMultiAssetsMarginV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -990,7 +990,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetMultiAssetsMarginV1Resp**](UfuturesGetMultiAssetsMarginV1Resp.md)
+[**UmfuturesGetMultiAssetsMarginV1Resp**](UmfuturesGetMultiAssetsMarginV1Resp.md)
 
 ### Authorization
 
@@ -1006,9 +1006,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetOrderAsynIdV1
+## UmfuturesGetOrderAsynIdV1
 
-> UfuturesGetOrderAsynIdV1Resp UfuturesGetOrderAsynIdV1(ctx).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> UmfuturesGetOrderAsynIdV1Resp UmfuturesGetOrderAsynIdV1(ctx).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Get Futures Order History Download Link by Id (USER_DATA)
 
@@ -1033,13 +1033,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.UfuturesGetOrderAsynIdV1(context.Background()).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.UmfuturesGetOrderAsynIdV1(context.Background()).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UfuturesGetOrderAsynIdV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UmfuturesGetOrderAsynIdV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetOrderAsynIdV1`: UfuturesGetOrderAsynIdV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UfuturesGetOrderAsynIdV1`: %v\n", resp)
+	// response from `UmfuturesGetOrderAsynIdV1`: UmfuturesGetOrderAsynIdV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UmfuturesGetOrderAsynIdV1`: %v\n", resp)
 }
 ```
 
@@ -1049,7 +1049,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetOrderAsynIdV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetOrderAsynIdV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1060,7 +1060,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetOrderAsynIdV1Resp**](UfuturesGetOrderAsynIdV1Resp.md)
+[**UmfuturesGetOrderAsynIdV1Resp**](UmfuturesGetOrderAsynIdV1Resp.md)
 
 ### Authorization
 
@@ -1076,9 +1076,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetOrderAsynV1
+## UmfuturesGetOrderAsynV1
 
-> UfuturesGetOrderAsynV1Resp UfuturesGetOrderAsynV1(ctx).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> UmfuturesGetOrderAsynV1Resp UmfuturesGetOrderAsynV1(ctx).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Get Download Id For Futures Order History (USER_DATA)
 
@@ -1104,13 +1104,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.UfuturesGetOrderAsynV1(context.Background()).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.UmfuturesGetOrderAsynV1(context.Background()).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UfuturesGetOrderAsynV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UmfuturesGetOrderAsynV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetOrderAsynV1`: UfuturesGetOrderAsynV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UfuturesGetOrderAsynV1`: %v\n", resp)
+	// response from `UmfuturesGetOrderAsynV1`: UmfuturesGetOrderAsynV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UmfuturesGetOrderAsynV1`: %v\n", resp)
 }
 ```
 
@@ -1120,7 +1120,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetOrderAsynV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetOrderAsynV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1132,7 +1132,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetOrderAsynV1Resp**](UfuturesGetOrderAsynV1Resp.md)
+[**UmfuturesGetOrderAsynV1Resp**](UmfuturesGetOrderAsynV1Resp.md)
 
 ### Authorization
 
@@ -1148,9 +1148,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetPositionSideDualV1
+## UmfuturesGetPositionSideDualV1
 
-> UfuturesGetPositionSideDualV1Resp UfuturesGetPositionSideDualV1(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> UmfuturesGetPositionSideDualV1Resp UmfuturesGetPositionSideDualV1(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Get Current Position Mode(USER_DATA)
 
@@ -1174,13 +1174,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.UfuturesGetPositionSideDualV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.UmfuturesGetPositionSideDualV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UfuturesGetPositionSideDualV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UmfuturesGetPositionSideDualV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetPositionSideDualV1`: UfuturesGetPositionSideDualV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UfuturesGetPositionSideDualV1`: %v\n", resp)
+	// response from `UmfuturesGetPositionSideDualV1`: UmfuturesGetPositionSideDualV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UmfuturesGetPositionSideDualV1`: %v\n", resp)
 }
 ```
 
@@ -1190,7 +1190,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetPositionSideDualV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetPositionSideDualV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1200,7 +1200,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetPositionSideDualV1Resp**](UfuturesGetPositionSideDualV1Resp.md)
+[**UmfuturesGetPositionSideDualV1Resp**](UmfuturesGetPositionSideDualV1Resp.md)
 
 ### Authorization
 
@@ -1216,9 +1216,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetRateLimitOrderV1
+## UmfuturesGetRateLimitOrderV1
 
-> []UfuturesGetRateLimitOrderV1RespItem UfuturesGetRateLimitOrderV1(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> []UmfuturesGetRateLimitOrderV1RespItem UmfuturesGetRateLimitOrderV1(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Query User Rate Limit (USER_DATA)
 
@@ -1242,13 +1242,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.UfuturesGetRateLimitOrderV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.UmfuturesGetRateLimitOrderV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UfuturesGetRateLimitOrderV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UmfuturesGetRateLimitOrderV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetRateLimitOrderV1`: []UfuturesGetRateLimitOrderV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UfuturesGetRateLimitOrderV1`: %v\n", resp)
+	// response from `UmfuturesGetRateLimitOrderV1`: []UmfuturesGetRateLimitOrderV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UmfuturesGetRateLimitOrderV1`: %v\n", resp)
 }
 ```
 
@@ -1258,7 +1258,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetRateLimitOrderV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetRateLimitOrderV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1268,7 +1268,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetRateLimitOrderV1RespItem**](UfuturesGetRateLimitOrderV1RespItem.md)
+[**[]UmfuturesGetRateLimitOrderV1RespItem**](UmfuturesGetRateLimitOrderV1RespItem.md)
 
 ### Authorization
 
@@ -1284,9 +1284,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetSymbolConfigV1
+## UmfuturesGetSymbolConfigV1
 
-> []UfuturesGetSymbolConfigV1RespItem UfuturesGetSymbolConfigV1(ctx).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+> []UmfuturesGetSymbolConfigV1RespItem UmfuturesGetSymbolConfigV1(ctx).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 
 Symbol Configuration(USER_DATA)
 
@@ -1311,13 +1311,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.UfuturesGetSymbolConfigV1(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.UmfuturesGetSymbolConfigV1(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UfuturesGetSymbolConfigV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UmfuturesGetSymbolConfigV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetSymbolConfigV1`: []UfuturesGetSymbolConfigV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UfuturesGetSymbolConfigV1`: %v\n", resp)
+	// response from `UmfuturesGetSymbolConfigV1`: []UmfuturesGetSymbolConfigV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UmfuturesGetSymbolConfigV1`: %v\n", resp)
 }
 ```
 
@@ -1327,7 +1327,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetSymbolConfigV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetSymbolConfigV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1338,7 +1338,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetSymbolConfigV1RespItem**](UfuturesGetSymbolConfigV1RespItem.md)
+[**[]UmfuturesGetSymbolConfigV1RespItem**](UmfuturesGetSymbolConfigV1RespItem.md)
 
 ### Authorization
 
@@ -1354,9 +1354,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetTradeAsynIdV1
+## UmfuturesGetTradeAsynIdV1
 
-> UfuturesGetTradeAsynIdV1Resp UfuturesGetTradeAsynIdV1(ctx).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> UmfuturesGetTradeAsynIdV1Resp UmfuturesGetTradeAsynIdV1(ctx).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Get Futures Trade Download Link by Id(USER_DATA)
 
@@ -1381,13 +1381,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.UfuturesGetTradeAsynIdV1(context.Background()).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.UmfuturesGetTradeAsynIdV1(context.Background()).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UfuturesGetTradeAsynIdV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UmfuturesGetTradeAsynIdV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetTradeAsynIdV1`: UfuturesGetTradeAsynIdV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UfuturesGetTradeAsynIdV1`: %v\n", resp)
+	// response from `UmfuturesGetTradeAsynIdV1`: UmfuturesGetTradeAsynIdV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UmfuturesGetTradeAsynIdV1`: %v\n", resp)
 }
 ```
 
@@ -1397,7 +1397,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetTradeAsynIdV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetTradeAsynIdV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1408,7 +1408,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetTradeAsynIdV1Resp**](UfuturesGetTradeAsynIdV1Resp.md)
+[**UmfuturesGetTradeAsynIdV1Resp**](UmfuturesGetTradeAsynIdV1Resp.md)
 
 ### Authorization
 
@@ -1424,9 +1424,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetTradeAsynV1
+## UmfuturesGetTradeAsynV1
 
-> UfuturesGetTradeAsynV1Resp UfuturesGetTradeAsynV1(ctx).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> UmfuturesGetTradeAsynV1Resp UmfuturesGetTradeAsynV1(ctx).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Get Download Id For Futures Trade History (USER_DATA)
 
@@ -1452,13 +1452,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.UfuturesGetTradeAsynV1(context.Background()).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.UmfuturesGetTradeAsynV1(context.Background()).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UfuturesGetTradeAsynV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.UmfuturesGetTradeAsynV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetTradeAsynV1`: UfuturesGetTradeAsynV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UfuturesGetTradeAsynV1`: %v\n", resp)
+	// response from `UmfuturesGetTradeAsynV1`: UmfuturesGetTradeAsynV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.UmfuturesGetTradeAsynV1`: %v\n", resp)
 }
 ```
 
@@ -1468,7 +1468,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetTradeAsynV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetTradeAsynV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1480,7 +1480,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetTradeAsynV1Resp**](UfuturesGetTradeAsynV1Resp.md)
+[**UmfuturesGetTradeAsynV1Resp**](UmfuturesGetTradeAsynV1Resp.md)
 
 ### Authorization
 

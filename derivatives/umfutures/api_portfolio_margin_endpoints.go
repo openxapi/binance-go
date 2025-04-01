@@ -1,7 +1,7 @@
 /*
-Binance Ufutures API
+Binance Umfutures API
 
-OpenAPI specification for Binance cryptocurrency exchange - Ufutures API
+OpenAPI specification for Binance cryptocurrency exchange - Umfutures API
 
 API version: 0.1.0
 */
@@ -22,7 +22,7 @@ import (
 // PortfolioMarginEndpointsAPIService PortfolioMarginEndpointsAPI service
 type PortfolioMarginEndpointsAPIService service
 
-type PortfolioMarginEndpointsAPIUfuturesGetPmAccountInfoV1Request struct {
+type PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request struct {
 	ctx context.Context
 	ApiService *PortfolioMarginEndpointsAPIService
 	asset *string
@@ -30,51 +30,51 @@ type PortfolioMarginEndpointsAPIUfuturesGetPmAccountInfoV1Request struct {
 	recvWindow *int64
 }
 
-func (r PortfolioMarginEndpointsAPIUfuturesGetPmAccountInfoV1Request) Asset(asset string) PortfolioMarginEndpointsAPIUfuturesGetPmAccountInfoV1Request {
+func (r PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request) Asset(asset string) PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r PortfolioMarginEndpointsAPIUfuturesGetPmAccountInfoV1Request) Timestamp(timestamp int64) PortfolioMarginEndpointsAPIUfuturesGetPmAccountInfoV1Request {
+func (r PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request) Timestamp(timestamp int64) PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r PortfolioMarginEndpointsAPIUfuturesGetPmAccountInfoV1Request) RecvWindow(recvWindow int64) PortfolioMarginEndpointsAPIUfuturesGetPmAccountInfoV1Request {
+func (r PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request) RecvWindow(recvWindow int64) PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r PortfolioMarginEndpointsAPIUfuturesGetPmAccountInfoV1Request) Execute() (*UfuturesGetPmAccountInfoV1Resp, *http.Response, error) {
-	return r.ApiService.UfuturesGetPmAccountInfoV1Execute(r)
+func (r PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request) Execute() (*UmfuturesGetPmAccountInfoV1Resp, *http.Response, error) {
+	return r.ApiService.UmfuturesGetPmAccountInfoV1Execute(r)
 }
 
 /*
-UfuturesGetPmAccountInfoV1 Classic Portfolio Margin Account Information (USER_DATA)
+UmfuturesGetPmAccountInfoV1 Classic Portfolio Margin Account Information (USER_DATA)
 
 Get Classic Portfolio Margin current account information.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PortfolioMarginEndpointsAPIUfuturesGetPmAccountInfoV1Request
+ @return PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request
 */
-func (a *PortfolioMarginEndpointsAPIService) UfuturesGetPmAccountInfoV1(ctx context.Context) PortfolioMarginEndpointsAPIUfuturesGetPmAccountInfoV1Request {
-	return PortfolioMarginEndpointsAPIUfuturesGetPmAccountInfoV1Request{
+func (a *PortfolioMarginEndpointsAPIService) UmfuturesGetPmAccountInfoV1(ctx context.Context) PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request {
+	return PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return UfuturesGetPmAccountInfoV1Resp
-func (a *PortfolioMarginEndpointsAPIService) UfuturesGetPmAccountInfoV1Execute(r PortfolioMarginEndpointsAPIUfuturesGetPmAccountInfoV1Request) (*UfuturesGetPmAccountInfoV1Resp, *http.Response, error) {
+//  @return UmfuturesGetPmAccountInfoV1Resp
+func (a *PortfolioMarginEndpointsAPIService) UmfuturesGetPmAccountInfoV1Execute(r PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request) (*UmfuturesGetPmAccountInfoV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UfuturesGetPmAccountInfoV1Resp
+		localVarReturnValue  *UmfuturesGetPmAccountInfoV1Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PortfolioMarginEndpointsAPIService.UfuturesGetPmAccountInfoV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PortfolioMarginEndpointsAPIService.UmfuturesGetPmAccountInfoV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

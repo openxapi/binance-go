@@ -4,13 +4,13 @@ All URIs are relative to *https://dapi.binance.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CfuturesGetPmAccountInfoV1**](PortfolioMarginEndpointsAPI.md#CfuturesGetPmAccountInfoV1) | **Get** /dapi/v1/pmAccountInfo | Classic Portfolio Margin Account Information (USER_DATA)
+[**CmfuturesGetPmAccountInfoV1**](PortfolioMarginEndpointsAPI.md#CmfuturesGetPmAccountInfoV1) | **Get** /dapi/v1/pmAccountInfo | Classic Portfolio Margin Account Information (USER_DATA)
 
 
 
-## CfuturesGetPmAccountInfoV1
+## CmfuturesGetPmAccountInfoV1
 
-> CfuturesGetPmAccountInfoV1Resp CfuturesGetPmAccountInfoV1(ctx).Asset(asset).RecvWindow(recvWindow).Execute()
+> CmfuturesGetPmAccountInfoV1Resp CmfuturesGetPmAccountInfoV1(ctx).Asset(asset).RecvWindow(recvWindow).Execute()
 
 Classic Portfolio Margin Account Information (USER_DATA)
 
@@ -34,13 +34,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PortfolioMarginEndpointsAPI.CfuturesGetPmAccountInfoV1(context.Background()).Asset(asset).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.PortfolioMarginEndpointsAPI.CmfuturesGetPmAccountInfoV1(context.Background()).Asset(asset).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PortfolioMarginEndpointsAPI.CfuturesGetPmAccountInfoV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PortfolioMarginEndpointsAPI.CmfuturesGetPmAccountInfoV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CfuturesGetPmAccountInfoV1`: CfuturesGetPmAccountInfoV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `PortfolioMarginEndpointsAPI.CfuturesGetPmAccountInfoV1`: %v\n", resp)
+	// response from `CmfuturesGetPmAccountInfoV1`: CmfuturesGetPmAccountInfoV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `PortfolioMarginEndpointsAPI.CmfuturesGetPmAccountInfoV1`: %v\n", resp)
 }
 ```
 
@@ -50,7 +50,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCfuturesGetPmAccountInfoV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiCmfuturesGetPmAccountInfoV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CfuturesGetPmAccountInfoV1Resp**](CfuturesGetPmAccountInfoV1Resp.md)
+[**CmfuturesGetPmAccountInfoV1Resp**](CmfuturesGetPmAccountInfoV1Resp.md)
 
 ### Authorization
 

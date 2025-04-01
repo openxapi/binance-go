@@ -1,7 +1,7 @@
 /*
-Binance Cfutures API
+Binance Cmfutures API
 
-OpenAPI specification for Binance cryptocurrency exchange - Cfutures API
+OpenAPI specification for Binance cryptocurrency exchange - Cmfutures API
 
 API version: 0.1.0
 */
@@ -22,41 +22,41 @@ import (
 // UserDataStreamsAPIService UserDataStreamsAPI service
 type UserDataStreamsAPIService service
 
-type UserDataStreamsAPICfuturesCreateListenKeyV1Request struct {
+type UserDataStreamsAPICmfuturesCreateListenKeyV1Request struct {
 	ctx context.Context
 	ApiService *UserDataStreamsAPIService
 }
 
-func (r UserDataStreamsAPICfuturesCreateListenKeyV1Request) Execute() (*CfuturesCreateListenKeyV1Resp, *http.Response, error) {
-	return r.ApiService.CfuturesCreateListenKeyV1Execute(r)
+func (r UserDataStreamsAPICmfuturesCreateListenKeyV1Request) Execute() (*CmfuturesCreateListenKeyV1Resp, *http.Response, error) {
+	return r.ApiService.CmfuturesCreateListenKeyV1Execute(r)
 }
 
 /*
-CfuturesCreateListenKeyV1 Start User Data Stream (USER_STREAM)
+CmfuturesCreateListenKeyV1 Start User Data Stream (USER_STREAM)
 
 Start a new user data stream. The stream will close after 60 minutes unless a keepalive is sent. If the account has an active listenKey, that listenKey will be returned and its validity will be extended for 60 minutes.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return UserDataStreamsAPICfuturesCreateListenKeyV1Request
+ @return UserDataStreamsAPICmfuturesCreateListenKeyV1Request
 */
-func (a *UserDataStreamsAPIService) CfuturesCreateListenKeyV1(ctx context.Context) UserDataStreamsAPICfuturesCreateListenKeyV1Request {
-	return UserDataStreamsAPICfuturesCreateListenKeyV1Request{
+func (a *UserDataStreamsAPIService) CmfuturesCreateListenKeyV1(ctx context.Context) UserDataStreamsAPICmfuturesCreateListenKeyV1Request {
+	return UserDataStreamsAPICmfuturesCreateListenKeyV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CfuturesCreateListenKeyV1Resp
-func (a *UserDataStreamsAPIService) CfuturesCreateListenKeyV1Execute(r UserDataStreamsAPICfuturesCreateListenKeyV1Request) (*CfuturesCreateListenKeyV1Resp, *http.Response, error) {
+//  @return CmfuturesCreateListenKeyV1Resp
+func (a *UserDataStreamsAPIService) CmfuturesCreateListenKeyV1Execute(r UserDataStreamsAPICmfuturesCreateListenKeyV1Request) (*CmfuturesCreateListenKeyV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CfuturesCreateListenKeyV1Resp
+		localVarReturnValue  *CmfuturesCreateListenKeyV1Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserDataStreamsAPIService.CfuturesCreateListenKeyV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserDataStreamsAPIService.CmfuturesCreateListenKeyV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -148,25 +148,25 @@ func (a *UserDataStreamsAPIService) CfuturesCreateListenKeyV1Execute(r UserDataS
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UserDataStreamsAPICfuturesDeleteListenKeyV1Request struct {
+type UserDataStreamsAPICmfuturesDeleteListenKeyV1Request struct {
 	ctx context.Context
 	ApiService *UserDataStreamsAPIService
 }
 
-func (r UserDataStreamsAPICfuturesDeleteListenKeyV1Request) Execute() (map[string]interface{}, *http.Response, error) {
-	return r.ApiService.CfuturesDeleteListenKeyV1Execute(r)
+func (r UserDataStreamsAPICmfuturesDeleteListenKeyV1Request) Execute() (map[string]interface{}, *http.Response, error) {
+	return r.ApiService.CmfuturesDeleteListenKeyV1Execute(r)
 }
 
 /*
-CfuturesDeleteListenKeyV1 Close User Data Stream(USER_STREAM)
+CmfuturesDeleteListenKeyV1 Close User Data Stream(USER_STREAM)
 
 Close out a user data stream.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return UserDataStreamsAPICfuturesDeleteListenKeyV1Request
+ @return UserDataStreamsAPICmfuturesDeleteListenKeyV1Request
 */
-func (a *UserDataStreamsAPIService) CfuturesDeleteListenKeyV1(ctx context.Context) UserDataStreamsAPICfuturesDeleteListenKeyV1Request {
-	return UserDataStreamsAPICfuturesDeleteListenKeyV1Request{
+func (a *UserDataStreamsAPIService) CmfuturesDeleteListenKeyV1(ctx context.Context) UserDataStreamsAPICmfuturesDeleteListenKeyV1Request {
+	return UserDataStreamsAPICmfuturesDeleteListenKeyV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -174,7 +174,7 @@ func (a *UserDataStreamsAPIService) CfuturesDeleteListenKeyV1(ctx context.Contex
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *UserDataStreamsAPIService) CfuturesDeleteListenKeyV1Execute(r UserDataStreamsAPICfuturesDeleteListenKeyV1Request) (map[string]interface{}, *http.Response, error) {
+func (a *UserDataStreamsAPIService) CmfuturesDeleteListenKeyV1Execute(r UserDataStreamsAPICmfuturesDeleteListenKeyV1Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -182,7 +182,7 @@ func (a *UserDataStreamsAPIService) CfuturesDeleteListenKeyV1Execute(r UserDataS
 		localVarReturnValue  map[string]interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserDataStreamsAPIService.CfuturesDeleteListenKeyV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserDataStreamsAPIService.CmfuturesDeleteListenKeyV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -274,25 +274,25 @@ func (a *UserDataStreamsAPIService) CfuturesDeleteListenKeyV1Execute(r UserDataS
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UserDataStreamsAPICfuturesUpdateListenKeyV1Request struct {
+type UserDataStreamsAPICmfuturesUpdateListenKeyV1Request struct {
 	ctx context.Context
 	ApiService *UserDataStreamsAPIService
 }
 
-func (r UserDataStreamsAPICfuturesUpdateListenKeyV1Request) Execute() (map[string]interface{}, *http.Response, error) {
-	return r.ApiService.CfuturesUpdateListenKeyV1Execute(r)
+func (r UserDataStreamsAPICmfuturesUpdateListenKeyV1Request) Execute() (map[string]interface{}, *http.Response, error) {
+	return r.ApiService.CmfuturesUpdateListenKeyV1Execute(r)
 }
 
 /*
-CfuturesUpdateListenKeyV1 Keepalive User Data Stream (USER_STREAM)
+CmfuturesUpdateListenKeyV1 Keepalive User Data Stream (USER_STREAM)
 
 Keepalive a user data stream to prevent a time out. User data streams will close after 60 minutes.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return UserDataStreamsAPICfuturesUpdateListenKeyV1Request
+ @return UserDataStreamsAPICmfuturesUpdateListenKeyV1Request
 */
-func (a *UserDataStreamsAPIService) CfuturesUpdateListenKeyV1(ctx context.Context) UserDataStreamsAPICfuturesUpdateListenKeyV1Request {
-	return UserDataStreamsAPICfuturesUpdateListenKeyV1Request{
+func (a *UserDataStreamsAPIService) CmfuturesUpdateListenKeyV1(ctx context.Context) UserDataStreamsAPICmfuturesUpdateListenKeyV1Request {
+	return UserDataStreamsAPICmfuturesUpdateListenKeyV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -300,7 +300,7 @@ func (a *UserDataStreamsAPIService) CfuturesUpdateListenKeyV1(ctx context.Contex
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *UserDataStreamsAPIService) CfuturesUpdateListenKeyV1Execute(r UserDataStreamsAPICfuturesUpdateListenKeyV1Request) (map[string]interface{}, *http.Response, error) {
+func (a *UserDataStreamsAPIService) CmfuturesUpdateListenKeyV1Execute(r UserDataStreamsAPICmfuturesUpdateListenKeyV1Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -308,7 +308,7 @@ func (a *UserDataStreamsAPIService) CfuturesUpdateListenKeyV1Execute(r UserDataS
 		localVarReturnValue  map[string]interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserDataStreamsAPIService.CfuturesUpdateListenKeyV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UserDataStreamsAPIService.CmfuturesUpdateListenKeyV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

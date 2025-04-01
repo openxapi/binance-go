@@ -1,5 +1,5 @@
 /*
-Binance Ufutures API
+Binance Umfutures API
 
 Testing TradeAPIService
 
@@ -22,11 +22,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test TradeAPIService UfuturesCreateBatchOrdersV1", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesCreateBatchOrdersV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesCreateBatchOrdersV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesCreateBatchOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TradeAPIService UfuturesCreateCountdownCancelAllV1", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesCreateCountdownCancelAllV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesCreateCountdownCancelAllV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesCreateCountdownCancelAllV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,11 +46,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TradeAPIService UfuturesCreateLeverageV1", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesCreateLeverageV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesCreateLeverageV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesCreateLeverageV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -58,11 +58,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TradeAPIService UfuturesCreateMarginTypeV1", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesCreateMarginTypeV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesCreateMarginTypeV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesCreateMarginTypeV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -70,11 +70,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TradeAPIService UfuturesCreateMultiAssetsMarginV1", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesCreateMultiAssetsMarginV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesCreateMultiAssetsMarginV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesCreateMultiAssetsMarginV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -82,11 +82,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TradeAPIService UfuturesCreateOrderTestV1", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesCreateOrderTestV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesCreateOrderTestV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesCreateOrderTestV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -94,11 +94,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TradeAPIService UfuturesCreateOrderV1", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesCreateOrderV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesCreateOrderV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesCreateOrderV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -106,11 +106,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TradeAPIService UfuturesCreatePositionMarginV1", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesCreatePositionMarginV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesCreatePositionMarginV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesCreatePositionMarginV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -118,11 +118,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TradeAPIService UfuturesCreatePositionSideDualV1", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesCreatePositionSideDualV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesCreatePositionSideDualV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesCreatePositionSideDualV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -130,11 +130,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TradeAPIService UfuturesDeleteAllOpenOrdersV1", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesDeleteAllOpenOrdersV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesDeleteAllOpenOrdersV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesDeleteAllOpenOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -142,11 +142,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TradeAPIService UfuturesDeleteBatchOrdersV1", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesDeleteBatchOrdersV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesDeleteBatchOrdersV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesDeleteBatchOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -154,11 +154,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TradeAPIService UfuturesDeleteOrderV1", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesDeleteOrderV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesDeleteOrderV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesDeleteOrderV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -166,11 +166,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TradeAPIService UfuturesGetAdlQuantileV1", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesGetAdlQuantileV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesGetAdlQuantileV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesGetAdlQuantileV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -178,11 +178,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TradeAPIService UfuturesGetAllOrdersV1", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesGetAllOrdersV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesGetAllOrdersV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesGetAllOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -190,11 +190,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TradeAPIService UfuturesGetForceOrdersV1", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesGetForceOrdersV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesGetForceOrdersV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesGetForceOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -202,11 +202,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TradeAPIService UfuturesGetOpenOrderV1", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesGetOpenOrderV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesGetOpenOrderV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesGetOpenOrderV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -214,11 +214,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TradeAPIService UfuturesGetOpenOrdersV1", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesGetOpenOrdersV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesGetOpenOrdersV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesGetOpenOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -226,11 +226,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TradeAPIService UfuturesGetOrderAmendmentV1", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesGetOrderAmendmentV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesGetOrderAmendmentV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesGetOrderAmendmentV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -238,11 +238,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TradeAPIService UfuturesGetOrderV1", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesGetOrderV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesGetOrderV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesGetOrderV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -250,11 +250,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TradeAPIService UfuturesGetPositionMarginHistoryV1", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesGetPositionMarginHistoryV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesGetPositionMarginHistoryV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesGetPositionMarginHistoryV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -262,11 +262,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TradeAPIService UfuturesGetPositionRiskV2", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesGetPositionRiskV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesGetPositionRiskV2(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesGetPositionRiskV2(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -274,11 +274,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TradeAPIService UfuturesGetPositionRiskV3", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesGetPositionRiskV3", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesGetPositionRiskV3(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesGetPositionRiskV3(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -286,11 +286,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TradeAPIService UfuturesGetUserTradesV1", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesGetUserTradesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesGetUserTradesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesGetUserTradesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -298,11 +298,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TradeAPIService UfuturesUpdateBatchOrdersV1", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesUpdateBatchOrdersV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesUpdateBatchOrdersV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesUpdateBatchOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -310,11 +310,11 @@ func Test_umfutures_TradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TradeAPIService UfuturesUpdateOrderV1", func(t *testing.T) {
+	t.Run("Test TradeAPIService UmfuturesUpdateOrderV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TradeAPI.UfuturesUpdateOrderV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TradeAPI.UmfuturesUpdateOrderV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

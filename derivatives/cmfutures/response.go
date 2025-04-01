@@ -1,7 +1,7 @@
 /*
-Binance Cfutures API
+Binance Cmfutures API
 
-OpenAPI specification for Binance cryptocurrency exchange - Cfutures API
+OpenAPI specification for Binance cryptocurrency exchange - Cmfutures API
 
 API version: 0.1.0
 */

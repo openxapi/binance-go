@@ -2833,7 +2833,7 @@ func (a *AccountAPIService) PmarginGetMarginMarginInterestHistoryV1Execute(r Acc
 	if r.archived != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "archived", r.archived, "form", "")
 	} else {
-		var defaultValue string = "false"
+		var defaultValue string = ""
 		r.archived = &defaultValue
 	}
 	if r.recvWindow != nil {
@@ -3050,7 +3050,7 @@ func (a *AccountAPIService) PmarginGetMarginMarginLoanV1Execute(r AccountAPIPmar
 	if r.archived != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "archived", r.archived, "form", "")
 	} else {
-		var defaultValue string = "false"
+		var defaultValue string = ""
 		r.archived = &defaultValue
 	}
 	if r.recvWindow != nil {
@@ -3579,7 +3579,7 @@ func (a *AccountAPIService) PmarginGetMarginRepayLoanV1Execute(r AccountAPIPmarg
 	if r.archived != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "archived", r.archived, "form", "")
 	} else {
-		var defaultValue string = "false"
+		var defaultValue string = ""
 		r.archived = &defaultValue
 	}
 	if r.recvWindow != nil {

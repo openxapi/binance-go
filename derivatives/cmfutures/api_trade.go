@@ -1,7 +1,7 @@
 /*
-Binance Cfutures API
+Binance Cmfutures API
 
-OpenAPI specification for Binance cryptocurrency exchange - Cfutures API
+OpenAPI specification for Binance cryptocurrency exchange - Cmfutures API
 
 API version: 0.1.0
 */
@@ -23,59 +23,59 @@ import (
 // TradeAPIService TradeAPI service
 type TradeAPIService service
 
-type TradeAPICfuturesCreateBatchOrdersV1Request struct {
+type TradeAPICmfuturesCreateBatchOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
-	batchOrders *[]CfuturesCreateBatchOrderV1ReqBatchOrdersItem
+	batchOrders *[]CmfuturesCreateBatchOrderV1ReqBatchOrdersItem
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r TradeAPICfuturesCreateBatchOrdersV1Request) BatchOrders(batchOrders []CfuturesCreateBatchOrderV1ReqBatchOrdersItem) TradeAPICfuturesCreateBatchOrdersV1Request {
+func (r TradeAPICmfuturesCreateBatchOrdersV1Request) BatchOrders(batchOrders []CmfuturesCreateBatchOrderV1ReqBatchOrdersItem) TradeAPICmfuturesCreateBatchOrdersV1Request {
 	r.batchOrders = &batchOrders
 	return r
 }
 
-func (r TradeAPICfuturesCreateBatchOrdersV1Request) Timestamp(timestamp int64) TradeAPICfuturesCreateBatchOrdersV1Request {
+func (r TradeAPICmfuturesCreateBatchOrdersV1Request) Timestamp(timestamp int64) TradeAPICmfuturesCreateBatchOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPICfuturesCreateBatchOrdersV1Request) RecvWindow(recvWindow int64) TradeAPICfuturesCreateBatchOrdersV1Request {
+func (r TradeAPICmfuturesCreateBatchOrdersV1Request) RecvWindow(recvWindow int64) TradeAPICmfuturesCreateBatchOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPICfuturesCreateBatchOrdersV1Request) Execute() ([]CfuturesCreateBatchOrdersV1RespInner, *http.Response, error) {
-	return r.ApiService.CfuturesCreateBatchOrdersV1Execute(r)
+func (r TradeAPICmfuturesCreateBatchOrdersV1Request) Execute() ([]CmfuturesCreateBatchOrdersV1RespInner, *http.Response, error) {
+	return r.ApiService.CmfuturesCreateBatchOrdersV1Execute(r)
 }
 
 /*
-CfuturesCreateBatchOrdersV1 Place Multiple Orders(TRADE)
+CmfuturesCreateBatchOrdersV1 Place Multiple Orders(TRADE)
 
 Place multiple orders
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPICfuturesCreateBatchOrdersV1Request
+ @return TradeAPICmfuturesCreateBatchOrdersV1Request
 */
-func (a *TradeAPIService) CfuturesCreateBatchOrdersV1(ctx context.Context) TradeAPICfuturesCreateBatchOrdersV1Request {
-	return TradeAPICfuturesCreateBatchOrdersV1Request{
+func (a *TradeAPIService) CmfuturesCreateBatchOrdersV1(ctx context.Context) TradeAPICmfuturesCreateBatchOrdersV1Request {
+	return TradeAPICmfuturesCreateBatchOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesCreateBatchOrdersV1RespInner
-func (a *TradeAPIService) CfuturesCreateBatchOrdersV1Execute(r TradeAPICfuturesCreateBatchOrdersV1Request) ([]CfuturesCreateBatchOrdersV1RespInner, *http.Response, error) {
+//  @return []CmfuturesCreateBatchOrdersV1RespInner
+func (a *TradeAPIService) CmfuturesCreateBatchOrdersV1Execute(r TradeAPICmfuturesCreateBatchOrdersV1Request) ([]CmfuturesCreateBatchOrdersV1RespInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesCreateBatchOrdersV1RespInner
+		localVarReturnValue  []CmfuturesCreateBatchOrdersV1RespInner
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CfuturesCreateBatchOrdersV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CmfuturesCreateBatchOrdersV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -178,7 +178,7 @@ func (a *TradeAPIService) CfuturesCreateBatchOrdersV1Execute(r TradeAPICfuturesC
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPICfuturesCreateCountdownCancelAllV1Request struct {
+type TradeAPICmfuturesCreateCountdownCancelAllV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	countdownTime *int64
@@ -187,56 +187,56 @@ type TradeAPICfuturesCreateCountdownCancelAllV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPICfuturesCreateCountdownCancelAllV1Request) CountdownTime(countdownTime int64) TradeAPICfuturesCreateCountdownCancelAllV1Request {
+func (r TradeAPICmfuturesCreateCountdownCancelAllV1Request) CountdownTime(countdownTime int64) TradeAPICmfuturesCreateCountdownCancelAllV1Request {
 	r.countdownTime = &countdownTime
 	return r
 }
 
-func (r TradeAPICfuturesCreateCountdownCancelAllV1Request) Symbol(symbol string) TradeAPICfuturesCreateCountdownCancelAllV1Request {
+func (r TradeAPICmfuturesCreateCountdownCancelAllV1Request) Symbol(symbol string) TradeAPICmfuturesCreateCountdownCancelAllV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPICfuturesCreateCountdownCancelAllV1Request) Timestamp(timestamp int64) TradeAPICfuturesCreateCountdownCancelAllV1Request {
+func (r TradeAPICmfuturesCreateCountdownCancelAllV1Request) Timestamp(timestamp int64) TradeAPICmfuturesCreateCountdownCancelAllV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPICfuturesCreateCountdownCancelAllV1Request) RecvWindow(recvWindow int64) TradeAPICfuturesCreateCountdownCancelAllV1Request {
+func (r TradeAPICmfuturesCreateCountdownCancelAllV1Request) RecvWindow(recvWindow int64) TradeAPICmfuturesCreateCountdownCancelAllV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPICfuturesCreateCountdownCancelAllV1Request) Execute() (*CfuturesCreateCountdownCancelAllV1Resp, *http.Response, error) {
-	return r.ApiService.CfuturesCreateCountdownCancelAllV1Execute(r)
+func (r TradeAPICmfuturesCreateCountdownCancelAllV1Request) Execute() (*CmfuturesCreateCountdownCancelAllV1Resp, *http.Response, error) {
+	return r.ApiService.CmfuturesCreateCountdownCancelAllV1Execute(r)
 }
 
 /*
-CfuturesCreateCountdownCancelAllV1 Auto-Cancel All Open Orders (TRADE)
+CmfuturesCreateCountdownCancelAllV1 Auto-Cancel All Open Orders (TRADE)
 
 Cancel all open orders of the specified symbol at the end of the specified countdown. This rest endpoint means to ensure your open orders are canceled in case of an outage. The endpoint should be called repeatedly as heartbeats so that the existing countdown time can be canceled and repalced by a new one. The system will check all countdowns approximately every 10 milliseconds, so please note that sufficient redundancy should be considered when using this function. We do not recommend setting the countdown time to be too precise or too small.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPICfuturesCreateCountdownCancelAllV1Request
+ @return TradeAPICmfuturesCreateCountdownCancelAllV1Request
 */
-func (a *TradeAPIService) CfuturesCreateCountdownCancelAllV1(ctx context.Context) TradeAPICfuturesCreateCountdownCancelAllV1Request {
-	return TradeAPICfuturesCreateCountdownCancelAllV1Request{
+func (a *TradeAPIService) CmfuturesCreateCountdownCancelAllV1(ctx context.Context) TradeAPICmfuturesCreateCountdownCancelAllV1Request {
+	return TradeAPICmfuturesCreateCountdownCancelAllV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CfuturesCreateCountdownCancelAllV1Resp
-func (a *TradeAPIService) CfuturesCreateCountdownCancelAllV1Execute(r TradeAPICfuturesCreateCountdownCancelAllV1Request) (*CfuturesCreateCountdownCancelAllV1Resp, *http.Response, error) {
+//  @return CmfuturesCreateCountdownCancelAllV1Resp
+func (a *TradeAPIService) CmfuturesCreateCountdownCancelAllV1Execute(r TradeAPICmfuturesCreateCountdownCancelAllV1Request) (*CmfuturesCreateCountdownCancelAllV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CfuturesCreateCountdownCancelAllV1Resp
+		localVarReturnValue  *CmfuturesCreateCountdownCancelAllV1Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CfuturesCreateCountdownCancelAllV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CmfuturesCreateCountdownCancelAllV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -343,7 +343,7 @@ func (a *TradeAPIService) CfuturesCreateCountdownCancelAllV1Execute(r TradeAPICf
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPICfuturesCreateLeverageV1Request struct {
+type TradeAPICmfuturesCreateLeverageV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	leverage *int32
@@ -352,57 +352,57 @@ type TradeAPICfuturesCreateLeverageV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPICfuturesCreateLeverageV1Request) Leverage(leverage int32) TradeAPICfuturesCreateLeverageV1Request {
+func (r TradeAPICmfuturesCreateLeverageV1Request) Leverage(leverage int32) TradeAPICmfuturesCreateLeverageV1Request {
 	r.leverage = &leverage
 	return r
 }
 
-func (r TradeAPICfuturesCreateLeverageV1Request) Symbol(symbol string) TradeAPICfuturesCreateLeverageV1Request {
+func (r TradeAPICmfuturesCreateLeverageV1Request) Symbol(symbol string) TradeAPICmfuturesCreateLeverageV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPICfuturesCreateLeverageV1Request) Timestamp(timestamp int64) TradeAPICfuturesCreateLeverageV1Request {
+func (r TradeAPICmfuturesCreateLeverageV1Request) Timestamp(timestamp int64) TradeAPICmfuturesCreateLeverageV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPICfuturesCreateLeverageV1Request) RecvWindow(recvWindow int64) TradeAPICfuturesCreateLeverageV1Request {
+func (r TradeAPICmfuturesCreateLeverageV1Request) RecvWindow(recvWindow int64) TradeAPICmfuturesCreateLeverageV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPICfuturesCreateLeverageV1Request) Execute() (*CfuturesCreateLeverageV1Resp, *http.Response, error) {
-	return r.ApiService.CfuturesCreateLeverageV1Execute(r)
+func (r TradeAPICmfuturesCreateLeverageV1Request) Execute() (*CmfuturesCreateLeverageV1Resp, *http.Response, error) {
+	return r.ApiService.CmfuturesCreateLeverageV1Execute(r)
 }
 
 /*
-CfuturesCreateLeverageV1 Change Initial Leverage (TRADE)
+CmfuturesCreateLeverageV1 Change Initial Leverage (TRADE)
 
 Change user's initial leverage in the specific symbol market.
 For Hedge Mode, LONG and SHORT positions of one symbol use the same initial leverage and share a total notional value.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPICfuturesCreateLeverageV1Request
+ @return TradeAPICmfuturesCreateLeverageV1Request
 */
-func (a *TradeAPIService) CfuturesCreateLeverageV1(ctx context.Context) TradeAPICfuturesCreateLeverageV1Request {
-	return TradeAPICfuturesCreateLeverageV1Request{
+func (a *TradeAPIService) CmfuturesCreateLeverageV1(ctx context.Context) TradeAPICmfuturesCreateLeverageV1Request {
+	return TradeAPICmfuturesCreateLeverageV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CfuturesCreateLeverageV1Resp
-func (a *TradeAPIService) CfuturesCreateLeverageV1Execute(r TradeAPICfuturesCreateLeverageV1Request) (*CfuturesCreateLeverageV1Resp, *http.Response, error) {
+//  @return CmfuturesCreateLeverageV1Resp
+func (a *TradeAPIService) CmfuturesCreateLeverageV1Execute(r TradeAPICmfuturesCreateLeverageV1Request) (*CmfuturesCreateLeverageV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CfuturesCreateLeverageV1Resp
+		localVarReturnValue  *CmfuturesCreateLeverageV1Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CfuturesCreateLeverageV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CmfuturesCreateLeverageV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -509,7 +509,7 @@ func (a *TradeAPIService) CfuturesCreateLeverageV1Execute(r TradeAPICfuturesCrea
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPICfuturesCreateMarginTypeV1Request struct {
+type TradeAPICmfuturesCreateMarginTypeV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	marginType *string
@@ -518,57 +518,57 @@ type TradeAPICfuturesCreateMarginTypeV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPICfuturesCreateMarginTypeV1Request) MarginType(marginType string) TradeAPICfuturesCreateMarginTypeV1Request {
+func (r TradeAPICmfuturesCreateMarginTypeV1Request) MarginType(marginType string) TradeAPICmfuturesCreateMarginTypeV1Request {
 	r.marginType = &marginType
 	return r
 }
 
-func (r TradeAPICfuturesCreateMarginTypeV1Request) Symbol(symbol string) TradeAPICfuturesCreateMarginTypeV1Request {
+func (r TradeAPICmfuturesCreateMarginTypeV1Request) Symbol(symbol string) TradeAPICmfuturesCreateMarginTypeV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPICfuturesCreateMarginTypeV1Request) Timestamp(timestamp int64) TradeAPICfuturesCreateMarginTypeV1Request {
+func (r TradeAPICmfuturesCreateMarginTypeV1Request) Timestamp(timestamp int64) TradeAPICmfuturesCreateMarginTypeV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPICfuturesCreateMarginTypeV1Request) RecvWindow(recvWindow int64) TradeAPICfuturesCreateMarginTypeV1Request {
+func (r TradeAPICmfuturesCreateMarginTypeV1Request) RecvWindow(recvWindow int64) TradeAPICmfuturesCreateMarginTypeV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPICfuturesCreateMarginTypeV1Request) Execute() (*CfuturesCreateMarginTypeV1Resp, *http.Response, error) {
-	return r.ApiService.CfuturesCreateMarginTypeV1Execute(r)
+func (r TradeAPICmfuturesCreateMarginTypeV1Request) Execute() (*CmfuturesCreateMarginTypeV1Resp, *http.Response, error) {
+	return r.ApiService.CmfuturesCreateMarginTypeV1Execute(r)
 }
 
 /*
-CfuturesCreateMarginTypeV1 Change Margin Type (TRADE)
+CmfuturesCreateMarginTypeV1 Change Margin Type (TRADE)
 
 Change user's margin type in the specific symbol market.For Hedge Mode, LONG and SHORT positions of one symbol use the same margin type.
 With ISOLATED margin type, margins of the LONG and SHORT positions are isolated from each other.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPICfuturesCreateMarginTypeV1Request
+ @return TradeAPICmfuturesCreateMarginTypeV1Request
 */
-func (a *TradeAPIService) CfuturesCreateMarginTypeV1(ctx context.Context) TradeAPICfuturesCreateMarginTypeV1Request {
-	return TradeAPICfuturesCreateMarginTypeV1Request{
+func (a *TradeAPIService) CmfuturesCreateMarginTypeV1(ctx context.Context) TradeAPICmfuturesCreateMarginTypeV1Request {
+	return TradeAPICmfuturesCreateMarginTypeV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CfuturesCreateMarginTypeV1Resp
-func (a *TradeAPIService) CfuturesCreateMarginTypeV1Execute(r TradeAPICfuturesCreateMarginTypeV1Request) (*CfuturesCreateMarginTypeV1Resp, *http.Response, error) {
+//  @return CmfuturesCreateMarginTypeV1Resp
+func (a *TradeAPIService) CmfuturesCreateMarginTypeV1Execute(r TradeAPICmfuturesCreateMarginTypeV1Request) (*CmfuturesCreateMarginTypeV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CfuturesCreateMarginTypeV1Resp
+		localVarReturnValue  *CmfuturesCreateMarginTypeV1Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CfuturesCreateMarginTypeV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CmfuturesCreateMarginTypeV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -675,7 +675,7 @@ func (a *TradeAPIService) CfuturesCreateMarginTypeV1Execute(r TradeAPICfuturesCr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPICfuturesCreateOrderV1Request struct {
+type TradeAPICmfuturesCreateOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	side *string
@@ -700,136 +700,136 @@ type TradeAPICfuturesCreateOrderV1Request struct {
 	workingType *string
 }
 
-func (r TradeAPICfuturesCreateOrderV1Request) Side(side string) TradeAPICfuturesCreateOrderV1Request {
+func (r TradeAPICmfuturesCreateOrderV1Request) Side(side string) TradeAPICmfuturesCreateOrderV1Request {
 	r.side = &side
 	return r
 }
 
-func (r TradeAPICfuturesCreateOrderV1Request) Symbol(symbol string) TradeAPICfuturesCreateOrderV1Request {
+func (r TradeAPICmfuturesCreateOrderV1Request) Symbol(symbol string) TradeAPICmfuturesCreateOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPICfuturesCreateOrderV1Request) Timestamp(timestamp int64) TradeAPICfuturesCreateOrderV1Request {
+func (r TradeAPICmfuturesCreateOrderV1Request) Timestamp(timestamp int64) TradeAPICmfuturesCreateOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPICfuturesCreateOrderV1Request) Type_(type_ string) TradeAPICfuturesCreateOrderV1Request {
+func (r TradeAPICmfuturesCreateOrderV1Request) Type_(type_ string) TradeAPICmfuturesCreateOrderV1Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r TradeAPICfuturesCreateOrderV1Request) ActivationPrice(activationPrice string) TradeAPICfuturesCreateOrderV1Request {
+func (r TradeAPICmfuturesCreateOrderV1Request) ActivationPrice(activationPrice string) TradeAPICmfuturesCreateOrderV1Request {
 	r.activationPrice = &activationPrice
 	return r
 }
 
-func (r TradeAPICfuturesCreateOrderV1Request) CallbackRate(callbackRate string) TradeAPICfuturesCreateOrderV1Request {
+func (r TradeAPICmfuturesCreateOrderV1Request) CallbackRate(callbackRate string) TradeAPICmfuturesCreateOrderV1Request {
 	r.callbackRate = &callbackRate
 	return r
 }
 
-func (r TradeAPICfuturesCreateOrderV1Request) ClosePosition(closePosition string) TradeAPICfuturesCreateOrderV1Request {
+func (r TradeAPICmfuturesCreateOrderV1Request) ClosePosition(closePosition string) TradeAPICmfuturesCreateOrderV1Request {
 	r.closePosition = &closePosition
 	return r
 }
 
-func (r TradeAPICfuturesCreateOrderV1Request) NewClientOrderId(newClientOrderId string) TradeAPICfuturesCreateOrderV1Request {
+func (r TradeAPICmfuturesCreateOrderV1Request) NewClientOrderId(newClientOrderId string) TradeAPICmfuturesCreateOrderV1Request {
 	r.newClientOrderId = &newClientOrderId
 	return r
 }
 
-func (r TradeAPICfuturesCreateOrderV1Request) NewOrderRespType(newOrderRespType string) TradeAPICfuturesCreateOrderV1Request {
+func (r TradeAPICmfuturesCreateOrderV1Request) NewOrderRespType(newOrderRespType string) TradeAPICmfuturesCreateOrderV1Request {
 	r.newOrderRespType = &newOrderRespType
 	return r
 }
 
-func (r TradeAPICfuturesCreateOrderV1Request) PositionSide(positionSide string) TradeAPICfuturesCreateOrderV1Request {
+func (r TradeAPICmfuturesCreateOrderV1Request) PositionSide(positionSide string) TradeAPICmfuturesCreateOrderV1Request {
 	r.positionSide = &positionSide
 	return r
 }
 
-func (r TradeAPICfuturesCreateOrderV1Request) Price(price string) TradeAPICfuturesCreateOrderV1Request {
+func (r TradeAPICmfuturesCreateOrderV1Request) Price(price string) TradeAPICmfuturesCreateOrderV1Request {
 	r.price = &price
 	return r
 }
 
-func (r TradeAPICfuturesCreateOrderV1Request) PriceMatch(priceMatch string) TradeAPICfuturesCreateOrderV1Request {
+func (r TradeAPICmfuturesCreateOrderV1Request) PriceMatch(priceMatch string) TradeAPICmfuturesCreateOrderV1Request {
 	r.priceMatch = &priceMatch
 	return r
 }
 
-func (r TradeAPICfuturesCreateOrderV1Request) PriceProtect(priceProtect string) TradeAPICfuturesCreateOrderV1Request {
+func (r TradeAPICmfuturesCreateOrderV1Request) PriceProtect(priceProtect string) TradeAPICmfuturesCreateOrderV1Request {
 	r.priceProtect = &priceProtect
 	return r
 }
 
-func (r TradeAPICfuturesCreateOrderV1Request) Quantity(quantity string) TradeAPICfuturesCreateOrderV1Request {
+func (r TradeAPICmfuturesCreateOrderV1Request) Quantity(quantity string) TradeAPICmfuturesCreateOrderV1Request {
 	r.quantity = &quantity
 	return r
 }
 
-func (r TradeAPICfuturesCreateOrderV1Request) RecvWindow(recvWindow int64) TradeAPICfuturesCreateOrderV1Request {
+func (r TradeAPICmfuturesCreateOrderV1Request) RecvWindow(recvWindow int64) TradeAPICmfuturesCreateOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPICfuturesCreateOrderV1Request) ReduceOnly(reduceOnly string) TradeAPICfuturesCreateOrderV1Request {
+func (r TradeAPICmfuturesCreateOrderV1Request) ReduceOnly(reduceOnly string) TradeAPICmfuturesCreateOrderV1Request {
 	r.reduceOnly = &reduceOnly
 	return r
 }
 
-func (r TradeAPICfuturesCreateOrderV1Request) SelfTradePreventionMode(selfTradePreventionMode string) TradeAPICfuturesCreateOrderV1Request {
+func (r TradeAPICmfuturesCreateOrderV1Request) SelfTradePreventionMode(selfTradePreventionMode string) TradeAPICmfuturesCreateOrderV1Request {
 	r.selfTradePreventionMode = &selfTradePreventionMode
 	return r
 }
 
-func (r TradeAPICfuturesCreateOrderV1Request) StopPrice(stopPrice string) TradeAPICfuturesCreateOrderV1Request {
+func (r TradeAPICmfuturesCreateOrderV1Request) StopPrice(stopPrice string) TradeAPICmfuturesCreateOrderV1Request {
 	r.stopPrice = &stopPrice
 	return r
 }
 
-func (r TradeAPICfuturesCreateOrderV1Request) TimeInForce(timeInForce string) TradeAPICfuturesCreateOrderV1Request {
+func (r TradeAPICmfuturesCreateOrderV1Request) TimeInForce(timeInForce string) TradeAPICmfuturesCreateOrderV1Request {
 	r.timeInForce = &timeInForce
 	return r
 }
 
-func (r TradeAPICfuturesCreateOrderV1Request) WorkingType(workingType string) TradeAPICfuturesCreateOrderV1Request {
+func (r TradeAPICmfuturesCreateOrderV1Request) WorkingType(workingType string) TradeAPICmfuturesCreateOrderV1Request {
 	r.workingType = &workingType
 	return r
 }
 
-func (r TradeAPICfuturesCreateOrderV1Request) Execute() (*CfuturesCreateOrderV1Resp, *http.Response, error) {
-	return r.ApiService.CfuturesCreateOrderV1Execute(r)
+func (r TradeAPICmfuturesCreateOrderV1Request) Execute() (*CmfuturesCreateOrderV1Resp, *http.Response, error) {
+	return r.ApiService.CmfuturesCreateOrderV1Execute(r)
 }
 
 /*
-CfuturesCreateOrderV1 New Order (TRADE)
+CmfuturesCreateOrderV1 New Order (TRADE)
 
 Send in a new order.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPICfuturesCreateOrderV1Request
+ @return TradeAPICmfuturesCreateOrderV1Request
 */
-func (a *TradeAPIService) CfuturesCreateOrderV1(ctx context.Context) TradeAPICfuturesCreateOrderV1Request {
-	return TradeAPICfuturesCreateOrderV1Request{
+func (a *TradeAPIService) CmfuturesCreateOrderV1(ctx context.Context) TradeAPICmfuturesCreateOrderV1Request {
+	return TradeAPICmfuturesCreateOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CfuturesCreateOrderV1Resp
-func (a *TradeAPIService) CfuturesCreateOrderV1Execute(r TradeAPICfuturesCreateOrderV1Request) (*CfuturesCreateOrderV1Resp, *http.Response, error) {
+//  @return CmfuturesCreateOrderV1Resp
+func (a *TradeAPIService) CmfuturesCreateOrderV1Execute(r TradeAPICmfuturesCreateOrderV1Request) (*CmfuturesCreateOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CfuturesCreateOrderV1Resp
+		localVarReturnValue  *CmfuturesCreateOrderV1Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CfuturesCreateOrderV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CmfuturesCreateOrderV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -985,7 +985,7 @@ func (a *TradeAPIService) CfuturesCreateOrderV1Execute(r TradeAPICfuturesCreateO
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPICfuturesCreatePositionMarginV1Request struct {
+type TradeAPICmfuturesCreatePositionMarginV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	amount *string
@@ -996,66 +996,66 @@ type TradeAPICfuturesCreatePositionMarginV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPICfuturesCreatePositionMarginV1Request) Amount(amount string) TradeAPICfuturesCreatePositionMarginV1Request {
+func (r TradeAPICmfuturesCreatePositionMarginV1Request) Amount(amount string) TradeAPICmfuturesCreatePositionMarginV1Request {
 	r.amount = &amount
 	return r
 }
 
-func (r TradeAPICfuturesCreatePositionMarginV1Request) Symbol(symbol string) TradeAPICfuturesCreatePositionMarginV1Request {
+func (r TradeAPICmfuturesCreatePositionMarginV1Request) Symbol(symbol string) TradeAPICmfuturesCreatePositionMarginV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPICfuturesCreatePositionMarginV1Request) Timestamp(timestamp int64) TradeAPICfuturesCreatePositionMarginV1Request {
+func (r TradeAPICmfuturesCreatePositionMarginV1Request) Timestamp(timestamp int64) TradeAPICmfuturesCreatePositionMarginV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPICfuturesCreatePositionMarginV1Request) Type_(type_ int32) TradeAPICfuturesCreatePositionMarginV1Request {
+func (r TradeAPICmfuturesCreatePositionMarginV1Request) Type_(type_ int32) TradeAPICmfuturesCreatePositionMarginV1Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r TradeAPICfuturesCreatePositionMarginV1Request) PositionSide(positionSide string) TradeAPICfuturesCreatePositionMarginV1Request {
+func (r TradeAPICmfuturesCreatePositionMarginV1Request) PositionSide(positionSide string) TradeAPICmfuturesCreatePositionMarginV1Request {
 	r.positionSide = &positionSide
 	return r
 }
 
-func (r TradeAPICfuturesCreatePositionMarginV1Request) RecvWindow(recvWindow int64) TradeAPICfuturesCreatePositionMarginV1Request {
+func (r TradeAPICmfuturesCreatePositionMarginV1Request) RecvWindow(recvWindow int64) TradeAPICmfuturesCreatePositionMarginV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPICfuturesCreatePositionMarginV1Request) Execute() (*CfuturesCreatePositionMarginV1Resp, *http.Response, error) {
-	return r.ApiService.CfuturesCreatePositionMarginV1Execute(r)
+func (r TradeAPICmfuturesCreatePositionMarginV1Request) Execute() (*CmfuturesCreatePositionMarginV1Resp, *http.Response, error) {
+	return r.ApiService.CmfuturesCreatePositionMarginV1Execute(r)
 }
 
 /*
-CfuturesCreatePositionMarginV1 Modify Isolated Position Margin(TRADE)
+CmfuturesCreatePositionMarginV1 Modify Isolated Position Margin(TRADE)
 
 Modify Isolated Position Margin
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPICfuturesCreatePositionMarginV1Request
+ @return TradeAPICmfuturesCreatePositionMarginV1Request
 */
-func (a *TradeAPIService) CfuturesCreatePositionMarginV1(ctx context.Context) TradeAPICfuturesCreatePositionMarginV1Request {
-	return TradeAPICfuturesCreatePositionMarginV1Request{
+func (a *TradeAPIService) CmfuturesCreatePositionMarginV1(ctx context.Context) TradeAPICmfuturesCreatePositionMarginV1Request {
+	return TradeAPICmfuturesCreatePositionMarginV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CfuturesCreatePositionMarginV1Resp
-func (a *TradeAPIService) CfuturesCreatePositionMarginV1Execute(r TradeAPICfuturesCreatePositionMarginV1Request) (*CfuturesCreatePositionMarginV1Resp, *http.Response, error) {
+//  @return CmfuturesCreatePositionMarginV1Resp
+func (a *TradeAPIService) CmfuturesCreatePositionMarginV1Execute(r TradeAPICmfuturesCreatePositionMarginV1Request) (*CmfuturesCreatePositionMarginV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CfuturesCreatePositionMarginV1Resp
+		localVarReturnValue  *CmfuturesCreatePositionMarginV1Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CfuturesCreatePositionMarginV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CmfuturesCreatePositionMarginV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1169,7 +1169,7 @@ func (a *TradeAPIService) CfuturesCreatePositionMarginV1Execute(r TradeAPICfutur
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPICfuturesCreatePositionSideDualV1Request struct {
+type TradeAPICmfuturesCreatePositionSideDualV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	dualSidePosition *string
@@ -1177,51 +1177,51 @@ type TradeAPICfuturesCreatePositionSideDualV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPICfuturesCreatePositionSideDualV1Request) DualSidePosition(dualSidePosition string) TradeAPICfuturesCreatePositionSideDualV1Request {
+func (r TradeAPICmfuturesCreatePositionSideDualV1Request) DualSidePosition(dualSidePosition string) TradeAPICmfuturesCreatePositionSideDualV1Request {
 	r.dualSidePosition = &dualSidePosition
 	return r
 }
 
-func (r TradeAPICfuturesCreatePositionSideDualV1Request) Timestamp(timestamp int64) TradeAPICfuturesCreatePositionSideDualV1Request {
+func (r TradeAPICmfuturesCreatePositionSideDualV1Request) Timestamp(timestamp int64) TradeAPICmfuturesCreatePositionSideDualV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPICfuturesCreatePositionSideDualV1Request) RecvWindow(recvWindow int64) TradeAPICfuturesCreatePositionSideDualV1Request {
+func (r TradeAPICmfuturesCreatePositionSideDualV1Request) RecvWindow(recvWindow int64) TradeAPICmfuturesCreatePositionSideDualV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPICfuturesCreatePositionSideDualV1Request) Execute() (*CfuturesCreatePositionSideDualV1Resp, *http.Response, error) {
-	return r.ApiService.CfuturesCreatePositionSideDualV1Execute(r)
+func (r TradeAPICmfuturesCreatePositionSideDualV1Request) Execute() (*CmfuturesCreatePositionSideDualV1Resp, *http.Response, error) {
+	return r.ApiService.CmfuturesCreatePositionSideDualV1Execute(r)
 }
 
 /*
-CfuturesCreatePositionSideDualV1 Change Position Mode(TRADE)
+CmfuturesCreatePositionSideDualV1 Change Position Mode(TRADE)
 
 Change user's position mode (Hedge Mode or One-way Mode ) on EVERY symbol
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPICfuturesCreatePositionSideDualV1Request
+ @return TradeAPICmfuturesCreatePositionSideDualV1Request
 */
-func (a *TradeAPIService) CfuturesCreatePositionSideDualV1(ctx context.Context) TradeAPICfuturesCreatePositionSideDualV1Request {
-	return TradeAPICfuturesCreatePositionSideDualV1Request{
+func (a *TradeAPIService) CmfuturesCreatePositionSideDualV1(ctx context.Context) TradeAPICmfuturesCreatePositionSideDualV1Request {
+	return TradeAPICmfuturesCreatePositionSideDualV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CfuturesCreatePositionSideDualV1Resp
-func (a *TradeAPIService) CfuturesCreatePositionSideDualV1Execute(r TradeAPICfuturesCreatePositionSideDualV1Request) (*CfuturesCreatePositionSideDualV1Resp, *http.Response, error) {
+//  @return CmfuturesCreatePositionSideDualV1Resp
+func (a *TradeAPIService) CmfuturesCreatePositionSideDualV1Execute(r TradeAPICmfuturesCreatePositionSideDualV1Request) (*CmfuturesCreatePositionSideDualV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CfuturesCreatePositionSideDualV1Resp
+		localVarReturnValue  *CmfuturesCreatePositionSideDualV1Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CfuturesCreatePositionSideDualV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CmfuturesCreatePositionSideDualV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1324,7 +1324,7 @@ func (a *TradeAPIService) CfuturesCreatePositionSideDualV1Execute(r TradeAPICfut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPICfuturesDeleteAllOpenOrdersV1Request struct {
+type TradeAPICmfuturesDeleteAllOpenOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -1332,51 +1332,51 @@ type TradeAPICfuturesDeleteAllOpenOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPICfuturesDeleteAllOpenOrdersV1Request) Symbol(symbol string) TradeAPICfuturesDeleteAllOpenOrdersV1Request {
+func (r TradeAPICmfuturesDeleteAllOpenOrdersV1Request) Symbol(symbol string) TradeAPICmfuturesDeleteAllOpenOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPICfuturesDeleteAllOpenOrdersV1Request) Timestamp(timestamp int64) TradeAPICfuturesDeleteAllOpenOrdersV1Request {
+func (r TradeAPICmfuturesDeleteAllOpenOrdersV1Request) Timestamp(timestamp int64) TradeAPICmfuturesDeleteAllOpenOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPICfuturesDeleteAllOpenOrdersV1Request) RecvWindow(recvWindow int64) TradeAPICfuturesDeleteAllOpenOrdersV1Request {
+func (r TradeAPICmfuturesDeleteAllOpenOrdersV1Request) RecvWindow(recvWindow int64) TradeAPICmfuturesDeleteAllOpenOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPICfuturesDeleteAllOpenOrdersV1Request) Execute() (*CfuturesDeleteAllOpenOrdersV1Resp, *http.Response, error) {
-	return r.ApiService.CfuturesDeleteAllOpenOrdersV1Execute(r)
+func (r TradeAPICmfuturesDeleteAllOpenOrdersV1Request) Execute() (*CmfuturesDeleteAllOpenOrdersV1Resp, *http.Response, error) {
+	return r.ApiService.CmfuturesDeleteAllOpenOrdersV1Execute(r)
 }
 
 /*
-CfuturesDeleteAllOpenOrdersV1 Cancel All Open Orders(TRADE)
+CmfuturesDeleteAllOpenOrdersV1 Cancel All Open Orders(TRADE)
 
 Cancel All Open Orders
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPICfuturesDeleteAllOpenOrdersV1Request
+ @return TradeAPICmfuturesDeleteAllOpenOrdersV1Request
 */
-func (a *TradeAPIService) CfuturesDeleteAllOpenOrdersV1(ctx context.Context) TradeAPICfuturesDeleteAllOpenOrdersV1Request {
-	return TradeAPICfuturesDeleteAllOpenOrdersV1Request{
+func (a *TradeAPIService) CmfuturesDeleteAllOpenOrdersV1(ctx context.Context) TradeAPICmfuturesDeleteAllOpenOrdersV1Request {
+	return TradeAPICmfuturesDeleteAllOpenOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CfuturesDeleteAllOpenOrdersV1Resp
-func (a *TradeAPIService) CfuturesDeleteAllOpenOrdersV1Execute(r TradeAPICfuturesDeleteAllOpenOrdersV1Request) (*CfuturesDeleteAllOpenOrdersV1Resp, *http.Response, error) {
+//  @return CmfuturesDeleteAllOpenOrdersV1Resp
+func (a *TradeAPIService) CmfuturesDeleteAllOpenOrdersV1Execute(r TradeAPICmfuturesDeleteAllOpenOrdersV1Request) (*CmfuturesDeleteAllOpenOrdersV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CfuturesDeleteAllOpenOrdersV1Resp
+		localVarReturnValue  *CmfuturesDeleteAllOpenOrdersV1Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CfuturesDeleteAllOpenOrdersV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CmfuturesDeleteAllOpenOrdersV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1479,7 +1479,7 @@ func (a *TradeAPIService) CfuturesDeleteAllOpenOrdersV1Execute(r TradeAPICfuture
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPICfuturesDeleteBatchOrdersV1Request struct {
+type TradeAPICmfuturesDeleteBatchOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -1489,63 +1489,63 @@ type TradeAPICfuturesDeleteBatchOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPICfuturesDeleteBatchOrdersV1Request) Symbol(symbol string) TradeAPICfuturesDeleteBatchOrdersV1Request {
+func (r TradeAPICmfuturesDeleteBatchOrdersV1Request) Symbol(symbol string) TradeAPICmfuturesDeleteBatchOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPICfuturesDeleteBatchOrdersV1Request) Timestamp(timestamp int64) TradeAPICfuturesDeleteBatchOrdersV1Request {
+func (r TradeAPICmfuturesDeleteBatchOrdersV1Request) Timestamp(timestamp int64) TradeAPICmfuturesDeleteBatchOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // max length 10 &lt;br/&gt; e.g. [1234567,2345678]
-func (r TradeAPICfuturesDeleteBatchOrdersV1Request) OrderIdList(orderIdList []int64) TradeAPICfuturesDeleteBatchOrdersV1Request {
+func (r TradeAPICmfuturesDeleteBatchOrdersV1Request) OrderIdList(orderIdList []int64) TradeAPICmfuturesDeleteBatchOrdersV1Request {
 	r.orderIdList = &orderIdList
 	return r
 }
 
 // max length 10&lt;br/&gt; e.g. [&amp;#34;my_id_1&amp;#34;,&amp;#34;my_id_2&amp;#34;], encode the double quotes. No space after comma.
-func (r TradeAPICfuturesDeleteBatchOrdersV1Request) OrigClientOrderIdList(origClientOrderIdList []string) TradeAPICfuturesDeleteBatchOrdersV1Request {
+func (r TradeAPICmfuturesDeleteBatchOrdersV1Request) OrigClientOrderIdList(origClientOrderIdList []string) TradeAPICmfuturesDeleteBatchOrdersV1Request {
 	r.origClientOrderIdList = &origClientOrderIdList
 	return r
 }
 
-func (r TradeAPICfuturesDeleteBatchOrdersV1Request) RecvWindow(recvWindow int64) TradeAPICfuturesDeleteBatchOrdersV1Request {
+func (r TradeAPICmfuturesDeleteBatchOrdersV1Request) RecvWindow(recvWindow int64) TradeAPICmfuturesDeleteBatchOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPICfuturesDeleteBatchOrdersV1Request) Execute() ([]CfuturesDeleteBatchOrdersV1RespInner, *http.Response, error) {
-	return r.ApiService.CfuturesDeleteBatchOrdersV1Execute(r)
+func (r TradeAPICmfuturesDeleteBatchOrdersV1Request) Execute() ([]CmfuturesDeleteBatchOrdersV1RespInner, *http.Response, error) {
+	return r.ApiService.CmfuturesDeleteBatchOrdersV1Execute(r)
 }
 
 /*
-CfuturesDeleteBatchOrdersV1 Cancel Multiple Orders(TRADE)
+CmfuturesDeleteBatchOrdersV1 Cancel Multiple Orders(TRADE)
 
 Cancel Multiple Orders
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPICfuturesDeleteBatchOrdersV1Request
+ @return TradeAPICmfuturesDeleteBatchOrdersV1Request
 */
-func (a *TradeAPIService) CfuturesDeleteBatchOrdersV1(ctx context.Context) TradeAPICfuturesDeleteBatchOrdersV1Request {
-	return TradeAPICfuturesDeleteBatchOrdersV1Request{
+func (a *TradeAPIService) CmfuturesDeleteBatchOrdersV1(ctx context.Context) TradeAPICmfuturesDeleteBatchOrdersV1Request {
+	return TradeAPICmfuturesDeleteBatchOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesDeleteBatchOrdersV1RespInner
-func (a *TradeAPIService) CfuturesDeleteBatchOrdersV1Execute(r TradeAPICfuturesDeleteBatchOrdersV1Request) ([]CfuturesDeleteBatchOrdersV1RespInner, *http.Response, error) {
+//  @return []CmfuturesDeleteBatchOrdersV1RespInner
+func (a *TradeAPIService) CmfuturesDeleteBatchOrdersV1Execute(r TradeAPICmfuturesDeleteBatchOrdersV1Request) ([]CmfuturesDeleteBatchOrdersV1RespInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesDeleteBatchOrdersV1RespInner
+		localVarReturnValue  []CmfuturesDeleteBatchOrdersV1RespInner
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CfuturesDeleteBatchOrdersV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CmfuturesDeleteBatchOrdersV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1670,7 +1670,7 @@ func (a *TradeAPIService) CfuturesDeleteBatchOrdersV1Execute(r TradeAPICfuturesD
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPICfuturesDeleteOrderV1Request struct {
+type TradeAPICmfuturesDeleteOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -1680,61 +1680,61 @@ type TradeAPICfuturesDeleteOrderV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPICfuturesDeleteOrderV1Request) Symbol(symbol string) TradeAPICfuturesDeleteOrderV1Request {
+func (r TradeAPICmfuturesDeleteOrderV1Request) Symbol(symbol string) TradeAPICmfuturesDeleteOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPICfuturesDeleteOrderV1Request) Timestamp(timestamp int64) TradeAPICfuturesDeleteOrderV1Request {
+func (r TradeAPICmfuturesDeleteOrderV1Request) Timestamp(timestamp int64) TradeAPICmfuturesDeleteOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPICfuturesDeleteOrderV1Request) OrderId(orderId int64) TradeAPICfuturesDeleteOrderV1Request {
+func (r TradeAPICmfuturesDeleteOrderV1Request) OrderId(orderId int64) TradeAPICmfuturesDeleteOrderV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPICfuturesDeleteOrderV1Request) OrigClientOrderId(origClientOrderId string) TradeAPICfuturesDeleteOrderV1Request {
+func (r TradeAPICmfuturesDeleteOrderV1Request) OrigClientOrderId(origClientOrderId string) TradeAPICmfuturesDeleteOrderV1Request {
 	r.origClientOrderId = &origClientOrderId
 	return r
 }
 
-func (r TradeAPICfuturesDeleteOrderV1Request) RecvWindow(recvWindow int64) TradeAPICfuturesDeleteOrderV1Request {
+func (r TradeAPICmfuturesDeleteOrderV1Request) RecvWindow(recvWindow int64) TradeAPICmfuturesDeleteOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPICfuturesDeleteOrderV1Request) Execute() (*CfuturesDeleteOrderV1Resp, *http.Response, error) {
-	return r.ApiService.CfuturesDeleteOrderV1Execute(r)
+func (r TradeAPICmfuturesDeleteOrderV1Request) Execute() (*CmfuturesDeleteOrderV1Resp, *http.Response, error) {
+	return r.ApiService.CmfuturesDeleteOrderV1Execute(r)
 }
 
 /*
-CfuturesDeleteOrderV1 Cancel Order (TRADE)
+CmfuturesDeleteOrderV1 Cancel Order (TRADE)
 
 Cancel an active order.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPICfuturesDeleteOrderV1Request
+ @return TradeAPICmfuturesDeleteOrderV1Request
 */
-func (a *TradeAPIService) CfuturesDeleteOrderV1(ctx context.Context) TradeAPICfuturesDeleteOrderV1Request {
-	return TradeAPICfuturesDeleteOrderV1Request{
+func (a *TradeAPIService) CmfuturesDeleteOrderV1(ctx context.Context) TradeAPICmfuturesDeleteOrderV1Request {
+	return TradeAPICmfuturesDeleteOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CfuturesDeleteOrderV1Resp
-func (a *TradeAPIService) CfuturesDeleteOrderV1Execute(r TradeAPICfuturesDeleteOrderV1Request) (*CfuturesDeleteOrderV1Resp, *http.Response, error) {
+//  @return CmfuturesDeleteOrderV1Resp
+func (a *TradeAPIService) CmfuturesDeleteOrderV1Execute(r TradeAPICmfuturesDeleteOrderV1Request) (*CmfuturesDeleteOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CfuturesDeleteOrderV1Resp
+		localVarReturnValue  *CmfuturesDeleteOrderV1Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CfuturesDeleteOrderV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CmfuturesDeleteOrderV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1846,7 +1846,7 @@ func (a *TradeAPIService) CfuturesDeleteOrderV1Execute(r TradeAPICfuturesDeleteO
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPICfuturesGetAdlQuantileV1Request struct {
+type TradeAPICmfuturesGetAdlQuantileV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -1854,51 +1854,51 @@ type TradeAPICfuturesGetAdlQuantileV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPICfuturesGetAdlQuantileV1Request) Timestamp(timestamp int64) TradeAPICfuturesGetAdlQuantileV1Request {
+func (r TradeAPICmfuturesGetAdlQuantileV1Request) Timestamp(timestamp int64) TradeAPICmfuturesGetAdlQuantileV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPICfuturesGetAdlQuantileV1Request) Symbol(symbol string) TradeAPICfuturesGetAdlQuantileV1Request {
+func (r TradeAPICmfuturesGetAdlQuantileV1Request) Symbol(symbol string) TradeAPICmfuturesGetAdlQuantileV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPICfuturesGetAdlQuantileV1Request) RecvWindow(recvWindow int64) TradeAPICfuturesGetAdlQuantileV1Request {
+func (r TradeAPICmfuturesGetAdlQuantileV1Request) RecvWindow(recvWindow int64) TradeAPICmfuturesGetAdlQuantileV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPICfuturesGetAdlQuantileV1Request) Execute() ([]CfuturesGetAdlQuantileV1RespItem, *http.Response, error) {
-	return r.ApiService.CfuturesGetAdlQuantileV1Execute(r)
+func (r TradeAPICmfuturesGetAdlQuantileV1Request) Execute() ([]CmfuturesGetAdlQuantileV1RespItem, *http.Response, error) {
+	return r.ApiService.CmfuturesGetAdlQuantileV1Execute(r)
 }
 
 /*
-CfuturesGetAdlQuantileV1 Position ADL Quantile Estimation(USER_DATA)
+CmfuturesGetAdlQuantileV1 Position ADL Quantile Estimation(USER_DATA)
 
 Query position ADL quantile estimation
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPICfuturesGetAdlQuantileV1Request
+ @return TradeAPICmfuturesGetAdlQuantileV1Request
 */
-func (a *TradeAPIService) CfuturesGetAdlQuantileV1(ctx context.Context) TradeAPICfuturesGetAdlQuantileV1Request {
-	return TradeAPICfuturesGetAdlQuantileV1Request{
+func (a *TradeAPIService) CmfuturesGetAdlQuantileV1(ctx context.Context) TradeAPICmfuturesGetAdlQuantileV1Request {
+	return TradeAPICmfuturesGetAdlQuantileV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesGetAdlQuantileV1RespItem
-func (a *TradeAPIService) CfuturesGetAdlQuantileV1Execute(r TradeAPICfuturesGetAdlQuantileV1Request) ([]CfuturesGetAdlQuantileV1RespItem, *http.Response, error) {
+//  @return []CmfuturesGetAdlQuantileV1RespItem
+func (a *TradeAPIService) CmfuturesGetAdlQuantileV1Execute(r TradeAPICmfuturesGetAdlQuantileV1Request) ([]CmfuturesGetAdlQuantileV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesGetAdlQuantileV1RespItem
+		localVarReturnValue  []CmfuturesGetAdlQuantileV1RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CfuturesGetAdlQuantileV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CmfuturesGetAdlQuantileV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2003,7 +2003,7 @@ func (a *TradeAPIService) CfuturesGetAdlQuantileV1Execute(r TradeAPICfuturesGetA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPICfuturesGetAllOrdersV1Request struct {
+type TradeAPICmfuturesGetAllOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -2016,77 +2016,77 @@ type TradeAPICfuturesGetAllOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPICfuturesGetAllOrdersV1Request) Timestamp(timestamp int64) TradeAPICfuturesGetAllOrdersV1Request {
+func (r TradeAPICmfuturesGetAllOrdersV1Request) Timestamp(timestamp int64) TradeAPICmfuturesGetAllOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPICfuturesGetAllOrdersV1Request) Symbol(symbol string) TradeAPICfuturesGetAllOrdersV1Request {
+func (r TradeAPICmfuturesGetAllOrdersV1Request) Symbol(symbol string) TradeAPICmfuturesGetAllOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPICfuturesGetAllOrdersV1Request) Pair(pair string) TradeAPICfuturesGetAllOrdersV1Request {
+func (r TradeAPICmfuturesGetAllOrdersV1Request) Pair(pair string) TradeAPICmfuturesGetAllOrdersV1Request {
 	r.pair = &pair
 	return r
 }
 
-func (r TradeAPICfuturesGetAllOrdersV1Request) OrderId(orderId int64) TradeAPICfuturesGetAllOrdersV1Request {
+func (r TradeAPICmfuturesGetAllOrdersV1Request) OrderId(orderId int64) TradeAPICmfuturesGetAllOrdersV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPICfuturesGetAllOrdersV1Request) StartTime(startTime int64) TradeAPICfuturesGetAllOrdersV1Request {
+func (r TradeAPICmfuturesGetAllOrdersV1Request) StartTime(startTime int64) TradeAPICmfuturesGetAllOrdersV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r TradeAPICfuturesGetAllOrdersV1Request) EndTime(endTime int64) TradeAPICfuturesGetAllOrdersV1Request {
+func (r TradeAPICmfuturesGetAllOrdersV1Request) EndTime(endTime int64) TradeAPICmfuturesGetAllOrdersV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 50; max 100.
-func (r TradeAPICfuturesGetAllOrdersV1Request) Limit(limit int32) TradeAPICfuturesGetAllOrdersV1Request {
+func (r TradeAPICmfuturesGetAllOrdersV1Request) Limit(limit int32) TradeAPICmfuturesGetAllOrdersV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r TradeAPICfuturesGetAllOrdersV1Request) RecvWindow(recvWindow int64) TradeAPICfuturesGetAllOrdersV1Request {
+func (r TradeAPICmfuturesGetAllOrdersV1Request) RecvWindow(recvWindow int64) TradeAPICmfuturesGetAllOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPICfuturesGetAllOrdersV1Request) Execute() ([]CfuturesGetAllOrdersV1RespItem, *http.Response, error) {
-	return r.ApiService.CfuturesGetAllOrdersV1Execute(r)
+func (r TradeAPICmfuturesGetAllOrdersV1Request) Execute() ([]CmfuturesGetAllOrdersV1RespItem, *http.Response, error) {
+	return r.ApiService.CmfuturesGetAllOrdersV1Execute(r)
 }
 
 /*
-CfuturesGetAllOrdersV1 All Orders (USER_DATA)
+CmfuturesGetAllOrdersV1 All Orders (USER_DATA)
 
 Get all account orders; active, canceled, or filled.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPICfuturesGetAllOrdersV1Request
+ @return TradeAPICmfuturesGetAllOrdersV1Request
 */
-func (a *TradeAPIService) CfuturesGetAllOrdersV1(ctx context.Context) TradeAPICfuturesGetAllOrdersV1Request {
-	return TradeAPICfuturesGetAllOrdersV1Request{
+func (a *TradeAPIService) CmfuturesGetAllOrdersV1(ctx context.Context) TradeAPICmfuturesGetAllOrdersV1Request {
+	return TradeAPICmfuturesGetAllOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesGetAllOrdersV1RespItem
-func (a *TradeAPIService) CfuturesGetAllOrdersV1Execute(r TradeAPICfuturesGetAllOrdersV1Request) ([]CfuturesGetAllOrdersV1RespItem, *http.Response, error) {
+//  @return []CmfuturesGetAllOrdersV1RespItem
+func (a *TradeAPIService) CmfuturesGetAllOrdersV1Execute(r TradeAPICmfuturesGetAllOrdersV1Request) ([]CmfuturesGetAllOrdersV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesGetAllOrdersV1RespItem
+		localVarReturnValue  []CmfuturesGetAllOrdersV1RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CfuturesGetAllOrdersV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CmfuturesGetAllOrdersV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2212,7 +2212,7 @@ func (a *TradeAPIService) CfuturesGetAllOrdersV1Execute(r TradeAPICfuturesGetAll
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPICfuturesGetForceOrdersV1Request struct {
+type TradeAPICmfuturesGetForceOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -2224,71 +2224,71 @@ type TradeAPICfuturesGetForceOrdersV1Request struct {
 	endTime *int64
 }
 
-func (r TradeAPICfuturesGetForceOrdersV1Request) Timestamp(timestamp int64) TradeAPICfuturesGetForceOrdersV1Request {
+func (r TradeAPICmfuturesGetForceOrdersV1Request) Timestamp(timestamp int64) TradeAPICmfuturesGetForceOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPICfuturesGetForceOrdersV1Request) Symbol(symbol string) TradeAPICfuturesGetForceOrdersV1Request {
+func (r TradeAPICmfuturesGetForceOrdersV1Request) Symbol(symbol string) TradeAPICmfuturesGetForceOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPICfuturesGetForceOrdersV1Request) AutoCloseType(autoCloseType string) TradeAPICfuturesGetForceOrdersV1Request {
+func (r TradeAPICmfuturesGetForceOrdersV1Request) AutoCloseType(autoCloseType string) TradeAPICmfuturesGetForceOrdersV1Request {
 	r.autoCloseType = &autoCloseType
 	return r
 }
 
-func (r TradeAPICfuturesGetForceOrdersV1Request) RecvWindow(recvWindow int64) TradeAPICfuturesGetForceOrdersV1Request {
+func (r TradeAPICmfuturesGetForceOrdersV1Request) RecvWindow(recvWindow int64) TradeAPICmfuturesGetForceOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPICfuturesGetForceOrdersV1Request) Limit(limit int32) TradeAPICfuturesGetForceOrdersV1Request {
+func (r TradeAPICmfuturesGetForceOrdersV1Request) Limit(limit int32) TradeAPICmfuturesGetForceOrdersV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r TradeAPICfuturesGetForceOrdersV1Request) StartTime(startTime int64) TradeAPICfuturesGetForceOrdersV1Request {
+func (r TradeAPICmfuturesGetForceOrdersV1Request) StartTime(startTime int64) TradeAPICmfuturesGetForceOrdersV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r TradeAPICfuturesGetForceOrdersV1Request) EndTime(endTime int64) TradeAPICfuturesGetForceOrdersV1Request {
+func (r TradeAPICmfuturesGetForceOrdersV1Request) EndTime(endTime int64) TradeAPICmfuturesGetForceOrdersV1Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r TradeAPICfuturesGetForceOrdersV1Request) Execute() ([]CfuturesGetForceOrdersV1RespItem, *http.Response, error) {
-	return r.ApiService.CfuturesGetForceOrdersV1Execute(r)
+func (r TradeAPICmfuturesGetForceOrdersV1Request) Execute() ([]CmfuturesGetForceOrdersV1RespItem, *http.Response, error) {
+	return r.ApiService.CmfuturesGetForceOrdersV1Execute(r)
 }
 
 /*
-CfuturesGetForceOrdersV1 User's Force Orders(USER_DATA)
+CmfuturesGetForceOrdersV1 User's Force Orders(USER_DATA)
 
 User's Force Orders
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPICfuturesGetForceOrdersV1Request
+ @return TradeAPICmfuturesGetForceOrdersV1Request
 */
-func (a *TradeAPIService) CfuturesGetForceOrdersV1(ctx context.Context) TradeAPICfuturesGetForceOrdersV1Request {
-	return TradeAPICfuturesGetForceOrdersV1Request{
+func (a *TradeAPIService) CmfuturesGetForceOrdersV1(ctx context.Context) TradeAPICmfuturesGetForceOrdersV1Request {
+	return TradeAPICmfuturesGetForceOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesGetForceOrdersV1RespItem
-func (a *TradeAPIService) CfuturesGetForceOrdersV1Execute(r TradeAPICfuturesGetForceOrdersV1Request) ([]CfuturesGetForceOrdersV1RespItem, *http.Response, error) {
+//  @return []CmfuturesGetForceOrdersV1RespItem
+func (a *TradeAPIService) CmfuturesGetForceOrdersV1Execute(r TradeAPICmfuturesGetForceOrdersV1Request) ([]CmfuturesGetForceOrdersV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesGetForceOrdersV1RespItem
+		localVarReturnValue  []CmfuturesGetForceOrdersV1RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CfuturesGetForceOrdersV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CmfuturesGetForceOrdersV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2411,7 +2411,7 @@ func (a *TradeAPIService) CfuturesGetForceOrdersV1Execute(r TradeAPICfuturesGetF
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPICfuturesGetOpenOrderV1Request struct {
+type TradeAPICmfuturesGetOpenOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -2421,61 +2421,61 @@ type TradeAPICfuturesGetOpenOrderV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPICfuturesGetOpenOrderV1Request) Symbol(symbol string) TradeAPICfuturesGetOpenOrderV1Request {
+func (r TradeAPICmfuturesGetOpenOrderV1Request) Symbol(symbol string) TradeAPICmfuturesGetOpenOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPICfuturesGetOpenOrderV1Request) Timestamp(timestamp int64) TradeAPICfuturesGetOpenOrderV1Request {
+func (r TradeAPICmfuturesGetOpenOrderV1Request) Timestamp(timestamp int64) TradeAPICmfuturesGetOpenOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPICfuturesGetOpenOrderV1Request) OrderId(orderId int64) TradeAPICfuturesGetOpenOrderV1Request {
+func (r TradeAPICmfuturesGetOpenOrderV1Request) OrderId(orderId int64) TradeAPICmfuturesGetOpenOrderV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPICfuturesGetOpenOrderV1Request) OrigClientOrderId(origClientOrderId string) TradeAPICfuturesGetOpenOrderV1Request {
+func (r TradeAPICmfuturesGetOpenOrderV1Request) OrigClientOrderId(origClientOrderId string) TradeAPICmfuturesGetOpenOrderV1Request {
 	r.origClientOrderId = &origClientOrderId
 	return r
 }
 
-func (r TradeAPICfuturesGetOpenOrderV1Request) RecvWindow(recvWindow int64) TradeAPICfuturesGetOpenOrderV1Request {
+func (r TradeAPICmfuturesGetOpenOrderV1Request) RecvWindow(recvWindow int64) TradeAPICmfuturesGetOpenOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPICfuturesGetOpenOrderV1Request) Execute() (*CfuturesGetOpenOrderV1Resp, *http.Response, error) {
-	return r.ApiService.CfuturesGetOpenOrderV1Execute(r)
+func (r TradeAPICmfuturesGetOpenOrderV1Request) Execute() (*CmfuturesGetOpenOrderV1Resp, *http.Response, error) {
+	return r.ApiService.CmfuturesGetOpenOrderV1Execute(r)
 }
 
 /*
-CfuturesGetOpenOrderV1 Query Current Open Order(USER_DATA)
+CmfuturesGetOpenOrderV1 Query Current Open Order(USER_DATA)
 
 Query Current Open Order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPICfuturesGetOpenOrderV1Request
+ @return TradeAPICmfuturesGetOpenOrderV1Request
 */
-func (a *TradeAPIService) CfuturesGetOpenOrderV1(ctx context.Context) TradeAPICfuturesGetOpenOrderV1Request {
-	return TradeAPICfuturesGetOpenOrderV1Request{
+func (a *TradeAPIService) CmfuturesGetOpenOrderV1(ctx context.Context) TradeAPICmfuturesGetOpenOrderV1Request {
+	return TradeAPICmfuturesGetOpenOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CfuturesGetOpenOrderV1Resp
-func (a *TradeAPIService) CfuturesGetOpenOrderV1Execute(r TradeAPICfuturesGetOpenOrderV1Request) (*CfuturesGetOpenOrderV1Resp, *http.Response, error) {
+//  @return CmfuturesGetOpenOrderV1Resp
+func (a *TradeAPIService) CmfuturesGetOpenOrderV1Execute(r TradeAPICmfuturesGetOpenOrderV1Request) (*CmfuturesGetOpenOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CfuturesGetOpenOrderV1Resp
+		localVarReturnValue  *CmfuturesGetOpenOrderV1Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CfuturesGetOpenOrderV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CmfuturesGetOpenOrderV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2587,7 +2587,7 @@ func (a *TradeAPIService) CfuturesGetOpenOrderV1Execute(r TradeAPICfuturesGetOpe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPICfuturesGetOpenOrdersV1Request struct {
+type TradeAPICmfuturesGetOpenOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -2596,56 +2596,56 @@ type TradeAPICfuturesGetOpenOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPICfuturesGetOpenOrdersV1Request) Timestamp(timestamp int64) TradeAPICfuturesGetOpenOrdersV1Request {
+func (r TradeAPICmfuturesGetOpenOrdersV1Request) Timestamp(timestamp int64) TradeAPICmfuturesGetOpenOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPICfuturesGetOpenOrdersV1Request) Symbol(symbol string) TradeAPICfuturesGetOpenOrdersV1Request {
+func (r TradeAPICmfuturesGetOpenOrdersV1Request) Symbol(symbol string) TradeAPICmfuturesGetOpenOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPICfuturesGetOpenOrdersV1Request) Pair(pair string) TradeAPICfuturesGetOpenOrdersV1Request {
+func (r TradeAPICmfuturesGetOpenOrdersV1Request) Pair(pair string) TradeAPICmfuturesGetOpenOrdersV1Request {
 	r.pair = &pair
 	return r
 }
 
-func (r TradeAPICfuturesGetOpenOrdersV1Request) RecvWindow(recvWindow int64) TradeAPICfuturesGetOpenOrdersV1Request {
+func (r TradeAPICmfuturesGetOpenOrdersV1Request) RecvWindow(recvWindow int64) TradeAPICmfuturesGetOpenOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPICfuturesGetOpenOrdersV1Request) Execute() ([]CfuturesGetOpenOrdersV1RespItem, *http.Response, error) {
-	return r.ApiService.CfuturesGetOpenOrdersV1Execute(r)
+func (r TradeAPICmfuturesGetOpenOrdersV1Request) Execute() ([]CmfuturesGetOpenOrdersV1RespItem, *http.Response, error) {
+	return r.ApiService.CmfuturesGetOpenOrdersV1Execute(r)
 }
 
 /*
-CfuturesGetOpenOrdersV1 Current All Open Orders (USER_DATA)
+CmfuturesGetOpenOrdersV1 Current All Open Orders (USER_DATA)
 
 Get all open orders on a symbol. Careful when accessing this with no symbol.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPICfuturesGetOpenOrdersV1Request
+ @return TradeAPICmfuturesGetOpenOrdersV1Request
 */
-func (a *TradeAPIService) CfuturesGetOpenOrdersV1(ctx context.Context) TradeAPICfuturesGetOpenOrdersV1Request {
-	return TradeAPICfuturesGetOpenOrdersV1Request{
+func (a *TradeAPIService) CmfuturesGetOpenOrdersV1(ctx context.Context) TradeAPICmfuturesGetOpenOrdersV1Request {
+	return TradeAPICmfuturesGetOpenOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesGetOpenOrdersV1RespItem
-func (a *TradeAPIService) CfuturesGetOpenOrdersV1Execute(r TradeAPICfuturesGetOpenOrdersV1Request) ([]CfuturesGetOpenOrdersV1RespItem, *http.Response, error) {
+//  @return []CmfuturesGetOpenOrdersV1RespItem
+func (a *TradeAPIService) CmfuturesGetOpenOrdersV1Execute(r TradeAPICmfuturesGetOpenOrdersV1Request) ([]CmfuturesGetOpenOrdersV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesGetOpenOrdersV1RespItem
+		localVarReturnValue  []CmfuturesGetOpenOrdersV1RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CfuturesGetOpenOrdersV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CmfuturesGetOpenOrdersV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2756,7 +2756,7 @@ func (a *TradeAPIService) CfuturesGetOpenOrdersV1Execute(r TradeAPICfuturesGetOp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPICfuturesGetOrderAmendmentV1Request struct {
+type TradeAPICmfuturesGetOrderAmendmentV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -2769,79 +2769,79 @@ type TradeAPICfuturesGetOrderAmendmentV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPICfuturesGetOrderAmendmentV1Request) Symbol(symbol string) TradeAPICfuturesGetOrderAmendmentV1Request {
+func (r TradeAPICmfuturesGetOrderAmendmentV1Request) Symbol(symbol string) TradeAPICmfuturesGetOrderAmendmentV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPICfuturesGetOrderAmendmentV1Request) Timestamp(timestamp int64) TradeAPICfuturesGetOrderAmendmentV1Request {
+func (r TradeAPICmfuturesGetOrderAmendmentV1Request) Timestamp(timestamp int64) TradeAPICmfuturesGetOrderAmendmentV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPICfuturesGetOrderAmendmentV1Request) OrderId(orderId int64) TradeAPICfuturesGetOrderAmendmentV1Request {
+func (r TradeAPICmfuturesGetOrderAmendmentV1Request) OrderId(orderId int64) TradeAPICmfuturesGetOrderAmendmentV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPICfuturesGetOrderAmendmentV1Request) OrigClientOrderId(origClientOrderId string) TradeAPICfuturesGetOrderAmendmentV1Request {
+func (r TradeAPICmfuturesGetOrderAmendmentV1Request) OrigClientOrderId(origClientOrderId string) TradeAPICmfuturesGetOrderAmendmentV1Request {
 	r.origClientOrderId = &origClientOrderId
 	return r
 }
 
 // Timestamp in ms to get modification history from INCLUSIVE
-func (r TradeAPICfuturesGetOrderAmendmentV1Request) StartTime(startTime int64) TradeAPICfuturesGetOrderAmendmentV1Request {
+func (r TradeAPICmfuturesGetOrderAmendmentV1Request) StartTime(startTime int64) TradeAPICmfuturesGetOrderAmendmentV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // Timestamp in ms to get modification history until INCLUSIVE
-func (r TradeAPICfuturesGetOrderAmendmentV1Request) EndTime(endTime int64) TradeAPICfuturesGetOrderAmendmentV1Request {
+func (r TradeAPICmfuturesGetOrderAmendmentV1Request) EndTime(endTime int64) TradeAPICmfuturesGetOrderAmendmentV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 50; max 100
-func (r TradeAPICfuturesGetOrderAmendmentV1Request) Limit(limit int32) TradeAPICfuturesGetOrderAmendmentV1Request {
+func (r TradeAPICmfuturesGetOrderAmendmentV1Request) Limit(limit int32) TradeAPICmfuturesGetOrderAmendmentV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r TradeAPICfuturesGetOrderAmendmentV1Request) RecvWindow(recvWindow int64) TradeAPICfuturesGetOrderAmendmentV1Request {
+func (r TradeAPICmfuturesGetOrderAmendmentV1Request) RecvWindow(recvWindow int64) TradeAPICmfuturesGetOrderAmendmentV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPICfuturesGetOrderAmendmentV1Request) Execute() ([]CfuturesGetOrderAmendmentV1RespItem, *http.Response, error) {
-	return r.ApiService.CfuturesGetOrderAmendmentV1Execute(r)
+func (r TradeAPICmfuturesGetOrderAmendmentV1Request) Execute() ([]CmfuturesGetOrderAmendmentV1RespItem, *http.Response, error) {
+	return r.ApiService.CmfuturesGetOrderAmendmentV1Execute(r)
 }
 
 /*
-CfuturesGetOrderAmendmentV1 Get Order Modify History (USER_DATA)
+CmfuturesGetOrderAmendmentV1 Get Order Modify History (USER_DATA)
 
 Get order modification history
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPICfuturesGetOrderAmendmentV1Request
+ @return TradeAPICmfuturesGetOrderAmendmentV1Request
 */
-func (a *TradeAPIService) CfuturesGetOrderAmendmentV1(ctx context.Context) TradeAPICfuturesGetOrderAmendmentV1Request {
-	return TradeAPICfuturesGetOrderAmendmentV1Request{
+func (a *TradeAPIService) CmfuturesGetOrderAmendmentV1(ctx context.Context) TradeAPICmfuturesGetOrderAmendmentV1Request {
+	return TradeAPICmfuturesGetOrderAmendmentV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesGetOrderAmendmentV1RespItem
-func (a *TradeAPIService) CfuturesGetOrderAmendmentV1Execute(r TradeAPICfuturesGetOrderAmendmentV1Request) ([]CfuturesGetOrderAmendmentV1RespItem, *http.Response, error) {
+//  @return []CmfuturesGetOrderAmendmentV1RespItem
+func (a *TradeAPIService) CmfuturesGetOrderAmendmentV1Execute(r TradeAPICmfuturesGetOrderAmendmentV1Request) ([]CmfuturesGetOrderAmendmentV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesGetOrderAmendmentV1RespItem
+		localVarReturnValue  []CmfuturesGetOrderAmendmentV1RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CfuturesGetOrderAmendmentV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CmfuturesGetOrderAmendmentV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2965,7 +2965,7 @@ func (a *TradeAPIService) CfuturesGetOrderAmendmentV1Execute(r TradeAPICfuturesG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPICfuturesGetOrderV1Request struct {
+type TradeAPICmfuturesGetOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -2975,61 +2975,61 @@ type TradeAPICfuturesGetOrderV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPICfuturesGetOrderV1Request) Symbol(symbol string) TradeAPICfuturesGetOrderV1Request {
+func (r TradeAPICmfuturesGetOrderV1Request) Symbol(symbol string) TradeAPICmfuturesGetOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPICfuturesGetOrderV1Request) Timestamp(timestamp int64) TradeAPICfuturesGetOrderV1Request {
+func (r TradeAPICmfuturesGetOrderV1Request) Timestamp(timestamp int64) TradeAPICmfuturesGetOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPICfuturesGetOrderV1Request) OrderId(orderId int64) TradeAPICfuturesGetOrderV1Request {
+func (r TradeAPICmfuturesGetOrderV1Request) OrderId(orderId int64) TradeAPICmfuturesGetOrderV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPICfuturesGetOrderV1Request) OrigClientOrderId(origClientOrderId string) TradeAPICfuturesGetOrderV1Request {
+func (r TradeAPICmfuturesGetOrderV1Request) OrigClientOrderId(origClientOrderId string) TradeAPICmfuturesGetOrderV1Request {
 	r.origClientOrderId = &origClientOrderId
 	return r
 }
 
-func (r TradeAPICfuturesGetOrderV1Request) RecvWindow(recvWindow int64) TradeAPICfuturesGetOrderV1Request {
+func (r TradeAPICmfuturesGetOrderV1Request) RecvWindow(recvWindow int64) TradeAPICmfuturesGetOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPICfuturesGetOrderV1Request) Execute() (*CfuturesGetOrderV1Resp, *http.Response, error) {
-	return r.ApiService.CfuturesGetOrderV1Execute(r)
+func (r TradeAPICmfuturesGetOrderV1Request) Execute() (*CmfuturesGetOrderV1Resp, *http.Response, error) {
+	return r.ApiService.CmfuturesGetOrderV1Execute(r)
 }
 
 /*
-CfuturesGetOrderV1 Query Order (USER_DATA)
+CmfuturesGetOrderV1 Query Order (USER_DATA)
 
 Check an order's status.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPICfuturesGetOrderV1Request
+ @return TradeAPICmfuturesGetOrderV1Request
 */
-func (a *TradeAPIService) CfuturesGetOrderV1(ctx context.Context) TradeAPICfuturesGetOrderV1Request {
-	return TradeAPICfuturesGetOrderV1Request{
+func (a *TradeAPIService) CmfuturesGetOrderV1(ctx context.Context) TradeAPICmfuturesGetOrderV1Request {
+	return TradeAPICmfuturesGetOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CfuturesGetOrderV1Resp
-func (a *TradeAPIService) CfuturesGetOrderV1Execute(r TradeAPICfuturesGetOrderV1Request) (*CfuturesGetOrderV1Resp, *http.Response, error) {
+//  @return CmfuturesGetOrderV1Resp
+func (a *TradeAPIService) CmfuturesGetOrderV1Execute(r TradeAPICmfuturesGetOrderV1Request) (*CmfuturesGetOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CfuturesGetOrderV1Resp
+		localVarReturnValue  *CmfuturesGetOrderV1Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CfuturesGetOrderV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CmfuturesGetOrderV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3141,7 +3141,7 @@ func (a *TradeAPIService) CfuturesGetOrderV1Execute(r TradeAPICfuturesGetOrderV1
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPICfuturesGetPositionMarginHistoryV1Request struct {
+type TradeAPICmfuturesGetPositionMarginHistoryV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -3153,73 +3153,73 @@ type TradeAPICfuturesGetPositionMarginHistoryV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPICfuturesGetPositionMarginHistoryV1Request) Symbol(symbol string) TradeAPICfuturesGetPositionMarginHistoryV1Request {
+func (r TradeAPICmfuturesGetPositionMarginHistoryV1Request) Symbol(symbol string) TradeAPICmfuturesGetPositionMarginHistoryV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPICfuturesGetPositionMarginHistoryV1Request) Timestamp(timestamp int64) TradeAPICfuturesGetPositionMarginHistoryV1Request {
+func (r TradeAPICmfuturesGetPositionMarginHistoryV1Request) Timestamp(timestamp int64) TradeAPICmfuturesGetPositionMarginHistoryV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // 1: Add position margin,2: Reduce position margin
-func (r TradeAPICfuturesGetPositionMarginHistoryV1Request) Type_(type_ int32) TradeAPICfuturesGetPositionMarginHistoryV1Request {
+func (r TradeAPICmfuturesGetPositionMarginHistoryV1Request) Type_(type_ int32) TradeAPICmfuturesGetPositionMarginHistoryV1Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r TradeAPICfuturesGetPositionMarginHistoryV1Request) StartTime(startTime int64) TradeAPICfuturesGetPositionMarginHistoryV1Request {
+func (r TradeAPICmfuturesGetPositionMarginHistoryV1Request) StartTime(startTime int64) TradeAPICmfuturesGetPositionMarginHistoryV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r TradeAPICfuturesGetPositionMarginHistoryV1Request) EndTime(endTime int64) TradeAPICfuturesGetPositionMarginHistoryV1Request {
+func (r TradeAPICmfuturesGetPositionMarginHistoryV1Request) EndTime(endTime int64) TradeAPICmfuturesGetPositionMarginHistoryV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default: 50
-func (r TradeAPICfuturesGetPositionMarginHistoryV1Request) Limit(limit int32) TradeAPICfuturesGetPositionMarginHistoryV1Request {
+func (r TradeAPICmfuturesGetPositionMarginHistoryV1Request) Limit(limit int32) TradeAPICmfuturesGetPositionMarginHistoryV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r TradeAPICfuturesGetPositionMarginHistoryV1Request) RecvWindow(recvWindow int64) TradeAPICfuturesGetPositionMarginHistoryV1Request {
+func (r TradeAPICmfuturesGetPositionMarginHistoryV1Request) RecvWindow(recvWindow int64) TradeAPICmfuturesGetPositionMarginHistoryV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPICfuturesGetPositionMarginHistoryV1Request) Execute() ([]CfuturesGetPositionMarginHistoryV1RespItem, *http.Response, error) {
-	return r.ApiService.CfuturesGetPositionMarginHistoryV1Execute(r)
+func (r TradeAPICmfuturesGetPositionMarginHistoryV1Request) Execute() ([]CmfuturesGetPositionMarginHistoryV1RespItem, *http.Response, error) {
+	return r.ApiService.CmfuturesGetPositionMarginHistoryV1Execute(r)
 }
 
 /*
-CfuturesGetPositionMarginHistoryV1 Get Position Margin Change History(TRADE)
+CmfuturesGetPositionMarginHistoryV1 Get Position Margin Change History(TRADE)
 
 Get position margin change history
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPICfuturesGetPositionMarginHistoryV1Request
+ @return TradeAPICmfuturesGetPositionMarginHistoryV1Request
 */
-func (a *TradeAPIService) CfuturesGetPositionMarginHistoryV1(ctx context.Context) TradeAPICfuturesGetPositionMarginHistoryV1Request {
-	return TradeAPICfuturesGetPositionMarginHistoryV1Request{
+func (a *TradeAPIService) CmfuturesGetPositionMarginHistoryV1(ctx context.Context) TradeAPICmfuturesGetPositionMarginHistoryV1Request {
+	return TradeAPICmfuturesGetPositionMarginHistoryV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesGetPositionMarginHistoryV1RespItem
-func (a *TradeAPIService) CfuturesGetPositionMarginHistoryV1Execute(r TradeAPICfuturesGetPositionMarginHistoryV1Request) ([]CfuturesGetPositionMarginHistoryV1RespItem, *http.Response, error) {
+//  @return []CmfuturesGetPositionMarginHistoryV1RespItem
+func (a *TradeAPIService) CmfuturesGetPositionMarginHistoryV1Execute(r TradeAPICmfuturesGetPositionMarginHistoryV1Request) ([]CmfuturesGetPositionMarginHistoryV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesGetPositionMarginHistoryV1RespItem
+		localVarReturnValue  []CmfuturesGetPositionMarginHistoryV1RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CfuturesGetPositionMarginHistoryV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CmfuturesGetPositionMarginHistoryV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3337,7 +3337,7 @@ func (a *TradeAPIService) CfuturesGetPositionMarginHistoryV1Execute(r TradeAPICf
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPICfuturesGetPositionRiskV1Request struct {
+type TradeAPICmfuturesGetPositionRiskV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -3346,56 +3346,56 @@ type TradeAPICfuturesGetPositionRiskV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPICfuturesGetPositionRiskV1Request) Timestamp(timestamp int64) TradeAPICfuturesGetPositionRiskV1Request {
+func (r TradeAPICmfuturesGetPositionRiskV1Request) Timestamp(timestamp int64) TradeAPICmfuturesGetPositionRiskV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPICfuturesGetPositionRiskV1Request) MarginAsset(marginAsset string) TradeAPICfuturesGetPositionRiskV1Request {
+func (r TradeAPICmfuturesGetPositionRiskV1Request) MarginAsset(marginAsset string) TradeAPICmfuturesGetPositionRiskV1Request {
 	r.marginAsset = &marginAsset
 	return r
 }
 
-func (r TradeAPICfuturesGetPositionRiskV1Request) Pair(pair string) TradeAPICfuturesGetPositionRiskV1Request {
+func (r TradeAPICmfuturesGetPositionRiskV1Request) Pair(pair string) TradeAPICmfuturesGetPositionRiskV1Request {
 	r.pair = &pair
 	return r
 }
 
-func (r TradeAPICfuturesGetPositionRiskV1Request) RecvWindow(recvWindow int64) TradeAPICfuturesGetPositionRiskV1Request {
+func (r TradeAPICmfuturesGetPositionRiskV1Request) RecvWindow(recvWindow int64) TradeAPICmfuturesGetPositionRiskV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPICfuturesGetPositionRiskV1Request) Execute() ([]CfuturesGetPositionRiskV1RespItem, *http.Response, error) {
-	return r.ApiService.CfuturesGetPositionRiskV1Execute(r)
+func (r TradeAPICmfuturesGetPositionRiskV1Request) Execute() ([]CmfuturesGetPositionRiskV1RespItem, *http.Response, error) {
+	return r.ApiService.CmfuturesGetPositionRiskV1Execute(r)
 }
 
 /*
-CfuturesGetPositionRiskV1 Position Information(USER_DATA)
+CmfuturesGetPositionRiskV1 Position Information(USER_DATA)
 
 Get current account information.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPICfuturesGetPositionRiskV1Request
+ @return TradeAPICmfuturesGetPositionRiskV1Request
 */
-func (a *TradeAPIService) CfuturesGetPositionRiskV1(ctx context.Context) TradeAPICfuturesGetPositionRiskV1Request {
-	return TradeAPICfuturesGetPositionRiskV1Request{
+func (a *TradeAPIService) CmfuturesGetPositionRiskV1(ctx context.Context) TradeAPICmfuturesGetPositionRiskV1Request {
+	return TradeAPICmfuturesGetPositionRiskV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesGetPositionRiskV1RespItem
-func (a *TradeAPIService) CfuturesGetPositionRiskV1Execute(r TradeAPICfuturesGetPositionRiskV1Request) ([]CfuturesGetPositionRiskV1RespItem, *http.Response, error) {
+//  @return []CmfuturesGetPositionRiskV1RespItem
+func (a *TradeAPIService) CmfuturesGetPositionRiskV1Execute(r TradeAPICmfuturesGetPositionRiskV1Request) ([]CmfuturesGetPositionRiskV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesGetPositionRiskV1RespItem
+		localVarReturnValue  []CmfuturesGetPositionRiskV1RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CfuturesGetPositionRiskV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CmfuturesGetPositionRiskV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3506,7 +3506,7 @@ func (a *TradeAPIService) CfuturesGetPositionRiskV1Execute(r TradeAPICfuturesGet
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPICfuturesGetUserTradesV1Request struct {
+type TradeAPICmfuturesGetUserTradesV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -3520,83 +3520,83 @@ type TradeAPICfuturesGetUserTradesV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPICfuturesGetUserTradesV1Request) Timestamp(timestamp int64) TradeAPICfuturesGetUserTradesV1Request {
+func (r TradeAPICmfuturesGetUserTradesV1Request) Timestamp(timestamp int64) TradeAPICmfuturesGetUserTradesV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPICfuturesGetUserTradesV1Request) Symbol(symbol string) TradeAPICfuturesGetUserTradesV1Request {
+func (r TradeAPICmfuturesGetUserTradesV1Request) Symbol(symbol string) TradeAPICmfuturesGetUserTradesV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPICfuturesGetUserTradesV1Request) Pair(pair string) TradeAPICfuturesGetUserTradesV1Request {
+func (r TradeAPICmfuturesGetUserTradesV1Request) Pair(pair string) TradeAPICmfuturesGetUserTradesV1Request {
 	r.pair = &pair
 	return r
 }
 
-func (r TradeAPICfuturesGetUserTradesV1Request) OrderId(orderId string) TradeAPICfuturesGetUserTradesV1Request {
+func (r TradeAPICmfuturesGetUserTradesV1Request) OrderId(orderId string) TradeAPICmfuturesGetUserTradesV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPICfuturesGetUserTradesV1Request) StartTime(startTime int64) TradeAPICfuturesGetUserTradesV1Request {
+func (r TradeAPICmfuturesGetUserTradesV1Request) StartTime(startTime int64) TradeAPICmfuturesGetUserTradesV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r TradeAPICfuturesGetUserTradesV1Request) EndTime(endTime int64) TradeAPICfuturesGetUserTradesV1Request {
+func (r TradeAPICmfuturesGetUserTradesV1Request) EndTime(endTime int64) TradeAPICmfuturesGetUserTradesV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Trade id to fetch from. Default gets most recent trades.
-func (r TradeAPICfuturesGetUserTradesV1Request) FromId(fromId int64) TradeAPICfuturesGetUserTradesV1Request {
+func (r TradeAPICmfuturesGetUserTradesV1Request) FromId(fromId int64) TradeAPICmfuturesGetUserTradesV1Request {
 	r.fromId = &fromId
 	return r
 }
 
 // Default 50; max 1000
-func (r TradeAPICfuturesGetUserTradesV1Request) Limit(limit int32) TradeAPICfuturesGetUserTradesV1Request {
+func (r TradeAPICmfuturesGetUserTradesV1Request) Limit(limit int32) TradeAPICmfuturesGetUserTradesV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r TradeAPICfuturesGetUserTradesV1Request) RecvWindow(recvWindow int64) TradeAPICfuturesGetUserTradesV1Request {
+func (r TradeAPICmfuturesGetUserTradesV1Request) RecvWindow(recvWindow int64) TradeAPICmfuturesGetUserTradesV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPICfuturesGetUserTradesV1Request) Execute() ([]CfuturesGetUserTradesV1RespItem, *http.Response, error) {
-	return r.ApiService.CfuturesGetUserTradesV1Execute(r)
+func (r TradeAPICmfuturesGetUserTradesV1Request) Execute() ([]CmfuturesGetUserTradesV1RespItem, *http.Response, error) {
+	return r.ApiService.CmfuturesGetUserTradesV1Execute(r)
 }
 
 /*
-CfuturesGetUserTradesV1 Account Trade List (USER_DATA)
+CmfuturesGetUserTradesV1 Account Trade List (USER_DATA)
 
 Get trades for a specific account and symbol.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPICfuturesGetUserTradesV1Request
+ @return TradeAPICmfuturesGetUserTradesV1Request
 */
-func (a *TradeAPIService) CfuturesGetUserTradesV1(ctx context.Context) TradeAPICfuturesGetUserTradesV1Request {
-	return TradeAPICfuturesGetUserTradesV1Request{
+func (a *TradeAPIService) CmfuturesGetUserTradesV1(ctx context.Context) TradeAPICmfuturesGetUserTradesV1Request {
+	return TradeAPICmfuturesGetUserTradesV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesGetUserTradesV1RespItem
-func (a *TradeAPIService) CfuturesGetUserTradesV1Execute(r TradeAPICfuturesGetUserTradesV1Request) ([]CfuturesGetUserTradesV1RespItem, *http.Response, error) {
+//  @return []CmfuturesGetUserTradesV1RespItem
+func (a *TradeAPIService) CmfuturesGetUserTradesV1Execute(r TradeAPICmfuturesGetUserTradesV1Request) ([]CmfuturesGetUserTradesV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesGetUserTradesV1RespItem
+		localVarReturnValue  []CmfuturesGetUserTradesV1RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CfuturesGetUserTradesV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CmfuturesGetUserTradesV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3728,7 +3728,7 @@ func (a *TradeAPIService) CfuturesGetUserTradesV1Execute(r TradeAPICfuturesGetUs
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPICfuturesUpdateBatchOrdersV1Request struct {
+type TradeAPICmfuturesUpdateBatchOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	batchOrders *map[string]interface{}
@@ -3736,51 +3736,51 @@ type TradeAPICfuturesUpdateBatchOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPICfuturesUpdateBatchOrdersV1Request) BatchOrders(batchOrders map[string]interface{}) TradeAPICfuturesUpdateBatchOrdersV1Request {
+func (r TradeAPICmfuturesUpdateBatchOrdersV1Request) BatchOrders(batchOrders map[string]interface{}) TradeAPICmfuturesUpdateBatchOrdersV1Request {
 	r.batchOrders = &batchOrders
 	return r
 }
 
-func (r TradeAPICfuturesUpdateBatchOrdersV1Request) Timestamp(timestamp int64) TradeAPICfuturesUpdateBatchOrdersV1Request {
+func (r TradeAPICmfuturesUpdateBatchOrdersV1Request) Timestamp(timestamp int64) TradeAPICmfuturesUpdateBatchOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPICfuturesUpdateBatchOrdersV1Request) RecvWindow(recvWindow int64) TradeAPICfuturesUpdateBatchOrdersV1Request {
+func (r TradeAPICmfuturesUpdateBatchOrdersV1Request) RecvWindow(recvWindow int64) TradeAPICmfuturesUpdateBatchOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPICfuturesUpdateBatchOrdersV1Request) Execute() ([]CfuturesUpdateBatchOrdersV1RespInner, *http.Response, error) {
-	return r.ApiService.CfuturesUpdateBatchOrdersV1Execute(r)
+func (r TradeAPICmfuturesUpdateBatchOrdersV1Request) Execute() ([]CmfuturesUpdateBatchOrdersV1RespInner, *http.Response, error) {
+	return r.ApiService.CmfuturesUpdateBatchOrdersV1Execute(r)
 }
 
 /*
-CfuturesUpdateBatchOrdersV1 Modify Multiple Orders(TRADE)
+CmfuturesUpdateBatchOrdersV1 Modify Multiple Orders(TRADE)
 
 Modify Multiple Orders
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPICfuturesUpdateBatchOrdersV1Request
+ @return TradeAPICmfuturesUpdateBatchOrdersV1Request
 */
-func (a *TradeAPIService) CfuturesUpdateBatchOrdersV1(ctx context.Context) TradeAPICfuturesUpdateBatchOrdersV1Request {
-	return TradeAPICfuturesUpdateBatchOrdersV1Request{
+func (a *TradeAPIService) CmfuturesUpdateBatchOrdersV1(ctx context.Context) TradeAPICmfuturesUpdateBatchOrdersV1Request {
+	return TradeAPICmfuturesUpdateBatchOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesUpdateBatchOrdersV1RespInner
-func (a *TradeAPIService) CfuturesUpdateBatchOrdersV1Execute(r TradeAPICfuturesUpdateBatchOrdersV1Request) ([]CfuturesUpdateBatchOrdersV1RespInner, *http.Response, error) {
+//  @return []CmfuturesUpdateBatchOrdersV1RespInner
+func (a *TradeAPIService) CmfuturesUpdateBatchOrdersV1Execute(r TradeAPICmfuturesUpdateBatchOrdersV1Request) ([]CmfuturesUpdateBatchOrdersV1RespInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesUpdateBatchOrdersV1RespInner
+		localVarReturnValue  []CmfuturesUpdateBatchOrdersV1RespInner
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CfuturesUpdateBatchOrdersV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CmfuturesUpdateBatchOrdersV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3883,7 +3883,7 @@ func (a *TradeAPIService) CfuturesUpdateBatchOrdersV1Execute(r TradeAPICfuturesU
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPICfuturesUpdateOrderV1Request struct {
+type TradeAPICmfuturesUpdateOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	side *string
@@ -3897,81 +3897,81 @@ type TradeAPICfuturesUpdateOrderV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPICfuturesUpdateOrderV1Request) Side(side string) TradeAPICfuturesUpdateOrderV1Request {
+func (r TradeAPICmfuturesUpdateOrderV1Request) Side(side string) TradeAPICmfuturesUpdateOrderV1Request {
 	r.side = &side
 	return r
 }
 
-func (r TradeAPICfuturesUpdateOrderV1Request) Symbol(symbol string) TradeAPICfuturesUpdateOrderV1Request {
+func (r TradeAPICmfuturesUpdateOrderV1Request) Symbol(symbol string) TradeAPICmfuturesUpdateOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPICfuturesUpdateOrderV1Request) Timestamp(timestamp int64) TradeAPICfuturesUpdateOrderV1Request {
+func (r TradeAPICmfuturesUpdateOrderV1Request) Timestamp(timestamp int64) TradeAPICmfuturesUpdateOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPICfuturesUpdateOrderV1Request) OrderId(orderId int64) TradeAPICfuturesUpdateOrderV1Request {
+func (r TradeAPICmfuturesUpdateOrderV1Request) OrderId(orderId int64) TradeAPICmfuturesUpdateOrderV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPICfuturesUpdateOrderV1Request) OrigClientOrderId(origClientOrderId string) TradeAPICfuturesUpdateOrderV1Request {
+func (r TradeAPICmfuturesUpdateOrderV1Request) OrigClientOrderId(origClientOrderId string) TradeAPICmfuturesUpdateOrderV1Request {
 	r.origClientOrderId = &origClientOrderId
 	return r
 }
 
-func (r TradeAPICfuturesUpdateOrderV1Request) Price(price string) TradeAPICfuturesUpdateOrderV1Request {
+func (r TradeAPICmfuturesUpdateOrderV1Request) Price(price string) TradeAPICmfuturesUpdateOrderV1Request {
 	r.price = &price
 	return r
 }
 
-func (r TradeAPICfuturesUpdateOrderV1Request) PriceMatch(priceMatch string) TradeAPICfuturesUpdateOrderV1Request {
+func (r TradeAPICmfuturesUpdateOrderV1Request) PriceMatch(priceMatch string) TradeAPICmfuturesUpdateOrderV1Request {
 	r.priceMatch = &priceMatch
 	return r
 }
 
-func (r TradeAPICfuturesUpdateOrderV1Request) Quantity(quantity string) TradeAPICfuturesUpdateOrderV1Request {
+func (r TradeAPICmfuturesUpdateOrderV1Request) Quantity(quantity string) TradeAPICmfuturesUpdateOrderV1Request {
 	r.quantity = &quantity
 	return r
 }
 
-func (r TradeAPICfuturesUpdateOrderV1Request) RecvWindow(recvWindow int64) TradeAPICfuturesUpdateOrderV1Request {
+func (r TradeAPICmfuturesUpdateOrderV1Request) RecvWindow(recvWindow int64) TradeAPICmfuturesUpdateOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPICfuturesUpdateOrderV1Request) Execute() (*CfuturesUpdateOrderV1Resp, *http.Response, error) {
-	return r.ApiService.CfuturesUpdateOrderV1Execute(r)
+func (r TradeAPICmfuturesUpdateOrderV1Request) Execute() (*CmfuturesUpdateOrderV1Resp, *http.Response, error) {
+	return r.ApiService.CmfuturesUpdateOrderV1Execute(r)
 }
 
 /*
-CfuturesUpdateOrderV1 Modify Order (TRADE)
+CmfuturesUpdateOrderV1 Modify Order (TRADE)
 
 Order modify function, currently only LIMIT order modification is supported, modified orders will be reordered in the match queue
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPICfuturesUpdateOrderV1Request
+ @return TradeAPICmfuturesUpdateOrderV1Request
 */
-func (a *TradeAPIService) CfuturesUpdateOrderV1(ctx context.Context) TradeAPICfuturesUpdateOrderV1Request {
-	return TradeAPICfuturesUpdateOrderV1Request{
+func (a *TradeAPIService) CmfuturesUpdateOrderV1(ctx context.Context) TradeAPICmfuturesUpdateOrderV1Request {
+	return TradeAPICmfuturesUpdateOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CfuturesUpdateOrderV1Resp
-func (a *TradeAPIService) CfuturesUpdateOrderV1Execute(r TradeAPICfuturesUpdateOrderV1Request) (*CfuturesUpdateOrderV1Resp, *http.Response, error) {
+//  @return CmfuturesUpdateOrderV1Resp
+func (a *TradeAPIService) CmfuturesUpdateOrderV1Execute(r TradeAPICmfuturesUpdateOrderV1Request) (*CmfuturesUpdateOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CfuturesUpdateOrderV1Resp
+		localVarReturnValue  *CmfuturesUpdateOrderV1Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CfuturesUpdateOrderV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TradeAPIService.CmfuturesUpdateOrderV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

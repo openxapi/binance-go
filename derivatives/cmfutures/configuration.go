@@ -1,7 +1,7 @@
 /*
-Binance Cfutures API
+Binance Cmfutures API
 
-OpenAPI specification for Binance cryptocurrency exchange - Cfutures API
+OpenAPI specification for Binance cryptocurrency exchange - Cmfutures API
 
 API version: 0.1.0
 */
@@ -96,7 +96,7 @@ func NewConfiguration() *Configuration {
 		Servers:          ServerConfigurations{
 			{
 				URL:         "https://dapi.binance.com",
-				Description: "Binance Cfutures API Server",
+				Description: "Binance Cmfutures API Server",
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{

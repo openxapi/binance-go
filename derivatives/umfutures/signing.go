@@ -1,7 +1,7 @@
 /*
-Binance Ufutures API
+Binance Umfutures API
 
-OpenAPI specification for Binance cryptocurrency exchange - Ufutures API
+OpenAPI specification for Binance cryptocurrency exchange - Umfutures API
 
 API version: 0.1.0
 */

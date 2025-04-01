@@ -1,7 +1,7 @@
 /*
-Binance Ufutures API
+Binance Umfutures API
 
-OpenAPI specification for Binance cryptocurrency exchange - Ufutures API
+OpenAPI specification for Binance cryptocurrency exchange - Umfutures API
 
 API version: 0.1.0
 */
@@ -41,7 +41,7 @@ var (
 	queryDescape    = strings.NewReplacer("%5B", "[", "%5D", "]")
 )
 
-// APIClient manages communication with the Binance Ufutures API API v0.1.0
+// APIClient manages communication with the Binance Umfutures API API v0.1.0
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration

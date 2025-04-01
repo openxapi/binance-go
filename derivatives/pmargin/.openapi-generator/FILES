@@ -265,10 +265,4 @@ model_pmargin_update_cm_order_v1_resp.go
 model_pmargin_update_um_order_v1_resp.go
 response.go
 signing.go
-test/api_account_test.go
-test/api_market_data_test.go
-test/api_trade_test.go
-test/api_user_data_streams_test.go
-test/api_v1_test.go
-test/api_v2_test.go
 utils.go

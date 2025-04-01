@@ -1,5 +1,5 @@
 /*
-Binance Cfutures API
+Binance Cmfutures API
 
 Testing V1APIService
 
@@ -22,11 +22,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test V1APIService CfuturesCreateBatchOrdersV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesCreateBatchOrdersV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesCreateBatchOrdersV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesCreateBatchOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesCreateCountdownCancelAllV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesCreateCountdownCancelAllV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesCreateCountdownCancelAllV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesCreateCountdownCancelAllV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,11 +46,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesCreateLeverageV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesCreateLeverageV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesCreateLeverageV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesCreateLeverageV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -58,11 +58,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesCreateListenKeyV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesCreateListenKeyV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesCreateListenKeyV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesCreateListenKeyV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -70,11 +70,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesCreateMarginTypeV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesCreateMarginTypeV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesCreateMarginTypeV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesCreateMarginTypeV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -82,11 +82,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesCreateOrderV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesCreateOrderV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesCreateOrderV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesCreateOrderV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -94,11 +94,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesCreatePositionMarginV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesCreatePositionMarginV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesCreatePositionMarginV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesCreatePositionMarginV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -106,11 +106,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesCreatePositionSideDualV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesCreatePositionSideDualV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesCreatePositionSideDualV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesCreatePositionSideDualV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -118,11 +118,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesDeleteAllOpenOrdersV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesDeleteAllOpenOrdersV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesDeleteAllOpenOrdersV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesDeleteAllOpenOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -130,11 +130,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesDeleteBatchOrdersV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesDeleteBatchOrdersV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesDeleteBatchOrdersV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesDeleteBatchOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -142,11 +142,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesDeleteListenKeyV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesDeleteListenKeyV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesDeleteListenKeyV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesDeleteListenKeyV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -154,11 +154,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesDeleteOrderV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesDeleteOrderV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesDeleteOrderV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesDeleteOrderV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -166,11 +166,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetAccountV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetAccountV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetAccountV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetAccountV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -178,11 +178,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetAdlQuantileV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetAdlQuantileV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetAdlQuantileV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetAdlQuantileV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -190,11 +190,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetAggTradesV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetAggTradesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetAggTradesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetAggTradesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -202,11 +202,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetAllOrdersV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetAllOrdersV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetAllOrdersV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetAllOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -214,11 +214,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetBalanceV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetBalanceV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetBalanceV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetBalanceV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -226,11 +226,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetCommissionRateV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetCommissionRateV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetCommissionRateV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetCommissionRateV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -238,11 +238,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetConstituentsV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetConstituentsV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetConstituentsV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetConstituentsV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -250,11 +250,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetContinuousKlinesV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetContinuousKlinesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetContinuousKlinesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetContinuousKlinesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -262,11 +262,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetDepthV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetDepthV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetDepthV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetDepthV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -274,11 +274,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetExchangeInfoV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetExchangeInfoV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetExchangeInfoV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetExchangeInfoV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -286,11 +286,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetForceOrdersV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetForceOrdersV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetForceOrdersV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetForceOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -298,11 +298,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetFundingInfoV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetFundingInfoV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetFundingInfoV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetFundingInfoV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -310,11 +310,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetFundingRateV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetFundingRateV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetFundingRateV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetFundingRateV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -322,11 +322,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetHistoricalTradesV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetHistoricalTradesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetHistoricalTradesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetHistoricalTradesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -334,11 +334,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetIncomeAsynIdV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetIncomeAsynIdV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetIncomeAsynIdV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetIncomeAsynIdV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -346,11 +346,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetIncomeAsynV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetIncomeAsynV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetIncomeAsynV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetIncomeAsynV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -358,11 +358,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetIncomeV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetIncomeV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetIncomeV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetIncomeV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -370,11 +370,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetIndexPriceKlinesV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetIndexPriceKlinesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetIndexPriceKlinesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetIndexPriceKlinesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -382,11 +382,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetKlinesV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetKlinesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetKlinesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetKlinesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -394,11 +394,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetLeverageBracketV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetLeverageBracketV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetLeverageBracketV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetLeverageBracketV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -406,11 +406,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetMarkPriceKlinesV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetMarkPriceKlinesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetMarkPriceKlinesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetMarkPriceKlinesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -418,11 +418,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetOpenInterestV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetOpenInterestV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetOpenInterestV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetOpenInterestV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -430,11 +430,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetOpenOrderV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetOpenOrderV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetOpenOrderV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetOpenOrderV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -442,11 +442,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetOpenOrdersV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetOpenOrdersV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetOpenOrdersV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetOpenOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -454,11 +454,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetOrderAmendmentV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetOrderAmendmentV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetOrderAmendmentV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetOrderAmendmentV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -466,11 +466,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetOrderAsynIdV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetOrderAsynIdV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetOrderAsynIdV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetOrderAsynIdV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -478,11 +478,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetOrderAsynV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetOrderAsynV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetOrderAsynV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetOrderAsynV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -490,11 +490,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetOrderV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetOrderV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetOrderV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetOrderV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -502,11 +502,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetPingV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetPingV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetPingV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetPingV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -514,11 +514,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetPmAccountInfoV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetPmAccountInfoV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetPmAccountInfoV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetPmAccountInfoV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -526,11 +526,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetPositionMarginHistoryV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetPositionMarginHistoryV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetPositionMarginHistoryV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetPositionMarginHistoryV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -538,11 +538,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetPositionRiskV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetPositionRiskV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetPositionRiskV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetPositionRiskV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -550,11 +550,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetPositionSideDualV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetPositionSideDualV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetPositionSideDualV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetPositionSideDualV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -562,11 +562,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetPremiumIndexKlinesV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetPremiumIndexKlinesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetPremiumIndexKlinesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetPremiumIndexKlinesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -574,11 +574,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetPremiumIndexV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetPremiumIndexV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetPremiumIndexV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetPremiumIndexV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -586,11 +586,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetTicker24hrV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetTicker24hrV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetTicker24hrV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetTicker24hrV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -598,11 +598,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetTickerBookTickerV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetTickerBookTickerV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetTickerBookTickerV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetTickerBookTickerV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -610,11 +610,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetTickerPriceV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetTickerPriceV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetTickerPriceV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetTickerPriceV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -622,11 +622,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetTimeV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetTimeV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetTimeV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetTimeV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -634,11 +634,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetTradeAsynIdV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetTradeAsynIdV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetTradeAsynIdV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetTradeAsynIdV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -646,11 +646,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetTradeAsynV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetTradeAsynV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetTradeAsynV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetTradeAsynV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -658,11 +658,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetTradesV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetTradesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetTradesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetTradesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -670,11 +670,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesGetUserTradesV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesGetUserTradesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesGetUserTradesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesGetUserTradesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -682,11 +682,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesUpdateBatchOrdersV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesUpdateBatchOrdersV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesUpdateBatchOrdersV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesUpdateBatchOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -694,11 +694,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesUpdateListenKeyV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesUpdateListenKeyV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesUpdateListenKeyV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesUpdateListenKeyV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -706,11 +706,11 @@ func Test_cmfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService CfuturesUpdateOrderV1", func(t *testing.T) {
+	t.Run("Test V1APIService CmfuturesUpdateOrderV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.CfuturesUpdateOrderV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.CmfuturesUpdateOrderV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

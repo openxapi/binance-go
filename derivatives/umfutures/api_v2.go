@@ -1,7 +1,7 @@
 /*
-Binance Ufutures API
+Binance Umfutures API
 
-OpenAPI specification for Binance cryptocurrency exchange - Ufutures API
+OpenAPI specification for Binance cryptocurrency exchange - Umfutures API
 
 API version: 0.1.0
 */
@@ -22,53 +22,53 @@ import (
 // V2APIService V2API service
 type V2APIService service
 
-type V2APIUfuturesGetAccountV2Request struct {
+type V2APIUmfuturesGetAccountV2Request struct {
 	ctx context.Context
 	ApiService *V2APIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r V2APIUfuturesGetAccountV2Request) Timestamp(timestamp int64) V2APIUfuturesGetAccountV2Request {
+func (r V2APIUmfuturesGetAccountV2Request) Timestamp(timestamp int64) V2APIUmfuturesGetAccountV2Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r V2APIUfuturesGetAccountV2Request) RecvWindow(recvWindow int64) V2APIUfuturesGetAccountV2Request {
+func (r V2APIUmfuturesGetAccountV2Request) RecvWindow(recvWindow int64) V2APIUmfuturesGetAccountV2Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r V2APIUfuturesGetAccountV2Request) Execute() (*UfuturesGetAccountV2Resp, *http.Response, error) {
-	return r.ApiService.UfuturesGetAccountV2Execute(r)
+func (r V2APIUmfuturesGetAccountV2Request) Execute() (*UmfuturesGetAccountV2Resp, *http.Response, error) {
+	return r.ApiService.UmfuturesGetAccountV2Execute(r)
 }
 
 /*
-UfuturesGetAccountV2 Account Information V2(USER_DATA)
+UmfuturesGetAccountV2 Account Information V2(USER_DATA)
 
 Get current account information. User in single-asset/ multi-assets mode will see different value, see comments in response section for detail.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return V2APIUfuturesGetAccountV2Request
+ @return V2APIUmfuturesGetAccountV2Request
 */
-func (a *V2APIService) UfuturesGetAccountV2(ctx context.Context) V2APIUfuturesGetAccountV2Request {
-	return V2APIUfuturesGetAccountV2Request{
+func (a *V2APIService) UmfuturesGetAccountV2(ctx context.Context) V2APIUmfuturesGetAccountV2Request {
+	return V2APIUmfuturesGetAccountV2Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return UfuturesGetAccountV2Resp
-func (a *V2APIService) UfuturesGetAccountV2Execute(r V2APIUfuturesGetAccountV2Request) (*UfuturesGetAccountV2Resp, *http.Response, error) {
+//  @return UmfuturesGetAccountV2Resp
+func (a *V2APIService) UmfuturesGetAccountV2Execute(r V2APIUmfuturesGetAccountV2Request) (*UmfuturesGetAccountV2Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UfuturesGetAccountV2Resp
+		localVarReturnValue  *UmfuturesGetAccountV2Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V2APIService.UfuturesGetAccountV2")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V2APIService.UmfuturesGetAccountV2")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -167,53 +167,53 @@ func (a *V2APIService) UfuturesGetAccountV2Execute(r V2APIUfuturesGetAccountV2Re
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type V2APIUfuturesGetBalanceV2Request struct {
+type V2APIUmfuturesGetBalanceV2Request struct {
 	ctx context.Context
 	ApiService *V2APIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r V2APIUfuturesGetBalanceV2Request) Timestamp(timestamp int64) V2APIUfuturesGetBalanceV2Request {
+func (r V2APIUmfuturesGetBalanceV2Request) Timestamp(timestamp int64) V2APIUmfuturesGetBalanceV2Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r V2APIUfuturesGetBalanceV2Request) RecvWindow(recvWindow int64) V2APIUfuturesGetBalanceV2Request {
+func (r V2APIUmfuturesGetBalanceV2Request) RecvWindow(recvWindow int64) V2APIUmfuturesGetBalanceV2Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r V2APIUfuturesGetBalanceV2Request) Execute() ([]UfuturesGetBalanceV2RespItem, *http.Response, error) {
-	return r.ApiService.UfuturesGetBalanceV2Execute(r)
+func (r V2APIUmfuturesGetBalanceV2Request) Execute() ([]UmfuturesGetBalanceV2RespItem, *http.Response, error) {
+	return r.ApiService.UmfuturesGetBalanceV2Execute(r)
 }
 
 /*
-UfuturesGetBalanceV2 Futures Account Balance V2 (USER_DATA)
+UmfuturesGetBalanceV2 Futures Account Balance V2 (USER_DATA)
 
 Query account balance info
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return V2APIUfuturesGetBalanceV2Request
+ @return V2APIUmfuturesGetBalanceV2Request
 */
-func (a *V2APIService) UfuturesGetBalanceV2(ctx context.Context) V2APIUfuturesGetBalanceV2Request {
-	return V2APIUfuturesGetBalanceV2Request{
+func (a *V2APIService) UmfuturesGetBalanceV2(ctx context.Context) V2APIUmfuturesGetBalanceV2Request {
+	return V2APIUmfuturesGetBalanceV2Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []UfuturesGetBalanceV2RespItem
-func (a *V2APIService) UfuturesGetBalanceV2Execute(r V2APIUfuturesGetBalanceV2Request) ([]UfuturesGetBalanceV2RespItem, *http.Response, error) {
+//  @return []UmfuturesGetBalanceV2RespItem
+func (a *V2APIService) UmfuturesGetBalanceV2Execute(r V2APIUmfuturesGetBalanceV2Request) ([]UmfuturesGetBalanceV2RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []UfuturesGetBalanceV2RespItem
+		localVarReturnValue  []UmfuturesGetBalanceV2RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V2APIService.UfuturesGetBalanceV2")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V2APIService.UmfuturesGetBalanceV2")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -312,7 +312,7 @@ func (a *V2APIService) UfuturesGetBalanceV2Execute(r V2APIUfuturesGetBalanceV2Re
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type V2APIUfuturesGetPositionRiskV2Request struct {
+type V2APIUmfuturesGetPositionRiskV2Request struct {
 	ctx context.Context
 	ApiService *V2APIService
 	timestamp *int64
@@ -320,51 +320,51 @@ type V2APIUfuturesGetPositionRiskV2Request struct {
 	recvWindow *int64
 }
 
-func (r V2APIUfuturesGetPositionRiskV2Request) Timestamp(timestamp int64) V2APIUfuturesGetPositionRiskV2Request {
+func (r V2APIUmfuturesGetPositionRiskV2Request) Timestamp(timestamp int64) V2APIUmfuturesGetPositionRiskV2Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r V2APIUfuturesGetPositionRiskV2Request) Symbol(symbol string) V2APIUfuturesGetPositionRiskV2Request {
+func (r V2APIUmfuturesGetPositionRiskV2Request) Symbol(symbol string) V2APIUmfuturesGetPositionRiskV2Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r V2APIUfuturesGetPositionRiskV2Request) RecvWindow(recvWindow int64) V2APIUfuturesGetPositionRiskV2Request {
+func (r V2APIUmfuturesGetPositionRiskV2Request) RecvWindow(recvWindow int64) V2APIUmfuturesGetPositionRiskV2Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r V2APIUfuturesGetPositionRiskV2Request) Execute() ([]UfuturesGetPositionRiskV2RespItem, *http.Response, error) {
-	return r.ApiService.UfuturesGetPositionRiskV2Execute(r)
+func (r V2APIUmfuturesGetPositionRiskV2Request) Execute() ([]UmfuturesGetPositionRiskV2RespItem, *http.Response, error) {
+	return r.ApiService.UmfuturesGetPositionRiskV2Execute(r)
 }
 
 /*
-UfuturesGetPositionRiskV2 Position Information V2 (USER_DATA)
+UmfuturesGetPositionRiskV2 Position Information V2 (USER_DATA)
 
 Get current position information.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return V2APIUfuturesGetPositionRiskV2Request
+ @return V2APIUmfuturesGetPositionRiskV2Request
 */
-func (a *V2APIService) UfuturesGetPositionRiskV2(ctx context.Context) V2APIUfuturesGetPositionRiskV2Request {
-	return V2APIUfuturesGetPositionRiskV2Request{
+func (a *V2APIService) UmfuturesGetPositionRiskV2(ctx context.Context) V2APIUmfuturesGetPositionRiskV2Request {
+	return V2APIUmfuturesGetPositionRiskV2Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []UfuturesGetPositionRiskV2RespItem
-func (a *V2APIService) UfuturesGetPositionRiskV2Execute(r V2APIUfuturesGetPositionRiskV2Request) ([]UfuturesGetPositionRiskV2RespItem, *http.Response, error) {
+//  @return []UmfuturesGetPositionRiskV2RespItem
+func (a *V2APIService) UmfuturesGetPositionRiskV2Execute(r V2APIUmfuturesGetPositionRiskV2Request) ([]UmfuturesGetPositionRiskV2RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []UfuturesGetPositionRiskV2RespItem
+		localVarReturnValue  []UmfuturesGetPositionRiskV2RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V2APIService.UfuturesGetPositionRiskV2")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V2APIService.UmfuturesGetPositionRiskV2")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -469,47 +469,47 @@ func (a *V2APIService) UfuturesGetPositionRiskV2Execute(r V2APIUfuturesGetPositi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type V2APIUfuturesGetTickerPriceV2Request struct {
+type V2APIUmfuturesGetTickerPriceV2Request struct {
 	ctx context.Context
 	ApiService *V2APIService
 	symbol *string
 }
 
-func (r V2APIUfuturesGetTickerPriceV2Request) Symbol(symbol string) V2APIUfuturesGetTickerPriceV2Request {
+func (r V2APIUmfuturesGetTickerPriceV2Request) Symbol(symbol string) V2APIUmfuturesGetTickerPriceV2Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r V2APIUfuturesGetTickerPriceV2Request) Execute() (*UfuturesGetTickerPriceV2Resp, *http.Response, error) {
-	return r.ApiService.UfuturesGetTickerPriceV2Execute(r)
+func (r V2APIUmfuturesGetTickerPriceV2Request) Execute() (*UmfuturesGetTickerPriceV2Resp, *http.Response, error) {
+	return r.ApiService.UmfuturesGetTickerPriceV2Execute(r)
 }
 
 /*
-UfuturesGetTickerPriceV2 Symbol Price Ticker V2
+UmfuturesGetTickerPriceV2 Symbol Price Ticker V2
 
 Latest price for a symbol or symbols.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return V2APIUfuturesGetTickerPriceV2Request
+ @return V2APIUmfuturesGetTickerPriceV2Request
 */
-func (a *V2APIService) UfuturesGetTickerPriceV2(ctx context.Context) V2APIUfuturesGetTickerPriceV2Request {
-	return V2APIUfuturesGetTickerPriceV2Request{
+func (a *V2APIService) UmfuturesGetTickerPriceV2(ctx context.Context) V2APIUmfuturesGetTickerPriceV2Request {
+	return V2APIUmfuturesGetTickerPriceV2Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return UfuturesGetTickerPriceV2Resp
-func (a *V2APIService) UfuturesGetTickerPriceV2Execute(r V2APIUfuturesGetTickerPriceV2Request) (*UfuturesGetTickerPriceV2Resp, *http.Response, error) {
+//  @return UmfuturesGetTickerPriceV2Resp
+func (a *V2APIService) UmfuturesGetTickerPriceV2Execute(r V2APIUmfuturesGetTickerPriceV2Request) (*UmfuturesGetTickerPriceV2Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UfuturesGetTickerPriceV2Resp
+		localVarReturnValue  *UmfuturesGetTickerPriceV2Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V2APIService.UfuturesGetTickerPriceV2")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V2APIService.UmfuturesGetTickerPriceV2")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

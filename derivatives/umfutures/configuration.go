@@ -1,7 +1,7 @@
 /*
-Binance Ufutures API
+Binance Umfutures API
 
-OpenAPI specification for Binance cryptocurrency exchange - Ufutures API
+OpenAPI specification for Binance cryptocurrency exchange - Umfutures API
 
 API version: 0.1.0
 */
@@ -96,7 +96,7 @@ func NewConfiguration() *Configuration {
 		Servers:          ServerConfigurations{
 			{
 				URL:         "https://fapi.binance.com",
-				Description: "Binance Ufutures API Server",
+				Description: "Binance Umfutures API Server",
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{

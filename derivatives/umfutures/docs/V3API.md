@@ -4,15 +4,15 @@ All URIs are relative to *https://fapi.binance.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**UfuturesGetAccountV3**](V3API.md#UfuturesGetAccountV3) | **Get** /fapi/v3/account | Account Information V3(USER_DATA)
-[**UfuturesGetBalanceV3**](V3API.md#UfuturesGetBalanceV3) | **Get** /fapi/v3/balance | Futures Account Balance V3 (USER_DATA)
-[**UfuturesGetPositionRiskV3**](V3API.md#UfuturesGetPositionRiskV3) | **Get** /fapi/v3/positionRisk | Position Information V3 (USER_DATA)
+[**UmfuturesGetAccountV3**](V3API.md#UmfuturesGetAccountV3) | **Get** /fapi/v3/account | Account Information V3(USER_DATA)
+[**UmfuturesGetBalanceV3**](V3API.md#UmfuturesGetBalanceV3) | **Get** /fapi/v3/balance | Futures Account Balance V3 (USER_DATA)
+[**UmfuturesGetPositionRiskV3**](V3API.md#UmfuturesGetPositionRiskV3) | **Get** /fapi/v3/positionRisk | Position Information V3 (USER_DATA)
 
 
 
-## UfuturesGetAccountV3
+## UmfuturesGetAccountV3
 
-> UfuturesGetAccountV3Resp UfuturesGetAccountV3(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> UmfuturesGetAccountV3Resp UmfuturesGetAccountV3(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Account Information V3(USER_DATA)
 
@@ -36,13 +36,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.V3API.UfuturesGetAccountV3(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.V3API.UmfuturesGetAccountV3(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `V3API.UfuturesGetAccountV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `V3API.UmfuturesGetAccountV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetAccountV3`: UfuturesGetAccountV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `V3API.UfuturesGetAccountV3`: %v\n", resp)
+	// response from `UmfuturesGetAccountV3`: UmfuturesGetAccountV3Resp
+	fmt.Fprintf(os.Stdout, "Response from `V3API.UmfuturesGetAccountV3`: %v\n", resp)
 }
 ```
 
@@ -52,7 +52,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetAccountV3Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetAccountV3Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetAccountV3Resp**](UfuturesGetAccountV3Resp.md)
+[**UmfuturesGetAccountV3Resp**](UmfuturesGetAccountV3Resp.md)
 
 ### Authorization
 
@@ -78,9 +78,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetBalanceV3
+## UmfuturesGetBalanceV3
 
-> []UfuturesGetBalanceV3RespItem UfuturesGetBalanceV3(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> []UmfuturesGetBalanceV3RespItem UmfuturesGetBalanceV3(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Futures Account Balance V3 (USER_DATA)
 
@@ -104,13 +104,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.V3API.UfuturesGetBalanceV3(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.V3API.UmfuturesGetBalanceV3(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `V3API.UfuturesGetBalanceV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `V3API.UmfuturesGetBalanceV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetBalanceV3`: []UfuturesGetBalanceV3RespItem
-	fmt.Fprintf(os.Stdout, "Response from `V3API.UfuturesGetBalanceV3`: %v\n", resp)
+	// response from `UmfuturesGetBalanceV3`: []UmfuturesGetBalanceV3RespItem
+	fmt.Fprintf(os.Stdout, "Response from `V3API.UmfuturesGetBalanceV3`: %v\n", resp)
 }
 ```
 
@@ -120,7 +120,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetBalanceV3Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetBalanceV3Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetBalanceV3RespItem**](UfuturesGetBalanceV3RespItem.md)
+[**[]UmfuturesGetBalanceV3RespItem**](UmfuturesGetBalanceV3RespItem.md)
 
 ### Authorization
 
@@ -146,9 +146,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetPositionRiskV3
+## UmfuturesGetPositionRiskV3
 
-> []UfuturesGetPositionRiskV3RespItem UfuturesGetPositionRiskV3(ctx).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+> []UmfuturesGetPositionRiskV3RespItem UmfuturesGetPositionRiskV3(ctx).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 
 Position Information V3 (USER_DATA)
 
@@ -173,13 +173,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.V3API.UfuturesGetPositionRiskV3(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.V3API.UmfuturesGetPositionRiskV3(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `V3API.UfuturesGetPositionRiskV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `V3API.UmfuturesGetPositionRiskV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetPositionRiskV3`: []UfuturesGetPositionRiskV3RespItem
-	fmt.Fprintf(os.Stdout, "Response from `V3API.UfuturesGetPositionRiskV3`: %v\n", resp)
+	// response from `UmfuturesGetPositionRiskV3`: []UmfuturesGetPositionRiskV3RespItem
+	fmt.Fprintf(os.Stdout, "Response from `V3API.UmfuturesGetPositionRiskV3`: %v\n", resp)
 }
 ```
 
@@ -189,7 +189,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetPositionRiskV3Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetPositionRiskV3Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetPositionRiskV3RespItem**](UfuturesGetPositionRiskV3RespItem.md)
+[**[]UmfuturesGetPositionRiskV3RespItem**](UmfuturesGetPositionRiskV3RespItem.md)
 
 ### Authorization
 

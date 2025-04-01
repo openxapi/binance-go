@@ -1,7 +1,7 @@
 /*
-Binance Cfutures API
+Binance Cmfutures API
 
-OpenAPI specification for Binance cryptocurrency exchange - Cfutures API
+OpenAPI specification for Binance cryptocurrency exchange - Cmfutures API
 
 API version: 0.1.0
 */
@@ -22,7 +22,7 @@ import (
 // V2APIService V2API service
 type V2APIService service
 
-type V2APICfuturesGetLeverageBracketV2Request struct {
+type V2APICmfuturesGetLeverageBracketV2Request struct {
 	ctx context.Context
 	ApiService *V2APIService
 	timestamp *int64
@@ -30,51 +30,51 @@ type V2APICfuturesGetLeverageBracketV2Request struct {
 	recvWindow *int64
 }
 
-func (r V2APICfuturesGetLeverageBracketV2Request) Timestamp(timestamp int64) V2APICfuturesGetLeverageBracketV2Request {
+func (r V2APICmfuturesGetLeverageBracketV2Request) Timestamp(timestamp int64) V2APICmfuturesGetLeverageBracketV2Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r V2APICfuturesGetLeverageBracketV2Request) Symbol(symbol string) V2APICfuturesGetLeverageBracketV2Request {
+func (r V2APICmfuturesGetLeverageBracketV2Request) Symbol(symbol string) V2APICmfuturesGetLeverageBracketV2Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r V2APICfuturesGetLeverageBracketV2Request) RecvWindow(recvWindow int64) V2APICfuturesGetLeverageBracketV2Request {
+func (r V2APICmfuturesGetLeverageBracketV2Request) RecvWindow(recvWindow int64) V2APICmfuturesGetLeverageBracketV2Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r V2APICfuturesGetLeverageBracketV2Request) Execute() ([]CfuturesGetLeverageBracketV2RespItem, *http.Response, error) {
-	return r.ApiService.CfuturesGetLeverageBracketV2Execute(r)
+func (r V2APICmfuturesGetLeverageBracketV2Request) Execute() ([]CmfuturesGetLeverageBracketV2RespItem, *http.Response, error) {
+	return r.ApiService.CmfuturesGetLeverageBracketV2Execute(r)
 }
 
 /*
-CfuturesGetLeverageBracketV2 Notional Bracket for Symbol(USER_DATA)
+CmfuturesGetLeverageBracketV2 Notional Bracket for Symbol(USER_DATA)
 
 Get the symbol's notional bracket list.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return V2APICfuturesGetLeverageBracketV2Request
+ @return V2APICmfuturesGetLeverageBracketV2Request
 */
-func (a *V2APIService) CfuturesGetLeverageBracketV2(ctx context.Context) V2APICfuturesGetLeverageBracketV2Request {
-	return V2APICfuturesGetLeverageBracketV2Request{
+func (a *V2APIService) CmfuturesGetLeverageBracketV2(ctx context.Context) V2APICmfuturesGetLeverageBracketV2Request {
+	return V2APICmfuturesGetLeverageBracketV2Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesGetLeverageBracketV2RespItem
-func (a *V2APIService) CfuturesGetLeverageBracketV2Execute(r V2APICfuturesGetLeverageBracketV2Request) ([]CfuturesGetLeverageBracketV2RespItem, *http.Response, error) {
+//  @return []CmfuturesGetLeverageBracketV2RespItem
+func (a *V2APIService) CmfuturesGetLeverageBracketV2Execute(r V2APICmfuturesGetLeverageBracketV2Request) ([]CmfuturesGetLeverageBracketV2RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesGetLeverageBracketV2RespItem
+		localVarReturnValue  []CmfuturesGetLeverageBracketV2RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V2APIService.CfuturesGetLeverageBracketV2")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V2APIService.CmfuturesGetLeverageBracketV2")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

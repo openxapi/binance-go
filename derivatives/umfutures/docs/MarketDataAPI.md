@@ -4,42 +4,42 @@ All URIs are relative to *https://fapi.binance.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**UfuturesGetAggTradesV1**](MarketDataAPI.md#UfuturesGetAggTradesV1) | **Get** /fapi/v1/aggTrades | Compressed/Aggregate Trades List
-[**UfuturesGetAssetIndexV1**](MarketDataAPI.md#UfuturesGetAssetIndexV1) | **Get** /fapi/v1/assetIndex | Multi-Assets Mode Asset Index
-[**UfuturesGetConstituentsV1**](MarketDataAPI.md#UfuturesGetConstituentsV1) | **Get** /fapi/v1/constituents | Query Index Price Constituents
-[**UfuturesGetContinuousKlinesV1**](MarketDataAPI.md#UfuturesGetContinuousKlinesV1) | **Get** /fapi/v1/continuousKlines | Continuous Contract Kline/Candlestick Data
-[**UfuturesGetDepthV1**](MarketDataAPI.md#UfuturesGetDepthV1) | **Get** /fapi/v1/depth | Order Book
-[**UfuturesGetExchangeInfoV1**](MarketDataAPI.md#UfuturesGetExchangeInfoV1) | **Get** /fapi/v1/exchangeInfo | Exchange Information
-[**UfuturesGetFundingInfoV1**](MarketDataAPI.md#UfuturesGetFundingInfoV1) | **Get** /fapi/v1/fundingInfo | Get Funding Rate Info
-[**UfuturesGetFundingRateV1**](MarketDataAPI.md#UfuturesGetFundingRateV1) | **Get** /fapi/v1/fundingRate | Get Funding Rate History
-[**UfuturesGetFuturesDataBasis**](MarketDataAPI.md#UfuturesGetFuturesDataBasis) | **Get** /futures/data/basis | Basis
-[**UfuturesGetFuturesDataDeliveryPrice**](MarketDataAPI.md#UfuturesGetFuturesDataDeliveryPrice) | **Get** /futures/data/delivery-price | Quarterly Contract Settlement Price
-[**UfuturesGetFuturesDataGlobalLongShortAccountRatio**](MarketDataAPI.md#UfuturesGetFuturesDataGlobalLongShortAccountRatio) | **Get** /futures/data/globalLongShortAccountRatio | Long/Short Ratio
-[**UfuturesGetFuturesDataOpenInterestHist**](MarketDataAPI.md#UfuturesGetFuturesDataOpenInterestHist) | **Get** /futures/data/openInterestHist | Open Interest Statistics
-[**UfuturesGetFuturesDataTakerlongshortRatio**](MarketDataAPI.md#UfuturesGetFuturesDataTakerlongshortRatio) | **Get** /futures/data/takerlongshortRatio | Taker Buy/Sell Volume
-[**UfuturesGetFuturesDataTopLongShortAccountRatio**](MarketDataAPI.md#UfuturesGetFuturesDataTopLongShortAccountRatio) | **Get** /futures/data/topLongShortAccountRatio | Top Trader Long/Short Ratio (Accounts)
-[**UfuturesGetFuturesDataTopLongShortPositionRatio**](MarketDataAPI.md#UfuturesGetFuturesDataTopLongShortPositionRatio) | **Get** /futures/data/topLongShortPositionRatio | Top Trader Long/Short Ratio (Positions)
-[**UfuturesGetHistoricalTradesV1**](MarketDataAPI.md#UfuturesGetHistoricalTradesV1) | **Get** /fapi/v1/historicalTrades | Old Trades Lookup (MARKET_DATA)
-[**UfuturesGetIndexInfoV1**](MarketDataAPI.md#UfuturesGetIndexInfoV1) | **Get** /fapi/v1/indexInfo | Composite Index Symbol Information
-[**UfuturesGetIndexPriceKlinesV1**](MarketDataAPI.md#UfuturesGetIndexPriceKlinesV1) | **Get** /fapi/v1/indexPriceKlines | Index Price Kline/Candlestick Data
-[**UfuturesGetKlinesV1**](MarketDataAPI.md#UfuturesGetKlinesV1) | **Get** /fapi/v1/klines | Kline/Candlestick Data
-[**UfuturesGetMarkPriceKlinesV1**](MarketDataAPI.md#UfuturesGetMarkPriceKlinesV1) | **Get** /fapi/v1/markPriceKlines | Mark Price Kline/Candlestick Data
-[**UfuturesGetOpenInterestV1**](MarketDataAPI.md#UfuturesGetOpenInterestV1) | **Get** /fapi/v1/openInterest | Open Interest
-[**UfuturesGetPingV1**](MarketDataAPI.md#UfuturesGetPingV1) | **Get** /fapi/v1/ping | Test Connectivity
-[**UfuturesGetPremiumIndexKlinesV1**](MarketDataAPI.md#UfuturesGetPremiumIndexKlinesV1) | **Get** /fapi/v1/premiumIndexKlines | Premium index Kline Data
-[**UfuturesGetPremiumIndexV1**](MarketDataAPI.md#UfuturesGetPremiumIndexV1) | **Get** /fapi/v1/premiumIndex | Mark Price
-[**UfuturesGetTicker24hrV1**](MarketDataAPI.md#UfuturesGetTicker24hrV1) | **Get** /fapi/v1/ticker/24hr | 24hr Ticker Price Change Statistics
-[**UfuturesGetTickerBookTickerV1**](MarketDataAPI.md#UfuturesGetTickerBookTickerV1) | **Get** /fapi/v1/ticker/bookTicker | Symbol Order Book Ticker
-[**UfuturesGetTickerPriceV1**](MarketDataAPI.md#UfuturesGetTickerPriceV1) | **Get** /fapi/v1/ticker/price | Symbol Price Ticker
-[**UfuturesGetTickerPriceV2**](MarketDataAPI.md#UfuturesGetTickerPriceV2) | **Get** /fapi/v2/ticker/price | Symbol Price Ticker V2
-[**UfuturesGetTimeV1**](MarketDataAPI.md#UfuturesGetTimeV1) | **Get** /fapi/v1/time | Check Server Time
-[**UfuturesGetTradesV1**](MarketDataAPI.md#UfuturesGetTradesV1) | **Get** /fapi/v1/trades | Recent Trades List
+[**UmfuturesGetAggTradesV1**](MarketDataAPI.md#UmfuturesGetAggTradesV1) | **Get** /fapi/v1/aggTrades | Compressed/Aggregate Trades List
+[**UmfuturesGetAssetIndexV1**](MarketDataAPI.md#UmfuturesGetAssetIndexV1) | **Get** /fapi/v1/assetIndex | Multi-Assets Mode Asset Index
+[**UmfuturesGetConstituentsV1**](MarketDataAPI.md#UmfuturesGetConstituentsV1) | **Get** /fapi/v1/constituents | Query Index Price Constituents
+[**UmfuturesGetContinuousKlinesV1**](MarketDataAPI.md#UmfuturesGetContinuousKlinesV1) | **Get** /fapi/v1/continuousKlines | Continuous Contract Kline/Candlestick Data
+[**UmfuturesGetDepthV1**](MarketDataAPI.md#UmfuturesGetDepthV1) | **Get** /fapi/v1/depth | Order Book
+[**UmfuturesGetExchangeInfoV1**](MarketDataAPI.md#UmfuturesGetExchangeInfoV1) | **Get** /fapi/v1/exchangeInfo | Exchange Information
+[**UmfuturesGetFundingInfoV1**](MarketDataAPI.md#UmfuturesGetFundingInfoV1) | **Get** /fapi/v1/fundingInfo | Get Funding Rate Info
+[**UmfuturesGetFundingRateV1**](MarketDataAPI.md#UmfuturesGetFundingRateV1) | **Get** /fapi/v1/fundingRate | Get Funding Rate History
+[**UmfuturesGetFuturesDataBasis**](MarketDataAPI.md#UmfuturesGetFuturesDataBasis) | **Get** /futures/data/basis | Basis
+[**UmfuturesGetFuturesDataDeliveryPrice**](MarketDataAPI.md#UmfuturesGetFuturesDataDeliveryPrice) | **Get** /futures/data/delivery-price | Quarterly Contract Settlement Price
+[**UmfuturesGetFuturesDataGlobalLongShortAccountRatio**](MarketDataAPI.md#UmfuturesGetFuturesDataGlobalLongShortAccountRatio) | **Get** /futures/data/globalLongShortAccountRatio | Long/Short Ratio
+[**UmfuturesGetFuturesDataOpenInterestHist**](MarketDataAPI.md#UmfuturesGetFuturesDataOpenInterestHist) | **Get** /futures/data/openInterestHist | Open Interest Statistics
+[**UmfuturesGetFuturesDataTakerlongshortRatio**](MarketDataAPI.md#UmfuturesGetFuturesDataTakerlongshortRatio) | **Get** /futures/data/takerlongshortRatio | Taker Buy/Sell Volume
+[**UmfuturesGetFuturesDataTopLongShortAccountRatio**](MarketDataAPI.md#UmfuturesGetFuturesDataTopLongShortAccountRatio) | **Get** /futures/data/topLongShortAccountRatio | Top Trader Long/Short Ratio (Accounts)
+[**UmfuturesGetFuturesDataTopLongShortPositionRatio**](MarketDataAPI.md#UmfuturesGetFuturesDataTopLongShortPositionRatio) | **Get** /futures/data/topLongShortPositionRatio | Top Trader Long/Short Ratio (Positions)
+[**UmfuturesGetHistoricalTradesV1**](MarketDataAPI.md#UmfuturesGetHistoricalTradesV1) | **Get** /fapi/v1/historicalTrades | Old Trades Lookup (MARKET_DATA)
+[**UmfuturesGetIndexInfoV1**](MarketDataAPI.md#UmfuturesGetIndexInfoV1) | **Get** /fapi/v1/indexInfo | Composite Index Symbol Information
+[**UmfuturesGetIndexPriceKlinesV1**](MarketDataAPI.md#UmfuturesGetIndexPriceKlinesV1) | **Get** /fapi/v1/indexPriceKlines | Index Price Kline/Candlestick Data
+[**UmfuturesGetKlinesV1**](MarketDataAPI.md#UmfuturesGetKlinesV1) | **Get** /fapi/v1/klines | Kline/Candlestick Data
+[**UmfuturesGetMarkPriceKlinesV1**](MarketDataAPI.md#UmfuturesGetMarkPriceKlinesV1) | **Get** /fapi/v1/markPriceKlines | Mark Price Kline/Candlestick Data
+[**UmfuturesGetOpenInterestV1**](MarketDataAPI.md#UmfuturesGetOpenInterestV1) | **Get** /fapi/v1/openInterest | Open Interest
+[**UmfuturesGetPingV1**](MarketDataAPI.md#UmfuturesGetPingV1) | **Get** /fapi/v1/ping | Test Connectivity
+[**UmfuturesGetPremiumIndexKlinesV1**](MarketDataAPI.md#UmfuturesGetPremiumIndexKlinesV1) | **Get** /fapi/v1/premiumIndexKlines | Premium index Kline Data
+[**UmfuturesGetPremiumIndexV1**](MarketDataAPI.md#UmfuturesGetPremiumIndexV1) | **Get** /fapi/v1/premiumIndex | Mark Price
+[**UmfuturesGetTicker24hrV1**](MarketDataAPI.md#UmfuturesGetTicker24hrV1) | **Get** /fapi/v1/ticker/24hr | 24hr Ticker Price Change Statistics
+[**UmfuturesGetTickerBookTickerV1**](MarketDataAPI.md#UmfuturesGetTickerBookTickerV1) | **Get** /fapi/v1/ticker/bookTicker | Symbol Order Book Ticker
+[**UmfuturesGetTickerPriceV1**](MarketDataAPI.md#UmfuturesGetTickerPriceV1) | **Get** /fapi/v1/ticker/price | Symbol Price Ticker
+[**UmfuturesGetTickerPriceV2**](MarketDataAPI.md#UmfuturesGetTickerPriceV2) | **Get** /fapi/v2/ticker/price | Symbol Price Ticker V2
+[**UmfuturesGetTimeV1**](MarketDataAPI.md#UmfuturesGetTimeV1) | **Get** /fapi/v1/time | Check Server Time
+[**UmfuturesGetTradesV1**](MarketDataAPI.md#UmfuturesGetTradesV1) | **Get** /fapi/v1/trades | Recent Trades List
 
 
 
-## UfuturesGetAggTradesV1
+## UmfuturesGetAggTradesV1
 
-> []UfuturesGetAggTradesV1RespItem UfuturesGetAggTradesV1(ctx).Symbol(symbol).FromId(fromId).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+> []UmfuturesGetAggTradesV1RespItem UmfuturesGetAggTradesV1(ctx).Symbol(symbol).FromId(fromId).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 
 Compressed/Aggregate Trades List
 
@@ -66,13 +66,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetAggTradesV1(context.Background()).Symbol(symbol).FromId(fromId).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetAggTradesV1(context.Background()).Symbol(symbol).FromId(fromId).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetAggTradesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetAggTradesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetAggTradesV1`: []UfuturesGetAggTradesV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetAggTradesV1`: %v\n", resp)
+	// response from `UmfuturesGetAggTradesV1`: []UmfuturesGetAggTradesV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetAggTradesV1`: %v\n", resp)
 }
 ```
 
@@ -82,7 +82,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetAggTradesV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetAggTradesV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetAggTradesV1RespItem**](UfuturesGetAggTradesV1RespItem.md)
+[**[]UmfuturesGetAggTradesV1RespItem**](UmfuturesGetAggTradesV1RespItem.md)
 
 ### Authorization
 
@@ -111,9 +111,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetAssetIndexV1
+## UmfuturesGetAssetIndexV1
 
-> UfuturesGetAssetIndexV1Resp UfuturesGetAssetIndexV1(ctx).Symbol(symbol).Execute()
+> UmfuturesGetAssetIndexV1Resp UmfuturesGetAssetIndexV1(ctx).Symbol(symbol).Execute()
 
 Multi-Assets Mode Asset Index
 
@@ -136,13 +136,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetAssetIndexV1(context.Background()).Symbol(symbol).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetAssetIndexV1(context.Background()).Symbol(symbol).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetAssetIndexV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetAssetIndexV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetAssetIndexV1`: UfuturesGetAssetIndexV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetAssetIndexV1`: %v\n", resp)
+	// response from `UmfuturesGetAssetIndexV1`: UmfuturesGetAssetIndexV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetAssetIndexV1`: %v\n", resp)
 }
 ```
 
@@ -152,7 +152,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetAssetIndexV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetAssetIndexV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetAssetIndexV1Resp**](UfuturesGetAssetIndexV1Resp.md)
+[**UmfuturesGetAssetIndexV1Resp**](UmfuturesGetAssetIndexV1Resp.md)
 
 ### Authorization
 
@@ -177,9 +177,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetConstituentsV1
+## UmfuturesGetConstituentsV1
 
-> UfuturesGetConstituentsV1Resp UfuturesGetConstituentsV1(ctx).Symbol(symbol).Execute()
+> UmfuturesGetConstituentsV1Resp UmfuturesGetConstituentsV1(ctx).Symbol(symbol).Execute()
 
 Query Index Price Constituents
 
@@ -202,13 +202,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetConstituentsV1(context.Background()).Symbol(symbol).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetConstituentsV1(context.Background()).Symbol(symbol).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetConstituentsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetConstituentsV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetConstituentsV1`: UfuturesGetConstituentsV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetConstituentsV1`: %v\n", resp)
+	// response from `UmfuturesGetConstituentsV1`: UmfuturesGetConstituentsV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetConstituentsV1`: %v\n", resp)
 }
 ```
 
@@ -218,7 +218,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetConstituentsV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetConstituentsV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -227,7 +227,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetConstituentsV1Resp**](UfuturesGetConstituentsV1Resp.md)
+[**UmfuturesGetConstituentsV1Resp**](UmfuturesGetConstituentsV1Resp.md)
 
 ### Authorization
 
@@ -243,9 +243,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetContinuousKlinesV1
+## UmfuturesGetContinuousKlinesV1
 
-> [][]UfuturesGetContinuousKlinesV1RespInnerInner UfuturesGetContinuousKlinesV1(ctx).Pair(pair).ContractType(contractType).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+> [][]UmfuturesGetContinuousKlinesV1RespInnerInner UmfuturesGetContinuousKlinesV1(ctx).Pair(pair).ContractType(contractType).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 
 Continuous Contract Kline/Candlestick Data
 
@@ -273,13 +273,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetContinuousKlinesV1(context.Background()).Pair(pair).ContractType(contractType).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetContinuousKlinesV1(context.Background()).Pair(pair).ContractType(contractType).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetContinuousKlinesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetContinuousKlinesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetContinuousKlinesV1`: [][]UfuturesGetContinuousKlinesV1RespInnerInner
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetContinuousKlinesV1`: %v\n", resp)
+	// response from `UmfuturesGetContinuousKlinesV1`: [][]UmfuturesGetContinuousKlinesV1RespInnerInner
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetContinuousKlinesV1`: %v\n", resp)
 }
 ```
 
@@ -289,7 +289,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetContinuousKlinesV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetContinuousKlinesV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[][]UfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
+[**[][]UmfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
 
 ### Authorization
 
@@ -319,9 +319,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetDepthV1
+## UmfuturesGetDepthV1
 
-> UfuturesGetDepthV1Resp UfuturesGetDepthV1(ctx).Symbol(symbol).Limit(limit).Execute()
+> UmfuturesGetDepthV1Resp UmfuturesGetDepthV1(ctx).Symbol(symbol).Limit(limit).Execute()
 
 Order Book
 
@@ -345,13 +345,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetDepthV1(context.Background()).Symbol(symbol).Limit(limit).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetDepthV1(context.Background()).Symbol(symbol).Limit(limit).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetDepthV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetDepthV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetDepthV1`: UfuturesGetDepthV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetDepthV1`: %v\n", resp)
+	// response from `UmfuturesGetDepthV1`: UmfuturesGetDepthV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetDepthV1`: %v\n", resp)
 }
 ```
 
@@ -361,7 +361,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetDepthV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetDepthV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -371,7 +371,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetDepthV1Resp**](UfuturesGetDepthV1Resp.md)
+[**UmfuturesGetDepthV1Resp**](UmfuturesGetDepthV1Resp.md)
 
 ### Authorization
 
@@ -387,9 +387,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetExchangeInfoV1
+## UmfuturesGetExchangeInfoV1
 
-> UfuturesGetExchangeInfoV1Resp UfuturesGetExchangeInfoV1(ctx).Execute()
+> UmfuturesGetExchangeInfoV1Resp UmfuturesGetExchangeInfoV1(ctx).Execute()
 
 Exchange Information
 
@@ -411,13 +411,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetExchangeInfoV1(context.Background()).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetExchangeInfoV1(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetExchangeInfoV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetExchangeInfoV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetExchangeInfoV1`: UfuturesGetExchangeInfoV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetExchangeInfoV1`: %v\n", resp)
+	// response from `UmfuturesGetExchangeInfoV1`: UmfuturesGetExchangeInfoV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetExchangeInfoV1`: %v\n", resp)
 }
 ```
 
@@ -427,12 +427,12 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetExchangeInfoV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetExchangeInfoV1Request struct via the builder pattern
 
 
 ### Return type
 
-[**UfuturesGetExchangeInfoV1Resp**](UfuturesGetExchangeInfoV1Resp.md)
+[**UmfuturesGetExchangeInfoV1Resp**](UmfuturesGetExchangeInfoV1Resp.md)
 
 ### Authorization
 
@@ -448,9 +448,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetFundingInfoV1
+## UmfuturesGetFundingInfoV1
 
-> []UfuturesGetFundingInfoV1RespItem UfuturesGetFundingInfoV1(ctx).Execute()
+> []UmfuturesGetFundingInfoV1RespItem UmfuturesGetFundingInfoV1(ctx).Execute()
 
 Get Funding Rate Info
 
@@ -472,13 +472,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetFundingInfoV1(context.Background()).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetFundingInfoV1(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetFundingInfoV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetFundingInfoV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetFundingInfoV1`: []UfuturesGetFundingInfoV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetFundingInfoV1`: %v\n", resp)
+	// response from `UmfuturesGetFundingInfoV1`: []UmfuturesGetFundingInfoV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetFundingInfoV1`: %v\n", resp)
 }
 ```
 
@@ -488,12 +488,12 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetFundingInfoV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetFundingInfoV1Request struct via the builder pattern
 
 
 ### Return type
 
-[**[]UfuturesGetFundingInfoV1RespItem**](UfuturesGetFundingInfoV1RespItem.md)
+[**[]UmfuturesGetFundingInfoV1RespItem**](UmfuturesGetFundingInfoV1RespItem.md)
 
 ### Authorization
 
@@ -509,9 +509,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetFundingRateV1
+## UmfuturesGetFundingRateV1
 
-> []UfuturesGetFundingRateV1RespItem UfuturesGetFundingRateV1(ctx).Symbol(symbol).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+> []UmfuturesGetFundingRateV1RespItem UmfuturesGetFundingRateV1(ctx).Symbol(symbol).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 
 Get Funding Rate History
 
@@ -537,13 +537,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetFundingRateV1(context.Background()).Symbol(symbol).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetFundingRateV1(context.Background()).Symbol(symbol).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetFundingRateV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetFundingRateV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetFundingRateV1`: []UfuturesGetFundingRateV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetFundingRateV1`: %v\n", resp)
+	// response from `UmfuturesGetFundingRateV1`: []UmfuturesGetFundingRateV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetFundingRateV1`: %v\n", resp)
 }
 ```
 
@@ -553,7 +553,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetFundingRateV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetFundingRateV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -565,7 +565,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetFundingRateV1RespItem**](UfuturesGetFundingRateV1RespItem.md)
+[**[]UmfuturesGetFundingRateV1RespItem**](UmfuturesGetFundingRateV1RespItem.md)
 
 ### Authorization
 
@@ -581,9 +581,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetFuturesDataBasis
+## UmfuturesGetFuturesDataBasis
 
-> []UfuturesGetFuturesDataBasisRespItem UfuturesGetFuturesDataBasis(ctx).Pair(pair).ContractType(contractType).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
+> []UmfuturesGetFuturesDataBasisRespItem UmfuturesGetFuturesDataBasis(ctx).Pair(pair).ContractType(contractType).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
 
 Basis
 
@@ -611,13 +611,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetFuturesDataBasis(context.Background()).Pair(pair).ContractType(contractType).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetFuturesDataBasis(context.Background()).Pair(pair).ContractType(contractType).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetFuturesDataBasis``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetFuturesDataBasis``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetFuturesDataBasis`: []UfuturesGetFuturesDataBasisRespItem
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetFuturesDataBasis`: %v\n", resp)
+	// response from `UmfuturesGetFuturesDataBasis`: []UmfuturesGetFuturesDataBasisRespItem
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetFuturesDataBasis`: %v\n", resp)
 }
 ```
 
@@ -627,7 +627,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetFuturesDataBasisRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetFuturesDataBasisRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -641,7 +641,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetFuturesDataBasisRespItem**](UfuturesGetFuturesDataBasisRespItem.md)
+[**[]UmfuturesGetFuturesDataBasisRespItem**](UmfuturesGetFuturesDataBasisRespItem.md)
 
 ### Authorization
 
@@ -657,9 +657,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetFuturesDataDeliveryPrice
+## UmfuturesGetFuturesDataDeliveryPrice
 
-> []UfuturesGetFuturesDataDeliveryPriceRespItem UfuturesGetFuturesDataDeliveryPrice(ctx).Pair(pair).Execute()
+> []UmfuturesGetFuturesDataDeliveryPriceRespItem UmfuturesGetFuturesDataDeliveryPrice(ctx).Pair(pair).Execute()
 
 Quarterly Contract Settlement Price
 
@@ -682,13 +682,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetFuturesDataDeliveryPrice(context.Background()).Pair(pair).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetFuturesDataDeliveryPrice(context.Background()).Pair(pair).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetFuturesDataDeliveryPrice``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetFuturesDataDeliveryPrice``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetFuturesDataDeliveryPrice`: []UfuturesGetFuturesDataDeliveryPriceRespItem
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetFuturesDataDeliveryPrice`: %v\n", resp)
+	// response from `UmfuturesGetFuturesDataDeliveryPrice`: []UmfuturesGetFuturesDataDeliveryPriceRespItem
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetFuturesDataDeliveryPrice`: %v\n", resp)
 }
 ```
 
@@ -698,7 +698,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetFuturesDataDeliveryPriceRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetFuturesDataDeliveryPriceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -707,7 +707,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetFuturesDataDeliveryPriceRespItem**](UfuturesGetFuturesDataDeliveryPriceRespItem.md)
+[**[]UmfuturesGetFuturesDataDeliveryPriceRespItem**](UmfuturesGetFuturesDataDeliveryPriceRespItem.md)
 
 ### Authorization
 
@@ -723,9 +723,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetFuturesDataGlobalLongShortAccountRatio
+## UmfuturesGetFuturesDataGlobalLongShortAccountRatio
 
-> []UfuturesGetFuturesDataGlobalLongShortAccountRatioRespItem UfuturesGetFuturesDataGlobalLongShortAccountRatio(ctx).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
+> []UmfuturesGetFuturesDataGlobalLongShortAccountRatioRespItem UmfuturesGetFuturesDataGlobalLongShortAccountRatio(ctx).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
 
 Long/Short Ratio
 
@@ -752,13 +752,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetFuturesDataGlobalLongShortAccountRatio(context.Background()).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetFuturesDataGlobalLongShortAccountRatio(context.Background()).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetFuturesDataGlobalLongShortAccountRatio``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetFuturesDataGlobalLongShortAccountRatio``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetFuturesDataGlobalLongShortAccountRatio`: []UfuturesGetFuturesDataGlobalLongShortAccountRatioRespItem
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetFuturesDataGlobalLongShortAccountRatio`: %v\n", resp)
+	// response from `UmfuturesGetFuturesDataGlobalLongShortAccountRatio`: []UmfuturesGetFuturesDataGlobalLongShortAccountRatioRespItem
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetFuturesDataGlobalLongShortAccountRatio`: %v\n", resp)
 }
 ```
 
@@ -768,7 +768,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetFuturesDataGlobalLongShortAccountRatioRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetFuturesDataGlobalLongShortAccountRatioRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -781,7 +781,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetFuturesDataGlobalLongShortAccountRatioRespItem**](UfuturesGetFuturesDataGlobalLongShortAccountRatioRespItem.md)
+[**[]UmfuturesGetFuturesDataGlobalLongShortAccountRatioRespItem**](UmfuturesGetFuturesDataGlobalLongShortAccountRatioRespItem.md)
 
 ### Authorization
 
@@ -797,9 +797,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetFuturesDataOpenInterestHist
+## UmfuturesGetFuturesDataOpenInterestHist
 
-> []UfuturesGetFuturesDataOpenInterestHistRespItem UfuturesGetFuturesDataOpenInterestHist(ctx).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
+> []UmfuturesGetFuturesDataOpenInterestHistRespItem UmfuturesGetFuturesDataOpenInterestHist(ctx).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
 
 Open Interest Statistics
 
@@ -826,13 +826,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetFuturesDataOpenInterestHist(context.Background()).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetFuturesDataOpenInterestHist(context.Background()).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetFuturesDataOpenInterestHist``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetFuturesDataOpenInterestHist``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetFuturesDataOpenInterestHist`: []UfuturesGetFuturesDataOpenInterestHistRespItem
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetFuturesDataOpenInterestHist`: %v\n", resp)
+	// response from `UmfuturesGetFuturesDataOpenInterestHist`: []UmfuturesGetFuturesDataOpenInterestHistRespItem
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetFuturesDataOpenInterestHist`: %v\n", resp)
 }
 ```
 
@@ -842,7 +842,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetFuturesDataOpenInterestHistRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetFuturesDataOpenInterestHistRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -855,7 +855,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetFuturesDataOpenInterestHistRespItem**](UfuturesGetFuturesDataOpenInterestHistRespItem.md)
+[**[]UmfuturesGetFuturesDataOpenInterestHistRespItem**](UmfuturesGetFuturesDataOpenInterestHistRespItem.md)
 
 ### Authorization
 
@@ -871,9 +871,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetFuturesDataTakerlongshortRatio
+## UmfuturesGetFuturesDataTakerlongshortRatio
 
-> []UfuturesGetFuturesDataTakerlongshortRatioRespItem UfuturesGetFuturesDataTakerlongshortRatio(ctx).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
+> []UmfuturesGetFuturesDataTakerlongshortRatioRespItem UmfuturesGetFuturesDataTakerlongshortRatio(ctx).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
 
 Taker Buy/Sell Volume
 
@@ -900,13 +900,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetFuturesDataTakerlongshortRatio(context.Background()).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetFuturesDataTakerlongshortRatio(context.Background()).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetFuturesDataTakerlongshortRatio``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetFuturesDataTakerlongshortRatio``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetFuturesDataTakerlongshortRatio`: []UfuturesGetFuturesDataTakerlongshortRatioRespItem
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetFuturesDataTakerlongshortRatio`: %v\n", resp)
+	// response from `UmfuturesGetFuturesDataTakerlongshortRatio`: []UmfuturesGetFuturesDataTakerlongshortRatioRespItem
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetFuturesDataTakerlongshortRatio`: %v\n", resp)
 }
 ```
 
@@ -916,7 +916,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetFuturesDataTakerlongshortRatioRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetFuturesDataTakerlongshortRatioRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -929,7 +929,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetFuturesDataTakerlongshortRatioRespItem**](UfuturesGetFuturesDataTakerlongshortRatioRespItem.md)
+[**[]UmfuturesGetFuturesDataTakerlongshortRatioRespItem**](UmfuturesGetFuturesDataTakerlongshortRatioRespItem.md)
 
 ### Authorization
 
@@ -945,9 +945,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetFuturesDataTopLongShortAccountRatio
+## UmfuturesGetFuturesDataTopLongShortAccountRatio
 
-> []UfuturesGetFuturesDataTopLongShortAccountRatioRespItem UfuturesGetFuturesDataTopLongShortAccountRatio(ctx).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
+> []UmfuturesGetFuturesDataTopLongShortAccountRatioRespItem UmfuturesGetFuturesDataTopLongShortAccountRatio(ctx).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
 
 Top Trader Long/Short Ratio (Accounts)
 
@@ -974,13 +974,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetFuturesDataTopLongShortAccountRatio(context.Background()).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetFuturesDataTopLongShortAccountRatio(context.Background()).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetFuturesDataTopLongShortAccountRatio``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetFuturesDataTopLongShortAccountRatio``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetFuturesDataTopLongShortAccountRatio`: []UfuturesGetFuturesDataTopLongShortAccountRatioRespItem
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetFuturesDataTopLongShortAccountRatio`: %v\n", resp)
+	// response from `UmfuturesGetFuturesDataTopLongShortAccountRatio`: []UmfuturesGetFuturesDataTopLongShortAccountRatioRespItem
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetFuturesDataTopLongShortAccountRatio`: %v\n", resp)
 }
 ```
 
@@ -990,7 +990,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetFuturesDataTopLongShortAccountRatioRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetFuturesDataTopLongShortAccountRatioRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1003,7 +1003,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetFuturesDataTopLongShortAccountRatioRespItem**](UfuturesGetFuturesDataTopLongShortAccountRatioRespItem.md)
+[**[]UmfuturesGetFuturesDataTopLongShortAccountRatioRespItem**](UmfuturesGetFuturesDataTopLongShortAccountRatioRespItem.md)
 
 ### Authorization
 
@@ -1019,9 +1019,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetFuturesDataTopLongShortPositionRatio
+## UmfuturesGetFuturesDataTopLongShortPositionRatio
 
-> []UfuturesGetFuturesDataTopLongShortPositionRatioRespItem UfuturesGetFuturesDataTopLongShortPositionRatio(ctx).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
+> []UmfuturesGetFuturesDataTopLongShortPositionRatioRespItem UmfuturesGetFuturesDataTopLongShortPositionRatio(ctx).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
 
 Top Trader Long/Short Ratio (Positions)
 
@@ -1048,13 +1048,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetFuturesDataTopLongShortPositionRatio(context.Background()).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetFuturesDataTopLongShortPositionRatio(context.Background()).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetFuturesDataTopLongShortPositionRatio``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetFuturesDataTopLongShortPositionRatio``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetFuturesDataTopLongShortPositionRatio`: []UfuturesGetFuturesDataTopLongShortPositionRatioRespItem
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetFuturesDataTopLongShortPositionRatio`: %v\n", resp)
+	// response from `UmfuturesGetFuturesDataTopLongShortPositionRatio`: []UmfuturesGetFuturesDataTopLongShortPositionRatioRespItem
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetFuturesDataTopLongShortPositionRatio`: %v\n", resp)
 }
 ```
 
@@ -1064,7 +1064,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetFuturesDataTopLongShortPositionRatioRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetFuturesDataTopLongShortPositionRatioRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1077,7 +1077,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetFuturesDataTopLongShortPositionRatioRespItem**](UfuturesGetFuturesDataTopLongShortPositionRatioRespItem.md)
+[**[]UmfuturesGetFuturesDataTopLongShortPositionRatioRespItem**](UmfuturesGetFuturesDataTopLongShortPositionRatioRespItem.md)
 
 ### Authorization
 
@@ -1093,9 +1093,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetHistoricalTradesV1
+## UmfuturesGetHistoricalTradesV1
 
-> []UfuturesGetHistoricalTradesV1RespItem UfuturesGetHistoricalTradesV1(ctx).Symbol(symbol).Limit(limit).FromId(fromId).Execute()
+> []UmfuturesGetHistoricalTradesV1RespItem UmfuturesGetHistoricalTradesV1(ctx).Symbol(symbol).Limit(limit).FromId(fromId).Execute()
 
 Old Trades Lookup (MARKET_DATA)
 
@@ -1120,13 +1120,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetHistoricalTradesV1(context.Background()).Symbol(symbol).Limit(limit).FromId(fromId).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetHistoricalTradesV1(context.Background()).Symbol(symbol).Limit(limit).FromId(fromId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetHistoricalTradesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetHistoricalTradesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetHistoricalTradesV1`: []UfuturesGetHistoricalTradesV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetHistoricalTradesV1`: %v\n", resp)
+	// response from `UmfuturesGetHistoricalTradesV1`: []UmfuturesGetHistoricalTradesV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetHistoricalTradesV1`: %v\n", resp)
 }
 ```
 
@@ -1136,7 +1136,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetHistoricalTradesV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetHistoricalTradesV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1147,7 +1147,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetHistoricalTradesV1RespItem**](UfuturesGetHistoricalTradesV1RespItem.md)
+[**[]UmfuturesGetHistoricalTradesV1RespItem**](UmfuturesGetHistoricalTradesV1RespItem.md)
 
 ### Authorization
 
@@ -1163,9 +1163,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetIndexInfoV1
+## UmfuturesGetIndexInfoV1
 
-> []UfuturesGetIndexInfoV1RespItem UfuturesGetIndexInfoV1(ctx).Symbol(symbol).Execute()
+> []UmfuturesGetIndexInfoV1RespItem UmfuturesGetIndexInfoV1(ctx).Symbol(symbol).Execute()
 
 Composite Index Symbol Information
 
@@ -1188,13 +1188,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetIndexInfoV1(context.Background()).Symbol(symbol).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetIndexInfoV1(context.Background()).Symbol(symbol).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetIndexInfoV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetIndexInfoV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetIndexInfoV1`: []UfuturesGetIndexInfoV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetIndexInfoV1`: %v\n", resp)
+	// response from `UmfuturesGetIndexInfoV1`: []UmfuturesGetIndexInfoV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetIndexInfoV1`: %v\n", resp)
 }
 ```
 
@@ -1204,7 +1204,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetIndexInfoV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetIndexInfoV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1213,7 +1213,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetIndexInfoV1RespItem**](UfuturesGetIndexInfoV1RespItem.md)
+[**[]UmfuturesGetIndexInfoV1RespItem**](UmfuturesGetIndexInfoV1RespItem.md)
 
 ### Authorization
 
@@ -1229,9 +1229,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetIndexPriceKlinesV1
+## UmfuturesGetIndexPriceKlinesV1
 
-> [][]UfuturesGetContinuousKlinesV1RespInnerInner UfuturesGetIndexPriceKlinesV1(ctx).Pair(pair).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+> [][]UmfuturesGetContinuousKlinesV1RespInnerInner UmfuturesGetIndexPriceKlinesV1(ctx).Pair(pair).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 
 Index Price Kline/Candlestick Data
 
@@ -1258,13 +1258,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetIndexPriceKlinesV1(context.Background()).Pair(pair).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetIndexPriceKlinesV1(context.Background()).Pair(pair).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetIndexPriceKlinesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetIndexPriceKlinesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetIndexPriceKlinesV1`: [][]UfuturesGetContinuousKlinesV1RespInnerInner
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetIndexPriceKlinesV1`: %v\n", resp)
+	// response from `UmfuturesGetIndexPriceKlinesV1`: [][]UmfuturesGetContinuousKlinesV1RespInnerInner
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetIndexPriceKlinesV1`: %v\n", resp)
 }
 ```
 
@@ -1274,7 +1274,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetIndexPriceKlinesV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetIndexPriceKlinesV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1287,7 +1287,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[][]UfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
+[**[][]UmfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
 
 ### Authorization
 
@@ -1303,9 +1303,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetKlinesV1
+## UmfuturesGetKlinesV1
 
-> [][]UfuturesGetContinuousKlinesV1RespInnerInner UfuturesGetKlinesV1(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+> [][]UmfuturesGetContinuousKlinesV1RespInnerInner UmfuturesGetKlinesV1(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 
 Kline/Candlestick Data
 
@@ -1332,13 +1332,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetKlinesV1(context.Background()).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetKlinesV1(context.Background()).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetKlinesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetKlinesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetKlinesV1`: [][]UfuturesGetContinuousKlinesV1RespInnerInner
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetKlinesV1`: %v\n", resp)
+	// response from `UmfuturesGetKlinesV1`: [][]UmfuturesGetContinuousKlinesV1RespInnerInner
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetKlinesV1`: %v\n", resp)
 }
 ```
 
@@ -1348,7 +1348,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetKlinesV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetKlinesV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1361,7 +1361,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[][]UfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
+[**[][]UmfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
 
 ### Authorization
 
@@ -1377,9 +1377,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetMarkPriceKlinesV1
+## UmfuturesGetMarkPriceKlinesV1
 
-> [][]UfuturesGetContinuousKlinesV1RespInnerInner UfuturesGetMarkPriceKlinesV1(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+> [][]UmfuturesGetContinuousKlinesV1RespInnerInner UmfuturesGetMarkPriceKlinesV1(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 
 Mark Price Kline/Candlestick Data
 
@@ -1406,13 +1406,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetMarkPriceKlinesV1(context.Background()).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetMarkPriceKlinesV1(context.Background()).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetMarkPriceKlinesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetMarkPriceKlinesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetMarkPriceKlinesV1`: [][]UfuturesGetContinuousKlinesV1RespInnerInner
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetMarkPriceKlinesV1`: %v\n", resp)
+	// response from `UmfuturesGetMarkPriceKlinesV1`: [][]UmfuturesGetContinuousKlinesV1RespInnerInner
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetMarkPriceKlinesV1`: %v\n", resp)
 }
 ```
 
@@ -1422,7 +1422,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetMarkPriceKlinesV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetMarkPriceKlinesV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1435,7 +1435,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[][]UfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
+[**[][]UmfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
 
 ### Authorization
 
@@ -1451,9 +1451,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetOpenInterestV1
+## UmfuturesGetOpenInterestV1
 
-> UfuturesGetOpenInterestV1Resp UfuturesGetOpenInterestV1(ctx).Symbol(symbol).Execute()
+> UmfuturesGetOpenInterestV1Resp UmfuturesGetOpenInterestV1(ctx).Symbol(symbol).Execute()
 
 Open Interest
 
@@ -1476,13 +1476,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetOpenInterestV1(context.Background()).Symbol(symbol).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetOpenInterestV1(context.Background()).Symbol(symbol).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetOpenInterestV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetOpenInterestV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetOpenInterestV1`: UfuturesGetOpenInterestV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetOpenInterestV1`: %v\n", resp)
+	// response from `UmfuturesGetOpenInterestV1`: UmfuturesGetOpenInterestV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetOpenInterestV1`: %v\n", resp)
 }
 ```
 
@@ -1492,7 +1492,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetOpenInterestV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetOpenInterestV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1501,7 +1501,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetOpenInterestV1Resp**](UfuturesGetOpenInterestV1Resp.md)
+[**UmfuturesGetOpenInterestV1Resp**](UmfuturesGetOpenInterestV1Resp.md)
 
 ### Authorization
 
@@ -1517,9 +1517,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetPingV1
+## UmfuturesGetPingV1
 
-> map[string]interface{} UfuturesGetPingV1(ctx).Execute()
+> map[string]interface{} UmfuturesGetPingV1(ctx).Execute()
 
 Test Connectivity
 
@@ -1541,13 +1541,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetPingV1(context.Background()).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetPingV1(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetPingV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetPingV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetPingV1`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetPingV1`: %v\n", resp)
+	// response from `UmfuturesGetPingV1`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetPingV1`: %v\n", resp)
 }
 ```
 
@@ -1557,7 +1557,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetPingV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetPingV1Request struct via the builder pattern
 
 
 ### Return type
@@ -1578,9 +1578,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetPremiumIndexKlinesV1
+## UmfuturesGetPremiumIndexKlinesV1
 
-> [][]UfuturesGetContinuousKlinesV1RespInnerInner UfuturesGetPremiumIndexKlinesV1(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+> [][]UmfuturesGetContinuousKlinesV1RespInnerInner UmfuturesGetPremiumIndexKlinesV1(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 
 Premium index Kline Data
 
@@ -1607,13 +1607,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetPremiumIndexKlinesV1(context.Background()).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetPremiumIndexKlinesV1(context.Background()).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetPremiumIndexKlinesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetPremiumIndexKlinesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetPremiumIndexKlinesV1`: [][]UfuturesGetContinuousKlinesV1RespInnerInner
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetPremiumIndexKlinesV1`: %v\n", resp)
+	// response from `UmfuturesGetPremiumIndexKlinesV1`: [][]UmfuturesGetContinuousKlinesV1RespInnerInner
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetPremiumIndexKlinesV1`: %v\n", resp)
 }
 ```
 
@@ -1623,7 +1623,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetPremiumIndexKlinesV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetPremiumIndexKlinesV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1636,7 +1636,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[][]UfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
+[**[][]UmfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
 
 ### Authorization
 
@@ -1652,9 +1652,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetPremiumIndexV1
+## UmfuturesGetPremiumIndexV1
 
-> UfuturesGetPremiumIndexV1Resp UfuturesGetPremiumIndexV1(ctx).Symbol(symbol).Execute()
+> UmfuturesGetPremiumIndexV1Resp UmfuturesGetPremiumIndexV1(ctx).Symbol(symbol).Execute()
 
 Mark Price
 
@@ -1677,13 +1677,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetPremiumIndexV1(context.Background()).Symbol(symbol).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetPremiumIndexV1(context.Background()).Symbol(symbol).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetPremiumIndexV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetPremiumIndexV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetPremiumIndexV1`: UfuturesGetPremiumIndexV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetPremiumIndexV1`: %v\n", resp)
+	// response from `UmfuturesGetPremiumIndexV1`: UmfuturesGetPremiumIndexV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetPremiumIndexV1`: %v\n", resp)
 }
 ```
 
@@ -1693,7 +1693,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetPremiumIndexV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetPremiumIndexV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1702,7 +1702,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetPremiumIndexV1Resp**](UfuturesGetPremiumIndexV1Resp.md)
+[**UmfuturesGetPremiumIndexV1Resp**](UmfuturesGetPremiumIndexV1Resp.md)
 
 ### Authorization
 
@@ -1718,9 +1718,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetTicker24hrV1
+## UmfuturesGetTicker24hrV1
 
-> UfuturesGetTicker24hrV1Resp UfuturesGetTicker24hrV1(ctx).Symbol(symbol).Execute()
+> UmfuturesGetTicker24hrV1Resp UmfuturesGetTicker24hrV1(ctx).Symbol(symbol).Execute()
 
 24hr Ticker Price Change Statistics
 
@@ -1743,13 +1743,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetTicker24hrV1(context.Background()).Symbol(symbol).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetTicker24hrV1(context.Background()).Symbol(symbol).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetTicker24hrV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetTicker24hrV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetTicker24hrV1`: UfuturesGetTicker24hrV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetTicker24hrV1`: %v\n", resp)
+	// response from `UmfuturesGetTicker24hrV1`: UmfuturesGetTicker24hrV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetTicker24hrV1`: %v\n", resp)
 }
 ```
 
@@ -1759,7 +1759,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetTicker24hrV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetTicker24hrV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1768,7 +1768,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetTicker24hrV1Resp**](UfuturesGetTicker24hrV1Resp.md)
+[**UmfuturesGetTicker24hrV1Resp**](UmfuturesGetTicker24hrV1Resp.md)
 
 ### Authorization
 
@@ -1784,9 +1784,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetTickerBookTickerV1
+## UmfuturesGetTickerBookTickerV1
 
-> UfuturesGetTickerBookTickerV1Resp UfuturesGetTickerBookTickerV1(ctx).Symbol(symbol).Execute()
+> UmfuturesGetTickerBookTickerV1Resp UmfuturesGetTickerBookTickerV1(ctx).Symbol(symbol).Execute()
 
 Symbol Order Book Ticker
 
@@ -1809,13 +1809,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetTickerBookTickerV1(context.Background()).Symbol(symbol).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetTickerBookTickerV1(context.Background()).Symbol(symbol).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetTickerBookTickerV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetTickerBookTickerV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetTickerBookTickerV1`: UfuturesGetTickerBookTickerV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetTickerBookTickerV1`: %v\n", resp)
+	// response from `UmfuturesGetTickerBookTickerV1`: UmfuturesGetTickerBookTickerV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetTickerBookTickerV1`: %v\n", resp)
 }
 ```
 
@@ -1825,7 +1825,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetTickerBookTickerV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetTickerBookTickerV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1834,7 +1834,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetTickerBookTickerV1Resp**](UfuturesGetTickerBookTickerV1Resp.md)
+[**UmfuturesGetTickerBookTickerV1Resp**](UmfuturesGetTickerBookTickerV1Resp.md)
 
 ### Authorization
 
@@ -1850,9 +1850,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetTickerPriceV1
+## UmfuturesGetTickerPriceV1
 
-> UfuturesGetTickerPriceV1Resp UfuturesGetTickerPriceV1(ctx).Symbol(symbol).Execute()
+> UmfuturesGetTickerPriceV1Resp UmfuturesGetTickerPriceV1(ctx).Symbol(symbol).Execute()
 
 Symbol Price Ticker
 
@@ -1875,13 +1875,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetTickerPriceV1(context.Background()).Symbol(symbol).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetTickerPriceV1(context.Background()).Symbol(symbol).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetTickerPriceV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetTickerPriceV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetTickerPriceV1`: UfuturesGetTickerPriceV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetTickerPriceV1`: %v\n", resp)
+	// response from `UmfuturesGetTickerPriceV1`: UmfuturesGetTickerPriceV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetTickerPriceV1`: %v\n", resp)
 }
 ```
 
@@ -1891,7 +1891,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetTickerPriceV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetTickerPriceV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1900,7 +1900,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetTickerPriceV1Resp**](UfuturesGetTickerPriceV1Resp.md)
+[**UmfuturesGetTickerPriceV1Resp**](UmfuturesGetTickerPriceV1Resp.md)
 
 ### Authorization
 
@@ -1916,9 +1916,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetTickerPriceV2
+## UmfuturesGetTickerPriceV2
 
-> UfuturesGetTickerPriceV2Resp UfuturesGetTickerPriceV2(ctx).Symbol(symbol).Execute()
+> UmfuturesGetTickerPriceV2Resp UmfuturesGetTickerPriceV2(ctx).Symbol(symbol).Execute()
 
 Symbol Price Ticker V2
 
@@ -1941,13 +1941,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetTickerPriceV2(context.Background()).Symbol(symbol).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetTickerPriceV2(context.Background()).Symbol(symbol).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetTickerPriceV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetTickerPriceV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetTickerPriceV2`: UfuturesGetTickerPriceV2Resp
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetTickerPriceV2`: %v\n", resp)
+	// response from `UmfuturesGetTickerPriceV2`: UmfuturesGetTickerPriceV2Resp
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetTickerPriceV2`: %v\n", resp)
 }
 ```
 
@@ -1957,7 +1957,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetTickerPriceV2Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetTickerPriceV2Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1966,7 +1966,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetTickerPriceV2Resp**](UfuturesGetTickerPriceV2Resp.md)
+[**UmfuturesGetTickerPriceV2Resp**](UmfuturesGetTickerPriceV2Resp.md)
 
 ### Authorization
 
@@ -1982,9 +1982,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetTimeV1
+## UmfuturesGetTimeV1
 
-> UfuturesGetTimeV1Resp UfuturesGetTimeV1(ctx).Execute()
+> UmfuturesGetTimeV1Resp UmfuturesGetTimeV1(ctx).Execute()
 
 Check Server Time
 
@@ -2006,13 +2006,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetTimeV1(context.Background()).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetTimeV1(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetTimeV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetTimeV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetTimeV1`: UfuturesGetTimeV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetTimeV1`: %v\n", resp)
+	// response from `UmfuturesGetTimeV1`: UmfuturesGetTimeV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetTimeV1`: %v\n", resp)
 }
 ```
 
@@ -2022,12 +2022,12 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetTimeV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetTimeV1Request struct via the builder pattern
 
 
 ### Return type
 
-[**UfuturesGetTimeV1Resp**](UfuturesGetTimeV1Resp.md)
+[**UmfuturesGetTimeV1Resp**](UmfuturesGetTimeV1Resp.md)
 
 ### Authorization
 
@@ -2043,9 +2043,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetTradesV1
+## UmfuturesGetTradesV1
 
-> []UfuturesGetTradesV1RespItem UfuturesGetTradesV1(ctx).Symbol(symbol).Limit(limit).Execute()
+> []UmfuturesGetTradesV1RespItem UmfuturesGetTradesV1(ctx).Symbol(symbol).Limit(limit).Execute()
 
 Recent Trades List
 
@@ -2069,13 +2069,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.UfuturesGetTradesV1(context.Background()).Symbol(symbol).Limit(limit).Execute()
+	resp, r, err := apiClient.MarketDataAPI.UmfuturesGetTradesV1(context.Background()).Symbol(symbol).Limit(limit).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UfuturesGetTradesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.UmfuturesGetTradesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetTradesV1`: []UfuturesGetTradesV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UfuturesGetTradesV1`: %v\n", resp)
+	// response from `UmfuturesGetTradesV1`: []UmfuturesGetTradesV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.UmfuturesGetTradesV1`: %v\n", resp)
 }
 ```
 
@@ -2085,7 +2085,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetTradesV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetTradesV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -2095,7 +2095,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetTradesV1RespItem**](UfuturesGetTradesV1RespItem.md)
+[**[]UmfuturesGetTradesV1RespItem**](UmfuturesGetTradesV1RespItem.md)
 
 ### Authorization
 

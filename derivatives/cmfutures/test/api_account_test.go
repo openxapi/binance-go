@@ -1,5 +1,5 @@
 /*
-Binance Cfutures API
+Binance Cmfutures API
 
 Testing AccountAPIService
 
@@ -22,11 +22,11 @@ func Test_cmfutures_AccountAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AccountAPIService CfuturesGetAccountV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService CmfuturesGetAccountV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.CfuturesGetAccountV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.CmfuturesGetAccountV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_cmfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService CfuturesGetBalanceV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService CmfuturesGetBalanceV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.CfuturesGetBalanceV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.CmfuturesGetBalanceV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,11 +46,11 @@ func Test_cmfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService CfuturesGetCommissionRateV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService CmfuturesGetCommissionRateV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.CfuturesGetCommissionRateV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.CmfuturesGetCommissionRateV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -58,11 +58,11 @@ func Test_cmfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService CfuturesGetIncomeAsynIdV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService CmfuturesGetIncomeAsynIdV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.CfuturesGetIncomeAsynIdV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.CmfuturesGetIncomeAsynIdV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -70,11 +70,11 @@ func Test_cmfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService CfuturesGetIncomeAsynV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService CmfuturesGetIncomeAsynV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.CfuturesGetIncomeAsynV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.CmfuturesGetIncomeAsynV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -82,11 +82,11 @@ func Test_cmfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService CfuturesGetIncomeV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService CmfuturesGetIncomeV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.CfuturesGetIncomeV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.CmfuturesGetIncomeV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -94,11 +94,11 @@ func Test_cmfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService CfuturesGetLeverageBracketV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService CmfuturesGetLeverageBracketV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.CfuturesGetLeverageBracketV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.CmfuturesGetLeverageBracketV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -106,11 +106,11 @@ func Test_cmfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService CfuturesGetLeverageBracketV2", func(t *testing.T) {
+	t.Run("Test AccountAPIService CmfuturesGetLeverageBracketV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.CfuturesGetLeverageBracketV2(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.CmfuturesGetLeverageBracketV2(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -118,11 +118,11 @@ func Test_cmfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService CfuturesGetOrderAsynIdV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService CmfuturesGetOrderAsynIdV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.CfuturesGetOrderAsynIdV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.CmfuturesGetOrderAsynIdV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -130,11 +130,11 @@ func Test_cmfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService CfuturesGetOrderAsynV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService CmfuturesGetOrderAsynV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.CfuturesGetOrderAsynV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.CmfuturesGetOrderAsynV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -142,11 +142,11 @@ func Test_cmfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService CfuturesGetPositionSideDualV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService CmfuturesGetPositionSideDualV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.CfuturesGetPositionSideDualV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.CmfuturesGetPositionSideDualV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -154,11 +154,11 @@ func Test_cmfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService CfuturesGetTradeAsynIdV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService CmfuturesGetTradeAsynIdV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.CfuturesGetTradeAsynIdV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.CmfuturesGetTradeAsynIdV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -166,11 +166,11 @@ func Test_cmfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService CfuturesGetTradeAsynV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService CmfuturesGetTradeAsynV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.CfuturesGetTradeAsynV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.CmfuturesGetTradeAsynV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

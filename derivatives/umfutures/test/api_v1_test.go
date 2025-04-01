@@ -1,5 +1,5 @@
 /*
-Binance Ufutures API
+Binance Umfutures API
 
 Testing V1APIService
 
@@ -22,11 +22,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test V1APIService UfuturesCreateBatchOrdersV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesCreateBatchOrdersV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesCreateBatchOrdersV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesCreateBatchOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesCreateConvertAcceptQuoteV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesCreateConvertAcceptQuoteV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesCreateConvertAcceptQuoteV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesCreateConvertAcceptQuoteV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,11 +46,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesCreateConvertGetQuoteV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesCreateConvertGetQuoteV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesCreateConvertGetQuoteV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesCreateConvertGetQuoteV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -58,11 +58,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesCreateCountdownCancelAllV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesCreateCountdownCancelAllV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesCreateCountdownCancelAllV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesCreateCountdownCancelAllV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -70,11 +70,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesCreateFeeBurnV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesCreateFeeBurnV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesCreateFeeBurnV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesCreateFeeBurnV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -82,11 +82,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesCreateLeverageV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesCreateLeverageV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesCreateLeverageV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesCreateLeverageV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -94,11 +94,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesCreateListenKeyV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesCreateListenKeyV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesCreateListenKeyV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesCreateListenKeyV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -106,11 +106,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesCreateMarginTypeV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesCreateMarginTypeV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesCreateMarginTypeV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesCreateMarginTypeV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -118,11 +118,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesCreateMultiAssetsMarginV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesCreateMultiAssetsMarginV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesCreateMultiAssetsMarginV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesCreateMultiAssetsMarginV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -130,11 +130,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesCreateOrderTestV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesCreateOrderTestV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesCreateOrderTestV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesCreateOrderTestV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -142,11 +142,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesCreateOrderV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesCreateOrderV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesCreateOrderV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesCreateOrderV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -154,11 +154,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesCreatePositionMarginV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesCreatePositionMarginV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesCreatePositionMarginV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesCreatePositionMarginV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -166,11 +166,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesCreatePositionSideDualV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesCreatePositionSideDualV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesCreatePositionSideDualV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesCreatePositionSideDualV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -178,11 +178,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesDeleteAllOpenOrdersV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesDeleteAllOpenOrdersV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesDeleteAllOpenOrdersV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesDeleteAllOpenOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -190,11 +190,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesDeleteBatchOrdersV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesDeleteBatchOrdersV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesDeleteBatchOrdersV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesDeleteBatchOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -202,11 +202,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesDeleteListenKeyV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesDeleteListenKeyV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesDeleteListenKeyV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesDeleteListenKeyV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -214,11 +214,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesDeleteOrderV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesDeleteOrderV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesDeleteOrderV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesDeleteOrderV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -226,11 +226,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetAccountConfigV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetAccountConfigV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetAccountConfigV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetAccountConfigV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -238,11 +238,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetAdlQuantileV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetAdlQuantileV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetAdlQuantileV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetAdlQuantileV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -250,11 +250,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetAggTradesV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetAggTradesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetAggTradesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetAggTradesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -262,11 +262,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetAllOrdersV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetAllOrdersV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetAllOrdersV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetAllOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -274,11 +274,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetApiTradingStatusV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetApiTradingStatusV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetApiTradingStatusV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetApiTradingStatusV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -286,11 +286,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetAssetIndexV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetAssetIndexV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetAssetIndexV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetAssetIndexV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -298,11 +298,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetCommissionRateV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetCommissionRateV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetCommissionRateV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetCommissionRateV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -310,11 +310,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetConstituentsV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetConstituentsV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetConstituentsV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetConstituentsV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -322,11 +322,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetContinuousKlinesV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetContinuousKlinesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetContinuousKlinesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetContinuousKlinesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -334,11 +334,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetConvertExchangeInfoV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetConvertExchangeInfoV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetConvertExchangeInfoV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetConvertExchangeInfoV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -346,11 +346,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetConvertOrderStatusV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetConvertOrderStatusV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetConvertOrderStatusV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetConvertOrderStatusV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -358,11 +358,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetDepthV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetDepthV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetDepthV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetDepthV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -370,11 +370,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetExchangeInfoV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetExchangeInfoV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetExchangeInfoV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetExchangeInfoV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -382,11 +382,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetFeeBurnV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetFeeBurnV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetFeeBurnV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetFeeBurnV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -394,11 +394,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetForceOrdersV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetForceOrdersV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetForceOrdersV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetForceOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -406,11 +406,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetFundingInfoV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetFundingInfoV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetFundingInfoV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetFundingInfoV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -418,11 +418,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetFundingRateV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetFundingRateV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetFundingRateV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetFundingRateV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -430,11 +430,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetHistoricalTradesV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetHistoricalTradesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetHistoricalTradesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetHistoricalTradesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -442,11 +442,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetIncomeAsynIdV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetIncomeAsynIdV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetIncomeAsynIdV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetIncomeAsynIdV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -454,11 +454,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetIncomeAsynV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetIncomeAsynV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetIncomeAsynV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetIncomeAsynV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -466,11 +466,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetIncomeV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetIncomeV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetIncomeV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetIncomeV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -478,11 +478,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetIndexInfoV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetIndexInfoV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetIndexInfoV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetIndexInfoV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -490,11 +490,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetIndexPriceKlinesV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetIndexPriceKlinesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetIndexPriceKlinesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetIndexPriceKlinesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -502,11 +502,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetKlinesV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetKlinesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetKlinesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetKlinesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -514,11 +514,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetLeverageBracketV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetLeverageBracketV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetLeverageBracketV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetLeverageBracketV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -526,11 +526,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetMarkPriceKlinesV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetMarkPriceKlinesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetMarkPriceKlinesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetMarkPriceKlinesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -538,11 +538,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetMultiAssetsMarginV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetMultiAssetsMarginV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetMultiAssetsMarginV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetMultiAssetsMarginV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -550,11 +550,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetOpenInterestV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetOpenInterestV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetOpenInterestV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetOpenInterestV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -562,11 +562,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetOpenOrderV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetOpenOrderV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetOpenOrderV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetOpenOrderV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -574,11 +574,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetOpenOrdersV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetOpenOrdersV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetOpenOrdersV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetOpenOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -586,11 +586,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetOrderAmendmentV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetOrderAmendmentV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetOrderAmendmentV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetOrderAmendmentV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -598,11 +598,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetOrderAsynIdV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetOrderAsynIdV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetOrderAsynIdV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetOrderAsynIdV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -610,11 +610,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetOrderAsynV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetOrderAsynV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetOrderAsynV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetOrderAsynV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -622,11 +622,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetOrderV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetOrderV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetOrderV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetOrderV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -634,11 +634,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetPingV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetPingV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetPingV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetPingV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -646,11 +646,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetPmAccountInfoV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetPmAccountInfoV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetPmAccountInfoV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetPmAccountInfoV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -658,11 +658,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetPositionMarginHistoryV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetPositionMarginHistoryV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetPositionMarginHistoryV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetPositionMarginHistoryV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -670,11 +670,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetPositionSideDualV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetPositionSideDualV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetPositionSideDualV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetPositionSideDualV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -682,11 +682,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetPremiumIndexKlinesV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetPremiumIndexKlinesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetPremiumIndexKlinesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetPremiumIndexKlinesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -694,11 +694,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetPremiumIndexV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetPremiumIndexV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetPremiumIndexV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetPremiumIndexV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -706,11 +706,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetRateLimitOrderV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetRateLimitOrderV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetRateLimitOrderV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetRateLimitOrderV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -718,11 +718,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetSymbolConfigV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetSymbolConfigV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetSymbolConfigV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetSymbolConfigV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -730,11 +730,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetTicker24hrV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetTicker24hrV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetTicker24hrV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetTicker24hrV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -742,11 +742,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetTickerBookTickerV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetTickerBookTickerV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetTickerBookTickerV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetTickerBookTickerV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -754,11 +754,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetTickerPriceV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetTickerPriceV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetTickerPriceV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetTickerPriceV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -766,11 +766,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetTimeV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetTimeV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetTimeV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetTimeV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -778,11 +778,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetTradeAsynIdV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetTradeAsynIdV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetTradeAsynIdV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetTradeAsynIdV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -790,11 +790,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetTradeAsynV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetTradeAsynV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetTradeAsynV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetTradeAsynV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -802,11 +802,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetTradesV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetTradesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetTradesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetTradesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -814,11 +814,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesGetUserTradesV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesGetUserTradesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesGetUserTradesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesGetUserTradesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -826,11 +826,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesUpdateBatchOrdersV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesUpdateBatchOrdersV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesUpdateBatchOrdersV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesUpdateBatchOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -838,11 +838,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesUpdateListenKeyV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesUpdateListenKeyV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesUpdateListenKeyV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesUpdateListenKeyV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -850,11 +850,11 @@ func Test_umfutures_V1APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V1APIService UfuturesUpdateOrderV1", func(t *testing.T) {
+	t.Run("Test V1APIService UmfuturesUpdateOrderV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V1API.UfuturesUpdateOrderV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V1API.UmfuturesUpdateOrderV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

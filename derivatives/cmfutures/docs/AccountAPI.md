@@ -4,25 +4,25 @@ All URIs are relative to *https://dapi.binance.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CfuturesGetAccountV1**](AccountAPI.md#CfuturesGetAccountV1) | **Get** /dapi/v1/account | Account Information (USER_DATA)
-[**CfuturesGetBalanceV1**](AccountAPI.md#CfuturesGetBalanceV1) | **Get** /dapi/v1/balance | Futures Account Balance (USER_DATA)
-[**CfuturesGetCommissionRateV1**](AccountAPI.md#CfuturesGetCommissionRateV1) | **Get** /dapi/v1/commissionRate | User Commission Rate (USER_DATA)
-[**CfuturesGetIncomeAsynIdV1**](AccountAPI.md#CfuturesGetIncomeAsynIdV1) | **Get** /dapi/v1/income/asyn/id | Get Futures Transaction History Download Link by Id (USER_DATA)
-[**CfuturesGetIncomeAsynV1**](AccountAPI.md#CfuturesGetIncomeAsynV1) | **Get** /dapi/v1/income/asyn | Get Download Id For Futures Transaction History(USER_DATA)
-[**CfuturesGetIncomeV1**](AccountAPI.md#CfuturesGetIncomeV1) | **Get** /dapi/v1/income | Get Income History(USER_DATA)
-[**CfuturesGetLeverageBracketV1**](AccountAPI.md#CfuturesGetLeverageBracketV1) | **Get** /dapi/v1/leverageBracket | Notional Bracket for Pair(USER_DATA)
-[**CfuturesGetLeverageBracketV2**](AccountAPI.md#CfuturesGetLeverageBracketV2) | **Get** /dapi/v2/leverageBracket | Notional Bracket for Symbol(USER_DATA)
-[**CfuturesGetOrderAsynIdV1**](AccountAPI.md#CfuturesGetOrderAsynIdV1) | **Get** /dapi/v1/order/asyn/id | Get Futures Order History Download Link by Id (USER_DATA)
-[**CfuturesGetOrderAsynV1**](AccountAPI.md#CfuturesGetOrderAsynV1) | **Get** /dapi/v1/order/asyn | Get Download Id For Futures Order History (USER_DATA)
-[**CfuturesGetPositionSideDualV1**](AccountAPI.md#CfuturesGetPositionSideDualV1) | **Get** /dapi/v1/positionSide/dual | Get Current Position Mode(USER_DATA)
-[**CfuturesGetTradeAsynIdV1**](AccountAPI.md#CfuturesGetTradeAsynIdV1) | **Get** /dapi/v1/trade/asyn/id | Get Futures Trade Download Link by Id(USER_DATA)
-[**CfuturesGetTradeAsynV1**](AccountAPI.md#CfuturesGetTradeAsynV1) | **Get** /dapi/v1/trade/asyn | Get Download Id For Futures Trade History (USER_DATA)
+[**CmfuturesGetAccountV1**](AccountAPI.md#CmfuturesGetAccountV1) | **Get** /dapi/v1/account | Account Information (USER_DATA)
+[**CmfuturesGetBalanceV1**](AccountAPI.md#CmfuturesGetBalanceV1) | **Get** /dapi/v1/balance | Futures Account Balance (USER_DATA)
+[**CmfuturesGetCommissionRateV1**](AccountAPI.md#CmfuturesGetCommissionRateV1) | **Get** /dapi/v1/commissionRate | User Commission Rate (USER_DATA)
+[**CmfuturesGetIncomeAsynIdV1**](AccountAPI.md#CmfuturesGetIncomeAsynIdV1) | **Get** /dapi/v1/income/asyn/id | Get Futures Transaction History Download Link by Id (USER_DATA)
+[**CmfuturesGetIncomeAsynV1**](AccountAPI.md#CmfuturesGetIncomeAsynV1) | **Get** /dapi/v1/income/asyn | Get Download Id For Futures Transaction History(USER_DATA)
+[**CmfuturesGetIncomeV1**](AccountAPI.md#CmfuturesGetIncomeV1) | **Get** /dapi/v1/income | Get Income History(USER_DATA)
+[**CmfuturesGetLeverageBracketV1**](AccountAPI.md#CmfuturesGetLeverageBracketV1) | **Get** /dapi/v1/leverageBracket | Notional Bracket for Pair(USER_DATA)
+[**CmfuturesGetLeverageBracketV2**](AccountAPI.md#CmfuturesGetLeverageBracketV2) | **Get** /dapi/v2/leverageBracket | Notional Bracket for Symbol(USER_DATA)
+[**CmfuturesGetOrderAsynIdV1**](AccountAPI.md#CmfuturesGetOrderAsynIdV1) | **Get** /dapi/v1/order/asyn/id | Get Futures Order History Download Link by Id (USER_DATA)
+[**CmfuturesGetOrderAsynV1**](AccountAPI.md#CmfuturesGetOrderAsynV1) | **Get** /dapi/v1/order/asyn | Get Download Id For Futures Order History (USER_DATA)
+[**CmfuturesGetPositionSideDualV1**](AccountAPI.md#CmfuturesGetPositionSideDualV1) | **Get** /dapi/v1/positionSide/dual | Get Current Position Mode(USER_DATA)
+[**CmfuturesGetTradeAsynIdV1**](AccountAPI.md#CmfuturesGetTradeAsynIdV1) | **Get** /dapi/v1/trade/asyn/id | Get Futures Trade Download Link by Id(USER_DATA)
+[**CmfuturesGetTradeAsynV1**](AccountAPI.md#CmfuturesGetTradeAsynV1) | **Get** /dapi/v1/trade/asyn | Get Download Id For Futures Trade History (USER_DATA)
 
 
 
-## CfuturesGetAccountV1
+## CmfuturesGetAccountV1
 
-> CfuturesGetAccountV1Resp CfuturesGetAccountV1(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> CmfuturesGetAccountV1Resp CmfuturesGetAccountV1(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Account Information (USER_DATA)
 
@@ -46,13 +46,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.CfuturesGetAccountV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.CmfuturesGetAccountV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CfuturesGetAccountV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CmfuturesGetAccountV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CfuturesGetAccountV1`: CfuturesGetAccountV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CfuturesGetAccountV1`: %v\n", resp)
+	// response from `CmfuturesGetAccountV1`: CmfuturesGetAccountV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CmfuturesGetAccountV1`: %v\n", resp)
 }
 ```
 
@@ -62,7 +62,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCfuturesGetAccountV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiCmfuturesGetAccountV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CfuturesGetAccountV1Resp**](CfuturesGetAccountV1Resp.md)
+[**CmfuturesGetAccountV1Resp**](CmfuturesGetAccountV1Resp.md)
 
 ### Authorization
 
@@ -88,9 +88,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## CfuturesGetBalanceV1
+## CmfuturesGetBalanceV1
 
-> []CfuturesGetBalanceV1RespItem CfuturesGetBalanceV1(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> []CmfuturesGetBalanceV1RespItem CmfuturesGetBalanceV1(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Futures Account Balance (USER_DATA)
 
@@ -114,13 +114,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.CfuturesGetBalanceV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.CmfuturesGetBalanceV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CfuturesGetBalanceV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CmfuturesGetBalanceV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CfuturesGetBalanceV1`: []CfuturesGetBalanceV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CfuturesGetBalanceV1`: %v\n", resp)
+	// response from `CmfuturesGetBalanceV1`: []CmfuturesGetBalanceV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CmfuturesGetBalanceV1`: %v\n", resp)
 }
 ```
 
@@ -130,7 +130,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCfuturesGetBalanceV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiCmfuturesGetBalanceV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]CfuturesGetBalanceV1RespItem**](CfuturesGetBalanceV1RespItem.md)
+[**[]CmfuturesGetBalanceV1RespItem**](CmfuturesGetBalanceV1RespItem.md)
 
 ### Authorization
 
@@ -156,9 +156,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## CfuturesGetCommissionRateV1
+## CmfuturesGetCommissionRateV1
 
-> CfuturesGetCommissionRateV1Resp CfuturesGetCommissionRateV1(ctx).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> CmfuturesGetCommissionRateV1Resp CmfuturesGetCommissionRateV1(ctx).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 User Commission Rate (USER_DATA)
 
@@ -183,13 +183,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.CfuturesGetCommissionRateV1(context.Background()).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.CmfuturesGetCommissionRateV1(context.Background()).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CfuturesGetCommissionRateV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CmfuturesGetCommissionRateV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CfuturesGetCommissionRateV1`: CfuturesGetCommissionRateV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CfuturesGetCommissionRateV1`: %v\n", resp)
+	// response from `CmfuturesGetCommissionRateV1`: CmfuturesGetCommissionRateV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CmfuturesGetCommissionRateV1`: %v\n", resp)
 }
 ```
 
@@ -199,7 +199,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCfuturesGetCommissionRateV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiCmfuturesGetCommissionRateV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CfuturesGetCommissionRateV1Resp**](CfuturesGetCommissionRateV1Resp.md)
+[**CmfuturesGetCommissionRateV1Resp**](CmfuturesGetCommissionRateV1Resp.md)
 
 ### Authorization
 
@@ -226,9 +226,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## CfuturesGetIncomeAsynIdV1
+## CmfuturesGetIncomeAsynIdV1
 
-> CfuturesGetIncomeAsynIdV1Resp CfuturesGetIncomeAsynIdV1(ctx).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> CmfuturesGetIncomeAsynIdV1Resp CmfuturesGetIncomeAsynIdV1(ctx).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Get Futures Transaction History Download Link by Id (USER_DATA)
 
@@ -253,13 +253,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.CfuturesGetIncomeAsynIdV1(context.Background()).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.CmfuturesGetIncomeAsynIdV1(context.Background()).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CfuturesGetIncomeAsynIdV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CmfuturesGetIncomeAsynIdV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CfuturesGetIncomeAsynIdV1`: CfuturesGetIncomeAsynIdV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CfuturesGetIncomeAsynIdV1`: %v\n", resp)
+	// response from `CmfuturesGetIncomeAsynIdV1`: CmfuturesGetIncomeAsynIdV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CmfuturesGetIncomeAsynIdV1`: %v\n", resp)
 }
 ```
 
@@ -269,7 +269,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCfuturesGetIncomeAsynIdV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiCmfuturesGetIncomeAsynIdV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -280,7 +280,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CfuturesGetIncomeAsynIdV1Resp**](CfuturesGetIncomeAsynIdV1Resp.md)
+[**CmfuturesGetIncomeAsynIdV1Resp**](CmfuturesGetIncomeAsynIdV1Resp.md)
 
 ### Authorization
 
@@ -296,9 +296,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## CfuturesGetIncomeAsynV1
+## CmfuturesGetIncomeAsynV1
 
-> CfuturesGetIncomeAsynV1Resp CfuturesGetIncomeAsynV1(ctx).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> CmfuturesGetIncomeAsynV1Resp CmfuturesGetIncomeAsynV1(ctx).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Get Download Id For Futures Transaction History(USER_DATA)
 
@@ -324,13 +324,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.CfuturesGetIncomeAsynV1(context.Background()).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.CmfuturesGetIncomeAsynV1(context.Background()).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CfuturesGetIncomeAsynV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CmfuturesGetIncomeAsynV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CfuturesGetIncomeAsynV1`: CfuturesGetIncomeAsynV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CfuturesGetIncomeAsynV1`: %v\n", resp)
+	// response from `CmfuturesGetIncomeAsynV1`: CmfuturesGetIncomeAsynV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CmfuturesGetIncomeAsynV1`: %v\n", resp)
 }
 ```
 
@@ -340,7 +340,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCfuturesGetIncomeAsynV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiCmfuturesGetIncomeAsynV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -352,7 +352,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CfuturesGetIncomeAsynV1Resp**](CfuturesGetIncomeAsynV1Resp.md)
+[**CmfuturesGetIncomeAsynV1Resp**](CmfuturesGetIncomeAsynV1Resp.md)
 
 ### Authorization
 
@@ -368,9 +368,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## CfuturesGetIncomeV1
+## CmfuturesGetIncomeV1
 
-> []CfuturesGetIncomeV1RespItem CfuturesGetIncomeV1(ctx).Timestamp(timestamp).Symbol(symbol).IncomeType(incomeType).StartTime(startTime).EndTime(endTime).Page(page).Limit(limit).RecvWindow(recvWindow).Execute()
+> []CmfuturesGetIncomeV1RespItem CmfuturesGetIncomeV1(ctx).Timestamp(timestamp).Symbol(symbol).IncomeType(incomeType).StartTime(startTime).EndTime(endTime).Page(page).Limit(limit).RecvWindow(recvWindow).Execute()
 
 Get Income History(USER_DATA)
 
@@ -400,13 +400,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.CfuturesGetIncomeV1(context.Background()).Timestamp(timestamp).Symbol(symbol).IncomeType(incomeType).StartTime(startTime).EndTime(endTime).Page(page).Limit(limit).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.CmfuturesGetIncomeV1(context.Background()).Timestamp(timestamp).Symbol(symbol).IncomeType(incomeType).StartTime(startTime).EndTime(endTime).Page(page).Limit(limit).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CfuturesGetIncomeV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CmfuturesGetIncomeV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CfuturesGetIncomeV1`: []CfuturesGetIncomeV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CfuturesGetIncomeV1`: %v\n", resp)
+	// response from `CmfuturesGetIncomeV1`: []CmfuturesGetIncomeV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CmfuturesGetIncomeV1`: %v\n", resp)
 }
 ```
 
@@ -416,7 +416,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCfuturesGetIncomeV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiCmfuturesGetIncomeV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -432,7 +432,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]CfuturesGetIncomeV1RespItem**](CfuturesGetIncomeV1RespItem.md)
+[**[]CmfuturesGetIncomeV1RespItem**](CmfuturesGetIncomeV1RespItem.md)
 
 ### Authorization
 
@@ -448,9 +448,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## CfuturesGetLeverageBracketV1
+## CmfuturesGetLeverageBracketV1
 
-> []CfuturesGetLeverageBracketV1RespItem CfuturesGetLeverageBracketV1(ctx).Timestamp(timestamp).Pair(pair).RecvWindow(recvWindow).Execute()
+> []CmfuturesGetLeverageBracketV1RespItem CmfuturesGetLeverageBracketV1(ctx).Timestamp(timestamp).Pair(pair).RecvWindow(recvWindow).Execute()
 
 Notional Bracket for Pair(USER_DATA)
 
@@ -475,13 +475,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.CfuturesGetLeverageBracketV1(context.Background()).Timestamp(timestamp).Pair(pair).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.CmfuturesGetLeverageBracketV1(context.Background()).Timestamp(timestamp).Pair(pair).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CfuturesGetLeverageBracketV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CmfuturesGetLeverageBracketV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CfuturesGetLeverageBracketV1`: []CfuturesGetLeverageBracketV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CfuturesGetLeverageBracketV1`: %v\n", resp)
+	// response from `CmfuturesGetLeverageBracketV1`: []CmfuturesGetLeverageBracketV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CmfuturesGetLeverageBracketV1`: %v\n", resp)
 }
 ```
 
@@ -491,7 +491,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCfuturesGetLeverageBracketV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiCmfuturesGetLeverageBracketV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -502,7 +502,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]CfuturesGetLeverageBracketV1RespItem**](CfuturesGetLeverageBracketV1RespItem.md)
+[**[]CmfuturesGetLeverageBracketV1RespItem**](CmfuturesGetLeverageBracketV1RespItem.md)
 
 ### Authorization
 
@@ -518,9 +518,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## CfuturesGetLeverageBracketV2
+## CmfuturesGetLeverageBracketV2
 
-> []CfuturesGetLeverageBracketV2RespItem CfuturesGetLeverageBracketV2(ctx).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+> []CmfuturesGetLeverageBracketV2RespItem CmfuturesGetLeverageBracketV2(ctx).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 
 Notional Bracket for Symbol(USER_DATA)
 
@@ -545,13 +545,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.CfuturesGetLeverageBracketV2(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.CmfuturesGetLeverageBracketV2(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CfuturesGetLeverageBracketV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CmfuturesGetLeverageBracketV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CfuturesGetLeverageBracketV2`: []CfuturesGetLeverageBracketV2RespItem
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CfuturesGetLeverageBracketV2`: %v\n", resp)
+	// response from `CmfuturesGetLeverageBracketV2`: []CmfuturesGetLeverageBracketV2RespItem
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CmfuturesGetLeverageBracketV2`: %v\n", resp)
 }
 ```
 
@@ -561,7 +561,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCfuturesGetLeverageBracketV2Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiCmfuturesGetLeverageBracketV2Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -572,7 +572,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]CfuturesGetLeverageBracketV2RespItem**](CfuturesGetLeverageBracketV2RespItem.md)
+[**[]CmfuturesGetLeverageBracketV2RespItem**](CmfuturesGetLeverageBracketV2RespItem.md)
 
 ### Authorization
 
@@ -588,9 +588,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## CfuturesGetOrderAsynIdV1
+## CmfuturesGetOrderAsynIdV1
 
-> CfuturesGetOrderAsynIdV1Resp CfuturesGetOrderAsynIdV1(ctx).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> CmfuturesGetOrderAsynIdV1Resp CmfuturesGetOrderAsynIdV1(ctx).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Get Futures Order History Download Link by Id (USER_DATA)
 
@@ -615,13 +615,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.CfuturesGetOrderAsynIdV1(context.Background()).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.CmfuturesGetOrderAsynIdV1(context.Background()).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CfuturesGetOrderAsynIdV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CmfuturesGetOrderAsynIdV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CfuturesGetOrderAsynIdV1`: CfuturesGetOrderAsynIdV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CfuturesGetOrderAsynIdV1`: %v\n", resp)
+	// response from `CmfuturesGetOrderAsynIdV1`: CmfuturesGetOrderAsynIdV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CmfuturesGetOrderAsynIdV1`: %v\n", resp)
 }
 ```
 
@@ -631,7 +631,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCfuturesGetOrderAsynIdV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiCmfuturesGetOrderAsynIdV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -642,7 +642,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CfuturesGetOrderAsynIdV1Resp**](CfuturesGetOrderAsynIdV1Resp.md)
+[**CmfuturesGetOrderAsynIdV1Resp**](CmfuturesGetOrderAsynIdV1Resp.md)
 
 ### Authorization
 
@@ -658,9 +658,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## CfuturesGetOrderAsynV1
+## CmfuturesGetOrderAsynV1
 
-> CfuturesGetOrderAsynV1Resp CfuturesGetOrderAsynV1(ctx).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> CmfuturesGetOrderAsynV1Resp CmfuturesGetOrderAsynV1(ctx).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Get Download Id For Futures Order History (USER_DATA)
 
@@ -686,13 +686,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.CfuturesGetOrderAsynV1(context.Background()).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.CmfuturesGetOrderAsynV1(context.Background()).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CfuturesGetOrderAsynV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CmfuturesGetOrderAsynV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CfuturesGetOrderAsynV1`: CfuturesGetOrderAsynV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CfuturesGetOrderAsynV1`: %v\n", resp)
+	// response from `CmfuturesGetOrderAsynV1`: CmfuturesGetOrderAsynV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CmfuturesGetOrderAsynV1`: %v\n", resp)
 }
 ```
 
@@ -702,7 +702,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCfuturesGetOrderAsynV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiCmfuturesGetOrderAsynV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -714,7 +714,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CfuturesGetOrderAsynV1Resp**](CfuturesGetOrderAsynV1Resp.md)
+[**CmfuturesGetOrderAsynV1Resp**](CmfuturesGetOrderAsynV1Resp.md)
 
 ### Authorization
 
@@ -730,9 +730,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## CfuturesGetPositionSideDualV1
+## CmfuturesGetPositionSideDualV1
 
-> CfuturesGetPositionSideDualV1Resp CfuturesGetPositionSideDualV1(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> CmfuturesGetPositionSideDualV1Resp CmfuturesGetPositionSideDualV1(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Get Current Position Mode(USER_DATA)
 
@@ -756,13 +756,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.CfuturesGetPositionSideDualV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.CmfuturesGetPositionSideDualV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CfuturesGetPositionSideDualV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CmfuturesGetPositionSideDualV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CfuturesGetPositionSideDualV1`: CfuturesGetPositionSideDualV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CfuturesGetPositionSideDualV1`: %v\n", resp)
+	// response from `CmfuturesGetPositionSideDualV1`: CmfuturesGetPositionSideDualV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CmfuturesGetPositionSideDualV1`: %v\n", resp)
 }
 ```
 
@@ -772,7 +772,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCfuturesGetPositionSideDualV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiCmfuturesGetPositionSideDualV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -782,7 +782,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CfuturesGetPositionSideDualV1Resp**](CfuturesGetPositionSideDualV1Resp.md)
+[**CmfuturesGetPositionSideDualV1Resp**](CmfuturesGetPositionSideDualV1Resp.md)
 
 ### Authorization
 
@@ -798,9 +798,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## CfuturesGetTradeAsynIdV1
+## CmfuturesGetTradeAsynIdV1
 
-> CfuturesGetTradeAsynIdV1Resp CfuturesGetTradeAsynIdV1(ctx).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> CmfuturesGetTradeAsynIdV1Resp CmfuturesGetTradeAsynIdV1(ctx).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Get Futures Trade Download Link by Id(USER_DATA)
 
@@ -825,13 +825,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.CfuturesGetTradeAsynIdV1(context.Background()).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.CmfuturesGetTradeAsynIdV1(context.Background()).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CfuturesGetTradeAsynIdV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CmfuturesGetTradeAsynIdV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CfuturesGetTradeAsynIdV1`: CfuturesGetTradeAsynIdV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CfuturesGetTradeAsynIdV1`: %v\n", resp)
+	// response from `CmfuturesGetTradeAsynIdV1`: CmfuturesGetTradeAsynIdV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CmfuturesGetTradeAsynIdV1`: %v\n", resp)
 }
 ```
 
@@ -841,7 +841,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCfuturesGetTradeAsynIdV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiCmfuturesGetTradeAsynIdV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -852,7 +852,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CfuturesGetTradeAsynIdV1Resp**](CfuturesGetTradeAsynIdV1Resp.md)
+[**CmfuturesGetTradeAsynIdV1Resp**](CmfuturesGetTradeAsynIdV1Resp.md)
 
 ### Authorization
 
@@ -868,9 +868,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## CfuturesGetTradeAsynV1
+## CmfuturesGetTradeAsynV1
 
-> CfuturesGetTradeAsynV1Resp CfuturesGetTradeAsynV1(ctx).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> CmfuturesGetTradeAsynV1Resp CmfuturesGetTradeAsynV1(ctx).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Get Download Id For Futures Trade History (USER_DATA)
 
@@ -896,13 +896,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.CfuturesGetTradeAsynV1(context.Background()).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.AccountAPI.CmfuturesGetTradeAsynV1(context.Background()).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CfuturesGetTradeAsynV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.CmfuturesGetTradeAsynV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CfuturesGetTradeAsynV1`: CfuturesGetTradeAsynV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CfuturesGetTradeAsynV1`: %v\n", resp)
+	// response from `CmfuturesGetTradeAsynV1`: CmfuturesGetTradeAsynV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `AccountAPI.CmfuturesGetTradeAsynV1`: %v\n", resp)
 }
 ```
 
@@ -912,7 +912,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCfuturesGetTradeAsynV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiCmfuturesGetTradeAsynV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -924,7 +924,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CfuturesGetTradeAsynV1Resp**](CfuturesGetTradeAsynV1Resp.md)
+[**CmfuturesGetTradeAsynV1Resp**](CmfuturesGetTradeAsynV1Resp.md)
 
 ### Authorization
 

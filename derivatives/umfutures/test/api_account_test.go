@@ -1,5 +1,5 @@
 /*
-Binance Ufutures API
+Binance Umfutures API
 
 Testing AccountAPIService
 
@@ -22,11 +22,11 @@ func Test_umfutures_AccountAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AccountAPIService UfuturesCreateFeeBurnV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService UmfuturesCreateFeeBurnV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.UfuturesCreateFeeBurnV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.UmfuturesCreateFeeBurnV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_umfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService UfuturesGetAccountConfigV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService UmfuturesGetAccountConfigV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.UfuturesGetAccountConfigV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.UmfuturesGetAccountConfigV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,11 +46,11 @@ func Test_umfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService UfuturesGetAccountV2", func(t *testing.T) {
+	t.Run("Test AccountAPIService UmfuturesGetAccountV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.UfuturesGetAccountV2(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.UmfuturesGetAccountV2(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -58,11 +58,11 @@ func Test_umfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService UfuturesGetAccountV3", func(t *testing.T) {
+	t.Run("Test AccountAPIService UmfuturesGetAccountV3", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.UfuturesGetAccountV3(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.UmfuturesGetAccountV3(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -70,11 +70,11 @@ func Test_umfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService UfuturesGetApiTradingStatusV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService UmfuturesGetApiTradingStatusV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.UfuturesGetApiTradingStatusV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.UmfuturesGetApiTradingStatusV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -82,11 +82,11 @@ func Test_umfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService UfuturesGetBalanceV2", func(t *testing.T) {
+	t.Run("Test AccountAPIService UmfuturesGetBalanceV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.UfuturesGetBalanceV2(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.UmfuturesGetBalanceV2(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -94,11 +94,11 @@ func Test_umfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService UfuturesGetBalanceV3", func(t *testing.T) {
+	t.Run("Test AccountAPIService UmfuturesGetBalanceV3", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.UfuturesGetBalanceV3(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.UmfuturesGetBalanceV3(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -106,11 +106,11 @@ func Test_umfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService UfuturesGetCommissionRateV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService UmfuturesGetCommissionRateV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.UfuturesGetCommissionRateV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.UmfuturesGetCommissionRateV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -118,11 +118,11 @@ func Test_umfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService UfuturesGetFeeBurnV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService UmfuturesGetFeeBurnV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.UfuturesGetFeeBurnV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.UmfuturesGetFeeBurnV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -130,11 +130,11 @@ func Test_umfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService UfuturesGetIncomeAsynIdV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService UmfuturesGetIncomeAsynIdV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.UfuturesGetIncomeAsynIdV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.UmfuturesGetIncomeAsynIdV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -142,11 +142,11 @@ func Test_umfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService UfuturesGetIncomeAsynV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService UmfuturesGetIncomeAsynV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.UfuturesGetIncomeAsynV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.UmfuturesGetIncomeAsynV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -154,11 +154,11 @@ func Test_umfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService UfuturesGetIncomeV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService UmfuturesGetIncomeV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.UfuturesGetIncomeV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.UmfuturesGetIncomeV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -166,11 +166,11 @@ func Test_umfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService UfuturesGetLeverageBracketV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService UmfuturesGetLeverageBracketV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.UfuturesGetLeverageBracketV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.UmfuturesGetLeverageBracketV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -178,11 +178,11 @@ func Test_umfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService UfuturesGetMultiAssetsMarginV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService UmfuturesGetMultiAssetsMarginV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.UfuturesGetMultiAssetsMarginV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.UmfuturesGetMultiAssetsMarginV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -190,11 +190,11 @@ func Test_umfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService UfuturesGetOrderAsynIdV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService UmfuturesGetOrderAsynIdV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.UfuturesGetOrderAsynIdV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.UmfuturesGetOrderAsynIdV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -202,11 +202,11 @@ func Test_umfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService UfuturesGetOrderAsynV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService UmfuturesGetOrderAsynV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.UfuturesGetOrderAsynV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.UmfuturesGetOrderAsynV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -214,11 +214,11 @@ func Test_umfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService UfuturesGetPositionSideDualV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService UmfuturesGetPositionSideDualV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.UfuturesGetPositionSideDualV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.UmfuturesGetPositionSideDualV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -226,11 +226,11 @@ func Test_umfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService UfuturesGetRateLimitOrderV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService UmfuturesGetRateLimitOrderV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.UfuturesGetRateLimitOrderV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.UmfuturesGetRateLimitOrderV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -238,11 +238,11 @@ func Test_umfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService UfuturesGetSymbolConfigV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService UmfuturesGetSymbolConfigV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.UfuturesGetSymbolConfigV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.UmfuturesGetSymbolConfigV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -250,11 +250,11 @@ func Test_umfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService UfuturesGetTradeAsynIdV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService UmfuturesGetTradeAsynIdV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.UfuturesGetTradeAsynIdV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.UmfuturesGetTradeAsynIdV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -262,11 +262,11 @@ func Test_umfutures_AccountAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AccountAPIService UfuturesGetTradeAsynV1", func(t *testing.T) {
+	t.Run("Test AccountAPIService UmfuturesGetTradeAsynV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AccountAPI.UfuturesGetTradeAsynV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AccountAPI.UmfuturesGetTradeAsynV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

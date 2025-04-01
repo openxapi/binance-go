@@ -4240,7 +4240,7 @@ func main() {
 	endTime := int64(789) // int64 |  (optional)
 	current := int64(789) // int64 | Currently querying page. Start from 1. Default:1 (optional)
 	size := int64(789) // int64 | Default:10 Max:100 (optional)
-	archived := "archived_example" // string | Default: `false`. Set to `true` for archived data from 6 months ago (optional) (default to "false")
+	archived := "archived_example" // string | Default: `false`. Set to `true` for archived data from 6 months ago (optional) (default to "")
 	recvWindow := int64(789) // int64 | The value cannot be greater than `60000` (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -4272,7 +4272,7 @@ Name | Type | Description  | Notes
  **endTime** | **int64** |  | 
  **current** | **int64** | Currently querying page. Start from 1. Default:1 | 
  **size** | **int64** | Default:10 Max:100 | 
- **archived** | **string** | Default: &#x60;false&#x60;. Set to &#x60;true&#x60; for archived data from 6 months ago | [default to &quot;false&quot;]
+ **archived** | **string** | Default: &#x60;false&#x60;. Set to &#x60;true&#x60; for archived data from 6 months ago | [default to &quot;&quot;]
  **recvWindow** | **int64** | The value cannot be greater than &#x60;60000&#x60; | 
 
 ### Return type
@@ -4321,7 +4321,7 @@ func main() {
 	endTime := int64(789) // int64 |  (optional)
 	current := int64(789) // int64 | Currently querying page. Start from 1. Default:1 (optional)
 	size := int64(789) // int64 | Default:10 Max:100 (optional)
-	archived := "archived_example" // string | Default: `false`. Set to `true` for archived data from 6 months ago (optional) (default to "false")
+	archived := "archived_example" // string | Default: `false`. Set to `true` for archived data from 6 months ago (optional) (default to "")
 	recvWindow := int64(789) // int64 | The value cannot be greater than 60000 (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -4354,7 +4354,7 @@ Name | Type | Description  | Notes
  **endTime** | **int64** |  | 
  **current** | **int64** | Currently querying page. Start from 1. Default:1 | 
  **size** | **int64** | Default:10 Max:100 | 
- **archived** | **string** | Default: &#x60;false&#x60;. Set to &#x60;true&#x60; for archived data from 6 months ago | [default to &quot;false&quot;]
+ **archived** | **string** | Default: &#x60;false&#x60;. Set to &#x60;true&#x60; for archived data from 6 months ago | [default to &quot;&quot;]
  **recvWindow** | **int64** | The value cannot be greater than 60000 | 
 
 ### Return type
@@ -4907,7 +4907,7 @@ func main() {
 	endTime := int64(789) // int64 |  (optional)
 	current := int64(789) // int64 | Currently querying page. Start from 1. Default:1 (optional)
 	size := int64(789) // int64 | Default:10 Max:100 (optional)
-	archived := "archived_example" // string | Default: `false`. Set to `true` for archived data from 6 months ago (optional) (default to "false")
+	archived := "archived_example" // string | Default: `false`. Set to `true` for archived data from 6 months ago (optional) (default to "")
 	recvWindow := int64(789) // int64 | The value cannot be greater than 60000 (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -4940,7 +4940,7 @@ Name | Type | Description  | Notes
  **endTime** | **int64** |  | 
  **current** | **int64** | Currently querying page. Start from 1. Default:1 | 
  **size** | **int64** | Default:10 Max:100 | 
- **archived** | **string** | Default: &#x60;false&#x60;. Set to &#x60;true&#x60; for archived data from 6 months ago | [default to &quot;false&quot;]
+ **archived** | **string** | Default: &#x60;false&#x60;. Set to &#x60;true&#x60; for archived data from 6 months ago | [default to &quot;&quot;]
  **recvWindow** | **int64** | The value cannot be greater than 60000 | 
 
 ### Return type

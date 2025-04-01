@@ -4,16 +4,16 @@ All URIs are relative to *https://fapi.binance.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**UfuturesCreateConvertAcceptQuoteV1**](ConvertAPI.md#UfuturesCreateConvertAcceptQuoteV1) | **Post** /fapi/v1/convert/acceptQuote | Accept the offered quote (USER_DATA)
-[**UfuturesCreateConvertGetQuoteV1**](ConvertAPI.md#UfuturesCreateConvertGetQuoteV1) | **Post** /fapi/v1/convert/getQuote | Send Quote Request(USER_DATA)
-[**UfuturesGetConvertExchangeInfoV1**](ConvertAPI.md#UfuturesGetConvertExchangeInfoV1) | **Get** /fapi/v1/convert/exchangeInfo | List All Convert Pairs
-[**UfuturesGetConvertOrderStatusV1**](ConvertAPI.md#UfuturesGetConvertOrderStatusV1) | **Get** /fapi/v1/convert/orderStatus | Order status(USER_DATA)
+[**UmfuturesCreateConvertAcceptQuoteV1**](ConvertAPI.md#UmfuturesCreateConvertAcceptQuoteV1) | **Post** /fapi/v1/convert/acceptQuote | Accept the offered quote (USER_DATA)
+[**UmfuturesCreateConvertGetQuoteV1**](ConvertAPI.md#UmfuturesCreateConvertGetQuoteV1) | **Post** /fapi/v1/convert/getQuote | Send Quote Request(USER_DATA)
+[**UmfuturesGetConvertExchangeInfoV1**](ConvertAPI.md#UmfuturesGetConvertExchangeInfoV1) | **Get** /fapi/v1/convert/exchangeInfo | List All Convert Pairs
+[**UmfuturesGetConvertOrderStatusV1**](ConvertAPI.md#UmfuturesGetConvertOrderStatusV1) | **Get** /fapi/v1/convert/orderStatus | Order status(USER_DATA)
 
 
 
-## UfuturesCreateConvertAcceptQuoteV1
+## UmfuturesCreateConvertAcceptQuoteV1
 
-> UfuturesCreateConvertAcceptQuoteV1Resp UfuturesCreateConvertAcceptQuoteV1(ctx).QuoteId(quoteId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> UmfuturesCreateConvertAcceptQuoteV1Resp UmfuturesCreateConvertAcceptQuoteV1(ctx).QuoteId(quoteId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Accept the offered quote (USER_DATA)
 
@@ -38,13 +38,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ConvertAPI.UfuturesCreateConvertAcceptQuoteV1(context.Background()).QuoteId(quoteId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.ConvertAPI.UmfuturesCreateConvertAcceptQuoteV1(context.Background()).QuoteId(quoteId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConvertAPI.UfuturesCreateConvertAcceptQuoteV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ConvertAPI.UmfuturesCreateConvertAcceptQuoteV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesCreateConvertAcceptQuoteV1`: UfuturesCreateConvertAcceptQuoteV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `ConvertAPI.UfuturesCreateConvertAcceptQuoteV1`: %v\n", resp)
+	// response from `UmfuturesCreateConvertAcceptQuoteV1`: UmfuturesCreateConvertAcceptQuoteV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `ConvertAPI.UmfuturesCreateConvertAcceptQuoteV1`: %v\n", resp)
 }
 ```
 
@@ -54,7 +54,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesCreateConvertAcceptQuoteV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesCreateConvertAcceptQuoteV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesCreateConvertAcceptQuoteV1Resp**](UfuturesCreateConvertAcceptQuoteV1Resp.md)
+[**UmfuturesCreateConvertAcceptQuoteV1Resp**](UmfuturesCreateConvertAcceptQuoteV1Resp.md)
 
 ### Authorization
 
@@ -81,9 +81,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesCreateConvertGetQuoteV1
+## UmfuturesCreateConvertGetQuoteV1
 
-> UfuturesCreateConvertGetQuoteV1Resp UfuturesCreateConvertGetQuoteV1(ctx).FromAsset(fromAsset).Timestamp(timestamp).ToAsset(toAsset).FromAmount(fromAmount).RecvWindow(recvWindow).ToAmount(toAmount).ValidTime(validTime).Execute()
+> UmfuturesCreateConvertGetQuoteV1Resp UmfuturesCreateConvertGetQuoteV1(ctx).FromAsset(fromAsset).Timestamp(timestamp).ToAsset(toAsset).FromAmount(fromAmount).RecvWindow(recvWindow).ToAmount(toAmount).ValidTime(validTime).Execute()
 
 Send Quote Request(USER_DATA)
 
@@ -112,13 +112,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ConvertAPI.UfuturesCreateConvertGetQuoteV1(context.Background()).FromAsset(fromAsset).Timestamp(timestamp).ToAsset(toAsset).FromAmount(fromAmount).RecvWindow(recvWindow).ToAmount(toAmount).ValidTime(validTime).Execute()
+	resp, r, err := apiClient.ConvertAPI.UmfuturesCreateConvertGetQuoteV1(context.Background()).FromAsset(fromAsset).Timestamp(timestamp).ToAsset(toAsset).FromAmount(fromAmount).RecvWindow(recvWindow).ToAmount(toAmount).ValidTime(validTime).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConvertAPI.UfuturesCreateConvertGetQuoteV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ConvertAPI.UmfuturesCreateConvertGetQuoteV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesCreateConvertGetQuoteV1`: UfuturesCreateConvertGetQuoteV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `ConvertAPI.UfuturesCreateConvertGetQuoteV1`: %v\n", resp)
+	// response from `UmfuturesCreateConvertGetQuoteV1`: UmfuturesCreateConvertGetQuoteV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `ConvertAPI.UmfuturesCreateConvertGetQuoteV1`: %v\n", resp)
 }
 ```
 
@@ -128,7 +128,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesCreateConvertGetQuoteV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesCreateConvertGetQuoteV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesCreateConvertGetQuoteV1Resp**](UfuturesCreateConvertGetQuoteV1Resp.md)
+[**UmfuturesCreateConvertGetQuoteV1Resp**](UmfuturesCreateConvertGetQuoteV1Resp.md)
 
 ### Authorization
 
@@ -159,9 +159,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetConvertExchangeInfoV1
+## UmfuturesGetConvertExchangeInfoV1
 
-> []UfuturesGetConvertExchangeInfoV1RespItem UfuturesGetConvertExchangeInfoV1(ctx).FromAsset(fromAsset).ToAsset(toAsset).Execute()
+> []UmfuturesGetConvertExchangeInfoV1RespItem UmfuturesGetConvertExchangeInfoV1(ctx).FromAsset(fromAsset).ToAsset(toAsset).Execute()
 
 List All Convert Pairs
 
@@ -185,13 +185,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ConvertAPI.UfuturesGetConvertExchangeInfoV1(context.Background()).FromAsset(fromAsset).ToAsset(toAsset).Execute()
+	resp, r, err := apiClient.ConvertAPI.UmfuturesGetConvertExchangeInfoV1(context.Background()).FromAsset(fromAsset).ToAsset(toAsset).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConvertAPI.UfuturesGetConvertExchangeInfoV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ConvertAPI.UmfuturesGetConvertExchangeInfoV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetConvertExchangeInfoV1`: []UfuturesGetConvertExchangeInfoV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `ConvertAPI.UfuturesGetConvertExchangeInfoV1`: %v\n", resp)
+	// response from `UmfuturesGetConvertExchangeInfoV1`: []UmfuturesGetConvertExchangeInfoV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `ConvertAPI.UmfuturesGetConvertExchangeInfoV1`: %v\n", resp)
 }
 ```
 
@@ -201,7 +201,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetConvertExchangeInfoV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetConvertExchangeInfoV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetConvertExchangeInfoV1RespItem**](UfuturesGetConvertExchangeInfoV1RespItem.md)
+[**[]UmfuturesGetConvertExchangeInfoV1RespItem**](UmfuturesGetConvertExchangeInfoV1RespItem.md)
 
 ### Authorization
 
@@ -227,9 +227,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UfuturesGetConvertOrderStatusV1
+## UmfuturesGetConvertOrderStatusV1
 
-> UfuturesGetConvertOrderStatusV1Resp UfuturesGetConvertOrderStatusV1(ctx).OrderId(orderId).QuoteId(quoteId).Execute()
+> UmfuturesGetConvertOrderStatusV1Resp UmfuturesGetConvertOrderStatusV1(ctx).OrderId(orderId).QuoteId(quoteId).Execute()
 
 Order status(USER_DATA)
 
@@ -253,13 +253,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ConvertAPI.UfuturesGetConvertOrderStatusV1(context.Background()).OrderId(orderId).QuoteId(quoteId).Execute()
+	resp, r, err := apiClient.ConvertAPI.UmfuturesGetConvertOrderStatusV1(context.Background()).OrderId(orderId).QuoteId(quoteId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConvertAPI.UfuturesGetConvertOrderStatusV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ConvertAPI.UmfuturesGetConvertOrderStatusV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetConvertOrderStatusV1`: UfuturesGetConvertOrderStatusV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `ConvertAPI.UfuturesGetConvertOrderStatusV1`: %v\n", resp)
+	// response from `UmfuturesGetConvertOrderStatusV1`: UmfuturesGetConvertOrderStatusV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `ConvertAPI.UmfuturesGetConvertOrderStatusV1`: %v\n", resp)
 }
 ```
 
@@ -269,7 +269,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetConvertOrderStatusV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetConvertOrderStatusV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -279,7 +279,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetConvertOrderStatusV1Resp**](UfuturesGetConvertOrderStatusV1Resp.md)
+[**UmfuturesGetConvertOrderStatusV1Resp**](UmfuturesGetConvertOrderStatusV1Resp.md)
 
 ### Authorization
 

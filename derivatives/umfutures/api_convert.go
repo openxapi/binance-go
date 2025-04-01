@@ -1,7 +1,7 @@
 /*
-Binance Ufutures API
+Binance Umfutures API
 
-OpenAPI specification for Binance cryptocurrency exchange - Ufutures API
+OpenAPI specification for Binance cryptocurrency exchange - Umfutures API
 
 API version: 0.1.0
 */
@@ -22,7 +22,7 @@ import (
 // ConvertAPIService ConvertAPI service
 type ConvertAPIService service
 
-type ConvertAPIUfuturesCreateConvertAcceptQuoteV1Request struct {
+type ConvertAPIUmfuturesCreateConvertAcceptQuoteV1Request struct {
 	ctx context.Context
 	ApiService *ConvertAPIService
 	quoteId *string
@@ -30,51 +30,51 @@ type ConvertAPIUfuturesCreateConvertAcceptQuoteV1Request struct {
 	recvWindow *int64
 }
 
-func (r ConvertAPIUfuturesCreateConvertAcceptQuoteV1Request) QuoteId(quoteId string) ConvertAPIUfuturesCreateConvertAcceptQuoteV1Request {
+func (r ConvertAPIUmfuturesCreateConvertAcceptQuoteV1Request) QuoteId(quoteId string) ConvertAPIUmfuturesCreateConvertAcceptQuoteV1Request {
 	r.quoteId = &quoteId
 	return r
 }
 
-func (r ConvertAPIUfuturesCreateConvertAcceptQuoteV1Request) Timestamp(timestamp int64) ConvertAPIUfuturesCreateConvertAcceptQuoteV1Request {
+func (r ConvertAPIUmfuturesCreateConvertAcceptQuoteV1Request) Timestamp(timestamp int64) ConvertAPIUmfuturesCreateConvertAcceptQuoteV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r ConvertAPIUfuturesCreateConvertAcceptQuoteV1Request) RecvWindow(recvWindow int64) ConvertAPIUfuturesCreateConvertAcceptQuoteV1Request {
+func (r ConvertAPIUmfuturesCreateConvertAcceptQuoteV1Request) RecvWindow(recvWindow int64) ConvertAPIUmfuturesCreateConvertAcceptQuoteV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r ConvertAPIUfuturesCreateConvertAcceptQuoteV1Request) Execute() (*UfuturesCreateConvertAcceptQuoteV1Resp, *http.Response, error) {
-	return r.ApiService.UfuturesCreateConvertAcceptQuoteV1Execute(r)
+func (r ConvertAPIUmfuturesCreateConvertAcceptQuoteV1Request) Execute() (*UmfuturesCreateConvertAcceptQuoteV1Resp, *http.Response, error) {
+	return r.ApiService.UmfuturesCreateConvertAcceptQuoteV1Execute(r)
 }
 
 /*
-UfuturesCreateConvertAcceptQuoteV1 Accept the offered quote (USER_DATA)
+UmfuturesCreateConvertAcceptQuoteV1 Accept the offered quote (USER_DATA)
 
 Accept the offered quote by quote ID.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ConvertAPIUfuturesCreateConvertAcceptQuoteV1Request
+ @return ConvertAPIUmfuturesCreateConvertAcceptQuoteV1Request
 */
-func (a *ConvertAPIService) UfuturesCreateConvertAcceptQuoteV1(ctx context.Context) ConvertAPIUfuturesCreateConvertAcceptQuoteV1Request {
-	return ConvertAPIUfuturesCreateConvertAcceptQuoteV1Request{
+func (a *ConvertAPIService) UmfuturesCreateConvertAcceptQuoteV1(ctx context.Context) ConvertAPIUmfuturesCreateConvertAcceptQuoteV1Request {
+	return ConvertAPIUmfuturesCreateConvertAcceptQuoteV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return UfuturesCreateConvertAcceptQuoteV1Resp
-func (a *ConvertAPIService) UfuturesCreateConvertAcceptQuoteV1Execute(r ConvertAPIUfuturesCreateConvertAcceptQuoteV1Request) (*UfuturesCreateConvertAcceptQuoteV1Resp, *http.Response, error) {
+//  @return UmfuturesCreateConvertAcceptQuoteV1Resp
+func (a *ConvertAPIService) UmfuturesCreateConvertAcceptQuoteV1Execute(r ConvertAPIUmfuturesCreateConvertAcceptQuoteV1Request) (*UmfuturesCreateConvertAcceptQuoteV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UfuturesCreateConvertAcceptQuoteV1Resp
+		localVarReturnValue  *UmfuturesCreateConvertAcceptQuoteV1Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConvertAPIService.UfuturesCreateConvertAcceptQuoteV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConvertAPIService.UmfuturesCreateConvertAcceptQuoteV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -177,7 +177,7 @@ func (a *ConvertAPIService) UfuturesCreateConvertAcceptQuoteV1Execute(r ConvertA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ConvertAPIUfuturesCreateConvertGetQuoteV1Request struct {
+type ConvertAPIUmfuturesCreateConvertGetQuoteV1Request struct {
 	ctx context.Context
 	ApiService *ConvertAPIService
 	fromAsset *string
@@ -189,71 +189,71 @@ type ConvertAPIUfuturesCreateConvertGetQuoteV1Request struct {
 	validTime *string
 }
 
-func (r ConvertAPIUfuturesCreateConvertGetQuoteV1Request) FromAsset(fromAsset string) ConvertAPIUfuturesCreateConvertGetQuoteV1Request {
+func (r ConvertAPIUmfuturesCreateConvertGetQuoteV1Request) FromAsset(fromAsset string) ConvertAPIUmfuturesCreateConvertGetQuoteV1Request {
 	r.fromAsset = &fromAsset
 	return r
 }
 
-func (r ConvertAPIUfuturesCreateConvertGetQuoteV1Request) Timestamp(timestamp int64) ConvertAPIUfuturesCreateConvertGetQuoteV1Request {
+func (r ConvertAPIUmfuturesCreateConvertGetQuoteV1Request) Timestamp(timestamp int64) ConvertAPIUmfuturesCreateConvertGetQuoteV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r ConvertAPIUfuturesCreateConvertGetQuoteV1Request) ToAsset(toAsset string) ConvertAPIUfuturesCreateConvertGetQuoteV1Request {
+func (r ConvertAPIUmfuturesCreateConvertGetQuoteV1Request) ToAsset(toAsset string) ConvertAPIUmfuturesCreateConvertGetQuoteV1Request {
 	r.toAsset = &toAsset
 	return r
 }
 
-func (r ConvertAPIUfuturesCreateConvertGetQuoteV1Request) FromAmount(fromAmount string) ConvertAPIUfuturesCreateConvertGetQuoteV1Request {
+func (r ConvertAPIUmfuturesCreateConvertGetQuoteV1Request) FromAmount(fromAmount string) ConvertAPIUmfuturesCreateConvertGetQuoteV1Request {
 	r.fromAmount = &fromAmount
 	return r
 }
 
-func (r ConvertAPIUfuturesCreateConvertGetQuoteV1Request) RecvWindow(recvWindow int64) ConvertAPIUfuturesCreateConvertGetQuoteV1Request {
+func (r ConvertAPIUmfuturesCreateConvertGetQuoteV1Request) RecvWindow(recvWindow int64) ConvertAPIUmfuturesCreateConvertGetQuoteV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r ConvertAPIUfuturesCreateConvertGetQuoteV1Request) ToAmount(toAmount string) ConvertAPIUfuturesCreateConvertGetQuoteV1Request {
+func (r ConvertAPIUmfuturesCreateConvertGetQuoteV1Request) ToAmount(toAmount string) ConvertAPIUmfuturesCreateConvertGetQuoteV1Request {
 	r.toAmount = &toAmount
 	return r
 }
 
-func (r ConvertAPIUfuturesCreateConvertGetQuoteV1Request) ValidTime(validTime string) ConvertAPIUfuturesCreateConvertGetQuoteV1Request {
+func (r ConvertAPIUmfuturesCreateConvertGetQuoteV1Request) ValidTime(validTime string) ConvertAPIUmfuturesCreateConvertGetQuoteV1Request {
 	r.validTime = &validTime
 	return r
 }
 
-func (r ConvertAPIUfuturesCreateConvertGetQuoteV1Request) Execute() (*UfuturesCreateConvertGetQuoteV1Resp, *http.Response, error) {
-	return r.ApiService.UfuturesCreateConvertGetQuoteV1Execute(r)
+func (r ConvertAPIUmfuturesCreateConvertGetQuoteV1Request) Execute() (*UmfuturesCreateConvertGetQuoteV1Resp, *http.Response, error) {
+	return r.ApiService.UmfuturesCreateConvertGetQuoteV1Execute(r)
 }
 
 /*
-UfuturesCreateConvertGetQuoteV1 Send Quote Request(USER_DATA)
+UmfuturesCreateConvertGetQuoteV1 Send Quote Request(USER_DATA)
 
 Request a quote for the requested token pairs
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ConvertAPIUfuturesCreateConvertGetQuoteV1Request
+ @return ConvertAPIUmfuturesCreateConvertGetQuoteV1Request
 */
-func (a *ConvertAPIService) UfuturesCreateConvertGetQuoteV1(ctx context.Context) ConvertAPIUfuturesCreateConvertGetQuoteV1Request {
-	return ConvertAPIUfuturesCreateConvertGetQuoteV1Request{
+func (a *ConvertAPIService) UmfuturesCreateConvertGetQuoteV1(ctx context.Context) ConvertAPIUmfuturesCreateConvertGetQuoteV1Request {
+	return ConvertAPIUmfuturesCreateConvertGetQuoteV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return UfuturesCreateConvertGetQuoteV1Resp
-func (a *ConvertAPIService) UfuturesCreateConvertGetQuoteV1Execute(r ConvertAPIUfuturesCreateConvertGetQuoteV1Request) (*UfuturesCreateConvertGetQuoteV1Resp, *http.Response, error) {
+//  @return UmfuturesCreateConvertGetQuoteV1Resp
+func (a *ConvertAPIService) UmfuturesCreateConvertGetQuoteV1Execute(r ConvertAPIUmfuturesCreateConvertGetQuoteV1Request) (*UmfuturesCreateConvertGetQuoteV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UfuturesCreateConvertGetQuoteV1Resp
+		localVarReturnValue  *UmfuturesCreateConvertGetQuoteV1Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConvertAPIService.UfuturesCreateConvertGetQuoteV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConvertAPIService.UmfuturesCreateConvertGetQuoteV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -369,7 +369,7 @@ func (a *ConvertAPIService) UfuturesCreateConvertGetQuoteV1Execute(r ConvertAPIU
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ConvertAPIUfuturesGetConvertExchangeInfoV1Request struct {
+type ConvertAPIUmfuturesGetConvertExchangeInfoV1Request struct {
 	ctx context.Context
 	ApiService *ConvertAPIService
 	fromAsset *string
@@ -377,47 +377,47 @@ type ConvertAPIUfuturesGetConvertExchangeInfoV1Request struct {
 }
 
 // User spends coin
-func (r ConvertAPIUfuturesGetConvertExchangeInfoV1Request) FromAsset(fromAsset string) ConvertAPIUfuturesGetConvertExchangeInfoV1Request {
+func (r ConvertAPIUmfuturesGetConvertExchangeInfoV1Request) FromAsset(fromAsset string) ConvertAPIUmfuturesGetConvertExchangeInfoV1Request {
 	r.fromAsset = &fromAsset
 	return r
 }
 
 // User receives coin
-func (r ConvertAPIUfuturesGetConvertExchangeInfoV1Request) ToAsset(toAsset string) ConvertAPIUfuturesGetConvertExchangeInfoV1Request {
+func (r ConvertAPIUmfuturesGetConvertExchangeInfoV1Request) ToAsset(toAsset string) ConvertAPIUmfuturesGetConvertExchangeInfoV1Request {
 	r.toAsset = &toAsset
 	return r
 }
 
-func (r ConvertAPIUfuturesGetConvertExchangeInfoV1Request) Execute() ([]UfuturesGetConvertExchangeInfoV1RespItem, *http.Response, error) {
-	return r.ApiService.UfuturesGetConvertExchangeInfoV1Execute(r)
+func (r ConvertAPIUmfuturesGetConvertExchangeInfoV1Request) Execute() ([]UmfuturesGetConvertExchangeInfoV1RespItem, *http.Response, error) {
+	return r.ApiService.UmfuturesGetConvertExchangeInfoV1Execute(r)
 }
 
 /*
-UfuturesGetConvertExchangeInfoV1 List All Convert Pairs
+UmfuturesGetConvertExchangeInfoV1 List All Convert Pairs
 
 Query for all convertible token pairs and the tokens’ respective upper/lower limits
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ConvertAPIUfuturesGetConvertExchangeInfoV1Request
+ @return ConvertAPIUmfuturesGetConvertExchangeInfoV1Request
 */
-func (a *ConvertAPIService) UfuturesGetConvertExchangeInfoV1(ctx context.Context) ConvertAPIUfuturesGetConvertExchangeInfoV1Request {
-	return ConvertAPIUfuturesGetConvertExchangeInfoV1Request{
+func (a *ConvertAPIService) UmfuturesGetConvertExchangeInfoV1(ctx context.Context) ConvertAPIUmfuturesGetConvertExchangeInfoV1Request {
+	return ConvertAPIUmfuturesGetConvertExchangeInfoV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []UfuturesGetConvertExchangeInfoV1RespItem
-func (a *ConvertAPIService) UfuturesGetConvertExchangeInfoV1Execute(r ConvertAPIUfuturesGetConvertExchangeInfoV1Request) ([]UfuturesGetConvertExchangeInfoV1RespItem, *http.Response, error) {
+//  @return []UmfuturesGetConvertExchangeInfoV1RespItem
+func (a *ConvertAPIService) UmfuturesGetConvertExchangeInfoV1Execute(r ConvertAPIUmfuturesGetConvertExchangeInfoV1Request) ([]UmfuturesGetConvertExchangeInfoV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []UfuturesGetConvertExchangeInfoV1RespItem
+		localVarReturnValue  []UmfuturesGetConvertExchangeInfoV1RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConvertAPIService.UfuturesGetConvertExchangeInfoV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConvertAPIService.UmfuturesGetConvertExchangeInfoV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -515,7 +515,7 @@ func (a *ConvertAPIService) UfuturesGetConvertExchangeInfoV1Execute(r ConvertAPI
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ConvertAPIUfuturesGetConvertOrderStatusV1Request struct {
+type ConvertAPIUmfuturesGetConvertOrderStatusV1Request struct {
 	ctx context.Context
 	ApiService *ConvertAPIService
 	orderId *string
@@ -523,47 +523,47 @@ type ConvertAPIUfuturesGetConvertOrderStatusV1Request struct {
 }
 
 // Either orderId or quoteId is required
-func (r ConvertAPIUfuturesGetConvertOrderStatusV1Request) OrderId(orderId string) ConvertAPIUfuturesGetConvertOrderStatusV1Request {
+func (r ConvertAPIUmfuturesGetConvertOrderStatusV1Request) OrderId(orderId string) ConvertAPIUmfuturesGetConvertOrderStatusV1Request {
 	r.orderId = &orderId
 	return r
 }
 
 // Either orderId or quoteId is required
-func (r ConvertAPIUfuturesGetConvertOrderStatusV1Request) QuoteId(quoteId string) ConvertAPIUfuturesGetConvertOrderStatusV1Request {
+func (r ConvertAPIUmfuturesGetConvertOrderStatusV1Request) QuoteId(quoteId string) ConvertAPIUmfuturesGetConvertOrderStatusV1Request {
 	r.quoteId = &quoteId
 	return r
 }
 
-func (r ConvertAPIUfuturesGetConvertOrderStatusV1Request) Execute() (*UfuturesGetConvertOrderStatusV1Resp, *http.Response, error) {
-	return r.ApiService.UfuturesGetConvertOrderStatusV1Execute(r)
+func (r ConvertAPIUmfuturesGetConvertOrderStatusV1Request) Execute() (*UmfuturesGetConvertOrderStatusV1Resp, *http.Response, error) {
+	return r.ApiService.UmfuturesGetConvertOrderStatusV1Execute(r)
 }
 
 /*
-UfuturesGetConvertOrderStatusV1 Order status(USER_DATA)
+UmfuturesGetConvertOrderStatusV1 Order status(USER_DATA)
 
 Query order status by order ID.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ConvertAPIUfuturesGetConvertOrderStatusV1Request
+ @return ConvertAPIUmfuturesGetConvertOrderStatusV1Request
 */
-func (a *ConvertAPIService) UfuturesGetConvertOrderStatusV1(ctx context.Context) ConvertAPIUfuturesGetConvertOrderStatusV1Request {
-	return ConvertAPIUfuturesGetConvertOrderStatusV1Request{
+func (a *ConvertAPIService) UmfuturesGetConvertOrderStatusV1(ctx context.Context) ConvertAPIUmfuturesGetConvertOrderStatusV1Request {
+	return ConvertAPIUmfuturesGetConvertOrderStatusV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return UfuturesGetConvertOrderStatusV1Resp
-func (a *ConvertAPIService) UfuturesGetConvertOrderStatusV1Execute(r ConvertAPIUfuturesGetConvertOrderStatusV1Request) (*UfuturesGetConvertOrderStatusV1Resp, *http.Response, error) {
+//  @return UmfuturesGetConvertOrderStatusV1Resp
+func (a *ConvertAPIService) UmfuturesGetConvertOrderStatusV1Execute(r ConvertAPIUmfuturesGetConvertOrderStatusV1Request) (*UmfuturesGetConvertOrderStatusV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UfuturesGetConvertOrderStatusV1Resp
+		localVarReturnValue  *UmfuturesGetConvertOrderStatusV1Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConvertAPIService.UfuturesGetConvertOrderStatusV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConvertAPIService.UmfuturesGetConvertOrderStatusV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

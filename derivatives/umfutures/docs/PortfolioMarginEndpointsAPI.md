@@ -4,13 +4,13 @@ All URIs are relative to *https://fapi.binance.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**UfuturesGetPmAccountInfoV1**](PortfolioMarginEndpointsAPI.md#UfuturesGetPmAccountInfoV1) | **Get** /fapi/v1/pmAccountInfo | Classic Portfolio Margin Account Information (USER_DATA)
+[**UmfuturesGetPmAccountInfoV1**](PortfolioMarginEndpointsAPI.md#UmfuturesGetPmAccountInfoV1) | **Get** /fapi/v1/pmAccountInfo | Classic Portfolio Margin Account Information (USER_DATA)
 
 
 
-## UfuturesGetPmAccountInfoV1
+## UmfuturesGetPmAccountInfoV1
 
-> UfuturesGetPmAccountInfoV1Resp UfuturesGetPmAccountInfoV1(ctx).Asset(asset).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> UmfuturesGetPmAccountInfoV1Resp UmfuturesGetPmAccountInfoV1(ctx).Asset(asset).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Classic Portfolio Margin Account Information (USER_DATA)
 
@@ -35,13 +35,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PortfolioMarginEndpointsAPI.UfuturesGetPmAccountInfoV1(context.Background()).Asset(asset).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.PortfolioMarginEndpointsAPI.UmfuturesGetPmAccountInfoV1(context.Background()).Asset(asset).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PortfolioMarginEndpointsAPI.UfuturesGetPmAccountInfoV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PortfolioMarginEndpointsAPI.UmfuturesGetPmAccountInfoV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetPmAccountInfoV1`: UfuturesGetPmAccountInfoV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `PortfolioMarginEndpointsAPI.UfuturesGetPmAccountInfoV1`: %v\n", resp)
+	// response from `UmfuturesGetPmAccountInfoV1`: UmfuturesGetPmAccountInfoV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `PortfolioMarginEndpointsAPI.UmfuturesGetPmAccountInfoV1`: %v\n", resp)
 }
 ```
 
@@ -51,7 +51,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetPmAccountInfoV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetPmAccountInfoV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetPmAccountInfoV1Resp**](UfuturesGetPmAccountInfoV1Resp.md)
+[**UmfuturesGetPmAccountInfoV1Resp**](UmfuturesGetPmAccountInfoV1Resp.md)
 
 ### Authorization
 

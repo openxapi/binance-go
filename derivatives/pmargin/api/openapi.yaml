@@ -2351,7 +2351,7 @@ paths:
         name: archived
         required: false
         schema:
-          default: "false"
+          default: ""
           type: string
         style: form
       - description: The value cannot be greater than `60000`
@@ -2459,7 +2459,7 @@ paths:
         name: archived
         required: false
         schema:
-          default: "false"
+          default: ""
           type: string
         style: form
       - description: The value cannot be greater than 60000
@@ -3282,7 +3282,7 @@ paths:
         name: archived
         required: false
         schema:
-          default: "false"
+          default: ""
           type: string
         style: form
       - description: The value cannot be greater than 60000

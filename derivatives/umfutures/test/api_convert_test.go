@@ -1,5 +1,5 @@
 /*
-Binance Ufutures API
+Binance Umfutures API
 
 Testing ConvertAPIService
 
@@ -22,11 +22,11 @@ func Test_umfutures_ConvertAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ConvertAPIService UfuturesCreateConvertAcceptQuoteV1", func(t *testing.T) {
+	t.Run("Test ConvertAPIService UmfuturesCreateConvertAcceptQuoteV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ConvertAPI.UfuturesCreateConvertAcceptQuoteV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ConvertAPI.UmfuturesCreateConvertAcceptQuoteV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_umfutures_ConvertAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ConvertAPIService UfuturesCreateConvertGetQuoteV1", func(t *testing.T) {
+	t.Run("Test ConvertAPIService UmfuturesCreateConvertGetQuoteV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ConvertAPI.UfuturesCreateConvertGetQuoteV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ConvertAPI.UmfuturesCreateConvertGetQuoteV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,11 +46,11 @@ func Test_umfutures_ConvertAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ConvertAPIService UfuturesGetConvertExchangeInfoV1", func(t *testing.T) {
+	t.Run("Test ConvertAPIService UmfuturesGetConvertExchangeInfoV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ConvertAPI.UfuturesGetConvertExchangeInfoV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ConvertAPI.UmfuturesGetConvertExchangeInfoV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -58,11 +58,11 @@ func Test_umfutures_ConvertAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ConvertAPIService UfuturesGetConvertOrderStatusV1", func(t *testing.T) {
+	t.Run("Test ConvertAPIService UmfuturesGetConvertOrderStatusV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ConvertAPI.UfuturesGetConvertOrderStatusV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ConvertAPI.UmfuturesGetConvertOrderStatusV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

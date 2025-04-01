@@ -1,7 +1,7 @@
 /*
-Binance Cfutures API
+Binance Cmfutures API
 
-OpenAPI specification for Binance cryptocurrency exchange - Cfutures API
+OpenAPI specification for Binance cryptocurrency exchange - Cmfutures API
 
 API version: 0.1.0
 */
@@ -22,7 +22,7 @@ import (
 // MarketDataAPIService MarketDataAPI service
 type MarketDataAPIService service
 
-type MarketDataAPICfuturesGetAggTradesV1Request struct {
+type MarketDataAPICmfuturesGetAggTradesV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
@@ -32,65 +32,65 @@ type MarketDataAPICfuturesGetAggTradesV1Request struct {
 	limit *int32
 }
 
-func (r MarketDataAPICfuturesGetAggTradesV1Request) Symbol(symbol string) MarketDataAPICfuturesGetAggTradesV1Request {
+func (r MarketDataAPICmfuturesGetAggTradesV1Request) Symbol(symbol string) MarketDataAPICmfuturesGetAggTradesV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // ID to get aggregate trades from INCLUSIVE.
-func (r MarketDataAPICfuturesGetAggTradesV1Request) FromId(fromId int64) MarketDataAPICfuturesGetAggTradesV1Request {
+func (r MarketDataAPICmfuturesGetAggTradesV1Request) FromId(fromId int64) MarketDataAPICmfuturesGetAggTradesV1Request {
 	r.fromId = &fromId
 	return r
 }
 
 // Timestamp in ms to get aggregate trades from INCLUSIVE.
-func (r MarketDataAPICfuturesGetAggTradesV1Request) StartTime(startTime int64) MarketDataAPICfuturesGetAggTradesV1Request {
+func (r MarketDataAPICmfuturesGetAggTradesV1Request) StartTime(startTime int64) MarketDataAPICmfuturesGetAggTradesV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // Timestamp in ms to get aggregate trades until INCLUSIVE.
-func (r MarketDataAPICfuturesGetAggTradesV1Request) EndTime(endTime int64) MarketDataAPICfuturesGetAggTradesV1Request {
+func (r MarketDataAPICmfuturesGetAggTradesV1Request) EndTime(endTime int64) MarketDataAPICmfuturesGetAggTradesV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 500; max 1000.
-func (r MarketDataAPICfuturesGetAggTradesV1Request) Limit(limit int32) MarketDataAPICfuturesGetAggTradesV1Request {
+func (r MarketDataAPICmfuturesGetAggTradesV1Request) Limit(limit int32) MarketDataAPICmfuturesGetAggTradesV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPICfuturesGetAggTradesV1Request) Execute() ([]CfuturesGetAggTradesV1RespItem, *http.Response, error) {
-	return r.ApiService.CfuturesGetAggTradesV1Execute(r)
+func (r MarketDataAPICmfuturesGetAggTradesV1Request) Execute() ([]CmfuturesGetAggTradesV1RespItem, *http.Response, error) {
+	return r.ApiService.CmfuturesGetAggTradesV1Execute(r)
 }
 
 /*
-CfuturesGetAggTradesV1 Compressed/Aggregate Trades List
+CmfuturesGetAggTradesV1 Compressed/Aggregate Trades List
 
 Get compressed, aggregate trades. Market trades that fill in 100ms with the same price and the same taking side will have the quantity aggregated.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetAggTradesV1Request
+ @return MarketDataAPICmfuturesGetAggTradesV1Request
 */
-func (a *MarketDataAPIService) CfuturesGetAggTradesV1(ctx context.Context) MarketDataAPICfuturesGetAggTradesV1Request {
-	return MarketDataAPICfuturesGetAggTradesV1Request{
+func (a *MarketDataAPIService) CmfuturesGetAggTradesV1(ctx context.Context) MarketDataAPICmfuturesGetAggTradesV1Request {
+	return MarketDataAPICmfuturesGetAggTradesV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesGetAggTradesV1RespItem
-func (a *MarketDataAPIService) CfuturesGetAggTradesV1Execute(r MarketDataAPICfuturesGetAggTradesV1Request) ([]CfuturesGetAggTradesV1RespItem, *http.Response, error) {
+//  @return []CmfuturesGetAggTradesV1RespItem
+func (a *MarketDataAPIService) CmfuturesGetAggTradesV1Execute(r MarketDataAPICmfuturesGetAggTradesV1Request) ([]CmfuturesGetAggTradesV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesGetAggTradesV1RespItem
+		localVarReturnValue  []CmfuturesGetAggTradesV1RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetAggTradesV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetAggTradesV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -195,47 +195,47 @@ func (a *MarketDataAPIService) CfuturesGetAggTradesV1Execute(r MarketDataAPICfut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetConstituentsV1Request struct {
+type MarketDataAPICmfuturesGetConstituentsV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
 }
 
-func (r MarketDataAPICfuturesGetConstituentsV1Request) Symbol(symbol string) MarketDataAPICfuturesGetConstituentsV1Request {
+func (r MarketDataAPICmfuturesGetConstituentsV1Request) Symbol(symbol string) MarketDataAPICmfuturesGetConstituentsV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r MarketDataAPICfuturesGetConstituentsV1Request) Execute() (*CfuturesGetConstituentsV1Resp, *http.Response, error) {
-	return r.ApiService.CfuturesGetConstituentsV1Execute(r)
+func (r MarketDataAPICmfuturesGetConstituentsV1Request) Execute() (*CmfuturesGetConstituentsV1Resp, *http.Response, error) {
+	return r.ApiService.CmfuturesGetConstituentsV1Execute(r)
 }
 
 /*
-CfuturesGetConstituentsV1 Query Index Price Constituents
+CmfuturesGetConstituentsV1 Query Index Price Constituents
 
 Query index price constituents
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetConstituentsV1Request
+ @return MarketDataAPICmfuturesGetConstituentsV1Request
 */
-func (a *MarketDataAPIService) CfuturesGetConstituentsV1(ctx context.Context) MarketDataAPICfuturesGetConstituentsV1Request {
-	return MarketDataAPICfuturesGetConstituentsV1Request{
+func (a *MarketDataAPIService) CmfuturesGetConstituentsV1(ctx context.Context) MarketDataAPICmfuturesGetConstituentsV1Request {
+	return MarketDataAPICmfuturesGetConstituentsV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CfuturesGetConstituentsV1Resp
-func (a *MarketDataAPIService) CfuturesGetConstituentsV1Execute(r MarketDataAPICfuturesGetConstituentsV1Request) (*CfuturesGetConstituentsV1Resp, *http.Response, error) {
+//  @return CmfuturesGetConstituentsV1Resp
+func (a *MarketDataAPIService) CmfuturesGetConstituentsV1Execute(r MarketDataAPICmfuturesGetConstituentsV1Request) (*CmfuturesGetConstituentsV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CfuturesGetConstituentsV1Resp
+		localVarReturnValue  *CmfuturesGetConstituentsV1Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetConstituentsV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetConstituentsV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -325,7 +325,7 @@ func (a *MarketDataAPIService) CfuturesGetConstituentsV1Execute(r MarketDataAPIC
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetContinuousKlinesV1Request struct {
+type MarketDataAPICmfuturesGetContinuousKlinesV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	pair *string
@@ -336,68 +336,68 @@ type MarketDataAPICfuturesGetContinuousKlinesV1Request struct {
 	limit *int32
 }
 
-func (r MarketDataAPICfuturesGetContinuousKlinesV1Request) Pair(pair string) MarketDataAPICfuturesGetContinuousKlinesV1Request {
+func (r MarketDataAPICmfuturesGetContinuousKlinesV1Request) Pair(pair string) MarketDataAPICmfuturesGetContinuousKlinesV1Request {
 	r.pair = &pair
 	return r
 }
 
-func (r MarketDataAPICfuturesGetContinuousKlinesV1Request) ContractType(contractType string) MarketDataAPICfuturesGetContinuousKlinesV1Request {
+func (r MarketDataAPICmfuturesGetContinuousKlinesV1Request) ContractType(contractType string) MarketDataAPICmfuturesGetContinuousKlinesV1Request {
 	r.contractType = &contractType
 	return r
 }
 
-func (r MarketDataAPICfuturesGetContinuousKlinesV1Request) Interval(interval string) MarketDataAPICfuturesGetContinuousKlinesV1Request {
+func (r MarketDataAPICmfuturesGetContinuousKlinesV1Request) Interval(interval string) MarketDataAPICmfuturesGetContinuousKlinesV1Request {
 	r.interval = &interval
 	return r
 }
 
-func (r MarketDataAPICfuturesGetContinuousKlinesV1Request) StartTime(startTime int64) MarketDataAPICfuturesGetContinuousKlinesV1Request {
+func (r MarketDataAPICmfuturesGetContinuousKlinesV1Request) StartTime(startTime int64) MarketDataAPICmfuturesGetContinuousKlinesV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r MarketDataAPICfuturesGetContinuousKlinesV1Request) EndTime(endTime int64) MarketDataAPICfuturesGetContinuousKlinesV1Request {
+func (r MarketDataAPICmfuturesGetContinuousKlinesV1Request) EndTime(endTime int64) MarketDataAPICmfuturesGetContinuousKlinesV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 500; max 1500.
-func (r MarketDataAPICfuturesGetContinuousKlinesV1Request) Limit(limit int32) MarketDataAPICfuturesGetContinuousKlinesV1Request {
+func (r MarketDataAPICmfuturesGetContinuousKlinesV1Request) Limit(limit int32) MarketDataAPICmfuturesGetContinuousKlinesV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPICfuturesGetContinuousKlinesV1Request) Execute() ([][]CfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
-	return r.ApiService.CfuturesGetContinuousKlinesV1Execute(r)
+func (r MarketDataAPICmfuturesGetContinuousKlinesV1Request) Execute() ([][]CmfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
+	return r.ApiService.CmfuturesGetContinuousKlinesV1Execute(r)
 }
 
 /*
-CfuturesGetContinuousKlinesV1 Continuous Contract Kline/Candlestick Data
+CmfuturesGetContinuousKlinesV1 Continuous Contract Kline/Candlestick Data
 
 Kline/candlestick bars for a specific contract type.
 Klines are uniquely identified by their open time.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetContinuousKlinesV1Request
+ @return MarketDataAPICmfuturesGetContinuousKlinesV1Request
 */
-func (a *MarketDataAPIService) CfuturesGetContinuousKlinesV1(ctx context.Context) MarketDataAPICfuturesGetContinuousKlinesV1Request {
-	return MarketDataAPICfuturesGetContinuousKlinesV1Request{
+func (a *MarketDataAPIService) CmfuturesGetContinuousKlinesV1(ctx context.Context) MarketDataAPICmfuturesGetContinuousKlinesV1Request {
+	return MarketDataAPICmfuturesGetContinuousKlinesV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return [][]CfuturesGetContinuousKlinesV1RespInnerInner
-func (a *MarketDataAPIService) CfuturesGetContinuousKlinesV1Execute(r MarketDataAPICfuturesGetContinuousKlinesV1Request) ([][]CfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
+//  @return [][]CmfuturesGetContinuousKlinesV1RespInnerInner
+func (a *MarketDataAPIService) CmfuturesGetContinuousKlinesV1Execute(r MarketDataAPICmfuturesGetContinuousKlinesV1Request) ([][]CmfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  [][]CfuturesGetContinuousKlinesV1RespInnerInner
+		localVarReturnValue  [][]CmfuturesGetContinuousKlinesV1RespInnerInner
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetContinuousKlinesV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetContinuousKlinesV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -507,54 +507,54 @@ func (a *MarketDataAPIService) CfuturesGetContinuousKlinesV1Execute(r MarketData
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetDepthV1Request struct {
+type MarketDataAPICmfuturesGetDepthV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
 	limit *int32
 }
 
-func (r MarketDataAPICfuturesGetDepthV1Request) Symbol(symbol string) MarketDataAPICfuturesGetDepthV1Request {
+func (r MarketDataAPICmfuturesGetDepthV1Request) Symbol(symbol string) MarketDataAPICmfuturesGetDepthV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // Default 500; Valid limits:[5, 10, 20, 50, 100, 500, 1000]
-func (r MarketDataAPICfuturesGetDepthV1Request) Limit(limit int32) MarketDataAPICfuturesGetDepthV1Request {
+func (r MarketDataAPICmfuturesGetDepthV1Request) Limit(limit int32) MarketDataAPICmfuturesGetDepthV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPICfuturesGetDepthV1Request) Execute() (*CfuturesGetDepthV1Resp, *http.Response, error) {
-	return r.ApiService.CfuturesGetDepthV1Execute(r)
+func (r MarketDataAPICmfuturesGetDepthV1Request) Execute() (*CmfuturesGetDepthV1Resp, *http.Response, error) {
+	return r.ApiService.CmfuturesGetDepthV1Execute(r)
 }
 
 /*
-CfuturesGetDepthV1 Order Book
+CmfuturesGetDepthV1 Order Book
 
 Query orderbook on specific symbol
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetDepthV1Request
+ @return MarketDataAPICmfuturesGetDepthV1Request
 */
-func (a *MarketDataAPIService) CfuturesGetDepthV1(ctx context.Context) MarketDataAPICfuturesGetDepthV1Request {
-	return MarketDataAPICfuturesGetDepthV1Request{
+func (a *MarketDataAPIService) CmfuturesGetDepthV1(ctx context.Context) MarketDataAPICmfuturesGetDepthV1Request {
+	return MarketDataAPICmfuturesGetDepthV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CfuturesGetDepthV1Resp
-func (a *MarketDataAPIService) CfuturesGetDepthV1Execute(r MarketDataAPICfuturesGetDepthV1Request) (*CfuturesGetDepthV1Resp, *http.Response, error) {
+//  @return CmfuturesGetDepthV1Resp
+func (a *MarketDataAPIService) CmfuturesGetDepthV1Execute(r MarketDataAPICmfuturesGetDepthV1Request) (*CmfuturesGetDepthV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CfuturesGetDepthV1Resp
+		localVarReturnValue  *CmfuturesGetDepthV1Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetDepthV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetDepthV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -650,41 +650,41 @@ func (a *MarketDataAPIService) CfuturesGetDepthV1Execute(r MarketDataAPICfutures
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetExchangeInfoV1Request struct {
+type MarketDataAPICmfuturesGetExchangeInfoV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 }
 
-func (r MarketDataAPICfuturesGetExchangeInfoV1Request) Execute() (*CfuturesGetExchangeInfoV1Resp, *http.Response, error) {
-	return r.ApiService.CfuturesGetExchangeInfoV1Execute(r)
+func (r MarketDataAPICmfuturesGetExchangeInfoV1Request) Execute() (*CmfuturesGetExchangeInfoV1Resp, *http.Response, error) {
+	return r.ApiService.CmfuturesGetExchangeInfoV1Execute(r)
 }
 
 /*
-CfuturesGetExchangeInfoV1 Exchange Information
+CmfuturesGetExchangeInfoV1 Exchange Information
 
 Current exchange trading rules and symbol information
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetExchangeInfoV1Request
+ @return MarketDataAPICmfuturesGetExchangeInfoV1Request
 */
-func (a *MarketDataAPIService) CfuturesGetExchangeInfoV1(ctx context.Context) MarketDataAPICfuturesGetExchangeInfoV1Request {
-	return MarketDataAPICfuturesGetExchangeInfoV1Request{
+func (a *MarketDataAPIService) CmfuturesGetExchangeInfoV1(ctx context.Context) MarketDataAPICmfuturesGetExchangeInfoV1Request {
+	return MarketDataAPICmfuturesGetExchangeInfoV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CfuturesGetExchangeInfoV1Resp
-func (a *MarketDataAPIService) CfuturesGetExchangeInfoV1Execute(r MarketDataAPICfuturesGetExchangeInfoV1Request) (*CfuturesGetExchangeInfoV1Resp, *http.Response, error) {
+//  @return CmfuturesGetExchangeInfoV1Resp
+func (a *MarketDataAPIService) CmfuturesGetExchangeInfoV1Execute(r MarketDataAPICmfuturesGetExchangeInfoV1Request) (*CmfuturesGetExchangeInfoV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CfuturesGetExchangeInfoV1Resp
+		localVarReturnValue  *CmfuturesGetExchangeInfoV1Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetExchangeInfoV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetExchangeInfoV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -770,41 +770,41 @@ func (a *MarketDataAPIService) CfuturesGetExchangeInfoV1Execute(r MarketDataAPIC
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetFundingInfoV1Request struct {
+type MarketDataAPICmfuturesGetFundingInfoV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 }
 
-func (r MarketDataAPICfuturesGetFundingInfoV1Request) Execute() ([]CfuturesGetFundingInfoV1RespItem, *http.Response, error) {
-	return r.ApiService.CfuturesGetFundingInfoV1Execute(r)
+func (r MarketDataAPICmfuturesGetFundingInfoV1Request) Execute() ([]CmfuturesGetFundingInfoV1RespItem, *http.Response, error) {
+	return r.ApiService.CmfuturesGetFundingInfoV1Execute(r)
 }
 
 /*
-CfuturesGetFundingInfoV1 Get Funding Rate Info
+CmfuturesGetFundingInfoV1 Get Funding Rate Info
 
 Query funding rate info for symbols that had FundingRateCap/ FundingRateFloor / fundingIntervalHours adjustment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetFundingInfoV1Request
+ @return MarketDataAPICmfuturesGetFundingInfoV1Request
 */
-func (a *MarketDataAPIService) CfuturesGetFundingInfoV1(ctx context.Context) MarketDataAPICfuturesGetFundingInfoV1Request {
-	return MarketDataAPICfuturesGetFundingInfoV1Request{
+func (a *MarketDataAPIService) CmfuturesGetFundingInfoV1(ctx context.Context) MarketDataAPICmfuturesGetFundingInfoV1Request {
+	return MarketDataAPICmfuturesGetFundingInfoV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesGetFundingInfoV1RespItem
-func (a *MarketDataAPIService) CfuturesGetFundingInfoV1Execute(r MarketDataAPICfuturesGetFundingInfoV1Request) ([]CfuturesGetFundingInfoV1RespItem, *http.Response, error) {
+//  @return []CmfuturesGetFundingInfoV1RespItem
+func (a *MarketDataAPIService) CmfuturesGetFundingInfoV1Execute(r MarketDataAPICmfuturesGetFundingInfoV1Request) ([]CmfuturesGetFundingInfoV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesGetFundingInfoV1RespItem
+		localVarReturnValue  []CmfuturesGetFundingInfoV1RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetFundingInfoV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetFundingInfoV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -890,7 +890,7 @@ func (a *MarketDataAPIService) CfuturesGetFundingInfoV1Execute(r MarketDataAPICf
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetFundingRateV1Request struct {
+type MarketDataAPICmfuturesGetFundingRateV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
@@ -899,59 +899,59 @@ type MarketDataAPICfuturesGetFundingRateV1Request struct {
 	limit *int32
 }
 
-func (r MarketDataAPICfuturesGetFundingRateV1Request) Symbol(symbol string) MarketDataAPICfuturesGetFundingRateV1Request {
+func (r MarketDataAPICmfuturesGetFundingRateV1Request) Symbol(symbol string) MarketDataAPICmfuturesGetFundingRateV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // Timestamp in ms to get funding rate from INCLUSIVE.
-func (r MarketDataAPICfuturesGetFundingRateV1Request) StartTime(startTime int64) MarketDataAPICfuturesGetFundingRateV1Request {
+func (r MarketDataAPICmfuturesGetFundingRateV1Request) StartTime(startTime int64) MarketDataAPICmfuturesGetFundingRateV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // Timestamp in ms to get funding rate  until INCLUSIVE.
-func (r MarketDataAPICfuturesGetFundingRateV1Request) EndTime(endTime int64) MarketDataAPICfuturesGetFundingRateV1Request {
+func (r MarketDataAPICmfuturesGetFundingRateV1Request) EndTime(endTime int64) MarketDataAPICmfuturesGetFundingRateV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 100; max 1000
-func (r MarketDataAPICfuturesGetFundingRateV1Request) Limit(limit int32) MarketDataAPICfuturesGetFundingRateV1Request {
+func (r MarketDataAPICmfuturesGetFundingRateV1Request) Limit(limit int32) MarketDataAPICmfuturesGetFundingRateV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPICfuturesGetFundingRateV1Request) Execute() ([]CfuturesGetFundingRateV1RespItem, *http.Response, error) {
-	return r.ApiService.CfuturesGetFundingRateV1Execute(r)
+func (r MarketDataAPICmfuturesGetFundingRateV1Request) Execute() ([]CmfuturesGetFundingRateV1RespItem, *http.Response, error) {
+	return r.ApiService.CmfuturesGetFundingRateV1Execute(r)
 }
 
 /*
-CfuturesGetFundingRateV1 Get Funding Rate History of Perpetual Futures
+CmfuturesGetFundingRateV1 Get Funding Rate History of Perpetual Futures
 
 Get Funding Rate History of Perpetual Futures
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetFundingRateV1Request
+ @return MarketDataAPICmfuturesGetFundingRateV1Request
 */
-func (a *MarketDataAPIService) CfuturesGetFundingRateV1(ctx context.Context) MarketDataAPICfuturesGetFundingRateV1Request {
-	return MarketDataAPICfuturesGetFundingRateV1Request{
+func (a *MarketDataAPIService) CmfuturesGetFundingRateV1(ctx context.Context) MarketDataAPICmfuturesGetFundingRateV1Request {
+	return MarketDataAPICmfuturesGetFundingRateV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesGetFundingRateV1RespItem
-func (a *MarketDataAPIService) CfuturesGetFundingRateV1Execute(r MarketDataAPICfuturesGetFundingRateV1Request) ([]CfuturesGetFundingRateV1RespItem, *http.Response, error) {
+//  @return []CmfuturesGetFundingRateV1RespItem
+func (a *MarketDataAPIService) CmfuturesGetFundingRateV1Execute(r MarketDataAPICmfuturesGetFundingRateV1Request) ([]CmfuturesGetFundingRateV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesGetFundingRateV1RespItem
+		localVarReturnValue  []CmfuturesGetFundingRateV1RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetFundingRateV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetFundingRateV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1053,7 +1053,7 @@ func (a *MarketDataAPIService) CfuturesGetFundingRateV1Execute(r MarketDataAPICf
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetFuturesDataBasisRequest struct {
+type MarketDataAPICmfuturesGetFuturesDataBasisRequest struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	pair *string
@@ -1065,69 +1065,69 @@ type MarketDataAPICfuturesGetFuturesDataBasisRequest struct {
 }
 
 // BTCUSD
-func (r MarketDataAPICfuturesGetFuturesDataBasisRequest) Pair(pair string) MarketDataAPICfuturesGetFuturesDataBasisRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataBasisRequest) Pair(pair string) MarketDataAPICmfuturesGetFuturesDataBasisRequest {
 	r.pair = &pair
 	return r
 }
 
 // CURRENT_QUARTER, NEXT_QUARTER, PERPETUAL
-func (r MarketDataAPICfuturesGetFuturesDataBasisRequest) ContractType(contractType string) MarketDataAPICfuturesGetFuturesDataBasisRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataBasisRequest) ContractType(contractType string) MarketDataAPICmfuturesGetFuturesDataBasisRequest {
 	r.contractType = &contractType
 	return r
 }
 
 // &amp;#34;5m&amp;#34;,&amp;#34;15m&amp;#34;,&amp;#34;30m&amp;#34;,&amp;#34;1h&amp;#34;,&amp;#34;2h&amp;#34;,&amp;#34;4h&amp;#34;,&amp;#34;6h&amp;#34;,&amp;#34;12h&amp;#34;,&amp;#34;1d&amp;#34;
-func (r MarketDataAPICfuturesGetFuturesDataBasisRequest) Period(period string) MarketDataAPICfuturesGetFuturesDataBasisRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataBasisRequest) Period(period string) MarketDataAPICmfuturesGetFuturesDataBasisRequest {
 	r.period = &period
 	return r
 }
 
 // Default 30,Max 500
-func (r MarketDataAPICfuturesGetFuturesDataBasisRequest) Limit(limit int64) MarketDataAPICfuturesGetFuturesDataBasisRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataBasisRequest) Limit(limit int64) MarketDataAPICmfuturesGetFuturesDataBasisRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPICfuturesGetFuturesDataBasisRequest) StartTime(startTime int64) MarketDataAPICfuturesGetFuturesDataBasisRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataBasisRequest) StartTime(startTime int64) MarketDataAPICmfuturesGetFuturesDataBasisRequest {
 	r.startTime = &startTime
 	return r
 }
 
-func (r MarketDataAPICfuturesGetFuturesDataBasisRequest) EndTime(endTime int64) MarketDataAPICfuturesGetFuturesDataBasisRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataBasisRequest) EndTime(endTime int64) MarketDataAPICmfuturesGetFuturesDataBasisRequest {
 	r.endTime = &endTime
 	return r
 }
 
-func (r MarketDataAPICfuturesGetFuturesDataBasisRequest) Execute() ([]CfuturesGetFuturesDataBasisRespItem, *http.Response, error) {
-	return r.ApiService.CfuturesGetFuturesDataBasisExecute(r)
+func (r MarketDataAPICmfuturesGetFuturesDataBasisRequest) Execute() ([]CmfuturesGetFuturesDataBasisRespItem, *http.Response, error) {
+	return r.ApiService.CmfuturesGetFuturesDataBasisExecute(r)
 }
 
 /*
-CfuturesGetFuturesDataBasis Basis
+CmfuturesGetFuturesDataBasis Basis
 
 Query basis
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetFuturesDataBasisRequest
+ @return MarketDataAPICmfuturesGetFuturesDataBasisRequest
 */
-func (a *MarketDataAPIService) CfuturesGetFuturesDataBasis(ctx context.Context) MarketDataAPICfuturesGetFuturesDataBasisRequest {
-	return MarketDataAPICfuturesGetFuturesDataBasisRequest{
+func (a *MarketDataAPIService) CmfuturesGetFuturesDataBasis(ctx context.Context) MarketDataAPICmfuturesGetFuturesDataBasisRequest {
+	return MarketDataAPICmfuturesGetFuturesDataBasisRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesGetFuturesDataBasisRespItem
-func (a *MarketDataAPIService) CfuturesGetFuturesDataBasisExecute(r MarketDataAPICfuturesGetFuturesDataBasisRequest) ([]CfuturesGetFuturesDataBasisRespItem, *http.Response, error) {
+//  @return []CmfuturesGetFuturesDataBasisRespItem
+func (a *MarketDataAPIService) CmfuturesGetFuturesDataBasisExecute(r MarketDataAPICmfuturesGetFuturesDataBasisRequest) ([]CmfuturesGetFuturesDataBasisRespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesGetFuturesDataBasisRespItem
+		localVarReturnValue  []CmfuturesGetFuturesDataBasisRespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetFuturesDataBasis")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetFuturesDataBasis")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1237,7 +1237,7 @@ func (a *MarketDataAPIService) CfuturesGetFuturesDataBasisExecute(r MarketDataAP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetFuturesDataGlobalLongShortAccountRatioRequest struct {
+type MarketDataAPICmfuturesGetFuturesDataGlobalLongShortAccountRatioRequest struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	pair *string
@@ -1248,63 +1248,63 @@ type MarketDataAPICfuturesGetFuturesDataGlobalLongShortAccountRatioRequest struc
 }
 
 // BTCUSD
-func (r MarketDataAPICfuturesGetFuturesDataGlobalLongShortAccountRatioRequest) Pair(pair string) MarketDataAPICfuturesGetFuturesDataGlobalLongShortAccountRatioRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataGlobalLongShortAccountRatioRequest) Pair(pair string) MarketDataAPICmfuturesGetFuturesDataGlobalLongShortAccountRatioRequest {
 	r.pair = &pair
 	return r
 }
 
 // &amp;#34;5m&amp;#34;,&amp;#34;15m&amp;#34;,&amp;#34;30m&amp;#34;,&amp;#34;1h&amp;#34;,&amp;#34;2h&amp;#34;,&amp;#34;4h&amp;#34;,&amp;#34;6h&amp;#34;,&amp;#34;12h&amp;#34;,&amp;#34;1d&amp;#34;
-func (r MarketDataAPICfuturesGetFuturesDataGlobalLongShortAccountRatioRequest) Period(period string) MarketDataAPICfuturesGetFuturesDataGlobalLongShortAccountRatioRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataGlobalLongShortAccountRatioRequest) Period(period string) MarketDataAPICmfuturesGetFuturesDataGlobalLongShortAccountRatioRequest {
 	r.period = &period
 	return r
 }
 
 // Default 30,Max 500
-func (r MarketDataAPICfuturesGetFuturesDataGlobalLongShortAccountRatioRequest) Limit(limit int64) MarketDataAPICfuturesGetFuturesDataGlobalLongShortAccountRatioRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataGlobalLongShortAccountRatioRequest) Limit(limit int64) MarketDataAPICmfuturesGetFuturesDataGlobalLongShortAccountRatioRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPICfuturesGetFuturesDataGlobalLongShortAccountRatioRequest) StartTime(startTime int64) MarketDataAPICfuturesGetFuturesDataGlobalLongShortAccountRatioRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataGlobalLongShortAccountRatioRequest) StartTime(startTime int64) MarketDataAPICmfuturesGetFuturesDataGlobalLongShortAccountRatioRequest {
 	r.startTime = &startTime
 	return r
 }
 
-func (r MarketDataAPICfuturesGetFuturesDataGlobalLongShortAccountRatioRequest) EndTime(endTime int64) MarketDataAPICfuturesGetFuturesDataGlobalLongShortAccountRatioRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataGlobalLongShortAccountRatioRequest) EndTime(endTime int64) MarketDataAPICmfuturesGetFuturesDataGlobalLongShortAccountRatioRequest {
 	r.endTime = &endTime
 	return r
 }
 
-func (r MarketDataAPICfuturesGetFuturesDataGlobalLongShortAccountRatioRequest) Execute() ([]CfuturesGetFuturesDataGlobalLongShortAccountRatioRespItem, *http.Response, error) {
-	return r.ApiService.CfuturesGetFuturesDataGlobalLongShortAccountRatioExecute(r)
+func (r MarketDataAPICmfuturesGetFuturesDataGlobalLongShortAccountRatioRequest) Execute() ([]CmfuturesGetFuturesDataGlobalLongShortAccountRatioRespItem, *http.Response, error) {
+	return r.ApiService.CmfuturesGetFuturesDataGlobalLongShortAccountRatioExecute(r)
 }
 
 /*
-CfuturesGetFuturesDataGlobalLongShortAccountRatio Long/Short Ratio
+CmfuturesGetFuturesDataGlobalLongShortAccountRatio Long/Short Ratio
 
 Query symbol Long/Short Ratio
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetFuturesDataGlobalLongShortAccountRatioRequest
+ @return MarketDataAPICmfuturesGetFuturesDataGlobalLongShortAccountRatioRequest
 */
-func (a *MarketDataAPIService) CfuturesGetFuturesDataGlobalLongShortAccountRatio(ctx context.Context) MarketDataAPICfuturesGetFuturesDataGlobalLongShortAccountRatioRequest {
-	return MarketDataAPICfuturesGetFuturesDataGlobalLongShortAccountRatioRequest{
+func (a *MarketDataAPIService) CmfuturesGetFuturesDataGlobalLongShortAccountRatio(ctx context.Context) MarketDataAPICmfuturesGetFuturesDataGlobalLongShortAccountRatioRequest {
+	return MarketDataAPICmfuturesGetFuturesDataGlobalLongShortAccountRatioRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesGetFuturesDataGlobalLongShortAccountRatioRespItem
-func (a *MarketDataAPIService) CfuturesGetFuturesDataGlobalLongShortAccountRatioExecute(r MarketDataAPICfuturesGetFuturesDataGlobalLongShortAccountRatioRequest) ([]CfuturesGetFuturesDataGlobalLongShortAccountRatioRespItem, *http.Response, error) {
+//  @return []CmfuturesGetFuturesDataGlobalLongShortAccountRatioRespItem
+func (a *MarketDataAPIService) CmfuturesGetFuturesDataGlobalLongShortAccountRatioExecute(r MarketDataAPICmfuturesGetFuturesDataGlobalLongShortAccountRatioRequest) ([]CmfuturesGetFuturesDataGlobalLongShortAccountRatioRespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesGetFuturesDataGlobalLongShortAccountRatioRespItem
+		localVarReturnValue  []CmfuturesGetFuturesDataGlobalLongShortAccountRatioRespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetFuturesDataGlobalLongShortAccountRatio")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetFuturesDataGlobalLongShortAccountRatio")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1410,7 +1410,7 @@ func (a *MarketDataAPIService) CfuturesGetFuturesDataGlobalLongShortAccountRatio
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetFuturesDataOpenInterestHistRequest struct {
+type MarketDataAPICmfuturesGetFuturesDataOpenInterestHistRequest struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	pair *string
@@ -1422,69 +1422,69 @@ type MarketDataAPICfuturesGetFuturesDataOpenInterestHistRequest struct {
 }
 
 // BTCUSD
-func (r MarketDataAPICfuturesGetFuturesDataOpenInterestHistRequest) Pair(pair string) MarketDataAPICfuturesGetFuturesDataOpenInterestHistRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataOpenInterestHistRequest) Pair(pair string) MarketDataAPICmfuturesGetFuturesDataOpenInterestHistRequest {
 	r.pair = &pair
 	return r
 }
 
 // ALL, CURRENT_QUARTER, NEXT_QUARTER, PERPETUAL
-func (r MarketDataAPICfuturesGetFuturesDataOpenInterestHistRequest) ContractType(contractType string) MarketDataAPICfuturesGetFuturesDataOpenInterestHistRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataOpenInterestHistRequest) ContractType(contractType string) MarketDataAPICmfuturesGetFuturesDataOpenInterestHistRequest {
 	r.contractType = &contractType
 	return r
 }
 
 // &amp;#34;5m&amp;#34;,&amp;#34;15m&amp;#34;,&amp;#34;30m&amp;#34;,&amp;#34;1h&amp;#34;,&amp;#34;2h&amp;#34;,&amp;#34;4h&amp;#34;,&amp;#34;6h&amp;#34;,&amp;#34;12h&amp;#34;,&amp;#34;1d&amp;#34;
-func (r MarketDataAPICfuturesGetFuturesDataOpenInterestHistRequest) Period(period string) MarketDataAPICfuturesGetFuturesDataOpenInterestHistRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataOpenInterestHistRequest) Period(period string) MarketDataAPICmfuturesGetFuturesDataOpenInterestHistRequest {
 	r.period = &period
 	return r
 }
 
 // Default 30,Max 500
-func (r MarketDataAPICfuturesGetFuturesDataOpenInterestHistRequest) Limit(limit int64) MarketDataAPICfuturesGetFuturesDataOpenInterestHistRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataOpenInterestHistRequest) Limit(limit int64) MarketDataAPICmfuturesGetFuturesDataOpenInterestHistRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPICfuturesGetFuturesDataOpenInterestHistRequest) StartTime(startTime int64) MarketDataAPICfuturesGetFuturesDataOpenInterestHistRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataOpenInterestHistRequest) StartTime(startTime int64) MarketDataAPICmfuturesGetFuturesDataOpenInterestHistRequest {
 	r.startTime = &startTime
 	return r
 }
 
-func (r MarketDataAPICfuturesGetFuturesDataOpenInterestHistRequest) EndTime(endTime int64) MarketDataAPICfuturesGetFuturesDataOpenInterestHistRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataOpenInterestHistRequest) EndTime(endTime int64) MarketDataAPICmfuturesGetFuturesDataOpenInterestHistRequest {
 	r.endTime = &endTime
 	return r
 }
 
-func (r MarketDataAPICfuturesGetFuturesDataOpenInterestHistRequest) Execute() ([]CfuturesGetFuturesDataOpenInterestHistRespItem, *http.Response, error) {
-	return r.ApiService.CfuturesGetFuturesDataOpenInterestHistExecute(r)
+func (r MarketDataAPICmfuturesGetFuturesDataOpenInterestHistRequest) Execute() ([]CmfuturesGetFuturesDataOpenInterestHistRespItem, *http.Response, error) {
+	return r.ApiService.CmfuturesGetFuturesDataOpenInterestHistExecute(r)
 }
 
 /*
-CfuturesGetFuturesDataOpenInterestHist Open Interest Statistics
+CmfuturesGetFuturesDataOpenInterestHist Open Interest Statistics
 
 Query open interest stats
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetFuturesDataOpenInterestHistRequest
+ @return MarketDataAPICmfuturesGetFuturesDataOpenInterestHistRequest
 */
-func (a *MarketDataAPIService) CfuturesGetFuturesDataOpenInterestHist(ctx context.Context) MarketDataAPICfuturesGetFuturesDataOpenInterestHistRequest {
-	return MarketDataAPICfuturesGetFuturesDataOpenInterestHistRequest{
+func (a *MarketDataAPIService) CmfuturesGetFuturesDataOpenInterestHist(ctx context.Context) MarketDataAPICmfuturesGetFuturesDataOpenInterestHistRequest {
+	return MarketDataAPICmfuturesGetFuturesDataOpenInterestHistRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesGetFuturesDataOpenInterestHistRespItem
-func (a *MarketDataAPIService) CfuturesGetFuturesDataOpenInterestHistExecute(r MarketDataAPICfuturesGetFuturesDataOpenInterestHistRequest) ([]CfuturesGetFuturesDataOpenInterestHistRespItem, *http.Response, error) {
+//  @return []CmfuturesGetFuturesDataOpenInterestHistRespItem
+func (a *MarketDataAPIService) CmfuturesGetFuturesDataOpenInterestHistExecute(r MarketDataAPICmfuturesGetFuturesDataOpenInterestHistRequest) ([]CmfuturesGetFuturesDataOpenInterestHistRespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesGetFuturesDataOpenInterestHistRespItem
+		localVarReturnValue  []CmfuturesGetFuturesDataOpenInterestHistRespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetFuturesDataOpenInterestHist")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetFuturesDataOpenInterestHist")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1594,7 +1594,7 @@ func (a *MarketDataAPIService) CfuturesGetFuturesDataOpenInterestHistExecute(r M
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetFuturesDataTakerBuySellVolRequest struct {
+type MarketDataAPICmfuturesGetFuturesDataTakerBuySellVolRequest struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	pair *string
@@ -1606,70 +1606,70 @@ type MarketDataAPICfuturesGetFuturesDataTakerBuySellVolRequest struct {
 }
 
 // BTCUSD
-func (r MarketDataAPICfuturesGetFuturesDataTakerBuySellVolRequest) Pair(pair string) MarketDataAPICfuturesGetFuturesDataTakerBuySellVolRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataTakerBuySellVolRequest) Pair(pair string) MarketDataAPICmfuturesGetFuturesDataTakerBuySellVolRequest {
 	r.pair = &pair
 	return r
 }
 
 // ALL, CURRENT_QUARTER, NEXT_QUARTER, PERPETUAL
-func (r MarketDataAPICfuturesGetFuturesDataTakerBuySellVolRequest) ContractType(contractType string) MarketDataAPICfuturesGetFuturesDataTakerBuySellVolRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataTakerBuySellVolRequest) ContractType(contractType string) MarketDataAPICmfuturesGetFuturesDataTakerBuySellVolRequest {
 	r.contractType = &contractType
 	return r
 }
 
 // &amp;#34;5m&amp;#34;,&amp;#34;15m&amp;#34;,&amp;#34;30m&amp;#34;,&amp;#34;1h&amp;#34;,&amp;#34;2h&amp;#34;,&amp;#34;4h&amp;#34;,&amp;#34;6h&amp;#34;,&amp;#34;12h&amp;#34;,&amp;#34;1d&amp;#34;
-func (r MarketDataAPICfuturesGetFuturesDataTakerBuySellVolRequest) Period(period string) MarketDataAPICfuturesGetFuturesDataTakerBuySellVolRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataTakerBuySellVolRequest) Period(period string) MarketDataAPICmfuturesGetFuturesDataTakerBuySellVolRequest {
 	r.period = &period
 	return r
 }
 
 // Default 30,Max 500
-func (r MarketDataAPICfuturesGetFuturesDataTakerBuySellVolRequest) Limit(limit int64) MarketDataAPICfuturesGetFuturesDataTakerBuySellVolRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataTakerBuySellVolRequest) Limit(limit int64) MarketDataAPICmfuturesGetFuturesDataTakerBuySellVolRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPICfuturesGetFuturesDataTakerBuySellVolRequest) StartTime(startTime int64) MarketDataAPICfuturesGetFuturesDataTakerBuySellVolRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataTakerBuySellVolRequest) StartTime(startTime int64) MarketDataAPICmfuturesGetFuturesDataTakerBuySellVolRequest {
 	r.startTime = &startTime
 	return r
 }
 
-func (r MarketDataAPICfuturesGetFuturesDataTakerBuySellVolRequest) EndTime(endTime int64) MarketDataAPICfuturesGetFuturesDataTakerBuySellVolRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataTakerBuySellVolRequest) EndTime(endTime int64) MarketDataAPICmfuturesGetFuturesDataTakerBuySellVolRequest {
 	r.endTime = &endTime
 	return r
 }
 
-func (r MarketDataAPICfuturesGetFuturesDataTakerBuySellVolRequest) Execute() ([]CfuturesGetFuturesDataTakerBuySellVolRespItem, *http.Response, error) {
-	return r.ApiService.CfuturesGetFuturesDataTakerBuySellVolExecute(r)
+func (r MarketDataAPICmfuturesGetFuturesDataTakerBuySellVolRequest) Execute() ([]CmfuturesGetFuturesDataTakerBuySellVolRespItem, *http.Response, error) {
+	return r.ApiService.CmfuturesGetFuturesDataTakerBuySellVolExecute(r)
 }
 
 /*
-CfuturesGetFuturesDataTakerBuySellVol Taker Buy/Sell Volume
+CmfuturesGetFuturesDataTakerBuySellVol Taker Buy/Sell Volume
 
 Taker Buy Volume: the total volume of buy orders filled by takers within the period.
 Taker Sell Volume: the total volume of sell orders filled by takers within the period.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetFuturesDataTakerBuySellVolRequest
+ @return MarketDataAPICmfuturesGetFuturesDataTakerBuySellVolRequest
 */
-func (a *MarketDataAPIService) CfuturesGetFuturesDataTakerBuySellVol(ctx context.Context) MarketDataAPICfuturesGetFuturesDataTakerBuySellVolRequest {
-	return MarketDataAPICfuturesGetFuturesDataTakerBuySellVolRequest{
+func (a *MarketDataAPIService) CmfuturesGetFuturesDataTakerBuySellVol(ctx context.Context) MarketDataAPICmfuturesGetFuturesDataTakerBuySellVolRequest {
+	return MarketDataAPICmfuturesGetFuturesDataTakerBuySellVolRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesGetFuturesDataTakerBuySellVolRespItem
-func (a *MarketDataAPIService) CfuturesGetFuturesDataTakerBuySellVolExecute(r MarketDataAPICfuturesGetFuturesDataTakerBuySellVolRequest) ([]CfuturesGetFuturesDataTakerBuySellVolRespItem, *http.Response, error) {
+//  @return []CmfuturesGetFuturesDataTakerBuySellVolRespItem
+func (a *MarketDataAPIService) CmfuturesGetFuturesDataTakerBuySellVolExecute(r MarketDataAPICmfuturesGetFuturesDataTakerBuySellVolRequest) ([]CmfuturesGetFuturesDataTakerBuySellVolRespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesGetFuturesDataTakerBuySellVolRespItem
+		localVarReturnValue  []CmfuturesGetFuturesDataTakerBuySellVolRespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetFuturesDataTakerBuySellVol")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetFuturesDataTakerBuySellVol")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1779,7 +1779,7 @@ func (a *MarketDataAPIService) CfuturesGetFuturesDataTakerBuySellVolExecute(r Ma
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetFuturesDataTopLongShortAccountRatioRequest struct {
+type MarketDataAPICmfuturesGetFuturesDataTopLongShortAccountRatioRequest struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
@@ -1789,39 +1789,39 @@ type MarketDataAPICfuturesGetFuturesDataTopLongShortAccountRatioRequest struct {
 	endTime *int64
 }
 
-func (r MarketDataAPICfuturesGetFuturesDataTopLongShortAccountRatioRequest) Symbol(symbol string) MarketDataAPICfuturesGetFuturesDataTopLongShortAccountRatioRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataTopLongShortAccountRatioRequest) Symbol(symbol string) MarketDataAPICmfuturesGetFuturesDataTopLongShortAccountRatioRequest {
 	r.symbol = &symbol
 	return r
 }
 
 // &amp;#34;5m&amp;#34;,&amp;#34;15m&amp;#34;,&amp;#34;30m&amp;#34;,&amp;#34;1h&amp;#34;,&amp;#34;2h&amp;#34;,&amp;#34;4h&amp;#34;,&amp;#34;6h&amp;#34;,&amp;#34;12h&amp;#34;,&amp;#34;1d&amp;#34;
-func (r MarketDataAPICfuturesGetFuturesDataTopLongShortAccountRatioRequest) Period(period string) MarketDataAPICfuturesGetFuturesDataTopLongShortAccountRatioRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataTopLongShortAccountRatioRequest) Period(period string) MarketDataAPICmfuturesGetFuturesDataTopLongShortAccountRatioRequest {
 	r.period = &period
 	return r
 }
 
 // default 30, max 500
-func (r MarketDataAPICfuturesGetFuturesDataTopLongShortAccountRatioRequest) Limit(limit int64) MarketDataAPICfuturesGetFuturesDataTopLongShortAccountRatioRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataTopLongShortAccountRatioRequest) Limit(limit int64) MarketDataAPICmfuturesGetFuturesDataTopLongShortAccountRatioRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPICfuturesGetFuturesDataTopLongShortAccountRatioRequest) StartTime(startTime int64) MarketDataAPICfuturesGetFuturesDataTopLongShortAccountRatioRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataTopLongShortAccountRatioRequest) StartTime(startTime int64) MarketDataAPICmfuturesGetFuturesDataTopLongShortAccountRatioRequest {
 	r.startTime = &startTime
 	return r
 }
 
-func (r MarketDataAPICfuturesGetFuturesDataTopLongShortAccountRatioRequest) EndTime(endTime int64) MarketDataAPICfuturesGetFuturesDataTopLongShortAccountRatioRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataTopLongShortAccountRatioRequest) EndTime(endTime int64) MarketDataAPICmfuturesGetFuturesDataTopLongShortAccountRatioRequest {
 	r.endTime = &endTime
 	return r
 }
 
-func (r MarketDataAPICfuturesGetFuturesDataTopLongShortAccountRatioRequest) Execute() ([]CfuturesGetFuturesDataTopLongShortAccountRatioRespItem, *http.Response, error) {
-	return r.ApiService.CfuturesGetFuturesDataTopLongShortAccountRatioExecute(r)
+func (r MarketDataAPICmfuturesGetFuturesDataTopLongShortAccountRatioRequest) Execute() ([]CmfuturesGetFuturesDataTopLongShortAccountRatioRespItem, *http.Response, error) {
+	return r.ApiService.CmfuturesGetFuturesDataTopLongShortAccountRatioExecute(r)
 }
 
 /*
-CfuturesGetFuturesDataTopLongShortAccountRatio Top Trader Long/Short Ratio (Accounts)
+CmfuturesGetFuturesDataTopLongShortAccountRatio Top Trader Long/Short Ratio (Accounts)
 
 The proportion of net long and net short accounts to total accounts of the top 20% users with the highest margin balance. Each account is counted once only.
 Long Account % = Accounts of top traders with net long positions / Total accounts of top traders with open positions
@@ -1829,26 +1829,26 @@ Short Account % = Accounts of top traders with net short positions / Total accou
 Long/Short Ratio (Accounts) = Long Account % / Short Account %
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetFuturesDataTopLongShortAccountRatioRequest
+ @return MarketDataAPICmfuturesGetFuturesDataTopLongShortAccountRatioRequest
 */
-func (a *MarketDataAPIService) CfuturesGetFuturesDataTopLongShortAccountRatio(ctx context.Context) MarketDataAPICfuturesGetFuturesDataTopLongShortAccountRatioRequest {
-	return MarketDataAPICfuturesGetFuturesDataTopLongShortAccountRatioRequest{
+func (a *MarketDataAPIService) CmfuturesGetFuturesDataTopLongShortAccountRatio(ctx context.Context) MarketDataAPICmfuturesGetFuturesDataTopLongShortAccountRatioRequest {
+	return MarketDataAPICmfuturesGetFuturesDataTopLongShortAccountRatioRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesGetFuturesDataTopLongShortAccountRatioRespItem
-func (a *MarketDataAPIService) CfuturesGetFuturesDataTopLongShortAccountRatioExecute(r MarketDataAPICfuturesGetFuturesDataTopLongShortAccountRatioRequest) ([]CfuturesGetFuturesDataTopLongShortAccountRatioRespItem, *http.Response, error) {
+//  @return []CmfuturesGetFuturesDataTopLongShortAccountRatioRespItem
+func (a *MarketDataAPIService) CmfuturesGetFuturesDataTopLongShortAccountRatioExecute(r MarketDataAPICmfuturesGetFuturesDataTopLongShortAccountRatioRequest) ([]CmfuturesGetFuturesDataTopLongShortAccountRatioRespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesGetFuturesDataTopLongShortAccountRatioRespItem
+		localVarReturnValue  []CmfuturesGetFuturesDataTopLongShortAccountRatioRespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetFuturesDataTopLongShortAccountRatio")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetFuturesDataTopLongShortAccountRatio")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1954,7 +1954,7 @@ func (a *MarketDataAPIService) CfuturesGetFuturesDataTopLongShortAccountRatioExe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetFuturesDataTopLongShortPositionRatioRequest struct {
+type MarketDataAPICmfuturesGetFuturesDataTopLongShortPositionRatioRequest struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	pair *string
@@ -1965,39 +1965,39 @@ type MarketDataAPICfuturesGetFuturesDataTopLongShortPositionRatioRequest struct 
 }
 
 // BTCUSD
-func (r MarketDataAPICfuturesGetFuturesDataTopLongShortPositionRatioRequest) Pair(pair string) MarketDataAPICfuturesGetFuturesDataTopLongShortPositionRatioRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataTopLongShortPositionRatioRequest) Pair(pair string) MarketDataAPICmfuturesGetFuturesDataTopLongShortPositionRatioRequest {
 	r.pair = &pair
 	return r
 }
 
 // &amp;#34;5m&amp;#34;,&amp;#34;15m&amp;#34;,&amp;#34;30m&amp;#34;,&amp;#34;1h&amp;#34;,&amp;#34;2h&amp;#34;,&amp;#34;4h&amp;#34;,&amp;#34;6h&amp;#34;,&amp;#34;12h&amp;#34;,&amp;#34;1d&amp;#34;
-func (r MarketDataAPICfuturesGetFuturesDataTopLongShortPositionRatioRequest) Period(period string) MarketDataAPICfuturesGetFuturesDataTopLongShortPositionRatioRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataTopLongShortPositionRatioRequest) Period(period string) MarketDataAPICmfuturesGetFuturesDataTopLongShortPositionRatioRequest {
 	r.period = &period
 	return r
 }
 
 // Default 30,Max 500
-func (r MarketDataAPICfuturesGetFuturesDataTopLongShortPositionRatioRequest) Limit(limit int64) MarketDataAPICfuturesGetFuturesDataTopLongShortPositionRatioRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataTopLongShortPositionRatioRequest) Limit(limit int64) MarketDataAPICmfuturesGetFuturesDataTopLongShortPositionRatioRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPICfuturesGetFuturesDataTopLongShortPositionRatioRequest) StartTime(startTime int64) MarketDataAPICfuturesGetFuturesDataTopLongShortPositionRatioRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataTopLongShortPositionRatioRequest) StartTime(startTime int64) MarketDataAPICmfuturesGetFuturesDataTopLongShortPositionRatioRequest {
 	r.startTime = &startTime
 	return r
 }
 
-func (r MarketDataAPICfuturesGetFuturesDataTopLongShortPositionRatioRequest) EndTime(endTime int64) MarketDataAPICfuturesGetFuturesDataTopLongShortPositionRatioRequest {
+func (r MarketDataAPICmfuturesGetFuturesDataTopLongShortPositionRatioRequest) EndTime(endTime int64) MarketDataAPICmfuturesGetFuturesDataTopLongShortPositionRatioRequest {
 	r.endTime = &endTime
 	return r
 }
 
-func (r MarketDataAPICfuturesGetFuturesDataTopLongShortPositionRatioRequest) Execute() ([]CfuturesGetFuturesDataTopLongShortPositionRatioRespItem, *http.Response, error) {
-	return r.ApiService.CfuturesGetFuturesDataTopLongShortPositionRatioExecute(r)
+func (r MarketDataAPICmfuturesGetFuturesDataTopLongShortPositionRatioRequest) Execute() ([]CmfuturesGetFuturesDataTopLongShortPositionRatioRespItem, *http.Response, error) {
+	return r.ApiService.CmfuturesGetFuturesDataTopLongShortPositionRatioExecute(r)
 }
 
 /*
-CfuturesGetFuturesDataTopLongShortPositionRatio Top Trader Long/Short Ratio (Positions)
+CmfuturesGetFuturesDataTopLongShortPositionRatio Top Trader Long/Short Ratio (Positions)
 
 The proportion of net long and net short positions to total open positions of the top 20% users with the highest margin balance.
 Long Position % = Long positions of top traders / Total open positions of top traders
@@ -2005,26 +2005,26 @@ Short Position % = Short positions of top traders / Total open positions of top 
 Long/Short Ratio (Positions) = Long Position % / Short Position %
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetFuturesDataTopLongShortPositionRatioRequest
+ @return MarketDataAPICmfuturesGetFuturesDataTopLongShortPositionRatioRequest
 */
-func (a *MarketDataAPIService) CfuturesGetFuturesDataTopLongShortPositionRatio(ctx context.Context) MarketDataAPICfuturesGetFuturesDataTopLongShortPositionRatioRequest {
-	return MarketDataAPICfuturesGetFuturesDataTopLongShortPositionRatioRequest{
+func (a *MarketDataAPIService) CmfuturesGetFuturesDataTopLongShortPositionRatio(ctx context.Context) MarketDataAPICmfuturesGetFuturesDataTopLongShortPositionRatioRequest {
+	return MarketDataAPICmfuturesGetFuturesDataTopLongShortPositionRatioRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesGetFuturesDataTopLongShortPositionRatioRespItem
-func (a *MarketDataAPIService) CfuturesGetFuturesDataTopLongShortPositionRatioExecute(r MarketDataAPICfuturesGetFuturesDataTopLongShortPositionRatioRequest) ([]CfuturesGetFuturesDataTopLongShortPositionRatioRespItem, *http.Response, error) {
+//  @return []CmfuturesGetFuturesDataTopLongShortPositionRatioRespItem
+func (a *MarketDataAPIService) CmfuturesGetFuturesDataTopLongShortPositionRatioExecute(r MarketDataAPICmfuturesGetFuturesDataTopLongShortPositionRatioRequest) ([]CmfuturesGetFuturesDataTopLongShortPositionRatioRespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesGetFuturesDataTopLongShortPositionRatioRespItem
+		localVarReturnValue  []CmfuturesGetFuturesDataTopLongShortPositionRatioRespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetFuturesDataTopLongShortPositionRatio")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetFuturesDataTopLongShortPositionRatio")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2130,7 +2130,7 @@ func (a *MarketDataAPIService) CfuturesGetFuturesDataTopLongShortPositionRatioEx
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetHistoricalTradesV1Request struct {
+type MarketDataAPICmfuturesGetHistoricalTradesV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
@@ -2138,53 +2138,53 @@ type MarketDataAPICfuturesGetHistoricalTradesV1Request struct {
 	fromId *int64
 }
 
-func (r MarketDataAPICfuturesGetHistoricalTradesV1Request) Symbol(symbol string) MarketDataAPICfuturesGetHistoricalTradesV1Request {
+func (r MarketDataAPICmfuturesGetHistoricalTradesV1Request) Symbol(symbol string) MarketDataAPICmfuturesGetHistoricalTradesV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // Default 100; max 500.
-func (r MarketDataAPICfuturesGetHistoricalTradesV1Request) Limit(limit int32) MarketDataAPICfuturesGetHistoricalTradesV1Request {
+func (r MarketDataAPICmfuturesGetHistoricalTradesV1Request) Limit(limit int32) MarketDataAPICmfuturesGetHistoricalTradesV1Request {
 	r.limit = &limit
 	return r
 }
 
 // TradeId to fetch from. Default gets most recent trades.
-func (r MarketDataAPICfuturesGetHistoricalTradesV1Request) FromId(fromId int64) MarketDataAPICfuturesGetHistoricalTradesV1Request {
+func (r MarketDataAPICmfuturesGetHistoricalTradesV1Request) FromId(fromId int64) MarketDataAPICmfuturesGetHistoricalTradesV1Request {
 	r.fromId = &fromId
 	return r
 }
 
-func (r MarketDataAPICfuturesGetHistoricalTradesV1Request) Execute() ([]CfuturesGetHistoricalTradesV1RespItem, *http.Response, error) {
-	return r.ApiService.CfuturesGetHistoricalTradesV1Execute(r)
+func (r MarketDataAPICmfuturesGetHistoricalTradesV1Request) Execute() ([]CmfuturesGetHistoricalTradesV1RespItem, *http.Response, error) {
+	return r.ApiService.CmfuturesGetHistoricalTradesV1Execute(r)
 }
 
 /*
-CfuturesGetHistoricalTradesV1 Old Trades Lookup(MARKET_DATA)
+CmfuturesGetHistoricalTradesV1 Old Trades Lookup(MARKET_DATA)
 
 Get older market historical trades.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetHistoricalTradesV1Request
+ @return MarketDataAPICmfuturesGetHistoricalTradesV1Request
 */
-func (a *MarketDataAPIService) CfuturesGetHistoricalTradesV1(ctx context.Context) MarketDataAPICfuturesGetHistoricalTradesV1Request {
-	return MarketDataAPICfuturesGetHistoricalTradesV1Request{
+func (a *MarketDataAPIService) CmfuturesGetHistoricalTradesV1(ctx context.Context) MarketDataAPICmfuturesGetHistoricalTradesV1Request {
+	return MarketDataAPICmfuturesGetHistoricalTradesV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesGetHistoricalTradesV1RespItem
-func (a *MarketDataAPIService) CfuturesGetHistoricalTradesV1Execute(r MarketDataAPICfuturesGetHistoricalTradesV1Request) ([]CfuturesGetHistoricalTradesV1RespItem, *http.Response, error) {
+//  @return []CmfuturesGetHistoricalTradesV1RespItem
+func (a *MarketDataAPIService) CmfuturesGetHistoricalTradesV1Execute(r MarketDataAPICmfuturesGetHistoricalTradesV1Request) ([]CmfuturesGetHistoricalTradesV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesGetHistoricalTradesV1RespItem
+		localVarReturnValue  []CmfuturesGetHistoricalTradesV1RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetHistoricalTradesV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetHistoricalTradesV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2283,7 +2283,7 @@ func (a *MarketDataAPIService) CfuturesGetHistoricalTradesV1Execute(r MarketData
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetIndexPriceKlinesV1Request struct {
+type MarketDataAPICmfuturesGetIndexPriceKlinesV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	pair *string
@@ -2293,62 +2293,62 @@ type MarketDataAPICfuturesGetIndexPriceKlinesV1Request struct {
 	limit *int32
 }
 
-func (r MarketDataAPICfuturesGetIndexPriceKlinesV1Request) Pair(pair string) MarketDataAPICfuturesGetIndexPriceKlinesV1Request {
+func (r MarketDataAPICmfuturesGetIndexPriceKlinesV1Request) Pair(pair string) MarketDataAPICmfuturesGetIndexPriceKlinesV1Request {
 	r.pair = &pair
 	return r
 }
 
-func (r MarketDataAPICfuturesGetIndexPriceKlinesV1Request) Interval(interval string) MarketDataAPICfuturesGetIndexPriceKlinesV1Request {
+func (r MarketDataAPICmfuturesGetIndexPriceKlinesV1Request) Interval(interval string) MarketDataAPICmfuturesGetIndexPriceKlinesV1Request {
 	r.interval = &interval
 	return r
 }
 
-func (r MarketDataAPICfuturesGetIndexPriceKlinesV1Request) StartTime(startTime int64) MarketDataAPICfuturesGetIndexPriceKlinesV1Request {
+func (r MarketDataAPICmfuturesGetIndexPriceKlinesV1Request) StartTime(startTime int64) MarketDataAPICmfuturesGetIndexPriceKlinesV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r MarketDataAPICfuturesGetIndexPriceKlinesV1Request) EndTime(endTime int64) MarketDataAPICfuturesGetIndexPriceKlinesV1Request {
+func (r MarketDataAPICmfuturesGetIndexPriceKlinesV1Request) EndTime(endTime int64) MarketDataAPICmfuturesGetIndexPriceKlinesV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 500; max 1500.
-func (r MarketDataAPICfuturesGetIndexPriceKlinesV1Request) Limit(limit int32) MarketDataAPICfuturesGetIndexPriceKlinesV1Request {
+func (r MarketDataAPICmfuturesGetIndexPriceKlinesV1Request) Limit(limit int32) MarketDataAPICmfuturesGetIndexPriceKlinesV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPICfuturesGetIndexPriceKlinesV1Request) Execute() ([][]CfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
-	return r.ApiService.CfuturesGetIndexPriceKlinesV1Execute(r)
+func (r MarketDataAPICmfuturesGetIndexPriceKlinesV1Request) Execute() ([][]CmfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
+	return r.ApiService.CmfuturesGetIndexPriceKlinesV1Execute(r)
 }
 
 /*
-CfuturesGetIndexPriceKlinesV1 Index Price Kline/Candlestick Data
+CmfuturesGetIndexPriceKlinesV1 Index Price Kline/Candlestick Data
 
 Kline/candlestick bars for the index price of a pair. Klines are uniquely identified by their open time.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetIndexPriceKlinesV1Request
+ @return MarketDataAPICmfuturesGetIndexPriceKlinesV1Request
 */
-func (a *MarketDataAPIService) CfuturesGetIndexPriceKlinesV1(ctx context.Context) MarketDataAPICfuturesGetIndexPriceKlinesV1Request {
-	return MarketDataAPICfuturesGetIndexPriceKlinesV1Request{
+func (a *MarketDataAPIService) CmfuturesGetIndexPriceKlinesV1(ctx context.Context) MarketDataAPICmfuturesGetIndexPriceKlinesV1Request {
+	return MarketDataAPICmfuturesGetIndexPriceKlinesV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return [][]CfuturesGetContinuousKlinesV1RespInnerInner
-func (a *MarketDataAPIService) CfuturesGetIndexPriceKlinesV1Execute(r MarketDataAPICfuturesGetIndexPriceKlinesV1Request) ([][]CfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
+//  @return [][]CmfuturesGetContinuousKlinesV1RespInnerInner
+func (a *MarketDataAPIService) CmfuturesGetIndexPriceKlinesV1Execute(r MarketDataAPICmfuturesGetIndexPriceKlinesV1Request) ([][]CmfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  [][]CfuturesGetContinuousKlinesV1RespInnerInner
+		localVarReturnValue  [][]CmfuturesGetContinuousKlinesV1RespInnerInner
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetIndexPriceKlinesV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetIndexPriceKlinesV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2454,7 +2454,7 @@ func (a *MarketDataAPIService) CfuturesGetIndexPriceKlinesV1Execute(r MarketData
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetKlinesV1Request struct {
+type MarketDataAPICmfuturesGetKlinesV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
@@ -2464,63 +2464,63 @@ type MarketDataAPICfuturesGetKlinesV1Request struct {
 	limit *int32
 }
 
-func (r MarketDataAPICfuturesGetKlinesV1Request) Symbol(symbol string) MarketDataAPICfuturesGetKlinesV1Request {
+func (r MarketDataAPICmfuturesGetKlinesV1Request) Symbol(symbol string) MarketDataAPICmfuturesGetKlinesV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r MarketDataAPICfuturesGetKlinesV1Request) Interval(interval string) MarketDataAPICfuturesGetKlinesV1Request {
+func (r MarketDataAPICmfuturesGetKlinesV1Request) Interval(interval string) MarketDataAPICmfuturesGetKlinesV1Request {
 	r.interval = &interval
 	return r
 }
 
-func (r MarketDataAPICfuturesGetKlinesV1Request) StartTime(startTime int64) MarketDataAPICfuturesGetKlinesV1Request {
+func (r MarketDataAPICmfuturesGetKlinesV1Request) StartTime(startTime int64) MarketDataAPICmfuturesGetKlinesV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r MarketDataAPICfuturesGetKlinesV1Request) EndTime(endTime int64) MarketDataAPICfuturesGetKlinesV1Request {
+func (r MarketDataAPICmfuturesGetKlinesV1Request) EndTime(endTime int64) MarketDataAPICmfuturesGetKlinesV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 500; max 1500.
-func (r MarketDataAPICfuturesGetKlinesV1Request) Limit(limit int32) MarketDataAPICfuturesGetKlinesV1Request {
+func (r MarketDataAPICmfuturesGetKlinesV1Request) Limit(limit int32) MarketDataAPICmfuturesGetKlinesV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPICfuturesGetKlinesV1Request) Execute() ([][]CfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
-	return r.ApiService.CfuturesGetKlinesV1Execute(r)
+func (r MarketDataAPICmfuturesGetKlinesV1Request) Execute() ([][]CmfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
+	return r.ApiService.CmfuturesGetKlinesV1Execute(r)
 }
 
 /*
-CfuturesGetKlinesV1 Kline/Candlestick Data
+CmfuturesGetKlinesV1 Kline/Candlestick Data
 
 Kline/candlestick bars for a symbol.
 Klines are uniquely identified by their open time.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetKlinesV1Request
+ @return MarketDataAPICmfuturesGetKlinesV1Request
 */
-func (a *MarketDataAPIService) CfuturesGetKlinesV1(ctx context.Context) MarketDataAPICfuturesGetKlinesV1Request {
-	return MarketDataAPICfuturesGetKlinesV1Request{
+func (a *MarketDataAPIService) CmfuturesGetKlinesV1(ctx context.Context) MarketDataAPICmfuturesGetKlinesV1Request {
+	return MarketDataAPICmfuturesGetKlinesV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return [][]CfuturesGetContinuousKlinesV1RespInnerInner
-func (a *MarketDataAPIService) CfuturesGetKlinesV1Execute(r MarketDataAPICfuturesGetKlinesV1Request) ([][]CfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
+//  @return [][]CmfuturesGetContinuousKlinesV1RespInnerInner
+func (a *MarketDataAPIService) CmfuturesGetKlinesV1Execute(r MarketDataAPICmfuturesGetKlinesV1Request) ([][]CmfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  [][]CfuturesGetContinuousKlinesV1RespInnerInner
+		localVarReturnValue  [][]CmfuturesGetContinuousKlinesV1RespInnerInner
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetKlinesV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetKlinesV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2626,7 +2626,7 @@ func (a *MarketDataAPIService) CfuturesGetKlinesV1Execute(r MarketDataAPICfuture
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetMarkPriceKlinesV1Request struct {
+type MarketDataAPICmfuturesGetMarkPriceKlinesV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
@@ -2636,63 +2636,63 @@ type MarketDataAPICfuturesGetMarkPriceKlinesV1Request struct {
 	limit *int32
 }
 
-func (r MarketDataAPICfuturesGetMarkPriceKlinesV1Request) Symbol(symbol string) MarketDataAPICfuturesGetMarkPriceKlinesV1Request {
+func (r MarketDataAPICmfuturesGetMarkPriceKlinesV1Request) Symbol(symbol string) MarketDataAPICmfuturesGetMarkPriceKlinesV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r MarketDataAPICfuturesGetMarkPriceKlinesV1Request) Interval(interval string) MarketDataAPICfuturesGetMarkPriceKlinesV1Request {
+func (r MarketDataAPICmfuturesGetMarkPriceKlinesV1Request) Interval(interval string) MarketDataAPICmfuturesGetMarkPriceKlinesV1Request {
 	r.interval = &interval
 	return r
 }
 
-func (r MarketDataAPICfuturesGetMarkPriceKlinesV1Request) StartTime(startTime int64) MarketDataAPICfuturesGetMarkPriceKlinesV1Request {
+func (r MarketDataAPICmfuturesGetMarkPriceKlinesV1Request) StartTime(startTime int64) MarketDataAPICmfuturesGetMarkPriceKlinesV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r MarketDataAPICfuturesGetMarkPriceKlinesV1Request) EndTime(endTime int64) MarketDataAPICfuturesGetMarkPriceKlinesV1Request {
+func (r MarketDataAPICmfuturesGetMarkPriceKlinesV1Request) EndTime(endTime int64) MarketDataAPICmfuturesGetMarkPriceKlinesV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 500; max 1500.
-func (r MarketDataAPICfuturesGetMarkPriceKlinesV1Request) Limit(limit int32) MarketDataAPICfuturesGetMarkPriceKlinesV1Request {
+func (r MarketDataAPICmfuturesGetMarkPriceKlinesV1Request) Limit(limit int32) MarketDataAPICmfuturesGetMarkPriceKlinesV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPICfuturesGetMarkPriceKlinesV1Request) Execute() ([][]CfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
-	return r.ApiService.CfuturesGetMarkPriceKlinesV1Execute(r)
+func (r MarketDataAPICmfuturesGetMarkPriceKlinesV1Request) Execute() ([][]CmfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
+	return r.ApiService.CmfuturesGetMarkPriceKlinesV1Execute(r)
 }
 
 /*
-CfuturesGetMarkPriceKlinesV1 Mark Price Kline/Candlestick Data
+CmfuturesGetMarkPriceKlinesV1 Mark Price Kline/Candlestick Data
 
 Kline/candlestick bars for the mark price of a symbol.
 Klines are uniquely identified by their open time.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetMarkPriceKlinesV1Request
+ @return MarketDataAPICmfuturesGetMarkPriceKlinesV1Request
 */
-func (a *MarketDataAPIService) CfuturesGetMarkPriceKlinesV1(ctx context.Context) MarketDataAPICfuturesGetMarkPriceKlinesV1Request {
-	return MarketDataAPICfuturesGetMarkPriceKlinesV1Request{
+func (a *MarketDataAPIService) CmfuturesGetMarkPriceKlinesV1(ctx context.Context) MarketDataAPICmfuturesGetMarkPriceKlinesV1Request {
+	return MarketDataAPICmfuturesGetMarkPriceKlinesV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return [][]CfuturesGetContinuousKlinesV1RespInnerInner
-func (a *MarketDataAPIService) CfuturesGetMarkPriceKlinesV1Execute(r MarketDataAPICfuturesGetMarkPriceKlinesV1Request) ([][]CfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
+//  @return [][]CmfuturesGetContinuousKlinesV1RespInnerInner
+func (a *MarketDataAPIService) CmfuturesGetMarkPriceKlinesV1Execute(r MarketDataAPICmfuturesGetMarkPriceKlinesV1Request) ([][]CmfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  [][]CfuturesGetContinuousKlinesV1RespInnerInner
+		localVarReturnValue  [][]CmfuturesGetContinuousKlinesV1RespInnerInner
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetMarkPriceKlinesV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetMarkPriceKlinesV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2798,47 +2798,47 @@ func (a *MarketDataAPIService) CfuturesGetMarkPriceKlinesV1Execute(r MarketDataA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetOpenInterestV1Request struct {
+type MarketDataAPICmfuturesGetOpenInterestV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
 }
 
-func (r MarketDataAPICfuturesGetOpenInterestV1Request) Symbol(symbol string) MarketDataAPICfuturesGetOpenInterestV1Request {
+func (r MarketDataAPICmfuturesGetOpenInterestV1Request) Symbol(symbol string) MarketDataAPICmfuturesGetOpenInterestV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r MarketDataAPICfuturesGetOpenInterestV1Request) Execute() (*CfuturesGetOpenInterestV1Resp, *http.Response, error) {
-	return r.ApiService.CfuturesGetOpenInterestV1Execute(r)
+func (r MarketDataAPICmfuturesGetOpenInterestV1Request) Execute() (*CmfuturesGetOpenInterestV1Resp, *http.Response, error) {
+	return r.ApiService.CmfuturesGetOpenInterestV1Execute(r)
 }
 
 /*
-CfuturesGetOpenInterestV1 Open Interest
+CmfuturesGetOpenInterestV1 Open Interest
 
 Get present open interest of a specific symbol.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetOpenInterestV1Request
+ @return MarketDataAPICmfuturesGetOpenInterestV1Request
 */
-func (a *MarketDataAPIService) CfuturesGetOpenInterestV1(ctx context.Context) MarketDataAPICfuturesGetOpenInterestV1Request {
-	return MarketDataAPICfuturesGetOpenInterestV1Request{
+func (a *MarketDataAPIService) CmfuturesGetOpenInterestV1(ctx context.Context) MarketDataAPICmfuturesGetOpenInterestV1Request {
+	return MarketDataAPICmfuturesGetOpenInterestV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CfuturesGetOpenInterestV1Resp
-func (a *MarketDataAPIService) CfuturesGetOpenInterestV1Execute(r MarketDataAPICfuturesGetOpenInterestV1Request) (*CfuturesGetOpenInterestV1Resp, *http.Response, error) {
+//  @return CmfuturesGetOpenInterestV1Resp
+func (a *MarketDataAPIService) CmfuturesGetOpenInterestV1Execute(r MarketDataAPICmfuturesGetOpenInterestV1Request) (*CmfuturesGetOpenInterestV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CfuturesGetOpenInterestV1Resp
+		localVarReturnValue  *CmfuturesGetOpenInterestV1Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetOpenInterestV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetOpenInterestV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2928,25 +2928,25 @@ func (a *MarketDataAPIService) CfuturesGetOpenInterestV1Execute(r MarketDataAPIC
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetPingV1Request struct {
+type MarketDataAPICmfuturesGetPingV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 }
 
-func (r MarketDataAPICfuturesGetPingV1Request) Execute() (map[string]interface{}, *http.Response, error) {
-	return r.ApiService.CfuturesGetPingV1Execute(r)
+func (r MarketDataAPICmfuturesGetPingV1Request) Execute() (map[string]interface{}, *http.Response, error) {
+	return r.ApiService.CmfuturesGetPingV1Execute(r)
 }
 
 /*
-CfuturesGetPingV1 Test Connectivity
+CmfuturesGetPingV1 Test Connectivity
 
 Test connectivity to the Rest API.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetPingV1Request
+ @return MarketDataAPICmfuturesGetPingV1Request
 */
-func (a *MarketDataAPIService) CfuturesGetPingV1(ctx context.Context) MarketDataAPICfuturesGetPingV1Request {
-	return MarketDataAPICfuturesGetPingV1Request{
+func (a *MarketDataAPIService) CmfuturesGetPingV1(ctx context.Context) MarketDataAPICmfuturesGetPingV1Request {
+	return MarketDataAPICmfuturesGetPingV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2954,7 +2954,7 @@ func (a *MarketDataAPIService) CfuturesGetPingV1(ctx context.Context) MarketData
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *MarketDataAPIService) CfuturesGetPingV1Execute(r MarketDataAPICfuturesGetPingV1Request) (map[string]interface{}, *http.Response, error) {
+func (a *MarketDataAPIService) CmfuturesGetPingV1Execute(r MarketDataAPICmfuturesGetPingV1Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2962,7 +2962,7 @@ func (a *MarketDataAPIService) CfuturesGetPingV1Execute(r MarketDataAPICfuturesG
 		localVarReturnValue  map[string]interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetPingV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetPingV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3048,7 +3048,7 @@ func (a *MarketDataAPIService) CfuturesGetPingV1Execute(r MarketDataAPICfuturesG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetPremiumIndexKlinesV1Request struct {
+type MarketDataAPICmfuturesGetPremiumIndexKlinesV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
@@ -3058,62 +3058,62 @@ type MarketDataAPICfuturesGetPremiumIndexKlinesV1Request struct {
 	limit *int32
 }
 
-func (r MarketDataAPICfuturesGetPremiumIndexKlinesV1Request) Symbol(symbol string) MarketDataAPICfuturesGetPremiumIndexKlinesV1Request {
+func (r MarketDataAPICmfuturesGetPremiumIndexKlinesV1Request) Symbol(symbol string) MarketDataAPICmfuturesGetPremiumIndexKlinesV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r MarketDataAPICfuturesGetPremiumIndexKlinesV1Request) Interval(interval string) MarketDataAPICfuturesGetPremiumIndexKlinesV1Request {
+func (r MarketDataAPICmfuturesGetPremiumIndexKlinesV1Request) Interval(interval string) MarketDataAPICmfuturesGetPremiumIndexKlinesV1Request {
 	r.interval = &interval
 	return r
 }
 
-func (r MarketDataAPICfuturesGetPremiumIndexKlinesV1Request) StartTime(startTime int64) MarketDataAPICfuturesGetPremiumIndexKlinesV1Request {
+func (r MarketDataAPICmfuturesGetPremiumIndexKlinesV1Request) StartTime(startTime int64) MarketDataAPICmfuturesGetPremiumIndexKlinesV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r MarketDataAPICfuturesGetPremiumIndexKlinesV1Request) EndTime(endTime int64) MarketDataAPICfuturesGetPremiumIndexKlinesV1Request {
+func (r MarketDataAPICmfuturesGetPremiumIndexKlinesV1Request) EndTime(endTime int64) MarketDataAPICmfuturesGetPremiumIndexKlinesV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 500; max 1500.
-func (r MarketDataAPICfuturesGetPremiumIndexKlinesV1Request) Limit(limit int32) MarketDataAPICfuturesGetPremiumIndexKlinesV1Request {
+func (r MarketDataAPICmfuturesGetPremiumIndexKlinesV1Request) Limit(limit int32) MarketDataAPICmfuturesGetPremiumIndexKlinesV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPICfuturesGetPremiumIndexKlinesV1Request) Execute() ([][]CfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
-	return r.ApiService.CfuturesGetPremiumIndexKlinesV1Execute(r)
+func (r MarketDataAPICmfuturesGetPremiumIndexKlinesV1Request) Execute() ([][]CmfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
+	return r.ApiService.CmfuturesGetPremiumIndexKlinesV1Execute(r)
 }
 
 /*
-CfuturesGetPremiumIndexKlinesV1 Premium index Kline Data
+CmfuturesGetPremiumIndexKlinesV1 Premium index Kline Data
 
 Premium index kline bars of a symbol. Klines are uniquely identified by their open time.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetPremiumIndexKlinesV1Request
+ @return MarketDataAPICmfuturesGetPremiumIndexKlinesV1Request
 */
-func (a *MarketDataAPIService) CfuturesGetPremiumIndexKlinesV1(ctx context.Context) MarketDataAPICfuturesGetPremiumIndexKlinesV1Request {
-	return MarketDataAPICfuturesGetPremiumIndexKlinesV1Request{
+func (a *MarketDataAPIService) CmfuturesGetPremiumIndexKlinesV1(ctx context.Context) MarketDataAPICmfuturesGetPremiumIndexKlinesV1Request {
+	return MarketDataAPICmfuturesGetPremiumIndexKlinesV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return [][]CfuturesGetContinuousKlinesV1RespInnerInner
-func (a *MarketDataAPIService) CfuturesGetPremiumIndexKlinesV1Execute(r MarketDataAPICfuturesGetPremiumIndexKlinesV1Request) ([][]CfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
+//  @return [][]CmfuturesGetContinuousKlinesV1RespInnerInner
+func (a *MarketDataAPIService) CmfuturesGetPremiumIndexKlinesV1Execute(r MarketDataAPICmfuturesGetPremiumIndexKlinesV1Request) ([][]CmfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  [][]CfuturesGetContinuousKlinesV1RespInnerInner
+		localVarReturnValue  [][]CmfuturesGetContinuousKlinesV1RespInnerInner
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetPremiumIndexKlinesV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetPremiumIndexKlinesV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3219,53 +3219,53 @@ func (a *MarketDataAPIService) CfuturesGetPremiumIndexKlinesV1Execute(r MarketDa
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetPremiumIndexV1Request struct {
+type MarketDataAPICmfuturesGetPremiumIndexV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
 	pair *string
 }
 
-func (r MarketDataAPICfuturesGetPremiumIndexV1Request) Symbol(symbol string) MarketDataAPICfuturesGetPremiumIndexV1Request {
+func (r MarketDataAPICmfuturesGetPremiumIndexV1Request) Symbol(symbol string) MarketDataAPICmfuturesGetPremiumIndexV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r MarketDataAPICfuturesGetPremiumIndexV1Request) Pair(pair string) MarketDataAPICfuturesGetPremiumIndexV1Request {
+func (r MarketDataAPICmfuturesGetPremiumIndexV1Request) Pair(pair string) MarketDataAPICmfuturesGetPremiumIndexV1Request {
 	r.pair = &pair
 	return r
 }
 
-func (r MarketDataAPICfuturesGetPremiumIndexV1Request) Execute() ([]CfuturesGetPremiumIndexV1RespItem, *http.Response, error) {
-	return r.ApiService.CfuturesGetPremiumIndexV1Execute(r)
+func (r MarketDataAPICmfuturesGetPremiumIndexV1Request) Execute() ([]CmfuturesGetPremiumIndexV1RespItem, *http.Response, error) {
+	return r.ApiService.CmfuturesGetPremiumIndexV1Execute(r)
 }
 
 /*
-CfuturesGetPremiumIndexV1 Index Price and Mark Price
+CmfuturesGetPremiumIndexV1 Index Price and Mark Price
 
 Query index price and mark price
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetPremiumIndexV1Request
+ @return MarketDataAPICmfuturesGetPremiumIndexV1Request
 */
-func (a *MarketDataAPIService) CfuturesGetPremiumIndexV1(ctx context.Context) MarketDataAPICfuturesGetPremiumIndexV1Request {
-	return MarketDataAPICfuturesGetPremiumIndexV1Request{
+func (a *MarketDataAPIService) CmfuturesGetPremiumIndexV1(ctx context.Context) MarketDataAPICmfuturesGetPremiumIndexV1Request {
+	return MarketDataAPICmfuturesGetPremiumIndexV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesGetPremiumIndexV1RespItem
-func (a *MarketDataAPIService) CfuturesGetPremiumIndexV1Execute(r MarketDataAPICfuturesGetPremiumIndexV1Request) ([]CfuturesGetPremiumIndexV1RespItem, *http.Response, error) {
+//  @return []CmfuturesGetPremiumIndexV1RespItem
+func (a *MarketDataAPIService) CmfuturesGetPremiumIndexV1Execute(r MarketDataAPICmfuturesGetPremiumIndexV1Request) ([]CmfuturesGetPremiumIndexV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesGetPremiumIndexV1RespItem
+		localVarReturnValue  []CmfuturesGetPremiumIndexV1RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetPremiumIndexV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetPremiumIndexV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3363,53 +3363,53 @@ func (a *MarketDataAPIService) CfuturesGetPremiumIndexV1Execute(r MarketDataAPIC
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetTicker24hrV1Request struct {
+type MarketDataAPICmfuturesGetTicker24hrV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
 	pair *string
 }
 
-func (r MarketDataAPICfuturesGetTicker24hrV1Request) Symbol(symbol string) MarketDataAPICfuturesGetTicker24hrV1Request {
+func (r MarketDataAPICmfuturesGetTicker24hrV1Request) Symbol(symbol string) MarketDataAPICmfuturesGetTicker24hrV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r MarketDataAPICfuturesGetTicker24hrV1Request) Pair(pair string) MarketDataAPICfuturesGetTicker24hrV1Request {
+func (r MarketDataAPICmfuturesGetTicker24hrV1Request) Pair(pair string) MarketDataAPICmfuturesGetTicker24hrV1Request {
 	r.pair = &pair
 	return r
 }
 
-func (r MarketDataAPICfuturesGetTicker24hrV1Request) Execute() ([]CfuturesGetTicker24hrV1RespItem, *http.Response, error) {
-	return r.ApiService.CfuturesGetTicker24hrV1Execute(r)
+func (r MarketDataAPICmfuturesGetTicker24hrV1Request) Execute() ([]CmfuturesGetTicker24hrV1RespItem, *http.Response, error) {
+	return r.ApiService.CmfuturesGetTicker24hrV1Execute(r)
 }
 
 /*
-CfuturesGetTicker24hrV1 24hr Ticker Price Change Statistics
+CmfuturesGetTicker24hrV1 24hr Ticker Price Change Statistics
 
 24 hour rolling window price change statistics.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetTicker24hrV1Request
+ @return MarketDataAPICmfuturesGetTicker24hrV1Request
 */
-func (a *MarketDataAPIService) CfuturesGetTicker24hrV1(ctx context.Context) MarketDataAPICfuturesGetTicker24hrV1Request {
-	return MarketDataAPICfuturesGetTicker24hrV1Request{
+func (a *MarketDataAPIService) CmfuturesGetTicker24hrV1(ctx context.Context) MarketDataAPICmfuturesGetTicker24hrV1Request {
+	return MarketDataAPICmfuturesGetTicker24hrV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesGetTicker24hrV1RespItem
-func (a *MarketDataAPIService) CfuturesGetTicker24hrV1Execute(r MarketDataAPICfuturesGetTicker24hrV1Request) ([]CfuturesGetTicker24hrV1RespItem, *http.Response, error) {
+//  @return []CmfuturesGetTicker24hrV1RespItem
+func (a *MarketDataAPIService) CmfuturesGetTicker24hrV1Execute(r MarketDataAPICmfuturesGetTicker24hrV1Request) ([]CmfuturesGetTicker24hrV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesGetTicker24hrV1RespItem
+		localVarReturnValue  []CmfuturesGetTicker24hrV1RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetTicker24hrV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetTicker24hrV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3507,53 +3507,53 @@ func (a *MarketDataAPIService) CfuturesGetTicker24hrV1Execute(r MarketDataAPICfu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetTickerBookTickerV1Request struct {
+type MarketDataAPICmfuturesGetTickerBookTickerV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
 	pair *string
 }
 
-func (r MarketDataAPICfuturesGetTickerBookTickerV1Request) Symbol(symbol string) MarketDataAPICfuturesGetTickerBookTickerV1Request {
+func (r MarketDataAPICmfuturesGetTickerBookTickerV1Request) Symbol(symbol string) MarketDataAPICmfuturesGetTickerBookTickerV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r MarketDataAPICfuturesGetTickerBookTickerV1Request) Pair(pair string) MarketDataAPICfuturesGetTickerBookTickerV1Request {
+func (r MarketDataAPICmfuturesGetTickerBookTickerV1Request) Pair(pair string) MarketDataAPICmfuturesGetTickerBookTickerV1Request {
 	r.pair = &pair
 	return r
 }
 
-func (r MarketDataAPICfuturesGetTickerBookTickerV1Request) Execute() ([]CfuturesGetTickerBookTickerV1RespItem, *http.Response, error) {
-	return r.ApiService.CfuturesGetTickerBookTickerV1Execute(r)
+func (r MarketDataAPICmfuturesGetTickerBookTickerV1Request) Execute() ([]CmfuturesGetTickerBookTickerV1RespItem, *http.Response, error) {
+	return r.ApiService.CmfuturesGetTickerBookTickerV1Execute(r)
 }
 
 /*
-CfuturesGetTickerBookTickerV1 Symbol Order Book Ticker
+CmfuturesGetTickerBookTickerV1 Symbol Order Book Ticker
 
 Best price/qty on the order book for a symbol or symbols.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetTickerBookTickerV1Request
+ @return MarketDataAPICmfuturesGetTickerBookTickerV1Request
 */
-func (a *MarketDataAPIService) CfuturesGetTickerBookTickerV1(ctx context.Context) MarketDataAPICfuturesGetTickerBookTickerV1Request {
-	return MarketDataAPICfuturesGetTickerBookTickerV1Request{
+func (a *MarketDataAPIService) CmfuturesGetTickerBookTickerV1(ctx context.Context) MarketDataAPICmfuturesGetTickerBookTickerV1Request {
+	return MarketDataAPICmfuturesGetTickerBookTickerV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesGetTickerBookTickerV1RespItem
-func (a *MarketDataAPIService) CfuturesGetTickerBookTickerV1Execute(r MarketDataAPICfuturesGetTickerBookTickerV1Request) ([]CfuturesGetTickerBookTickerV1RespItem, *http.Response, error) {
+//  @return []CmfuturesGetTickerBookTickerV1RespItem
+func (a *MarketDataAPIService) CmfuturesGetTickerBookTickerV1Execute(r MarketDataAPICmfuturesGetTickerBookTickerV1Request) ([]CmfuturesGetTickerBookTickerV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesGetTickerBookTickerV1RespItem
+		localVarReturnValue  []CmfuturesGetTickerBookTickerV1RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetTickerBookTickerV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetTickerBookTickerV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3651,53 +3651,53 @@ func (a *MarketDataAPIService) CfuturesGetTickerBookTickerV1Execute(r MarketData
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetTickerPriceV1Request struct {
+type MarketDataAPICmfuturesGetTickerPriceV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
 	pair *string
 }
 
-func (r MarketDataAPICfuturesGetTickerPriceV1Request) Symbol(symbol string) MarketDataAPICfuturesGetTickerPriceV1Request {
+func (r MarketDataAPICmfuturesGetTickerPriceV1Request) Symbol(symbol string) MarketDataAPICmfuturesGetTickerPriceV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r MarketDataAPICfuturesGetTickerPriceV1Request) Pair(pair string) MarketDataAPICfuturesGetTickerPriceV1Request {
+func (r MarketDataAPICmfuturesGetTickerPriceV1Request) Pair(pair string) MarketDataAPICmfuturesGetTickerPriceV1Request {
 	r.pair = &pair
 	return r
 }
 
-func (r MarketDataAPICfuturesGetTickerPriceV1Request) Execute() ([]CfuturesGetTickerPriceV1RespItem, *http.Response, error) {
-	return r.ApiService.CfuturesGetTickerPriceV1Execute(r)
+func (r MarketDataAPICmfuturesGetTickerPriceV1Request) Execute() ([]CmfuturesGetTickerPriceV1RespItem, *http.Response, error) {
+	return r.ApiService.CmfuturesGetTickerPriceV1Execute(r)
 }
 
 /*
-CfuturesGetTickerPriceV1 Symbol Price Ticker
+CmfuturesGetTickerPriceV1 Symbol Price Ticker
 
 Latest price for a symbol or symbols.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetTickerPriceV1Request
+ @return MarketDataAPICmfuturesGetTickerPriceV1Request
 */
-func (a *MarketDataAPIService) CfuturesGetTickerPriceV1(ctx context.Context) MarketDataAPICfuturesGetTickerPriceV1Request {
-	return MarketDataAPICfuturesGetTickerPriceV1Request{
+func (a *MarketDataAPIService) CmfuturesGetTickerPriceV1(ctx context.Context) MarketDataAPICmfuturesGetTickerPriceV1Request {
+	return MarketDataAPICmfuturesGetTickerPriceV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesGetTickerPriceV1RespItem
-func (a *MarketDataAPIService) CfuturesGetTickerPriceV1Execute(r MarketDataAPICfuturesGetTickerPriceV1Request) ([]CfuturesGetTickerPriceV1RespItem, *http.Response, error) {
+//  @return []CmfuturesGetTickerPriceV1RespItem
+func (a *MarketDataAPIService) CmfuturesGetTickerPriceV1Execute(r MarketDataAPICmfuturesGetTickerPriceV1Request) ([]CmfuturesGetTickerPriceV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesGetTickerPriceV1RespItem
+		localVarReturnValue  []CmfuturesGetTickerPriceV1RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetTickerPriceV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetTickerPriceV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3795,41 +3795,41 @@ func (a *MarketDataAPIService) CfuturesGetTickerPriceV1Execute(r MarketDataAPICf
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetTimeV1Request struct {
+type MarketDataAPICmfuturesGetTimeV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 }
 
-func (r MarketDataAPICfuturesGetTimeV1Request) Execute() (*CfuturesGetTimeV1Resp, *http.Response, error) {
-	return r.ApiService.CfuturesGetTimeV1Execute(r)
+func (r MarketDataAPICmfuturesGetTimeV1Request) Execute() (*CmfuturesGetTimeV1Resp, *http.Response, error) {
+	return r.ApiService.CmfuturesGetTimeV1Execute(r)
 }
 
 /*
-CfuturesGetTimeV1 Check Server time
+CmfuturesGetTimeV1 Check Server time
 
 Test connectivity to the Rest API and get the current server time.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetTimeV1Request
+ @return MarketDataAPICmfuturesGetTimeV1Request
 */
-func (a *MarketDataAPIService) CfuturesGetTimeV1(ctx context.Context) MarketDataAPICfuturesGetTimeV1Request {
-	return MarketDataAPICfuturesGetTimeV1Request{
+func (a *MarketDataAPIService) CmfuturesGetTimeV1(ctx context.Context) MarketDataAPICmfuturesGetTimeV1Request {
+	return MarketDataAPICmfuturesGetTimeV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CfuturesGetTimeV1Resp
-func (a *MarketDataAPIService) CfuturesGetTimeV1Execute(r MarketDataAPICfuturesGetTimeV1Request) (*CfuturesGetTimeV1Resp, *http.Response, error) {
+//  @return CmfuturesGetTimeV1Resp
+func (a *MarketDataAPIService) CmfuturesGetTimeV1Execute(r MarketDataAPICmfuturesGetTimeV1Request) (*CmfuturesGetTimeV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CfuturesGetTimeV1Resp
+		localVarReturnValue  *CmfuturesGetTimeV1Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetTimeV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetTimeV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3915,54 +3915,54 @@ func (a *MarketDataAPIService) CfuturesGetTimeV1Execute(r MarketDataAPICfuturesG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPICfuturesGetTradesV1Request struct {
+type MarketDataAPICmfuturesGetTradesV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
 	limit *int32
 }
 
-func (r MarketDataAPICfuturesGetTradesV1Request) Symbol(symbol string) MarketDataAPICfuturesGetTradesV1Request {
+func (r MarketDataAPICmfuturesGetTradesV1Request) Symbol(symbol string) MarketDataAPICmfuturesGetTradesV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // Default 500; max 1000.
-func (r MarketDataAPICfuturesGetTradesV1Request) Limit(limit int32) MarketDataAPICfuturesGetTradesV1Request {
+func (r MarketDataAPICmfuturesGetTradesV1Request) Limit(limit int32) MarketDataAPICmfuturesGetTradesV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPICfuturesGetTradesV1Request) Execute() ([]CfuturesGetTradesV1RespItem, *http.Response, error) {
-	return r.ApiService.CfuturesGetTradesV1Execute(r)
+func (r MarketDataAPICmfuturesGetTradesV1Request) Execute() ([]CmfuturesGetTradesV1RespItem, *http.Response, error) {
+	return r.ApiService.CmfuturesGetTradesV1Execute(r)
 }
 
 /*
-CfuturesGetTradesV1 Recent Trades List
+CmfuturesGetTradesV1 Recent Trades List
 
 Get recent market trades
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPICfuturesGetTradesV1Request
+ @return MarketDataAPICmfuturesGetTradesV1Request
 */
-func (a *MarketDataAPIService) CfuturesGetTradesV1(ctx context.Context) MarketDataAPICfuturesGetTradesV1Request {
-	return MarketDataAPICfuturesGetTradesV1Request{
+func (a *MarketDataAPIService) CmfuturesGetTradesV1(ctx context.Context) MarketDataAPICmfuturesGetTradesV1Request {
+	return MarketDataAPICmfuturesGetTradesV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CfuturesGetTradesV1RespItem
-func (a *MarketDataAPIService) CfuturesGetTradesV1Execute(r MarketDataAPICfuturesGetTradesV1Request) ([]CfuturesGetTradesV1RespItem, *http.Response, error) {
+//  @return []CmfuturesGetTradesV1RespItem
+func (a *MarketDataAPIService) CmfuturesGetTradesV1Execute(r MarketDataAPICmfuturesGetTradesV1Request) ([]CmfuturesGetTradesV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CfuturesGetTradesV1RespItem
+		localVarReturnValue  []CmfuturesGetTradesV1RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CfuturesGetTradesV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.CmfuturesGetTradesV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

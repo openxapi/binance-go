@@ -1,5 +1,5 @@
 /*
-Binance Cfutures API
+Binance Cmfutures API
 
 Testing V2APIService
 
@@ -22,11 +22,11 @@ func Test_cmfutures_V2APIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test V2APIService CfuturesGetLeverageBracketV2", func(t *testing.T) {
+	t.Run("Test V2APIService CmfuturesGetLeverageBracketV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V2API.CfuturesGetLeverageBracketV2(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V2API.CmfuturesGetLeverageBracketV2(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

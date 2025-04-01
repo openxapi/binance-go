@@ -1,5 +1,5 @@
 /*
-Binance Cfutures API
+Binance Cmfutures API
 
 Testing MarketDataAPIService
 
@@ -22,11 +22,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test MarketDataAPIService CfuturesGetAggTradesV1", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetAggTradesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetAggTradesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetAggTradesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetConstituentsV1", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetConstituentsV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetConstituentsV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetConstituentsV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,11 +46,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetContinuousKlinesV1", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetContinuousKlinesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetContinuousKlinesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetContinuousKlinesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -58,11 +58,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetDepthV1", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetDepthV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetDepthV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetDepthV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -70,11 +70,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetExchangeInfoV1", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetExchangeInfoV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetExchangeInfoV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetExchangeInfoV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -82,11 +82,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetFundingInfoV1", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetFundingInfoV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetFundingInfoV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetFundingInfoV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -94,11 +94,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetFundingRateV1", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetFundingRateV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetFundingRateV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetFundingRateV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -106,11 +106,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetFuturesDataBasis", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetFuturesDataBasis", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetFuturesDataBasis(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetFuturesDataBasis(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -118,11 +118,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetFuturesDataGlobalLongShortAccountRatio", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetFuturesDataGlobalLongShortAccountRatio", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetFuturesDataGlobalLongShortAccountRatio(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetFuturesDataGlobalLongShortAccountRatio(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -130,11 +130,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetFuturesDataOpenInterestHist", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetFuturesDataOpenInterestHist", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetFuturesDataOpenInterestHist(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetFuturesDataOpenInterestHist(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -142,11 +142,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetFuturesDataTakerBuySellVol", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetFuturesDataTakerBuySellVol", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetFuturesDataTakerBuySellVol(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetFuturesDataTakerBuySellVol(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -154,11 +154,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetFuturesDataTopLongShortAccountRatio", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetFuturesDataTopLongShortAccountRatio", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetFuturesDataTopLongShortAccountRatio(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetFuturesDataTopLongShortAccountRatio(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -166,11 +166,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetFuturesDataTopLongShortPositionRatio", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetFuturesDataTopLongShortPositionRatio", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetFuturesDataTopLongShortPositionRatio(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetFuturesDataTopLongShortPositionRatio(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -178,11 +178,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetHistoricalTradesV1", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetHistoricalTradesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetHistoricalTradesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetHistoricalTradesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -190,11 +190,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetIndexPriceKlinesV1", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetIndexPriceKlinesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetIndexPriceKlinesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetIndexPriceKlinesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -202,11 +202,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetKlinesV1", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetKlinesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetKlinesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetKlinesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -214,11 +214,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetMarkPriceKlinesV1", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetMarkPriceKlinesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetMarkPriceKlinesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetMarkPriceKlinesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -226,11 +226,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetOpenInterestV1", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetOpenInterestV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetOpenInterestV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetOpenInterestV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -238,11 +238,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetPingV1", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetPingV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetPingV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetPingV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -250,11 +250,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetPremiumIndexKlinesV1", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetPremiumIndexKlinesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetPremiumIndexKlinesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetPremiumIndexKlinesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -262,11 +262,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetPremiumIndexV1", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetPremiumIndexV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetPremiumIndexV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetPremiumIndexV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -274,11 +274,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetTicker24hrV1", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetTicker24hrV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetTicker24hrV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetTicker24hrV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -286,11 +286,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetTickerBookTickerV1", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetTickerBookTickerV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetTickerBookTickerV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetTickerBookTickerV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -298,11 +298,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetTickerPriceV1", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetTickerPriceV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetTickerPriceV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetTickerPriceV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -310,11 +310,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetTimeV1", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetTimeV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetTimeV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetTimeV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -322,11 +322,11 @@ func Test_cmfutures_MarketDataAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketDataAPIService CfuturesGetTradesV1", func(t *testing.T) {
+	t.Run("Test MarketDataAPIService CmfuturesGetTradesV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketDataAPI.CfuturesGetTradesV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketDataAPI.CmfuturesGetTradesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

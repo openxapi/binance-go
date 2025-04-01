@@ -1,7 +1,7 @@
 /*
-Binance Cfutures API
+Binance Cmfutures API
 
-OpenAPI specification for Binance cryptocurrency exchange - Cfutures API
+OpenAPI specification for Binance cryptocurrency exchange - Cmfutures API
 
 API version: 0.1.0
 */
@@ -22,53 +22,53 @@ import (
 // PortfolioMarginEndpointsAPIService PortfolioMarginEndpointsAPI service
 type PortfolioMarginEndpointsAPIService service
 
-type PortfolioMarginEndpointsAPICfuturesGetPmAccountInfoV1Request struct {
+type PortfolioMarginEndpointsAPICmfuturesGetPmAccountInfoV1Request struct {
 	ctx context.Context
 	ApiService *PortfolioMarginEndpointsAPIService
 	asset *string
 	recvWindow *int64
 }
 
-func (r PortfolioMarginEndpointsAPICfuturesGetPmAccountInfoV1Request) Asset(asset string) PortfolioMarginEndpointsAPICfuturesGetPmAccountInfoV1Request {
+func (r PortfolioMarginEndpointsAPICmfuturesGetPmAccountInfoV1Request) Asset(asset string) PortfolioMarginEndpointsAPICmfuturesGetPmAccountInfoV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r PortfolioMarginEndpointsAPICfuturesGetPmAccountInfoV1Request) RecvWindow(recvWindow int64) PortfolioMarginEndpointsAPICfuturesGetPmAccountInfoV1Request {
+func (r PortfolioMarginEndpointsAPICmfuturesGetPmAccountInfoV1Request) RecvWindow(recvWindow int64) PortfolioMarginEndpointsAPICmfuturesGetPmAccountInfoV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r PortfolioMarginEndpointsAPICfuturesGetPmAccountInfoV1Request) Execute() (*CfuturesGetPmAccountInfoV1Resp, *http.Response, error) {
-	return r.ApiService.CfuturesGetPmAccountInfoV1Execute(r)
+func (r PortfolioMarginEndpointsAPICmfuturesGetPmAccountInfoV1Request) Execute() (*CmfuturesGetPmAccountInfoV1Resp, *http.Response, error) {
+	return r.ApiService.CmfuturesGetPmAccountInfoV1Execute(r)
 }
 
 /*
-CfuturesGetPmAccountInfoV1 Classic Portfolio Margin Account Information (USER_DATA)
+CmfuturesGetPmAccountInfoV1 Classic Portfolio Margin Account Information (USER_DATA)
 
 Get Classic Portfolio Margin current account information.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PortfolioMarginEndpointsAPICfuturesGetPmAccountInfoV1Request
+ @return PortfolioMarginEndpointsAPICmfuturesGetPmAccountInfoV1Request
 */
-func (a *PortfolioMarginEndpointsAPIService) CfuturesGetPmAccountInfoV1(ctx context.Context) PortfolioMarginEndpointsAPICfuturesGetPmAccountInfoV1Request {
-	return PortfolioMarginEndpointsAPICfuturesGetPmAccountInfoV1Request{
+func (a *PortfolioMarginEndpointsAPIService) CmfuturesGetPmAccountInfoV1(ctx context.Context) PortfolioMarginEndpointsAPICmfuturesGetPmAccountInfoV1Request {
+	return PortfolioMarginEndpointsAPICmfuturesGetPmAccountInfoV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CfuturesGetPmAccountInfoV1Resp
-func (a *PortfolioMarginEndpointsAPIService) CfuturesGetPmAccountInfoV1Execute(r PortfolioMarginEndpointsAPICfuturesGetPmAccountInfoV1Request) (*CfuturesGetPmAccountInfoV1Resp, *http.Response, error) {
+//  @return CmfuturesGetPmAccountInfoV1Resp
+func (a *PortfolioMarginEndpointsAPIService) CmfuturesGetPmAccountInfoV1Execute(r PortfolioMarginEndpointsAPICmfuturesGetPmAccountInfoV1Request) (*CmfuturesGetPmAccountInfoV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CfuturesGetPmAccountInfoV1Resp
+		localVarReturnValue  *CmfuturesGetPmAccountInfoV1Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PortfolioMarginEndpointsAPIService.CfuturesGetPmAccountInfoV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PortfolioMarginEndpointsAPIService.CmfuturesGetPmAccountInfoV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

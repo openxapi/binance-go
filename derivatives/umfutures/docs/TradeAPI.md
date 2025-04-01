@@ -4,37 +4,37 @@ All URIs are relative to *https://fapi.binance.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**UfuturesCreateBatchOrdersV1**](TradeAPI.md#UfuturesCreateBatchOrdersV1) | **Post** /fapi/v1/batchOrders | Place Multiple Orders(TRADE)
-[**UfuturesCreateCountdownCancelAllV1**](TradeAPI.md#UfuturesCreateCountdownCancelAllV1) | **Post** /fapi/v1/countdownCancelAll | Auto-Cancel All Open Orders (TRADE)
-[**UfuturesCreateLeverageV1**](TradeAPI.md#UfuturesCreateLeverageV1) | **Post** /fapi/v1/leverage | Change Initial Leverage(TRADE)
-[**UfuturesCreateMarginTypeV1**](TradeAPI.md#UfuturesCreateMarginTypeV1) | **Post** /fapi/v1/marginType | Change Margin Type(TRADE)
-[**UfuturesCreateMultiAssetsMarginV1**](TradeAPI.md#UfuturesCreateMultiAssetsMarginV1) | **Post** /fapi/v1/multiAssetsMargin | Change Multi-Assets Mode (TRADE)
-[**UfuturesCreateOrderTestV1**](TradeAPI.md#UfuturesCreateOrderTestV1) | **Post** /fapi/v1/order/test | Test Order(TRADE)
-[**UfuturesCreateOrderV1**](TradeAPI.md#UfuturesCreateOrderV1) | **Post** /fapi/v1/order | New Order(TRADE)
-[**UfuturesCreatePositionMarginV1**](TradeAPI.md#UfuturesCreatePositionMarginV1) | **Post** /fapi/v1/positionMargin | Modify Isolated Position Margin(TRADE)
-[**UfuturesCreatePositionSideDualV1**](TradeAPI.md#UfuturesCreatePositionSideDualV1) | **Post** /fapi/v1/positionSide/dual | Change Position Mode(TRADE)
-[**UfuturesDeleteAllOpenOrdersV1**](TradeAPI.md#UfuturesDeleteAllOpenOrdersV1) | **Delete** /fapi/v1/allOpenOrders | Cancel All Open Orders (TRADE)
-[**UfuturesDeleteBatchOrdersV1**](TradeAPI.md#UfuturesDeleteBatchOrdersV1) | **Delete** /fapi/v1/batchOrders | Cancel Multiple Orders (TRADE)
-[**UfuturesDeleteOrderV1**](TradeAPI.md#UfuturesDeleteOrderV1) | **Delete** /fapi/v1/order | Cancel Order (TRADE)
-[**UfuturesGetAdlQuantileV1**](TradeAPI.md#UfuturesGetAdlQuantileV1) | **Get** /fapi/v1/adlQuantile | Position ADL Quantile Estimation(USER_DATA)
-[**UfuturesGetAllOrdersV1**](TradeAPI.md#UfuturesGetAllOrdersV1) | **Get** /fapi/v1/allOrders | All Orders (USER_DATA)
-[**UfuturesGetForceOrdersV1**](TradeAPI.md#UfuturesGetForceOrdersV1) | **Get** /fapi/v1/forceOrders | User&#39;s Force Orders (USER_DATA)
-[**UfuturesGetOpenOrderV1**](TradeAPI.md#UfuturesGetOpenOrderV1) | **Get** /fapi/v1/openOrder | Query Current Open Order (USER_DATA)
-[**UfuturesGetOpenOrdersV1**](TradeAPI.md#UfuturesGetOpenOrdersV1) | **Get** /fapi/v1/openOrders | Current All Open Orders (USER_DATA)
-[**UfuturesGetOrderAmendmentV1**](TradeAPI.md#UfuturesGetOrderAmendmentV1) | **Get** /fapi/v1/orderAmendment | Get Order Modify History (USER_DATA)
-[**UfuturesGetOrderV1**](TradeAPI.md#UfuturesGetOrderV1) | **Get** /fapi/v1/order | Query Order (USER_DATA)
-[**UfuturesGetPositionMarginHistoryV1**](TradeAPI.md#UfuturesGetPositionMarginHistoryV1) | **Get** /fapi/v1/positionMargin/history | Get Position Margin Change History (TRADE)
-[**UfuturesGetPositionRiskV2**](TradeAPI.md#UfuturesGetPositionRiskV2) | **Get** /fapi/v2/positionRisk | Position Information V2 (USER_DATA)
-[**UfuturesGetPositionRiskV3**](TradeAPI.md#UfuturesGetPositionRiskV3) | **Get** /fapi/v3/positionRisk | Position Information V3 (USER_DATA)
-[**UfuturesGetUserTradesV1**](TradeAPI.md#UfuturesGetUserTradesV1) | **Get** /fapi/v1/userTrades | Account Trade List (USER_DATA)
-[**UfuturesUpdateBatchOrdersV1**](TradeAPI.md#UfuturesUpdateBatchOrdersV1) | **Put** /fapi/v1/batchOrders | Modify Multiple Orders(TRADE)
-[**UfuturesUpdateOrderV1**](TradeAPI.md#UfuturesUpdateOrderV1) | **Put** /fapi/v1/order | Modify Order (TRADE)
+[**UmfuturesCreateBatchOrdersV1**](TradeAPI.md#UmfuturesCreateBatchOrdersV1) | **Post** /fapi/v1/batchOrders | Place Multiple Orders(TRADE)
+[**UmfuturesCreateCountdownCancelAllV1**](TradeAPI.md#UmfuturesCreateCountdownCancelAllV1) | **Post** /fapi/v1/countdownCancelAll | Auto-Cancel All Open Orders (TRADE)
+[**UmfuturesCreateLeverageV1**](TradeAPI.md#UmfuturesCreateLeverageV1) | **Post** /fapi/v1/leverage | Change Initial Leverage(TRADE)
+[**UmfuturesCreateMarginTypeV1**](TradeAPI.md#UmfuturesCreateMarginTypeV1) | **Post** /fapi/v1/marginType | Change Margin Type(TRADE)
+[**UmfuturesCreateMultiAssetsMarginV1**](TradeAPI.md#UmfuturesCreateMultiAssetsMarginV1) | **Post** /fapi/v1/multiAssetsMargin | Change Multi-Assets Mode (TRADE)
+[**UmfuturesCreateOrderTestV1**](TradeAPI.md#UmfuturesCreateOrderTestV1) | **Post** /fapi/v1/order/test | Test Order(TRADE)
+[**UmfuturesCreateOrderV1**](TradeAPI.md#UmfuturesCreateOrderV1) | **Post** /fapi/v1/order | New Order(TRADE)
+[**UmfuturesCreatePositionMarginV1**](TradeAPI.md#UmfuturesCreatePositionMarginV1) | **Post** /fapi/v1/positionMargin | Modify Isolated Position Margin(TRADE)
+[**UmfuturesCreatePositionSideDualV1**](TradeAPI.md#UmfuturesCreatePositionSideDualV1) | **Post** /fapi/v1/positionSide/dual | Change Position Mode(TRADE)
+[**UmfuturesDeleteAllOpenOrdersV1**](TradeAPI.md#UmfuturesDeleteAllOpenOrdersV1) | **Delete** /fapi/v1/allOpenOrders | Cancel All Open Orders (TRADE)
+[**UmfuturesDeleteBatchOrdersV1**](TradeAPI.md#UmfuturesDeleteBatchOrdersV1) | **Delete** /fapi/v1/batchOrders | Cancel Multiple Orders (TRADE)
+[**UmfuturesDeleteOrderV1**](TradeAPI.md#UmfuturesDeleteOrderV1) | **Delete** /fapi/v1/order | Cancel Order (TRADE)
+[**UmfuturesGetAdlQuantileV1**](TradeAPI.md#UmfuturesGetAdlQuantileV1) | **Get** /fapi/v1/adlQuantile | Position ADL Quantile Estimation(USER_DATA)
+[**UmfuturesGetAllOrdersV1**](TradeAPI.md#UmfuturesGetAllOrdersV1) | **Get** /fapi/v1/allOrders | All Orders (USER_DATA)
+[**UmfuturesGetForceOrdersV1**](TradeAPI.md#UmfuturesGetForceOrdersV1) | **Get** /fapi/v1/forceOrders | User&#39;s Force Orders (USER_DATA)
+[**UmfuturesGetOpenOrderV1**](TradeAPI.md#UmfuturesGetOpenOrderV1) | **Get** /fapi/v1/openOrder | Query Current Open Order (USER_DATA)
+[**UmfuturesGetOpenOrdersV1**](TradeAPI.md#UmfuturesGetOpenOrdersV1) | **Get** /fapi/v1/openOrders | Current All Open Orders (USER_DATA)
+[**UmfuturesGetOrderAmendmentV1**](TradeAPI.md#UmfuturesGetOrderAmendmentV1) | **Get** /fapi/v1/orderAmendment | Get Order Modify History (USER_DATA)
+[**UmfuturesGetOrderV1**](TradeAPI.md#UmfuturesGetOrderV1) | **Get** /fapi/v1/order | Query Order (USER_DATA)
+[**UmfuturesGetPositionMarginHistoryV1**](TradeAPI.md#UmfuturesGetPositionMarginHistoryV1) | **Get** /fapi/v1/positionMargin/history | Get Position Margin Change History (TRADE)
+[**UmfuturesGetPositionRiskV2**](TradeAPI.md#UmfuturesGetPositionRiskV2) | **Get** /fapi/v2/positionRisk | Position Information V2 (USER_DATA)
+[**UmfuturesGetPositionRiskV3**](TradeAPI.md#UmfuturesGetPositionRiskV3) | **Get** /fapi/v3/positionRisk | Position Information V3 (USER_DATA)
+[**UmfuturesGetUserTradesV1**](TradeAPI.md#UmfuturesGetUserTradesV1) | **Get** /fapi/v1/userTrades | Account Trade List (USER_DATA)
+[**UmfuturesUpdateBatchOrdersV1**](TradeAPI.md#UmfuturesUpdateBatchOrdersV1) | **Put** /fapi/v1/batchOrders | Modify Multiple Orders(TRADE)
+[**UmfuturesUpdateOrderV1**](TradeAPI.md#UmfuturesUpdateOrderV1) | **Put** /fapi/v1/order | Modify Order (TRADE)
 
 
 
-## UfuturesCreateBatchOrdersV1
+## UmfuturesCreateBatchOrdersV1
 
-> []UfuturesCreateBatchOrdersV1RespInner UfuturesCreateBatchOrdersV1(ctx).BatchOrders(batchOrders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> []UmfuturesCreateBatchOrdersV1RespInner UmfuturesCreateBatchOrdersV1(ctx).BatchOrders(batchOrders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Place Multiple Orders(TRADE)
 
@@ -53,19 +53,19 @@ import (
 )
 
 func main() {
-	batchOrders := []openapiclient.UfuturesCreateBatchOrdersV1ReqBatchOrdersItem{*openapiclient.NewUfuturesCreateBatchOrdersV1ReqBatchOrdersItem("Quantity_example", "Side_example", "Symbol_example", "Type_example")} // []UfuturesCreateBatchOrdersV1ReqBatchOrdersItem | 
+	batchOrders := []openapiclient.UmfuturesCreateBatchOrdersV1ReqBatchOrdersItem{*openapiclient.NewUmfuturesCreateBatchOrdersV1ReqBatchOrdersItem("Quantity_example", "Side_example", "Symbol_example", "Type_example")} // []UmfuturesCreateBatchOrdersV1ReqBatchOrdersItem | 
 	timestamp := int64(789) // int64 | 
 	recvWindow := int64(789) // int64 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesCreateBatchOrdersV1(context.Background()).BatchOrders(batchOrders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesCreateBatchOrdersV1(context.Background()).BatchOrders(batchOrders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesCreateBatchOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesCreateBatchOrdersV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesCreateBatchOrdersV1`: []UfuturesCreateBatchOrdersV1RespInner
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesCreateBatchOrdersV1`: %v\n", resp)
+	// response from `UmfuturesCreateBatchOrdersV1`: []UmfuturesCreateBatchOrdersV1RespInner
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesCreateBatchOrdersV1`: %v\n", resp)
 }
 ```
 
@@ -75,18 +75,18 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesCreateBatchOrdersV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesCreateBatchOrdersV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **batchOrders** | [**[]UfuturesCreateBatchOrdersV1ReqBatchOrdersItem**](UfuturesCreateBatchOrdersV1ReqBatchOrdersItem.md) |  | 
+ **batchOrders** | [**[]UmfuturesCreateBatchOrdersV1ReqBatchOrdersItem**](UmfuturesCreateBatchOrdersV1ReqBatchOrdersItem.md) |  | 
  **timestamp** | **int64** |  | 
  **recvWindow** | **int64** |  | 
 
 ### Return type
 
-[**[]UfuturesCreateBatchOrdersV1RespInner**](UfuturesCreateBatchOrdersV1RespInner.md)
+[**[]UmfuturesCreateBatchOrdersV1RespInner**](UmfuturesCreateBatchOrdersV1RespInner.md)
 
 ### Authorization
 
@@ -102,9 +102,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesCreateCountdownCancelAllV1
+## UmfuturesCreateCountdownCancelAllV1
 
-> UfuturesCreateCountdownCancelAllV1Resp UfuturesCreateCountdownCancelAllV1(ctx).UfuturesCreateCountdownCancelAllV1Req(ufuturesCreateCountdownCancelAllV1Req).Execute()
+> UmfuturesCreateCountdownCancelAllV1Resp UmfuturesCreateCountdownCancelAllV1(ctx).UmfuturesCreateCountdownCancelAllV1Req(umfuturesCreateCountdownCancelAllV1Req).Execute()
 
 Auto-Cancel All Open Orders (TRADE)
 
@@ -123,17 +123,17 @@ import (
 )
 
 func main() {
-	ufuturesCreateCountdownCancelAllV1Req := *openapiclient.NewUfuturesCreateCountdownCancelAllV1Req(int64(123), "Symbol_example", int64(123)) // UfuturesCreateCountdownCancelAllV1Req |  (optional)
+	umfuturesCreateCountdownCancelAllV1Req := *openapiclient.NewUmfuturesCreateCountdownCancelAllV1Req(int64(123), "Symbol_example", int64(123)) // UmfuturesCreateCountdownCancelAllV1Req |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesCreateCountdownCancelAllV1(context.Background()).UfuturesCreateCountdownCancelAllV1Req(ufuturesCreateCountdownCancelAllV1Req).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesCreateCountdownCancelAllV1(context.Background()).UmfuturesCreateCountdownCancelAllV1Req(umfuturesCreateCountdownCancelAllV1Req).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesCreateCountdownCancelAllV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesCreateCountdownCancelAllV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesCreateCountdownCancelAllV1`: UfuturesCreateCountdownCancelAllV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesCreateCountdownCancelAllV1`: %v\n", resp)
+	// response from `UmfuturesCreateCountdownCancelAllV1`: UmfuturesCreateCountdownCancelAllV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesCreateCountdownCancelAllV1`: %v\n", resp)
 }
 ```
 
@@ -143,16 +143,16 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesCreateCountdownCancelAllV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesCreateCountdownCancelAllV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ufuturesCreateCountdownCancelAllV1Req** | [**UfuturesCreateCountdownCancelAllV1Req**](UfuturesCreateCountdownCancelAllV1Req.md) |  | 
+ **umfuturesCreateCountdownCancelAllV1Req** | [**UmfuturesCreateCountdownCancelAllV1Req**](UmfuturesCreateCountdownCancelAllV1Req.md) |  | 
 
 ### Return type
 
-[**UfuturesCreateCountdownCancelAllV1Resp**](UfuturesCreateCountdownCancelAllV1Resp.md)
+[**UmfuturesCreateCountdownCancelAllV1Resp**](UmfuturesCreateCountdownCancelAllV1Resp.md)
 
 ### Authorization
 
@@ -168,9 +168,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesCreateLeverageV1
+## UmfuturesCreateLeverageV1
 
-> UfuturesCreateLeverageV1Resp UfuturesCreateLeverageV1(ctx).Leverage(leverage).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> UmfuturesCreateLeverageV1Resp UmfuturesCreateLeverageV1(ctx).Leverage(leverage).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Change Initial Leverage(TRADE)
 
@@ -196,13 +196,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesCreateLeverageV1(context.Background()).Leverage(leverage).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesCreateLeverageV1(context.Background()).Leverage(leverage).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesCreateLeverageV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesCreateLeverageV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesCreateLeverageV1`: UfuturesCreateLeverageV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesCreateLeverageV1`: %v\n", resp)
+	// response from `UmfuturesCreateLeverageV1`: UmfuturesCreateLeverageV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesCreateLeverageV1`: %v\n", resp)
 }
 ```
 
@@ -212,7 +212,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesCreateLeverageV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesCreateLeverageV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesCreateLeverageV1Resp**](UfuturesCreateLeverageV1Resp.md)
+[**UmfuturesCreateLeverageV1Resp**](UmfuturesCreateLeverageV1Resp.md)
 
 ### Authorization
 
@@ -240,9 +240,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesCreateMarginTypeV1
+## UmfuturesCreateMarginTypeV1
 
-> UfuturesCreateMarginTypeV1Resp UfuturesCreateMarginTypeV1(ctx).MarginType(marginType).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> UmfuturesCreateMarginTypeV1Resp UmfuturesCreateMarginTypeV1(ctx).MarginType(marginType).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Change Margin Type(TRADE)
 
@@ -268,13 +268,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesCreateMarginTypeV1(context.Background()).MarginType(marginType).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesCreateMarginTypeV1(context.Background()).MarginType(marginType).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesCreateMarginTypeV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesCreateMarginTypeV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesCreateMarginTypeV1`: UfuturesCreateMarginTypeV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesCreateMarginTypeV1`: %v\n", resp)
+	// response from `UmfuturesCreateMarginTypeV1`: UmfuturesCreateMarginTypeV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesCreateMarginTypeV1`: %v\n", resp)
 }
 ```
 
@@ -284,7 +284,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesCreateMarginTypeV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesCreateMarginTypeV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -296,7 +296,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesCreateMarginTypeV1Resp**](UfuturesCreateMarginTypeV1Resp.md)
+[**UmfuturesCreateMarginTypeV1Resp**](UmfuturesCreateMarginTypeV1Resp.md)
 
 ### Authorization
 
@@ -312,9 +312,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesCreateMultiAssetsMarginV1
+## UmfuturesCreateMultiAssetsMarginV1
 
-> UfuturesCreateMultiAssetsMarginV1Resp UfuturesCreateMultiAssetsMarginV1(ctx).MultiAssetsMargin(multiAssetsMargin).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> UmfuturesCreateMultiAssetsMarginV1Resp UmfuturesCreateMultiAssetsMarginV1(ctx).MultiAssetsMargin(multiAssetsMargin).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Change Multi-Assets Mode (TRADE)
 
@@ -339,13 +339,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesCreateMultiAssetsMarginV1(context.Background()).MultiAssetsMargin(multiAssetsMargin).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesCreateMultiAssetsMarginV1(context.Background()).MultiAssetsMargin(multiAssetsMargin).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesCreateMultiAssetsMarginV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesCreateMultiAssetsMarginV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesCreateMultiAssetsMarginV1`: UfuturesCreateMultiAssetsMarginV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesCreateMultiAssetsMarginV1`: %v\n", resp)
+	// response from `UmfuturesCreateMultiAssetsMarginV1`: UmfuturesCreateMultiAssetsMarginV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesCreateMultiAssetsMarginV1`: %v\n", resp)
 }
 ```
 
@@ -355,7 +355,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesCreateMultiAssetsMarginV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesCreateMultiAssetsMarginV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -366,7 +366,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesCreateMultiAssetsMarginV1Resp**](UfuturesCreateMultiAssetsMarginV1Resp.md)
+[**UmfuturesCreateMultiAssetsMarginV1Resp**](UmfuturesCreateMultiAssetsMarginV1Resp.md)
 
 ### Authorization
 
@@ -382,9 +382,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesCreateOrderTestV1
+## UmfuturesCreateOrderTestV1
 
-> UfuturesCreateOrderTestV1Resp UfuturesCreateOrderTestV1(ctx).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).ActivationPrice(activationPrice).CallbackRate(callbackRate).ClosePosition(closePosition).GoodTillDate(goodTillDate).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).PositionSide(positionSide).Price(price).PriceMatch(priceMatch).PriceProtect(priceProtect).Quantity(quantity).RecvWindow(recvWindow).ReduceOnly(reduceOnly).SelfTradePreventionMode(selfTradePreventionMode).StopPrice(stopPrice).TimeInForce(timeInForce).WorkingType(workingType).Execute()
+> UmfuturesCreateOrderTestV1Resp UmfuturesCreateOrderTestV1(ctx).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).ActivationPrice(activationPrice).CallbackRate(callbackRate).ClosePosition(closePosition).GoodTillDate(goodTillDate).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).PositionSide(positionSide).Price(price).PriceMatch(priceMatch).PriceProtect(priceProtect).Quantity(quantity).RecvWindow(recvWindow).ReduceOnly(reduceOnly).SelfTradePreventionMode(selfTradePreventionMode).StopPrice(stopPrice).TimeInForce(timeInForce).WorkingType(workingType).Execute()
 
 Test Order(TRADE)
 
@@ -427,13 +427,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesCreateOrderTestV1(context.Background()).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).ActivationPrice(activationPrice).CallbackRate(callbackRate).ClosePosition(closePosition).GoodTillDate(goodTillDate).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).PositionSide(positionSide).Price(price).PriceMatch(priceMatch).PriceProtect(priceProtect).Quantity(quantity).RecvWindow(recvWindow).ReduceOnly(reduceOnly).SelfTradePreventionMode(selfTradePreventionMode).StopPrice(stopPrice).TimeInForce(timeInForce).WorkingType(workingType).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesCreateOrderTestV1(context.Background()).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).ActivationPrice(activationPrice).CallbackRate(callbackRate).ClosePosition(closePosition).GoodTillDate(goodTillDate).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).PositionSide(positionSide).Price(price).PriceMatch(priceMatch).PriceProtect(priceProtect).Quantity(quantity).RecvWindow(recvWindow).ReduceOnly(reduceOnly).SelfTradePreventionMode(selfTradePreventionMode).StopPrice(stopPrice).TimeInForce(timeInForce).WorkingType(workingType).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesCreateOrderTestV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesCreateOrderTestV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesCreateOrderTestV1`: UfuturesCreateOrderTestV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesCreateOrderTestV1`: %v\n", resp)
+	// response from `UmfuturesCreateOrderTestV1`: UmfuturesCreateOrderTestV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesCreateOrderTestV1`: %v\n", resp)
 }
 ```
 
@@ -443,7 +443,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesCreateOrderTestV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesCreateOrderTestV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -472,7 +472,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesCreateOrderTestV1Resp**](UfuturesCreateOrderTestV1Resp.md)
+[**UmfuturesCreateOrderTestV1Resp**](UmfuturesCreateOrderTestV1Resp.md)
 
 ### Authorization
 
@@ -488,9 +488,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesCreateOrderV1
+## UmfuturesCreateOrderV1
 
-> UfuturesCreateOrderV1Resp UfuturesCreateOrderV1(ctx).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).ActivationPrice(activationPrice).CallbackRate(callbackRate).ClosePosition(closePosition).GoodTillDate(goodTillDate).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).PositionSide(positionSide).Price(price).PriceMatch(priceMatch).PriceProtect(priceProtect).Quantity(quantity).RecvWindow(recvWindow).ReduceOnly(reduceOnly).SelfTradePreventionMode(selfTradePreventionMode).StopPrice(stopPrice).TimeInForce(timeInForce).WorkingType(workingType).Execute()
+> UmfuturesCreateOrderV1Resp UmfuturesCreateOrderV1(ctx).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).ActivationPrice(activationPrice).CallbackRate(callbackRate).ClosePosition(closePosition).GoodTillDate(goodTillDate).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).PositionSide(positionSide).Price(price).PriceMatch(priceMatch).PriceProtect(priceProtect).Quantity(quantity).RecvWindow(recvWindow).ReduceOnly(reduceOnly).SelfTradePreventionMode(selfTradePreventionMode).StopPrice(stopPrice).TimeInForce(timeInForce).WorkingType(workingType).Execute()
 
 New Order(TRADE)
 
@@ -533,13 +533,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesCreateOrderV1(context.Background()).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).ActivationPrice(activationPrice).CallbackRate(callbackRate).ClosePosition(closePosition).GoodTillDate(goodTillDate).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).PositionSide(positionSide).Price(price).PriceMatch(priceMatch).PriceProtect(priceProtect).Quantity(quantity).RecvWindow(recvWindow).ReduceOnly(reduceOnly).SelfTradePreventionMode(selfTradePreventionMode).StopPrice(stopPrice).TimeInForce(timeInForce).WorkingType(workingType).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesCreateOrderV1(context.Background()).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).ActivationPrice(activationPrice).CallbackRate(callbackRate).ClosePosition(closePosition).GoodTillDate(goodTillDate).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).PositionSide(positionSide).Price(price).PriceMatch(priceMatch).PriceProtect(priceProtect).Quantity(quantity).RecvWindow(recvWindow).ReduceOnly(reduceOnly).SelfTradePreventionMode(selfTradePreventionMode).StopPrice(stopPrice).TimeInForce(timeInForce).WorkingType(workingType).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesCreateOrderV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesCreateOrderV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesCreateOrderV1`: UfuturesCreateOrderV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesCreateOrderV1`: %v\n", resp)
+	// response from `UmfuturesCreateOrderV1`: UmfuturesCreateOrderV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesCreateOrderV1`: %v\n", resp)
 }
 ```
 
@@ -549,7 +549,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesCreateOrderV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesCreateOrderV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -578,7 +578,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesCreateOrderV1Resp**](UfuturesCreateOrderV1Resp.md)
+[**UmfuturesCreateOrderV1Resp**](UmfuturesCreateOrderV1Resp.md)
 
 ### Authorization
 
@@ -594,9 +594,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesCreatePositionMarginV1
+## UmfuturesCreatePositionMarginV1
 
-> UfuturesCreatePositionMarginV1Resp UfuturesCreatePositionMarginV1(ctx).Amount(amount).Symbol(symbol).Timestamp(timestamp).Type_(type_).PositionSide(positionSide).RecvWindow(recvWindow).Execute()
+> UmfuturesCreatePositionMarginV1Resp UmfuturesCreatePositionMarginV1(ctx).Amount(amount).Symbol(symbol).Timestamp(timestamp).Type_(type_).PositionSide(positionSide).RecvWindow(recvWindow).Execute()
 
 Modify Isolated Position Margin(TRADE)
 
@@ -624,13 +624,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesCreatePositionMarginV1(context.Background()).Amount(amount).Symbol(symbol).Timestamp(timestamp).Type_(type_).PositionSide(positionSide).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesCreatePositionMarginV1(context.Background()).Amount(amount).Symbol(symbol).Timestamp(timestamp).Type_(type_).PositionSide(positionSide).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesCreatePositionMarginV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesCreatePositionMarginV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesCreatePositionMarginV1`: UfuturesCreatePositionMarginV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesCreatePositionMarginV1`: %v\n", resp)
+	// response from `UmfuturesCreatePositionMarginV1`: UmfuturesCreatePositionMarginV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesCreatePositionMarginV1`: %v\n", resp)
 }
 ```
 
@@ -640,7 +640,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesCreatePositionMarginV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesCreatePositionMarginV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -654,7 +654,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesCreatePositionMarginV1Resp**](UfuturesCreatePositionMarginV1Resp.md)
+[**UmfuturesCreatePositionMarginV1Resp**](UmfuturesCreatePositionMarginV1Resp.md)
 
 ### Authorization
 
@@ -670,9 +670,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesCreatePositionSideDualV1
+## UmfuturesCreatePositionSideDualV1
 
-> UfuturesCreatePositionSideDualV1Resp UfuturesCreatePositionSideDualV1(ctx).DualSidePosition(dualSidePosition).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> UmfuturesCreatePositionSideDualV1Resp UmfuturesCreatePositionSideDualV1(ctx).DualSidePosition(dualSidePosition).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Change Position Mode(TRADE)
 
@@ -697,13 +697,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesCreatePositionSideDualV1(context.Background()).DualSidePosition(dualSidePosition).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesCreatePositionSideDualV1(context.Background()).DualSidePosition(dualSidePosition).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesCreatePositionSideDualV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesCreatePositionSideDualV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesCreatePositionSideDualV1`: UfuturesCreatePositionSideDualV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesCreatePositionSideDualV1`: %v\n", resp)
+	// response from `UmfuturesCreatePositionSideDualV1`: UmfuturesCreatePositionSideDualV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesCreatePositionSideDualV1`: %v\n", resp)
 }
 ```
 
@@ -713,7 +713,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesCreatePositionSideDualV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesCreatePositionSideDualV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -724,7 +724,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesCreatePositionSideDualV1Resp**](UfuturesCreatePositionSideDualV1Resp.md)
+[**UmfuturesCreatePositionSideDualV1Resp**](UmfuturesCreatePositionSideDualV1Resp.md)
 
 ### Authorization
 
@@ -740,9 +740,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesDeleteAllOpenOrdersV1
+## UmfuturesDeleteAllOpenOrdersV1
 
-> UfuturesDeleteAllOpenOrdersV1Resp UfuturesDeleteAllOpenOrdersV1(ctx).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> UmfuturesDeleteAllOpenOrdersV1Resp UmfuturesDeleteAllOpenOrdersV1(ctx).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Cancel All Open Orders (TRADE)
 
@@ -767,13 +767,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesDeleteAllOpenOrdersV1(context.Background()).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesDeleteAllOpenOrdersV1(context.Background()).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesDeleteAllOpenOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesDeleteAllOpenOrdersV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesDeleteAllOpenOrdersV1`: UfuturesDeleteAllOpenOrdersV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesDeleteAllOpenOrdersV1`: %v\n", resp)
+	// response from `UmfuturesDeleteAllOpenOrdersV1`: UmfuturesDeleteAllOpenOrdersV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesDeleteAllOpenOrdersV1`: %v\n", resp)
 }
 ```
 
@@ -783,7 +783,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesDeleteAllOpenOrdersV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesDeleteAllOpenOrdersV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -794,7 +794,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesDeleteAllOpenOrdersV1Resp**](UfuturesDeleteAllOpenOrdersV1Resp.md)
+[**UmfuturesDeleteAllOpenOrdersV1Resp**](UmfuturesDeleteAllOpenOrdersV1Resp.md)
 
 ### Authorization
 
@@ -810,9 +810,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesDeleteBatchOrdersV1
+## UmfuturesDeleteBatchOrdersV1
 
-> []UfuturesDeleteBatchOrdersV1RespInner UfuturesDeleteBatchOrdersV1(ctx).Symbol(symbol).Timestamp(timestamp).OrderIdList(orderIdList).OrigClientOrderIdList(origClientOrderIdList).RecvWindow(recvWindow).Execute()
+> []UmfuturesDeleteBatchOrdersV1RespInner UmfuturesDeleteBatchOrdersV1(ctx).Symbol(symbol).Timestamp(timestamp).OrderIdList(orderIdList).OrigClientOrderIdList(origClientOrderIdList).RecvWindow(recvWindow).Execute()
 
 Cancel Multiple Orders (TRADE)
 
@@ -839,13 +839,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesDeleteBatchOrdersV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderIdList(orderIdList).OrigClientOrderIdList(origClientOrderIdList).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesDeleteBatchOrdersV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderIdList(orderIdList).OrigClientOrderIdList(origClientOrderIdList).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesDeleteBatchOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesDeleteBatchOrdersV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesDeleteBatchOrdersV1`: []UfuturesDeleteBatchOrdersV1RespInner
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesDeleteBatchOrdersV1`: %v\n", resp)
+	// response from `UmfuturesDeleteBatchOrdersV1`: []UmfuturesDeleteBatchOrdersV1RespInner
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesDeleteBatchOrdersV1`: %v\n", resp)
 }
 ```
 
@@ -855,7 +855,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesDeleteBatchOrdersV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesDeleteBatchOrdersV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -868,7 +868,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesDeleteBatchOrdersV1RespInner**](UfuturesDeleteBatchOrdersV1RespInner.md)
+[**[]UmfuturesDeleteBatchOrdersV1RespInner**](UmfuturesDeleteBatchOrdersV1RespInner.md)
 
 ### Authorization
 
@@ -884,9 +884,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesDeleteOrderV1
+## UmfuturesDeleteOrderV1
 
-> UfuturesDeleteOrderV1Resp UfuturesDeleteOrderV1(ctx).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).RecvWindow(recvWindow).Execute()
+> UmfuturesDeleteOrderV1Resp UmfuturesDeleteOrderV1(ctx).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).RecvWindow(recvWindow).Execute()
 
 Cancel Order (TRADE)
 
@@ -913,13 +913,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesDeleteOrderV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesDeleteOrderV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesDeleteOrderV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesDeleteOrderV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesDeleteOrderV1`: UfuturesDeleteOrderV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesDeleteOrderV1`: %v\n", resp)
+	// response from `UmfuturesDeleteOrderV1`: UmfuturesDeleteOrderV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesDeleteOrderV1`: %v\n", resp)
 }
 ```
 
@@ -929,7 +929,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesDeleteOrderV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesDeleteOrderV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -942,7 +942,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesDeleteOrderV1Resp**](UfuturesDeleteOrderV1Resp.md)
+[**UmfuturesDeleteOrderV1Resp**](UmfuturesDeleteOrderV1Resp.md)
 
 ### Authorization
 
@@ -958,9 +958,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetAdlQuantileV1
+## UmfuturesGetAdlQuantileV1
 
-> []UfuturesGetAdlQuantileV1RespItem UfuturesGetAdlQuantileV1(ctx).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+> []UmfuturesGetAdlQuantileV1RespItem UmfuturesGetAdlQuantileV1(ctx).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 
 Position ADL Quantile Estimation(USER_DATA)
 
@@ -985,13 +985,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesGetAdlQuantileV1(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesGetAdlQuantileV1(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesGetAdlQuantileV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesGetAdlQuantileV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetAdlQuantileV1`: []UfuturesGetAdlQuantileV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesGetAdlQuantileV1`: %v\n", resp)
+	// response from `UmfuturesGetAdlQuantileV1`: []UmfuturesGetAdlQuantileV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesGetAdlQuantileV1`: %v\n", resp)
 }
 ```
 
@@ -1001,7 +1001,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetAdlQuantileV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetAdlQuantileV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1012,7 +1012,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetAdlQuantileV1RespItem**](UfuturesGetAdlQuantileV1RespItem.md)
+[**[]UmfuturesGetAdlQuantileV1RespItem**](UmfuturesGetAdlQuantileV1RespItem.md)
 
 ### Authorization
 
@@ -1028,9 +1028,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetAllOrdersV1
+## UmfuturesGetAllOrdersV1
 
-> []UfuturesGetAllOrdersV1RespItem UfuturesGetAllOrdersV1(ctx).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
+> []UmfuturesGetAllOrdersV1RespItem UmfuturesGetAllOrdersV1(ctx).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
 
 All Orders (USER_DATA)
 
@@ -1059,13 +1059,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesGetAllOrdersV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesGetAllOrdersV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesGetAllOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesGetAllOrdersV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetAllOrdersV1`: []UfuturesGetAllOrdersV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesGetAllOrdersV1`: %v\n", resp)
+	// response from `UmfuturesGetAllOrdersV1`: []UmfuturesGetAllOrdersV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesGetAllOrdersV1`: %v\n", resp)
 }
 ```
 
@@ -1075,7 +1075,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetAllOrdersV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetAllOrdersV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1090,7 +1090,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetAllOrdersV1RespItem**](UfuturesGetAllOrdersV1RespItem.md)
+[**[]UmfuturesGetAllOrdersV1RespItem**](UmfuturesGetAllOrdersV1RespItem.md)
 
 ### Authorization
 
@@ -1106,9 +1106,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetForceOrdersV1
+## UmfuturesGetForceOrdersV1
 
-> []UfuturesGetForceOrdersV1RespItem UfuturesGetForceOrdersV1(ctx).Timestamp(timestamp).Symbol(symbol).AutoCloseType(autoCloseType).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
+> []UmfuturesGetForceOrdersV1RespItem UmfuturesGetForceOrdersV1(ctx).Timestamp(timestamp).Symbol(symbol).AutoCloseType(autoCloseType).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
 
 User's Force Orders (USER_DATA)
 
@@ -1137,13 +1137,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesGetForceOrdersV1(context.Background()).Timestamp(timestamp).Symbol(symbol).AutoCloseType(autoCloseType).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesGetForceOrdersV1(context.Background()).Timestamp(timestamp).Symbol(symbol).AutoCloseType(autoCloseType).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesGetForceOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesGetForceOrdersV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetForceOrdersV1`: []UfuturesGetForceOrdersV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesGetForceOrdersV1`: %v\n", resp)
+	// response from `UmfuturesGetForceOrdersV1`: []UmfuturesGetForceOrdersV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesGetForceOrdersV1`: %v\n", resp)
 }
 ```
 
@@ -1153,7 +1153,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetForceOrdersV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetForceOrdersV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1168,7 +1168,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetForceOrdersV1RespItem**](UfuturesGetForceOrdersV1RespItem.md)
+[**[]UmfuturesGetForceOrdersV1RespItem**](UmfuturesGetForceOrdersV1RespItem.md)
 
 ### Authorization
 
@@ -1184,9 +1184,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetOpenOrderV1
+## UmfuturesGetOpenOrderV1
 
-> UfuturesGetOpenOrderV1Resp UfuturesGetOpenOrderV1(ctx).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).RecvWindow(recvWindow).Execute()
+> UmfuturesGetOpenOrderV1Resp UmfuturesGetOpenOrderV1(ctx).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).RecvWindow(recvWindow).Execute()
 
 Query Current Open Order (USER_DATA)
 
@@ -1213,13 +1213,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesGetOpenOrderV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesGetOpenOrderV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesGetOpenOrderV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesGetOpenOrderV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetOpenOrderV1`: UfuturesGetOpenOrderV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesGetOpenOrderV1`: %v\n", resp)
+	// response from `UmfuturesGetOpenOrderV1`: UmfuturesGetOpenOrderV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesGetOpenOrderV1`: %v\n", resp)
 }
 ```
 
@@ -1229,7 +1229,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetOpenOrderV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetOpenOrderV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1242,7 +1242,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetOpenOrderV1Resp**](UfuturesGetOpenOrderV1Resp.md)
+[**UmfuturesGetOpenOrderV1Resp**](UmfuturesGetOpenOrderV1Resp.md)
 
 ### Authorization
 
@@ -1258,9 +1258,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetOpenOrdersV1
+## UmfuturesGetOpenOrdersV1
 
-> []UfuturesGetOpenOrdersV1RespItem UfuturesGetOpenOrdersV1(ctx).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+> []UmfuturesGetOpenOrdersV1RespItem UmfuturesGetOpenOrdersV1(ctx).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 
 Current All Open Orders (USER_DATA)
 
@@ -1285,13 +1285,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesGetOpenOrdersV1(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesGetOpenOrdersV1(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesGetOpenOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesGetOpenOrdersV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetOpenOrdersV1`: []UfuturesGetOpenOrdersV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesGetOpenOrdersV1`: %v\n", resp)
+	// response from `UmfuturesGetOpenOrdersV1`: []UmfuturesGetOpenOrdersV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesGetOpenOrdersV1`: %v\n", resp)
 }
 ```
 
@@ -1301,7 +1301,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetOpenOrdersV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetOpenOrdersV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1312,7 +1312,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetOpenOrdersV1RespItem**](UfuturesGetOpenOrdersV1RespItem.md)
+[**[]UmfuturesGetOpenOrdersV1RespItem**](UmfuturesGetOpenOrdersV1RespItem.md)
 
 ### Authorization
 
@@ -1328,9 +1328,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetOrderAmendmentV1
+## UmfuturesGetOrderAmendmentV1
 
-> []UfuturesGetOrderAmendmentV1RespItem UfuturesGetOrderAmendmentV1(ctx).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
+> []UmfuturesGetOrderAmendmentV1RespItem UmfuturesGetOrderAmendmentV1(ctx).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
 
 Get Order Modify History (USER_DATA)
 
@@ -1360,13 +1360,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesGetOrderAmendmentV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesGetOrderAmendmentV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesGetOrderAmendmentV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesGetOrderAmendmentV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetOrderAmendmentV1`: []UfuturesGetOrderAmendmentV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesGetOrderAmendmentV1`: %v\n", resp)
+	// response from `UmfuturesGetOrderAmendmentV1`: []UmfuturesGetOrderAmendmentV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesGetOrderAmendmentV1`: %v\n", resp)
 }
 ```
 
@@ -1376,7 +1376,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetOrderAmendmentV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetOrderAmendmentV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1392,7 +1392,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetOrderAmendmentV1RespItem**](UfuturesGetOrderAmendmentV1RespItem.md)
+[**[]UmfuturesGetOrderAmendmentV1RespItem**](UmfuturesGetOrderAmendmentV1RespItem.md)
 
 ### Authorization
 
@@ -1408,9 +1408,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetOrderV1
+## UmfuturesGetOrderV1
 
-> UfuturesGetOrderV1Resp UfuturesGetOrderV1(ctx).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).RecvWindow(recvWindow).Execute()
+> UmfuturesGetOrderV1Resp UmfuturesGetOrderV1(ctx).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).RecvWindow(recvWindow).Execute()
 
 Query Order (USER_DATA)
 
@@ -1437,13 +1437,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesGetOrderV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesGetOrderV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesGetOrderV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesGetOrderV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetOrderV1`: UfuturesGetOrderV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesGetOrderV1`: %v\n", resp)
+	// response from `UmfuturesGetOrderV1`: UmfuturesGetOrderV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesGetOrderV1`: %v\n", resp)
 }
 ```
 
@@ -1453,7 +1453,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetOrderV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetOrderV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1466,7 +1466,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesGetOrderV1Resp**](UfuturesGetOrderV1Resp.md)
+[**UmfuturesGetOrderV1Resp**](UmfuturesGetOrderV1Resp.md)
 
 ### Authorization
 
@@ -1482,9 +1482,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetPositionMarginHistoryV1
+## UmfuturesGetPositionMarginHistoryV1
 
-> []UfuturesGetPositionMarginHistoryV1RespItem UfuturesGetPositionMarginHistoryV1(ctx).Symbol(symbol).Timestamp(timestamp).Type_(type_).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
+> []UmfuturesGetPositionMarginHistoryV1RespItem UmfuturesGetPositionMarginHistoryV1(ctx).Symbol(symbol).Timestamp(timestamp).Type_(type_).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
 
 Get Position Margin Change History (TRADE)
 
@@ -1513,13 +1513,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesGetPositionMarginHistoryV1(context.Background()).Symbol(symbol).Timestamp(timestamp).Type_(type_).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesGetPositionMarginHistoryV1(context.Background()).Symbol(symbol).Timestamp(timestamp).Type_(type_).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesGetPositionMarginHistoryV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesGetPositionMarginHistoryV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetPositionMarginHistoryV1`: []UfuturesGetPositionMarginHistoryV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesGetPositionMarginHistoryV1`: %v\n", resp)
+	// response from `UmfuturesGetPositionMarginHistoryV1`: []UmfuturesGetPositionMarginHistoryV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesGetPositionMarginHistoryV1`: %v\n", resp)
 }
 ```
 
@@ -1529,7 +1529,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetPositionMarginHistoryV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetPositionMarginHistoryV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1544,7 +1544,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetPositionMarginHistoryV1RespItem**](UfuturesGetPositionMarginHistoryV1RespItem.md)
+[**[]UmfuturesGetPositionMarginHistoryV1RespItem**](UmfuturesGetPositionMarginHistoryV1RespItem.md)
 
 ### Authorization
 
@@ -1560,9 +1560,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetPositionRiskV2
+## UmfuturesGetPositionRiskV2
 
-> []UfuturesGetPositionRiskV2RespItem UfuturesGetPositionRiskV2(ctx).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+> []UmfuturesGetPositionRiskV2RespItem UmfuturesGetPositionRiskV2(ctx).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 
 Position Information V2 (USER_DATA)
 
@@ -1587,13 +1587,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesGetPositionRiskV2(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesGetPositionRiskV2(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesGetPositionRiskV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesGetPositionRiskV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetPositionRiskV2`: []UfuturesGetPositionRiskV2RespItem
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesGetPositionRiskV2`: %v\n", resp)
+	// response from `UmfuturesGetPositionRiskV2`: []UmfuturesGetPositionRiskV2RespItem
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesGetPositionRiskV2`: %v\n", resp)
 }
 ```
 
@@ -1603,7 +1603,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetPositionRiskV2Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetPositionRiskV2Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1614,7 +1614,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetPositionRiskV2RespItem**](UfuturesGetPositionRiskV2RespItem.md)
+[**[]UmfuturesGetPositionRiskV2RespItem**](UmfuturesGetPositionRiskV2RespItem.md)
 
 ### Authorization
 
@@ -1630,9 +1630,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetPositionRiskV3
+## UmfuturesGetPositionRiskV3
 
-> []UfuturesGetPositionRiskV3RespItem UfuturesGetPositionRiskV3(ctx).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+> []UmfuturesGetPositionRiskV3RespItem UmfuturesGetPositionRiskV3(ctx).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 
 Position Information V3 (USER_DATA)
 
@@ -1657,13 +1657,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesGetPositionRiskV3(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesGetPositionRiskV3(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesGetPositionRiskV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesGetPositionRiskV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetPositionRiskV3`: []UfuturesGetPositionRiskV3RespItem
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesGetPositionRiskV3`: %v\n", resp)
+	// response from `UmfuturesGetPositionRiskV3`: []UmfuturesGetPositionRiskV3RespItem
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesGetPositionRiskV3`: %v\n", resp)
 }
 ```
 
@@ -1673,7 +1673,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetPositionRiskV3Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetPositionRiskV3Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1684,7 +1684,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetPositionRiskV3RespItem**](UfuturesGetPositionRiskV3RespItem.md)
+[**[]UmfuturesGetPositionRiskV3RespItem**](UmfuturesGetPositionRiskV3RespItem.md)
 
 ### Authorization
 
@@ -1700,9 +1700,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesGetUserTradesV1
+## UmfuturesGetUserTradesV1
 
-> []UfuturesGetUserTradesV1RespItem UfuturesGetUserTradesV1(ctx).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).StartTime(startTime).EndTime(endTime).FromId(fromId).Limit(limit).RecvWindow(recvWindow).Execute()
+> []UmfuturesGetUserTradesV1RespItem UmfuturesGetUserTradesV1(ctx).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).StartTime(startTime).EndTime(endTime).FromId(fromId).Limit(limit).RecvWindow(recvWindow).Execute()
 
 Account Trade List (USER_DATA)
 
@@ -1732,13 +1732,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesGetUserTradesV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).StartTime(startTime).EndTime(endTime).FromId(fromId).Limit(limit).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesGetUserTradesV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).StartTime(startTime).EndTime(endTime).FromId(fromId).Limit(limit).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesGetUserTradesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesGetUserTradesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesGetUserTradesV1`: []UfuturesGetUserTradesV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesGetUserTradesV1`: %v\n", resp)
+	// response from `UmfuturesGetUserTradesV1`: []UmfuturesGetUserTradesV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesGetUserTradesV1`: %v\n", resp)
 }
 ```
 
@@ -1748,7 +1748,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesGetUserTradesV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesGetUserTradesV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1764,7 +1764,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]UfuturesGetUserTradesV1RespItem**](UfuturesGetUserTradesV1RespItem.md)
+[**[]UmfuturesGetUserTradesV1RespItem**](UmfuturesGetUserTradesV1RespItem.md)
 
 ### Authorization
 
@@ -1780,9 +1780,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesUpdateBatchOrdersV1
+## UmfuturesUpdateBatchOrdersV1
 
-> []UfuturesUpdateBatchOrdersV1RespItem UfuturesUpdateBatchOrdersV1(ctx).BatchOrders(batchOrders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> []UmfuturesUpdateBatchOrdersV1RespItem UmfuturesUpdateBatchOrdersV1(ctx).BatchOrders(batchOrders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Modify Multiple Orders(TRADE)
 
@@ -1801,19 +1801,19 @@ import (
 )
 
 func main() {
-	batchOrders := []openapiclient.UfuturesUpdateBatchOrdersV1ReqBatchOrdersItem{*openapiclient.NewUfuturesUpdateBatchOrdersV1ReqBatchOrdersItem("Price_example", "Quantity_example", "Side_example", "Symbol_example")} // []UfuturesUpdateBatchOrdersV1ReqBatchOrdersItem | 
+	batchOrders := []openapiclient.UmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem{*openapiclient.NewUmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem("Price_example", "Quantity_example", "Side_example", "Symbol_example")} // []UmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem | 
 	timestamp := int64(789) // int64 | 
 	recvWindow := int64(789) // int64 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesUpdateBatchOrdersV1(context.Background()).BatchOrders(batchOrders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesUpdateBatchOrdersV1(context.Background()).BatchOrders(batchOrders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesUpdateBatchOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesUpdateBatchOrdersV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesUpdateBatchOrdersV1`: []UfuturesUpdateBatchOrdersV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesUpdateBatchOrdersV1`: %v\n", resp)
+	// response from `UmfuturesUpdateBatchOrdersV1`: []UmfuturesUpdateBatchOrdersV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesUpdateBatchOrdersV1`: %v\n", resp)
 }
 ```
 
@@ -1823,18 +1823,18 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesUpdateBatchOrdersV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesUpdateBatchOrdersV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **batchOrders** | [**[]UfuturesUpdateBatchOrdersV1ReqBatchOrdersItem**](UfuturesUpdateBatchOrdersV1ReqBatchOrdersItem.md) |  | 
+ **batchOrders** | [**[]UmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem**](UmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem.md) |  | 
  **timestamp** | **int64** |  | 
  **recvWindow** | **int64** |  | 
 
 ### Return type
 
-[**[]UfuturesUpdateBatchOrdersV1RespItem**](UfuturesUpdateBatchOrdersV1RespItem.md)
+[**[]UmfuturesUpdateBatchOrdersV1RespItem**](UmfuturesUpdateBatchOrdersV1RespItem.md)
 
 ### Authorization
 
@@ -1850,9 +1850,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UfuturesUpdateOrderV1
+## UmfuturesUpdateOrderV1
 
-> UfuturesUpdateOrderV1Resp UfuturesUpdateOrderV1(ctx).Price(price).Quantity(quantity).Side(side).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).PriceMatch(priceMatch).RecvWindow(recvWindow).Execute()
+> UmfuturesUpdateOrderV1Resp UmfuturesUpdateOrderV1(ctx).Price(price).Quantity(quantity).Side(side).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).PriceMatch(priceMatch).RecvWindow(recvWindow).Execute()
 
 Modify Order (TRADE)
 
@@ -1883,13 +1883,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TradeAPI.UfuturesUpdateOrderV1(context.Background()).Price(price).Quantity(quantity).Side(side).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).PriceMatch(priceMatch).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.TradeAPI.UmfuturesUpdateOrderV1(context.Background()).Price(price).Quantity(quantity).Side(side).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).PriceMatch(priceMatch).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UfuturesUpdateOrderV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TradeAPI.UmfuturesUpdateOrderV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UfuturesUpdateOrderV1`: UfuturesUpdateOrderV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UfuturesUpdateOrderV1`: %v\n", resp)
+	// response from `UmfuturesUpdateOrderV1`: UmfuturesUpdateOrderV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `TradeAPI.UmfuturesUpdateOrderV1`: %v\n", resp)
 }
 ```
 
@@ -1899,7 +1899,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUfuturesUpdateOrderV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiUmfuturesUpdateOrderV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1916,7 +1916,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UfuturesUpdateOrderV1Resp**](UfuturesUpdateOrderV1Resp.md)
+[**UmfuturesUpdateOrderV1Resp**](UmfuturesUpdateOrderV1Resp.md)
 
 ### Authorization
 

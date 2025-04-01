@@ -1,5 +1,5 @@
 /*
-Binance Ufutures API
+Binance Umfutures API
 
 Testing V3APIService
 
@@ -22,11 +22,11 @@ func Test_umfutures_V3APIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test V3APIService UfuturesGetAccountV3", func(t *testing.T) {
+	t.Run("Test V3APIService UmfuturesGetAccountV3", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V3API.UfuturesGetAccountV3(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V3API.UmfuturesGetAccountV3(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_umfutures_V3APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V3APIService UfuturesGetBalanceV3", func(t *testing.T) {
+	t.Run("Test V3APIService UmfuturesGetBalanceV3", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V3API.UfuturesGetBalanceV3(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V3API.UmfuturesGetBalanceV3(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,11 +46,11 @@ func Test_umfutures_V3APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V3APIService UfuturesGetPositionRiskV3", func(t *testing.T) {
+	t.Run("Test V3APIService UmfuturesGetPositionRiskV3", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V3API.UfuturesGetPositionRiskV3(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V3API.UmfuturesGetPositionRiskV3(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -1,5 +1,5 @@
 /*
-Binance Cfutures API
+Binance Cmfutures API
 
 Testing PortfolioMarginEndpointsAPIService
 
@@ -22,11 +22,11 @@ func Test_cmfutures_PortfolioMarginEndpointsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PortfolioMarginEndpointsAPIService CfuturesGetPmAccountInfoV1", func(t *testing.T) {
+	t.Run("Test PortfolioMarginEndpointsAPIService CmfuturesGetPmAccountInfoV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.PortfolioMarginEndpointsAPI.CfuturesGetPmAccountInfoV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.PortfolioMarginEndpointsAPI.CmfuturesGetPmAccountInfoV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

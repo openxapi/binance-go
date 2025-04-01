@@ -1,5 +1,5 @@
 /*
-Binance Cfutures API
+Binance Cmfutures API
 
 Testing UserDataStreamsAPIService
 
@@ -22,11 +22,11 @@ func Test_cmfutures_UserDataStreamsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test UserDataStreamsAPIService CfuturesCreateListenKeyV1", func(t *testing.T) {
+	t.Run("Test UserDataStreamsAPIService CmfuturesCreateListenKeyV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.UserDataStreamsAPI.CfuturesCreateListenKeyV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.UserDataStreamsAPI.CmfuturesCreateListenKeyV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_cmfutures_UserDataStreamsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test UserDataStreamsAPIService CfuturesDeleteListenKeyV1", func(t *testing.T) {
+	t.Run("Test UserDataStreamsAPIService CmfuturesDeleteListenKeyV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.UserDataStreamsAPI.CfuturesDeleteListenKeyV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.UserDataStreamsAPI.CmfuturesDeleteListenKeyV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,11 +46,11 @@ func Test_cmfutures_UserDataStreamsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test UserDataStreamsAPIService CfuturesUpdateListenKeyV1", func(t *testing.T) {
+	t.Run("Test UserDataStreamsAPIService CmfuturesUpdateListenKeyV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.UserDataStreamsAPI.CfuturesUpdateListenKeyV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.UserDataStreamsAPI.CmfuturesUpdateListenKeyV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

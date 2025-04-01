@@ -1,7 +1,7 @@
 /*
-Binance Ufutures API
+Binance Umfutures API
 
-OpenAPI specification for Binance cryptocurrency exchange - Ufutures API
+OpenAPI specification for Binance cryptocurrency exchange - Umfutures API
 
 API version: 0.1.0
 */
@@ -22,53 +22,53 @@ import (
 // V3APIService V3API service
 type V3APIService service
 
-type V3APIUfuturesGetAccountV3Request struct {
+type V3APIUmfuturesGetAccountV3Request struct {
 	ctx context.Context
 	ApiService *V3APIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r V3APIUfuturesGetAccountV3Request) Timestamp(timestamp int64) V3APIUfuturesGetAccountV3Request {
+func (r V3APIUmfuturesGetAccountV3Request) Timestamp(timestamp int64) V3APIUmfuturesGetAccountV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r V3APIUfuturesGetAccountV3Request) RecvWindow(recvWindow int64) V3APIUfuturesGetAccountV3Request {
+func (r V3APIUmfuturesGetAccountV3Request) RecvWindow(recvWindow int64) V3APIUmfuturesGetAccountV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r V3APIUfuturesGetAccountV3Request) Execute() (*UfuturesGetAccountV3Resp, *http.Response, error) {
-	return r.ApiService.UfuturesGetAccountV3Execute(r)
+func (r V3APIUmfuturesGetAccountV3Request) Execute() (*UmfuturesGetAccountV3Resp, *http.Response, error) {
+	return r.ApiService.UmfuturesGetAccountV3Execute(r)
 }
 
 /*
-UfuturesGetAccountV3 Account Information V3(USER_DATA)
+UmfuturesGetAccountV3 Account Information V3(USER_DATA)
 
 Get current account information. User in single-asset/ multi-assets mode will see different value, see comments in response section for detail.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return V3APIUfuturesGetAccountV3Request
+ @return V3APIUmfuturesGetAccountV3Request
 */
-func (a *V3APIService) UfuturesGetAccountV3(ctx context.Context) V3APIUfuturesGetAccountV3Request {
-	return V3APIUfuturesGetAccountV3Request{
+func (a *V3APIService) UmfuturesGetAccountV3(ctx context.Context) V3APIUmfuturesGetAccountV3Request {
+	return V3APIUmfuturesGetAccountV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return UfuturesGetAccountV3Resp
-func (a *V3APIService) UfuturesGetAccountV3Execute(r V3APIUfuturesGetAccountV3Request) (*UfuturesGetAccountV3Resp, *http.Response, error) {
+//  @return UmfuturesGetAccountV3Resp
+func (a *V3APIService) UmfuturesGetAccountV3Execute(r V3APIUmfuturesGetAccountV3Request) (*UmfuturesGetAccountV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UfuturesGetAccountV3Resp
+		localVarReturnValue  *UmfuturesGetAccountV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V3APIService.UfuturesGetAccountV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V3APIService.UmfuturesGetAccountV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -167,53 +167,53 @@ func (a *V3APIService) UfuturesGetAccountV3Execute(r V3APIUfuturesGetAccountV3Re
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type V3APIUfuturesGetBalanceV3Request struct {
+type V3APIUmfuturesGetBalanceV3Request struct {
 	ctx context.Context
 	ApiService *V3APIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r V3APIUfuturesGetBalanceV3Request) Timestamp(timestamp int64) V3APIUfuturesGetBalanceV3Request {
+func (r V3APIUmfuturesGetBalanceV3Request) Timestamp(timestamp int64) V3APIUmfuturesGetBalanceV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r V3APIUfuturesGetBalanceV3Request) RecvWindow(recvWindow int64) V3APIUfuturesGetBalanceV3Request {
+func (r V3APIUmfuturesGetBalanceV3Request) RecvWindow(recvWindow int64) V3APIUmfuturesGetBalanceV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r V3APIUfuturesGetBalanceV3Request) Execute() ([]UfuturesGetBalanceV3RespItem, *http.Response, error) {
-	return r.ApiService.UfuturesGetBalanceV3Execute(r)
+func (r V3APIUmfuturesGetBalanceV3Request) Execute() ([]UmfuturesGetBalanceV3RespItem, *http.Response, error) {
+	return r.ApiService.UmfuturesGetBalanceV3Execute(r)
 }
 
 /*
-UfuturesGetBalanceV3 Futures Account Balance V3 (USER_DATA)
+UmfuturesGetBalanceV3 Futures Account Balance V3 (USER_DATA)
 
 Query account balance info
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return V3APIUfuturesGetBalanceV3Request
+ @return V3APIUmfuturesGetBalanceV3Request
 */
-func (a *V3APIService) UfuturesGetBalanceV3(ctx context.Context) V3APIUfuturesGetBalanceV3Request {
-	return V3APIUfuturesGetBalanceV3Request{
+func (a *V3APIService) UmfuturesGetBalanceV3(ctx context.Context) V3APIUmfuturesGetBalanceV3Request {
+	return V3APIUmfuturesGetBalanceV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []UfuturesGetBalanceV3RespItem
-func (a *V3APIService) UfuturesGetBalanceV3Execute(r V3APIUfuturesGetBalanceV3Request) ([]UfuturesGetBalanceV3RespItem, *http.Response, error) {
+//  @return []UmfuturesGetBalanceV3RespItem
+func (a *V3APIService) UmfuturesGetBalanceV3Execute(r V3APIUmfuturesGetBalanceV3Request) ([]UmfuturesGetBalanceV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []UfuturesGetBalanceV3RespItem
+		localVarReturnValue  []UmfuturesGetBalanceV3RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V3APIService.UfuturesGetBalanceV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V3APIService.UmfuturesGetBalanceV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -312,7 +312,7 @@ func (a *V3APIService) UfuturesGetBalanceV3Execute(r V3APIUfuturesGetBalanceV3Re
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type V3APIUfuturesGetPositionRiskV3Request struct {
+type V3APIUmfuturesGetPositionRiskV3Request struct {
 	ctx context.Context
 	ApiService *V3APIService
 	timestamp *int64
@@ -320,51 +320,51 @@ type V3APIUfuturesGetPositionRiskV3Request struct {
 	recvWindow *int64
 }
 
-func (r V3APIUfuturesGetPositionRiskV3Request) Timestamp(timestamp int64) V3APIUfuturesGetPositionRiskV3Request {
+func (r V3APIUmfuturesGetPositionRiskV3Request) Timestamp(timestamp int64) V3APIUmfuturesGetPositionRiskV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r V3APIUfuturesGetPositionRiskV3Request) Symbol(symbol string) V3APIUfuturesGetPositionRiskV3Request {
+func (r V3APIUmfuturesGetPositionRiskV3Request) Symbol(symbol string) V3APIUmfuturesGetPositionRiskV3Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r V3APIUfuturesGetPositionRiskV3Request) RecvWindow(recvWindow int64) V3APIUfuturesGetPositionRiskV3Request {
+func (r V3APIUmfuturesGetPositionRiskV3Request) RecvWindow(recvWindow int64) V3APIUmfuturesGetPositionRiskV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r V3APIUfuturesGetPositionRiskV3Request) Execute() ([]UfuturesGetPositionRiskV3RespItem, *http.Response, error) {
-	return r.ApiService.UfuturesGetPositionRiskV3Execute(r)
+func (r V3APIUmfuturesGetPositionRiskV3Request) Execute() ([]UmfuturesGetPositionRiskV3RespItem, *http.Response, error) {
+	return r.ApiService.UmfuturesGetPositionRiskV3Execute(r)
 }
 
 /*
-UfuturesGetPositionRiskV3 Position Information V3 (USER_DATA)
+UmfuturesGetPositionRiskV3 Position Information V3 (USER_DATA)
 
 Get current position information(only symbol that has position or open orders will be returned).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return V3APIUfuturesGetPositionRiskV3Request
+ @return V3APIUmfuturesGetPositionRiskV3Request
 */
-func (a *V3APIService) UfuturesGetPositionRiskV3(ctx context.Context) V3APIUfuturesGetPositionRiskV3Request {
-	return V3APIUfuturesGetPositionRiskV3Request{
+func (a *V3APIService) UmfuturesGetPositionRiskV3(ctx context.Context) V3APIUmfuturesGetPositionRiskV3Request {
+	return V3APIUmfuturesGetPositionRiskV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []UfuturesGetPositionRiskV3RespItem
-func (a *V3APIService) UfuturesGetPositionRiskV3Execute(r V3APIUfuturesGetPositionRiskV3Request) ([]UfuturesGetPositionRiskV3RespItem, *http.Response, error) {
+//  @return []UmfuturesGetPositionRiskV3RespItem
+func (a *V3APIService) UmfuturesGetPositionRiskV3Execute(r V3APIUmfuturesGetPositionRiskV3Request) ([]UmfuturesGetPositionRiskV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []UfuturesGetPositionRiskV3RespItem
+		localVarReturnValue  []UmfuturesGetPositionRiskV3RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V3APIService.UfuturesGetPositionRiskV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "V3APIService.UmfuturesGetPositionRiskV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -4,13 +4,13 @@ All URIs are relative to *https://dapi.binance.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CfuturesGetLeverageBracketV2**](V2API.md#CfuturesGetLeverageBracketV2) | **Get** /dapi/v2/leverageBracket | Notional Bracket for Symbol(USER_DATA)
+[**CmfuturesGetLeverageBracketV2**](V2API.md#CmfuturesGetLeverageBracketV2) | **Get** /dapi/v2/leverageBracket | Notional Bracket for Symbol(USER_DATA)
 
 
 
-## CfuturesGetLeverageBracketV2
+## CmfuturesGetLeverageBracketV2
 
-> []CfuturesGetLeverageBracketV2RespItem CfuturesGetLeverageBracketV2(ctx).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+> []CmfuturesGetLeverageBracketV2RespItem CmfuturesGetLeverageBracketV2(ctx).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 
 Notional Bracket for Symbol(USER_DATA)
 
@@ -35,13 +35,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.V2API.CfuturesGetLeverageBracketV2(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.V2API.CmfuturesGetLeverageBracketV2(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `V2API.CfuturesGetLeverageBracketV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `V2API.CmfuturesGetLeverageBracketV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CfuturesGetLeverageBracketV2`: []CfuturesGetLeverageBracketV2RespItem
-	fmt.Fprintf(os.Stdout, "Response from `V2API.CfuturesGetLeverageBracketV2`: %v\n", resp)
+	// response from `CmfuturesGetLeverageBracketV2`: []CmfuturesGetLeverageBracketV2RespItem
+	fmt.Fprintf(os.Stdout, "Response from `V2API.CmfuturesGetLeverageBracketV2`: %v\n", resp)
 }
 ```
 
@@ -51,7 +51,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCfuturesGetLeverageBracketV2Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiCmfuturesGetLeverageBracketV2Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]CfuturesGetLeverageBracketV2RespItem**](CfuturesGetLeverageBracketV2RespItem.md)
+[**[]CmfuturesGetLeverageBracketV2RespItem**](CmfuturesGetLeverageBracketV2RespItem.md)
 
 ### Authorization
 

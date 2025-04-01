@@ -1,5 +1,5 @@
 /*
-Binance Ufutures API
+Binance Umfutures API
 
 Testing V2APIService
 
@@ -22,11 +22,11 @@ func Test_umfutures_V2APIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test V2APIService UfuturesGetAccountV2", func(t *testing.T) {
+	t.Run("Test V2APIService UmfuturesGetAccountV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V2API.UfuturesGetAccountV2(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V2API.UmfuturesGetAccountV2(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_umfutures_V2APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V2APIService UfuturesGetBalanceV2", func(t *testing.T) {
+	t.Run("Test V2APIService UmfuturesGetBalanceV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V2API.UfuturesGetBalanceV2(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V2API.UmfuturesGetBalanceV2(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,11 +46,11 @@ func Test_umfutures_V2APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V2APIService UfuturesGetPositionRiskV2", func(t *testing.T) {
+	t.Run("Test V2APIService UmfuturesGetPositionRiskV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V2API.UfuturesGetPositionRiskV2(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V2API.UmfuturesGetPositionRiskV2(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -58,11 +58,11 @@ func Test_umfutures_V2APIService(t *testing.T) {
 
 	})
 
-	t.Run("Test V2APIService UfuturesGetTickerPriceV2", func(t *testing.T) {
+	t.Run("Test V2APIService UmfuturesGetTickerPriceV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.V2API.UfuturesGetTickerPriceV2(context.Background()).Execute()
+		resp, httpRes, err := apiClient.V2API.UmfuturesGetTickerPriceV2(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
