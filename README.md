@@ -21,8 +21,8 @@ If you need to update the API client, please submit an issue or a PR to [OpenXAP
   - [x] [Portfolio Margin Pro](./derivatives/pmarginpro)
   - [x] [Futures Data](./derivatives/futuresdata)
 - [x] [Margin Trading](./margin)
-- [ ] Algo Trading
-- [ ] Wallet
+- [x] Algo Trading
+- [x] Wallet
 - [ ] Copy Trading
 - [ ] Convert
 - [ ] Sub Account
