@@ -23,9 +23,9 @@ If you need to update the API client, please submit an issue or a PR to [OpenXAP
 - [x] [Margin Trading](./margin)
 - [x] Algo Trading
 - [x] Wallet
-- [ ] Copy Trading
-- [ ] Convert
-- [ ] Sub Account
+- [x] Copy Trading
+- [x] Convert
+- [x] Sub Account
 - [ ] More to come...
 
 Feel free to contribute to this project by adding support for other products.
