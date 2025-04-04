@@ -1,7 +1,7 @@
 /*
 Binance Options API
 
-OpenAPI specification for Binance cryptocurrency exchange - Options API
+OpenAPI specification for Binance exchange - Options API
 
 API version: 0.1.0
 */

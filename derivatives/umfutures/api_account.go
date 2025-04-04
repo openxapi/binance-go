@@ -1,7 +1,7 @@
 /*
-Binance Umfutures API
+Binance USD-M Futures API
 
-OpenAPI specification for Binance cryptocurrency exchange - Umfutures API
+OpenAPI specification for Binance exchange - Umfutures API
 
 API version: 0.1.0
 */
@@ -22,7 +22,7 @@ import (
 // AccountAPIService AccountAPI service
 type AccountAPIService service
 
-type AccountAPIUmfuturesCreateFeeBurnV1Request struct {
+type ApiUmfuturesCreateFeeBurnV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	feeBurn *string
@@ -30,22 +30,22 @@ type AccountAPIUmfuturesCreateFeeBurnV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIUmfuturesCreateFeeBurnV1Request) FeeBurn(feeBurn string) AccountAPIUmfuturesCreateFeeBurnV1Request {
+func (r ApiUmfuturesCreateFeeBurnV1Request) FeeBurn(feeBurn string) ApiUmfuturesCreateFeeBurnV1Request {
 	r.feeBurn = &feeBurn
 	return r
 }
 
-func (r AccountAPIUmfuturesCreateFeeBurnV1Request) Timestamp(timestamp int64) AccountAPIUmfuturesCreateFeeBurnV1Request {
+func (r ApiUmfuturesCreateFeeBurnV1Request) Timestamp(timestamp int64) ApiUmfuturesCreateFeeBurnV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIUmfuturesCreateFeeBurnV1Request) RecvWindow(recvWindow int64) AccountAPIUmfuturesCreateFeeBurnV1Request {
+func (r ApiUmfuturesCreateFeeBurnV1Request) RecvWindow(recvWindow int64) ApiUmfuturesCreateFeeBurnV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIUmfuturesCreateFeeBurnV1Request) Execute() (*UmfuturesCreateFeeBurnV1Resp, *http.Response, error) {
+func (r ApiUmfuturesCreateFeeBurnV1Request) Execute() (*UmfuturesCreateFeeBurnV1Resp, *http.Response, error) {
 	return r.ApiService.UmfuturesCreateFeeBurnV1Execute(r)
 }
 
@@ -55,10 +55,10 @@ UmfuturesCreateFeeBurnV1 Toggle BNB Burn On Futures Trade (TRADE)
 Change user's BNB Fee Discount (Fee Discount On or Fee Discount Off ) on EVERY symbol
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIUmfuturesCreateFeeBurnV1Request
+ @return ApiUmfuturesCreateFeeBurnV1Request
 */
-func (a *AccountAPIService) UmfuturesCreateFeeBurnV1(ctx context.Context) AccountAPIUmfuturesCreateFeeBurnV1Request {
-	return AccountAPIUmfuturesCreateFeeBurnV1Request{
+func (a *AccountAPIService) UmfuturesCreateFeeBurnV1(ctx context.Context) ApiUmfuturesCreateFeeBurnV1Request {
+	return ApiUmfuturesCreateFeeBurnV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -66,7 +66,7 @@ func (a *AccountAPIService) UmfuturesCreateFeeBurnV1(ctx context.Context) Accoun
 
 // Execute executes the request
 //  @return UmfuturesCreateFeeBurnV1Resp
-func (a *AccountAPIService) UmfuturesCreateFeeBurnV1Execute(r AccountAPIUmfuturesCreateFeeBurnV1Request) (*UmfuturesCreateFeeBurnV1Resp, *http.Response, error) {
+func (a *AccountAPIService) UmfuturesCreateFeeBurnV1Execute(r ApiUmfuturesCreateFeeBurnV1Request) (*UmfuturesCreateFeeBurnV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -177,24 +177,24 @@ func (a *AccountAPIService) UmfuturesCreateFeeBurnV1Execute(r AccountAPIUmfuture
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIUmfuturesGetAccountConfigV1Request struct {
+type ApiUmfuturesGetAccountConfigV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIUmfuturesGetAccountConfigV1Request) Timestamp(timestamp int64) AccountAPIUmfuturesGetAccountConfigV1Request {
+func (r ApiUmfuturesGetAccountConfigV1Request) Timestamp(timestamp int64) ApiUmfuturesGetAccountConfigV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIUmfuturesGetAccountConfigV1Request) RecvWindow(recvWindow int64) AccountAPIUmfuturesGetAccountConfigV1Request {
+func (r ApiUmfuturesGetAccountConfigV1Request) RecvWindow(recvWindow int64) ApiUmfuturesGetAccountConfigV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIUmfuturesGetAccountConfigV1Request) Execute() (*UmfuturesGetAccountConfigV1Resp, *http.Response, error) {
+func (r ApiUmfuturesGetAccountConfigV1Request) Execute() (*UmfuturesGetAccountConfigV1Resp, *http.Response, error) {
 	return r.ApiService.UmfuturesGetAccountConfigV1Execute(r)
 }
 
@@ -204,10 +204,10 @@ UmfuturesGetAccountConfigV1 Futures Account Configuration(USER_DATA)
 Query account configuration
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIUmfuturesGetAccountConfigV1Request
+ @return ApiUmfuturesGetAccountConfigV1Request
 */
-func (a *AccountAPIService) UmfuturesGetAccountConfigV1(ctx context.Context) AccountAPIUmfuturesGetAccountConfigV1Request {
-	return AccountAPIUmfuturesGetAccountConfigV1Request{
+func (a *AccountAPIService) UmfuturesGetAccountConfigV1(ctx context.Context) ApiUmfuturesGetAccountConfigV1Request {
+	return ApiUmfuturesGetAccountConfigV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -215,7 +215,7 @@ func (a *AccountAPIService) UmfuturesGetAccountConfigV1(ctx context.Context) Acc
 
 // Execute executes the request
 //  @return UmfuturesGetAccountConfigV1Resp
-func (a *AccountAPIService) UmfuturesGetAccountConfigV1Execute(r AccountAPIUmfuturesGetAccountConfigV1Request) (*UmfuturesGetAccountConfigV1Resp, *http.Response, error) {
+func (a *AccountAPIService) UmfuturesGetAccountConfigV1Execute(r ApiUmfuturesGetAccountConfigV1Request) (*UmfuturesGetAccountConfigV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -322,24 +322,24 @@ func (a *AccountAPIService) UmfuturesGetAccountConfigV1Execute(r AccountAPIUmfut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIUmfuturesGetAccountV2Request struct {
+type ApiUmfuturesGetAccountV2Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIUmfuturesGetAccountV2Request) Timestamp(timestamp int64) AccountAPIUmfuturesGetAccountV2Request {
+func (r ApiUmfuturesGetAccountV2Request) Timestamp(timestamp int64) ApiUmfuturesGetAccountV2Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIUmfuturesGetAccountV2Request) RecvWindow(recvWindow int64) AccountAPIUmfuturesGetAccountV2Request {
+func (r ApiUmfuturesGetAccountV2Request) RecvWindow(recvWindow int64) ApiUmfuturesGetAccountV2Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIUmfuturesGetAccountV2Request) Execute() (*UmfuturesGetAccountV2Resp, *http.Response, error) {
+func (r ApiUmfuturesGetAccountV2Request) Execute() (*UmfuturesGetAccountV2Resp, *http.Response, error) {
 	return r.ApiService.UmfuturesGetAccountV2Execute(r)
 }
 
@@ -349,10 +349,10 @@ UmfuturesGetAccountV2 Account Information V2(USER_DATA)
 Get current account information. User in single-asset/ multi-assets mode will see different value, see comments in response section for detail.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIUmfuturesGetAccountV2Request
+ @return ApiUmfuturesGetAccountV2Request
 */
-func (a *AccountAPIService) UmfuturesGetAccountV2(ctx context.Context) AccountAPIUmfuturesGetAccountV2Request {
-	return AccountAPIUmfuturesGetAccountV2Request{
+func (a *AccountAPIService) UmfuturesGetAccountV2(ctx context.Context) ApiUmfuturesGetAccountV2Request {
+	return ApiUmfuturesGetAccountV2Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -360,7 +360,7 @@ func (a *AccountAPIService) UmfuturesGetAccountV2(ctx context.Context) AccountAP
 
 // Execute executes the request
 //  @return UmfuturesGetAccountV2Resp
-func (a *AccountAPIService) UmfuturesGetAccountV2Execute(r AccountAPIUmfuturesGetAccountV2Request) (*UmfuturesGetAccountV2Resp, *http.Response, error) {
+func (a *AccountAPIService) UmfuturesGetAccountV2Execute(r ApiUmfuturesGetAccountV2Request) (*UmfuturesGetAccountV2Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -467,24 +467,24 @@ func (a *AccountAPIService) UmfuturesGetAccountV2Execute(r AccountAPIUmfuturesGe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIUmfuturesGetAccountV3Request struct {
+type ApiUmfuturesGetAccountV3Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIUmfuturesGetAccountV3Request) Timestamp(timestamp int64) AccountAPIUmfuturesGetAccountV3Request {
+func (r ApiUmfuturesGetAccountV3Request) Timestamp(timestamp int64) ApiUmfuturesGetAccountV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIUmfuturesGetAccountV3Request) RecvWindow(recvWindow int64) AccountAPIUmfuturesGetAccountV3Request {
+func (r ApiUmfuturesGetAccountV3Request) RecvWindow(recvWindow int64) ApiUmfuturesGetAccountV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIUmfuturesGetAccountV3Request) Execute() (*UmfuturesGetAccountV3Resp, *http.Response, error) {
+func (r ApiUmfuturesGetAccountV3Request) Execute() (*UmfuturesGetAccountV3Resp, *http.Response, error) {
 	return r.ApiService.UmfuturesGetAccountV3Execute(r)
 }
 
@@ -494,10 +494,10 @@ UmfuturesGetAccountV3 Account Information V3(USER_DATA)
 Get current account information. User in single-asset/ multi-assets mode will see different value, see comments in response section for detail.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIUmfuturesGetAccountV3Request
+ @return ApiUmfuturesGetAccountV3Request
 */
-func (a *AccountAPIService) UmfuturesGetAccountV3(ctx context.Context) AccountAPIUmfuturesGetAccountV3Request {
-	return AccountAPIUmfuturesGetAccountV3Request{
+func (a *AccountAPIService) UmfuturesGetAccountV3(ctx context.Context) ApiUmfuturesGetAccountV3Request {
+	return ApiUmfuturesGetAccountV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -505,7 +505,7 @@ func (a *AccountAPIService) UmfuturesGetAccountV3(ctx context.Context) AccountAP
 
 // Execute executes the request
 //  @return UmfuturesGetAccountV3Resp
-func (a *AccountAPIService) UmfuturesGetAccountV3Execute(r AccountAPIUmfuturesGetAccountV3Request) (*UmfuturesGetAccountV3Resp, *http.Response, error) {
+func (a *AccountAPIService) UmfuturesGetAccountV3Execute(r ApiUmfuturesGetAccountV3Request) (*UmfuturesGetAccountV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -612,7 +612,7 @@ func (a *AccountAPIService) UmfuturesGetAccountV3Execute(r AccountAPIUmfuturesGe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIUmfuturesGetApiTradingStatusV1Request struct {
+type ApiUmfuturesGetApiTradingStatusV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
@@ -620,22 +620,22 @@ type AccountAPIUmfuturesGetApiTradingStatusV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIUmfuturesGetApiTradingStatusV1Request) Timestamp(timestamp int64) AccountAPIUmfuturesGetApiTradingStatusV1Request {
+func (r ApiUmfuturesGetApiTradingStatusV1Request) Timestamp(timestamp int64) ApiUmfuturesGetApiTradingStatusV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIUmfuturesGetApiTradingStatusV1Request) Symbol(symbol string) AccountAPIUmfuturesGetApiTradingStatusV1Request {
+func (r ApiUmfuturesGetApiTradingStatusV1Request) Symbol(symbol string) ApiUmfuturesGetApiTradingStatusV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r AccountAPIUmfuturesGetApiTradingStatusV1Request) RecvWindow(recvWindow int64) AccountAPIUmfuturesGetApiTradingStatusV1Request {
+func (r ApiUmfuturesGetApiTradingStatusV1Request) RecvWindow(recvWindow int64) ApiUmfuturesGetApiTradingStatusV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIUmfuturesGetApiTradingStatusV1Request) Execute() (*UmfuturesGetApiTradingStatusV1Resp, *http.Response, error) {
+func (r ApiUmfuturesGetApiTradingStatusV1Request) Execute() (*UmfuturesGetApiTradingStatusV1Resp, *http.Response, error) {
 	return r.ApiService.UmfuturesGetApiTradingStatusV1Execute(r)
 }
 
@@ -645,10 +645,10 @@ UmfuturesGetApiTradingStatusV1 Futures Trading Quantitative Rules Indicators (US
 Futures trading quantitative rules indicators, for more information on this, please refer to the Futures Trading Quantitative Rules
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIUmfuturesGetApiTradingStatusV1Request
+ @return ApiUmfuturesGetApiTradingStatusV1Request
 */
-func (a *AccountAPIService) UmfuturesGetApiTradingStatusV1(ctx context.Context) AccountAPIUmfuturesGetApiTradingStatusV1Request {
-	return AccountAPIUmfuturesGetApiTradingStatusV1Request{
+func (a *AccountAPIService) UmfuturesGetApiTradingStatusV1(ctx context.Context) ApiUmfuturesGetApiTradingStatusV1Request {
+	return ApiUmfuturesGetApiTradingStatusV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -656,7 +656,7 @@ func (a *AccountAPIService) UmfuturesGetApiTradingStatusV1(ctx context.Context) 
 
 // Execute executes the request
 //  @return UmfuturesGetApiTradingStatusV1Resp
-func (a *AccountAPIService) UmfuturesGetApiTradingStatusV1Execute(r AccountAPIUmfuturesGetApiTradingStatusV1Request) (*UmfuturesGetApiTradingStatusV1Resp, *http.Response, error) {
+func (a *AccountAPIService) UmfuturesGetApiTradingStatusV1Execute(r ApiUmfuturesGetApiTradingStatusV1Request) (*UmfuturesGetApiTradingStatusV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -769,24 +769,24 @@ func (a *AccountAPIService) UmfuturesGetApiTradingStatusV1Execute(r AccountAPIUm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIUmfuturesGetBalanceV2Request struct {
+type ApiUmfuturesGetBalanceV2Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIUmfuturesGetBalanceV2Request) Timestamp(timestamp int64) AccountAPIUmfuturesGetBalanceV2Request {
+func (r ApiUmfuturesGetBalanceV2Request) Timestamp(timestamp int64) ApiUmfuturesGetBalanceV2Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIUmfuturesGetBalanceV2Request) RecvWindow(recvWindow int64) AccountAPIUmfuturesGetBalanceV2Request {
+func (r ApiUmfuturesGetBalanceV2Request) RecvWindow(recvWindow int64) ApiUmfuturesGetBalanceV2Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIUmfuturesGetBalanceV2Request) Execute() ([]UmfuturesGetBalanceV2RespItem, *http.Response, error) {
+func (r ApiUmfuturesGetBalanceV2Request) Execute() ([]UmfuturesGetBalanceV2RespItem, *http.Response, error) {
 	return r.ApiService.UmfuturesGetBalanceV2Execute(r)
 }
 
@@ -796,10 +796,10 @@ UmfuturesGetBalanceV2 Futures Account Balance V2 (USER_DATA)
 Query account balance info
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIUmfuturesGetBalanceV2Request
+ @return ApiUmfuturesGetBalanceV2Request
 */
-func (a *AccountAPIService) UmfuturesGetBalanceV2(ctx context.Context) AccountAPIUmfuturesGetBalanceV2Request {
-	return AccountAPIUmfuturesGetBalanceV2Request{
+func (a *AccountAPIService) UmfuturesGetBalanceV2(ctx context.Context) ApiUmfuturesGetBalanceV2Request {
+	return ApiUmfuturesGetBalanceV2Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -807,7 +807,7 @@ func (a *AccountAPIService) UmfuturesGetBalanceV2(ctx context.Context) AccountAP
 
 // Execute executes the request
 //  @return []UmfuturesGetBalanceV2RespItem
-func (a *AccountAPIService) UmfuturesGetBalanceV2Execute(r AccountAPIUmfuturesGetBalanceV2Request) ([]UmfuturesGetBalanceV2RespItem, *http.Response, error) {
+func (a *AccountAPIService) UmfuturesGetBalanceV2Execute(r ApiUmfuturesGetBalanceV2Request) ([]UmfuturesGetBalanceV2RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -914,24 +914,24 @@ func (a *AccountAPIService) UmfuturesGetBalanceV2Execute(r AccountAPIUmfuturesGe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIUmfuturesGetBalanceV3Request struct {
+type ApiUmfuturesGetBalanceV3Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIUmfuturesGetBalanceV3Request) Timestamp(timestamp int64) AccountAPIUmfuturesGetBalanceV3Request {
+func (r ApiUmfuturesGetBalanceV3Request) Timestamp(timestamp int64) ApiUmfuturesGetBalanceV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIUmfuturesGetBalanceV3Request) RecvWindow(recvWindow int64) AccountAPIUmfuturesGetBalanceV3Request {
+func (r ApiUmfuturesGetBalanceV3Request) RecvWindow(recvWindow int64) ApiUmfuturesGetBalanceV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIUmfuturesGetBalanceV3Request) Execute() ([]UmfuturesGetBalanceV3RespItem, *http.Response, error) {
+func (r ApiUmfuturesGetBalanceV3Request) Execute() ([]UmfuturesGetBalanceV3RespItem, *http.Response, error) {
 	return r.ApiService.UmfuturesGetBalanceV3Execute(r)
 }
 
@@ -941,10 +941,10 @@ UmfuturesGetBalanceV3 Futures Account Balance V3 (USER_DATA)
 Query account balance info
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIUmfuturesGetBalanceV3Request
+ @return ApiUmfuturesGetBalanceV3Request
 */
-func (a *AccountAPIService) UmfuturesGetBalanceV3(ctx context.Context) AccountAPIUmfuturesGetBalanceV3Request {
-	return AccountAPIUmfuturesGetBalanceV3Request{
+func (a *AccountAPIService) UmfuturesGetBalanceV3(ctx context.Context) ApiUmfuturesGetBalanceV3Request {
+	return ApiUmfuturesGetBalanceV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -952,7 +952,7 @@ func (a *AccountAPIService) UmfuturesGetBalanceV3(ctx context.Context) AccountAP
 
 // Execute executes the request
 //  @return []UmfuturesGetBalanceV3RespItem
-func (a *AccountAPIService) UmfuturesGetBalanceV3Execute(r AccountAPIUmfuturesGetBalanceV3Request) ([]UmfuturesGetBalanceV3RespItem, *http.Response, error) {
+func (a *AccountAPIService) UmfuturesGetBalanceV3Execute(r ApiUmfuturesGetBalanceV3Request) ([]UmfuturesGetBalanceV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1059,7 +1059,7 @@ func (a *AccountAPIService) UmfuturesGetBalanceV3Execute(r AccountAPIUmfuturesGe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIUmfuturesGetCommissionRateV1Request struct {
+type ApiUmfuturesGetCommissionRateV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	symbol *string
@@ -1067,22 +1067,22 @@ type AccountAPIUmfuturesGetCommissionRateV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIUmfuturesGetCommissionRateV1Request) Symbol(symbol string) AccountAPIUmfuturesGetCommissionRateV1Request {
+func (r ApiUmfuturesGetCommissionRateV1Request) Symbol(symbol string) ApiUmfuturesGetCommissionRateV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r AccountAPIUmfuturesGetCommissionRateV1Request) Timestamp(timestamp int64) AccountAPIUmfuturesGetCommissionRateV1Request {
+func (r ApiUmfuturesGetCommissionRateV1Request) Timestamp(timestamp int64) ApiUmfuturesGetCommissionRateV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIUmfuturesGetCommissionRateV1Request) RecvWindow(recvWindow int64) AccountAPIUmfuturesGetCommissionRateV1Request {
+func (r ApiUmfuturesGetCommissionRateV1Request) RecvWindow(recvWindow int64) ApiUmfuturesGetCommissionRateV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIUmfuturesGetCommissionRateV1Request) Execute() (*UmfuturesGetCommissionRateV1Resp, *http.Response, error) {
+func (r ApiUmfuturesGetCommissionRateV1Request) Execute() (*UmfuturesGetCommissionRateV1Resp, *http.Response, error) {
 	return r.ApiService.UmfuturesGetCommissionRateV1Execute(r)
 }
 
@@ -1092,10 +1092,10 @@ UmfuturesGetCommissionRateV1 User Commission Rate (USER_DATA)
 Get User Commission Rate
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIUmfuturesGetCommissionRateV1Request
+ @return ApiUmfuturesGetCommissionRateV1Request
 */
-func (a *AccountAPIService) UmfuturesGetCommissionRateV1(ctx context.Context) AccountAPIUmfuturesGetCommissionRateV1Request {
-	return AccountAPIUmfuturesGetCommissionRateV1Request{
+func (a *AccountAPIService) UmfuturesGetCommissionRateV1(ctx context.Context) ApiUmfuturesGetCommissionRateV1Request {
+	return ApiUmfuturesGetCommissionRateV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1103,7 +1103,7 @@ func (a *AccountAPIService) UmfuturesGetCommissionRateV1(ctx context.Context) Ac
 
 // Execute executes the request
 //  @return UmfuturesGetCommissionRateV1Resp
-func (a *AccountAPIService) UmfuturesGetCommissionRateV1Execute(r AccountAPIUmfuturesGetCommissionRateV1Request) (*UmfuturesGetCommissionRateV1Resp, *http.Response, error) {
+func (a *AccountAPIService) UmfuturesGetCommissionRateV1Execute(r ApiUmfuturesGetCommissionRateV1Request) (*UmfuturesGetCommissionRateV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1214,24 +1214,24 @@ func (a *AccountAPIService) UmfuturesGetCommissionRateV1Execute(r AccountAPIUmfu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIUmfuturesGetFeeBurnV1Request struct {
+type ApiUmfuturesGetFeeBurnV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIUmfuturesGetFeeBurnV1Request) Timestamp(timestamp int64) AccountAPIUmfuturesGetFeeBurnV1Request {
+func (r ApiUmfuturesGetFeeBurnV1Request) Timestamp(timestamp int64) ApiUmfuturesGetFeeBurnV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIUmfuturesGetFeeBurnV1Request) RecvWindow(recvWindow int64) AccountAPIUmfuturesGetFeeBurnV1Request {
+func (r ApiUmfuturesGetFeeBurnV1Request) RecvWindow(recvWindow int64) ApiUmfuturesGetFeeBurnV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIUmfuturesGetFeeBurnV1Request) Execute() (*UmfuturesGetFeeBurnV1Resp, *http.Response, error) {
+func (r ApiUmfuturesGetFeeBurnV1Request) Execute() (*UmfuturesGetFeeBurnV1Resp, *http.Response, error) {
 	return r.ApiService.UmfuturesGetFeeBurnV1Execute(r)
 }
 
@@ -1241,10 +1241,10 @@ UmfuturesGetFeeBurnV1 Get BNB Burn Status (USER_DATA)
 Get user's BNB Fee Discount (Fee Discount On or Fee Discount Off )
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIUmfuturesGetFeeBurnV1Request
+ @return ApiUmfuturesGetFeeBurnV1Request
 */
-func (a *AccountAPIService) UmfuturesGetFeeBurnV1(ctx context.Context) AccountAPIUmfuturesGetFeeBurnV1Request {
-	return AccountAPIUmfuturesGetFeeBurnV1Request{
+func (a *AccountAPIService) UmfuturesGetFeeBurnV1(ctx context.Context) ApiUmfuturesGetFeeBurnV1Request {
+	return ApiUmfuturesGetFeeBurnV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1252,7 +1252,7 @@ func (a *AccountAPIService) UmfuturesGetFeeBurnV1(ctx context.Context) AccountAP
 
 // Execute executes the request
 //  @return UmfuturesGetFeeBurnV1Resp
-func (a *AccountAPIService) UmfuturesGetFeeBurnV1Execute(r AccountAPIUmfuturesGetFeeBurnV1Request) (*UmfuturesGetFeeBurnV1Resp, *http.Response, error) {
+func (a *AccountAPIService) UmfuturesGetFeeBurnV1Execute(r ApiUmfuturesGetFeeBurnV1Request) (*UmfuturesGetFeeBurnV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1359,7 +1359,7 @@ func (a *AccountAPIService) UmfuturesGetFeeBurnV1Execute(r AccountAPIUmfuturesGe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIUmfuturesGetIncomeAsynIdV1Request struct {
+type ApiUmfuturesGetIncomeAsynIdV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	downloadId *string
@@ -1368,22 +1368,22 @@ type AccountAPIUmfuturesGetIncomeAsynIdV1Request struct {
 }
 
 // get by download id api
-func (r AccountAPIUmfuturesGetIncomeAsynIdV1Request) DownloadId(downloadId string) AccountAPIUmfuturesGetIncomeAsynIdV1Request {
+func (r ApiUmfuturesGetIncomeAsynIdV1Request) DownloadId(downloadId string) ApiUmfuturesGetIncomeAsynIdV1Request {
 	r.downloadId = &downloadId
 	return r
 }
 
-func (r AccountAPIUmfuturesGetIncomeAsynIdV1Request) Timestamp(timestamp int64) AccountAPIUmfuturesGetIncomeAsynIdV1Request {
+func (r ApiUmfuturesGetIncomeAsynIdV1Request) Timestamp(timestamp int64) ApiUmfuturesGetIncomeAsynIdV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIUmfuturesGetIncomeAsynIdV1Request) RecvWindow(recvWindow int64) AccountAPIUmfuturesGetIncomeAsynIdV1Request {
+func (r ApiUmfuturesGetIncomeAsynIdV1Request) RecvWindow(recvWindow int64) ApiUmfuturesGetIncomeAsynIdV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIUmfuturesGetIncomeAsynIdV1Request) Execute() (*UmfuturesGetIncomeAsynIdV1Resp, *http.Response, error) {
+func (r ApiUmfuturesGetIncomeAsynIdV1Request) Execute() (*UmfuturesGetIncomeAsynIdV1Resp, *http.Response, error) {
 	return r.ApiService.UmfuturesGetIncomeAsynIdV1Execute(r)
 }
 
@@ -1393,10 +1393,10 @@ UmfuturesGetIncomeAsynIdV1 Get Futures Transaction History Download Link by Id (
 Get futures transaction history download link by Id
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIUmfuturesGetIncomeAsynIdV1Request
+ @return ApiUmfuturesGetIncomeAsynIdV1Request
 */
-func (a *AccountAPIService) UmfuturesGetIncomeAsynIdV1(ctx context.Context) AccountAPIUmfuturesGetIncomeAsynIdV1Request {
-	return AccountAPIUmfuturesGetIncomeAsynIdV1Request{
+func (a *AccountAPIService) UmfuturesGetIncomeAsynIdV1(ctx context.Context) ApiUmfuturesGetIncomeAsynIdV1Request {
+	return ApiUmfuturesGetIncomeAsynIdV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1404,7 +1404,7 @@ func (a *AccountAPIService) UmfuturesGetIncomeAsynIdV1(ctx context.Context) Acco
 
 // Execute executes the request
 //  @return UmfuturesGetIncomeAsynIdV1Resp
-func (a *AccountAPIService) UmfuturesGetIncomeAsynIdV1Execute(r AccountAPIUmfuturesGetIncomeAsynIdV1Request) (*UmfuturesGetIncomeAsynIdV1Resp, *http.Response, error) {
+func (a *AccountAPIService) UmfuturesGetIncomeAsynIdV1Execute(r ApiUmfuturesGetIncomeAsynIdV1Request) (*UmfuturesGetIncomeAsynIdV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1515,7 +1515,7 @@ func (a *AccountAPIService) UmfuturesGetIncomeAsynIdV1Execute(r AccountAPIUmfutu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIUmfuturesGetIncomeAsynV1Request struct {
+type ApiUmfuturesGetIncomeAsynV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	startTime *int64
@@ -1525,28 +1525,28 @@ type AccountAPIUmfuturesGetIncomeAsynV1Request struct {
 }
 
 // Timestamp in ms
-func (r AccountAPIUmfuturesGetIncomeAsynV1Request) StartTime(startTime int64) AccountAPIUmfuturesGetIncomeAsynV1Request {
+func (r ApiUmfuturesGetIncomeAsynV1Request) StartTime(startTime int64) ApiUmfuturesGetIncomeAsynV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // Timestamp in ms
-func (r AccountAPIUmfuturesGetIncomeAsynV1Request) EndTime(endTime int64) AccountAPIUmfuturesGetIncomeAsynV1Request {
+func (r ApiUmfuturesGetIncomeAsynV1Request) EndTime(endTime int64) ApiUmfuturesGetIncomeAsynV1Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r AccountAPIUmfuturesGetIncomeAsynV1Request) Timestamp(timestamp int64) AccountAPIUmfuturesGetIncomeAsynV1Request {
+func (r ApiUmfuturesGetIncomeAsynV1Request) Timestamp(timestamp int64) ApiUmfuturesGetIncomeAsynV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIUmfuturesGetIncomeAsynV1Request) RecvWindow(recvWindow int64) AccountAPIUmfuturesGetIncomeAsynV1Request {
+func (r ApiUmfuturesGetIncomeAsynV1Request) RecvWindow(recvWindow int64) ApiUmfuturesGetIncomeAsynV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIUmfuturesGetIncomeAsynV1Request) Execute() (*UmfuturesGetIncomeAsynV1Resp, *http.Response, error) {
+func (r ApiUmfuturesGetIncomeAsynV1Request) Execute() (*UmfuturesGetIncomeAsynV1Resp, *http.Response, error) {
 	return r.ApiService.UmfuturesGetIncomeAsynV1Execute(r)
 }
 
@@ -1556,10 +1556,10 @@ UmfuturesGetIncomeAsynV1 Get Download Id For Futures Transaction History(USER_DA
 Get download id for futures transaction history
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIUmfuturesGetIncomeAsynV1Request
+ @return ApiUmfuturesGetIncomeAsynV1Request
 */
-func (a *AccountAPIService) UmfuturesGetIncomeAsynV1(ctx context.Context) AccountAPIUmfuturesGetIncomeAsynV1Request {
-	return AccountAPIUmfuturesGetIncomeAsynV1Request{
+func (a *AccountAPIService) UmfuturesGetIncomeAsynV1(ctx context.Context) ApiUmfuturesGetIncomeAsynV1Request {
+	return ApiUmfuturesGetIncomeAsynV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1567,7 +1567,7 @@ func (a *AccountAPIService) UmfuturesGetIncomeAsynV1(ctx context.Context) Accoun
 
 // Execute executes the request
 //  @return UmfuturesGetIncomeAsynV1Resp
-func (a *AccountAPIService) UmfuturesGetIncomeAsynV1Execute(r AccountAPIUmfuturesGetIncomeAsynV1Request) (*UmfuturesGetIncomeAsynV1Resp, *http.Response, error) {
+func (a *AccountAPIService) UmfuturesGetIncomeAsynV1Execute(r ApiUmfuturesGetIncomeAsynV1Request) (*UmfuturesGetIncomeAsynV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1682,7 +1682,7 @@ func (a *AccountAPIService) UmfuturesGetIncomeAsynV1Execute(r AccountAPIUmfuture
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIUmfuturesGetIncomeV1Request struct {
+type ApiUmfuturesGetIncomeV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
@@ -1695,51 +1695,51 @@ type AccountAPIUmfuturesGetIncomeV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIUmfuturesGetIncomeV1Request) Timestamp(timestamp int64) AccountAPIUmfuturesGetIncomeV1Request {
+func (r ApiUmfuturesGetIncomeV1Request) Timestamp(timestamp int64) ApiUmfuturesGetIncomeV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIUmfuturesGetIncomeV1Request) Symbol(symbol string) AccountAPIUmfuturesGetIncomeV1Request {
+func (r ApiUmfuturesGetIncomeV1Request) Symbol(symbol string) ApiUmfuturesGetIncomeV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // TRANSFER, WELCOME_BONUS, REALIZED_PNL, FUNDING_FEE, COMMISSION, INSURANCE_CLEAR, REFERRAL_KICKBACK, COMMISSION_REBATE, API_REBATE, CONTEST_REWARD, CROSS_COLLATERAL_TRANSFER, OPTIONS_PREMIUM_FEE, OPTIONS_SETTLE_PROFIT, INTERNAL_TRANSFER, AUTO_EXCHANGE, DELIVERED_SETTELMENT, COIN_SWAP_DEPOSIT, COIN_SWAP_WITHDRAW, POSITION_LIMIT_INCREASE_FEE, STRATEGY_UMFUTURES_TRANSFER，FEE_RETURN，BFUSD_REWARD
-func (r AccountAPIUmfuturesGetIncomeV1Request) IncomeType(incomeType string) AccountAPIUmfuturesGetIncomeV1Request {
+func (r ApiUmfuturesGetIncomeV1Request) IncomeType(incomeType string) ApiUmfuturesGetIncomeV1Request {
 	r.incomeType = &incomeType
 	return r
 }
 
 // Timestamp in ms to get funding from INCLUSIVE.
-func (r AccountAPIUmfuturesGetIncomeV1Request) StartTime(startTime int64) AccountAPIUmfuturesGetIncomeV1Request {
+func (r ApiUmfuturesGetIncomeV1Request) StartTime(startTime int64) ApiUmfuturesGetIncomeV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // Timestamp in ms to get funding until INCLUSIVE.
-func (r AccountAPIUmfuturesGetIncomeV1Request) EndTime(endTime int64) AccountAPIUmfuturesGetIncomeV1Request {
+func (r ApiUmfuturesGetIncomeV1Request) EndTime(endTime int64) ApiUmfuturesGetIncomeV1Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r AccountAPIUmfuturesGetIncomeV1Request) Page(page int32) AccountAPIUmfuturesGetIncomeV1Request {
+func (r ApiUmfuturesGetIncomeV1Request) Page(page int32) ApiUmfuturesGetIncomeV1Request {
 	r.page = &page
 	return r
 }
 
 // Default 100; max 1000
-func (r AccountAPIUmfuturesGetIncomeV1Request) Limit(limit int32) AccountAPIUmfuturesGetIncomeV1Request {
+func (r ApiUmfuturesGetIncomeV1Request) Limit(limit int32) ApiUmfuturesGetIncomeV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r AccountAPIUmfuturesGetIncomeV1Request) RecvWindow(recvWindow int64) AccountAPIUmfuturesGetIncomeV1Request {
+func (r ApiUmfuturesGetIncomeV1Request) RecvWindow(recvWindow int64) ApiUmfuturesGetIncomeV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIUmfuturesGetIncomeV1Request) Execute() ([]UmfuturesGetIncomeV1RespItem, *http.Response, error) {
+func (r ApiUmfuturesGetIncomeV1Request) Execute() ([]UmfuturesGetIncomeV1RespItem, *http.Response, error) {
 	return r.ApiService.UmfuturesGetIncomeV1Execute(r)
 }
 
@@ -1749,10 +1749,10 @@ UmfuturesGetIncomeV1 Get Income History (USER_DATA)
 Query income history
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIUmfuturesGetIncomeV1Request
+ @return ApiUmfuturesGetIncomeV1Request
 */
-func (a *AccountAPIService) UmfuturesGetIncomeV1(ctx context.Context) AccountAPIUmfuturesGetIncomeV1Request {
-	return AccountAPIUmfuturesGetIncomeV1Request{
+func (a *AccountAPIService) UmfuturesGetIncomeV1(ctx context.Context) ApiUmfuturesGetIncomeV1Request {
+	return ApiUmfuturesGetIncomeV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1760,7 +1760,7 @@ func (a *AccountAPIService) UmfuturesGetIncomeV1(ctx context.Context) AccountAPI
 
 // Execute executes the request
 //  @return []UmfuturesGetIncomeV1RespItem
-func (a *AccountAPIService) UmfuturesGetIncomeV1Execute(r AccountAPIUmfuturesGetIncomeV1Request) ([]UmfuturesGetIncomeV1RespItem, *http.Response, error) {
+func (a *AccountAPIService) UmfuturesGetIncomeV1Execute(r ApiUmfuturesGetIncomeV1Request) ([]UmfuturesGetIncomeV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1894,7 +1894,7 @@ func (a *AccountAPIService) UmfuturesGetIncomeV1Execute(r AccountAPIUmfuturesGet
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIUmfuturesGetLeverageBracketV1Request struct {
+type ApiUmfuturesGetLeverageBracketV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
@@ -1902,22 +1902,22 @@ type AccountAPIUmfuturesGetLeverageBracketV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIUmfuturesGetLeverageBracketV1Request) Timestamp(timestamp int64) AccountAPIUmfuturesGetLeverageBracketV1Request {
+func (r ApiUmfuturesGetLeverageBracketV1Request) Timestamp(timestamp int64) ApiUmfuturesGetLeverageBracketV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIUmfuturesGetLeverageBracketV1Request) Symbol(symbol string) AccountAPIUmfuturesGetLeverageBracketV1Request {
+func (r ApiUmfuturesGetLeverageBracketV1Request) Symbol(symbol string) ApiUmfuturesGetLeverageBracketV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r AccountAPIUmfuturesGetLeverageBracketV1Request) RecvWindow(recvWindow int64) AccountAPIUmfuturesGetLeverageBracketV1Request {
+func (r ApiUmfuturesGetLeverageBracketV1Request) RecvWindow(recvWindow int64) ApiUmfuturesGetLeverageBracketV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIUmfuturesGetLeverageBracketV1Request) Execute() (*UmfuturesGetLeverageBracketV1Resp, *http.Response, error) {
+func (r ApiUmfuturesGetLeverageBracketV1Request) Execute() (*UmfuturesGetLeverageBracketV1Resp, *http.Response, error) {
 	return r.ApiService.UmfuturesGetLeverageBracketV1Execute(r)
 }
 
@@ -1927,10 +1927,10 @@ UmfuturesGetLeverageBracketV1 Notional and Leverage Brackets (USER_DATA)
 Query user notional and leverage bracket on speicfic symbol
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIUmfuturesGetLeverageBracketV1Request
+ @return ApiUmfuturesGetLeverageBracketV1Request
 */
-func (a *AccountAPIService) UmfuturesGetLeverageBracketV1(ctx context.Context) AccountAPIUmfuturesGetLeverageBracketV1Request {
-	return AccountAPIUmfuturesGetLeverageBracketV1Request{
+func (a *AccountAPIService) UmfuturesGetLeverageBracketV1(ctx context.Context) ApiUmfuturesGetLeverageBracketV1Request {
+	return ApiUmfuturesGetLeverageBracketV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1938,7 +1938,7 @@ func (a *AccountAPIService) UmfuturesGetLeverageBracketV1(ctx context.Context) A
 
 // Execute executes the request
 //  @return UmfuturesGetLeverageBracketV1Resp
-func (a *AccountAPIService) UmfuturesGetLeverageBracketV1Execute(r AccountAPIUmfuturesGetLeverageBracketV1Request) (*UmfuturesGetLeverageBracketV1Resp, *http.Response, error) {
+func (a *AccountAPIService) UmfuturesGetLeverageBracketV1Execute(r ApiUmfuturesGetLeverageBracketV1Request) (*UmfuturesGetLeverageBracketV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2051,24 +2051,24 @@ func (a *AccountAPIService) UmfuturesGetLeverageBracketV1Execute(r AccountAPIUmf
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIUmfuturesGetMultiAssetsMarginV1Request struct {
+type ApiUmfuturesGetMultiAssetsMarginV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIUmfuturesGetMultiAssetsMarginV1Request) Timestamp(timestamp int64) AccountAPIUmfuturesGetMultiAssetsMarginV1Request {
+func (r ApiUmfuturesGetMultiAssetsMarginV1Request) Timestamp(timestamp int64) ApiUmfuturesGetMultiAssetsMarginV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIUmfuturesGetMultiAssetsMarginV1Request) RecvWindow(recvWindow int64) AccountAPIUmfuturesGetMultiAssetsMarginV1Request {
+func (r ApiUmfuturesGetMultiAssetsMarginV1Request) RecvWindow(recvWindow int64) ApiUmfuturesGetMultiAssetsMarginV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIUmfuturesGetMultiAssetsMarginV1Request) Execute() (*UmfuturesGetMultiAssetsMarginV1Resp, *http.Response, error) {
+func (r ApiUmfuturesGetMultiAssetsMarginV1Request) Execute() (*UmfuturesGetMultiAssetsMarginV1Resp, *http.Response, error) {
 	return r.ApiService.UmfuturesGetMultiAssetsMarginV1Execute(r)
 }
 
@@ -2078,10 +2078,10 @@ UmfuturesGetMultiAssetsMarginV1 Get Current Multi-Assets Mode (USER_DATA)
 Get user's Multi-Assets mode (Multi-Assets Mode or Single-Asset Mode) on Every symbol
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIUmfuturesGetMultiAssetsMarginV1Request
+ @return ApiUmfuturesGetMultiAssetsMarginV1Request
 */
-func (a *AccountAPIService) UmfuturesGetMultiAssetsMarginV1(ctx context.Context) AccountAPIUmfuturesGetMultiAssetsMarginV1Request {
-	return AccountAPIUmfuturesGetMultiAssetsMarginV1Request{
+func (a *AccountAPIService) UmfuturesGetMultiAssetsMarginV1(ctx context.Context) ApiUmfuturesGetMultiAssetsMarginV1Request {
+	return ApiUmfuturesGetMultiAssetsMarginV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2089,7 +2089,7 @@ func (a *AccountAPIService) UmfuturesGetMultiAssetsMarginV1(ctx context.Context)
 
 // Execute executes the request
 //  @return UmfuturesGetMultiAssetsMarginV1Resp
-func (a *AccountAPIService) UmfuturesGetMultiAssetsMarginV1Execute(r AccountAPIUmfuturesGetMultiAssetsMarginV1Request) (*UmfuturesGetMultiAssetsMarginV1Resp, *http.Response, error) {
+func (a *AccountAPIService) UmfuturesGetMultiAssetsMarginV1Execute(r ApiUmfuturesGetMultiAssetsMarginV1Request) (*UmfuturesGetMultiAssetsMarginV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2196,7 +2196,7 @@ func (a *AccountAPIService) UmfuturesGetMultiAssetsMarginV1Execute(r AccountAPIU
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIUmfuturesGetOrderAsynIdV1Request struct {
+type ApiUmfuturesGetOrderAsynIdV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	downloadId *string
@@ -2205,22 +2205,22 @@ type AccountAPIUmfuturesGetOrderAsynIdV1Request struct {
 }
 
 // get by download id api
-func (r AccountAPIUmfuturesGetOrderAsynIdV1Request) DownloadId(downloadId string) AccountAPIUmfuturesGetOrderAsynIdV1Request {
+func (r ApiUmfuturesGetOrderAsynIdV1Request) DownloadId(downloadId string) ApiUmfuturesGetOrderAsynIdV1Request {
 	r.downloadId = &downloadId
 	return r
 }
 
-func (r AccountAPIUmfuturesGetOrderAsynIdV1Request) Timestamp(timestamp int64) AccountAPIUmfuturesGetOrderAsynIdV1Request {
+func (r ApiUmfuturesGetOrderAsynIdV1Request) Timestamp(timestamp int64) ApiUmfuturesGetOrderAsynIdV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIUmfuturesGetOrderAsynIdV1Request) RecvWindow(recvWindow int64) AccountAPIUmfuturesGetOrderAsynIdV1Request {
+func (r ApiUmfuturesGetOrderAsynIdV1Request) RecvWindow(recvWindow int64) ApiUmfuturesGetOrderAsynIdV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIUmfuturesGetOrderAsynIdV1Request) Execute() (*UmfuturesGetOrderAsynIdV1Resp, *http.Response, error) {
+func (r ApiUmfuturesGetOrderAsynIdV1Request) Execute() (*UmfuturesGetOrderAsynIdV1Resp, *http.Response, error) {
 	return r.ApiService.UmfuturesGetOrderAsynIdV1Execute(r)
 }
 
@@ -2230,10 +2230,10 @@ UmfuturesGetOrderAsynIdV1 Get Futures Order History Download Link by Id (USER_DA
 Get futures order history download link by Id
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIUmfuturesGetOrderAsynIdV1Request
+ @return ApiUmfuturesGetOrderAsynIdV1Request
 */
-func (a *AccountAPIService) UmfuturesGetOrderAsynIdV1(ctx context.Context) AccountAPIUmfuturesGetOrderAsynIdV1Request {
-	return AccountAPIUmfuturesGetOrderAsynIdV1Request{
+func (a *AccountAPIService) UmfuturesGetOrderAsynIdV1(ctx context.Context) ApiUmfuturesGetOrderAsynIdV1Request {
+	return ApiUmfuturesGetOrderAsynIdV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2241,7 +2241,7 @@ func (a *AccountAPIService) UmfuturesGetOrderAsynIdV1(ctx context.Context) Accou
 
 // Execute executes the request
 //  @return UmfuturesGetOrderAsynIdV1Resp
-func (a *AccountAPIService) UmfuturesGetOrderAsynIdV1Execute(r AccountAPIUmfuturesGetOrderAsynIdV1Request) (*UmfuturesGetOrderAsynIdV1Resp, *http.Response, error) {
+func (a *AccountAPIService) UmfuturesGetOrderAsynIdV1Execute(r ApiUmfuturesGetOrderAsynIdV1Request) (*UmfuturesGetOrderAsynIdV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2352,7 +2352,7 @@ func (a *AccountAPIService) UmfuturesGetOrderAsynIdV1Execute(r AccountAPIUmfutur
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIUmfuturesGetOrderAsynV1Request struct {
+type ApiUmfuturesGetOrderAsynV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	startTime *int64
@@ -2362,28 +2362,28 @@ type AccountAPIUmfuturesGetOrderAsynV1Request struct {
 }
 
 // Timestamp in ms
-func (r AccountAPIUmfuturesGetOrderAsynV1Request) StartTime(startTime int64) AccountAPIUmfuturesGetOrderAsynV1Request {
+func (r ApiUmfuturesGetOrderAsynV1Request) StartTime(startTime int64) ApiUmfuturesGetOrderAsynV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // Timestamp in ms
-func (r AccountAPIUmfuturesGetOrderAsynV1Request) EndTime(endTime int64) AccountAPIUmfuturesGetOrderAsynV1Request {
+func (r ApiUmfuturesGetOrderAsynV1Request) EndTime(endTime int64) ApiUmfuturesGetOrderAsynV1Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r AccountAPIUmfuturesGetOrderAsynV1Request) Timestamp(timestamp int64) AccountAPIUmfuturesGetOrderAsynV1Request {
+func (r ApiUmfuturesGetOrderAsynV1Request) Timestamp(timestamp int64) ApiUmfuturesGetOrderAsynV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIUmfuturesGetOrderAsynV1Request) RecvWindow(recvWindow int64) AccountAPIUmfuturesGetOrderAsynV1Request {
+func (r ApiUmfuturesGetOrderAsynV1Request) RecvWindow(recvWindow int64) ApiUmfuturesGetOrderAsynV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIUmfuturesGetOrderAsynV1Request) Execute() (*UmfuturesGetOrderAsynV1Resp, *http.Response, error) {
+func (r ApiUmfuturesGetOrderAsynV1Request) Execute() (*UmfuturesGetOrderAsynV1Resp, *http.Response, error) {
 	return r.ApiService.UmfuturesGetOrderAsynV1Execute(r)
 }
 
@@ -2393,10 +2393,10 @@ UmfuturesGetOrderAsynV1 Get Download Id For Futures Order History (USER_DATA)
 Get Download Id For Futures Order History
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIUmfuturesGetOrderAsynV1Request
+ @return ApiUmfuturesGetOrderAsynV1Request
 */
-func (a *AccountAPIService) UmfuturesGetOrderAsynV1(ctx context.Context) AccountAPIUmfuturesGetOrderAsynV1Request {
-	return AccountAPIUmfuturesGetOrderAsynV1Request{
+func (a *AccountAPIService) UmfuturesGetOrderAsynV1(ctx context.Context) ApiUmfuturesGetOrderAsynV1Request {
+	return ApiUmfuturesGetOrderAsynV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2404,7 +2404,7 @@ func (a *AccountAPIService) UmfuturesGetOrderAsynV1(ctx context.Context) Account
 
 // Execute executes the request
 //  @return UmfuturesGetOrderAsynV1Resp
-func (a *AccountAPIService) UmfuturesGetOrderAsynV1Execute(r AccountAPIUmfuturesGetOrderAsynV1Request) (*UmfuturesGetOrderAsynV1Resp, *http.Response, error) {
+func (a *AccountAPIService) UmfuturesGetOrderAsynV1Execute(r ApiUmfuturesGetOrderAsynV1Request) (*UmfuturesGetOrderAsynV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2519,24 +2519,24 @@ func (a *AccountAPIService) UmfuturesGetOrderAsynV1Execute(r AccountAPIUmfutures
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIUmfuturesGetPositionSideDualV1Request struct {
+type ApiUmfuturesGetPositionSideDualV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIUmfuturesGetPositionSideDualV1Request) Timestamp(timestamp int64) AccountAPIUmfuturesGetPositionSideDualV1Request {
+func (r ApiUmfuturesGetPositionSideDualV1Request) Timestamp(timestamp int64) ApiUmfuturesGetPositionSideDualV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIUmfuturesGetPositionSideDualV1Request) RecvWindow(recvWindow int64) AccountAPIUmfuturesGetPositionSideDualV1Request {
+func (r ApiUmfuturesGetPositionSideDualV1Request) RecvWindow(recvWindow int64) ApiUmfuturesGetPositionSideDualV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIUmfuturesGetPositionSideDualV1Request) Execute() (*UmfuturesGetPositionSideDualV1Resp, *http.Response, error) {
+func (r ApiUmfuturesGetPositionSideDualV1Request) Execute() (*UmfuturesGetPositionSideDualV1Resp, *http.Response, error) {
 	return r.ApiService.UmfuturesGetPositionSideDualV1Execute(r)
 }
 
@@ -2546,10 +2546,10 @@ UmfuturesGetPositionSideDualV1 Get Current Position Mode(USER_DATA)
 Get user's position mode (Hedge Mode or One-way Mode ) on EVERY symbol
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIUmfuturesGetPositionSideDualV1Request
+ @return ApiUmfuturesGetPositionSideDualV1Request
 */
-func (a *AccountAPIService) UmfuturesGetPositionSideDualV1(ctx context.Context) AccountAPIUmfuturesGetPositionSideDualV1Request {
-	return AccountAPIUmfuturesGetPositionSideDualV1Request{
+func (a *AccountAPIService) UmfuturesGetPositionSideDualV1(ctx context.Context) ApiUmfuturesGetPositionSideDualV1Request {
+	return ApiUmfuturesGetPositionSideDualV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2557,7 +2557,7 @@ func (a *AccountAPIService) UmfuturesGetPositionSideDualV1(ctx context.Context) 
 
 // Execute executes the request
 //  @return UmfuturesGetPositionSideDualV1Resp
-func (a *AccountAPIService) UmfuturesGetPositionSideDualV1Execute(r AccountAPIUmfuturesGetPositionSideDualV1Request) (*UmfuturesGetPositionSideDualV1Resp, *http.Response, error) {
+func (a *AccountAPIService) UmfuturesGetPositionSideDualV1Execute(r ApiUmfuturesGetPositionSideDualV1Request) (*UmfuturesGetPositionSideDualV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2664,24 +2664,24 @@ func (a *AccountAPIService) UmfuturesGetPositionSideDualV1Execute(r AccountAPIUm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIUmfuturesGetRateLimitOrderV1Request struct {
+type ApiUmfuturesGetRateLimitOrderV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIUmfuturesGetRateLimitOrderV1Request) Timestamp(timestamp int64) AccountAPIUmfuturesGetRateLimitOrderV1Request {
+func (r ApiUmfuturesGetRateLimitOrderV1Request) Timestamp(timestamp int64) ApiUmfuturesGetRateLimitOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIUmfuturesGetRateLimitOrderV1Request) RecvWindow(recvWindow int64) AccountAPIUmfuturesGetRateLimitOrderV1Request {
+func (r ApiUmfuturesGetRateLimitOrderV1Request) RecvWindow(recvWindow int64) ApiUmfuturesGetRateLimitOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIUmfuturesGetRateLimitOrderV1Request) Execute() ([]UmfuturesGetRateLimitOrderV1RespItem, *http.Response, error) {
+func (r ApiUmfuturesGetRateLimitOrderV1Request) Execute() ([]UmfuturesGetRateLimitOrderV1RespItem, *http.Response, error) {
 	return r.ApiService.UmfuturesGetRateLimitOrderV1Execute(r)
 }
 
@@ -2691,10 +2691,10 @@ UmfuturesGetRateLimitOrderV1 Query User Rate Limit (USER_DATA)
 Query User Rate Limit
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIUmfuturesGetRateLimitOrderV1Request
+ @return ApiUmfuturesGetRateLimitOrderV1Request
 */
-func (a *AccountAPIService) UmfuturesGetRateLimitOrderV1(ctx context.Context) AccountAPIUmfuturesGetRateLimitOrderV1Request {
-	return AccountAPIUmfuturesGetRateLimitOrderV1Request{
+func (a *AccountAPIService) UmfuturesGetRateLimitOrderV1(ctx context.Context) ApiUmfuturesGetRateLimitOrderV1Request {
+	return ApiUmfuturesGetRateLimitOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2702,7 +2702,7 @@ func (a *AccountAPIService) UmfuturesGetRateLimitOrderV1(ctx context.Context) Ac
 
 // Execute executes the request
 //  @return []UmfuturesGetRateLimitOrderV1RespItem
-func (a *AccountAPIService) UmfuturesGetRateLimitOrderV1Execute(r AccountAPIUmfuturesGetRateLimitOrderV1Request) ([]UmfuturesGetRateLimitOrderV1RespItem, *http.Response, error) {
+func (a *AccountAPIService) UmfuturesGetRateLimitOrderV1Execute(r ApiUmfuturesGetRateLimitOrderV1Request) ([]UmfuturesGetRateLimitOrderV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2809,7 +2809,7 @@ func (a *AccountAPIService) UmfuturesGetRateLimitOrderV1Execute(r AccountAPIUmfu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIUmfuturesGetSymbolConfigV1Request struct {
+type ApiUmfuturesGetSymbolConfigV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
@@ -2817,22 +2817,22 @@ type AccountAPIUmfuturesGetSymbolConfigV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIUmfuturesGetSymbolConfigV1Request) Timestamp(timestamp int64) AccountAPIUmfuturesGetSymbolConfigV1Request {
+func (r ApiUmfuturesGetSymbolConfigV1Request) Timestamp(timestamp int64) ApiUmfuturesGetSymbolConfigV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIUmfuturesGetSymbolConfigV1Request) Symbol(symbol string) AccountAPIUmfuturesGetSymbolConfigV1Request {
+func (r ApiUmfuturesGetSymbolConfigV1Request) Symbol(symbol string) ApiUmfuturesGetSymbolConfigV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r AccountAPIUmfuturesGetSymbolConfigV1Request) RecvWindow(recvWindow int64) AccountAPIUmfuturesGetSymbolConfigV1Request {
+func (r ApiUmfuturesGetSymbolConfigV1Request) RecvWindow(recvWindow int64) ApiUmfuturesGetSymbolConfigV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIUmfuturesGetSymbolConfigV1Request) Execute() ([]UmfuturesGetSymbolConfigV1RespItem, *http.Response, error) {
+func (r ApiUmfuturesGetSymbolConfigV1Request) Execute() ([]UmfuturesGetSymbolConfigV1RespItem, *http.Response, error) {
 	return r.ApiService.UmfuturesGetSymbolConfigV1Execute(r)
 }
 
@@ -2842,10 +2842,10 @@ UmfuturesGetSymbolConfigV1 Symbol Configuration(USER_DATA)
 Get current account symbol configuration.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIUmfuturesGetSymbolConfigV1Request
+ @return ApiUmfuturesGetSymbolConfigV1Request
 */
-func (a *AccountAPIService) UmfuturesGetSymbolConfigV1(ctx context.Context) AccountAPIUmfuturesGetSymbolConfigV1Request {
-	return AccountAPIUmfuturesGetSymbolConfigV1Request{
+func (a *AccountAPIService) UmfuturesGetSymbolConfigV1(ctx context.Context) ApiUmfuturesGetSymbolConfigV1Request {
+	return ApiUmfuturesGetSymbolConfigV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2853,7 +2853,7 @@ func (a *AccountAPIService) UmfuturesGetSymbolConfigV1(ctx context.Context) Acco
 
 // Execute executes the request
 //  @return []UmfuturesGetSymbolConfigV1RespItem
-func (a *AccountAPIService) UmfuturesGetSymbolConfigV1Execute(r AccountAPIUmfuturesGetSymbolConfigV1Request) ([]UmfuturesGetSymbolConfigV1RespItem, *http.Response, error) {
+func (a *AccountAPIService) UmfuturesGetSymbolConfigV1Execute(r ApiUmfuturesGetSymbolConfigV1Request) ([]UmfuturesGetSymbolConfigV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2966,7 +2966,7 @@ func (a *AccountAPIService) UmfuturesGetSymbolConfigV1Execute(r AccountAPIUmfutu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIUmfuturesGetTradeAsynIdV1Request struct {
+type ApiUmfuturesGetTradeAsynIdV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	downloadId *string
@@ -2975,22 +2975,22 @@ type AccountAPIUmfuturesGetTradeAsynIdV1Request struct {
 }
 
 // get by download id api
-func (r AccountAPIUmfuturesGetTradeAsynIdV1Request) DownloadId(downloadId string) AccountAPIUmfuturesGetTradeAsynIdV1Request {
+func (r ApiUmfuturesGetTradeAsynIdV1Request) DownloadId(downloadId string) ApiUmfuturesGetTradeAsynIdV1Request {
 	r.downloadId = &downloadId
 	return r
 }
 
-func (r AccountAPIUmfuturesGetTradeAsynIdV1Request) Timestamp(timestamp int64) AccountAPIUmfuturesGetTradeAsynIdV1Request {
+func (r ApiUmfuturesGetTradeAsynIdV1Request) Timestamp(timestamp int64) ApiUmfuturesGetTradeAsynIdV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIUmfuturesGetTradeAsynIdV1Request) RecvWindow(recvWindow int64) AccountAPIUmfuturesGetTradeAsynIdV1Request {
+func (r ApiUmfuturesGetTradeAsynIdV1Request) RecvWindow(recvWindow int64) ApiUmfuturesGetTradeAsynIdV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIUmfuturesGetTradeAsynIdV1Request) Execute() (*UmfuturesGetTradeAsynIdV1Resp, *http.Response, error) {
+func (r ApiUmfuturesGetTradeAsynIdV1Request) Execute() (*UmfuturesGetTradeAsynIdV1Resp, *http.Response, error) {
 	return r.ApiService.UmfuturesGetTradeAsynIdV1Execute(r)
 }
 
@@ -3000,10 +3000,10 @@ UmfuturesGetTradeAsynIdV1 Get Futures Trade Download Link by Id(USER_DATA)
 Get futures trade download link by Id
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIUmfuturesGetTradeAsynIdV1Request
+ @return ApiUmfuturesGetTradeAsynIdV1Request
 */
-func (a *AccountAPIService) UmfuturesGetTradeAsynIdV1(ctx context.Context) AccountAPIUmfuturesGetTradeAsynIdV1Request {
-	return AccountAPIUmfuturesGetTradeAsynIdV1Request{
+func (a *AccountAPIService) UmfuturesGetTradeAsynIdV1(ctx context.Context) ApiUmfuturesGetTradeAsynIdV1Request {
+	return ApiUmfuturesGetTradeAsynIdV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3011,7 +3011,7 @@ func (a *AccountAPIService) UmfuturesGetTradeAsynIdV1(ctx context.Context) Accou
 
 // Execute executes the request
 //  @return UmfuturesGetTradeAsynIdV1Resp
-func (a *AccountAPIService) UmfuturesGetTradeAsynIdV1Execute(r AccountAPIUmfuturesGetTradeAsynIdV1Request) (*UmfuturesGetTradeAsynIdV1Resp, *http.Response, error) {
+func (a *AccountAPIService) UmfuturesGetTradeAsynIdV1Execute(r ApiUmfuturesGetTradeAsynIdV1Request) (*UmfuturesGetTradeAsynIdV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3122,7 +3122,7 @@ func (a *AccountAPIService) UmfuturesGetTradeAsynIdV1Execute(r AccountAPIUmfutur
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIUmfuturesGetTradeAsynV1Request struct {
+type ApiUmfuturesGetTradeAsynV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	startTime *int64
@@ -3132,28 +3132,28 @@ type AccountAPIUmfuturesGetTradeAsynV1Request struct {
 }
 
 // Timestamp in ms
-func (r AccountAPIUmfuturesGetTradeAsynV1Request) StartTime(startTime int64) AccountAPIUmfuturesGetTradeAsynV1Request {
+func (r ApiUmfuturesGetTradeAsynV1Request) StartTime(startTime int64) ApiUmfuturesGetTradeAsynV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // Timestamp in ms
-func (r AccountAPIUmfuturesGetTradeAsynV1Request) EndTime(endTime int64) AccountAPIUmfuturesGetTradeAsynV1Request {
+func (r ApiUmfuturesGetTradeAsynV1Request) EndTime(endTime int64) ApiUmfuturesGetTradeAsynV1Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r AccountAPIUmfuturesGetTradeAsynV1Request) Timestamp(timestamp int64) AccountAPIUmfuturesGetTradeAsynV1Request {
+func (r ApiUmfuturesGetTradeAsynV1Request) Timestamp(timestamp int64) ApiUmfuturesGetTradeAsynV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIUmfuturesGetTradeAsynV1Request) RecvWindow(recvWindow int64) AccountAPIUmfuturesGetTradeAsynV1Request {
+func (r ApiUmfuturesGetTradeAsynV1Request) RecvWindow(recvWindow int64) ApiUmfuturesGetTradeAsynV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIUmfuturesGetTradeAsynV1Request) Execute() (*UmfuturesGetTradeAsynV1Resp, *http.Response, error) {
+func (r ApiUmfuturesGetTradeAsynV1Request) Execute() (*UmfuturesGetTradeAsynV1Resp, *http.Response, error) {
 	return r.ApiService.UmfuturesGetTradeAsynV1Execute(r)
 }
 
@@ -3163,10 +3163,10 @@ UmfuturesGetTradeAsynV1 Get Download Id For Futures Trade History (USER_DATA)
 Get download id for futures trade history
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIUmfuturesGetTradeAsynV1Request
+ @return ApiUmfuturesGetTradeAsynV1Request
 */
-func (a *AccountAPIService) UmfuturesGetTradeAsynV1(ctx context.Context) AccountAPIUmfuturesGetTradeAsynV1Request {
-	return AccountAPIUmfuturesGetTradeAsynV1Request{
+func (a *AccountAPIService) UmfuturesGetTradeAsynV1(ctx context.Context) ApiUmfuturesGetTradeAsynV1Request {
+	return ApiUmfuturesGetTradeAsynV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3174,7 +3174,7 @@ func (a *AccountAPIService) UmfuturesGetTradeAsynV1(ctx context.Context) Account
 
 // Execute executes the request
 //  @return UmfuturesGetTradeAsynV1Resp
-func (a *AccountAPIService) UmfuturesGetTradeAsynV1Execute(r AccountAPIUmfuturesGetTradeAsynV1Request) (*UmfuturesGetTradeAsynV1Resp, *http.Response, error) {
+func (a *AccountAPIService) UmfuturesGetTradeAsynV1Execute(r ApiUmfuturesGetTradeAsynV1Request) (*UmfuturesGetTradeAsynV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

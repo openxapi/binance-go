@@ -22,7 +22,7 @@ import (
 // ApiManagementAPIService ApiManagementAPI service
 type ApiManagementAPIService service
 
-type ApiManagementAPISubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request struct {
+type ApiSubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request struct {
 	ctx context.Context
 	ApiService *ApiManagementAPIService
 	email *string
@@ -33,37 +33,37 @@ type ApiManagementAPISubaccountCreateSubAccountSubAccountApiIpRestrictionV2Reque
 	recvWindow *int64
 }
 
-func (r ApiManagementAPISubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request) Email(email string) ApiManagementAPISubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request {
+func (r ApiSubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request) Email(email string) ApiSubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request {
 	r.email = &email
 	return r
 }
 
-func (r ApiManagementAPISubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request) Status(status string) ApiManagementAPISubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request {
+func (r ApiSubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request) Status(status string) ApiSubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request {
 	r.status = &status
 	return r
 }
 
-func (r ApiManagementAPISubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request) SubAccountApiKey(subAccountApiKey string) ApiManagementAPISubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request {
+func (r ApiSubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request) SubAccountApiKey(subAccountApiKey string) ApiSubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request {
 	r.subAccountApiKey = &subAccountApiKey
 	return r
 }
 
-func (r ApiManagementAPISubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request) Timestamp(timestamp int64) ApiManagementAPISubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request {
+func (r ApiSubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request) Timestamp(timestamp int64) ApiSubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r ApiManagementAPISubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request) IpAddress(ipAddress string) ApiManagementAPISubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request {
+func (r ApiSubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request) IpAddress(ipAddress string) ApiSubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request {
 	r.ipAddress = &ipAddress
 	return r
 }
 
-func (r ApiManagementAPISubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request) RecvWindow(recvWindow int64) ApiManagementAPISubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request {
+func (r ApiSubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request) RecvWindow(recvWindow int64) ApiSubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r ApiManagementAPISubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request) Execute() (*SubaccountCreateSubAccountSubAccountApiIpRestrictionV2Resp, *http.Response, error) {
+func (r ApiSubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request) Execute() (*SubaccountCreateSubAccountSubAccountApiIpRestrictionV2Resp, *http.Response, error) {
 	return r.ApiService.SubaccountCreateSubAccountSubAccountApiIpRestrictionV2Execute(r)
 }
 
@@ -73,10 +73,10 @@ SubaccountCreateSubAccountSubAccountApiIpRestrictionV2 Add IP Restriction for Su
 Add IP Restriction for Sub-Account API key
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiManagementAPISubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request
+ @return ApiSubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request
 */
-func (a *ApiManagementAPIService) SubaccountCreateSubAccountSubAccountApiIpRestrictionV2(ctx context.Context) ApiManagementAPISubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request {
-	return ApiManagementAPISubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request{
+func (a *ApiManagementAPIService) SubaccountCreateSubAccountSubAccountApiIpRestrictionV2(ctx context.Context) ApiSubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request {
+	return ApiSubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -84,7 +84,7 @@ func (a *ApiManagementAPIService) SubaccountCreateSubAccountSubAccountApiIpRestr
 
 // Execute executes the request
 //  @return SubaccountCreateSubAccountSubAccountApiIpRestrictionV2Resp
-func (a *ApiManagementAPIService) SubaccountCreateSubAccountSubAccountApiIpRestrictionV2Execute(r ApiManagementAPISubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request) (*SubaccountCreateSubAccountSubAccountApiIpRestrictionV2Resp, *http.Response, error) {
+func (a *ApiManagementAPIService) SubaccountCreateSubAccountSubAccountApiIpRestrictionV2Execute(r ApiSubaccountCreateSubAccountSubAccountApiIpRestrictionV2Request) (*SubaccountCreateSubAccountSubAccountApiIpRestrictionV2Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -200,7 +200,7 @@ func (a *ApiManagementAPIService) SubaccountCreateSubAccountSubAccountApiIpRestr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiManagementAPISubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request struct {
+type ApiSubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request struct {
 	ctx context.Context
 	ApiService *ApiManagementAPIService
 	email *string
@@ -211,33 +211,33 @@ type ApiManagementAPISubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV
 }
 
 // &lt;a href&#x3D;\&quot;/docs/sub_account/api-management/Delete-IP-List-For-a-Sub-account-API-Key#email-address\&quot;&gt;Sub-account email&lt;/a&gt;
-func (r ApiManagementAPISubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request) Email(email string) ApiManagementAPISubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request {
+func (r ApiSubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request) Email(email string) ApiSubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request {
 	r.email = &email
 	return r
 }
 
-func (r ApiManagementAPISubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request) SubAccountApiKey(subAccountApiKey string) ApiManagementAPISubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request {
+func (r ApiSubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request) SubAccountApiKey(subAccountApiKey string) ApiSubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request {
 	r.subAccountApiKey = &subAccountApiKey
 	return r
 }
 
-func (r ApiManagementAPISubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request) Timestamp(timestamp int64) ApiManagementAPISubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request {
+func (r ApiSubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request) Timestamp(timestamp int64) ApiSubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Can be added in batches, separated by commas
-func (r ApiManagementAPISubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request) IpAddress(ipAddress string) ApiManagementAPISubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request {
+func (r ApiSubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request) IpAddress(ipAddress string) ApiSubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request {
 	r.ipAddress = &ipAddress
 	return r
 }
 
-func (r ApiManagementAPISubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request) RecvWindow(recvWindow int64) ApiManagementAPISubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request {
+func (r ApiSubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request) RecvWindow(recvWindow int64) ApiSubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r ApiManagementAPISubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request) Execute() (*SubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Resp, *http.Response, error) {
+func (r ApiSubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request) Execute() (*SubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Execute(r)
 }
 
@@ -247,10 +247,10 @@ SubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1 Delete IP List For 
 Delete IP List For a Sub-account API Key
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiManagementAPISubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request
+ @return ApiSubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request
 */
-func (a *ApiManagementAPIService) SubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1(ctx context.Context) ApiManagementAPISubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request {
-	return ApiManagementAPISubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request{
+func (a *ApiManagementAPIService) SubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1(ctx context.Context) ApiSubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request {
+	return ApiSubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -258,7 +258,7 @@ func (a *ApiManagementAPIService) SubaccountDeleteSubAccountSubAccountApiIpRestr
 
 // Execute executes the request
 //  @return SubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Resp
-func (a *ApiManagementAPIService) SubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Execute(r ApiManagementAPISubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request) (*SubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Resp, *http.Response, error) {
+func (a *ApiManagementAPIService) SubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Execute(r ApiSubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Request) (*SubaccountDeleteSubAccountSubAccountApiIpRestrictionIpListV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -373,7 +373,7 @@ func (a *ApiManagementAPIService) SubaccountDeleteSubAccountSubAccountApiIpRestr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiManagementAPISubaccountGetSubAccountSubAccountApiIpRestrictionV1Request struct {
+type ApiSubaccountGetSubAccountSubAccountApiIpRestrictionV1Request struct {
 	ctx context.Context
 	ApiService *ApiManagementAPIService
 	email *string
@@ -383,27 +383,27 @@ type ApiManagementAPISubaccountGetSubAccountSubAccountApiIpRestrictionV1Request 
 }
 
 // &lt;a href&#x3D;\&quot;/docs/sub_account/api-management#email-address\&quot;&gt;Sub-account email&lt;/a&gt;
-func (r ApiManagementAPISubaccountGetSubAccountSubAccountApiIpRestrictionV1Request) Email(email string) ApiManagementAPISubaccountGetSubAccountSubAccountApiIpRestrictionV1Request {
+func (r ApiSubaccountGetSubAccountSubAccountApiIpRestrictionV1Request) Email(email string) ApiSubaccountGetSubAccountSubAccountApiIpRestrictionV1Request {
 	r.email = &email
 	return r
 }
 
-func (r ApiManagementAPISubaccountGetSubAccountSubAccountApiIpRestrictionV1Request) SubAccountApiKey(subAccountApiKey string) ApiManagementAPISubaccountGetSubAccountSubAccountApiIpRestrictionV1Request {
+func (r ApiSubaccountGetSubAccountSubAccountApiIpRestrictionV1Request) SubAccountApiKey(subAccountApiKey string) ApiSubaccountGetSubAccountSubAccountApiIpRestrictionV1Request {
 	r.subAccountApiKey = &subAccountApiKey
 	return r
 }
 
-func (r ApiManagementAPISubaccountGetSubAccountSubAccountApiIpRestrictionV1Request) Timestamp(timestamp int64) ApiManagementAPISubaccountGetSubAccountSubAccountApiIpRestrictionV1Request {
+func (r ApiSubaccountGetSubAccountSubAccountApiIpRestrictionV1Request) Timestamp(timestamp int64) ApiSubaccountGetSubAccountSubAccountApiIpRestrictionV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r ApiManagementAPISubaccountGetSubAccountSubAccountApiIpRestrictionV1Request) RecvWindow(recvWindow int64) ApiManagementAPISubaccountGetSubAccountSubAccountApiIpRestrictionV1Request {
+func (r ApiSubaccountGetSubAccountSubAccountApiIpRestrictionV1Request) RecvWindow(recvWindow int64) ApiSubaccountGetSubAccountSubAccountApiIpRestrictionV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r ApiManagementAPISubaccountGetSubAccountSubAccountApiIpRestrictionV1Request) Execute() (*SubaccountGetSubAccountSubAccountApiIpRestrictionV1Resp, *http.Response, error) {
+func (r ApiSubaccountGetSubAccountSubAccountApiIpRestrictionV1Request) Execute() (*SubaccountGetSubAccountSubAccountApiIpRestrictionV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetSubAccountSubAccountApiIpRestrictionV1Execute(r)
 }
 
@@ -413,10 +413,10 @@ SubaccountGetSubAccountSubAccountApiIpRestrictionV1 Get IP Restriction for a Sub
 Get IP Restriction for a Sub-account API Key
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiManagementAPISubaccountGetSubAccountSubAccountApiIpRestrictionV1Request
+ @return ApiSubaccountGetSubAccountSubAccountApiIpRestrictionV1Request
 */
-func (a *ApiManagementAPIService) SubaccountGetSubAccountSubAccountApiIpRestrictionV1(ctx context.Context) ApiManagementAPISubaccountGetSubAccountSubAccountApiIpRestrictionV1Request {
-	return ApiManagementAPISubaccountGetSubAccountSubAccountApiIpRestrictionV1Request{
+func (a *ApiManagementAPIService) SubaccountGetSubAccountSubAccountApiIpRestrictionV1(ctx context.Context) ApiSubaccountGetSubAccountSubAccountApiIpRestrictionV1Request {
+	return ApiSubaccountGetSubAccountSubAccountApiIpRestrictionV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -424,7 +424,7 @@ func (a *ApiManagementAPIService) SubaccountGetSubAccountSubAccountApiIpRestrict
 
 // Execute executes the request
 //  @return SubaccountGetSubAccountSubAccountApiIpRestrictionV1Resp
-func (a *ApiManagementAPIService) SubaccountGetSubAccountSubAccountApiIpRestrictionV1Execute(r ApiManagementAPISubaccountGetSubAccountSubAccountApiIpRestrictionV1Request) (*SubaccountGetSubAccountSubAccountApiIpRestrictionV1Resp, *http.Response, error) {
+func (a *ApiManagementAPIService) SubaccountGetSubAccountSubAccountApiIpRestrictionV1Execute(r ApiSubaccountGetSubAccountSubAccountApiIpRestrictionV1Request) (*SubaccountGetSubAccountSubAccountApiIpRestrictionV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

@@ -1,7 +1,7 @@
 /*
-Binance Margin API
+Binance Margin Trading API
 
-OpenAPI specification for Binance cryptocurrency exchange - Margin API
+OpenAPI specification for Binance exchange - Margin API
 
 API version: 0.1.0
 */
@@ -22,7 +22,7 @@ import (
 // AccountAPIService AccountAPI service
 type AccountAPIService service
 
-type AccountAPIMarginCreateMarginIsolatedAccountV1Request struct {
+type ApiMarginCreateMarginIsolatedAccountV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	symbol *string
@@ -30,22 +30,22 @@ type AccountAPIMarginCreateMarginIsolatedAccountV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIMarginCreateMarginIsolatedAccountV1Request) Symbol(symbol string) AccountAPIMarginCreateMarginIsolatedAccountV1Request {
+func (r ApiMarginCreateMarginIsolatedAccountV1Request) Symbol(symbol string) ApiMarginCreateMarginIsolatedAccountV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r AccountAPIMarginCreateMarginIsolatedAccountV1Request) Timestamp(timestamp int64) AccountAPIMarginCreateMarginIsolatedAccountV1Request {
+func (r ApiMarginCreateMarginIsolatedAccountV1Request) Timestamp(timestamp int64) ApiMarginCreateMarginIsolatedAccountV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIMarginCreateMarginIsolatedAccountV1Request) RecvWindow(recvWindow int64) AccountAPIMarginCreateMarginIsolatedAccountV1Request {
+func (r ApiMarginCreateMarginIsolatedAccountV1Request) RecvWindow(recvWindow int64) ApiMarginCreateMarginIsolatedAccountV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIMarginCreateMarginIsolatedAccountV1Request) Execute() (*MarginCreateMarginIsolatedAccountV1Resp, *http.Response, error) {
+func (r ApiMarginCreateMarginIsolatedAccountV1Request) Execute() (*MarginCreateMarginIsolatedAccountV1Resp, *http.Response, error) {
 	return r.ApiService.MarginCreateMarginIsolatedAccountV1Execute(r)
 }
 
@@ -55,10 +55,10 @@ MarginCreateMarginIsolatedAccountV1 Enable Isolated Margin Account (TRADE)
 Enable isolated margin account for a specific symbol(Only supports activation of previously disabled accounts).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIMarginCreateMarginIsolatedAccountV1Request
+ @return ApiMarginCreateMarginIsolatedAccountV1Request
 */
-func (a *AccountAPIService) MarginCreateMarginIsolatedAccountV1(ctx context.Context) AccountAPIMarginCreateMarginIsolatedAccountV1Request {
-	return AccountAPIMarginCreateMarginIsolatedAccountV1Request{
+func (a *AccountAPIService) MarginCreateMarginIsolatedAccountV1(ctx context.Context) ApiMarginCreateMarginIsolatedAccountV1Request {
+	return ApiMarginCreateMarginIsolatedAccountV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -66,7 +66,7 @@ func (a *AccountAPIService) MarginCreateMarginIsolatedAccountV1(ctx context.Cont
 
 // Execute executes the request
 //  @return MarginCreateMarginIsolatedAccountV1Resp
-func (a *AccountAPIService) MarginCreateMarginIsolatedAccountV1Execute(r AccountAPIMarginCreateMarginIsolatedAccountV1Request) (*MarginCreateMarginIsolatedAccountV1Resp, *http.Response, error) {
+func (a *AccountAPIService) MarginCreateMarginIsolatedAccountV1Execute(r ApiMarginCreateMarginIsolatedAccountV1Request) (*MarginCreateMarginIsolatedAccountV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -177,18 +177,18 @@ func (a *AccountAPIService) MarginCreateMarginIsolatedAccountV1Execute(r Account
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIMarginCreateMarginMaxLeverageV1Request struct {
+type ApiMarginCreateMarginMaxLeverageV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	maxLeverage *int32
 }
 
-func (r AccountAPIMarginCreateMarginMaxLeverageV1Request) MaxLeverage(maxLeverage int32) AccountAPIMarginCreateMarginMaxLeverageV1Request {
+func (r ApiMarginCreateMarginMaxLeverageV1Request) MaxLeverage(maxLeverage int32) ApiMarginCreateMarginMaxLeverageV1Request {
 	r.maxLeverage = &maxLeverage
 	return r
 }
 
-func (r AccountAPIMarginCreateMarginMaxLeverageV1Request) Execute() (*MarginCreateMarginMaxLeverageV1Resp, *http.Response, error) {
+func (r ApiMarginCreateMarginMaxLeverageV1Request) Execute() (*MarginCreateMarginMaxLeverageV1Resp, *http.Response, error) {
 	return r.ApiService.MarginCreateMarginMaxLeverageV1Execute(r)
 }
 
@@ -198,10 +198,10 @@ MarginCreateMarginMaxLeverageV1 Adjust cross margin max leverage (USER_DATA)
 Adjust cross margin max leverage
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIMarginCreateMarginMaxLeverageV1Request
+ @return ApiMarginCreateMarginMaxLeverageV1Request
 */
-func (a *AccountAPIService) MarginCreateMarginMaxLeverageV1(ctx context.Context) AccountAPIMarginCreateMarginMaxLeverageV1Request {
-	return AccountAPIMarginCreateMarginMaxLeverageV1Request{
+func (a *AccountAPIService) MarginCreateMarginMaxLeverageV1(ctx context.Context) ApiMarginCreateMarginMaxLeverageV1Request {
+	return ApiMarginCreateMarginMaxLeverageV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -209,7 +209,7 @@ func (a *AccountAPIService) MarginCreateMarginMaxLeverageV1(ctx context.Context)
 
 // Execute executes the request
 //  @return MarginCreateMarginMaxLeverageV1Resp
-func (a *AccountAPIService) MarginCreateMarginMaxLeverageV1Execute(r AccountAPIMarginCreateMarginMaxLeverageV1Request) (*MarginCreateMarginMaxLeverageV1Resp, *http.Response, error) {
+func (a *AccountAPIService) MarginCreateMarginMaxLeverageV1Execute(r ApiMarginCreateMarginMaxLeverageV1Request) (*MarginCreateMarginMaxLeverageV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -313,7 +313,7 @@ func (a *AccountAPIService) MarginCreateMarginMaxLeverageV1Execute(r AccountAPIM
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIMarginDeleteMarginIsolatedAccountV1Request struct {
+type ApiMarginDeleteMarginIsolatedAccountV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	symbol *string
@@ -321,23 +321,23 @@ type AccountAPIMarginDeleteMarginIsolatedAccountV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIMarginDeleteMarginIsolatedAccountV1Request) Symbol(symbol string) AccountAPIMarginDeleteMarginIsolatedAccountV1Request {
+func (r ApiMarginDeleteMarginIsolatedAccountV1Request) Symbol(symbol string) ApiMarginDeleteMarginIsolatedAccountV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r AccountAPIMarginDeleteMarginIsolatedAccountV1Request) Timestamp(timestamp int64) AccountAPIMarginDeleteMarginIsolatedAccountV1Request {
+func (r ApiMarginDeleteMarginIsolatedAccountV1Request) Timestamp(timestamp int64) ApiMarginDeleteMarginIsolatedAccountV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // No more than 60000
-func (r AccountAPIMarginDeleteMarginIsolatedAccountV1Request) RecvWindow(recvWindow int64) AccountAPIMarginDeleteMarginIsolatedAccountV1Request {
+func (r ApiMarginDeleteMarginIsolatedAccountV1Request) RecvWindow(recvWindow int64) ApiMarginDeleteMarginIsolatedAccountV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIMarginDeleteMarginIsolatedAccountV1Request) Execute() (*MarginDeleteMarginIsolatedAccountV1Resp, *http.Response, error) {
+func (r ApiMarginDeleteMarginIsolatedAccountV1Request) Execute() (*MarginDeleteMarginIsolatedAccountV1Resp, *http.Response, error) {
 	return r.ApiService.MarginDeleteMarginIsolatedAccountV1Execute(r)
 }
 
@@ -348,10 +348,10 @@ Disable isolated margin account for a specific symbol. Each trading pair can onl
 hours.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIMarginDeleteMarginIsolatedAccountV1Request
+ @return ApiMarginDeleteMarginIsolatedAccountV1Request
 */
-func (a *AccountAPIService) MarginDeleteMarginIsolatedAccountV1(ctx context.Context) AccountAPIMarginDeleteMarginIsolatedAccountV1Request {
-	return AccountAPIMarginDeleteMarginIsolatedAccountV1Request{
+func (a *AccountAPIService) MarginDeleteMarginIsolatedAccountV1(ctx context.Context) ApiMarginDeleteMarginIsolatedAccountV1Request {
+	return ApiMarginDeleteMarginIsolatedAccountV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -359,7 +359,7 @@ func (a *AccountAPIService) MarginDeleteMarginIsolatedAccountV1(ctx context.Cont
 
 // Execute executes the request
 //  @return MarginDeleteMarginIsolatedAccountV1Resp
-func (a *AccountAPIService) MarginDeleteMarginIsolatedAccountV1Execute(r AccountAPIMarginDeleteMarginIsolatedAccountV1Request) (*MarginDeleteMarginIsolatedAccountV1Resp, *http.Response, error) {
+func (a *AccountAPIService) MarginDeleteMarginIsolatedAccountV1Execute(r ApiMarginDeleteMarginIsolatedAccountV1Request) (*MarginDeleteMarginIsolatedAccountV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -470,25 +470,25 @@ func (a *AccountAPIService) MarginDeleteMarginIsolatedAccountV1Execute(r Account
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIMarginGetBnbBurnV1Request struct {
+type ApiMarginGetBnbBurnV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIMarginGetBnbBurnV1Request) Timestamp(timestamp int64) AccountAPIMarginGetBnbBurnV1Request {
+func (r ApiMarginGetBnbBurnV1Request) Timestamp(timestamp int64) ApiMarginGetBnbBurnV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // No more than 60000
-func (r AccountAPIMarginGetBnbBurnV1Request) RecvWindow(recvWindow int64) AccountAPIMarginGetBnbBurnV1Request {
+func (r ApiMarginGetBnbBurnV1Request) RecvWindow(recvWindow int64) ApiMarginGetBnbBurnV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIMarginGetBnbBurnV1Request) Execute() (*MarginGetBnbBurnV1Resp, *http.Response, error) {
+func (r ApiMarginGetBnbBurnV1Request) Execute() (*MarginGetBnbBurnV1Resp, *http.Response, error) {
 	return r.ApiService.MarginGetBnbBurnV1Execute(r)
 }
 
@@ -498,10 +498,10 @@ MarginGetBnbBurnV1 Get BNB Burn Status (USER_DATA)
 Get BNB Burn Status
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIMarginGetBnbBurnV1Request
+ @return ApiMarginGetBnbBurnV1Request
 */
-func (a *AccountAPIService) MarginGetBnbBurnV1(ctx context.Context) AccountAPIMarginGetBnbBurnV1Request {
-	return AccountAPIMarginGetBnbBurnV1Request{
+func (a *AccountAPIService) MarginGetBnbBurnV1(ctx context.Context) ApiMarginGetBnbBurnV1Request {
+	return ApiMarginGetBnbBurnV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -509,7 +509,7 @@ func (a *AccountAPIService) MarginGetBnbBurnV1(ctx context.Context) AccountAPIMa
 
 // Execute executes the request
 //  @return MarginGetBnbBurnV1Resp
-func (a *AccountAPIService) MarginGetBnbBurnV1Execute(r AccountAPIMarginGetBnbBurnV1Request) (*MarginGetBnbBurnV1Resp, *http.Response, error) {
+func (a *AccountAPIService) MarginGetBnbBurnV1Execute(r ApiMarginGetBnbBurnV1Request) (*MarginGetBnbBurnV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -616,25 +616,25 @@ func (a *AccountAPIService) MarginGetBnbBurnV1Execute(r AccountAPIMarginGetBnbBu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIMarginGetMarginAccountV1Request struct {
+type ApiMarginGetMarginAccountV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIMarginGetMarginAccountV1Request) Timestamp(timestamp int64) AccountAPIMarginGetMarginAccountV1Request {
+func (r ApiMarginGetMarginAccountV1Request) Timestamp(timestamp int64) ApiMarginGetMarginAccountV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r AccountAPIMarginGetMarginAccountV1Request) RecvWindow(recvWindow int64) AccountAPIMarginGetMarginAccountV1Request {
+func (r ApiMarginGetMarginAccountV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginAccountV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIMarginGetMarginAccountV1Request) Execute() (*MarginGetMarginAccountV1Resp, *http.Response, error) {
+func (r ApiMarginGetMarginAccountV1Request) Execute() (*MarginGetMarginAccountV1Resp, *http.Response, error) {
 	return r.ApiService.MarginGetMarginAccountV1Execute(r)
 }
 
@@ -644,10 +644,10 @@ MarginGetMarginAccountV1 Query Cross Margin Account Details (USER_DATA)
 Query Cross Margin Account Details
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIMarginGetMarginAccountV1Request
+ @return ApiMarginGetMarginAccountV1Request
 */
-func (a *AccountAPIService) MarginGetMarginAccountV1(ctx context.Context) AccountAPIMarginGetMarginAccountV1Request {
-	return AccountAPIMarginGetMarginAccountV1Request{
+func (a *AccountAPIService) MarginGetMarginAccountV1(ctx context.Context) ApiMarginGetMarginAccountV1Request {
+	return ApiMarginGetMarginAccountV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -655,7 +655,7 @@ func (a *AccountAPIService) MarginGetMarginAccountV1(ctx context.Context) Accoun
 
 // Execute executes the request
 //  @return MarginGetMarginAccountV1Resp
-func (a *AccountAPIService) MarginGetMarginAccountV1Execute(r AccountAPIMarginGetMarginAccountV1Request) (*MarginGetMarginAccountV1Resp, *http.Response, error) {
+func (a *AccountAPIService) MarginGetMarginAccountV1Execute(r ApiMarginGetMarginAccountV1Request) (*MarginGetMarginAccountV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -762,7 +762,7 @@ func (a *AccountAPIService) MarginGetMarginAccountV1Execute(r AccountAPIMarginGe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIMarginGetMarginCapitalFlowV1Request struct {
+type ApiMarginGetMarginCapitalFlowV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
@@ -776,57 +776,57 @@ type AccountAPIMarginGetMarginCapitalFlowV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIMarginGetMarginCapitalFlowV1Request) Timestamp(timestamp int64) AccountAPIMarginGetMarginCapitalFlowV1Request {
+func (r ApiMarginGetMarginCapitalFlowV1Request) Timestamp(timestamp int64) ApiMarginGetMarginCapitalFlowV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIMarginGetMarginCapitalFlowV1Request) Asset(asset string) AccountAPIMarginGetMarginCapitalFlowV1Request {
+func (r ApiMarginGetMarginCapitalFlowV1Request) Asset(asset string) ApiMarginGetMarginCapitalFlowV1Request {
 	r.asset = &asset
 	return r
 }
 
 // 查询逐仓数据时必填
-func (r AccountAPIMarginGetMarginCapitalFlowV1Request) Symbol(symbol string) AccountAPIMarginGetMarginCapitalFlowV1Request {
+func (r ApiMarginGetMarginCapitalFlowV1Request) Symbol(symbol string) ApiMarginGetMarginCapitalFlowV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r AccountAPIMarginGetMarginCapitalFlowV1Request) Type_(type_ string) AccountAPIMarginGetMarginCapitalFlowV1Request {
+func (r ApiMarginGetMarginCapitalFlowV1Request) Type_(type_ string) ApiMarginGetMarginCapitalFlowV1Request {
 	r.type_ = &type_
 	return r
 }
 
 // 只支持查询最近90天的数据
-func (r AccountAPIMarginGetMarginCapitalFlowV1Request) StartTime(startTime int64) AccountAPIMarginGetMarginCapitalFlowV1Request {
+func (r ApiMarginGetMarginCapitalFlowV1Request) StartTime(startTime int64) ApiMarginGetMarginCapitalFlowV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r AccountAPIMarginGetMarginCapitalFlowV1Request) EndTime(endTime int64) AccountAPIMarginGetMarginCapitalFlowV1Request {
+func (r ApiMarginGetMarginCapitalFlowV1Request) EndTime(endTime int64) ApiMarginGetMarginCapitalFlowV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // 如设置fromId, 将返回id &amp;gt; fromId的数据。否则将返回最新数据
-func (r AccountAPIMarginGetMarginCapitalFlowV1Request) FromId(fromId int64) AccountAPIMarginGetMarginCapitalFlowV1Request {
+func (r ApiMarginGetMarginCapitalFlowV1Request) FromId(fromId int64) ApiMarginGetMarginCapitalFlowV1Request {
 	r.fromId = &fromId
 	return r
 }
 
 // 每次返回的数据条数限制。默认 500; 最大 1000.
-func (r AccountAPIMarginGetMarginCapitalFlowV1Request) Limit(limit int64) AccountAPIMarginGetMarginCapitalFlowV1Request {
+func (r ApiMarginGetMarginCapitalFlowV1Request) Limit(limit int64) ApiMarginGetMarginCapitalFlowV1Request {
 	r.limit = &limit
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r AccountAPIMarginGetMarginCapitalFlowV1Request) RecvWindow(recvWindow int64) AccountAPIMarginGetMarginCapitalFlowV1Request {
+func (r ApiMarginGetMarginCapitalFlowV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginCapitalFlowV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIMarginGetMarginCapitalFlowV1Request) Execute() ([]MarginGetMarginCapitalFlowV1RespItem, *http.Response, error) {
+func (r ApiMarginGetMarginCapitalFlowV1Request) Execute() ([]MarginGetMarginCapitalFlowV1RespItem, *http.Response, error) {
 	return r.ApiService.MarginGetMarginCapitalFlowV1Execute(r)
 }
 
@@ -836,10 +836,10 @@ MarginGetMarginCapitalFlowV1 Query Cross Isolated Margin Capital Flow (USER_DATA
 Query Cross Isolated Margin Capital Flow
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIMarginGetMarginCapitalFlowV1Request
+ @return ApiMarginGetMarginCapitalFlowV1Request
 */
-func (a *AccountAPIService) MarginGetMarginCapitalFlowV1(ctx context.Context) AccountAPIMarginGetMarginCapitalFlowV1Request {
-	return AccountAPIMarginGetMarginCapitalFlowV1Request{
+func (a *AccountAPIService) MarginGetMarginCapitalFlowV1(ctx context.Context) ApiMarginGetMarginCapitalFlowV1Request {
+	return ApiMarginGetMarginCapitalFlowV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -847,7 +847,7 @@ func (a *AccountAPIService) MarginGetMarginCapitalFlowV1(ctx context.Context) Ac
 
 // Execute executes the request
 //  @return []MarginGetMarginCapitalFlowV1RespItem
-func (a *AccountAPIService) MarginGetMarginCapitalFlowV1Execute(r AccountAPIMarginGetMarginCapitalFlowV1Request) ([]MarginGetMarginCapitalFlowV1RespItem, *http.Response, error) {
+func (a *AccountAPIService) MarginGetMarginCapitalFlowV1Execute(r ApiMarginGetMarginCapitalFlowV1Request) ([]MarginGetMarginCapitalFlowV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -984,7 +984,7 @@ func (a *AccountAPIService) MarginGetMarginCapitalFlowV1Execute(r AccountAPIMarg
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIMarginGetMarginCrossMarginDataV1Request struct {
+type ApiMarginGetMarginCrossMarginDataV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
@@ -993,29 +993,29 @@ type AccountAPIMarginGetMarginCrossMarginDataV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIMarginGetMarginCrossMarginDataV1Request) Timestamp(timestamp int64) AccountAPIMarginGetMarginCrossMarginDataV1Request {
+func (r ApiMarginGetMarginCrossMarginDataV1Request) Timestamp(timestamp int64) ApiMarginGetMarginCrossMarginDataV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // User&amp;#39;s current specific margin data will be returned if vipLevel is omitted
-func (r AccountAPIMarginGetMarginCrossMarginDataV1Request) VipLevel(vipLevel int32) AccountAPIMarginGetMarginCrossMarginDataV1Request {
+func (r ApiMarginGetMarginCrossMarginDataV1Request) VipLevel(vipLevel int32) ApiMarginGetMarginCrossMarginDataV1Request {
 	r.vipLevel = &vipLevel
 	return r
 }
 
-func (r AccountAPIMarginGetMarginCrossMarginDataV1Request) Coin(coin string) AccountAPIMarginGetMarginCrossMarginDataV1Request {
+func (r ApiMarginGetMarginCrossMarginDataV1Request) Coin(coin string) ApiMarginGetMarginCrossMarginDataV1Request {
 	r.coin = &coin
 	return r
 }
 
 // No more than &#x60;60000&#x60;
-func (r AccountAPIMarginGetMarginCrossMarginDataV1Request) RecvWindow(recvWindow int64) AccountAPIMarginGetMarginCrossMarginDataV1Request {
+func (r ApiMarginGetMarginCrossMarginDataV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginCrossMarginDataV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIMarginGetMarginCrossMarginDataV1Request) Execute() ([]MarginGetMarginCrossMarginDataV1RespItem, *http.Response, error) {
+func (r ApiMarginGetMarginCrossMarginDataV1Request) Execute() ([]MarginGetMarginCrossMarginDataV1RespItem, *http.Response, error) {
 	return r.ApiService.MarginGetMarginCrossMarginDataV1Execute(r)
 }
 
@@ -1025,10 +1025,10 @@ MarginGetMarginCrossMarginDataV1 Query Cross Margin Fee Data (USER_DATA)
 Get cross margin fee data collection with any vip level or user's current specific data as https://www.binance.com/en/margin-fee
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIMarginGetMarginCrossMarginDataV1Request
+ @return ApiMarginGetMarginCrossMarginDataV1Request
 */
-func (a *AccountAPIService) MarginGetMarginCrossMarginDataV1(ctx context.Context) AccountAPIMarginGetMarginCrossMarginDataV1Request {
-	return AccountAPIMarginGetMarginCrossMarginDataV1Request{
+func (a *AccountAPIService) MarginGetMarginCrossMarginDataV1(ctx context.Context) ApiMarginGetMarginCrossMarginDataV1Request {
+	return ApiMarginGetMarginCrossMarginDataV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1036,7 +1036,7 @@ func (a *AccountAPIService) MarginGetMarginCrossMarginDataV1(ctx context.Context
 
 // Execute executes the request
 //  @return []MarginGetMarginCrossMarginDataV1RespItem
-func (a *AccountAPIService) MarginGetMarginCrossMarginDataV1Execute(r AccountAPIMarginGetMarginCrossMarginDataV1Request) ([]MarginGetMarginCrossMarginDataV1RespItem, *http.Response, error) {
+func (a *AccountAPIService) MarginGetMarginCrossMarginDataV1Execute(r ApiMarginGetMarginCrossMarginDataV1Request) ([]MarginGetMarginCrossMarginDataV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1152,25 +1152,25 @@ func (a *AccountAPIService) MarginGetMarginCrossMarginDataV1Execute(r AccountAPI
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIMarginGetMarginIsolatedAccountLimitV1Request struct {
+type ApiMarginGetMarginIsolatedAccountLimitV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIMarginGetMarginIsolatedAccountLimitV1Request) Timestamp(timestamp int64) AccountAPIMarginGetMarginIsolatedAccountLimitV1Request {
+func (r ApiMarginGetMarginIsolatedAccountLimitV1Request) Timestamp(timestamp int64) ApiMarginGetMarginIsolatedAccountLimitV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // No more than 60000
-func (r AccountAPIMarginGetMarginIsolatedAccountLimitV1Request) RecvWindow(recvWindow int64) AccountAPIMarginGetMarginIsolatedAccountLimitV1Request {
+func (r ApiMarginGetMarginIsolatedAccountLimitV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginIsolatedAccountLimitV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIMarginGetMarginIsolatedAccountLimitV1Request) Execute() (*MarginGetMarginIsolatedAccountLimitV1Resp, *http.Response, error) {
+func (r ApiMarginGetMarginIsolatedAccountLimitV1Request) Execute() (*MarginGetMarginIsolatedAccountLimitV1Resp, *http.Response, error) {
 	return r.ApiService.MarginGetMarginIsolatedAccountLimitV1Execute(r)
 }
 
@@ -1180,10 +1180,10 @@ MarginGetMarginIsolatedAccountLimitV1 Query Enabled Isolated Margin Account Limi
 Query enabled isolated margin account limit.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIMarginGetMarginIsolatedAccountLimitV1Request
+ @return ApiMarginGetMarginIsolatedAccountLimitV1Request
 */
-func (a *AccountAPIService) MarginGetMarginIsolatedAccountLimitV1(ctx context.Context) AccountAPIMarginGetMarginIsolatedAccountLimitV1Request {
-	return AccountAPIMarginGetMarginIsolatedAccountLimitV1Request{
+func (a *AccountAPIService) MarginGetMarginIsolatedAccountLimitV1(ctx context.Context) ApiMarginGetMarginIsolatedAccountLimitV1Request {
+	return ApiMarginGetMarginIsolatedAccountLimitV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1191,7 +1191,7 @@ func (a *AccountAPIService) MarginGetMarginIsolatedAccountLimitV1(ctx context.Co
 
 // Execute executes the request
 //  @return MarginGetMarginIsolatedAccountLimitV1Resp
-func (a *AccountAPIService) MarginGetMarginIsolatedAccountLimitV1Execute(r AccountAPIMarginGetMarginIsolatedAccountLimitV1Request) (*MarginGetMarginIsolatedAccountLimitV1Resp, *http.Response, error) {
+func (a *AccountAPIService) MarginGetMarginIsolatedAccountLimitV1Execute(r ApiMarginGetMarginIsolatedAccountLimitV1Request) (*MarginGetMarginIsolatedAccountLimitV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1298,7 +1298,7 @@ func (a *AccountAPIService) MarginGetMarginIsolatedAccountLimitV1Execute(r Accou
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIMarginGetMarginIsolatedAccountV1Request struct {
+type ApiMarginGetMarginIsolatedAccountV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
@@ -1306,24 +1306,24 @@ type AccountAPIMarginGetMarginIsolatedAccountV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIMarginGetMarginIsolatedAccountV1Request) Timestamp(timestamp int64) AccountAPIMarginGetMarginIsolatedAccountV1Request {
+func (r ApiMarginGetMarginIsolatedAccountV1Request) Timestamp(timestamp int64) ApiMarginGetMarginIsolatedAccountV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Max 5 symbols can be sent; separated by &amp;#34;,&amp;#34;. e.g. &amp;#34;BTCUSDT,BNBUSDT,ADAUSDT&amp;#34;
-func (r AccountAPIMarginGetMarginIsolatedAccountV1Request) Symbols(symbols string) AccountAPIMarginGetMarginIsolatedAccountV1Request {
+func (r ApiMarginGetMarginIsolatedAccountV1Request) Symbols(symbols string) ApiMarginGetMarginIsolatedAccountV1Request {
 	r.symbols = &symbols
 	return r
 }
 
 // No more than 60000
-func (r AccountAPIMarginGetMarginIsolatedAccountV1Request) RecvWindow(recvWindow int64) AccountAPIMarginGetMarginIsolatedAccountV1Request {
+func (r ApiMarginGetMarginIsolatedAccountV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginIsolatedAccountV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIMarginGetMarginIsolatedAccountV1Request) Execute() (*MarginGetMarginIsolatedAccountV1Resp, *http.Response, error) {
+func (r ApiMarginGetMarginIsolatedAccountV1Request) Execute() (*MarginGetMarginIsolatedAccountV1Resp, *http.Response, error) {
 	return r.ApiService.MarginGetMarginIsolatedAccountV1Execute(r)
 }
 
@@ -1333,10 +1333,10 @@ MarginGetMarginIsolatedAccountV1 Query Isolated Margin Account Info (USER_DATA)
 Query Isolated Margin Account Info
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIMarginGetMarginIsolatedAccountV1Request
+ @return ApiMarginGetMarginIsolatedAccountV1Request
 */
-func (a *AccountAPIService) MarginGetMarginIsolatedAccountV1(ctx context.Context) AccountAPIMarginGetMarginIsolatedAccountV1Request {
-	return AccountAPIMarginGetMarginIsolatedAccountV1Request{
+func (a *AccountAPIService) MarginGetMarginIsolatedAccountV1(ctx context.Context) ApiMarginGetMarginIsolatedAccountV1Request {
+	return ApiMarginGetMarginIsolatedAccountV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1344,7 +1344,7 @@ func (a *AccountAPIService) MarginGetMarginIsolatedAccountV1(ctx context.Context
 
 // Execute executes the request
 //  @return MarginGetMarginIsolatedAccountV1Resp
-func (a *AccountAPIService) MarginGetMarginIsolatedAccountV1Execute(r AccountAPIMarginGetMarginIsolatedAccountV1Request) (*MarginGetMarginIsolatedAccountV1Resp, *http.Response, error) {
+func (a *AccountAPIService) MarginGetMarginIsolatedAccountV1Execute(r ApiMarginGetMarginIsolatedAccountV1Request) (*MarginGetMarginIsolatedAccountV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1457,7 +1457,7 @@ func (a *AccountAPIService) MarginGetMarginIsolatedAccountV1Execute(r AccountAPI
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIMarginGetMarginIsolatedMarginDataV1Request struct {
+type ApiMarginGetMarginIsolatedMarginDataV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
@@ -1466,29 +1466,29 @@ type AccountAPIMarginGetMarginIsolatedMarginDataV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIMarginGetMarginIsolatedMarginDataV1Request) Timestamp(timestamp int64) AccountAPIMarginGetMarginIsolatedMarginDataV1Request {
+func (r ApiMarginGetMarginIsolatedMarginDataV1Request) Timestamp(timestamp int64) ApiMarginGetMarginIsolatedMarginDataV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // User&amp;#39;s current specific margin data will be returned if vipLevel is omitted
-func (r AccountAPIMarginGetMarginIsolatedMarginDataV1Request) VipLevel(vipLevel int32) AccountAPIMarginGetMarginIsolatedMarginDataV1Request {
+func (r ApiMarginGetMarginIsolatedMarginDataV1Request) VipLevel(vipLevel int32) ApiMarginGetMarginIsolatedMarginDataV1Request {
 	r.vipLevel = &vipLevel
 	return r
 }
 
-func (r AccountAPIMarginGetMarginIsolatedMarginDataV1Request) Symbol(symbol string) AccountAPIMarginGetMarginIsolatedMarginDataV1Request {
+func (r ApiMarginGetMarginIsolatedMarginDataV1Request) Symbol(symbol string) ApiMarginGetMarginIsolatedMarginDataV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // No more than &#x60;60000&#x60;
-func (r AccountAPIMarginGetMarginIsolatedMarginDataV1Request) RecvWindow(recvWindow int64) AccountAPIMarginGetMarginIsolatedMarginDataV1Request {
+func (r ApiMarginGetMarginIsolatedMarginDataV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginIsolatedMarginDataV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIMarginGetMarginIsolatedMarginDataV1Request) Execute() ([]MarginGetMarginIsolatedMarginDataV1RespItem, *http.Response, error) {
+func (r ApiMarginGetMarginIsolatedMarginDataV1Request) Execute() ([]MarginGetMarginIsolatedMarginDataV1RespItem, *http.Response, error) {
 	return r.ApiService.MarginGetMarginIsolatedMarginDataV1Execute(r)
 }
 
@@ -1498,10 +1498,10 @@ MarginGetMarginIsolatedMarginDataV1 Query Isolated Margin Fee Data (USER_DATA)
 Get isolated margin fee data collection with any vip level or user's current specific data as https://www.binance.com/en/margin-fee
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIMarginGetMarginIsolatedMarginDataV1Request
+ @return ApiMarginGetMarginIsolatedMarginDataV1Request
 */
-func (a *AccountAPIService) MarginGetMarginIsolatedMarginDataV1(ctx context.Context) AccountAPIMarginGetMarginIsolatedMarginDataV1Request {
-	return AccountAPIMarginGetMarginIsolatedMarginDataV1Request{
+func (a *AccountAPIService) MarginGetMarginIsolatedMarginDataV1(ctx context.Context) ApiMarginGetMarginIsolatedMarginDataV1Request {
+	return ApiMarginGetMarginIsolatedMarginDataV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1509,7 +1509,7 @@ func (a *AccountAPIService) MarginGetMarginIsolatedMarginDataV1(ctx context.Cont
 
 // Execute executes the request
 //  @return []MarginGetMarginIsolatedMarginDataV1RespItem
-func (a *AccountAPIService) MarginGetMarginIsolatedMarginDataV1Execute(r AccountAPIMarginGetMarginIsolatedMarginDataV1Request) ([]MarginGetMarginIsolatedMarginDataV1RespItem, *http.Response, error) {
+func (a *AccountAPIService) MarginGetMarginIsolatedMarginDataV1Execute(r ApiMarginGetMarginIsolatedMarginDataV1Request) ([]MarginGetMarginIsolatedMarginDataV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1625,24 +1625,24 @@ func (a *AccountAPIService) MarginGetMarginIsolatedMarginDataV1Execute(r Account
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIMarginGetMarginTradeCoeffV1Request struct {
+type ApiMarginGetMarginTradeCoeffV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIMarginGetMarginTradeCoeffV1Request) Timestamp(timestamp int64) AccountAPIMarginGetMarginTradeCoeffV1Request {
+func (r ApiMarginGetMarginTradeCoeffV1Request) Timestamp(timestamp int64) ApiMarginGetMarginTradeCoeffV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIMarginGetMarginTradeCoeffV1Request) RecvWindow(recvWindow int64) AccountAPIMarginGetMarginTradeCoeffV1Request {
+func (r ApiMarginGetMarginTradeCoeffV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginTradeCoeffV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIMarginGetMarginTradeCoeffV1Request) Execute() (*MarginGetMarginTradeCoeffV1Resp, *http.Response, error) {
+func (r ApiMarginGetMarginTradeCoeffV1Request) Execute() (*MarginGetMarginTradeCoeffV1Resp, *http.Response, error) {
 	return r.ApiService.MarginGetMarginTradeCoeffV1Execute(r)
 }
 
@@ -1652,10 +1652,10 @@ MarginGetMarginTradeCoeffV1 Get Summary of Margin account (USER_DATA)
 Get personal margin level information
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIMarginGetMarginTradeCoeffV1Request
+ @return ApiMarginGetMarginTradeCoeffV1Request
 */
-func (a *AccountAPIService) MarginGetMarginTradeCoeffV1(ctx context.Context) AccountAPIMarginGetMarginTradeCoeffV1Request {
-	return AccountAPIMarginGetMarginTradeCoeffV1Request{
+func (a *AccountAPIService) MarginGetMarginTradeCoeffV1(ctx context.Context) ApiMarginGetMarginTradeCoeffV1Request {
+	return ApiMarginGetMarginTradeCoeffV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1663,7 +1663,7 @@ func (a *AccountAPIService) MarginGetMarginTradeCoeffV1(ctx context.Context) Acc
 
 // Execute executes the request
 //  @return MarginGetMarginTradeCoeffV1Resp
-func (a *AccountAPIService) MarginGetMarginTradeCoeffV1Execute(r AccountAPIMarginGetMarginTradeCoeffV1Request) (*MarginGetMarginTradeCoeffV1Resp, *http.Response, error) {
+func (a *AccountAPIService) MarginGetMarginTradeCoeffV1Execute(r ApiMarginGetMarginTradeCoeffV1Request) (*MarginGetMarginTradeCoeffV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

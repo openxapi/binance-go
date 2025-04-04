@@ -131,15 +131,6 @@ Class | Method | HTTP request | Description
 *TradeAPI* | [**ConvertCreateConvertLimitQueryOpenOrdersV1**](docs/TradeAPI.md#convertcreateconvertlimitqueryopenordersv1) | **Post** /sapi/v1/convert/limit/queryOpenOrders | Query limit open orders (USER_DATA)
 *TradeAPI* | [**ConvertGetConvertOrderStatusV1**](docs/TradeAPI.md#convertgetconvertorderstatusv1) | **Get** /sapi/v1/convert/orderStatus | Order status(USER_DATA)
 *TradeAPI* | [**ConvertGetConvertTradeFlowV1**](docs/TradeAPI.md#convertgetconverttradeflowv1) | **Get** /sapi/v1/convert/tradeFlow | Get Convert Trade History(USER_DATA)
-*V1API* | [**ConvertCreateConvertAcceptQuoteV1**](docs/V1API.md#convertcreateconvertacceptquotev1) | **Post** /sapi/v1/convert/acceptQuote | Accept Quote (TRADE)
-*V1API* | [**ConvertCreateConvertGetQuoteV1**](docs/V1API.md#convertcreateconvertgetquotev1) | **Post** /sapi/v1/convert/getQuote | Send Quote Request(USER_DATA)
-*V1API* | [**ConvertCreateConvertLimitCancelOrderV1**](docs/V1API.md#convertcreateconvertlimitcancelorderv1) | **Post** /sapi/v1/convert/limit/cancelOrder | Cancel limit order (USER_DATA)
-*V1API* | [**ConvertCreateConvertLimitPlaceOrderV1**](docs/V1API.md#convertcreateconvertlimitplaceorderv1) | **Post** /sapi/v1/convert/limit/placeOrder | Place limit order (USER_DATA)
-*V1API* | [**ConvertCreateConvertLimitQueryOpenOrdersV1**](docs/V1API.md#convertcreateconvertlimitqueryopenordersv1) | **Post** /sapi/v1/convert/limit/queryOpenOrders | Query limit open orders (USER_DATA)
-*V1API* | [**ConvertGetConvertAssetInfoV1**](docs/V1API.md#convertgetconvertassetinfov1) | **Get** /sapi/v1/convert/assetInfo | Query order quantity precision per asset(USER_DATA)
-*V1API* | [**ConvertGetConvertExchangeInfoV1**](docs/V1API.md#convertgetconvertexchangeinfov1) | **Get** /sapi/v1/convert/exchangeInfo | List All Convert Pairs
-*V1API* | [**ConvertGetConvertOrderStatusV1**](docs/V1API.md#convertgetconvertorderstatusv1) | **Get** /sapi/v1/convert/orderStatus | Order status(USER_DATA)
-*V1API* | [**ConvertGetConvertTradeFlowV1**](docs/V1API.md#convertgetconverttradeflowv1) | **Get** /sapi/v1/convert/tradeFlow | Get Convert Trade History(USER_DATA)
 
 
 ## Documentation For Models

@@ -1,7 +1,7 @@
 /*
 Binance Spot API
 
-OpenAPI specification for Binance cryptocurrency exchange - Spot API
+OpenAPI specification for Binance exchange - Spot API
 
 API version: 0.1.0
 */

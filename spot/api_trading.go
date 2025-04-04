@@ -1,7 +1,7 @@
 /*
 Binance Spot API
 
-OpenAPI specification for Binance cryptocurrency exchange - Spot API
+OpenAPI specification for Binance exchange - Spot API
 
 API version: 0.1.0
 */
@@ -22,7 +22,7 @@ import (
 // TradingAPIService TradingAPI service
 type TradingAPIService service
 
-type TradingAPISpotCreateOrderCancelReplaceV3Request struct {
+type ApiSpotCreateOrderCancelReplaceV3Request struct {
 	ctx context.Context
 	ApiService *TradingAPIService
 	cancelReplaceMode *string
@@ -50,122 +50,122 @@ type TradingAPISpotCreateOrderCancelReplaceV3Request struct {
 	trailingDelta *int64
 }
 
-func (r TradingAPISpotCreateOrderCancelReplaceV3Request) CancelReplaceMode(cancelReplaceMode string) TradingAPISpotCreateOrderCancelReplaceV3Request {
+func (r ApiSpotCreateOrderCancelReplaceV3Request) CancelReplaceMode(cancelReplaceMode string) ApiSpotCreateOrderCancelReplaceV3Request {
 	r.cancelReplaceMode = &cancelReplaceMode
 	return r
 }
 
-func (r TradingAPISpotCreateOrderCancelReplaceV3Request) Side(side string) TradingAPISpotCreateOrderCancelReplaceV3Request {
+func (r ApiSpotCreateOrderCancelReplaceV3Request) Side(side string) ApiSpotCreateOrderCancelReplaceV3Request {
 	r.side = &side
 	return r
 }
 
-func (r TradingAPISpotCreateOrderCancelReplaceV3Request) Symbol(symbol string) TradingAPISpotCreateOrderCancelReplaceV3Request {
+func (r ApiSpotCreateOrderCancelReplaceV3Request) Symbol(symbol string) ApiSpotCreateOrderCancelReplaceV3Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradingAPISpotCreateOrderCancelReplaceV3Request) Timestamp(timestamp int64) TradingAPISpotCreateOrderCancelReplaceV3Request {
+func (r ApiSpotCreateOrderCancelReplaceV3Request) Timestamp(timestamp int64) ApiSpotCreateOrderCancelReplaceV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradingAPISpotCreateOrderCancelReplaceV3Request) Type_(type_ string) TradingAPISpotCreateOrderCancelReplaceV3Request {
+func (r ApiSpotCreateOrderCancelReplaceV3Request) Type_(type_ string) ApiSpotCreateOrderCancelReplaceV3Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r TradingAPISpotCreateOrderCancelReplaceV3Request) CancelNewClientOrderId(cancelNewClientOrderId string) TradingAPISpotCreateOrderCancelReplaceV3Request {
+func (r ApiSpotCreateOrderCancelReplaceV3Request) CancelNewClientOrderId(cancelNewClientOrderId string) ApiSpotCreateOrderCancelReplaceV3Request {
 	r.cancelNewClientOrderId = &cancelNewClientOrderId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderCancelReplaceV3Request) CancelOrderId(cancelOrderId int64) TradingAPISpotCreateOrderCancelReplaceV3Request {
+func (r ApiSpotCreateOrderCancelReplaceV3Request) CancelOrderId(cancelOrderId int64) ApiSpotCreateOrderCancelReplaceV3Request {
 	r.cancelOrderId = &cancelOrderId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderCancelReplaceV3Request) CancelOrigClientOrderId(cancelOrigClientOrderId string) TradingAPISpotCreateOrderCancelReplaceV3Request {
+func (r ApiSpotCreateOrderCancelReplaceV3Request) CancelOrigClientOrderId(cancelOrigClientOrderId string) ApiSpotCreateOrderCancelReplaceV3Request {
 	r.cancelOrigClientOrderId = &cancelOrigClientOrderId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderCancelReplaceV3Request) CancelRestrictions(cancelRestrictions string) TradingAPISpotCreateOrderCancelReplaceV3Request {
+func (r ApiSpotCreateOrderCancelReplaceV3Request) CancelRestrictions(cancelRestrictions string) ApiSpotCreateOrderCancelReplaceV3Request {
 	r.cancelRestrictions = &cancelRestrictions
 	return r
 }
 
-func (r TradingAPISpotCreateOrderCancelReplaceV3Request) IcebergQty(icebergQty string) TradingAPISpotCreateOrderCancelReplaceV3Request {
+func (r ApiSpotCreateOrderCancelReplaceV3Request) IcebergQty(icebergQty string) ApiSpotCreateOrderCancelReplaceV3Request {
 	r.icebergQty = &icebergQty
 	return r
 }
 
-func (r TradingAPISpotCreateOrderCancelReplaceV3Request) NewClientOrderId(newClientOrderId string) TradingAPISpotCreateOrderCancelReplaceV3Request {
+func (r ApiSpotCreateOrderCancelReplaceV3Request) NewClientOrderId(newClientOrderId string) ApiSpotCreateOrderCancelReplaceV3Request {
 	r.newClientOrderId = &newClientOrderId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderCancelReplaceV3Request) NewOrderRespType(newOrderRespType string) TradingAPISpotCreateOrderCancelReplaceV3Request {
+func (r ApiSpotCreateOrderCancelReplaceV3Request) NewOrderRespType(newOrderRespType string) ApiSpotCreateOrderCancelReplaceV3Request {
 	r.newOrderRespType = &newOrderRespType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderCancelReplaceV3Request) OrderRateLimitExceededMode(orderRateLimitExceededMode string) TradingAPISpotCreateOrderCancelReplaceV3Request {
+func (r ApiSpotCreateOrderCancelReplaceV3Request) OrderRateLimitExceededMode(orderRateLimitExceededMode string) ApiSpotCreateOrderCancelReplaceV3Request {
 	r.orderRateLimitExceededMode = &orderRateLimitExceededMode
 	return r
 }
 
-func (r TradingAPISpotCreateOrderCancelReplaceV3Request) Price(price string) TradingAPISpotCreateOrderCancelReplaceV3Request {
+func (r ApiSpotCreateOrderCancelReplaceV3Request) Price(price string) ApiSpotCreateOrderCancelReplaceV3Request {
 	r.price = &price
 	return r
 }
 
-func (r TradingAPISpotCreateOrderCancelReplaceV3Request) Quantity(quantity string) TradingAPISpotCreateOrderCancelReplaceV3Request {
+func (r ApiSpotCreateOrderCancelReplaceV3Request) Quantity(quantity string) ApiSpotCreateOrderCancelReplaceV3Request {
 	r.quantity = &quantity
 	return r
 }
 
-func (r TradingAPISpotCreateOrderCancelReplaceV3Request) QuoteOrderQty(quoteOrderQty string) TradingAPISpotCreateOrderCancelReplaceV3Request {
+func (r ApiSpotCreateOrderCancelReplaceV3Request) QuoteOrderQty(quoteOrderQty string) ApiSpotCreateOrderCancelReplaceV3Request {
 	r.quoteOrderQty = &quoteOrderQty
 	return r
 }
 
-func (r TradingAPISpotCreateOrderCancelReplaceV3Request) RecvWindow(recvWindow int64) TradingAPISpotCreateOrderCancelReplaceV3Request {
+func (r ApiSpotCreateOrderCancelReplaceV3Request) RecvWindow(recvWindow int64) ApiSpotCreateOrderCancelReplaceV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradingAPISpotCreateOrderCancelReplaceV3Request) SelfTradePreventionMode(selfTradePreventionMode string) TradingAPISpotCreateOrderCancelReplaceV3Request {
+func (r ApiSpotCreateOrderCancelReplaceV3Request) SelfTradePreventionMode(selfTradePreventionMode string) ApiSpotCreateOrderCancelReplaceV3Request {
 	r.selfTradePreventionMode = &selfTradePreventionMode
 	return r
 }
 
-func (r TradingAPISpotCreateOrderCancelReplaceV3Request) StopPrice(stopPrice string) TradingAPISpotCreateOrderCancelReplaceV3Request {
+func (r ApiSpotCreateOrderCancelReplaceV3Request) StopPrice(stopPrice string) ApiSpotCreateOrderCancelReplaceV3Request {
 	r.stopPrice = &stopPrice
 	return r
 }
 
-func (r TradingAPISpotCreateOrderCancelReplaceV3Request) StrategyId(strategyId int64) TradingAPISpotCreateOrderCancelReplaceV3Request {
+func (r ApiSpotCreateOrderCancelReplaceV3Request) StrategyId(strategyId int64) ApiSpotCreateOrderCancelReplaceV3Request {
 	r.strategyId = &strategyId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderCancelReplaceV3Request) StrategyType(strategyType int32) TradingAPISpotCreateOrderCancelReplaceV3Request {
+func (r ApiSpotCreateOrderCancelReplaceV3Request) StrategyType(strategyType int32) ApiSpotCreateOrderCancelReplaceV3Request {
 	r.strategyType = &strategyType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderCancelReplaceV3Request) TimeInForce(timeInForce string) TradingAPISpotCreateOrderCancelReplaceV3Request {
+func (r ApiSpotCreateOrderCancelReplaceV3Request) TimeInForce(timeInForce string) ApiSpotCreateOrderCancelReplaceV3Request {
 	r.timeInForce = &timeInForce
 	return r
 }
 
-func (r TradingAPISpotCreateOrderCancelReplaceV3Request) TrailingDelta(trailingDelta int64) TradingAPISpotCreateOrderCancelReplaceV3Request {
+func (r ApiSpotCreateOrderCancelReplaceV3Request) TrailingDelta(trailingDelta int64) ApiSpotCreateOrderCancelReplaceV3Request {
 	r.trailingDelta = &trailingDelta
 	return r
 }
 
-func (r TradingAPISpotCreateOrderCancelReplaceV3Request) Execute() (*SpotCreateOrderCancelReplaceV3Resp, *http.Response, error) {
+func (r ApiSpotCreateOrderCancelReplaceV3Request) Execute() (*SpotCreateOrderCancelReplaceV3Resp, *http.Response, error) {
 	return r.ApiService.SpotCreateOrderCancelReplaceV3Execute(r)
 }
 
@@ -177,10 +177,10 @@ Filters and Order Count are evaluated before the processing of the cancellation 
 A new order that was not attempted (i.e. when newOrderResult: NOT_ATTEMPTED ), will still increase the order count by 1.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradingAPISpotCreateOrderCancelReplaceV3Request
+ @return ApiSpotCreateOrderCancelReplaceV3Request
 */
-func (a *TradingAPIService) SpotCreateOrderCancelReplaceV3(ctx context.Context) TradingAPISpotCreateOrderCancelReplaceV3Request {
-	return TradingAPISpotCreateOrderCancelReplaceV3Request{
+func (a *TradingAPIService) SpotCreateOrderCancelReplaceV3(ctx context.Context) ApiSpotCreateOrderCancelReplaceV3Request {
+	return ApiSpotCreateOrderCancelReplaceV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -188,7 +188,7 @@ func (a *TradingAPIService) SpotCreateOrderCancelReplaceV3(ctx context.Context) 
 
 // Execute executes the request
 //  @return SpotCreateOrderCancelReplaceV3Resp
-func (a *TradingAPIService) SpotCreateOrderCancelReplaceV3Execute(r TradingAPISpotCreateOrderCancelReplaceV3Request) (*SpotCreateOrderCancelReplaceV3Resp, *http.Response, error) {
+func (a *TradingAPIService) SpotCreateOrderCancelReplaceV3Execute(r ApiSpotCreateOrderCancelReplaceV3Request) (*SpotCreateOrderCancelReplaceV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -362,7 +362,7 @@ func (a *TradingAPIService) SpotCreateOrderCancelReplaceV3Execute(r TradingAPISp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradingAPISpotCreateOrderListOcoV3Request struct {
+type ApiSpotCreateOrderListOcoV3Request struct {
 	ctx context.Context
 	ApiService *TradingAPIService
 	aboveType *string
@@ -393,137 +393,137 @@ type TradingAPISpotCreateOrderListOcoV3Request struct {
 	selfTradePreventionMode *string
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) AboveType(aboveType string) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) AboveType(aboveType string) ApiSpotCreateOrderListOcoV3Request {
 	r.aboveType = &aboveType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) BelowType(belowType string) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) BelowType(belowType string) ApiSpotCreateOrderListOcoV3Request {
 	r.belowType = &belowType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) Quantity(quantity string) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) Quantity(quantity string) ApiSpotCreateOrderListOcoV3Request {
 	r.quantity = &quantity
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) Side(side string) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) Side(side string) ApiSpotCreateOrderListOcoV3Request {
 	r.side = &side
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) Symbol(symbol string) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) Symbol(symbol string) ApiSpotCreateOrderListOcoV3Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) Timestamp(timestamp int64) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) Timestamp(timestamp int64) ApiSpotCreateOrderListOcoV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) AboveClientOrderId(aboveClientOrderId string) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) AboveClientOrderId(aboveClientOrderId string) ApiSpotCreateOrderListOcoV3Request {
 	r.aboveClientOrderId = &aboveClientOrderId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) AboveIcebergQty(aboveIcebergQty int64) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) AboveIcebergQty(aboveIcebergQty int64) ApiSpotCreateOrderListOcoV3Request {
 	r.aboveIcebergQty = &aboveIcebergQty
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) AbovePrice(abovePrice string) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) AbovePrice(abovePrice string) ApiSpotCreateOrderListOcoV3Request {
 	r.abovePrice = &abovePrice
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) AboveStopPrice(aboveStopPrice string) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) AboveStopPrice(aboveStopPrice string) ApiSpotCreateOrderListOcoV3Request {
 	r.aboveStopPrice = &aboveStopPrice
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) AboveStrategyId(aboveStrategyId int64) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) AboveStrategyId(aboveStrategyId int64) ApiSpotCreateOrderListOcoV3Request {
 	r.aboveStrategyId = &aboveStrategyId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) AboveStrategyType(aboveStrategyType int32) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) AboveStrategyType(aboveStrategyType int32) ApiSpotCreateOrderListOcoV3Request {
 	r.aboveStrategyType = &aboveStrategyType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) AboveTimeInForce(aboveTimeInForce string) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) AboveTimeInForce(aboveTimeInForce string) ApiSpotCreateOrderListOcoV3Request {
 	r.aboveTimeInForce = &aboveTimeInForce
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) AboveTrailingDelta(aboveTrailingDelta int64) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) AboveTrailingDelta(aboveTrailingDelta int64) ApiSpotCreateOrderListOcoV3Request {
 	r.aboveTrailingDelta = &aboveTrailingDelta
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) BelowClientOrderId(belowClientOrderId string) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) BelowClientOrderId(belowClientOrderId string) ApiSpotCreateOrderListOcoV3Request {
 	r.belowClientOrderId = &belowClientOrderId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) BelowIcebergQty(belowIcebergQty int64) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) BelowIcebergQty(belowIcebergQty int64) ApiSpotCreateOrderListOcoV3Request {
 	r.belowIcebergQty = &belowIcebergQty
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) BelowPrice(belowPrice string) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) BelowPrice(belowPrice string) ApiSpotCreateOrderListOcoV3Request {
 	r.belowPrice = &belowPrice
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) BelowStopPrice(belowStopPrice string) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) BelowStopPrice(belowStopPrice string) ApiSpotCreateOrderListOcoV3Request {
 	r.belowStopPrice = &belowStopPrice
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) BelowStrategyId(belowStrategyId int64) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) BelowStrategyId(belowStrategyId int64) ApiSpotCreateOrderListOcoV3Request {
 	r.belowStrategyId = &belowStrategyId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) BelowStrategyType(belowStrategyType int32) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) BelowStrategyType(belowStrategyType int32) ApiSpotCreateOrderListOcoV3Request {
 	r.belowStrategyType = &belowStrategyType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) BelowTimeInForce(belowTimeInForce string) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) BelowTimeInForce(belowTimeInForce string) ApiSpotCreateOrderListOcoV3Request {
 	r.belowTimeInForce = &belowTimeInForce
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) BelowTrailingDelta(belowTrailingDelta int64) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) BelowTrailingDelta(belowTrailingDelta int64) ApiSpotCreateOrderListOcoV3Request {
 	r.belowTrailingDelta = &belowTrailingDelta
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) ListClientOrderId(listClientOrderId string) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) ListClientOrderId(listClientOrderId string) ApiSpotCreateOrderListOcoV3Request {
 	r.listClientOrderId = &listClientOrderId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) NewOrderRespType(newOrderRespType string) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) NewOrderRespType(newOrderRespType string) ApiSpotCreateOrderListOcoV3Request {
 	r.newOrderRespType = &newOrderRespType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) RecvWindow(recvWindow int64) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) RecvWindow(recvWindow int64) ApiSpotCreateOrderListOcoV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) SelfTradePreventionMode(selfTradePreventionMode string) TradingAPISpotCreateOrderListOcoV3Request {
+func (r ApiSpotCreateOrderListOcoV3Request) SelfTradePreventionMode(selfTradePreventionMode string) ApiSpotCreateOrderListOcoV3Request {
 	r.selfTradePreventionMode = &selfTradePreventionMode
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOcoV3Request) Execute() (*SpotCreateOrderListOcoV3Resp, *http.Response, error) {
+func (r ApiSpotCreateOrderListOcoV3Request) Execute() (*SpotCreateOrderListOcoV3Resp, *http.Response, error) {
 	return r.ApiService.SpotCreateOrderListOcoV3Execute(r)
 }
 
@@ -548,10 +548,10 @@ TAKE_PROFIT stopPrice < Last Traded Price < STOP_LOSS/STOP_LOSS_LIMIT stopPrice
 - OCOs add 2 orders to the unfilled order count, EXCHANGE_MAX_ORDERS filter, and the MAX_NUM_ORDERS filter.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradingAPISpotCreateOrderListOcoV3Request
+ @return ApiSpotCreateOrderListOcoV3Request
 */
-func (a *TradingAPIService) SpotCreateOrderListOcoV3(ctx context.Context) TradingAPISpotCreateOrderListOcoV3Request {
-	return TradingAPISpotCreateOrderListOcoV3Request{
+func (a *TradingAPIService) SpotCreateOrderListOcoV3(ctx context.Context) ApiSpotCreateOrderListOcoV3Request {
+	return ApiSpotCreateOrderListOcoV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -559,7 +559,7 @@ func (a *TradingAPIService) SpotCreateOrderListOcoV3(ctx context.Context) Tradin
 
 // Execute executes the request
 //  @return SpotCreateOrderListOcoV3Resp
-func (a *TradingAPIService) SpotCreateOrderListOcoV3Execute(r TradingAPISpotCreateOrderListOcoV3Request) (*SpotCreateOrderListOcoV3Resp, *http.Response, error) {
+func (a *TradingAPIService) SpotCreateOrderListOcoV3Execute(r ApiSpotCreateOrderListOcoV3Request) (*SpotCreateOrderListOcoV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -743,7 +743,7 @@ func (a *TradingAPIService) SpotCreateOrderListOcoV3Execute(r TradingAPISpotCrea
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradingAPISpotCreateOrderListOtoV3Request struct {
+type ApiSpotCreateOrderListOtoV3Request struct {
 	ctx context.Context
 	ApiService *TradingAPIService
 	pendingQuantity *string
@@ -774,137 +774,137 @@ type TradingAPISpotCreateOrderListOtoV3Request struct {
 	workingTimeInForce *string
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) PendingQuantity(pendingQuantity string) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) PendingQuantity(pendingQuantity string) ApiSpotCreateOrderListOtoV3Request {
 	r.pendingQuantity = &pendingQuantity
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) PendingSide(pendingSide string) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) PendingSide(pendingSide string) ApiSpotCreateOrderListOtoV3Request {
 	r.pendingSide = &pendingSide
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) PendingType(pendingType string) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) PendingType(pendingType string) ApiSpotCreateOrderListOtoV3Request {
 	r.pendingType = &pendingType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) Symbol(symbol string) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) Symbol(symbol string) ApiSpotCreateOrderListOtoV3Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) Timestamp(timestamp int64) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) Timestamp(timestamp int64) ApiSpotCreateOrderListOtoV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) WorkingPrice(workingPrice string) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) WorkingPrice(workingPrice string) ApiSpotCreateOrderListOtoV3Request {
 	r.workingPrice = &workingPrice
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) WorkingQuantity(workingQuantity string) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) WorkingQuantity(workingQuantity string) ApiSpotCreateOrderListOtoV3Request {
 	r.workingQuantity = &workingQuantity
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) WorkingSide(workingSide string) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) WorkingSide(workingSide string) ApiSpotCreateOrderListOtoV3Request {
 	r.workingSide = &workingSide
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) WorkingType(workingType string) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) WorkingType(workingType string) ApiSpotCreateOrderListOtoV3Request {
 	r.workingType = &workingType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) ListClientOrderId(listClientOrderId string) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) ListClientOrderId(listClientOrderId string) ApiSpotCreateOrderListOtoV3Request {
 	r.listClientOrderId = &listClientOrderId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) NewOrderRespType(newOrderRespType string) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) NewOrderRespType(newOrderRespType string) ApiSpotCreateOrderListOtoV3Request {
 	r.newOrderRespType = &newOrderRespType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) PendingClientOrderId(pendingClientOrderId string) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) PendingClientOrderId(pendingClientOrderId string) ApiSpotCreateOrderListOtoV3Request {
 	r.pendingClientOrderId = &pendingClientOrderId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) PendingIcebergQty(pendingIcebergQty string) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) PendingIcebergQty(pendingIcebergQty string) ApiSpotCreateOrderListOtoV3Request {
 	r.pendingIcebergQty = &pendingIcebergQty
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) PendingPrice(pendingPrice string) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) PendingPrice(pendingPrice string) ApiSpotCreateOrderListOtoV3Request {
 	r.pendingPrice = &pendingPrice
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) PendingStopPrice(pendingStopPrice string) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) PendingStopPrice(pendingStopPrice string) ApiSpotCreateOrderListOtoV3Request {
 	r.pendingStopPrice = &pendingStopPrice
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) PendingStrategyId(pendingStrategyId int64) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) PendingStrategyId(pendingStrategyId int64) ApiSpotCreateOrderListOtoV3Request {
 	r.pendingStrategyId = &pendingStrategyId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) PendingStrategyType(pendingStrategyType int32) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) PendingStrategyType(pendingStrategyType int32) ApiSpotCreateOrderListOtoV3Request {
 	r.pendingStrategyType = &pendingStrategyType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) PendingTimeInForce(pendingTimeInForce string) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) PendingTimeInForce(pendingTimeInForce string) ApiSpotCreateOrderListOtoV3Request {
 	r.pendingTimeInForce = &pendingTimeInForce
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) PendingTrailingDelta(pendingTrailingDelta string) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) PendingTrailingDelta(pendingTrailingDelta string) ApiSpotCreateOrderListOtoV3Request {
 	r.pendingTrailingDelta = &pendingTrailingDelta
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) RecvWindow(recvWindow int64) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) RecvWindow(recvWindow int64) ApiSpotCreateOrderListOtoV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) SelfTradePreventionMode(selfTradePreventionMode string) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) SelfTradePreventionMode(selfTradePreventionMode string) ApiSpotCreateOrderListOtoV3Request {
 	r.selfTradePreventionMode = &selfTradePreventionMode
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) WorkingClientOrderId(workingClientOrderId string) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) WorkingClientOrderId(workingClientOrderId string) ApiSpotCreateOrderListOtoV3Request {
 	r.workingClientOrderId = &workingClientOrderId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) WorkingIcebergQty(workingIcebergQty string) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) WorkingIcebergQty(workingIcebergQty string) ApiSpotCreateOrderListOtoV3Request {
 	r.workingIcebergQty = &workingIcebergQty
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) WorkingStrategyId(workingStrategyId int64) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) WorkingStrategyId(workingStrategyId int64) ApiSpotCreateOrderListOtoV3Request {
 	r.workingStrategyId = &workingStrategyId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) WorkingStrategyType(workingStrategyType int32) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) WorkingStrategyType(workingStrategyType int32) ApiSpotCreateOrderListOtoV3Request {
 	r.workingStrategyType = &workingStrategyType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) WorkingTimeInForce(workingTimeInForce string) TradingAPISpotCreateOrderListOtoV3Request {
+func (r ApiSpotCreateOrderListOtoV3Request) WorkingTimeInForce(workingTimeInForce string) ApiSpotCreateOrderListOtoV3Request {
 	r.workingTimeInForce = &workingTimeInForce
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtoV3Request) Execute() (*SpotCreateOrderListOtoV3Resp, *http.Response, error) {
+func (r ApiSpotCreateOrderListOtoV3Request) Execute() (*SpotCreateOrderListOtoV3Resp, *http.Response, error) {
 	return r.ApiService.SpotCreateOrderListOtoV3Execute(r)
 }
 
@@ -920,10 +920,10 @@ Places an OTO.
 - OTOs add 2 orders to the unfilled order count, EXCHANGE_MAX_NUM_ORDERS filter and MAX_NUM_ORDERS filter.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradingAPISpotCreateOrderListOtoV3Request
+ @return ApiSpotCreateOrderListOtoV3Request
 */
-func (a *TradingAPIService) SpotCreateOrderListOtoV3(ctx context.Context) TradingAPISpotCreateOrderListOtoV3Request {
-	return TradingAPISpotCreateOrderListOtoV3Request{
+func (a *TradingAPIService) SpotCreateOrderListOtoV3(ctx context.Context) ApiSpotCreateOrderListOtoV3Request {
+	return ApiSpotCreateOrderListOtoV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -931,7 +931,7 @@ func (a *TradingAPIService) SpotCreateOrderListOtoV3(ctx context.Context) Tradin
 
 // Execute executes the request
 //  @return SpotCreateOrderListOtoV3Resp
-func (a *TradingAPIService) SpotCreateOrderListOtoV3Execute(r TradingAPISpotCreateOrderListOtoV3Request) (*SpotCreateOrderListOtoV3Resp, *http.Response, error) {
+func (a *TradingAPIService) SpotCreateOrderListOtoV3Execute(r ApiSpotCreateOrderListOtoV3Request) (*SpotCreateOrderListOtoV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1118,7 +1118,7 @@ func (a *TradingAPIService) SpotCreateOrderListOtoV3Execute(r TradingAPISpotCrea
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradingAPISpotCreateOrderListOtocoV3Request struct {
+type ApiSpotCreateOrderListOtocoV3Request struct {
 	ctx context.Context
 	ApiService *TradingAPIService
 	pendingAboveType *string
@@ -1158,182 +1158,182 @@ type TradingAPISpotCreateOrderListOtocoV3Request struct {
 	workingTimeInForce *string
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) PendingAboveType(pendingAboveType string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) PendingAboveType(pendingAboveType string) ApiSpotCreateOrderListOtocoV3Request {
 	r.pendingAboveType = &pendingAboveType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) PendingQuantity(pendingQuantity string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) PendingQuantity(pendingQuantity string) ApiSpotCreateOrderListOtocoV3Request {
 	r.pendingQuantity = &pendingQuantity
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) PendingSide(pendingSide string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) PendingSide(pendingSide string) ApiSpotCreateOrderListOtocoV3Request {
 	r.pendingSide = &pendingSide
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) Symbol(symbol string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) Symbol(symbol string) ApiSpotCreateOrderListOtocoV3Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) Timestamp(timestamp int64) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) Timestamp(timestamp int64) ApiSpotCreateOrderListOtocoV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) WorkingPrice(workingPrice string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) WorkingPrice(workingPrice string) ApiSpotCreateOrderListOtocoV3Request {
 	r.workingPrice = &workingPrice
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) WorkingQuantity(workingQuantity string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) WorkingQuantity(workingQuantity string) ApiSpotCreateOrderListOtocoV3Request {
 	r.workingQuantity = &workingQuantity
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) WorkingSide(workingSide string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) WorkingSide(workingSide string) ApiSpotCreateOrderListOtocoV3Request {
 	r.workingSide = &workingSide
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) WorkingType(workingType string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) WorkingType(workingType string) ApiSpotCreateOrderListOtocoV3Request {
 	r.workingType = &workingType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) ListClientOrderId(listClientOrderId string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) ListClientOrderId(listClientOrderId string) ApiSpotCreateOrderListOtocoV3Request {
 	r.listClientOrderId = &listClientOrderId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) NewOrderRespType(newOrderRespType string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) NewOrderRespType(newOrderRespType string) ApiSpotCreateOrderListOtocoV3Request {
 	r.newOrderRespType = &newOrderRespType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) PendingAboveClientOrderId(pendingAboveClientOrderId string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) PendingAboveClientOrderId(pendingAboveClientOrderId string) ApiSpotCreateOrderListOtocoV3Request {
 	r.pendingAboveClientOrderId = &pendingAboveClientOrderId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) PendingAboveIcebergQty(pendingAboveIcebergQty string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) PendingAboveIcebergQty(pendingAboveIcebergQty string) ApiSpotCreateOrderListOtocoV3Request {
 	r.pendingAboveIcebergQty = &pendingAboveIcebergQty
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) PendingAbovePrice(pendingAbovePrice string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) PendingAbovePrice(pendingAbovePrice string) ApiSpotCreateOrderListOtocoV3Request {
 	r.pendingAbovePrice = &pendingAbovePrice
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) PendingAboveStopPrice(pendingAboveStopPrice string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) PendingAboveStopPrice(pendingAboveStopPrice string) ApiSpotCreateOrderListOtocoV3Request {
 	r.pendingAboveStopPrice = &pendingAboveStopPrice
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) PendingAboveStrategyId(pendingAboveStrategyId int64) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) PendingAboveStrategyId(pendingAboveStrategyId int64) ApiSpotCreateOrderListOtocoV3Request {
 	r.pendingAboveStrategyId = &pendingAboveStrategyId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) PendingAboveStrategyType(pendingAboveStrategyType int32) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) PendingAboveStrategyType(pendingAboveStrategyType int32) ApiSpotCreateOrderListOtocoV3Request {
 	r.pendingAboveStrategyType = &pendingAboveStrategyType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) PendingAboveTimeInForce(pendingAboveTimeInForce string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) PendingAboveTimeInForce(pendingAboveTimeInForce string) ApiSpotCreateOrderListOtocoV3Request {
 	r.pendingAboveTimeInForce = &pendingAboveTimeInForce
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) PendingAboveTrailingDelta(pendingAboveTrailingDelta string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) PendingAboveTrailingDelta(pendingAboveTrailingDelta string) ApiSpotCreateOrderListOtocoV3Request {
 	r.pendingAboveTrailingDelta = &pendingAboveTrailingDelta
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) PendingBelowClientOrderId(pendingBelowClientOrderId string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) PendingBelowClientOrderId(pendingBelowClientOrderId string) ApiSpotCreateOrderListOtocoV3Request {
 	r.pendingBelowClientOrderId = &pendingBelowClientOrderId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) PendingBelowIcebergQty(pendingBelowIcebergQty string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) PendingBelowIcebergQty(pendingBelowIcebergQty string) ApiSpotCreateOrderListOtocoV3Request {
 	r.pendingBelowIcebergQty = &pendingBelowIcebergQty
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) PendingBelowPrice(pendingBelowPrice string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) PendingBelowPrice(pendingBelowPrice string) ApiSpotCreateOrderListOtocoV3Request {
 	r.pendingBelowPrice = &pendingBelowPrice
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) PendingBelowStopPrice(pendingBelowStopPrice string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) PendingBelowStopPrice(pendingBelowStopPrice string) ApiSpotCreateOrderListOtocoV3Request {
 	r.pendingBelowStopPrice = &pendingBelowStopPrice
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) PendingBelowStrategyId(pendingBelowStrategyId int64) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) PendingBelowStrategyId(pendingBelowStrategyId int64) ApiSpotCreateOrderListOtocoV3Request {
 	r.pendingBelowStrategyId = &pendingBelowStrategyId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) PendingBelowStrategyType(pendingBelowStrategyType int32) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) PendingBelowStrategyType(pendingBelowStrategyType int32) ApiSpotCreateOrderListOtocoV3Request {
 	r.pendingBelowStrategyType = &pendingBelowStrategyType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) PendingBelowTimeInForce(pendingBelowTimeInForce string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) PendingBelowTimeInForce(pendingBelowTimeInForce string) ApiSpotCreateOrderListOtocoV3Request {
 	r.pendingBelowTimeInForce = &pendingBelowTimeInForce
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) PendingBelowTrailingDelta(pendingBelowTrailingDelta string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) PendingBelowTrailingDelta(pendingBelowTrailingDelta string) ApiSpotCreateOrderListOtocoV3Request {
 	r.pendingBelowTrailingDelta = &pendingBelowTrailingDelta
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) PendingBelowType(pendingBelowType string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) PendingBelowType(pendingBelowType string) ApiSpotCreateOrderListOtocoV3Request {
 	r.pendingBelowType = &pendingBelowType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) RecvWindow(recvWindow int64) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) RecvWindow(recvWindow int64) ApiSpotCreateOrderListOtocoV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) SelfTradePreventionMode(selfTradePreventionMode string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) SelfTradePreventionMode(selfTradePreventionMode string) ApiSpotCreateOrderListOtocoV3Request {
 	r.selfTradePreventionMode = &selfTradePreventionMode
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) WorkingClientOrderId(workingClientOrderId string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) WorkingClientOrderId(workingClientOrderId string) ApiSpotCreateOrderListOtocoV3Request {
 	r.workingClientOrderId = &workingClientOrderId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) WorkingIcebergQty(workingIcebergQty string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) WorkingIcebergQty(workingIcebergQty string) ApiSpotCreateOrderListOtocoV3Request {
 	r.workingIcebergQty = &workingIcebergQty
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) WorkingStrategyId(workingStrategyId int64) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) WorkingStrategyId(workingStrategyId int64) ApiSpotCreateOrderListOtocoV3Request {
 	r.workingStrategyId = &workingStrategyId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) WorkingStrategyType(workingStrategyType int32) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) WorkingStrategyType(workingStrategyType int32) ApiSpotCreateOrderListOtocoV3Request {
 	r.workingStrategyType = &workingStrategyType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) WorkingTimeInForce(workingTimeInForce string) TradingAPISpotCreateOrderListOtocoV3Request {
+func (r ApiSpotCreateOrderListOtocoV3Request) WorkingTimeInForce(workingTimeInForce string) ApiSpotCreateOrderListOtocoV3Request {
 	r.workingTimeInForce = &workingTimeInForce
 	return r
 }
 
-func (r TradingAPISpotCreateOrderListOtocoV3Request) Execute() (*SpotCreateOrderListOtocoV3Resp, *http.Response, error) {
+func (r ApiSpotCreateOrderListOtocoV3Request) Execute() (*SpotCreateOrderListOtocoV3Resp, *http.Response, error) {
 	return r.ApiService.SpotCreateOrderListOtocoV3Execute(r)
 }
 
@@ -1351,10 +1351,10 @@ The rules of the pending above and pending below follow the same rules as the Or
 - OTOCOs add 3 orders against the unfilled order count, EXCHANGE_MAX_NUM_ORDERS filter, and MAX_NUM_ORDERS filter.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradingAPISpotCreateOrderListOtocoV3Request
+ @return ApiSpotCreateOrderListOtocoV3Request
 */
-func (a *TradingAPIService) SpotCreateOrderListOtocoV3(ctx context.Context) TradingAPISpotCreateOrderListOtocoV3Request {
-	return TradingAPISpotCreateOrderListOtocoV3Request{
+func (a *TradingAPIService) SpotCreateOrderListOtocoV3(ctx context.Context) ApiSpotCreateOrderListOtocoV3Request {
+	return ApiSpotCreateOrderListOtocoV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1362,7 +1362,7 @@ func (a *TradingAPIService) SpotCreateOrderListOtocoV3(ctx context.Context) Trad
 
 // Execute executes the request
 //  @return SpotCreateOrderListOtocoV3Resp
-func (a *TradingAPIService) SpotCreateOrderListOtocoV3Execute(r TradingAPISpotCreateOrderListOtocoV3Request) (*SpotCreateOrderListOtocoV3Resp, *http.Response, error) {
+func (a *TradingAPIService) SpotCreateOrderListOtocoV3Execute(r ApiSpotCreateOrderListOtocoV3Request) (*SpotCreateOrderListOtocoV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1576,7 +1576,7 @@ func (a *TradingAPIService) SpotCreateOrderListOtocoV3Execute(r TradingAPISpotCr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradingAPISpotCreateOrderOcoV3Request struct {
+type ApiSpotCreateOrderOcoV3Request struct {
 	ctx context.Context
 	ApiService *TradingAPIService
 	price *string
@@ -1602,112 +1602,112 @@ type TradingAPISpotCreateOrderOcoV3Request struct {
 	trailingDelta *int64
 }
 
-func (r TradingAPISpotCreateOrderOcoV3Request) Price(price string) TradingAPISpotCreateOrderOcoV3Request {
+func (r ApiSpotCreateOrderOcoV3Request) Price(price string) ApiSpotCreateOrderOcoV3Request {
 	r.price = &price
 	return r
 }
 
-func (r TradingAPISpotCreateOrderOcoV3Request) Quantity(quantity string) TradingAPISpotCreateOrderOcoV3Request {
+func (r ApiSpotCreateOrderOcoV3Request) Quantity(quantity string) ApiSpotCreateOrderOcoV3Request {
 	r.quantity = &quantity
 	return r
 }
 
-func (r TradingAPISpotCreateOrderOcoV3Request) Side(side string) TradingAPISpotCreateOrderOcoV3Request {
+func (r ApiSpotCreateOrderOcoV3Request) Side(side string) ApiSpotCreateOrderOcoV3Request {
 	r.side = &side
 	return r
 }
 
-func (r TradingAPISpotCreateOrderOcoV3Request) StopPrice(stopPrice string) TradingAPISpotCreateOrderOcoV3Request {
+func (r ApiSpotCreateOrderOcoV3Request) StopPrice(stopPrice string) ApiSpotCreateOrderOcoV3Request {
 	r.stopPrice = &stopPrice
 	return r
 }
 
-func (r TradingAPISpotCreateOrderOcoV3Request) Symbol(symbol string) TradingAPISpotCreateOrderOcoV3Request {
+func (r ApiSpotCreateOrderOcoV3Request) Symbol(symbol string) ApiSpotCreateOrderOcoV3Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradingAPISpotCreateOrderOcoV3Request) Timestamp(timestamp int64) TradingAPISpotCreateOrderOcoV3Request {
+func (r ApiSpotCreateOrderOcoV3Request) Timestamp(timestamp int64) ApiSpotCreateOrderOcoV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradingAPISpotCreateOrderOcoV3Request) LimitClientOrderId(limitClientOrderId string) TradingAPISpotCreateOrderOcoV3Request {
+func (r ApiSpotCreateOrderOcoV3Request) LimitClientOrderId(limitClientOrderId string) ApiSpotCreateOrderOcoV3Request {
 	r.limitClientOrderId = &limitClientOrderId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderOcoV3Request) LimitIcebergQty(limitIcebergQty string) TradingAPISpotCreateOrderOcoV3Request {
+func (r ApiSpotCreateOrderOcoV3Request) LimitIcebergQty(limitIcebergQty string) ApiSpotCreateOrderOcoV3Request {
 	r.limitIcebergQty = &limitIcebergQty
 	return r
 }
 
-func (r TradingAPISpotCreateOrderOcoV3Request) LimitStrategyId(limitStrategyId int64) TradingAPISpotCreateOrderOcoV3Request {
+func (r ApiSpotCreateOrderOcoV3Request) LimitStrategyId(limitStrategyId int64) ApiSpotCreateOrderOcoV3Request {
 	r.limitStrategyId = &limitStrategyId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderOcoV3Request) LimitStrategyType(limitStrategyType int32) TradingAPISpotCreateOrderOcoV3Request {
+func (r ApiSpotCreateOrderOcoV3Request) LimitStrategyType(limitStrategyType int32) ApiSpotCreateOrderOcoV3Request {
 	r.limitStrategyType = &limitStrategyType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderOcoV3Request) ListClientOrderId(listClientOrderId string) TradingAPISpotCreateOrderOcoV3Request {
+func (r ApiSpotCreateOrderOcoV3Request) ListClientOrderId(listClientOrderId string) ApiSpotCreateOrderOcoV3Request {
 	r.listClientOrderId = &listClientOrderId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderOcoV3Request) NewOrderRespType(newOrderRespType string) TradingAPISpotCreateOrderOcoV3Request {
+func (r ApiSpotCreateOrderOcoV3Request) NewOrderRespType(newOrderRespType string) ApiSpotCreateOrderOcoV3Request {
 	r.newOrderRespType = &newOrderRespType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderOcoV3Request) RecvWindow(recvWindow int64) TradingAPISpotCreateOrderOcoV3Request {
+func (r ApiSpotCreateOrderOcoV3Request) RecvWindow(recvWindow int64) ApiSpotCreateOrderOcoV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradingAPISpotCreateOrderOcoV3Request) SelfTradePreventionMode(selfTradePreventionMode string) TradingAPISpotCreateOrderOcoV3Request {
+func (r ApiSpotCreateOrderOcoV3Request) SelfTradePreventionMode(selfTradePreventionMode string) ApiSpotCreateOrderOcoV3Request {
 	r.selfTradePreventionMode = &selfTradePreventionMode
 	return r
 }
 
-func (r TradingAPISpotCreateOrderOcoV3Request) StopClientOrderId(stopClientOrderId string) TradingAPISpotCreateOrderOcoV3Request {
+func (r ApiSpotCreateOrderOcoV3Request) StopClientOrderId(stopClientOrderId string) ApiSpotCreateOrderOcoV3Request {
 	r.stopClientOrderId = &stopClientOrderId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderOcoV3Request) StopIcebergQty(stopIcebergQty string) TradingAPISpotCreateOrderOcoV3Request {
+func (r ApiSpotCreateOrderOcoV3Request) StopIcebergQty(stopIcebergQty string) ApiSpotCreateOrderOcoV3Request {
 	r.stopIcebergQty = &stopIcebergQty
 	return r
 }
 
-func (r TradingAPISpotCreateOrderOcoV3Request) StopLimitPrice(stopLimitPrice string) TradingAPISpotCreateOrderOcoV3Request {
+func (r ApiSpotCreateOrderOcoV3Request) StopLimitPrice(stopLimitPrice string) ApiSpotCreateOrderOcoV3Request {
 	r.stopLimitPrice = &stopLimitPrice
 	return r
 }
 
-func (r TradingAPISpotCreateOrderOcoV3Request) StopLimitTimeInForce(stopLimitTimeInForce string) TradingAPISpotCreateOrderOcoV3Request {
+func (r ApiSpotCreateOrderOcoV3Request) StopLimitTimeInForce(stopLimitTimeInForce string) ApiSpotCreateOrderOcoV3Request {
 	r.stopLimitTimeInForce = &stopLimitTimeInForce
 	return r
 }
 
-func (r TradingAPISpotCreateOrderOcoV3Request) StopStrategyId(stopStrategyId int64) TradingAPISpotCreateOrderOcoV3Request {
+func (r ApiSpotCreateOrderOcoV3Request) StopStrategyId(stopStrategyId int64) ApiSpotCreateOrderOcoV3Request {
 	r.stopStrategyId = &stopStrategyId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderOcoV3Request) StopStrategyType(stopStrategyType int32) TradingAPISpotCreateOrderOcoV3Request {
+func (r ApiSpotCreateOrderOcoV3Request) StopStrategyType(stopStrategyType int32) ApiSpotCreateOrderOcoV3Request {
 	r.stopStrategyType = &stopStrategyType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderOcoV3Request) TrailingDelta(trailingDelta int64) TradingAPISpotCreateOrderOcoV3Request {
+func (r ApiSpotCreateOrderOcoV3Request) TrailingDelta(trailingDelta int64) ApiSpotCreateOrderOcoV3Request {
 	r.trailingDelta = &trailingDelta
 	return r
 }
 
-func (r TradingAPISpotCreateOrderOcoV3Request) Execute() (*SpotCreateOrderOcoV3Resp, *http.Response, error) {
+func (r ApiSpotCreateOrderOcoV3Request) Execute() (*SpotCreateOrderOcoV3Resp, *http.Response, error) {
 	return r.ApiService.SpotCreateOrderOcoV3Execute(r)
 }
 
@@ -1726,10 +1726,10 @@ ICEBERG quantities however do not have to be the same
 - OCO adds 2 orders to the unfilled order count, EXCHANGE_MAX_ORDERS filter and the MAX_NUM_ORDERS filter.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradingAPISpotCreateOrderOcoV3Request
+ @return ApiSpotCreateOrderOcoV3Request
 */
-func (a *TradingAPIService) SpotCreateOrderOcoV3(ctx context.Context) TradingAPISpotCreateOrderOcoV3Request {
-	return TradingAPISpotCreateOrderOcoV3Request{
+func (a *TradingAPIService) SpotCreateOrderOcoV3(ctx context.Context) ApiSpotCreateOrderOcoV3Request {
+	return ApiSpotCreateOrderOcoV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1737,7 +1737,7 @@ func (a *TradingAPIService) SpotCreateOrderOcoV3(ctx context.Context) TradingAPI
 
 // Execute executes the request
 //  @return SpotCreateOrderOcoV3Resp
-func (a *TradingAPIService) SpotCreateOrderOcoV3Execute(r TradingAPISpotCreateOrderOcoV3Request) (*SpotCreateOrderOcoV3Resp, *http.Response, error) {
+func (a *TradingAPIService) SpotCreateOrderOcoV3Execute(r ApiSpotCreateOrderOcoV3Request) (*SpotCreateOrderOcoV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1906,7 +1906,7 @@ func (a *TradingAPIService) SpotCreateOrderOcoV3Execute(r TradingAPISpotCreateOr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradingAPISpotCreateOrderTestV3Request struct {
+type ApiSpotCreateOrderTestV3Request struct {
 	ctx context.Context
 	ApiService *TradingAPIService
 	side *string
@@ -1929,97 +1929,97 @@ type TradingAPISpotCreateOrderTestV3Request struct {
 	trailingDelta *int64
 }
 
-func (r TradingAPISpotCreateOrderTestV3Request) Side(side string) TradingAPISpotCreateOrderTestV3Request {
+func (r ApiSpotCreateOrderTestV3Request) Side(side string) ApiSpotCreateOrderTestV3Request {
 	r.side = &side
 	return r
 }
 
-func (r TradingAPISpotCreateOrderTestV3Request) Symbol(symbol string) TradingAPISpotCreateOrderTestV3Request {
+func (r ApiSpotCreateOrderTestV3Request) Symbol(symbol string) ApiSpotCreateOrderTestV3Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradingAPISpotCreateOrderTestV3Request) Timestamp(timestamp int64) TradingAPISpotCreateOrderTestV3Request {
+func (r ApiSpotCreateOrderTestV3Request) Timestamp(timestamp int64) ApiSpotCreateOrderTestV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradingAPISpotCreateOrderTestV3Request) Type_(type_ string) TradingAPISpotCreateOrderTestV3Request {
+func (r ApiSpotCreateOrderTestV3Request) Type_(type_ string) ApiSpotCreateOrderTestV3Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r TradingAPISpotCreateOrderTestV3Request) ComputeCommissionRates(computeCommissionRates bool) TradingAPISpotCreateOrderTestV3Request {
+func (r ApiSpotCreateOrderTestV3Request) ComputeCommissionRates(computeCommissionRates bool) ApiSpotCreateOrderTestV3Request {
 	r.computeCommissionRates = &computeCommissionRates
 	return r
 }
 
-func (r TradingAPISpotCreateOrderTestV3Request) IcebergQty(icebergQty string) TradingAPISpotCreateOrderTestV3Request {
+func (r ApiSpotCreateOrderTestV3Request) IcebergQty(icebergQty string) ApiSpotCreateOrderTestV3Request {
 	r.icebergQty = &icebergQty
 	return r
 }
 
-func (r TradingAPISpotCreateOrderTestV3Request) NewClientOrderId(newClientOrderId string) TradingAPISpotCreateOrderTestV3Request {
+func (r ApiSpotCreateOrderTestV3Request) NewClientOrderId(newClientOrderId string) ApiSpotCreateOrderTestV3Request {
 	r.newClientOrderId = &newClientOrderId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderTestV3Request) NewOrderRespType(newOrderRespType string) TradingAPISpotCreateOrderTestV3Request {
+func (r ApiSpotCreateOrderTestV3Request) NewOrderRespType(newOrderRespType string) ApiSpotCreateOrderTestV3Request {
 	r.newOrderRespType = &newOrderRespType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderTestV3Request) Price(price string) TradingAPISpotCreateOrderTestV3Request {
+func (r ApiSpotCreateOrderTestV3Request) Price(price string) ApiSpotCreateOrderTestV3Request {
 	r.price = &price
 	return r
 }
 
-func (r TradingAPISpotCreateOrderTestV3Request) Quantity(quantity string) TradingAPISpotCreateOrderTestV3Request {
+func (r ApiSpotCreateOrderTestV3Request) Quantity(quantity string) ApiSpotCreateOrderTestV3Request {
 	r.quantity = &quantity
 	return r
 }
 
-func (r TradingAPISpotCreateOrderTestV3Request) QuoteOrderQty(quoteOrderQty string) TradingAPISpotCreateOrderTestV3Request {
+func (r ApiSpotCreateOrderTestV3Request) QuoteOrderQty(quoteOrderQty string) ApiSpotCreateOrderTestV3Request {
 	r.quoteOrderQty = &quoteOrderQty
 	return r
 }
 
-func (r TradingAPISpotCreateOrderTestV3Request) RecvWindow(recvWindow int64) TradingAPISpotCreateOrderTestV3Request {
+func (r ApiSpotCreateOrderTestV3Request) RecvWindow(recvWindow int64) ApiSpotCreateOrderTestV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradingAPISpotCreateOrderTestV3Request) SelfTradePreventionMode(selfTradePreventionMode string) TradingAPISpotCreateOrderTestV3Request {
+func (r ApiSpotCreateOrderTestV3Request) SelfTradePreventionMode(selfTradePreventionMode string) ApiSpotCreateOrderTestV3Request {
 	r.selfTradePreventionMode = &selfTradePreventionMode
 	return r
 }
 
-func (r TradingAPISpotCreateOrderTestV3Request) StopPrice(stopPrice string) TradingAPISpotCreateOrderTestV3Request {
+func (r ApiSpotCreateOrderTestV3Request) StopPrice(stopPrice string) ApiSpotCreateOrderTestV3Request {
 	r.stopPrice = &stopPrice
 	return r
 }
 
-func (r TradingAPISpotCreateOrderTestV3Request) StrategyId(strategyId int64) TradingAPISpotCreateOrderTestV3Request {
+func (r ApiSpotCreateOrderTestV3Request) StrategyId(strategyId int64) ApiSpotCreateOrderTestV3Request {
 	r.strategyId = &strategyId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderTestV3Request) StrategyType(strategyType int32) TradingAPISpotCreateOrderTestV3Request {
+func (r ApiSpotCreateOrderTestV3Request) StrategyType(strategyType int32) ApiSpotCreateOrderTestV3Request {
 	r.strategyType = &strategyType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderTestV3Request) TimeInForce(timeInForce string) TradingAPISpotCreateOrderTestV3Request {
+func (r ApiSpotCreateOrderTestV3Request) TimeInForce(timeInForce string) ApiSpotCreateOrderTestV3Request {
 	r.timeInForce = &timeInForce
 	return r
 }
 
-func (r TradingAPISpotCreateOrderTestV3Request) TrailingDelta(trailingDelta int64) TradingAPISpotCreateOrderTestV3Request {
+func (r ApiSpotCreateOrderTestV3Request) TrailingDelta(trailingDelta int64) ApiSpotCreateOrderTestV3Request {
 	r.trailingDelta = &trailingDelta
 	return r
 }
 
-func (r TradingAPISpotCreateOrderTestV3Request) Execute() (*SpotCreateOrderTestV3Resp, *http.Response, error) {
+func (r ApiSpotCreateOrderTestV3Request) Execute() (*SpotCreateOrderTestV3Resp, *http.Response, error) {
 	return r.ApiService.SpotCreateOrderTestV3Execute(r)
 }
 
@@ -2030,10 +2030,10 @@ Test new order creation and signature/recvWindow long.
 Creates and validates a new order but does not send it into the matching engine.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradingAPISpotCreateOrderTestV3Request
+ @return ApiSpotCreateOrderTestV3Request
 */
-func (a *TradingAPIService) SpotCreateOrderTestV3(ctx context.Context) TradingAPISpotCreateOrderTestV3Request {
-	return TradingAPISpotCreateOrderTestV3Request{
+func (a *TradingAPIService) SpotCreateOrderTestV3(ctx context.Context) ApiSpotCreateOrderTestV3Request {
+	return ApiSpotCreateOrderTestV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2041,7 +2041,7 @@ func (a *TradingAPIService) SpotCreateOrderTestV3(ctx context.Context) TradingAP
 
 // Execute executes the request
 //  @return SpotCreateOrderTestV3Resp
-func (a *TradingAPIService) SpotCreateOrderTestV3Execute(r TradingAPISpotCreateOrderTestV3Request) (*SpotCreateOrderTestV3Resp, *http.Response, error) {
+func (a *TradingAPIService) SpotCreateOrderTestV3Execute(r ApiSpotCreateOrderTestV3Request) (*SpotCreateOrderTestV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2199,7 +2199,7 @@ func (a *TradingAPIService) SpotCreateOrderTestV3Execute(r TradingAPISpotCreateO
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradingAPISpotCreateOrderV3Request struct {
+type ApiSpotCreateOrderV3Request struct {
 	ctx context.Context
 	ApiService *TradingAPIService
 	side *string
@@ -2221,92 +2221,92 @@ type TradingAPISpotCreateOrderV3Request struct {
 	trailingDelta *int64
 }
 
-func (r TradingAPISpotCreateOrderV3Request) Side(side string) TradingAPISpotCreateOrderV3Request {
+func (r ApiSpotCreateOrderV3Request) Side(side string) ApiSpotCreateOrderV3Request {
 	r.side = &side
 	return r
 }
 
-func (r TradingAPISpotCreateOrderV3Request) Symbol(symbol string) TradingAPISpotCreateOrderV3Request {
+func (r ApiSpotCreateOrderV3Request) Symbol(symbol string) ApiSpotCreateOrderV3Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradingAPISpotCreateOrderV3Request) Timestamp(timestamp int64) TradingAPISpotCreateOrderV3Request {
+func (r ApiSpotCreateOrderV3Request) Timestamp(timestamp int64) ApiSpotCreateOrderV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradingAPISpotCreateOrderV3Request) Type_(type_ string) TradingAPISpotCreateOrderV3Request {
+func (r ApiSpotCreateOrderV3Request) Type_(type_ string) ApiSpotCreateOrderV3Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r TradingAPISpotCreateOrderV3Request) IcebergQty(icebergQty string) TradingAPISpotCreateOrderV3Request {
+func (r ApiSpotCreateOrderV3Request) IcebergQty(icebergQty string) ApiSpotCreateOrderV3Request {
 	r.icebergQty = &icebergQty
 	return r
 }
 
-func (r TradingAPISpotCreateOrderV3Request) NewClientOrderId(newClientOrderId string) TradingAPISpotCreateOrderV3Request {
+func (r ApiSpotCreateOrderV3Request) NewClientOrderId(newClientOrderId string) ApiSpotCreateOrderV3Request {
 	r.newClientOrderId = &newClientOrderId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderV3Request) NewOrderRespType(newOrderRespType string) TradingAPISpotCreateOrderV3Request {
+func (r ApiSpotCreateOrderV3Request) NewOrderRespType(newOrderRespType string) ApiSpotCreateOrderV3Request {
 	r.newOrderRespType = &newOrderRespType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderV3Request) Price(price string) TradingAPISpotCreateOrderV3Request {
+func (r ApiSpotCreateOrderV3Request) Price(price string) ApiSpotCreateOrderV3Request {
 	r.price = &price
 	return r
 }
 
-func (r TradingAPISpotCreateOrderV3Request) Quantity(quantity string) TradingAPISpotCreateOrderV3Request {
+func (r ApiSpotCreateOrderV3Request) Quantity(quantity string) ApiSpotCreateOrderV3Request {
 	r.quantity = &quantity
 	return r
 }
 
-func (r TradingAPISpotCreateOrderV3Request) QuoteOrderQty(quoteOrderQty string) TradingAPISpotCreateOrderV3Request {
+func (r ApiSpotCreateOrderV3Request) QuoteOrderQty(quoteOrderQty string) ApiSpotCreateOrderV3Request {
 	r.quoteOrderQty = &quoteOrderQty
 	return r
 }
 
-func (r TradingAPISpotCreateOrderV3Request) RecvWindow(recvWindow int64) TradingAPISpotCreateOrderV3Request {
+func (r ApiSpotCreateOrderV3Request) RecvWindow(recvWindow int64) ApiSpotCreateOrderV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradingAPISpotCreateOrderV3Request) SelfTradePreventionMode(selfTradePreventionMode string) TradingAPISpotCreateOrderV3Request {
+func (r ApiSpotCreateOrderV3Request) SelfTradePreventionMode(selfTradePreventionMode string) ApiSpotCreateOrderV3Request {
 	r.selfTradePreventionMode = &selfTradePreventionMode
 	return r
 }
 
-func (r TradingAPISpotCreateOrderV3Request) StopPrice(stopPrice string) TradingAPISpotCreateOrderV3Request {
+func (r ApiSpotCreateOrderV3Request) StopPrice(stopPrice string) ApiSpotCreateOrderV3Request {
 	r.stopPrice = &stopPrice
 	return r
 }
 
-func (r TradingAPISpotCreateOrderV3Request) StrategyId(strategyId int64) TradingAPISpotCreateOrderV3Request {
+func (r ApiSpotCreateOrderV3Request) StrategyId(strategyId int64) ApiSpotCreateOrderV3Request {
 	r.strategyId = &strategyId
 	return r
 }
 
-func (r TradingAPISpotCreateOrderV3Request) StrategyType(strategyType int32) TradingAPISpotCreateOrderV3Request {
+func (r ApiSpotCreateOrderV3Request) StrategyType(strategyType int32) ApiSpotCreateOrderV3Request {
 	r.strategyType = &strategyType
 	return r
 }
 
-func (r TradingAPISpotCreateOrderV3Request) TimeInForce(timeInForce string) TradingAPISpotCreateOrderV3Request {
+func (r ApiSpotCreateOrderV3Request) TimeInForce(timeInForce string) ApiSpotCreateOrderV3Request {
 	r.timeInForce = &timeInForce
 	return r
 }
 
-func (r TradingAPISpotCreateOrderV3Request) TrailingDelta(trailingDelta int64) TradingAPISpotCreateOrderV3Request {
+func (r ApiSpotCreateOrderV3Request) TrailingDelta(trailingDelta int64) ApiSpotCreateOrderV3Request {
 	r.trailingDelta = &trailingDelta
 	return r
 }
 
-func (r TradingAPISpotCreateOrderV3Request) Execute() (*SpotCreateOrderV3Resp, *http.Response, error) {
+func (r ApiSpotCreateOrderV3Request) Execute() (*SpotCreateOrderV3Resp, *http.Response, error) {
 	return r.ApiService.SpotCreateOrderV3Execute(r)
 }
 
@@ -2316,10 +2316,10 @@ SpotCreateOrderV3 New order (TRADE)
 Send in a new order.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradingAPISpotCreateOrderV3Request
+ @return ApiSpotCreateOrderV3Request
 */
-func (a *TradingAPIService) SpotCreateOrderV3(ctx context.Context) TradingAPISpotCreateOrderV3Request {
-	return TradingAPISpotCreateOrderV3Request{
+func (a *TradingAPIService) SpotCreateOrderV3(ctx context.Context) ApiSpotCreateOrderV3Request {
+	return ApiSpotCreateOrderV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2327,7 +2327,7 @@ func (a *TradingAPIService) SpotCreateOrderV3(ctx context.Context) TradingAPISpo
 
 // Execute executes the request
 //  @return SpotCreateOrderV3Resp
-func (a *TradingAPIService) SpotCreateOrderV3Execute(r TradingAPISpotCreateOrderV3Request) (*SpotCreateOrderV3Resp, *http.Response, error) {
+func (a *TradingAPIService) SpotCreateOrderV3Execute(r ApiSpotCreateOrderV3Request) (*SpotCreateOrderV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2482,7 +2482,7 @@ func (a *TradingAPIService) SpotCreateOrderV3Execute(r TradingAPISpotCreateOrder
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradingAPISpotCreateSorOrderTestV3Request struct {
+type ApiSpotCreateSorOrderTestV3Request struct {
 	ctx context.Context
 	ApiService *TradingAPIService
 	quantity *string
@@ -2502,82 +2502,82 @@ type TradingAPISpotCreateSorOrderTestV3Request struct {
 	timeInForce *string
 }
 
-func (r TradingAPISpotCreateSorOrderTestV3Request) Quantity(quantity string) TradingAPISpotCreateSorOrderTestV3Request {
+func (r ApiSpotCreateSorOrderTestV3Request) Quantity(quantity string) ApiSpotCreateSorOrderTestV3Request {
 	r.quantity = &quantity
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderTestV3Request) Side(side string) TradingAPISpotCreateSorOrderTestV3Request {
+func (r ApiSpotCreateSorOrderTestV3Request) Side(side string) ApiSpotCreateSorOrderTestV3Request {
 	r.side = &side
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderTestV3Request) Symbol(symbol string) TradingAPISpotCreateSorOrderTestV3Request {
+func (r ApiSpotCreateSorOrderTestV3Request) Symbol(symbol string) ApiSpotCreateSorOrderTestV3Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderTestV3Request) Timestamp(timestamp int64) TradingAPISpotCreateSorOrderTestV3Request {
+func (r ApiSpotCreateSorOrderTestV3Request) Timestamp(timestamp int64) ApiSpotCreateSorOrderTestV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderTestV3Request) Type_(type_ string) TradingAPISpotCreateSorOrderTestV3Request {
+func (r ApiSpotCreateSorOrderTestV3Request) Type_(type_ string) ApiSpotCreateSorOrderTestV3Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderTestV3Request) ComputeCommissionRates(computeCommissionRates bool) TradingAPISpotCreateSorOrderTestV3Request {
+func (r ApiSpotCreateSorOrderTestV3Request) ComputeCommissionRates(computeCommissionRates bool) ApiSpotCreateSorOrderTestV3Request {
 	r.computeCommissionRates = &computeCommissionRates
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderTestV3Request) IcebergQty(icebergQty string) TradingAPISpotCreateSorOrderTestV3Request {
+func (r ApiSpotCreateSorOrderTestV3Request) IcebergQty(icebergQty string) ApiSpotCreateSorOrderTestV3Request {
 	r.icebergQty = &icebergQty
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderTestV3Request) NewClientOrderId(newClientOrderId string) TradingAPISpotCreateSorOrderTestV3Request {
+func (r ApiSpotCreateSorOrderTestV3Request) NewClientOrderId(newClientOrderId string) ApiSpotCreateSorOrderTestV3Request {
 	r.newClientOrderId = &newClientOrderId
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderTestV3Request) NewOrderRespType(newOrderRespType string) TradingAPISpotCreateSorOrderTestV3Request {
+func (r ApiSpotCreateSorOrderTestV3Request) NewOrderRespType(newOrderRespType string) ApiSpotCreateSorOrderTestV3Request {
 	r.newOrderRespType = &newOrderRespType
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderTestV3Request) Price(price string) TradingAPISpotCreateSorOrderTestV3Request {
+func (r ApiSpotCreateSorOrderTestV3Request) Price(price string) ApiSpotCreateSorOrderTestV3Request {
 	r.price = &price
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderTestV3Request) RecvWindow(recvWindow int64) TradingAPISpotCreateSorOrderTestV3Request {
+func (r ApiSpotCreateSorOrderTestV3Request) RecvWindow(recvWindow int64) ApiSpotCreateSorOrderTestV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderTestV3Request) SelfTradePreventionMode(selfTradePreventionMode string) TradingAPISpotCreateSorOrderTestV3Request {
+func (r ApiSpotCreateSorOrderTestV3Request) SelfTradePreventionMode(selfTradePreventionMode string) ApiSpotCreateSorOrderTestV3Request {
 	r.selfTradePreventionMode = &selfTradePreventionMode
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderTestV3Request) StrategyId(strategyId int64) TradingAPISpotCreateSorOrderTestV3Request {
+func (r ApiSpotCreateSorOrderTestV3Request) StrategyId(strategyId int64) ApiSpotCreateSorOrderTestV3Request {
 	r.strategyId = &strategyId
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderTestV3Request) StrategyType(strategyType int32) TradingAPISpotCreateSorOrderTestV3Request {
+func (r ApiSpotCreateSorOrderTestV3Request) StrategyType(strategyType int32) ApiSpotCreateSorOrderTestV3Request {
 	r.strategyType = &strategyType
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderTestV3Request) TimeInForce(timeInForce string) TradingAPISpotCreateSorOrderTestV3Request {
+func (r ApiSpotCreateSorOrderTestV3Request) TimeInForce(timeInForce string) ApiSpotCreateSorOrderTestV3Request {
 	r.timeInForce = &timeInForce
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderTestV3Request) Execute() (*SpotCreateSorOrderTestV3Resp, *http.Response, error) {
+func (r ApiSpotCreateSorOrderTestV3Request) Execute() (*SpotCreateSorOrderTestV3Resp, *http.Response, error) {
 	return r.ApiService.SpotCreateSorOrderTestV3Execute(r)
 }
 
@@ -2588,10 +2588,10 @@ Test new order creation and signature/recvWindow using smart order routing (SOR)
 Creates and validates a new order but does not send it into the matching engine.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradingAPISpotCreateSorOrderTestV3Request
+ @return ApiSpotCreateSorOrderTestV3Request
 */
-func (a *TradingAPIService) SpotCreateSorOrderTestV3(ctx context.Context) TradingAPISpotCreateSorOrderTestV3Request {
-	return TradingAPISpotCreateSorOrderTestV3Request{
+func (a *TradingAPIService) SpotCreateSorOrderTestV3(ctx context.Context) ApiSpotCreateSorOrderTestV3Request {
+	return ApiSpotCreateSorOrderTestV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2599,7 +2599,7 @@ func (a *TradingAPIService) SpotCreateSorOrderTestV3(ctx context.Context) Tradin
 
 // Execute executes the request
 //  @return SpotCreateSorOrderTestV3Resp
-func (a *TradingAPIService) SpotCreateSorOrderTestV3Execute(r TradingAPISpotCreateSorOrderTestV3Request) (*SpotCreateSorOrderTestV3Resp, *http.Response, error) {
+func (a *TradingAPIService) SpotCreateSorOrderTestV3Execute(r ApiSpotCreateSorOrderTestV3Request) (*SpotCreateSorOrderTestV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2749,7 +2749,7 @@ func (a *TradingAPIService) SpotCreateSorOrderTestV3Execute(r TradingAPISpotCrea
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradingAPISpotCreateSorOrderV3Request struct {
+type ApiSpotCreateSorOrderV3Request struct {
 	ctx context.Context
 	ApiService *TradingAPIService
 	quantity *string
@@ -2768,77 +2768,77 @@ type TradingAPISpotCreateSorOrderV3Request struct {
 	timeInForce *string
 }
 
-func (r TradingAPISpotCreateSorOrderV3Request) Quantity(quantity string) TradingAPISpotCreateSorOrderV3Request {
+func (r ApiSpotCreateSorOrderV3Request) Quantity(quantity string) ApiSpotCreateSorOrderV3Request {
 	r.quantity = &quantity
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderV3Request) Side(side string) TradingAPISpotCreateSorOrderV3Request {
+func (r ApiSpotCreateSorOrderV3Request) Side(side string) ApiSpotCreateSorOrderV3Request {
 	r.side = &side
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderV3Request) Symbol(symbol string) TradingAPISpotCreateSorOrderV3Request {
+func (r ApiSpotCreateSorOrderV3Request) Symbol(symbol string) ApiSpotCreateSorOrderV3Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderV3Request) Timestamp(timestamp int64) TradingAPISpotCreateSorOrderV3Request {
+func (r ApiSpotCreateSorOrderV3Request) Timestamp(timestamp int64) ApiSpotCreateSorOrderV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderV3Request) Type_(type_ string) TradingAPISpotCreateSorOrderV3Request {
+func (r ApiSpotCreateSorOrderV3Request) Type_(type_ string) ApiSpotCreateSorOrderV3Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderV3Request) IcebergQty(icebergQty string) TradingAPISpotCreateSorOrderV3Request {
+func (r ApiSpotCreateSorOrderV3Request) IcebergQty(icebergQty string) ApiSpotCreateSorOrderV3Request {
 	r.icebergQty = &icebergQty
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderV3Request) NewClientOrderId(newClientOrderId string) TradingAPISpotCreateSorOrderV3Request {
+func (r ApiSpotCreateSorOrderV3Request) NewClientOrderId(newClientOrderId string) ApiSpotCreateSorOrderV3Request {
 	r.newClientOrderId = &newClientOrderId
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderV3Request) NewOrderRespType(newOrderRespType string) TradingAPISpotCreateSorOrderV3Request {
+func (r ApiSpotCreateSorOrderV3Request) NewOrderRespType(newOrderRespType string) ApiSpotCreateSorOrderV3Request {
 	r.newOrderRespType = &newOrderRespType
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderV3Request) Price(price string) TradingAPISpotCreateSorOrderV3Request {
+func (r ApiSpotCreateSorOrderV3Request) Price(price string) ApiSpotCreateSorOrderV3Request {
 	r.price = &price
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderV3Request) RecvWindow(recvWindow int64) TradingAPISpotCreateSorOrderV3Request {
+func (r ApiSpotCreateSorOrderV3Request) RecvWindow(recvWindow int64) ApiSpotCreateSorOrderV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderV3Request) SelfTradePreventionMode(selfTradePreventionMode string) TradingAPISpotCreateSorOrderV3Request {
+func (r ApiSpotCreateSorOrderV3Request) SelfTradePreventionMode(selfTradePreventionMode string) ApiSpotCreateSorOrderV3Request {
 	r.selfTradePreventionMode = &selfTradePreventionMode
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderV3Request) StrategyId(strategyId int64) TradingAPISpotCreateSorOrderV3Request {
+func (r ApiSpotCreateSorOrderV3Request) StrategyId(strategyId int64) ApiSpotCreateSorOrderV3Request {
 	r.strategyId = &strategyId
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderV3Request) StrategyType(strategyType int32) TradingAPISpotCreateSorOrderV3Request {
+func (r ApiSpotCreateSorOrderV3Request) StrategyType(strategyType int32) ApiSpotCreateSorOrderV3Request {
 	r.strategyType = &strategyType
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderV3Request) TimeInForce(timeInForce string) TradingAPISpotCreateSorOrderV3Request {
+func (r ApiSpotCreateSorOrderV3Request) TimeInForce(timeInForce string) ApiSpotCreateSorOrderV3Request {
 	r.timeInForce = &timeInForce
 	return r
 }
 
-func (r TradingAPISpotCreateSorOrderV3Request) Execute() (*SpotCreateSorOrderV3Resp, *http.Response, error) {
+func (r ApiSpotCreateSorOrderV3Request) Execute() (*SpotCreateSorOrderV3Resp, *http.Response, error) {
 	return r.ApiService.SpotCreateSorOrderV3Execute(r)
 }
 
@@ -2848,10 +2848,10 @@ SpotCreateSorOrderV3 New order using SOR (TRADE)
 Places an order using smart order routing (SOR).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradingAPISpotCreateSorOrderV3Request
+ @return ApiSpotCreateSorOrderV3Request
 */
-func (a *TradingAPIService) SpotCreateSorOrderV3(ctx context.Context) TradingAPISpotCreateSorOrderV3Request {
-	return TradingAPISpotCreateSorOrderV3Request{
+func (a *TradingAPIService) SpotCreateSorOrderV3(ctx context.Context) ApiSpotCreateSorOrderV3Request {
+	return ApiSpotCreateSorOrderV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2859,7 +2859,7 @@ func (a *TradingAPIService) SpotCreateSorOrderV3(ctx context.Context) TradingAPI
 
 // Execute executes the request
 //  @return SpotCreateSorOrderV3Resp
-func (a *TradingAPIService) SpotCreateSorOrderV3Execute(r TradingAPISpotCreateSorOrderV3Request) (*SpotCreateSorOrderV3Resp, *http.Response, error) {
+func (a *TradingAPIService) SpotCreateSorOrderV3Execute(r ApiSpotCreateSorOrderV3Request) (*SpotCreateSorOrderV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -3006,7 +3006,7 @@ func (a *TradingAPIService) SpotCreateSorOrderV3Execute(r TradingAPISpotCreateSo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradingAPISpotDeleteOpenOrdersV3Request struct {
+type ApiSpotDeleteOpenOrdersV3Request struct {
 	ctx context.Context
 	ApiService *TradingAPIService
 	symbol *string
@@ -3014,23 +3014,23 @@ type TradingAPISpotDeleteOpenOrdersV3Request struct {
 	recvWindow *int64
 }
 
-func (r TradingAPISpotDeleteOpenOrdersV3Request) Symbol(symbol string) TradingAPISpotDeleteOpenOrdersV3Request {
+func (r ApiSpotDeleteOpenOrdersV3Request) Symbol(symbol string) ApiSpotDeleteOpenOrdersV3Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradingAPISpotDeleteOpenOrdersV3Request) Timestamp(timestamp int64) TradingAPISpotDeleteOpenOrdersV3Request {
+func (r ApiSpotDeleteOpenOrdersV3Request) Timestamp(timestamp int64) ApiSpotDeleteOpenOrdersV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TradingAPISpotDeleteOpenOrdersV3Request) RecvWindow(recvWindow int64) TradingAPISpotDeleteOpenOrdersV3Request {
+func (r ApiSpotDeleteOpenOrdersV3Request) RecvWindow(recvWindow int64) ApiSpotDeleteOpenOrdersV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradingAPISpotDeleteOpenOrdersV3Request) Execute() ([][]SpotDeleteOpenOrdersV3RespInner, *http.Response, error) {
+func (r ApiSpotDeleteOpenOrdersV3Request) Execute() ([][]SpotDeleteOpenOrdersV3RespInner, *http.Response, error) {
 	return r.ApiService.SpotDeleteOpenOrdersV3Execute(r)
 }
 
@@ -3041,10 +3041,10 @@ Cancels all active orders on a symbol.
 This includes orders that are part of an order list.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradingAPISpotDeleteOpenOrdersV3Request
+ @return ApiSpotDeleteOpenOrdersV3Request
 */
-func (a *TradingAPIService) SpotDeleteOpenOrdersV3(ctx context.Context) TradingAPISpotDeleteOpenOrdersV3Request {
-	return TradingAPISpotDeleteOpenOrdersV3Request{
+func (a *TradingAPIService) SpotDeleteOpenOrdersV3(ctx context.Context) ApiSpotDeleteOpenOrdersV3Request {
+	return ApiSpotDeleteOpenOrdersV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3052,7 +3052,7 @@ func (a *TradingAPIService) SpotDeleteOpenOrdersV3(ctx context.Context) TradingA
 
 // Execute executes the request
 //  @return [][]SpotDeleteOpenOrdersV3RespInner
-func (a *TradingAPIService) SpotDeleteOpenOrdersV3Execute(r TradingAPISpotDeleteOpenOrdersV3Request) ([][]SpotDeleteOpenOrdersV3RespInner, *http.Response, error) {
+func (a *TradingAPIService) SpotDeleteOpenOrdersV3Execute(r ApiSpotDeleteOpenOrdersV3Request) ([][]SpotDeleteOpenOrdersV3RespInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -3163,7 +3163,7 @@ func (a *TradingAPIService) SpotDeleteOpenOrdersV3Execute(r TradingAPISpotDelete
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradingAPISpotDeleteOrderListV3Request struct {
+type ApiSpotDeleteOrderListV3Request struct {
 	ctx context.Context
 	ApiService *TradingAPIService
 	symbol *string
@@ -3174,41 +3174,41 @@ type TradingAPISpotDeleteOrderListV3Request struct {
 	recvWindow *int64
 }
 
-func (r TradingAPISpotDeleteOrderListV3Request) Symbol(symbol string) TradingAPISpotDeleteOrderListV3Request {
+func (r ApiSpotDeleteOrderListV3Request) Symbol(symbol string) ApiSpotDeleteOrderListV3Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradingAPISpotDeleteOrderListV3Request) Timestamp(timestamp int64) TradingAPISpotDeleteOrderListV3Request {
+func (r ApiSpotDeleteOrderListV3Request) Timestamp(timestamp int64) ApiSpotDeleteOrderListV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Either &#x60;orderListId&#x60; or &#x60;listClientOrderId&#x60; must be provided
-func (r TradingAPISpotDeleteOrderListV3Request) OrderListId(orderListId int64) TradingAPISpotDeleteOrderListV3Request {
+func (r ApiSpotDeleteOrderListV3Request) OrderListId(orderListId int64) ApiSpotDeleteOrderListV3Request {
 	r.orderListId = &orderListId
 	return r
 }
 
 // Either &#x60;orderListId&#x60; or &#x60;listClientOrderId&#x60; must be provided
-func (r TradingAPISpotDeleteOrderListV3Request) ListClientOrderId(listClientOrderId string) TradingAPISpotDeleteOrderListV3Request {
+func (r ApiSpotDeleteOrderListV3Request) ListClientOrderId(listClientOrderId string) ApiSpotDeleteOrderListV3Request {
 	r.listClientOrderId = &listClientOrderId
 	return r
 }
 
 // Used to uniquely identify this cancel. Automatically generated by default
-func (r TradingAPISpotDeleteOrderListV3Request) NewClientOrderId(newClientOrderId string) TradingAPISpotDeleteOrderListV3Request {
+func (r ApiSpotDeleteOrderListV3Request) NewClientOrderId(newClientOrderId string) ApiSpotDeleteOrderListV3Request {
 	r.newClientOrderId = &newClientOrderId
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TradingAPISpotDeleteOrderListV3Request) RecvWindow(recvWindow int64) TradingAPISpotDeleteOrderListV3Request {
+func (r ApiSpotDeleteOrderListV3Request) RecvWindow(recvWindow int64) ApiSpotDeleteOrderListV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradingAPISpotDeleteOrderListV3Request) Execute() (*SpotDeleteOrderListV3Resp, *http.Response, error) {
+func (r ApiSpotDeleteOrderListV3Request) Execute() (*SpotDeleteOrderListV3Resp, *http.Response, error) {
 	return r.ApiService.SpotDeleteOrderListV3Execute(r)
 }
 
@@ -3218,10 +3218,10 @@ SpotDeleteOrderListV3 Cancel Order list (TRADE)
 Cancel an entire Order list
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradingAPISpotDeleteOrderListV3Request
+ @return ApiSpotDeleteOrderListV3Request
 */
-func (a *TradingAPIService) SpotDeleteOrderListV3(ctx context.Context) TradingAPISpotDeleteOrderListV3Request {
-	return TradingAPISpotDeleteOrderListV3Request{
+func (a *TradingAPIService) SpotDeleteOrderListV3(ctx context.Context) ApiSpotDeleteOrderListV3Request {
+	return ApiSpotDeleteOrderListV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3229,7 +3229,7 @@ func (a *TradingAPIService) SpotDeleteOrderListV3(ctx context.Context) TradingAP
 
 // Execute executes the request
 //  @return SpotDeleteOrderListV3Resp
-func (a *TradingAPIService) SpotDeleteOrderListV3Execute(r TradingAPISpotDeleteOrderListV3Request) (*SpotDeleteOrderListV3Resp, *http.Response, error) {
+func (a *TradingAPIService) SpotDeleteOrderListV3Execute(r ApiSpotDeleteOrderListV3Request) (*SpotDeleteOrderListV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -3355,7 +3355,7 @@ func (a *TradingAPIService) SpotDeleteOrderListV3Execute(r TradingAPISpotDeleteO
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradingAPISpotDeleteOrderV3Request struct {
+type ApiSpotDeleteOrderV3Request struct {
 	ctx context.Context
 	ApiService *TradingAPIService
 	symbol *string
@@ -3367,45 +3367,45 @@ type TradingAPISpotDeleteOrderV3Request struct {
 	recvWindow *int64
 }
 
-func (r TradingAPISpotDeleteOrderV3Request) Symbol(symbol string) TradingAPISpotDeleteOrderV3Request {
+func (r ApiSpotDeleteOrderV3Request) Symbol(symbol string) ApiSpotDeleteOrderV3Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradingAPISpotDeleteOrderV3Request) Timestamp(timestamp int64) TradingAPISpotDeleteOrderV3Request {
+func (r ApiSpotDeleteOrderV3Request) Timestamp(timestamp int64) ApiSpotDeleteOrderV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradingAPISpotDeleteOrderV3Request) OrderId(orderId int64) TradingAPISpotDeleteOrderV3Request {
+func (r ApiSpotDeleteOrderV3Request) OrderId(orderId int64) ApiSpotDeleteOrderV3Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradingAPISpotDeleteOrderV3Request) OrigClientOrderId(origClientOrderId string) TradingAPISpotDeleteOrderV3Request {
+func (r ApiSpotDeleteOrderV3Request) OrigClientOrderId(origClientOrderId string) ApiSpotDeleteOrderV3Request {
 	r.origClientOrderId = &origClientOrderId
 	return r
 }
 
 // Used to uniquely identify this cancel. Automatically generated by default.
-func (r TradingAPISpotDeleteOrderV3Request) NewClientOrderId(newClientOrderId string) TradingAPISpotDeleteOrderV3Request {
+func (r ApiSpotDeleteOrderV3Request) NewClientOrderId(newClientOrderId string) ApiSpotDeleteOrderV3Request {
 	r.newClientOrderId = &newClientOrderId
 	return r
 }
 
 // Supported values: &lt;br/&gt;&#x60;ONLY_NEW&#x60; - Cancel will succeed if the order status is &#x60;NEW&#x60;.&lt;br/&gt; &#x60;ONLY_PARTIALLY_FILLED &#x60; - Cancel will succeed if order status is &#x60;PARTIALLY_FILLED&#x60;.
-func (r TradingAPISpotDeleteOrderV3Request) CancelRestrictions(cancelRestrictions string) TradingAPISpotDeleteOrderV3Request {
+func (r ApiSpotDeleteOrderV3Request) CancelRestrictions(cancelRestrictions string) ApiSpotDeleteOrderV3Request {
 	r.cancelRestrictions = &cancelRestrictions
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;.
-func (r TradingAPISpotDeleteOrderV3Request) RecvWindow(recvWindow int64) TradingAPISpotDeleteOrderV3Request {
+func (r ApiSpotDeleteOrderV3Request) RecvWindow(recvWindow int64) ApiSpotDeleteOrderV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradingAPISpotDeleteOrderV3Request) Execute() (*SpotDeleteOrderV3Resp, *http.Response, error) {
+func (r ApiSpotDeleteOrderV3Request) Execute() (*SpotDeleteOrderV3Resp, *http.Response, error) {
 	return r.ApiService.SpotDeleteOrderV3Execute(r)
 }
 
@@ -3415,10 +3415,10 @@ SpotDeleteOrderV3 Cancel order (TRADE)
 Cancel an active order.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradingAPISpotDeleteOrderV3Request
+ @return ApiSpotDeleteOrderV3Request
 */
-func (a *TradingAPIService) SpotDeleteOrderV3(ctx context.Context) TradingAPISpotDeleteOrderV3Request {
-	return TradingAPISpotDeleteOrderV3Request{
+func (a *TradingAPIService) SpotDeleteOrderV3(ctx context.Context) ApiSpotDeleteOrderV3Request {
+	return ApiSpotDeleteOrderV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3426,7 +3426,7 @@ func (a *TradingAPIService) SpotDeleteOrderV3(ctx context.Context) TradingAPISpo
 
 // Execute executes the request
 //  @return SpotDeleteOrderV3Resp
-func (a *TradingAPIService) SpotDeleteOrderV3Execute(r TradingAPISpotDeleteOrderV3Request) (*SpotDeleteOrderV3Resp, *http.Response, error) {
+func (a *TradingAPIService) SpotDeleteOrderV3Execute(r ApiSpotDeleteOrderV3Request) (*SpotDeleteOrderV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -3558,7 +3558,7 @@ func (a *TradingAPIService) SpotDeleteOrderV3Execute(r TradingAPISpotDeleteOrder
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradingAPISpotGetAllOrderListV3Request struct {
+type ApiSpotGetAllOrderListV3Request struct {
 	ctx context.Context
 	ApiService *TradingAPIService
 	timestamp *int64
@@ -3569,40 +3569,40 @@ type TradingAPISpotGetAllOrderListV3Request struct {
 	recvWindow *int64
 }
 
-func (r TradingAPISpotGetAllOrderListV3Request) Timestamp(timestamp int64) TradingAPISpotGetAllOrderListV3Request {
+func (r ApiSpotGetAllOrderListV3Request) Timestamp(timestamp int64) ApiSpotGetAllOrderListV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // If supplied, neither &#x60;startTime&#x60; or &#x60;endTime&#x60; can be provided
-func (r TradingAPISpotGetAllOrderListV3Request) FromId(fromId int64) TradingAPISpotGetAllOrderListV3Request {
+func (r ApiSpotGetAllOrderListV3Request) FromId(fromId int64) ApiSpotGetAllOrderListV3Request {
 	r.fromId = &fromId
 	return r
 }
 
-func (r TradingAPISpotGetAllOrderListV3Request) StartTime(startTime int64) TradingAPISpotGetAllOrderListV3Request {
+func (r ApiSpotGetAllOrderListV3Request) StartTime(startTime int64) ApiSpotGetAllOrderListV3Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r TradingAPISpotGetAllOrderListV3Request) EndTime(endTime int64) TradingAPISpotGetAllOrderListV3Request {
+func (r ApiSpotGetAllOrderListV3Request) EndTime(endTime int64) ApiSpotGetAllOrderListV3Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default Value: 500; Max Value: 1000
-func (r TradingAPISpotGetAllOrderListV3Request) Limit(limit int32) TradingAPISpotGetAllOrderListV3Request {
+func (r ApiSpotGetAllOrderListV3Request) Limit(limit int32) ApiSpotGetAllOrderListV3Request {
 	r.limit = &limit
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TradingAPISpotGetAllOrderListV3Request) RecvWindow(recvWindow int64) TradingAPISpotGetAllOrderListV3Request {
+func (r ApiSpotGetAllOrderListV3Request) RecvWindow(recvWindow int64) ApiSpotGetAllOrderListV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradingAPISpotGetAllOrderListV3Request) Execute() ([]SpotGetAllOrderListV3RespItem, *http.Response, error) {
+func (r ApiSpotGetAllOrderListV3Request) Execute() ([]SpotGetAllOrderListV3RespItem, *http.Response, error) {
 	return r.ApiService.SpotGetAllOrderListV3Execute(r)
 }
 
@@ -3613,10 +3613,10 @@ Retrieves all order lists based on provided optional parameters.
 Note that the time between startTime and endTime can't be longer than 24 hours.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradingAPISpotGetAllOrderListV3Request
+ @return ApiSpotGetAllOrderListV3Request
 */
-func (a *TradingAPIService) SpotGetAllOrderListV3(ctx context.Context) TradingAPISpotGetAllOrderListV3Request {
-	return TradingAPISpotGetAllOrderListV3Request{
+func (a *TradingAPIService) SpotGetAllOrderListV3(ctx context.Context) ApiSpotGetAllOrderListV3Request {
+	return ApiSpotGetAllOrderListV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3624,7 +3624,7 @@ func (a *TradingAPIService) SpotGetAllOrderListV3(ctx context.Context) TradingAP
 
 // Execute executes the request
 //  @return []SpotGetAllOrderListV3RespItem
-func (a *TradingAPIService) SpotGetAllOrderListV3Execute(r TradingAPISpotGetAllOrderListV3Request) ([]SpotGetAllOrderListV3RespItem, *http.Response, error) {
+func (a *TradingAPIService) SpotGetAllOrderListV3Execute(r ApiSpotGetAllOrderListV3Request) ([]SpotGetAllOrderListV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3743,7 +3743,7 @@ func (a *TradingAPIService) SpotGetAllOrderListV3Execute(r TradingAPISpotGetAllO
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradingAPISpotGetAllOrdersV3Request struct {
+type ApiSpotGetAllOrdersV3Request struct {
 	ctx context.Context
 	ApiService *TradingAPIService
 	symbol *string
@@ -3755,44 +3755,44 @@ type TradingAPISpotGetAllOrdersV3Request struct {
 	recvWindow *int64
 }
 
-func (r TradingAPISpotGetAllOrdersV3Request) Symbol(symbol string) TradingAPISpotGetAllOrdersV3Request {
+func (r ApiSpotGetAllOrdersV3Request) Symbol(symbol string) ApiSpotGetAllOrdersV3Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradingAPISpotGetAllOrdersV3Request) Timestamp(timestamp int64) TradingAPISpotGetAllOrdersV3Request {
+func (r ApiSpotGetAllOrdersV3Request) Timestamp(timestamp int64) ApiSpotGetAllOrdersV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradingAPISpotGetAllOrdersV3Request) OrderId(orderId int64) TradingAPISpotGetAllOrdersV3Request {
+func (r ApiSpotGetAllOrdersV3Request) OrderId(orderId int64) ApiSpotGetAllOrdersV3Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradingAPISpotGetAllOrdersV3Request) StartTime(startTime int64) TradingAPISpotGetAllOrdersV3Request {
+func (r ApiSpotGetAllOrdersV3Request) StartTime(startTime int64) ApiSpotGetAllOrdersV3Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r TradingAPISpotGetAllOrdersV3Request) EndTime(endTime int64) TradingAPISpotGetAllOrdersV3Request {
+func (r ApiSpotGetAllOrdersV3Request) EndTime(endTime int64) ApiSpotGetAllOrdersV3Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 500; max 1000.
-func (r TradingAPISpotGetAllOrdersV3Request) Limit(limit int32) TradingAPISpotGetAllOrdersV3Request {
+func (r ApiSpotGetAllOrdersV3Request) Limit(limit int32) ApiSpotGetAllOrdersV3Request {
 	r.limit = &limit
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TradingAPISpotGetAllOrdersV3Request) RecvWindow(recvWindow int64) TradingAPISpotGetAllOrdersV3Request {
+func (r ApiSpotGetAllOrdersV3Request) RecvWindow(recvWindow int64) ApiSpotGetAllOrdersV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradingAPISpotGetAllOrdersV3Request) Execute() ([]SpotGetAllOrdersV3RespItem, *http.Response, error) {
+func (r ApiSpotGetAllOrdersV3Request) Execute() ([]SpotGetAllOrdersV3RespItem, *http.Response, error) {
 	return r.ApiService.SpotGetAllOrdersV3Execute(r)
 }
 
@@ -3802,10 +3802,10 @@ SpotGetAllOrdersV3 All orders (USER_DATA)
 Get all account orders; active, canceled, or filled.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradingAPISpotGetAllOrdersV3Request
+ @return ApiSpotGetAllOrdersV3Request
 */
-func (a *TradingAPIService) SpotGetAllOrdersV3(ctx context.Context) TradingAPISpotGetAllOrdersV3Request {
-	return TradingAPISpotGetAllOrdersV3Request{
+func (a *TradingAPIService) SpotGetAllOrdersV3(ctx context.Context) ApiSpotGetAllOrdersV3Request {
+	return ApiSpotGetAllOrdersV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3813,7 +3813,7 @@ func (a *TradingAPIService) SpotGetAllOrdersV3(ctx context.Context) TradingAPISp
 
 // Execute executes the request
 //  @return []SpotGetAllOrdersV3RespItem
-func (a *TradingAPIService) SpotGetAllOrdersV3Execute(r TradingAPISpotGetAllOrdersV3Request) ([]SpotGetAllOrdersV3RespItem, *http.Response, error) {
+func (a *TradingAPIService) SpotGetAllOrdersV3Execute(r ApiSpotGetAllOrdersV3Request) ([]SpotGetAllOrdersV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3939,25 +3939,25 @@ func (a *TradingAPIService) SpotGetAllOrdersV3Execute(r TradingAPISpotGetAllOrde
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradingAPISpotGetOpenOrderListV3Request struct {
+type ApiSpotGetOpenOrderListV3Request struct {
 	ctx context.Context
 	ApiService *TradingAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r TradingAPISpotGetOpenOrderListV3Request) Timestamp(timestamp int64) TradingAPISpotGetOpenOrderListV3Request {
+func (r ApiSpotGetOpenOrderListV3Request) Timestamp(timestamp int64) ApiSpotGetOpenOrderListV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TradingAPISpotGetOpenOrderListV3Request) RecvWindow(recvWindow int64) TradingAPISpotGetOpenOrderListV3Request {
+func (r ApiSpotGetOpenOrderListV3Request) RecvWindow(recvWindow int64) ApiSpotGetOpenOrderListV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradingAPISpotGetOpenOrderListV3Request) Execute() ([]SpotGetOpenOrderListV3RespItem, *http.Response, error) {
+func (r ApiSpotGetOpenOrderListV3Request) Execute() ([]SpotGetOpenOrderListV3RespItem, *http.Response, error) {
 	return r.ApiService.SpotGetOpenOrderListV3Execute(r)
 }
 
@@ -3965,10 +3965,10 @@ func (r TradingAPISpotGetOpenOrderListV3Request) Execute() ([]SpotGetOpenOrderLi
 SpotGetOpenOrderListV3 Query Open Order lists (USER_DATA)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradingAPISpotGetOpenOrderListV3Request
+ @return ApiSpotGetOpenOrderListV3Request
 */
-func (a *TradingAPIService) SpotGetOpenOrderListV3(ctx context.Context) TradingAPISpotGetOpenOrderListV3Request {
-	return TradingAPISpotGetOpenOrderListV3Request{
+func (a *TradingAPIService) SpotGetOpenOrderListV3(ctx context.Context) ApiSpotGetOpenOrderListV3Request {
+	return ApiSpotGetOpenOrderListV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3976,7 +3976,7 @@ func (a *TradingAPIService) SpotGetOpenOrderListV3(ctx context.Context) TradingA
 
 // Execute executes the request
 //  @return []SpotGetOpenOrderListV3RespItem
-func (a *TradingAPIService) SpotGetOpenOrderListV3Execute(r TradingAPISpotGetOpenOrderListV3Request) ([]SpotGetOpenOrderListV3RespItem, *http.Response, error) {
+func (a *TradingAPIService) SpotGetOpenOrderListV3Execute(r ApiSpotGetOpenOrderListV3Request) ([]SpotGetOpenOrderListV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4083,7 +4083,7 @@ func (a *TradingAPIService) SpotGetOpenOrderListV3Execute(r TradingAPISpotGetOpe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradingAPISpotGetOpenOrdersV3Request struct {
+type ApiSpotGetOpenOrdersV3Request struct {
 	ctx context.Context
 	ApiService *TradingAPIService
 	timestamp *int64
@@ -4091,23 +4091,23 @@ type TradingAPISpotGetOpenOrdersV3Request struct {
 	recvWindow *int64
 }
 
-func (r TradingAPISpotGetOpenOrdersV3Request) Timestamp(timestamp int64) TradingAPISpotGetOpenOrdersV3Request {
+func (r ApiSpotGetOpenOrdersV3Request) Timestamp(timestamp int64) ApiSpotGetOpenOrdersV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradingAPISpotGetOpenOrdersV3Request) Symbol(symbol string) TradingAPISpotGetOpenOrdersV3Request {
+func (r ApiSpotGetOpenOrdersV3Request) Symbol(symbol string) ApiSpotGetOpenOrdersV3Request {
 	r.symbol = &symbol
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TradingAPISpotGetOpenOrdersV3Request) RecvWindow(recvWindow int64) TradingAPISpotGetOpenOrdersV3Request {
+func (r ApiSpotGetOpenOrdersV3Request) RecvWindow(recvWindow int64) ApiSpotGetOpenOrdersV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradingAPISpotGetOpenOrdersV3Request) Execute() ([]SpotGetOpenOrdersV3RespItem, *http.Response, error) {
+func (r ApiSpotGetOpenOrdersV3Request) Execute() ([]SpotGetOpenOrdersV3RespItem, *http.Response, error) {
 	return r.ApiService.SpotGetOpenOrdersV3Execute(r)
 }
 
@@ -4119,10 +4119,10 @@ Weight:
 6 for a single symbol; 80 when the symbol parameter is omitted
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradingAPISpotGetOpenOrdersV3Request
+ @return ApiSpotGetOpenOrdersV3Request
 */
-func (a *TradingAPIService) SpotGetOpenOrdersV3(ctx context.Context) TradingAPISpotGetOpenOrdersV3Request {
-	return TradingAPISpotGetOpenOrdersV3Request{
+func (a *TradingAPIService) SpotGetOpenOrdersV3(ctx context.Context) ApiSpotGetOpenOrdersV3Request {
+	return ApiSpotGetOpenOrdersV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4130,7 +4130,7 @@ func (a *TradingAPIService) SpotGetOpenOrdersV3(ctx context.Context) TradingAPIS
 
 // Execute executes the request
 //  @return []SpotGetOpenOrdersV3RespItem
-func (a *TradingAPIService) SpotGetOpenOrdersV3Execute(r TradingAPISpotGetOpenOrdersV3Request) ([]SpotGetOpenOrdersV3RespItem, *http.Response, error) {
+func (a *TradingAPIService) SpotGetOpenOrdersV3Execute(r ApiSpotGetOpenOrdersV3Request) ([]SpotGetOpenOrdersV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4243,7 +4243,7 @@ func (a *TradingAPIService) SpotGetOpenOrdersV3Execute(r TradingAPISpotGetOpenOr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradingAPISpotGetOrderListV3Request struct {
+type ApiSpotGetOrderListV3Request struct {
 	ctx context.Context
 	ApiService *TradingAPIService
 	timestamp *int64
@@ -4252,30 +4252,30 @@ type TradingAPISpotGetOrderListV3Request struct {
 	recvWindow *int64
 }
 
-func (r TradingAPISpotGetOrderListV3Request) Timestamp(timestamp int64) TradingAPISpotGetOrderListV3Request {
+func (r ApiSpotGetOrderListV3Request) Timestamp(timestamp int64) ApiSpotGetOrderListV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Either &#x60;orderListId&#x60; or &#x60;listClientOrderId&#x60; must be provided
-func (r TradingAPISpotGetOrderListV3Request) OrderListId(orderListId int64) TradingAPISpotGetOrderListV3Request {
+func (r ApiSpotGetOrderListV3Request) OrderListId(orderListId int64) ApiSpotGetOrderListV3Request {
 	r.orderListId = &orderListId
 	return r
 }
 
 // Either &#x60;orderListId&#x60; or &#x60;listClientOrderId&#x60; must be provided
-func (r TradingAPISpotGetOrderListV3Request) OrigClientOrderId(origClientOrderId string) TradingAPISpotGetOrderListV3Request {
+func (r ApiSpotGetOrderListV3Request) OrigClientOrderId(origClientOrderId string) ApiSpotGetOrderListV3Request {
 	r.origClientOrderId = &origClientOrderId
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TradingAPISpotGetOrderListV3Request) RecvWindow(recvWindow int64) TradingAPISpotGetOrderListV3Request {
+func (r ApiSpotGetOrderListV3Request) RecvWindow(recvWindow int64) ApiSpotGetOrderListV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradingAPISpotGetOrderListV3Request) Execute() (*SpotGetOrderListV3Resp, *http.Response, error) {
+func (r ApiSpotGetOrderListV3Request) Execute() (*SpotGetOrderListV3Resp, *http.Response, error) {
 	return r.ApiService.SpotGetOrderListV3Execute(r)
 }
 
@@ -4285,10 +4285,10 @@ SpotGetOrderListV3 Query Order list (USER_DATA)
 Retrieves a specific order list based on provided optional parameters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradingAPISpotGetOrderListV3Request
+ @return ApiSpotGetOrderListV3Request
 */
-func (a *TradingAPIService) SpotGetOrderListV3(ctx context.Context) TradingAPISpotGetOrderListV3Request {
-	return TradingAPISpotGetOrderListV3Request{
+func (a *TradingAPIService) SpotGetOrderListV3(ctx context.Context) ApiSpotGetOrderListV3Request {
+	return ApiSpotGetOrderListV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4296,7 +4296,7 @@ func (a *TradingAPIService) SpotGetOrderListV3(ctx context.Context) TradingAPISp
 
 // Execute executes the request
 //  @return SpotGetOrderListV3Resp
-func (a *TradingAPIService) SpotGetOrderListV3Execute(r TradingAPISpotGetOrderListV3Request) (*SpotGetOrderListV3Resp, *http.Response, error) {
+func (a *TradingAPIService) SpotGetOrderListV3Execute(r ApiSpotGetOrderListV3Request) (*SpotGetOrderListV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4412,7 +4412,7 @@ func (a *TradingAPIService) SpotGetOrderListV3Execute(r TradingAPISpotGetOrderLi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradingAPISpotGetOrderV3Request struct {
+type ApiSpotGetOrderV3Request struct {
 	ctx context.Context
 	ApiService *TradingAPIService
 	symbol *string
@@ -4422,33 +4422,33 @@ type TradingAPISpotGetOrderV3Request struct {
 	recvWindow *int64
 }
 
-func (r TradingAPISpotGetOrderV3Request) Symbol(symbol string) TradingAPISpotGetOrderV3Request {
+func (r ApiSpotGetOrderV3Request) Symbol(symbol string) ApiSpotGetOrderV3Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradingAPISpotGetOrderV3Request) Timestamp(timestamp int64) TradingAPISpotGetOrderV3Request {
+func (r ApiSpotGetOrderV3Request) Timestamp(timestamp int64) ApiSpotGetOrderV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradingAPISpotGetOrderV3Request) OrderId(orderId int64) TradingAPISpotGetOrderV3Request {
+func (r ApiSpotGetOrderV3Request) OrderId(orderId int64) ApiSpotGetOrderV3Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradingAPISpotGetOrderV3Request) OrigClientOrderId(origClientOrderId string) TradingAPISpotGetOrderV3Request {
+func (r ApiSpotGetOrderV3Request) OrigClientOrderId(origClientOrderId string) ApiSpotGetOrderV3Request {
 	r.origClientOrderId = &origClientOrderId
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TradingAPISpotGetOrderV3Request) RecvWindow(recvWindow int64) TradingAPISpotGetOrderV3Request {
+func (r ApiSpotGetOrderV3Request) RecvWindow(recvWindow int64) ApiSpotGetOrderV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradingAPISpotGetOrderV3Request) Execute() (*SpotGetOrderV3Resp, *http.Response, error) {
+func (r ApiSpotGetOrderV3Request) Execute() (*SpotGetOrderV3Resp, *http.Response, error) {
 	return r.ApiService.SpotGetOrderV3Execute(r)
 }
 
@@ -4458,10 +4458,10 @@ SpotGetOrderV3 Query order (USER_DATA)
 Check an order's status.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradingAPISpotGetOrderV3Request
+ @return ApiSpotGetOrderV3Request
 */
-func (a *TradingAPIService) SpotGetOrderV3(ctx context.Context) TradingAPISpotGetOrderV3Request {
-	return TradingAPISpotGetOrderV3Request{
+func (a *TradingAPIService) SpotGetOrderV3(ctx context.Context) ApiSpotGetOrderV3Request {
+	return ApiSpotGetOrderV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4469,7 +4469,7 @@ func (a *TradingAPIService) SpotGetOrderV3(ctx context.Context) TradingAPISpotGe
 
 // Execute executes the request
 //  @return SpotGetOrderV3Resp
-func (a *TradingAPIService) SpotGetOrderV3Execute(r TradingAPISpotGetOrderV3Request) (*SpotGetOrderV3Resp, *http.Response, error) {
+func (a *TradingAPIService) SpotGetOrderV3Execute(r ApiSpotGetOrderV3Request) (*SpotGetOrderV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

@@ -1,7 +1,7 @@
 /*
 Binance Spot API
 
-OpenAPI specification for Binance cryptocurrency exchange - Spot API
+OpenAPI specification for Binance exchange - Spot API
 
 API version: 0.1.0
 */
@@ -58,8 +58,6 @@ type APIClient struct {
 	TradingAPI *TradingAPIService
 
 	UserDataStreamAPI *UserDataStreamAPIService
-
-	V3API *V3APIService
 }
 
 type service struct {
@@ -83,7 +81,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.MarketDataAPI = (*MarketDataAPIService)(&c.common)
 	c.TradingAPI = (*TradingAPIService)(&c.common)
 	c.UserDataStreamAPI = (*UserDataStreamAPIService)(&c.common)
-	c.V3API = (*V3APIService)(&c.common)
 
 	return c
 }

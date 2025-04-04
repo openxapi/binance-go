@@ -1,7 +1,7 @@
 /*
-Binance Futuresdata API
+Binance Futures Data API
 
-OpenAPI specification for Binance cryptocurrency exchange - Futuresdata API
+OpenAPI specification for Binance exchange - Futuresdata API
 
 API version: 0.1.0
 */

@@ -1,7 +1,7 @@
 /*
-Binance Pmargin API
+Binance Portfolio Margin API
 
-OpenAPI specification for Binance cryptocurrency exchange - Pmargin API
+OpenAPI specification for Binance exchange - Pmargin API
 
 API version: 0.1.0
 */
@@ -22,12 +22,12 @@ import (
 // MarketDataAPIService MarketDataAPI service
 type MarketDataAPIService service
 
-type MarketDataAPIPmarginGetPingV1Request struct {
+type ApiPmarginGetPingV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 }
 
-func (r MarketDataAPIPmarginGetPingV1Request) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiPmarginGetPingV1Request) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.PmarginGetPingV1Execute(r)
 }
 
@@ -37,10 +37,10 @@ PmarginGetPingV1 Test Connectivity
 Test connectivity to the Rest API.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIPmarginGetPingV1Request
+ @return ApiPmarginGetPingV1Request
 */
-func (a *MarketDataAPIService) PmarginGetPingV1(ctx context.Context) MarketDataAPIPmarginGetPingV1Request {
-	return MarketDataAPIPmarginGetPingV1Request{
+func (a *MarketDataAPIService) PmarginGetPingV1(ctx context.Context) ApiPmarginGetPingV1Request {
+	return ApiPmarginGetPingV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -48,7 +48,7 @@ func (a *MarketDataAPIService) PmarginGetPingV1(ctx context.Context) MarketDataA
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *MarketDataAPIService) PmarginGetPingV1Execute(r MarketDataAPIPmarginGetPingV1Request) (map[string]interface{}, *http.Response, error) {
+func (a *MarketDataAPIService) PmarginGetPingV1Execute(r ApiPmarginGetPingV1Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

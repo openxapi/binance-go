@@ -22,24 +22,24 @@ import (
 // FutureCopyTradingAPIService FutureCopyTradingAPI service
 type FutureCopyTradingAPIService service
 
-type FutureCopyTradingAPICopytradingGetCopyTradingFuturesLeadSymbolV1Request struct {
+type ApiCopytradingGetCopyTradingFuturesLeadSymbolV1Request struct {
 	ctx context.Context
 	ApiService *FutureCopyTradingAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r FutureCopyTradingAPICopytradingGetCopyTradingFuturesLeadSymbolV1Request) Timestamp(timestamp int64) FutureCopyTradingAPICopytradingGetCopyTradingFuturesLeadSymbolV1Request {
+func (r ApiCopytradingGetCopyTradingFuturesLeadSymbolV1Request) Timestamp(timestamp int64) ApiCopytradingGetCopyTradingFuturesLeadSymbolV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r FutureCopyTradingAPICopytradingGetCopyTradingFuturesLeadSymbolV1Request) RecvWindow(recvWindow int64) FutureCopyTradingAPICopytradingGetCopyTradingFuturesLeadSymbolV1Request {
+func (r ApiCopytradingGetCopyTradingFuturesLeadSymbolV1Request) RecvWindow(recvWindow int64) ApiCopytradingGetCopyTradingFuturesLeadSymbolV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r FutureCopyTradingAPICopytradingGetCopyTradingFuturesLeadSymbolV1Request) Execute() (*CopytradingGetCopyTradingFuturesLeadSymbolV1Resp, *http.Response, error) {
+func (r ApiCopytradingGetCopyTradingFuturesLeadSymbolV1Request) Execute() (*CopytradingGetCopyTradingFuturesLeadSymbolV1Resp, *http.Response, error) {
 	return r.ApiService.CopytradingGetCopyTradingFuturesLeadSymbolV1Execute(r)
 }
 
@@ -49,10 +49,10 @@ CopytradingGetCopyTradingFuturesLeadSymbolV1 Get Futures Lead Trading Symbol Whi
 Get Futures Lead Trading Symbol Whitelist
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return FutureCopyTradingAPICopytradingGetCopyTradingFuturesLeadSymbolV1Request
+ @return ApiCopytradingGetCopyTradingFuturesLeadSymbolV1Request
 */
-func (a *FutureCopyTradingAPIService) CopytradingGetCopyTradingFuturesLeadSymbolV1(ctx context.Context) FutureCopyTradingAPICopytradingGetCopyTradingFuturesLeadSymbolV1Request {
-	return FutureCopyTradingAPICopytradingGetCopyTradingFuturesLeadSymbolV1Request{
+func (a *FutureCopyTradingAPIService) CopytradingGetCopyTradingFuturesLeadSymbolV1(ctx context.Context) ApiCopytradingGetCopyTradingFuturesLeadSymbolV1Request {
+	return ApiCopytradingGetCopyTradingFuturesLeadSymbolV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -60,7 +60,7 @@ func (a *FutureCopyTradingAPIService) CopytradingGetCopyTradingFuturesLeadSymbol
 
 // Execute executes the request
 //  @return CopytradingGetCopyTradingFuturesLeadSymbolV1Resp
-func (a *FutureCopyTradingAPIService) CopytradingGetCopyTradingFuturesLeadSymbolV1Execute(r FutureCopyTradingAPICopytradingGetCopyTradingFuturesLeadSymbolV1Request) (*CopytradingGetCopyTradingFuturesLeadSymbolV1Resp, *http.Response, error) {
+func (a *FutureCopyTradingAPIService) CopytradingGetCopyTradingFuturesLeadSymbolV1Execute(r ApiCopytradingGetCopyTradingFuturesLeadSymbolV1Request) (*CopytradingGetCopyTradingFuturesLeadSymbolV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -167,24 +167,24 @@ func (a *FutureCopyTradingAPIService) CopytradingGetCopyTradingFuturesLeadSymbol
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type FutureCopyTradingAPICopytradingGetCopyTradingFuturesUserStatusV1Request struct {
+type ApiCopytradingGetCopyTradingFuturesUserStatusV1Request struct {
 	ctx context.Context
 	ApiService *FutureCopyTradingAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r FutureCopyTradingAPICopytradingGetCopyTradingFuturesUserStatusV1Request) Timestamp(timestamp int64) FutureCopyTradingAPICopytradingGetCopyTradingFuturesUserStatusV1Request {
+func (r ApiCopytradingGetCopyTradingFuturesUserStatusV1Request) Timestamp(timestamp int64) ApiCopytradingGetCopyTradingFuturesUserStatusV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r FutureCopyTradingAPICopytradingGetCopyTradingFuturesUserStatusV1Request) RecvWindow(recvWindow int64) FutureCopyTradingAPICopytradingGetCopyTradingFuturesUserStatusV1Request {
+func (r ApiCopytradingGetCopyTradingFuturesUserStatusV1Request) RecvWindow(recvWindow int64) ApiCopytradingGetCopyTradingFuturesUserStatusV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r FutureCopyTradingAPICopytradingGetCopyTradingFuturesUserStatusV1Request) Execute() (*CopytradingGetCopyTradingFuturesUserStatusV1Resp, *http.Response, error) {
+func (r ApiCopytradingGetCopyTradingFuturesUserStatusV1Request) Execute() (*CopytradingGetCopyTradingFuturesUserStatusV1Resp, *http.Response, error) {
 	return r.ApiService.CopytradingGetCopyTradingFuturesUserStatusV1Execute(r)
 }
 
@@ -194,10 +194,10 @@ CopytradingGetCopyTradingFuturesUserStatusV1 Get Futures Lead Trader Status(TRAD
 Get Futures Lead Trader Status
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return FutureCopyTradingAPICopytradingGetCopyTradingFuturesUserStatusV1Request
+ @return ApiCopytradingGetCopyTradingFuturesUserStatusV1Request
 */
-func (a *FutureCopyTradingAPIService) CopytradingGetCopyTradingFuturesUserStatusV1(ctx context.Context) FutureCopyTradingAPICopytradingGetCopyTradingFuturesUserStatusV1Request {
-	return FutureCopyTradingAPICopytradingGetCopyTradingFuturesUserStatusV1Request{
+func (a *FutureCopyTradingAPIService) CopytradingGetCopyTradingFuturesUserStatusV1(ctx context.Context) ApiCopytradingGetCopyTradingFuturesUserStatusV1Request {
+	return ApiCopytradingGetCopyTradingFuturesUserStatusV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -205,7 +205,7 @@ func (a *FutureCopyTradingAPIService) CopytradingGetCopyTradingFuturesUserStatus
 
 // Execute executes the request
 //  @return CopytradingGetCopyTradingFuturesUserStatusV1Resp
-func (a *FutureCopyTradingAPIService) CopytradingGetCopyTradingFuturesUserStatusV1Execute(r FutureCopyTradingAPICopytradingGetCopyTradingFuturesUserStatusV1Request) (*CopytradingGetCopyTradingFuturesUserStatusV1Resp, *http.Response, error) {
+func (a *FutureCopyTradingAPIService) CopytradingGetCopyTradingFuturesUserStatusV1Execute(r ApiCopytradingGetCopyTradingFuturesUserStatusV1Request) (*CopytradingGetCopyTradingFuturesUserStatusV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

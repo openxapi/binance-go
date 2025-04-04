@@ -1,7 +1,7 @@
 /*
 Binance Spot API
 
-OpenAPI specification for Binance cryptocurrency exchange - Spot API
+OpenAPI specification for Binance exchange - Spot API
 
 API version: 0.1.0
 */
@@ -22,7 +22,7 @@ import (
 // MarketDataAPIService MarketDataAPI service
 type MarketDataAPIService service
 
-type MarketDataAPISpotGetAggTradesV3Request struct {
+type ApiSpotGetAggTradesV3Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
@@ -32,36 +32,36 @@ type MarketDataAPISpotGetAggTradesV3Request struct {
 	limit *int32
 }
 
-func (r MarketDataAPISpotGetAggTradesV3Request) Symbol(symbol string) MarketDataAPISpotGetAggTradesV3Request {
+func (r ApiSpotGetAggTradesV3Request) Symbol(symbol string) ApiSpotGetAggTradesV3Request {
 	r.symbol = &symbol
 	return r
 }
 
 // ID to get aggregate trades from INCLUSIVE.
-func (r MarketDataAPISpotGetAggTradesV3Request) FromId(fromId int64) MarketDataAPISpotGetAggTradesV3Request {
+func (r ApiSpotGetAggTradesV3Request) FromId(fromId int64) ApiSpotGetAggTradesV3Request {
 	r.fromId = &fromId
 	return r
 }
 
 // Timestamp in ms to get aggregate trades from INCLUSIVE.
-func (r MarketDataAPISpotGetAggTradesV3Request) StartTime(startTime int64) MarketDataAPISpotGetAggTradesV3Request {
+func (r ApiSpotGetAggTradesV3Request) StartTime(startTime int64) ApiSpotGetAggTradesV3Request {
 	r.startTime = &startTime
 	return r
 }
 
 // Timestamp in ms to get aggregate trades until INCLUSIVE.
-func (r MarketDataAPISpotGetAggTradesV3Request) EndTime(endTime int64) MarketDataAPISpotGetAggTradesV3Request {
+func (r ApiSpotGetAggTradesV3Request) EndTime(endTime int64) ApiSpotGetAggTradesV3Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 500; max 1000.
-func (r MarketDataAPISpotGetAggTradesV3Request) Limit(limit int32) MarketDataAPISpotGetAggTradesV3Request {
+func (r ApiSpotGetAggTradesV3Request) Limit(limit int32) ApiSpotGetAggTradesV3Request {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPISpotGetAggTradesV3Request) Execute() ([]SpotGetAggTradesV3RespItem, *http.Response, error) {
+func (r ApiSpotGetAggTradesV3Request) Execute() ([]SpotGetAggTradesV3RespItem, *http.Response, error) {
 	return r.ApiService.SpotGetAggTradesV3Execute(r)
 }
 
@@ -71,10 +71,10 @@ SpotGetAggTradesV3 Compressed/Aggregate trades list
 Get compressed, aggregate trades. Trades that fill at the time, from the same taker order, with the same price will have the quantity aggregated.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPISpotGetAggTradesV3Request
+ @return ApiSpotGetAggTradesV3Request
 */
-func (a *MarketDataAPIService) SpotGetAggTradesV3(ctx context.Context) MarketDataAPISpotGetAggTradesV3Request {
-	return MarketDataAPISpotGetAggTradesV3Request{
+func (a *MarketDataAPIService) SpotGetAggTradesV3(ctx context.Context) ApiSpotGetAggTradesV3Request {
+	return ApiSpotGetAggTradesV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -82,7 +82,7 @@ func (a *MarketDataAPIService) SpotGetAggTradesV3(ctx context.Context) MarketDat
 
 // Execute executes the request
 //  @return []SpotGetAggTradesV3RespItem
-func (a *MarketDataAPIService) SpotGetAggTradesV3Execute(r MarketDataAPISpotGetAggTradesV3Request) ([]SpotGetAggTradesV3RespItem, *http.Response, error) {
+func (a *MarketDataAPIService) SpotGetAggTradesV3Execute(r ApiSpotGetAggTradesV3Request) ([]SpotGetAggTradesV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -195,18 +195,18 @@ func (a *MarketDataAPIService) SpotGetAggTradesV3Execute(r MarketDataAPISpotGetA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPISpotGetAvgPriceV3Request struct {
+type ApiSpotGetAvgPriceV3Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
 }
 
-func (r MarketDataAPISpotGetAvgPriceV3Request) Symbol(symbol string) MarketDataAPISpotGetAvgPriceV3Request {
+func (r ApiSpotGetAvgPriceV3Request) Symbol(symbol string) ApiSpotGetAvgPriceV3Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r MarketDataAPISpotGetAvgPriceV3Request) Execute() (*SpotGetAvgPriceV3Resp, *http.Response, error) {
+func (r ApiSpotGetAvgPriceV3Request) Execute() (*SpotGetAvgPriceV3Resp, *http.Response, error) {
 	return r.ApiService.SpotGetAvgPriceV3Execute(r)
 }
 
@@ -216,10 +216,10 @@ SpotGetAvgPriceV3 Current average price
 Current average price for a symbol.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPISpotGetAvgPriceV3Request
+ @return ApiSpotGetAvgPriceV3Request
 */
-func (a *MarketDataAPIService) SpotGetAvgPriceV3(ctx context.Context) MarketDataAPISpotGetAvgPriceV3Request {
-	return MarketDataAPISpotGetAvgPriceV3Request{
+func (a *MarketDataAPIService) SpotGetAvgPriceV3(ctx context.Context) ApiSpotGetAvgPriceV3Request {
+	return ApiSpotGetAvgPriceV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -227,7 +227,7 @@ func (a *MarketDataAPIService) SpotGetAvgPriceV3(ctx context.Context) MarketData
 
 // Execute executes the request
 //  @return SpotGetAvgPriceV3Resp
-func (a *MarketDataAPIService) SpotGetAvgPriceV3Execute(r MarketDataAPISpotGetAvgPriceV3Request) (*SpotGetAvgPriceV3Resp, *http.Response, error) {
+func (a *MarketDataAPIService) SpotGetAvgPriceV3Execute(r ApiSpotGetAvgPriceV3Request) (*SpotGetAvgPriceV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -325,25 +325,25 @@ func (a *MarketDataAPIService) SpotGetAvgPriceV3Execute(r MarketDataAPISpotGetAv
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPISpotGetDepthV3Request struct {
+type ApiSpotGetDepthV3Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
 	limit *int32
 }
 
-func (r MarketDataAPISpotGetDepthV3Request) Symbol(symbol string) MarketDataAPISpotGetDepthV3Request {
+func (r ApiSpotGetDepthV3Request) Symbol(symbol string) ApiSpotGetDepthV3Request {
 	r.symbol = &symbol
 	return r
 }
 
 // Default 100; max 5000. &lt;br/&gt; If limit &amp;gt; 5000. then the response will truncate to 5000.
-func (r MarketDataAPISpotGetDepthV3Request) Limit(limit int32) MarketDataAPISpotGetDepthV3Request {
+func (r ApiSpotGetDepthV3Request) Limit(limit int32) ApiSpotGetDepthV3Request {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPISpotGetDepthV3Request) Execute() (*SpotGetDepthV3Resp, *http.Response, error) {
+func (r ApiSpotGetDepthV3Request) Execute() (*SpotGetDepthV3Resp, *http.Response, error) {
 	return r.ApiService.SpotGetDepthV3Execute(r)
 }
 
@@ -351,10 +351,10 @@ func (r MarketDataAPISpotGetDepthV3Request) Execute() (*SpotGetDepthV3Resp, *htt
 SpotGetDepthV3 Order book
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPISpotGetDepthV3Request
+ @return ApiSpotGetDepthV3Request
 */
-func (a *MarketDataAPIService) SpotGetDepthV3(ctx context.Context) MarketDataAPISpotGetDepthV3Request {
-	return MarketDataAPISpotGetDepthV3Request{
+func (a *MarketDataAPIService) SpotGetDepthV3(ctx context.Context) ApiSpotGetDepthV3Request {
+	return ApiSpotGetDepthV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -362,7 +362,7 @@ func (a *MarketDataAPIService) SpotGetDepthV3(ctx context.Context) MarketDataAPI
 
 // Execute executes the request
 //  @return SpotGetDepthV3Resp
-func (a *MarketDataAPIService) SpotGetDepthV3Execute(r MarketDataAPISpotGetDepthV3Request) (*SpotGetDepthV3Resp, *http.Response, error) {
+func (a *MarketDataAPIService) SpotGetDepthV3Execute(r ApiSpotGetDepthV3Request) (*SpotGetDepthV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -466,7 +466,7 @@ func (a *MarketDataAPIService) SpotGetDepthV3Execute(r MarketDataAPISpotGetDepth
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPISpotGetHistoricalTradesV3Request struct {
+type ApiSpotGetHistoricalTradesV3Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
@@ -474,24 +474,24 @@ type MarketDataAPISpotGetHistoricalTradesV3Request struct {
 	fromId *int64
 }
 
-func (r MarketDataAPISpotGetHistoricalTradesV3Request) Symbol(symbol string) MarketDataAPISpotGetHistoricalTradesV3Request {
+func (r ApiSpotGetHistoricalTradesV3Request) Symbol(symbol string) ApiSpotGetHistoricalTradesV3Request {
 	r.symbol = &symbol
 	return r
 }
 
 // Default 500; max 1000.
-func (r MarketDataAPISpotGetHistoricalTradesV3Request) Limit(limit int32) MarketDataAPISpotGetHistoricalTradesV3Request {
+func (r ApiSpotGetHistoricalTradesV3Request) Limit(limit int32) ApiSpotGetHistoricalTradesV3Request {
 	r.limit = &limit
 	return r
 }
 
 // TradeId to fetch from. Default gets most recent trades.
-func (r MarketDataAPISpotGetHistoricalTradesV3Request) FromId(fromId int64) MarketDataAPISpotGetHistoricalTradesV3Request {
+func (r ApiSpotGetHistoricalTradesV3Request) FromId(fromId int64) ApiSpotGetHistoricalTradesV3Request {
 	r.fromId = &fromId
 	return r
 }
 
-func (r MarketDataAPISpotGetHistoricalTradesV3Request) Execute() ([]SpotGetHistoricalTradesV3RespItem, *http.Response, error) {
+func (r ApiSpotGetHistoricalTradesV3Request) Execute() ([]SpotGetHistoricalTradesV3RespItem, *http.Response, error) {
 	return r.ApiService.SpotGetHistoricalTradesV3Execute(r)
 }
 
@@ -501,10 +501,10 @@ SpotGetHistoricalTradesV3 Old trade lookup
 Get older trades.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPISpotGetHistoricalTradesV3Request
+ @return ApiSpotGetHistoricalTradesV3Request
 */
-func (a *MarketDataAPIService) SpotGetHistoricalTradesV3(ctx context.Context) MarketDataAPISpotGetHistoricalTradesV3Request {
-	return MarketDataAPISpotGetHistoricalTradesV3Request{
+func (a *MarketDataAPIService) SpotGetHistoricalTradesV3(ctx context.Context) ApiSpotGetHistoricalTradesV3Request {
+	return ApiSpotGetHistoricalTradesV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -512,7 +512,7 @@ func (a *MarketDataAPIService) SpotGetHistoricalTradesV3(ctx context.Context) Ma
 
 // Execute executes the request
 //  @return []SpotGetHistoricalTradesV3RespItem
-func (a *MarketDataAPIService) SpotGetHistoricalTradesV3Execute(r MarketDataAPISpotGetHistoricalTradesV3Request) ([]SpotGetHistoricalTradesV3RespItem, *http.Response, error) {
+func (a *MarketDataAPIService) SpotGetHistoricalTradesV3Execute(r ApiSpotGetHistoricalTradesV3Request) ([]SpotGetHistoricalTradesV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -619,7 +619,7 @@ func (a *MarketDataAPIService) SpotGetHistoricalTradesV3Execute(r MarketDataAPIS
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPISpotGetKlinesV3Request struct {
+type ApiSpotGetKlinesV3Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
@@ -630,39 +630,39 @@ type MarketDataAPISpotGetKlinesV3Request struct {
 	limit *int32
 }
 
-func (r MarketDataAPISpotGetKlinesV3Request) Symbol(symbol string) MarketDataAPISpotGetKlinesV3Request {
+func (r ApiSpotGetKlinesV3Request) Symbol(symbol string) ApiSpotGetKlinesV3Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r MarketDataAPISpotGetKlinesV3Request) Interval(interval string) MarketDataAPISpotGetKlinesV3Request {
+func (r ApiSpotGetKlinesV3Request) Interval(interval string) ApiSpotGetKlinesV3Request {
 	r.interval = &interval
 	return r
 }
 
-func (r MarketDataAPISpotGetKlinesV3Request) StartTime(startTime int64) MarketDataAPISpotGetKlinesV3Request {
+func (r ApiSpotGetKlinesV3Request) StartTime(startTime int64) ApiSpotGetKlinesV3Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r MarketDataAPISpotGetKlinesV3Request) EndTime(endTime int64) MarketDataAPISpotGetKlinesV3Request {
+func (r ApiSpotGetKlinesV3Request) EndTime(endTime int64) ApiSpotGetKlinesV3Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default: 0 (UTC)
-func (r MarketDataAPISpotGetKlinesV3Request) TimeZone(timeZone string) MarketDataAPISpotGetKlinesV3Request {
+func (r ApiSpotGetKlinesV3Request) TimeZone(timeZone string) ApiSpotGetKlinesV3Request {
 	r.timeZone = &timeZone
 	return r
 }
 
 // Default 500; max 1000.
-func (r MarketDataAPISpotGetKlinesV3Request) Limit(limit int32) MarketDataAPISpotGetKlinesV3Request {
+func (r ApiSpotGetKlinesV3Request) Limit(limit int32) ApiSpotGetKlinesV3Request {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPISpotGetKlinesV3Request) Execute() ([][]SpotGetKlinesV3200ResponseInnerInner, *http.Response, error) {
+func (r ApiSpotGetKlinesV3Request) Execute() ([][]SpotGetKlinesV3200ResponseInnerInner, *http.Response, error) {
 	return r.ApiService.SpotGetKlinesV3Execute(r)
 }
 
@@ -673,10 +673,10 @@ Kline/candlestick bars for a symbol.
 Klines are uniquely identified by their open time.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPISpotGetKlinesV3Request
+ @return ApiSpotGetKlinesV3Request
 */
-func (a *MarketDataAPIService) SpotGetKlinesV3(ctx context.Context) MarketDataAPISpotGetKlinesV3Request {
-	return MarketDataAPISpotGetKlinesV3Request{
+func (a *MarketDataAPIService) SpotGetKlinesV3(ctx context.Context) ApiSpotGetKlinesV3Request {
+	return ApiSpotGetKlinesV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -684,7 +684,7 @@ func (a *MarketDataAPIService) SpotGetKlinesV3(ctx context.Context) MarketDataAP
 
 // Execute executes the request
 //  @return [][]SpotGetKlinesV3200ResponseInnerInner
-func (a *MarketDataAPIService) SpotGetKlinesV3Execute(r MarketDataAPISpotGetKlinesV3Request) ([][]SpotGetKlinesV3200ResponseInnerInner, *http.Response, error) {
+func (a *MarketDataAPIService) SpotGetKlinesV3Execute(r ApiSpotGetKlinesV3Request) ([][]SpotGetKlinesV3200ResponseInnerInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -804,7 +804,7 @@ func (a *MarketDataAPIService) SpotGetKlinesV3Execute(r MarketDataAPISpotGetKlin
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPISpotGetTicker24hrV3Request struct {
+type ApiSpotGetTicker24hrV3Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
@@ -813,24 +813,24 @@ type MarketDataAPISpotGetTicker24hrV3Request struct {
 }
 
 // Parameter symbol and symbols cannot be used in combination. &lt;br/&gt; If neither parameter is sent, tickers for all symbols will be returned in an array. &lt;br/&gt;&lt;br/&gt;          Examples of accepted format for the symbols parameter:          [&amp;#34;BTCUSDT&amp;#34;,&amp;#34;BNBUSDT&amp;#34;] &lt;br/&gt;          or &lt;br/&gt;          %5B%22BTCUSDT%22,%22BNBUSDT%22%5D
-func (r MarketDataAPISpotGetTicker24hrV3Request) Symbol(symbol string) MarketDataAPISpotGetTicker24hrV3Request {
+func (r ApiSpotGetTicker24hrV3Request) Symbol(symbol string) ApiSpotGetTicker24hrV3Request {
 	r.symbol = &symbol
 	return r
 }
 
 // Parameter symbol and symbols cannot be used in combination. &lt;br/&gt; If neither parameter is sent, tickers for all symbols will be returned in an array. &lt;br/&gt;&lt;br/&gt;          Examples of accepted format for the symbols parameter:          [&amp;#34;BTCUSDT&amp;#34;,&amp;#34;BNBUSDT&amp;#34;] &lt;br/&gt;          or &lt;br/&gt;          %5B%22BTCUSDT%22,%22BNBUSDT%22%5D
-func (r MarketDataAPISpotGetTicker24hrV3Request) Symbols(symbols string) MarketDataAPISpotGetTicker24hrV3Request {
+func (r ApiSpotGetTicker24hrV3Request) Symbols(symbols string) ApiSpotGetTicker24hrV3Request {
 	r.symbols = &symbols
 	return r
 }
 
 // Supported values: &#x60;FULL&#x60; or &#x60;MINI&#x60;. &lt;br/&gt;If none provided, the default is &#x60;FULL&#x60;
-func (r MarketDataAPISpotGetTicker24hrV3Request) Type_(type_ string) MarketDataAPISpotGetTicker24hrV3Request {
+func (r ApiSpotGetTicker24hrV3Request) Type_(type_ string) ApiSpotGetTicker24hrV3Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r MarketDataAPISpotGetTicker24hrV3Request) Execute() (*SpotGetTicker24hrV3Resp, *http.Response, error) {
+func (r ApiSpotGetTicker24hrV3Request) Execute() (*SpotGetTicker24hrV3Resp, *http.Response, error) {
 	return r.ApiService.SpotGetTicker24hrV3Execute(r)
 }
 
@@ -840,10 +840,10 @@ SpotGetTicker24hrV3 24hr ticker price change statistics
 24 hour rolling window price change statistics. Careful when accessing this with no symbol.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPISpotGetTicker24hrV3Request
+ @return ApiSpotGetTicker24hrV3Request
 */
-func (a *MarketDataAPIService) SpotGetTicker24hrV3(ctx context.Context) MarketDataAPISpotGetTicker24hrV3Request {
-	return MarketDataAPISpotGetTicker24hrV3Request{
+func (a *MarketDataAPIService) SpotGetTicker24hrV3(ctx context.Context) ApiSpotGetTicker24hrV3Request {
+	return ApiSpotGetTicker24hrV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -851,7 +851,7 @@ func (a *MarketDataAPIService) SpotGetTicker24hrV3(ctx context.Context) MarketDa
 
 // Execute executes the request
 //  @return SpotGetTicker24hrV3Resp
-func (a *MarketDataAPIService) SpotGetTicker24hrV3Execute(r MarketDataAPISpotGetTicker24hrV3Request) (*SpotGetTicker24hrV3Resp, *http.Response, error) {
+func (a *MarketDataAPIService) SpotGetTicker24hrV3Execute(r ApiSpotGetTicker24hrV3Request) (*SpotGetTicker24hrV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -963,7 +963,7 @@ func (a *MarketDataAPIService) SpotGetTicker24hrV3Execute(r MarketDataAPISpotGet
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPISpotGetTickerBookTickerV3Request struct {
+type ApiSpotGetTickerBookTickerV3Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
@@ -971,18 +971,18 @@ type MarketDataAPISpotGetTickerBookTickerV3Request struct {
 }
 
 // Parameter symbol and symbols cannot be used in combination. &lt;br/&gt; If neither parameter is sent, bookTickers for all symbols will be returned in an array.          &lt;br/&gt;&lt;br/&gt;         Examples of accepted format for the symbols parameter:          [&amp;#34;BTCUSDT&amp;#34;,&amp;#34;BNBUSDT&amp;#34;] &lt;br/&gt;          or &lt;br/&gt;          %5B%22BTCUSDT%22,%22BNBUSDT%22%5D
-func (r MarketDataAPISpotGetTickerBookTickerV3Request) Symbol(symbol string) MarketDataAPISpotGetTickerBookTickerV3Request {
+func (r ApiSpotGetTickerBookTickerV3Request) Symbol(symbol string) ApiSpotGetTickerBookTickerV3Request {
 	r.symbol = &symbol
 	return r
 }
 
 // Parameter symbol and symbols cannot be used in combination. &lt;br/&gt; If neither parameter is sent, bookTickers for all symbols will be returned in an array.          &lt;br/&gt;&lt;br/&gt;         Examples of accepted format for the symbols parameter:          [&amp;#34;BTCUSDT&amp;#34;,&amp;#34;BNBUSDT&amp;#34;] &lt;br/&gt;          or &lt;br/&gt;          %5B%22BTCUSDT%22,%22BNBUSDT%22%5D
-func (r MarketDataAPISpotGetTickerBookTickerV3Request) Symbols(symbols string) MarketDataAPISpotGetTickerBookTickerV3Request {
+func (r ApiSpotGetTickerBookTickerV3Request) Symbols(symbols string) ApiSpotGetTickerBookTickerV3Request {
 	r.symbols = &symbols
 	return r
 }
 
-func (r MarketDataAPISpotGetTickerBookTickerV3Request) Execute() (*SpotGetTickerBookTickerV3Resp, *http.Response, error) {
+func (r ApiSpotGetTickerBookTickerV3Request) Execute() (*SpotGetTickerBookTickerV3Resp, *http.Response, error) {
 	return r.ApiService.SpotGetTickerBookTickerV3Execute(r)
 }
 
@@ -992,10 +992,10 @@ SpotGetTickerBookTickerV3 Symbol order book ticker
 Best price/qty on the order book for a symbol or symbols.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPISpotGetTickerBookTickerV3Request
+ @return ApiSpotGetTickerBookTickerV3Request
 */
-func (a *MarketDataAPIService) SpotGetTickerBookTickerV3(ctx context.Context) MarketDataAPISpotGetTickerBookTickerV3Request {
-	return MarketDataAPISpotGetTickerBookTickerV3Request{
+func (a *MarketDataAPIService) SpotGetTickerBookTickerV3(ctx context.Context) ApiSpotGetTickerBookTickerV3Request {
+	return ApiSpotGetTickerBookTickerV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1003,7 +1003,7 @@ func (a *MarketDataAPIService) SpotGetTickerBookTickerV3(ctx context.Context) Ma
 
 // Execute executes the request
 //  @return SpotGetTickerBookTickerV3Resp
-func (a *MarketDataAPIService) SpotGetTickerBookTickerV3Execute(r MarketDataAPISpotGetTickerBookTickerV3Request) (*SpotGetTickerBookTickerV3Resp, *http.Response, error) {
+func (a *MarketDataAPIService) SpotGetTickerBookTickerV3Execute(r ApiSpotGetTickerBookTickerV3Request) (*SpotGetTickerBookTickerV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1109,7 +1109,7 @@ func (a *MarketDataAPIService) SpotGetTickerBookTickerV3Execute(r MarketDataAPIS
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPISpotGetTickerPriceV3Request struct {
+type ApiSpotGetTickerPriceV3Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
@@ -1117,18 +1117,18 @@ type MarketDataAPISpotGetTickerPriceV3Request struct {
 }
 
 // Parameter symbol and symbols cannot be used in combination. &lt;br/&gt; If neither parameter is sent, prices for all symbols will be returned in an array. &lt;br/&gt;&lt;br/&gt;         Examples of accepted format for the symbols parameter:          [&amp;#34;BTCUSDT&amp;#34;,&amp;#34;BNBUSDT&amp;#34;] &lt;br/&gt;          or &lt;br/&gt;          %5B%22BTCUSDT%22,%22BNBUSDT%22%5D
-func (r MarketDataAPISpotGetTickerPriceV3Request) Symbol(symbol string) MarketDataAPISpotGetTickerPriceV3Request {
+func (r ApiSpotGetTickerPriceV3Request) Symbol(symbol string) ApiSpotGetTickerPriceV3Request {
 	r.symbol = &symbol
 	return r
 }
 
 // Parameter symbol and symbols cannot be used in combination. &lt;br/&gt; If neither parameter is sent, prices for all symbols will be returned in an array. &lt;br/&gt;&lt;br/&gt;         Examples of accepted format for the symbols parameter:          [&amp;#34;BTCUSDT&amp;#34;,&amp;#34;BNBUSDT&amp;#34;] &lt;br/&gt;          or &lt;br/&gt;          %5B%22BTCUSDT%22,%22BNBUSDT%22%5D
-func (r MarketDataAPISpotGetTickerPriceV3Request) Symbols(symbols string) MarketDataAPISpotGetTickerPriceV3Request {
+func (r ApiSpotGetTickerPriceV3Request) Symbols(symbols string) ApiSpotGetTickerPriceV3Request {
 	r.symbols = &symbols
 	return r
 }
 
-func (r MarketDataAPISpotGetTickerPriceV3Request) Execute() (*SpotGetTickerPriceV3Resp, *http.Response, error) {
+func (r ApiSpotGetTickerPriceV3Request) Execute() (*SpotGetTickerPriceV3Resp, *http.Response, error) {
 	return r.ApiService.SpotGetTickerPriceV3Execute(r)
 }
 
@@ -1138,10 +1138,10 @@ SpotGetTickerPriceV3 Symbol price ticker
 Latest price for a symbol or symbols.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPISpotGetTickerPriceV3Request
+ @return ApiSpotGetTickerPriceV3Request
 */
-func (a *MarketDataAPIService) SpotGetTickerPriceV3(ctx context.Context) MarketDataAPISpotGetTickerPriceV3Request {
-	return MarketDataAPISpotGetTickerPriceV3Request{
+func (a *MarketDataAPIService) SpotGetTickerPriceV3(ctx context.Context) ApiSpotGetTickerPriceV3Request {
+	return ApiSpotGetTickerPriceV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1149,7 +1149,7 @@ func (a *MarketDataAPIService) SpotGetTickerPriceV3(ctx context.Context) MarketD
 
 // Execute executes the request
 //  @return SpotGetTickerPriceV3Resp
-func (a *MarketDataAPIService) SpotGetTickerPriceV3Execute(r MarketDataAPISpotGetTickerPriceV3Request) (*SpotGetTickerPriceV3Resp, *http.Response, error) {
+func (a *MarketDataAPIService) SpotGetTickerPriceV3Execute(r ApiSpotGetTickerPriceV3Request) (*SpotGetTickerPriceV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1255,7 +1255,7 @@ func (a *MarketDataAPIService) SpotGetTickerPriceV3Execute(r MarketDataAPISpotGe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPISpotGetTickerTradingDayV3Request struct {
+type ApiSpotGetTickerTradingDayV3Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
@@ -1265,30 +1265,30 @@ type MarketDataAPISpotGetTickerTradingDayV3Request struct {
 }
 
 // Either &#x60;symbol&#x60; or &#x60;symbols&#x60; must be provided &lt;br/&gt;&lt;br/&gt; Examples of accepted format for the &#x60;symbols&#x60; parameter: &lt;br/&gt; [&amp;#34;BTCUSDT&amp;#34;,&amp;#34;BNBUSDT&amp;#34;] &lt;br/&gt;or &lt;br/&gt;%5B%22BTCUSDT%22,%22BNBUSDT%22%5D &lt;br/&gt;&lt;br/&gt; The maximum number of &#x60;symbols&#x60; allowed in a request is 100.
-func (r MarketDataAPISpotGetTickerTradingDayV3Request) Symbol(symbol string) MarketDataAPISpotGetTickerTradingDayV3Request {
+func (r ApiSpotGetTickerTradingDayV3Request) Symbol(symbol string) ApiSpotGetTickerTradingDayV3Request {
 	r.symbol = &symbol
 	return r
 }
 
 // Either &#x60;symbol&#x60; or &#x60;symbols&#x60; must be provided &lt;br/&gt;&lt;br/&gt; Examples of accepted format for the &#x60;symbols&#x60; parameter: &lt;br/&gt; [&amp;#34;BTCUSDT&amp;#34;,&amp;#34;BNBUSDT&amp;#34;] &lt;br/&gt;or &lt;br/&gt;%5B%22BTCUSDT%22,%22BNBUSDT%22%5D &lt;br/&gt;&lt;br/&gt; The maximum number of &#x60;symbols&#x60; allowed in a request is 100.
-func (r MarketDataAPISpotGetTickerTradingDayV3Request) Symbols(symbols string) MarketDataAPISpotGetTickerTradingDayV3Request {
+func (r ApiSpotGetTickerTradingDayV3Request) Symbols(symbols string) ApiSpotGetTickerTradingDayV3Request {
 	r.symbols = &symbols
 	return r
 }
 
 // Default: 0 (UTC)
-func (r MarketDataAPISpotGetTickerTradingDayV3Request) TimeZone(timeZone string) MarketDataAPISpotGetTickerTradingDayV3Request {
+func (r ApiSpotGetTickerTradingDayV3Request) TimeZone(timeZone string) ApiSpotGetTickerTradingDayV3Request {
 	r.timeZone = &timeZone
 	return r
 }
 
 // Supported values: &#x60;FULL&#x60; or &#x60;MINI&#x60;. &lt;br/&gt;If none provided, the default is &#x60;FULL&#x60;
-func (r MarketDataAPISpotGetTickerTradingDayV3Request) Type_(type_ string) MarketDataAPISpotGetTickerTradingDayV3Request {
+func (r ApiSpotGetTickerTradingDayV3Request) Type_(type_ string) ApiSpotGetTickerTradingDayV3Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r MarketDataAPISpotGetTickerTradingDayV3Request) Execute() (*SpotGetTickerTradingDayV3Resp, *http.Response, error) {
+func (r ApiSpotGetTickerTradingDayV3Request) Execute() (*SpotGetTickerTradingDayV3Resp, *http.Response, error) {
 	return r.ApiService.SpotGetTickerTradingDayV3Execute(r)
 }
 
@@ -1299,10 +1299,10 @@ Price change statistics for a trading day.
 4 for each requested symbol.  The weight for this request will cap at 200 once the number of symbols in the request is more than 50.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPISpotGetTickerTradingDayV3Request
+ @return ApiSpotGetTickerTradingDayV3Request
 */
-func (a *MarketDataAPIService) SpotGetTickerTradingDayV3(ctx context.Context) MarketDataAPISpotGetTickerTradingDayV3Request {
-	return MarketDataAPISpotGetTickerTradingDayV3Request{
+func (a *MarketDataAPIService) SpotGetTickerTradingDayV3(ctx context.Context) ApiSpotGetTickerTradingDayV3Request {
+	return ApiSpotGetTickerTradingDayV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1310,7 +1310,7 @@ func (a *MarketDataAPIService) SpotGetTickerTradingDayV3(ctx context.Context) Ma
 
 // Execute executes the request
 //  @return SpotGetTickerTradingDayV3Resp
-func (a *MarketDataAPIService) SpotGetTickerTradingDayV3Execute(r MarketDataAPISpotGetTickerTradingDayV3Request) (*SpotGetTickerTradingDayV3Resp, *http.Response, error) {
+func (a *MarketDataAPIService) SpotGetTickerTradingDayV3Execute(r ApiSpotGetTickerTradingDayV3Request) (*SpotGetTickerTradingDayV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1424,7 +1424,7 @@ func (a *MarketDataAPIService) SpotGetTickerTradingDayV3Execute(r MarketDataAPIS
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPISpotGetTickerV3Request struct {
+type ApiSpotGetTickerV3Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
@@ -1434,30 +1434,30 @@ type MarketDataAPISpotGetTickerV3Request struct {
 }
 
 // Either &#x60;symbol&#x60; or &#x60;symbols&#x60; must be provided &lt;br/&gt;&lt;br/&gt; Examples of accepted format for the &#x60;symbols&#x60; parameter: &lt;br/&gt; [&amp;#34;BTCUSDT&amp;#34;,&amp;#34;BNBUSDT&amp;#34;] &lt;br/&gt;or &lt;br/&gt;%5B%22BTCUSDT%22,%22BNBUSDT%22%5D &lt;br/&gt;&lt;br/&gt; The maximum number of &#x60;symbols&#x60; allowed in a request is 100.
-func (r MarketDataAPISpotGetTickerV3Request) Symbol(symbol string) MarketDataAPISpotGetTickerV3Request {
+func (r ApiSpotGetTickerV3Request) Symbol(symbol string) ApiSpotGetTickerV3Request {
 	r.symbol = &symbol
 	return r
 }
 
 // Either &#x60;symbol&#x60; or &#x60;symbols&#x60; must be provided &lt;br/&gt;&lt;br/&gt; Examples of accepted format for the &#x60;symbols&#x60; parameter: &lt;br/&gt; [&amp;#34;BTCUSDT&amp;#34;,&amp;#34;BNBUSDT&amp;#34;] &lt;br/&gt;or &lt;br/&gt;%5B%22BTCUSDT%22,%22BNBUSDT%22%5D &lt;br/&gt;&lt;br/&gt; The maximum number of &#x60;symbols&#x60; allowed in a request is 100.
-func (r MarketDataAPISpotGetTickerV3Request) Symbols(symbols string) MarketDataAPISpotGetTickerV3Request {
+func (r ApiSpotGetTickerV3Request) Symbols(symbols string) ApiSpotGetTickerV3Request {
 	r.symbols = &symbols
 	return r
 }
 
 // Defaults to &#x60;1d&#x60; if no parameter provided &lt;br/&gt; Supported &#x60;windowSize&#x60; values: &lt;br/&gt; &#x60;1m&#x60;,&#x60;2m&#x60;....&#x60;59m&#x60; for minutes &lt;br/&gt; &#x60;1h&#x60;, &#x60;2h&#x60;....&#x60;23h&#x60; - for hours &lt;br/&gt; &#x60;1d&#x60;...&#x60;7d&#x60; - for days &lt;br/&gt;&lt;br/&gt; Units cannot be combined (e.g. &#x60;1d2h&#x60; is not allowed)
-func (r MarketDataAPISpotGetTickerV3Request) WindowSize(windowSize string) MarketDataAPISpotGetTickerV3Request {
+func (r ApiSpotGetTickerV3Request) WindowSize(windowSize string) ApiSpotGetTickerV3Request {
 	r.windowSize = &windowSize
 	return r
 }
 
 // Supported values: &#x60;FULL&#x60; or &#x60;MINI&#x60;. &lt;br/&gt;If none provided, the default is &#x60;FULL&#x60;
-func (r MarketDataAPISpotGetTickerV3Request) Type_(type_ string) MarketDataAPISpotGetTickerV3Request {
+func (r ApiSpotGetTickerV3Request) Type_(type_ string) ApiSpotGetTickerV3Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r MarketDataAPISpotGetTickerV3Request) Execute() (*SpotGetTickerV3Resp, *http.Response, error) {
+func (r ApiSpotGetTickerV3Request) Execute() (*SpotGetTickerV3Resp, *http.Response, error) {
 	return r.ApiService.SpotGetTickerV3Execute(r)
 }
 
@@ -1472,10 +1472,10 @@ E.g. If the closeTime is 1641287867099 (January 04, 2022 09:17:47:099 UTC) , and
 4 for each requested symbol regardless of windowSize.  The weight for this request will cap at 200 once the number of symbols in the request is more than 50.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPISpotGetTickerV3Request
+ @return ApiSpotGetTickerV3Request
 */
-func (a *MarketDataAPIService) SpotGetTickerV3(ctx context.Context) MarketDataAPISpotGetTickerV3Request {
-	return MarketDataAPISpotGetTickerV3Request{
+func (a *MarketDataAPIService) SpotGetTickerV3(ctx context.Context) ApiSpotGetTickerV3Request {
+	return ApiSpotGetTickerV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1483,7 +1483,7 @@ func (a *MarketDataAPIService) SpotGetTickerV3(ctx context.Context) MarketDataAP
 
 // Execute executes the request
 //  @return SpotGetTickerV3Resp
-func (a *MarketDataAPIService) SpotGetTickerV3Execute(r MarketDataAPISpotGetTickerV3Request) (*SpotGetTickerV3Resp, *http.Response, error) {
+func (a *MarketDataAPIService) SpotGetTickerV3Execute(r ApiSpotGetTickerV3Request) (*SpotGetTickerV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1597,25 +1597,25 @@ func (a *MarketDataAPIService) SpotGetTickerV3Execute(r MarketDataAPISpotGetTick
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPISpotGetTradesV3Request struct {
+type ApiSpotGetTradesV3Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
 	limit *int32
 }
 
-func (r MarketDataAPISpotGetTradesV3Request) Symbol(symbol string) MarketDataAPISpotGetTradesV3Request {
+func (r ApiSpotGetTradesV3Request) Symbol(symbol string) ApiSpotGetTradesV3Request {
 	r.symbol = &symbol
 	return r
 }
 
 // Default 500; max 1000.
-func (r MarketDataAPISpotGetTradesV3Request) Limit(limit int32) MarketDataAPISpotGetTradesV3Request {
+func (r ApiSpotGetTradesV3Request) Limit(limit int32) ApiSpotGetTradesV3Request {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPISpotGetTradesV3Request) Execute() ([]SpotGetTradesV3RespItem, *http.Response, error) {
+func (r ApiSpotGetTradesV3Request) Execute() ([]SpotGetTradesV3RespItem, *http.Response, error) {
 	return r.ApiService.SpotGetTradesV3Execute(r)
 }
 
@@ -1625,10 +1625,10 @@ SpotGetTradesV3 Recent trades list
 Get recent trades.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPISpotGetTradesV3Request
+ @return ApiSpotGetTradesV3Request
 */
-func (a *MarketDataAPIService) SpotGetTradesV3(ctx context.Context) MarketDataAPISpotGetTradesV3Request {
-	return MarketDataAPISpotGetTradesV3Request{
+func (a *MarketDataAPIService) SpotGetTradesV3(ctx context.Context) ApiSpotGetTradesV3Request {
+	return ApiSpotGetTradesV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1636,7 +1636,7 @@ func (a *MarketDataAPIService) SpotGetTradesV3(ctx context.Context) MarketDataAP
 
 // Execute executes the request
 //  @return []SpotGetTradesV3RespItem
-func (a *MarketDataAPIService) SpotGetTradesV3Execute(r MarketDataAPISpotGetTradesV3Request) ([]SpotGetTradesV3RespItem, *http.Response, error) {
+func (a *MarketDataAPIService) SpotGetTradesV3Execute(r ApiSpotGetTradesV3Request) ([]SpotGetTradesV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1740,7 +1740,7 @@ func (a *MarketDataAPIService) SpotGetTradesV3Execute(r MarketDataAPISpotGetTrad
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPISpotGetUiKlinesV3Request struct {
+type ApiSpotGetUiKlinesV3Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
@@ -1751,40 +1751,40 @@ type MarketDataAPISpotGetUiKlinesV3Request struct {
 	limit *int32
 }
 
-func (r MarketDataAPISpotGetUiKlinesV3Request) Symbol(symbol string) MarketDataAPISpotGetUiKlinesV3Request {
+func (r ApiSpotGetUiKlinesV3Request) Symbol(symbol string) ApiSpotGetUiKlinesV3Request {
 	r.symbol = &symbol
 	return r
 }
 
 // See &lt;a href&#x3D;\&quot;/docs/binance-spot-api-docs/rest-api/market-data-endpoints#kline-intervals\&quot;&gt;&#x60;klines&#x60;&lt;/a&gt;
-func (r MarketDataAPISpotGetUiKlinesV3Request) Interval(interval string) MarketDataAPISpotGetUiKlinesV3Request {
+func (r ApiSpotGetUiKlinesV3Request) Interval(interval string) ApiSpotGetUiKlinesV3Request {
 	r.interval = &interval
 	return r
 }
 
-func (r MarketDataAPISpotGetUiKlinesV3Request) StartTime(startTime int64) MarketDataAPISpotGetUiKlinesV3Request {
+func (r ApiSpotGetUiKlinesV3Request) StartTime(startTime int64) ApiSpotGetUiKlinesV3Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r MarketDataAPISpotGetUiKlinesV3Request) EndTime(endTime int64) MarketDataAPISpotGetUiKlinesV3Request {
+func (r ApiSpotGetUiKlinesV3Request) EndTime(endTime int64) ApiSpotGetUiKlinesV3Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default: 0 (UTC)
-func (r MarketDataAPISpotGetUiKlinesV3Request) TimeZone(timeZone string) MarketDataAPISpotGetUiKlinesV3Request {
+func (r ApiSpotGetUiKlinesV3Request) TimeZone(timeZone string) ApiSpotGetUiKlinesV3Request {
 	r.timeZone = &timeZone
 	return r
 }
 
 // Default 500; max 1000.
-func (r MarketDataAPISpotGetUiKlinesV3Request) Limit(limit int32) MarketDataAPISpotGetUiKlinesV3Request {
+func (r ApiSpotGetUiKlinesV3Request) Limit(limit int32) ApiSpotGetUiKlinesV3Request {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPISpotGetUiKlinesV3Request) Execute() ([][]SpotGetKlinesV3200ResponseInnerInner, *http.Response, error) {
+func (r ApiSpotGetUiKlinesV3Request) Execute() ([][]SpotGetKlinesV3200ResponseInnerInner, *http.Response, error) {
 	return r.ApiService.SpotGetUiKlinesV3Execute(r)
 }
 
@@ -1795,10 +1795,10 @@ The request is similar to klines having the same parameters and response.
 uiKlines return modified kline data, optimized for presentation of candlestick charts.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPISpotGetUiKlinesV3Request
+ @return ApiSpotGetUiKlinesV3Request
 */
-func (a *MarketDataAPIService) SpotGetUiKlinesV3(ctx context.Context) MarketDataAPISpotGetUiKlinesV3Request {
-	return MarketDataAPISpotGetUiKlinesV3Request{
+func (a *MarketDataAPIService) SpotGetUiKlinesV3(ctx context.Context) ApiSpotGetUiKlinesV3Request {
+	return ApiSpotGetUiKlinesV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1806,7 +1806,7 @@ func (a *MarketDataAPIService) SpotGetUiKlinesV3(ctx context.Context) MarketData
 
 // Execute executes the request
 //  @return [][]SpotGetKlinesV3200ResponseInnerInner
-func (a *MarketDataAPIService) SpotGetUiKlinesV3Execute(r MarketDataAPISpotGetUiKlinesV3Request) ([][]SpotGetKlinesV3200ResponseInnerInner, *http.Response, error) {
+func (a *MarketDataAPIService) SpotGetUiKlinesV3Execute(r ApiSpotGetUiKlinesV3Request) ([][]SpotGetKlinesV3200ResponseInnerInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

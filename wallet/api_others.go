@@ -22,12 +22,12 @@ import (
 // OthersAPIService OthersAPI service
 type OthersAPIService service
 
-type OthersAPIWalletGetSystemStatusV1Request struct {
+type ApiWalletGetSystemStatusV1Request struct {
 	ctx context.Context
 	ApiService *OthersAPIService
 }
 
-func (r OthersAPIWalletGetSystemStatusV1Request) Execute() (*WalletGetSystemStatusV1Resp, *http.Response, error) {
+func (r ApiWalletGetSystemStatusV1Request) Execute() (*WalletGetSystemStatusV1Resp, *http.Response, error) {
 	return r.ApiService.WalletGetSystemStatusV1Execute(r)
 }
 
@@ -37,10 +37,10 @@ WalletGetSystemStatusV1 System Status (System)
 Fetch system status.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OthersAPIWalletGetSystemStatusV1Request
+ @return ApiWalletGetSystemStatusV1Request
 */
-func (a *OthersAPIService) WalletGetSystemStatusV1(ctx context.Context) OthersAPIWalletGetSystemStatusV1Request {
-	return OthersAPIWalletGetSystemStatusV1Request{
+func (a *OthersAPIService) WalletGetSystemStatusV1(ctx context.Context) ApiWalletGetSystemStatusV1Request {
+	return ApiWalletGetSystemStatusV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -48,7 +48,7 @@ func (a *OthersAPIService) WalletGetSystemStatusV1(ctx context.Context) OthersAP
 
 // Execute executes the request
 //  @return WalletGetSystemStatusV1Resp
-func (a *OthersAPIService) WalletGetSystemStatusV1Execute(r OthersAPIWalletGetSystemStatusV1Request) (*WalletGetSystemStatusV1Resp, *http.Response, error) {
+func (a *OthersAPIService) WalletGetSystemStatusV1Execute(r ApiWalletGetSystemStatusV1Request) (*WalletGetSystemStatusV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

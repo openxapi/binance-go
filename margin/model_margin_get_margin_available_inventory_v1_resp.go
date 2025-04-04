@@ -1,7 +1,7 @@
 /*
-Binance Margin API
+Binance Margin Trading API
 
-OpenAPI specification for Binance cryptocurrency exchange - Margin API
+OpenAPI specification for Binance exchange - Margin API
 
 API version: 0.1.0
 */

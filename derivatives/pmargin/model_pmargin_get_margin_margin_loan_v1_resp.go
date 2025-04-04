@@ -1,7 +1,7 @@
 /*
-Binance Pmargin API
+Binance Portfolio Margin API
 
-OpenAPI specification for Binance cryptocurrency exchange - Pmargin API
+OpenAPI specification for Binance exchange - Pmargin API
 
 API version: 0.1.0
 */

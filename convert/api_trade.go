@@ -22,7 +22,7 @@ import (
 // TradeAPIService TradeAPI service
 type TradeAPIService service
 
-type TradeAPIConvertCreateConvertAcceptQuoteV1Request struct {
+type ApiConvertCreateConvertAcceptQuoteV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	quoteId *string
@@ -30,22 +30,22 @@ type TradeAPIConvertCreateConvertAcceptQuoteV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIConvertCreateConvertAcceptQuoteV1Request) QuoteId(quoteId string) TradeAPIConvertCreateConvertAcceptQuoteV1Request {
+func (r ApiConvertCreateConvertAcceptQuoteV1Request) QuoteId(quoteId string) ApiConvertCreateConvertAcceptQuoteV1Request {
 	r.quoteId = &quoteId
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertAcceptQuoteV1Request) Timestamp(timestamp int64) TradeAPIConvertCreateConvertAcceptQuoteV1Request {
+func (r ApiConvertCreateConvertAcceptQuoteV1Request) Timestamp(timestamp int64) ApiConvertCreateConvertAcceptQuoteV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertAcceptQuoteV1Request) RecvWindow(recvWindow int64) TradeAPIConvertCreateConvertAcceptQuoteV1Request {
+func (r ApiConvertCreateConvertAcceptQuoteV1Request) RecvWindow(recvWindow int64) ApiConvertCreateConvertAcceptQuoteV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertAcceptQuoteV1Request) Execute() (*ConvertCreateConvertAcceptQuoteV1Resp, *http.Response, error) {
+func (r ApiConvertCreateConvertAcceptQuoteV1Request) Execute() (*ConvertCreateConvertAcceptQuoteV1Resp, *http.Response, error) {
 	return r.ApiService.ConvertCreateConvertAcceptQuoteV1Execute(r)
 }
 
@@ -55,10 +55,10 @@ ConvertCreateConvertAcceptQuoteV1 Accept Quote (TRADE)
 Accept the offered quote by quote ID.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIConvertCreateConvertAcceptQuoteV1Request
+ @return ApiConvertCreateConvertAcceptQuoteV1Request
 */
-func (a *TradeAPIService) ConvertCreateConvertAcceptQuoteV1(ctx context.Context) TradeAPIConvertCreateConvertAcceptQuoteV1Request {
-	return TradeAPIConvertCreateConvertAcceptQuoteV1Request{
+func (a *TradeAPIService) ConvertCreateConvertAcceptQuoteV1(ctx context.Context) ApiConvertCreateConvertAcceptQuoteV1Request {
+	return ApiConvertCreateConvertAcceptQuoteV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -66,7 +66,7 @@ func (a *TradeAPIService) ConvertCreateConvertAcceptQuoteV1(ctx context.Context)
 
 // Execute executes the request
 //  @return ConvertCreateConvertAcceptQuoteV1Resp
-func (a *TradeAPIService) ConvertCreateConvertAcceptQuoteV1Execute(r TradeAPIConvertCreateConvertAcceptQuoteV1Request) (*ConvertCreateConvertAcceptQuoteV1Resp, *http.Response, error) {
+func (a *TradeAPIService) ConvertCreateConvertAcceptQuoteV1Execute(r ApiConvertCreateConvertAcceptQuoteV1Request) (*ConvertCreateConvertAcceptQuoteV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -177,7 +177,7 @@ func (a *TradeAPIService) ConvertCreateConvertAcceptQuoteV1Execute(r TradeAPICon
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIConvertCreateConvertGetQuoteV1Request struct {
+type ApiConvertCreateConvertGetQuoteV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	fromAsset *string
@@ -190,47 +190,47 @@ type TradeAPIConvertCreateConvertGetQuoteV1Request struct {
 	walletType *string
 }
 
-func (r TradeAPIConvertCreateConvertGetQuoteV1Request) FromAsset(fromAsset string) TradeAPIConvertCreateConvertGetQuoteV1Request {
+func (r ApiConvertCreateConvertGetQuoteV1Request) FromAsset(fromAsset string) ApiConvertCreateConvertGetQuoteV1Request {
 	r.fromAsset = &fromAsset
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertGetQuoteV1Request) Timestamp(timestamp int64) TradeAPIConvertCreateConvertGetQuoteV1Request {
+func (r ApiConvertCreateConvertGetQuoteV1Request) Timestamp(timestamp int64) ApiConvertCreateConvertGetQuoteV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertGetQuoteV1Request) ToAsset(toAsset string) TradeAPIConvertCreateConvertGetQuoteV1Request {
+func (r ApiConvertCreateConvertGetQuoteV1Request) ToAsset(toAsset string) ApiConvertCreateConvertGetQuoteV1Request {
 	r.toAsset = &toAsset
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertGetQuoteV1Request) FromAmount(fromAmount string) TradeAPIConvertCreateConvertGetQuoteV1Request {
+func (r ApiConvertCreateConvertGetQuoteV1Request) FromAmount(fromAmount string) ApiConvertCreateConvertGetQuoteV1Request {
 	r.fromAmount = &fromAmount
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertGetQuoteV1Request) RecvWindow(recvWindow int64) TradeAPIConvertCreateConvertGetQuoteV1Request {
+func (r ApiConvertCreateConvertGetQuoteV1Request) RecvWindow(recvWindow int64) ApiConvertCreateConvertGetQuoteV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertGetQuoteV1Request) ToAmount(toAmount string) TradeAPIConvertCreateConvertGetQuoteV1Request {
+func (r ApiConvertCreateConvertGetQuoteV1Request) ToAmount(toAmount string) ApiConvertCreateConvertGetQuoteV1Request {
 	r.toAmount = &toAmount
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertGetQuoteV1Request) ValidTime(validTime string) TradeAPIConvertCreateConvertGetQuoteV1Request {
+func (r ApiConvertCreateConvertGetQuoteV1Request) ValidTime(validTime string) ApiConvertCreateConvertGetQuoteV1Request {
 	r.validTime = &validTime
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertGetQuoteV1Request) WalletType(walletType string) TradeAPIConvertCreateConvertGetQuoteV1Request {
+func (r ApiConvertCreateConvertGetQuoteV1Request) WalletType(walletType string) ApiConvertCreateConvertGetQuoteV1Request {
 	r.walletType = &walletType
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertGetQuoteV1Request) Execute() (*ConvertCreateConvertGetQuoteV1Resp, *http.Response, error) {
+func (r ApiConvertCreateConvertGetQuoteV1Request) Execute() (*ConvertCreateConvertGetQuoteV1Resp, *http.Response, error) {
 	return r.ApiService.ConvertCreateConvertGetQuoteV1Execute(r)
 }
 
@@ -240,10 +240,10 @@ ConvertCreateConvertGetQuoteV1 Send Quote Request(USER_DATA)
 Request a quote for the requested token pairs
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIConvertCreateConvertGetQuoteV1Request
+ @return ApiConvertCreateConvertGetQuoteV1Request
 */
-func (a *TradeAPIService) ConvertCreateConvertGetQuoteV1(ctx context.Context) TradeAPIConvertCreateConvertGetQuoteV1Request {
-	return TradeAPIConvertCreateConvertGetQuoteV1Request{
+func (a *TradeAPIService) ConvertCreateConvertGetQuoteV1(ctx context.Context) ApiConvertCreateConvertGetQuoteV1Request {
+	return ApiConvertCreateConvertGetQuoteV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -251,7 +251,7 @@ func (a *TradeAPIService) ConvertCreateConvertGetQuoteV1(ctx context.Context) Tr
 
 // Execute executes the request
 //  @return ConvertCreateConvertGetQuoteV1Resp
-func (a *TradeAPIService) ConvertCreateConvertGetQuoteV1Execute(r TradeAPIConvertCreateConvertGetQuoteV1Request) (*ConvertCreateConvertGetQuoteV1Resp, *http.Response, error) {
+func (a *TradeAPIService) ConvertCreateConvertGetQuoteV1Execute(r ApiConvertCreateConvertGetQuoteV1Request) (*ConvertCreateConvertGetQuoteV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -378,7 +378,7 @@ func (a *TradeAPIService) ConvertCreateConvertGetQuoteV1Execute(r TradeAPIConver
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIConvertCreateConvertLimitCancelOrderV1Request struct {
+type ApiConvertCreateConvertLimitCancelOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	orderId *int64
@@ -386,22 +386,22 @@ type TradeAPIConvertCreateConvertLimitCancelOrderV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIConvertCreateConvertLimitCancelOrderV1Request) OrderId(orderId int64) TradeAPIConvertCreateConvertLimitCancelOrderV1Request {
+func (r ApiConvertCreateConvertLimitCancelOrderV1Request) OrderId(orderId int64) ApiConvertCreateConvertLimitCancelOrderV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertLimitCancelOrderV1Request) Timestamp(timestamp int64) TradeAPIConvertCreateConvertLimitCancelOrderV1Request {
+func (r ApiConvertCreateConvertLimitCancelOrderV1Request) Timestamp(timestamp int64) ApiConvertCreateConvertLimitCancelOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertLimitCancelOrderV1Request) RecvWindow(recvWindow int64) TradeAPIConvertCreateConvertLimitCancelOrderV1Request {
+func (r ApiConvertCreateConvertLimitCancelOrderV1Request) RecvWindow(recvWindow int64) ApiConvertCreateConvertLimitCancelOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertLimitCancelOrderV1Request) Execute() (*ConvertCreateConvertLimitCancelOrderV1Resp, *http.Response, error) {
+func (r ApiConvertCreateConvertLimitCancelOrderV1Request) Execute() (*ConvertCreateConvertLimitCancelOrderV1Resp, *http.Response, error) {
 	return r.ApiService.ConvertCreateConvertLimitCancelOrderV1Execute(r)
 }
 
@@ -411,10 +411,10 @@ ConvertCreateConvertLimitCancelOrderV1 Cancel limit order (USER_DATA)
 Enable users to cancel a limit order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIConvertCreateConvertLimitCancelOrderV1Request
+ @return ApiConvertCreateConvertLimitCancelOrderV1Request
 */
-func (a *TradeAPIService) ConvertCreateConvertLimitCancelOrderV1(ctx context.Context) TradeAPIConvertCreateConvertLimitCancelOrderV1Request {
-	return TradeAPIConvertCreateConvertLimitCancelOrderV1Request{
+func (a *TradeAPIService) ConvertCreateConvertLimitCancelOrderV1(ctx context.Context) ApiConvertCreateConvertLimitCancelOrderV1Request {
+	return ApiConvertCreateConvertLimitCancelOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -422,7 +422,7 @@ func (a *TradeAPIService) ConvertCreateConvertLimitCancelOrderV1(ctx context.Con
 
 // Execute executes the request
 //  @return ConvertCreateConvertLimitCancelOrderV1Resp
-func (a *TradeAPIService) ConvertCreateConvertLimitCancelOrderV1Execute(r TradeAPIConvertCreateConvertLimitCancelOrderV1Request) (*ConvertCreateConvertLimitCancelOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) ConvertCreateConvertLimitCancelOrderV1Execute(r ApiConvertCreateConvertLimitCancelOrderV1Request) (*ConvertCreateConvertLimitCancelOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -533,7 +533,7 @@ func (a *TradeAPIService) ConvertCreateConvertLimitCancelOrderV1Execute(r TradeA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIConvertCreateConvertLimitPlaceOrderV1Request struct {
+type ApiConvertCreateConvertLimitPlaceOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	baseAsset *string
@@ -548,57 +548,57 @@ type TradeAPIConvertCreateConvertLimitPlaceOrderV1Request struct {
 	walletType *string
 }
 
-func (r TradeAPIConvertCreateConvertLimitPlaceOrderV1Request) BaseAsset(baseAsset string) TradeAPIConvertCreateConvertLimitPlaceOrderV1Request {
+func (r ApiConvertCreateConvertLimitPlaceOrderV1Request) BaseAsset(baseAsset string) ApiConvertCreateConvertLimitPlaceOrderV1Request {
 	r.baseAsset = &baseAsset
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertLimitPlaceOrderV1Request) ExpiredType(expiredType string) TradeAPIConvertCreateConvertLimitPlaceOrderV1Request {
+func (r ApiConvertCreateConvertLimitPlaceOrderV1Request) ExpiredType(expiredType string) ApiConvertCreateConvertLimitPlaceOrderV1Request {
 	r.expiredType = &expiredType
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertLimitPlaceOrderV1Request) LimitPrice(limitPrice string) TradeAPIConvertCreateConvertLimitPlaceOrderV1Request {
+func (r ApiConvertCreateConvertLimitPlaceOrderV1Request) LimitPrice(limitPrice string) ApiConvertCreateConvertLimitPlaceOrderV1Request {
 	r.limitPrice = &limitPrice
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertLimitPlaceOrderV1Request) QuoteAsset(quoteAsset string) TradeAPIConvertCreateConvertLimitPlaceOrderV1Request {
+func (r ApiConvertCreateConvertLimitPlaceOrderV1Request) QuoteAsset(quoteAsset string) ApiConvertCreateConvertLimitPlaceOrderV1Request {
 	r.quoteAsset = &quoteAsset
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertLimitPlaceOrderV1Request) Side(side string) TradeAPIConvertCreateConvertLimitPlaceOrderV1Request {
+func (r ApiConvertCreateConvertLimitPlaceOrderV1Request) Side(side string) ApiConvertCreateConvertLimitPlaceOrderV1Request {
 	r.side = &side
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertLimitPlaceOrderV1Request) Timestamp(timestamp int64) TradeAPIConvertCreateConvertLimitPlaceOrderV1Request {
+func (r ApiConvertCreateConvertLimitPlaceOrderV1Request) Timestamp(timestamp int64) ApiConvertCreateConvertLimitPlaceOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertLimitPlaceOrderV1Request) BaseAmount(baseAmount string) TradeAPIConvertCreateConvertLimitPlaceOrderV1Request {
+func (r ApiConvertCreateConvertLimitPlaceOrderV1Request) BaseAmount(baseAmount string) ApiConvertCreateConvertLimitPlaceOrderV1Request {
 	r.baseAmount = &baseAmount
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertLimitPlaceOrderV1Request) QuoteAmount(quoteAmount string) TradeAPIConvertCreateConvertLimitPlaceOrderV1Request {
+func (r ApiConvertCreateConvertLimitPlaceOrderV1Request) QuoteAmount(quoteAmount string) ApiConvertCreateConvertLimitPlaceOrderV1Request {
 	r.quoteAmount = &quoteAmount
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertLimitPlaceOrderV1Request) RecvWindow(recvWindow int64) TradeAPIConvertCreateConvertLimitPlaceOrderV1Request {
+func (r ApiConvertCreateConvertLimitPlaceOrderV1Request) RecvWindow(recvWindow int64) ApiConvertCreateConvertLimitPlaceOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertLimitPlaceOrderV1Request) WalletType(walletType string) TradeAPIConvertCreateConvertLimitPlaceOrderV1Request {
+func (r ApiConvertCreateConvertLimitPlaceOrderV1Request) WalletType(walletType string) ApiConvertCreateConvertLimitPlaceOrderV1Request {
 	r.walletType = &walletType
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertLimitPlaceOrderV1Request) Execute() (*ConvertCreateConvertLimitPlaceOrderV1Resp, *http.Response, error) {
+func (r ApiConvertCreateConvertLimitPlaceOrderV1Request) Execute() (*ConvertCreateConvertLimitPlaceOrderV1Resp, *http.Response, error) {
 	return r.ApiService.ConvertCreateConvertLimitPlaceOrderV1Execute(r)
 }
 
@@ -608,10 +608,10 @@ ConvertCreateConvertLimitPlaceOrderV1 Place limit order (USER_DATA)
 Enable users to place a limit order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIConvertCreateConvertLimitPlaceOrderV1Request
+ @return ApiConvertCreateConvertLimitPlaceOrderV1Request
 */
-func (a *TradeAPIService) ConvertCreateConvertLimitPlaceOrderV1(ctx context.Context) TradeAPIConvertCreateConvertLimitPlaceOrderV1Request {
-	return TradeAPIConvertCreateConvertLimitPlaceOrderV1Request{
+func (a *TradeAPIService) ConvertCreateConvertLimitPlaceOrderV1(ctx context.Context) ApiConvertCreateConvertLimitPlaceOrderV1Request {
+	return ApiConvertCreateConvertLimitPlaceOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -619,7 +619,7 @@ func (a *TradeAPIService) ConvertCreateConvertLimitPlaceOrderV1(ctx context.Cont
 
 // Execute executes the request
 //  @return ConvertCreateConvertLimitPlaceOrderV1Resp
-func (a *TradeAPIService) ConvertCreateConvertLimitPlaceOrderV1Execute(r TradeAPIConvertCreateConvertLimitPlaceOrderV1Request) (*ConvertCreateConvertLimitPlaceOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) ConvertCreateConvertLimitPlaceOrderV1Execute(r ApiConvertCreateConvertLimitPlaceOrderV1Request) (*ConvertCreateConvertLimitPlaceOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -755,24 +755,24 @@ func (a *TradeAPIService) ConvertCreateConvertLimitPlaceOrderV1Execute(r TradeAP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIConvertCreateConvertLimitQueryOpenOrdersV1Request struct {
+type ApiConvertCreateConvertLimitQueryOpenOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r TradeAPIConvertCreateConvertLimitQueryOpenOrdersV1Request) Timestamp(timestamp int64) TradeAPIConvertCreateConvertLimitQueryOpenOrdersV1Request {
+func (r ApiConvertCreateConvertLimitQueryOpenOrdersV1Request) Timestamp(timestamp int64) ApiConvertCreateConvertLimitQueryOpenOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertLimitQueryOpenOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIConvertCreateConvertLimitQueryOpenOrdersV1Request {
+func (r ApiConvertCreateConvertLimitQueryOpenOrdersV1Request) RecvWindow(recvWindow int64) ApiConvertCreateConvertLimitQueryOpenOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIConvertCreateConvertLimitQueryOpenOrdersV1Request) Execute() (*ConvertCreateConvertLimitQueryOpenOrdersV1Resp, *http.Response, error) {
+func (r ApiConvertCreateConvertLimitQueryOpenOrdersV1Request) Execute() (*ConvertCreateConvertLimitQueryOpenOrdersV1Resp, *http.Response, error) {
 	return r.ApiService.ConvertCreateConvertLimitQueryOpenOrdersV1Execute(r)
 }
 
@@ -782,10 +782,10 @@ ConvertCreateConvertLimitQueryOpenOrdersV1 Query limit open orders (USER_DATA)
 Request a quote for the requested token pairs
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIConvertCreateConvertLimitQueryOpenOrdersV1Request
+ @return ApiConvertCreateConvertLimitQueryOpenOrdersV1Request
 */
-func (a *TradeAPIService) ConvertCreateConvertLimitQueryOpenOrdersV1(ctx context.Context) TradeAPIConvertCreateConvertLimitQueryOpenOrdersV1Request {
-	return TradeAPIConvertCreateConvertLimitQueryOpenOrdersV1Request{
+func (a *TradeAPIService) ConvertCreateConvertLimitQueryOpenOrdersV1(ctx context.Context) ApiConvertCreateConvertLimitQueryOpenOrdersV1Request {
+	return ApiConvertCreateConvertLimitQueryOpenOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -793,7 +793,7 @@ func (a *TradeAPIService) ConvertCreateConvertLimitQueryOpenOrdersV1(ctx context
 
 // Execute executes the request
 //  @return ConvertCreateConvertLimitQueryOpenOrdersV1Resp
-func (a *TradeAPIService) ConvertCreateConvertLimitQueryOpenOrdersV1Execute(r TradeAPIConvertCreateConvertLimitQueryOpenOrdersV1Request) (*ConvertCreateConvertLimitQueryOpenOrdersV1Resp, *http.Response, error) {
+func (a *TradeAPIService) ConvertCreateConvertLimitQueryOpenOrdersV1Execute(r ApiConvertCreateConvertLimitQueryOpenOrdersV1Request) (*ConvertCreateConvertLimitQueryOpenOrdersV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -900,7 +900,7 @@ func (a *TradeAPIService) ConvertCreateConvertLimitQueryOpenOrdersV1Execute(r Tr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIConvertGetConvertOrderStatusV1Request struct {
+type ApiConvertGetConvertOrderStatusV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	orderId *string
@@ -908,18 +908,18 @@ type TradeAPIConvertGetConvertOrderStatusV1Request struct {
 }
 
 // Either orderId or quoteId is required
-func (r TradeAPIConvertGetConvertOrderStatusV1Request) OrderId(orderId string) TradeAPIConvertGetConvertOrderStatusV1Request {
+func (r ApiConvertGetConvertOrderStatusV1Request) OrderId(orderId string) ApiConvertGetConvertOrderStatusV1Request {
 	r.orderId = &orderId
 	return r
 }
 
 // Either orderId or quoteId is required
-func (r TradeAPIConvertGetConvertOrderStatusV1Request) QuoteId(quoteId string) TradeAPIConvertGetConvertOrderStatusV1Request {
+func (r ApiConvertGetConvertOrderStatusV1Request) QuoteId(quoteId string) ApiConvertGetConvertOrderStatusV1Request {
 	r.quoteId = &quoteId
 	return r
 }
 
-func (r TradeAPIConvertGetConvertOrderStatusV1Request) Execute() (*ConvertGetConvertOrderStatusV1Resp, *http.Response, error) {
+func (r ApiConvertGetConvertOrderStatusV1Request) Execute() (*ConvertGetConvertOrderStatusV1Resp, *http.Response, error) {
 	return r.ApiService.ConvertGetConvertOrderStatusV1Execute(r)
 }
 
@@ -929,10 +929,10 @@ ConvertGetConvertOrderStatusV1 Order status(USER_DATA)
 Query order status by order ID.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIConvertGetConvertOrderStatusV1Request
+ @return ApiConvertGetConvertOrderStatusV1Request
 */
-func (a *TradeAPIService) ConvertGetConvertOrderStatusV1(ctx context.Context) TradeAPIConvertGetConvertOrderStatusV1Request {
-	return TradeAPIConvertGetConvertOrderStatusV1Request{
+func (a *TradeAPIService) ConvertGetConvertOrderStatusV1(ctx context.Context) ApiConvertGetConvertOrderStatusV1Request {
+	return ApiConvertGetConvertOrderStatusV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -940,7 +940,7 @@ func (a *TradeAPIService) ConvertGetConvertOrderStatusV1(ctx context.Context) Tr
 
 // Execute executes the request
 //  @return ConvertGetConvertOrderStatusV1Resp
-func (a *TradeAPIService) ConvertGetConvertOrderStatusV1Execute(r TradeAPIConvertGetConvertOrderStatusV1Request) (*ConvertGetConvertOrderStatusV1Resp, *http.Response, error) {
+func (a *TradeAPIService) ConvertGetConvertOrderStatusV1Execute(r ApiConvertGetConvertOrderStatusV1Request) (*ConvertGetConvertOrderStatusV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1052,7 +1052,7 @@ func (a *TradeAPIService) ConvertGetConvertOrderStatusV1Execute(r TradeAPIConver
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIConvertGetConvertTradeFlowV1Request struct {
+type ApiConvertGetConvertTradeFlowV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	startTime *int64
@@ -1062,33 +1062,33 @@ type TradeAPIConvertGetConvertTradeFlowV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIConvertGetConvertTradeFlowV1Request) StartTime(startTime int64) TradeAPIConvertGetConvertTradeFlowV1Request {
+func (r ApiConvertGetConvertTradeFlowV1Request) StartTime(startTime int64) ApiConvertGetConvertTradeFlowV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r TradeAPIConvertGetConvertTradeFlowV1Request) EndTime(endTime int64) TradeAPIConvertGetConvertTradeFlowV1Request {
+func (r ApiConvertGetConvertTradeFlowV1Request) EndTime(endTime int64) ApiConvertGetConvertTradeFlowV1Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r TradeAPIConvertGetConvertTradeFlowV1Request) Timestamp(timestamp int64) TradeAPIConvertGetConvertTradeFlowV1Request {
+func (r ApiConvertGetConvertTradeFlowV1Request) Timestamp(timestamp int64) ApiConvertGetConvertTradeFlowV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Default 100, Max 1000
-func (r TradeAPIConvertGetConvertTradeFlowV1Request) Limit(limit int32) TradeAPIConvertGetConvertTradeFlowV1Request {
+func (r ApiConvertGetConvertTradeFlowV1Request) Limit(limit int32) ApiConvertGetConvertTradeFlowV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r TradeAPIConvertGetConvertTradeFlowV1Request) RecvWindow(recvWindow int64) TradeAPIConvertGetConvertTradeFlowV1Request {
+func (r ApiConvertGetConvertTradeFlowV1Request) RecvWindow(recvWindow int64) ApiConvertGetConvertTradeFlowV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIConvertGetConvertTradeFlowV1Request) Execute() (*ConvertGetConvertTradeFlowV1Resp, *http.Response, error) {
+func (r ApiConvertGetConvertTradeFlowV1Request) Execute() (*ConvertGetConvertTradeFlowV1Resp, *http.Response, error) {
 	return r.ApiService.ConvertGetConvertTradeFlowV1Execute(r)
 }
 
@@ -1098,10 +1098,10 @@ ConvertGetConvertTradeFlowV1 Get Convert Trade History(USER_DATA)
 Get Convert Trade History
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIConvertGetConvertTradeFlowV1Request
+ @return ApiConvertGetConvertTradeFlowV1Request
 */
-func (a *TradeAPIService) ConvertGetConvertTradeFlowV1(ctx context.Context) TradeAPIConvertGetConvertTradeFlowV1Request {
-	return TradeAPIConvertGetConvertTradeFlowV1Request{
+func (a *TradeAPIService) ConvertGetConvertTradeFlowV1(ctx context.Context) ApiConvertGetConvertTradeFlowV1Request {
+	return ApiConvertGetConvertTradeFlowV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1109,7 +1109,7 @@ func (a *TradeAPIService) ConvertGetConvertTradeFlowV1(ctx context.Context) Trad
 
 // Execute executes the request
 //  @return ConvertGetConvertTradeFlowV1Resp
-func (a *TradeAPIService) ConvertGetConvertTradeFlowV1Execute(r TradeAPIConvertGetConvertTradeFlowV1Request) (*ConvertGetConvertTradeFlowV1Resp, *http.Response, error) {
+func (a *TradeAPIService) ConvertGetConvertTradeFlowV1Execute(r ApiConvertGetConvertTradeFlowV1Request) (*ConvertGetConvertTradeFlowV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

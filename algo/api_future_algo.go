@@ -1,7 +1,7 @@
 /*
-Binance Algo API
+Binance Algorithmic Trading API
 
-OpenAPI specification for Binance cryptocurrency exchange - Algo API
+OpenAPI specification for Binance exchange - Algo API
 
 API version: 0.1.0
 */
@@ -22,7 +22,7 @@ import (
 // FutureAlgoAPIService FutureAlgoAPI service
 type FutureAlgoAPIService service
 
-type FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request struct {
+type ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request struct {
 	ctx context.Context
 	ApiService *FutureAlgoAPIService
 	duration *int64
@@ -37,57 +37,57 @@ type FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request struct {
 	reduceOnly *bool
 }
 
-func (r FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request) Duration(duration int64) FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request {
+func (r ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request) Duration(duration int64) ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request {
 	r.duration = &duration
 	return r
 }
 
-func (r FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request) Quantity(quantity string) FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request {
+func (r ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request) Quantity(quantity string) ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request {
 	r.quantity = &quantity
 	return r
 }
 
-func (r FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request) Side(side string) FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request {
+func (r ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request) Side(side string) ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request {
 	r.side = &side
 	return r
 }
 
-func (r FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request) Symbol(symbol string) FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request {
+func (r ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request) Symbol(symbol string) ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request) Timestamp(timestamp int64) FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request {
+func (r ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request) Timestamp(timestamp int64) ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request) ClientAlgoId(clientAlgoId string) FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request {
+func (r ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request) ClientAlgoId(clientAlgoId string) ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request {
 	r.clientAlgoId = &clientAlgoId
 	return r
 }
 
-func (r FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request) LimitPrice(limitPrice string) FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request {
+func (r ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request) LimitPrice(limitPrice string) ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request {
 	r.limitPrice = &limitPrice
 	return r
 }
 
-func (r FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request) PositionSide(positionSide string) FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request {
+func (r ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request) PositionSide(positionSide string) ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request {
 	r.positionSide = &positionSide
 	return r
 }
 
-func (r FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request) RecvWindow(recvWindow int64) FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request {
+func (r ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request) RecvWindow(recvWindow int64) ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request) ReduceOnly(reduceOnly bool) FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request {
+func (r ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request) ReduceOnly(reduceOnly bool) ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request {
 	r.reduceOnly = &reduceOnly
 	return r
 }
 
-func (r FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request) Execute() (*AlgoCreateAlgoFuturesNewOrderTwapV1Resp, *http.Response, error) {
+func (r ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request) Execute() (*AlgoCreateAlgoFuturesNewOrderTwapV1Resp, *http.Response, error) {
 	return r.ApiService.AlgoCreateAlgoFuturesNewOrderTwapV1Execute(r)
 }
 
@@ -98,10 +98,10 @@ Send in a Twap new order.
 Only support on USDⓈ-M Contracts.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request
+ @return ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request
 */
-func (a *FutureAlgoAPIService) AlgoCreateAlgoFuturesNewOrderTwapV1(ctx context.Context) FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request {
-	return FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request{
+func (a *FutureAlgoAPIService) AlgoCreateAlgoFuturesNewOrderTwapV1(ctx context.Context) ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request {
+	return ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -109,7 +109,7 @@ func (a *FutureAlgoAPIService) AlgoCreateAlgoFuturesNewOrderTwapV1(ctx context.C
 
 // Execute executes the request
 //  @return AlgoCreateAlgoFuturesNewOrderTwapV1Resp
-func (a *FutureAlgoAPIService) AlgoCreateAlgoFuturesNewOrderTwapV1Execute(r FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderTwapV1Request) (*AlgoCreateAlgoFuturesNewOrderTwapV1Resp, *http.Response, error) {
+func (a *FutureAlgoAPIService) AlgoCreateAlgoFuturesNewOrderTwapV1Execute(r ApiAlgoCreateAlgoFuturesNewOrderTwapV1Request) (*AlgoCreateAlgoFuturesNewOrderTwapV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -244,7 +244,7 @@ func (a *FutureAlgoAPIService) AlgoCreateAlgoFuturesNewOrderTwapV1Execute(r Futu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request struct {
+type ApiAlgoCreateAlgoFuturesNewOrderVpV1Request struct {
 	ctx context.Context
 	ApiService *FutureAlgoAPIService
 	quantity *string
@@ -259,57 +259,57 @@ type FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request struct {
 	reduceOnly *bool
 }
 
-func (r FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request) Quantity(quantity string) FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request {
+func (r ApiAlgoCreateAlgoFuturesNewOrderVpV1Request) Quantity(quantity string) ApiAlgoCreateAlgoFuturesNewOrderVpV1Request {
 	r.quantity = &quantity
 	return r
 }
 
-func (r FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request) Side(side string) FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request {
+func (r ApiAlgoCreateAlgoFuturesNewOrderVpV1Request) Side(side string) ApiAlgoCreateAlgoFuturesNewOrderVpV1Request {
 	r.side = &side
 	return r
 }
 
-func (r FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request) Symbol(symbol string) FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request {
+func (r ApiAlgoCreateAlgoFuturesNewOrderVpV1Request) Symbol(symbol string) ApiAlgoCreateAlgoFuturesNewOrderVpV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request) Timestamp(timestamp int64) FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request {
+func (r ApiAlgoCreateAlgoFuturesNewOrderVpV1Request) Timestamp(timestamp int64) ApiAlgoCreateAlgoFuturesNewOrderVpV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request) Urgency(urgency string) FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request {
+func (r ApiAlgoCreateAlgoFuturesNewOrderVpV1Request) Urgency(urgency string) ApiAlgoCreateAlgoFuturesNewOrderVpV1Request {
 	r.urgency = &urgency
 	return r
 }
 
-func (r FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request) ClientAlgoId(clientAlgoId string) FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request {
+func (r ApiAlgoCreateAlgoFuturesNewOrderVpV1Request) ClientAlgoId(clientAlgoId string) ApiAlgoCreateAlgoFuturesNewOrderVpV1Request {
 	r.clientAlgoId = &clientAlgoId
 	return r
 }
 
-func (r FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request) LimitPrice(limitPrice string) FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request {
+func (r ApiAlgoCreateAlgoFuturesNewOrderVpV1Request) LimitPrice(limitPrice string) ApiAlgoCreateAlgoFuturesNewOrderVpV1Request {
 	r.limitPrice = &limitPrice
 	return r
 }
 
-func (r FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request) PositionSide(positionSide string) FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request {
+func (r ApiAlgoCreateAlgoFuturesNewOrderVpV1Request) PositionSide(positionSide string) ApiAlgoCreateAlgoFuturesNewOrderVpV1Request {
 	r.positionSide = &positionSide
 	return r
 }
 
-func (r FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request) RecvWindow(recvWindow int64) FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request {
+func (r ApiAlgoCreateAlgoFuturesNewOrderVpV1Request) RecvWindow(recvWindow int64) ApiAlgoCreateAlgoFuturesNewOrderVpV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request) ReduceOnly(reduceOnly bool) FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request {
+func (r ApiAlgoCreateAlgoFuturesNewOrderVpV1Request) ReduceOnly(reduceOnly bool) ApiAlgoCreateAlgoFuturesNewOrderVpV1Request {
 	r.reduceOnly = &reduceOnly
 	return r
 }
 
-func (r FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request) Execute() (*AlgoCreateAlgoFuturesNewOrderVpV1Resp, *http.Response, error) {
+func (r ApiAlgoCreateAlgoFuturesNewOrderVpV1Request) Execute() (*AlgoCreateAlgoFuturesNewOrderVpV1Resp, *http.Response, error) {
 	return r.ApiService.AlgoCreateAlgoFuturesNewOrderVpV1Execute(r)
 }
 
@@ -320,10 +320,10 @@ Send in a VP new order.
 Only support on USDⓈ-M Contracts.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request
+ @return ApiAlgoCreateAlgoFuturesNewOrderVpV1Request
 */
-func (a *FutureAlgoAPIService) AlgoCreateAlgoFuturesNewOrderVpV1(ctx context.Context) FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request {
-	return FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request{
+func (a *FutureAlgoAPIService) AlgoCreateAlgoFuturesNewOrderVpV1(ctx context.Context) ApiAlgoCreateAlgoFuturesNewOrderVpV1Request {
+	return ApiAlgoCreateAlgoFuturesNewOrderVpV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -331,7 +331,7 @@ func (a *FutureAlgoAPIService) AlgoCreateAlgoFuturesNewOrderVpV1(ctx context.Con
 
 // Execute executes the request
 //  @return AlgoCreateAlgoFuturesNewOrderVpV1Resp
-func (a *FutureAlgoAPIService) AlgoCreateAlgoFuturesNewOrderVpV1Execute(r FutureAlgoAPIAlgoCreateAlgoFuturesNewOrderVpV1Request) (*AlgoCreateAlgoFuturesNewOrderVpV1Resp, *http.Response, error) {
+func (a *FutureAlgoAPIService) AlgoCreateAlgoFuturesNewOrderVpV1Execute(r ApiAlgoCreateAlgoFuturesNewOrderVpV1Request) (*AlgoCreateAlgoFuturesNewOrderVpV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -466,7 +466,7 @@ func (a *FutureAlgoAPIService) AlgoCreateAlgoFuturesNewOrderVpV1Execute(r Future
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type FutureAlgoAPIAlgoDeleteAlgoFuturesOrderV1Request struct {
+type ApiAlgoDeleteAlgoFuturesOrderV1Request struct {
 	ctx context.Context
 	ApiService *FutureAlgoAPIService
 	algoId *int64
@@ -475,22 +475,22 @@ type FutureAlgoAPIAlgoDeleteAlgoFuturesOrderV1Request struct {
 }
 
 // eg. 14511
-func (r FutureAlgoAPIAlgoDeleteAlgoFuturesOrderV1Request) AlgoId(algoId int64) FutureAlgoAPIAlgoDeleteAlgoFuturesOrderV1Request {
+func (r ApiAlgoDeleteAlgoFuturesOrderV1Request) AlgoId(algoId int64) ApiAlgoDeleteAlgoFuturesOrderV1Request {
 	r.algoId = &algoId
 	return r
 }
 
-func (r FutureAlgoAPIAlgoDeleteAlgoFuturesOrderV1Request) Timestamp(timestamp int64) FutureAlgoAPIAlgoDeleteAlgoFuturesOrderV1Request {
+func (r ApiAlgoDeleteAlgoFuturesOrderV1Request) Timestamp(timestamp int64) ApiAlgoDeleteAlgoFuturesOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r FutureAlgoAPIAlgoDeleteAlgoFuturesOrderV1Request) RecvWindow(recvWindow int64) FutureAlgoAPIAlgoDeleteAlgoFuturesOrderV1Request {
+func (r ApiAlgoDeleteAlgoFuturesOrderV1Request) RecvWindow(recvWindow int64) ApiAlgoDeleteAlgoFuturesOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r FutureAlgoAPIAlgoDeleteAlgoFuturesOrderV1Request) Execute() (*AlgoDeleteAlgoFuturesOrderV1Resp, *http.Response, error) {
+func (r ApiAlgoDeleteAlgoFuturesOrderV1Request) Execute() (*AlgoDeleteAlgoFuturesOrderV1Resp, *http.Response, error) {
 	return r.ApiService.AlgoDeleteAlgoFuturesOrderV1Execute(r)
 }
 
@@ -500,10 +500,10 @@ AlgoDeleteAlgoFuturesOrderV1 Cancel Algo Order(TRADE)
 Cancel an active order.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return FutureAlgoAPIAlgoDeleteAlgoFuturesOrderV1Request
+ @return ApiAlgoDeleteAlgoFuturesOrderV1Request
 */
-func (a *FutureAlgoAPIService) AlgoDeleteAlgoFuturesOrderV1(ctx context.Context) FutureAlgoAPIAlgoDeleteAlgoFuturesOrderV1Request {
-	return FutureAlgoAPIAlgoDeleteAlgoFuturesOrderV1Request{
+func (a *FutureAlgoAPIService) AlgoDeleteAlgoFuturesOrderV1(ctx context.Context) ApiAlgoDeleteAlgoFuturesOrderV1Request {
+	return ApiAlgoDeleteAlgoFuturesOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -511,7 +511,7 @@ func (a *FutureAlgoAPIService) AlgoDeleteAlgoFuturesOrderV1(ctx context.Context)
 
 // Execute executes the request
 //  @return AlgoDeleteAlgoFuturesOrderV1Resp
-func (a *FutureAlgoAPIService) AlgoDeleteAlgoFuturesOrderV1Execute(r FutureAlgoAPIAlgoDeleteAlgoFuturesOrderV1Request) (*AlgoDeleteAlgoFuturesOrderV1Resp, *http.Response, error) {
+func (a *FutureAlgoAPIService) AlgoDeleteAlgoFuturesOrderV1Execute(r ApiAlgoDeleteAlgoFuturesOrderV1Request) (*AlgoDeleteAlgoFuturesOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -622,7 +622,7 @@ func (a *FutureAlgoAPIService) AlgoDeleteAlgoFuturesOrderV1Execute(r FutureAlgoA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type FutureAlgoAPIAlgoGetAlgoFuturesHistoricalOrdersV1Request struct {
+type ApiAlgoGetAlgoFuturesHistoricalOrdersV1Request struct {
 	ctx context.Context
 	ApiService *FutureAlgoAPIService
 	timestamp *int64
@@ -635,53 +635,53 @@ type FutureAlgoAPIAlgoGetAlgoFuturesHistoricalOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r FutureAlgoAPIAlgoGetAlgoFuturesHistoricalOrdersV1Request) Timestamp(timestamp int64) FutureAlgoAPIAlgoGetAlgoFuturesHistoricalOrdersV1Request {
+func (r ApiAlgoGetAlgoFuturesHistoricalOrdersV1Request) Timestamp(timestamp int64) ApiAlgoGetAlgoFuturesHistoricalOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Trading symbol eg. BTCUSDT
-func (r FutureAlgoAPIAlgoGetAlgoFuturesHistoricalOrdersV1Request) Symbol(symbol string) FutureAlgoAPIAlgoGetAlgoFuturesHistoricalOrdersV1Request {
+func (r ApiAlgoGetAlgoFuturesHistoricalOrdersV1Request) Symbol(symbol string) ApiAlgoGetAlgoFuturesHistoricalOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // BUY or SELL
-func (r FutureAlgoAPIAlgoGetAlgoFuturesHistoricalOrdersV1Request) Side(side string) FutureAlgoAPIAlgoGetAlgoFuturesHistoricalOrdersV1Request {
+func (r ApiAlgoGetAlgoFuturesHistoricalOrdersV1Request) Side(side string) ApiAlgoGetAlgoFuturesHistoricalOrdersV1Request {
 	r.side = &side
 	return r
 }
 
 // in milliseconds  eg.1641522717552
-func (r FutureAlgoAPIAlgoGetAlgoFuturesHistoricalOrdersV1Request) StartTime(startTime int64) FutureAlgoAPIAlgoGetAlgoFuturesHistoricalOrdersV1Request {
+func (r ApiAlgoGetAlgoFuturesHistoricalOrdersV1Request) StartTime(startTime int64) ApiAlgoGetAlgoFuturesHistoricalOrdersV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // in milliseconds  eg.1641522526562
-func (r FutureAlgoAPIAlgoGetAlgoFuturesHistoricalOrdersV1Request) EndTime(endTime int64) FutureAlgoAPIAlgoGetAlgoFuturesHistoricalOrdersV1Request {
+func (r ApiAlgoGetAlgoFuturesHistoricalOrdersV1Request) EndTime(endTime int64) ApiAlgoGetAlgoFuturesHistoricalOrdersV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default is 1
-func (r FutureAlgoAPIAlgoGetAlgoFuturesHistoricalOrdersV1Request) Page(page int32) FutureAlgoAPIAlgoGetAlgoFuturesHistoricalOrdersV1Request {
+func (r ApiAlgoGetAlgoFuturesHistoricalOrdersV1Request) Page(page int32) ApiAlgoGetAlgoFuturesHistoricalOrdersV1Request {
 	r.page = &page
 	return r
 }
 
 // MIN 1, MAX 100; Default 100
-func (r FutureAlgoAPIAlgoGetAlgoFuturesHistoricalOrdersV1Request) PageSize(pageSize int32) FutureAlgoAPIAlgoGetAlgoFuturesHistoricalOrdersV1Request {
+func (r ApiAlgoGetAlgoFuturesHistoricalOrdersV1Request) PageSize(pageSize int32) ApiAlgoGetAlgoFuturesHistoricalOrdersV1Request {
 	r.pageSize = &pageSize
 	return r
 }
 
-func (r FutureAlgoAPIAlgoGetAlgoFuturesHistoricalOrdersV1Request) RecvWindow(recvWindow int64) FutureAlgoAPIAlgoGetAlgoFuturesHistoricalOrdersV1Request {
+func (r ApiAlgoGetAlgoFuturesHistoricalOrdersV1Request) RecvWindow(recvWindow int64) ApiAlgoGetAlgoFuturesHistoricalOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r FutureAlgoAPIAlgoGetAlgoFuturesHistoricalOrdersV1Request) Execute() (*AlgoGetAlgoFuturesHistoricalOrdersV1Resp, *http.Response, error) {
+func (r ApiAlgoGetAlgoFuturesHistoricalOrdersV1Request) Execute() (*AlgoGetAlgoFuturesHistoricalOrdersV1Resp, *http.Response, error) {
 	return r.ApiService.AlgoGetAlgoFuturesHistoricalOrdersV1Execute(r)
 }
 
@@ -691,10 +691,10 @@ AlgoGetAlgoFuturesHistoricalOrdersV1 Query Historical Algo Orders(USER_DATA)
 Query Historical Algo Order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return FutureAlgoAPIAlgoGetAlgoFuturesHistoricalOrdersV1Request
+ @return ApiAlgoGetAlgoFuturesHistoricalOrdersV1Request
 */
-func (a *FutureAlgoAPIService) AlgoGetAlgoFuturesHistoricalOrdersV1(ctx context.Context) FutureAlgoAPIAlgoGetAlgoFuturesHistoricalOrdersV1Request {
-	return FutureAlgoAPIAlgoGetAlgoFuturesHistoricalOrdersV1Request{
+func (a *FutureAlgoAPIService) AlgoGetAlgoFuturesHistoricalOrdersV1(ctx context.Context) ApiAlgoGetAlgoFuturesHistoricalOrdersV1Request {
+	return ApiAlgoGetAlgoFuturesHistoricalOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -702,7 +702,7 @@ func (a *FutureAlgoAPIService) AlgoGetAlgoFuturesHistoricalOrdersV1(ctx context.
 
 // Execute executes the request
 //  @return AlgoGetAlgoFuturesHistoricalOrdersV1Resp
-func (a *FutureAlgoAPIService) AlgoGetAlgoFuturesHistoricalOrdersV1Execute(r FutureAlgoAPIAlgoGetAlgoFuturesHistoricalOrdersV1Request) (*AlgoGetAlgoFuturesHistoricalOrdersV1Resp, *http.Response, error) {
+func (a *FutureAlgoAPIService) AlgoGetAlgoFuturesHistoricalOrdersV1Execute(r ApiAlgoGetAlgoFuturesHistoricalOrdersV1Request) (*AlgoGetAlgoFuturesHistoricalOrdersV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -836,24 +836,24 @@ func (a *FutureAlgoAPIService) AlgoGetAlgoFuturesHistoricalOrdersV1Execute(r Fut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type FutureAlgoAPIAlgoGetAlgoFuturesOpenOrdersV1Request struct {
+type ApiAlgoGetAlgoFuturesOpenOrdersV1Request struct {
 	ctx context.Context
 	ApiService *FutureAlgoAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r FutureAlgoAPIAlgoGetAlgoFuturesOpenOrdersV1Request) Timestamp(timestamp int64) FutureAlgoAPIAlgoGetAlgoFuturesOpenOrdersV1Request {
+func (r ApiAlgoGetAlgoFuturesOpenOrdersV1Request) Timestamp(timestamp int64) ApiAlgoGetAlgoFuturesOpenOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r FutureAlgoAPIAlgoGetAlgoFuturesOpenOrdersV1Request) RecvWindow(recvWindow int64) FutureAlgoAPIAlgoGetAlgoFuturesOpenOrdersV1Request {
+func (r ApiAlgoGetAlgoFuturesOpenOrdersV1Request) RecvWindow(recvWindow int64) ApiAlgoGetAlgoFuturesOpenOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r FutureAlgoAPIAlgoGetAlgoFuturesOpenOrdersV1Request) Execute() (*AlgoGetAlgoFuturesOpenOrdersV1Resp, *http.Response, error) {
+func (r ApiAlgoGetAlgoFuturesOpenOrdersV1Request) Execute() (*AlgoGetAlgoFuturesOpenOrdersV1Resp, *http.Response, error) {
 	return r.ApiService.AlgoGetAlgoFuturesOpenOrdersV1Execute(r)
 }
 
@@ -863,10 +863,10 @@ AlgoGetAlgoFuturesOpenOrdersV1 Query Current Algo Open Orders(USER_DATA)
 Query Current Algo Open Orders
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return FutureAlgoAPIAlgoGetAlgoFuturesOpenOrdersV1Request
+ @return ApiAlgoGetAlgoFuturesOpenOrdersV1Request
 */
-func (a *FutureAlgoAPIService) AlgoGetAlgoFuturesOpenOrdersV1(ctx context.Context) FutureAlgoAPIAlgoGetAlgoFuturesOpenOrdersV1Request {
-	return FutureAlgoAPIAlgoGetAlgoFuturesOpenOrdersV1Request{
+func (a *FutureAlgoAPIService) AlgoGetAlgoFuturesOpenOrdersV1(ctx context.Context) ApiAlgoGetAlgoFuturesOpenOrdersV1Request {
+	return ApiAlgoGetAlgoFuturesOpenOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -874,7 +874,7 @@ func (a *FutureAlgoAPIService) AlgoGetAlgoFuturesOpenOrdersV1(ctx context.Contex
 
 // Execute executes the request
 //  @return AlgoGetAlgoFuturesOpenOrdersV1Resp
-func (a *FutureAlgoAPIService) AlgoGetAlgoFuturesOpenOrdersV1Execute(r FutureAlgoAPIAlgoGetAlgoFuturesOpenOrdersV1Request) (*AlgoGetAlgoFuturesOpenOrdersV1Resp, *http.Response, error) {
+func (a *FutureAlgoAPIService) AlgoGetAlgoFuturesOpenOrdersV1Execute(r ApiAlgoGetAlgoFuturesOpenOrdersV1Request) (*AlgoGetAlgoFuturesOpenOrdersV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -981,7 +981,7 @@ func (a *FutureAlgoAPIService) AlgoGetAlgoFuturesOpenOrdersV1Execute(r FutureAlg
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type FutureAlgoAPIAlgoGetAlgoFuturesSubOrdersV1Request struct {
+type ApiAlgoGetAlgoFuturesSubOrdersV1Request struct {
 	ctx context.Context
 	ApiService *FutureAlgoAPIService
 	algoId *int64
@@ -991,34 +991,34 @@ type FutureAlgoAPIAlgoGetAlgoFuturesSubOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r FutureAlgoAPIAlgoGetAlgoFuturesSubOrdersV1Request) AlgoId(algoId int64) FutureAlgoAPIAlgoGetAlgoFuturesSubOrdersV1Request {
+func (r ApiAlgoGetAlgoFuturesSubOrdersV1Request) AlgoId(algoId int64) ApiAlgoGetAlgoFuturesSubOrdersV1Request {
 	r.algoId = &algoId
 	return r
 }
 
-func (r FutureAlgoAPIAlgoGetAlgoFuturesSubOrdersV1Request) Timestamp(timestamp int64) FutureAlgoAPIAlgoGetAlgoFuturesSubOrdersV1Request {
+func (r ApiAlgoGetAlgoFuturesSubOrdersV1Request) Timestamp(timestamp int64) ApiAlgoGetAlgoFuturesSubOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Default is 1
-func (r FutureAlgoAPIAlgoGetAlgoFuturesSubOrdersV1Request) Page(page int32) FutureAlgoAPIAlgoGetAlgoFuturesSubOrdersV1Request {
+func (r ApiAlgoGetAlgoFuturesSubOrdersV1Request) Page(page int32) ApiAlgoGetAlgoFuturesSubOrdersV1Request {
 	r.page = &page
 	return r
 }
 
 // MIN 1, MAX 100; Default 100
-func (r FutureAlgoAPIAlgoGetAlgoFuturesSubOrdersV1Request) PageSize(pageSize int32) FutureAlgoAPIAlgoGetAlgoFuturesSubOrdersV1Request {
+func (r ApiAlgoGetAlgoFuturesSubOrdersV1Request) PageSize(pageSize int32) ApiAlgoGetAlgoFuturesSubOrdersV1Request {
 	r.pageSize = &pageSize
 	return r
 }
 
-func (r FutureAlgoAPIAlgoGetAlgoFuturesSubOrdersV1Request) RecvWindow(recvWindow int64) FutureAlgoAPIAlgoGetAlgoFuturesSubOrdersV1Request {
+func (r ApiAlgoGetAlgoFuturesSubOrdersV1Request) RecvWindow(recvWindow int64) ApiAlgoGetAlgoFuturesSubOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r FutureAlgoAPIAlgoGetAlgoFuturesSubOrdersV1Request) Execute() (*AlgoGetAlgoFuturesSubOrdersV1Resp, *http.Response, error) {
+func (r ApiAlgoGetAlgoFuturesSubOrdersV1Request) Execute() (*AlgoGetAlgoFuturesSubOrdersV1Resp, *http.Response, error) {
 	return r.ApiService.AlgoGetAlgoFuturesSubOrdersV1Execute(r)
 }
 
@@ -1028,10 +1028,10 @@ AlgoGetAlgoFuturesSubOrdersV1 Query Sub Orders(USER_DATA)
 Get respective sub orders for a specified algoId
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return FutureAlgoAPIAlgoGetAlgoFuturesSubOrdersV1Request
+ @return ApiAlgoGetAlgoFuturesSubOrdersV1Request
 */
-func (a *FutureAlgoAPIService) AlgoGetAlgoFuturesSubOrdersV1(ctx context.Context) FutureAlgoAPIAlgoGetAlgoFuturesSubOrdersV1Request {
-	return FutureAlgoAPIAlgoGetAlgoFuturesSubOrdersV1Request{
+func (a *FutureAlgoAPIService) AlgoGetAlgoFuturesSubOrdersV1(ctx context.Context) ApiAlgoGetAlgoFuturesSubOrdersV1Request {
+	return ApiAlgoGetAlgoFuturesSubOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1039,7 +1039,7 @@ func (a *FutureAlgoAPIService) AlgoGetAlgoFuturesSubOrdersV1(ctx context.Context
 
 // Execute executes the request
 //  @return AlgoGetAlgoFuturesSubOrdersV1Resp
-func (a *FutureAlgoAPIService) AlgoGetAlgoFuturesSubOrdersV1Execute(r FutureAlgoAPIAlgoGetAlgoFuturesSubOrdersV1Request) (*AlgoGetAlgoFuturesSubOrdersV1Resp, *http.Response, error) {
+func (a *FutureAlgoAPIService) AlgoGetAlgoFuturesSubOrdersV1Execute(r ApiAlgoGetAlgoFuturesSubOrdersV1Request) (*AlgoGetAlgoFuturesSubOrdersV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

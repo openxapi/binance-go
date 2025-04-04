@@ -1,5 +1,5 @@
 /*
-Binance Umfutures API
+Binance USD-M Futures API
 
 Testing UserDataStreamsAPIService
 

@@ -1,8 +1,7 @@
 openapi: 3.0.3
 info:
-  description: OpenAPI specification for Binance cryptocurrency exchange - Umfutures
-    API
-  title: Binance Umfutures API
+  description: OpenAPI specification for Binance exchange - Umfutures API
+  title: Binance USD-M Futures API
   version: 0.1.0
 servers:
 - description: Binance Umfutures API Server
@@ -53,7 +52,6 @@ paths:
       summary: Futures Account Configuration(USER_DATA)
       tags:
       - Account
-      - V1
   /fapi/v1/adlQuantile:
     get:
       description: Position ADL Quantile Estimation
@@ -107,7 +105,6 @@ paths:
       summary: Position ADL Quantile Estimation(USER_DATA)
       tags:
       - Trade
-      - V1
   /fapi/v1/aggTrades:
     get:
       description: "Get compressed, aggregate market trades. Market trades that fill\
@@ -182,7 +179,6 @@ paths:
       summary: Compressed/Aggregate Trades List
       tags:
       - Market Data
-      - V1
   /fapi/v1/allOpenOrders:
     delete:
       description: Cancel All Open Orders
@@ -236,7 +232,6 @@ paths:
       summary: Cancel All Open Orders (TRADE)
       tags:
       - Trade
-      - V1
   /fapi/v1/allOrders:
     get:
       description: "Get all account orders; active, canceled, or filled."
@@ -324,7 +319,6 @@ paths:
       summary: All Orders (USER_DATA)
       tags:
       - Trade
-      - V1
   /fapi/v1/apiTradingStatus:
     get:
       description: "Futures trading quantitative rules indicators, for more information\
@@ -379,7 +373,6 @@ paths:
       summary: Futures Trading Quantitative Rules Indicators (USER_DATA)
       tags:
       - Account
-      - V1
   /fapi/v1/assetIndex:
     get:
       description: asset index for Multi-Assets mode
@@ -416,7 +409,6 @@ paths:
       summary: Multi-Assets Mode Asset Index
       tags:
       - Market Data
-      - V1
   /fapi/v1/batchOrders:
     delete:
       description: Cancel Multiple Orders
@@ -492,7 +484,6 @@ paths:
       summary: Cancel Multiple Orders (TRADE)
       tags:
       - Trade
-      - V1
     post:
       description: Place Multiple Orders
       operationId: UmfuturesCreateBatchOrdersV1
@@ -527,7 +518,6 @@ paths:
       summary: Place Multiple Orders(TRADE)
       tags:
       - Trade
-      - V1
     put:
       description: Modify Multiple Orders (TRADE)
       operationId: UmfuturesUpdateBatchOrdersV1
@@ -562,7 +552,6 @@ paths:
       summary: Modify Multiple Orders(TRADE)
       tags:
       - Trade
-      - V1
   /fapi/v1/commissionRate:
     get:
       description: Get User Commission Rate
@@ -616,7 +605,6 @@ paths:
       summary: User Commission Rate (USER_DATA)
       tags:
       - Account
-      - V1
   /fapi/v1/constituents:
     get:
       description: Query index price constituents
@@ -652,7 +640,6 @@ paths:
       summary: Query Index Price Constituents
       tags:
       - Market Data
-      - V1
   /fapi/v1/continuousKlines:
     get:
       description: |-
@@ -732,7 +719,6 @@ paths:
       summary: Continuous Contract Kline/Candlestick Data
       tags:
       - Market Data
-      - V1
   /fapi/v1/convert/acceptQuote:
     post:
       description: Accept the offered quote by quote ID.
@@ -768,7 +754,6 @@ paths:
       summary: Accept the offered quote (USER_DATA)
       tags:
       - Convert
-      - V1
   /fapi/v1/convert/exchangeInfo:
     get:
       description: Query for all convertible token pairs and the tokens’ respective
@@ -815,7 +800,6 @@ paths:
       summary: List All Convert Pairs
       tags:
       - Convert
-      - V1
   /fapi/v1/convert/getQuote:
     post:
       description: Request a quote for the requested token pairs
@@ -851,7 +835,6 @@ paths:
       summary: Send Quote Request(USER_DATA)
       tags:
       - Convert
-      - V1
   /fapi/v1/convert/orderStatus:
     get:
       description: Query order status by order ID.
@@ -899,7 +882,6 @@ paths:
       summary: Order status(USER_DATA)
       tags:
       - Convert
-      - V1
   /fapi/v1/countdownCancelAll:
     post:
       description: |-
@@ -935,7 +917,6 @@ paths:
       summary: Auto-Cancel All Open Orders (TRADE)
       tags:
       - Trade
-      - V1
   /fapi/v1/depth:
     get:
       description: Query symbol orderbook
@@ -980,7 +961,6 @@ paths:
       summary: Order Book
       tags:
       - Market Data
-      - V1
   /fapi/v1/exchangeInfo:
     get:
       description: Current exchange trading rules and symbol information
@@ -1007,7 +987,6 @@ paths:
       summary: Exchange Information
       tags:
       - Market Data
-      - V1
   /fapi/v1/feeBurn:
     get:
       description: Get user's BNB Fee Discount (Fee Discount On or Fee Discount Off
@@ -1054,7 +1033,6 @@ paths:
       summary: Get BNB Burn Status (USER_DATA)
       tags:
       - Account
-      - V1
     post:
       description: Change user's BNB Fee Discount (Fee Discount On or Fee Discount
         Off ) on EVERY symbol
@@ -1090,7 +1068,6 @@ paths:
       summary: Toggle BNB Burn On Futures Trade (TRADE)
       tags:
       - Account
-      - V1
   /fapi/v1/forceOrders:
     get:
       description: Query user's Force Orders
@@ -1180,7 +1157,6 @@ paths:
       summary: User's Force Orders (USER_DATA)
       tags:
       - Trade
-      - V1
   /fapi/v1/fundingInfo:
     get:
       description: Query funding rate info for symbols that had FundingRateCap/ FundingRateFloor
@@ -1208,7 +1184,6 @@ paths:
       summary: Get Funding Rate Info
       tags:
       - Market Data
-      - V1
   /fapi/v1/fundingRate:
     get:
       description: Get Funding Rate History
@@ -1272,7 +1247,6 @@ paths:
       summary: Get Funding Rate History
       tags:
       - Market Data
-      - V1
   /fapi/v1/historicalTrades:
     get:
       description: Get older market historical trades.
@@ -1327,7 +1301,6 @@ paths:
       summary: Old Trades Lookup (MARKET_DATA)
       tags:
       - Market Data
-      - V1
   /fapi/v1/income:
     get:
       description: Query income history
@@ -1430,7 +1403,6 @@ paths:
       summary: Get Income History (USER_DATA)
       tags:
       - Account
-      - V1
   /fapi/v1/income/asyn:
     get:
       description: Get download id for futures transaction history
@@ -1494,7 +1466,6 @@ paths:
       summary: Get Download Id For Futures Transaction History(USER_DATA)
       tags:
       - Account
-      - V1
   /fapi/v1/income/asyn/id:
     get:
       description: Get futures transaction history download link by Id
@@ -1549,7 +1520,6 @@ paths:
       summary: Get Futures Transaction History Download Link by Id (USER_DATA)
       tags:
       - Account
-      - V1
   /fapi/v1/indexInfo:
     get:
       description: Query composite index symbol information
@@ -1585,7 +1555,6 @@ paths:
       summary: Composite Index Symbol Information
       tags:
       - Market Data
-      - V1
   /fapi/v1/indexPriceKlines:
     get:
       description: |-
@@ -1657,7 +1626,6 @@ paths:
       summary: Index Price Kline/Candlestick Data
       tags:
       - Market Data
-      - V1
   /fapi/v1/klines:
     get:
       description: |-
@@ -1729,7 +1697,6 @@ paths:
       summary: Kline/Candlestick Data
       tags:
       - Market Data
-      - V1
   /fapi/v1/leverage:
     post:
       description: Change user's initial leverage of specific symbol market.
@@ -1765,7 +1732,6 @@ paths:
       summary: Change Initial Leverage(TRADE)
       tags:
       - Trade
-      - V1
   /fapi/v1/leverageBracket:
     get:
       description: Query user notional and leverage bracket on speicfic symbol
@@ -1819,7 +1785,6 @@ paths:
       summary: Notional and Leverage Brackets (USER_DATA)
       tags:
       - Account
-      - V1
   /fapi/v1/listenKey:
     delete:
       description: Close out a user data stream.
@@ -1848,7 +1813,6 @@ paths:
       summary: Close User Data Stream (USER_STREAM)
       tags:
       - User Data Streams
-      - V1
     post:
       description: "Start a new user data stream. The stream will close after 60 minutes\
         \ unless a keepalive is sent. If the account has an active listenKey, that\
@@ -1878,7 +1842,6 @@ paths:
       summary: Start User Data Stream (USER_STREAM)
       tags:
       - User Data Streams
-      - V1
     put:
       description: Keepalive a user data stream to prevent a time out. User data streams
         will close after 60 minutes. It's recommended to send a ping about every 60
@@ -1908,7 +1871,6 @@ paths:
       summary: Keepalive User Data Stream (USER_STREAM)
       tags:
       - User Data Streams
-      - V1
   /fapi/v1/marginType:
     post:
       description: Change symbol level margin type
@@ -1944,7 +1906,6 @@ paths:
       summary: Change Margin Type(TRADE)
       tags:
       - Trade
-      - V1
   /fapi/v1/markPriceKlines:
     get:
       description: |-
@@ -2016,7 +1977,6 @@ paths:
       summary: Mark Price Kline/Candlestick Data
       tags:
       - Market Data
-      - V1
   /fapi/v1/multiAssetsMargin:
     get:
       description: Get user's Multi-Assets mode (Multi-Assets Mode or Single-Asset
@@ -2063,7 +2023,6 @@ paths:
       summary: Get Current Multi-Assets Mode (USER_DATA)
       tags:
       - Account
-      - V1
     post:
       description: Change user's Multi-Assets mode (Multi-Assets Mode or Single-Asset
         Mode) on Every symbol
@@ -2099,7 +2058,6 @@ paths:
       summary: Change Multi-Assets Mode (TRADE)
       tags:
       - Trade
-      - V1
   /fapi/v1/openInterest:
     get:
       description: Get present open interest of a specific symbol.
@@ -2135,7 +2093,6 @@ paths:
       summary: Open Interest
       tags:
       - Market Data
-      - V1
   /fapi/v1/openOrder:
     get:
       description: Query open order
@@ -2205,7 +2162,6 @@ paths:
       summary: Query Current Open Order (USER_DATA)
       tags:
       - Trade
-      - V1
   /fapi/v1/openOrders:
     get:
       description: Get all open orders on a symbol.
@@ -2259,7 +2215,6 @@ paths:
       summary: Current All Open Orders (USER_DATA)
       tags:
       - Trade
-      - V1
   /fapi/v1/order:
     delete:
       description: Cancel an active order.
@@ -2329,7 +2284,6 @@ paths:
       summary: Cancel Order (TRADE)
       tags:
       - Trade
-      - V1
     get:
       description: Check an order's status.
       operationId: UmfuturesGetOrderV1
@@ -2398,7 +2352,6 @@ paths:
       summary: Query Order (USER_DATA)
       tags:
       - Trade
-      - V1
     post:
       description: Send in a new order.
       operationId: UmfuturesCreateOrderV1
@@ -2433,7 +2386,6 @@ paths:
       summary: New Order(TRADE)
       tags:
       - Trade
-      - V1
     put:
       description: "Order modify function, currently only LIMIT order modification\
         \ is supported, modified orders will be reordered in the match queue"
@@ -2469,7 +2421,6 @@ paths:
       summary: Modify Order (TRADE)
       tags:
       - Trade
-      - V1
   /fapi/v1/order/asyn:
     get:
       description: Get Download Id For Futures Order History
@@ -2533,7 +2484,6 @@ paths:
       summary: Get Download Id For Futures Order History (USER_DATA)
       tags:
       - Account
-      - V1
   /fapi/v1/order/asyn/id:
     get:
       description: Get futures order history download link by Id
@@ -2588,7 +2538,6 @@ paths:
       summary: Get Futures Order History Download Link by Id (USER_DATA)
       tags:
       - Account
-      - V1
   /fapi/v1/order/test:
     post:
       description: "Testing order request, this order will not be submitted to matching\
@@ -2625,7 +2574,6 @@ paths:
       summary: Test Order(TRADE)
       tags:
       - Trade
-      - V1
   /fapi/v1/orderAmendment:
     get:
       description: Get order modification history
@@ -2723,7 +2671,6 @@ paths:
       summary: Get Order Modify History (USER_DATA)
       tags:
       - Trade
-      - V1
   /fapi/v1/ping:
     get:
       description: Test connectivity to the Rest API.
@@ -2750,7 +2697,6 @@ paths:
       summary: Test Connectivity
       tags:
       - Market Data
-      - V1
   /fapi/v1/pmAccountInfo:
     get:
       description: Get Classic Portfolio Margin current account information.
@@ -2804,7 +2750,6 @@ paths:
       summary: Classic Portfolio Margin Account Information (USER_DATA)
       tags:
       - Portfolio Margin Endpoints
-      - V1
   /fapi/v1/positionMargin:
     post:
       description: Modify Isolated Position Margin
@@ -2840,7 +2785,6 @@ paths:
       summary: Modify Isolated Position Margin(TRADE)
       tags:
       - Trade
-      - V1
   /fapi/v1/positionMargin/history:
     get:
       description: Get Position Margin Change History
@@ -2928,7 +2872,6 @@ paths:
       summary: Get Position Margin Change History (TRADE)
       tags:
       - Trade
-      - V1
   /fapi/v1/positionSide/dual:
     get:
       description: Get user's position mode (Hedge Mode or One-way Mode ) on EVERY
@@ -2975,7 +2918,6 @@ paths:
       summary: Get Current Position Mode(USER_DATA)
       tags:
       - Account
-      - V1
     post:
       description: Change user's position mode (Hedge Mode or One-way Mode ) on EVERY
         symbol
@@ -3011,7 +2953,6 @@ paths:
       summary: Change Position Mode(TRADE)
       tags:
       - Trade
-      - V1
   /fapi/v1/premiumIndex:
     get:
       description: Mark Price and Funding Rate
@@ -3047,7 +2988,6 @@ paths:
       summary: Mark Price
       tags:
       - Market Data
-      - V1
   /fapi/v1/premiumIndexKlines:
     get:
       description: Premium index kline bars of a symbol. Klines are uniquely identified
@@ -3118,7 +3058,6 @@ paths:
       summary: Premium index Kline Data
       tags:
       - Market Data
-      - V1
   /fapi/v1/rateLimit/order:
     get:
       description: Query User Rate Limit
@@ -3164,7 +3103,6 @@ paths:
       summary: Query User Rate Limit (USER_DATA)
       tags:
       - Account
-      - V1
   /fapi/v1/symbolConfig:
     get:
       description: Get current account symbol configuration.
@@ -3218,7 +3156,6 @@ paths:
       summary: Symbol Configuration(USER_DATA)
       tags:
       - Account
-      - V1
   /fapi/v1/ticker/24hr:
     get:
       description: |-
@@ -3256,7 +3193,6 @@ paths:
       summary: 24hr Ticker Price Change Statistics
       tags:
       - Market Data
-      - V1
   /fapi/v1/ticker/bookTicker:
     get:
       description: Best price/qty on the order book for a symbol or symbols.
@@ -3292,7 +3228,6 @@ paths:
       summary: Symbol Order Book Ticker
       tags:
       - Market Data
-      - V1
   /fapi/v1/ticker/price:
     get:
       description: Latest price for a symbol or symbols.
@@ -3328,7 +3263,6 @@ paths:
       summary: Symbol Price Ticker
       tags:
       - Market Data
-      - V1
   /fapi/v1/time:
     get:
       description: Test connectivity to the Rest API and get the current server time.
@@ -3355,7 +3289,6 @@ paths:
       summary: Check Server Time
       tags:
       - Market Data
-      - V1
   /fapi/v1/trade/asyn:
     get:
       description: Get download id for futures trade history
@@ -3419,7 +3352,6 @@ paths:
       summary: Get Download Id For Futures Trade History (USER_DATA)
       tags:
       - Account
-      - V1
   /fapi/v1/trade/asyn/id:
     get:
       description: Get futures trade download link by Id
@@ -3474,7 +3406,6 @@ paths:
       summary: Get Futures Trade Download Link by Id(USER_DATA)
       tags:
       - Account
-      - V1
   /fapi/v1/trades:
     get:
       description: Get recent market trades
@@ -3520,7 +3451,6 @@ paths:
       summary: Recent Trades List
       tags:
       - Market Data
-      - V1
   /fapi/v1/userTrades:
     get:
       description: Get trades for a specific account and symbol.
@@ -3618,7 +3548,6 @@ paths:
       summary: Account Trade List (USER_DATA)
       tags:
       - Trade
-      - V1
   /fapi/v2/account:
     get:
       description: "Get current account information. User in single-asset/ multi-assets\
@@ -3665,7 +3594,6 @@ paths:
       summary: Account Information V2(USER_DATA)
       tags:
       - Account
-      - V2
   /fapi/v2/balance:
     get:
       description: Query account balance info
@@ -3711,7 +3639,6 @@ paths:
       summary: Futures Account Balance V2 (USER_DATA)
       tags:
       - Account
-      - V2
   /fapi/v2/positionRisk:
     get:
       description: Get current position information.
@@ -3765,7 +3692,6 @@ paths:
       summary: Position Information V2 (USER_DATA)
       tags:
       - Trade
-      - V2
   /fapi/v2/ticker/price:
     get:
       description: Latest price for a symbol or symbols.
@@ -3801,7 +3727,6 @@ paths:
       summary: Symbol Price Ticker V2
       tags:
       - Market Data
-      - V2
   /fapi/v3/account:
     get:
       description: "Get current account information. User in single-asset/ multi-assets\
@@ -3848,7 +3773,6 @@ paths:
       summary: Account Information V3(USER_DATA)
       tags:
       - Account
-      - V3
   /fapi/v3/balance:
     get:
       description: Query account balance info
@@ -3894,7 +3818,6 @@ paths:
       summary: Futures Account Balance V3 (USER_DATA)
       tags:
       - Account
-      - V3
   /fapi/v3/positionRisk:
     get:
       description: Get current position information(only symbol that has position
@@ -3949,7 +3872,6 @@ paths:
       summary: Position Information V3 (USER_DATA)
       tags:
       - Trade
-      - V3
   /futures/data/basis:
     get:
       description: Query future basis
@@ -4590,591 +4512,6 @@ components:
         workingType:
           type: string
       type: object
-    UmfuturesCreateCountdownCancelAllV1Req:
-      example:
-        symbol: ""
-        countdownTime: 0
-        recvWindow: 6
-        timestamp: 1
-      properties:
-        countdownTime:
-          format: int64
-          type: integer
-        recvWindow:
-          format: int64
-          type: integer
-        symbol:
-          default: ""
-          type: string
-        timestamp:
-          format: int64
-          type: integer
-      required:
-      - countdownTime
-      - symbol
-      - timestamp
-      type: object
-    UmfuturesCreateCountdownCancelAllV1Resp:
-      example: "{ \"symbol\": \"BTCUSDT\", \"countdownTime\": \"100000\" }"
-      properties:
-        countdownTime:
-          type: string
-        symbol:
-          type: string
-      type: object
-    UmfuturesDeleteBatchOrdersV1Resp:
-      example: "[ { \"clientOrderId\": \"myOrder1\", \"cumQty\": \"0\", \"cumQuote\"\
-        : \"0\", \"executedQty\": \"0\", \"orderId\": 283194212, \"origQty\": \"11\"\
-        , \"origType\": \"TRAILING_STOP_MARKET\", \"price\": \"0\", \"reduceOnly\"\
-        : false, \"side\": \"BUY\", \"positionSide\": \"SHORT\", \"status\": \"CANCELED\"\
-        , \"stopPrice\": \"9300\", \"closePosition\": false,    \"symbol\": \"BTCUSDT\"\
-        , \"timeInForce\": \"GTC\", \"type\": \"TRAILING_STOP_MARKET\", \"activatePrice\"\
-        : \"9020\", \"priceRate\": \"0.3\", \"updateTime\": 1571110484038, \"workingType\"\
-        : \"CONTRACT_PRICE\", \"priceProtect\": false,             \"priceMatch\"\
-        : \"NONE\",               \"selfTradePreventionMode\": \"NONE\",  \"goodTillDate\"\
-        : 1693207680000       }, { \"code\": -2011, \"msg\": \"Unknown order sent.\"\
-        \ } ]"
-      items:
-        $ref: '#/components/schemas/UmfuturesDeleteBatchOrdersV1Resp_inner'
-      type: array
-    UmfuturesDeleteBatchOrdersV1RespItem:
-      properties:
-        activatePrice:
-          type: string
-        clientOrderId:
-          type: string
-        closePosition:
-          type: boolean
-        cumQty:
-          type: string
-        cumQuote:
-          type: string
-        executedQty:
-          type: string
-        goodTillDate:
-          format: int64
-          type: integer
-        orderId:
-          format: int64
-          type: integer
-        origQty:
-          type: string
-        origType:
-          type: string
-        positionSide:
-          type: string
-        price:
-          type: string
-        priceMatch:
-          type: string
-        priceProtect:
-          type: boolean
-        priceRate:
-          type: string
-        reduceOnly:
-          type: boolean
-        selfTradePreventionMode:
-          type: string
-        side:
-          type: string
-        status:
-          type: string
-        stopPrice:
-          type: string
-        symbol:
-          type: string
-        timeInForce:
-          type: string
-        type:
-          type: string
-        updateTime:
-          format: int64
-          type: integer
-        workingType:
-          type: string
-      type: object
-    UmfuturesGetAggTradesV1Resp:
-      example: "[ { \"a\": 26129,          \"p\": \"0.01633102\",   \"q\": \"4.70443515\"\
-        ,   \"f\": 27781,          \"l\": 27781,          \"T\": 1498793709153,  \"\
-        m\": true           } ]"
-      items:
-        $ref: '#/components/schemas/UmfuturesGetAggTradesV1RespItem'
-      type: array
-    UmfuturesGetAggTradesV1RespItem:
-      properties:
-        T:
-          format: int64
-          type: integer
-        a:
-          type: integer
-        f:
-          type: integer
-        l:
-          type: integer
-        m:
-          type: boolean
-        p:
-          type: string
-        q:
-          type: string
-      type: object
-    UmfuturesGetApiTradingStatusV1Resp:
-      example:
-        updateTime: 0
-        indicators:
-          key: ""
-      properties:
-        indicators:
-          additionalProperties: {}
-          type: object
-        updateTime:
-          format: int64
-          type: integer
-      type: object
-    UmfuturesGetAssetIndexV1Resp:
-      oneOf:
-      - items:
-          $ref: '#/components/schemas/UmfuturesGetAssetIndexV1RespItem'
-        type: array
-      - $ref: '#/components/schemas/UmfuturesGetAssetIndexV1RespItem'
-    UmfuturesGetAssetIndexV1RespItem:
-      example: "{ \"symbol\": \"ADAUSD\", \"time\": 1635740268004, \"index\": \"1.92957370\"\
-        , \"bidBuffer\": \"0.10000000\", \"askBuffer\": \"0.10000000\", \"bidRate\"\
-        : \"1.73661633\", \"askRate\": \"2.12253107\", \"autoExchangeBidBuffer\":\
-        \ \"0.05000000\", \"autoExchangeAskBuffer\": \"0.05000000\", \"autoExchangeBidRate\"\
-        : \"1.83309501\", \"autoExchangeAskRate\": \"2.02605238\" }"
-      properties:
-        askBuffer:
-          type: string
-        askRate:
-          type: string
-        autoExchangeAskBuffer:
-          type: string
-        autoExchangeAskRate:
-          type: string
-        autoExchangeBidBuffer:
-          type: string
-        autoExchangeBidRate:
-          type: string
-        bidBuffer:
-          type: string
-        bidRate:
-          type: string
-        index:
-          type: string
-        symbol:
-          type: string
-        time:
-          format: int64
-          type: integer
-      type: object
-    UmfuturesGetContinuousKlinesV1Resp:
-      example: "[ [ 1607444700000,      \t \"18879.99\",       \t \t \"18900.00\"\
-        ,       \t \t \"18878.98\",       \t \t \"18896.13\",      \t \t \"492.363\"\
-        , \t\t\t \t 1607444759999,       \t \"9302145.66080\",    \t 1874,       \
-        \      \t\t \"385.983\",    \t\t\t \"7292402.33267\",      \t \"0\" \t\t\t\
-        \t\t ] ]"
-      items:
-        items:
-          $ref: '#/components/schemas/UmfuturesGetContinuousKlinesV1Resp_inner_inner'
-        type: array
-      type: array
-    UmfuturesGetExchangeInfoV1Resp:
-      example: "{ \"exchangeFilters\": [], \"rateLimits\": [ { \"interval\": \"MINUTE\"\
-        , \"intervalNum\": 1, \"limit\": 2400, \"rateLimitType\": \"REQUEST_WEIGHT\"\
-        \ }, { \"interval\": \"MINUTE\", \"intervalNum\": 1, \"limit\": 1200, \"rateLimitType\"\
-        : \"ORDERS\" } ], \"serverTime\": 1565613908500,     \"assets\": [  { \"asset\"\
-        : \"BUSD\", \"marginAvailable\": true,  \"autoAssetExchange\": 0  }, { \"\
-        asset\": \"USDT\", \"marginAvailable\": true, \"autoAssetExchange\": 0 },\
-        \ { \"asset\": \"BNB\", \"marginAvailable\": false, \"autoAssetExchange\"\
-        : null } ], \"symbols\": [ { \"symbol\": \"BLZUSDT\", \"pair\": \"BLZUSDT\"\
-        , \"contractType\": \"PERPETUAL\", \"deliveryDate\": 4133404800000, \"onboardDate\"\
-        : 1598252400000, \"status\": \"TRADING\", \"maintMarginPercent\": \"2.5000\"\
-        ,    \"requiredMarginPercent\": \"5.0000\",   \"baseAsset\": \"BLZ\", \"quoteAsset\"\
-        : \"USDT\", \"marginAsset\": \"USDT\", \"pricePrecision\": 5,\t \"quantityPrecision\"\
-        : 0,  \"baseAssetPrecision\": 8, \"quotePrecision\": 8, \"underlyingType\"\
-        : \"COIN\", \"underlyingSubType\": [\"STORAGE\"], \"settlePlan\": 0, \"triggerProtect\"\
-        : \"0.15\",  \"filters\": [ { \"filterType\": \"PRICE_FILTER\", \"maxPrice\"\
-        : \"300\", \"minPrice\": \"0.0001\", \"tickSize\": \"0.0001\" }, { \"filterType\"\
-        : \"LOT_SIZE\", \"maxQty\": \"10000000\", \"minQty\": \"1\", \"stepSize\"\
-        : \"1\" }, { \"filterType\": \"MARKET_LOT_SIZE\", \"maxQty\": \"590119\",\
-        \ \"minQty\": \"1\", \"stepSize\": \"1\" }, { \"filterType\": \"MAX_NUM_ORDERS\"\
-        , \"limit\": 200 }, { \"filterType\": \"MAX_NUM_ALGO_ORDERS\", \"limit\":\
-        \ 10 }, { \"filterType\": \"MIN_NOTIONAL\", \"notional\": \"5.0\" }, { \"\
-        filterType\": \"PERCENT_PRICE\", \"multiplierUp\": \"1.1500\", \"multiplierDown\"\
-        : \"0.8500\", \"multiplierDecimal\": 4 } ], \"OrderType\": [ \"LIMIT\", \"\
-        MARKET\", \"STOP\", \"STOP_MARKET\", \"TAKE_PROFIT\", \"TAKE_PROFIT_MARKET\"\
-        , \"TRAILING_STOP_MARKET\" ], \"timeInForce\": [ \"GTC\", \"IOC\", \"FOK\"\
-        , \"GTX\" ], \"liquidationFee\": \"0.010000\",\t \"marketTakeBound\": \"0.30\"\
-        \t } ], \"timezone\": \"UTC\" }"
-      properties:
-        assets:
-          items:
-            $ref: '#/components/schemas/UmfuturesGetExchangeInfoV1Resp_assets_inner'
-          type: array
-        exchangeFilters:
-          items:
-            type: string
-          type: array
-        rateLimits:
-          items:
-            $ref: '#/components/schemas/UmfuturesGetExchangeInfoV1Resp_rateLimits_inner'
-          type: array
-        serverTime:
-          type: integer
-        symbols:
-          items:
-            $ref: '#/components/schemas/UmfuturesGetExchangeInfoV1Resp_symbols_inner'
-          type: array
-        timezone:
-          type: string
-      type: object
-    UmfuturesGetFuturesDataDeliveryPriceResp:
-      example: "[ { \"deliveryTime\": 1695945600000, \"deliveryPrice\": 27103.00000000\
-        \ }, { \"deliveryTime\": 1688083200000, \"deliveryPrice\": 30733.60000000\
-        \ }, { \"deliveryTime\": 1680220800000, \"deliveryPrice\": 27814.20000000\
-        \ }, { \"deliveryTime\": 1648166400000, \"deliveryPrice\": 44066.30000000\
-        \ } ]"
-      items:
-        $ref: '#/components/schemas/UmfuturesGetFuturesDataDeliveryPriceRespItem'
-      type: array
-    UmfuturesGetFuturesDataDeliveryPriceRespItem:
-      properties:
-        deliveryPrice:
-          type: number
-        deliveryTime:
-          format: int64
-          type: integer
-      type: object
-    UmfuturesGetIndexPriceKlinesV1Resp:
-      example: "[ [ 1591256400000,       \"9653.69440000\",     \"9653.69640000\"\
-        ,      \"9651.38600000\",      \"9651.55200000\",      \"0\",  1591256459999,\
-        \       \"0\",     60,                 \"0\",     \"0\",       \"0\"  ] ]"
-      items:
-        items:
-          $ref: '#/components/schemas/UmfuturesGetContinuousKlinesV1Resp_inner_inner'
-        type: array
-      type: array
-    UmfuturesGetKlinesV1Resp:
-      example: "[ [ 1499040000000,       \"0.01634790\",        \"0.80000000\",  \
-        \      \"0.01575800\",        \"0.01577100\",        \"148976.11427815\",\
-        \   1499644799999,       \"2434.19055334\",     308,                 \"1756.87402397\"\
-        ,     \"28.46694368\",       \"17928899.62484339\"  ] ]"
-      items:
-        items:
-          $ref: '#/components/schemas/UmfuturesGetContinuousKlinesV1Resp_inner_inner'
-        type: array
-      type: array
-    UmfuturesGetLeverageBracketV1Resp:
-      oneOf:
-      - items:
-          $ref: '#/components/schemas/UmfuturesGetLeverageBracketV1RespItem'
-        type: array
-      - $ref: '#/components/schemas/UmfuturesGetLeverageBracketV1RespItem'
-    UmfuturesGetLeverageBracketV1RespItem:
-      example: "{ \"symbol\": \"ETHUSDT\", \"notionalCoef\": 1.50,   \"brackets\"\
-        : [ { \"bracket\": 1,    \"initialLeverage\": 75,   \"notionalCap\": 10000,\
-        \   \"notionalFloor\": 0,   \"maintMarginRatio\": 0.0065,  \"cum\":0  } ]\
-        \ }"
-      properties:
-        brackets:
-          items:
-            $ref: '#/components/schemas/UmfuturesGetLeverageBracketV1RespItem_brackets_inner'
-          type: array
-        notionalCoef:
-          type: number
-        symbol:
-          type: string
-      type: object
-    UmfuturesGetMarkPriceKlinesV1Resp:
-      example: "[ [ 1591256460000,      \"9653.29201333\",     \"9654.56401333\",\
-        \      \"9653.07367333\",      \"9653.07367333\",      \"0\",  1591256519999,\
-        \       \"0\",     60,                  \"0\",     \"0\",        \"0\"  ]\
-        \ ]"
-      items:
-        items:
-          $ref: '#/components/schemas/UmfuturesGetContinuousKlinesV1Resp_inner_inner'
-        type: array
-      type: array
-    UmfuturesGetOrderAsynV1Resp:
-      example: "{ \"avgCostTimestampOfLast30d\":7241837,  \"downloadId\":\"546975389218332672\"\
-        \ }"
-      properties:
-        avgCostTimestampOfLast30d:
-          format: int64
-          type: integer
-        downloadId:
-          type: string
-      type: object
-    UmfuturesGetPremiumIndexKlinesV1Resp:
-      example: "[ [ 1691603820000,           \"-0.00042931\",           \"-0.00023641\"\
-        ,           \"-0.00059406\",           \"-0.00043659\",           \"0\", \
-        \                    1691603879999,           \"0\",                     12,\
-        \                      \"0\",                     \"0\",                 \
-        \    \"0\"                      ] ]"
-      items:
-        items:
-          $ref: '#/components/schemas/UmfuturesGetContinuousKlinesV1Resp_inner_inner'
-        type: array
-      type: array
-    UmfuturesGetPremiumIndexV1Resp:
-      oneOf:
-      - items:
-          $ref: '#/components/schemas/UmfuturesGetPremiumIndexV1RespItem'
-        type: array
-      - $ref: '#/components/schemas/UmfuturesGetPremiumIndexV1RespItem'
-    UmfuturesGetPremiumIndexV1RespItem:
-      example: "{ \"symbol\": \"BTCUSDT\", \"markPrice\": \"11793.63104562\", \"indexPrice\"\
-        : \"11781.80495970\", \"estimatedSettlePrice\": \"11781.16138815\",  \"lastFundingRate\"\
-        : \"0.00038246\",   \"interestRate\": \"0.00010000\", \"nextFundingTime\"\
-        : 1597392000000, \"time\": 1597370495002 }"
-      properties:
-        estimatedSettlePrice:
-          type: string
-        indexPrice:
-          type: string
-        interestRate:
-          type: string
-        lastFundingRate:
-          type: string
-        markPrice:
-          type: string
-        nextFundingTime:
-          format: int64
-          type: integer
-        symbol:
-          type: string
-        time:
-          format: int64
-          type: integer
-      type: object
-    UmfuturesGetTicker24hrV1Resp:
-      oneOf:
-      - items:
-          $ref: '#/components/schemas/UmfuturesGetTicker24hrV1RespItem'
-        type: array
-      - $ref: '#/components/schemas/UmfuturesGetTicker24hrV1RespItem'
-    UmfuturesGetTicker24hrV1RespItem:
-      example: "{ \"symbol\": \"BTCUSDT\", \"priceChange\": \"-94.99999800\", \"priceChangePercent\"\
-        : \"-95.960\", \"weightedAvgPrice\": \"0.29628482\", \"lastPrice\": \"4.00000200\"\
-        , \"lastQty\": \"200.00000000\", \"openPrice\": \"99.00000000\", \"highPrice\"\
-        : \"100.00000000\", \"lowPrice\": \"0.10000000\", \"volume\": \"8913.30000000\"\
-        , \"quoteVolume\": \"15.30000000\", \"openTime\": 1499783499040, \"closeTime\"\
-        : 1499869899040, \"firstId\": 28385,    \"lastId\": 28460,     \"count\":\
-        \ 76          }"
-      properties:
-        closeTime:
-          format: int64
-          type: integer
-        count:
-          type: integer
-        firstId:
-          format: int64
-          type: integer
-        highPrice:
-          type: string
-        lastId:
-          format: int64
-          type: integer
-        lastPrice:
-          type: string
-        lastQty:
-          type: string
-        lowPrice:
-          type: string
-        openPrice:
-          type: string
-        openTime:
-          format: int64
-          type: integer
-        priceChange:
-          type: string
-        priceChangePercent:
-          type: string
-        quoteVolume:
-          type: string
-        symbol:
-          type: string
-        volume:
-          type: string
-        weightedAvgPrice:
-          type: string
-      type: object
-    UmfuturesGetTickerBookTickerV1Resp:
-      oneOf:
-      - items:
-          $ref: '#/components/schemas/UmfuturesGetTickerBookTickerV1RespItem'
-        type: array
-      - $ref: '#/components/schemas/UmfuturesGetTickerBookTickerV1RespItem'
-    UmfuturesGetTickerBookTickerV1RespItem:
-      example: "{ \"symbol\": \"BTCUSDT\", \"bidPrice\": \"4.00000000\", \"bidQty\"\
-        : \"431.00000000\", \"askPrice\": \"4.00000200\", \"askQty\": \"9.00000000\"\
-        , \"time\": 1589437530011    }"
-      properties:
-        askPrice:
-          type: string
-        askQty:
-          type: string
-        bidPrice:
-          type: string
-        bidQty:
-          type: string
-        symbol:
-          type: string
-        time:
-          format: int64
-          type: integer
-      type: object
-    UmfuturesGetTickerPriceV1Resp:
-      oneOf:
-      - items:
-          $ref: '#/components/schemas/UmfuturesGetTickerPriceV1RespItem'
-        type: array
-      - $ref: '#/components/schemas/UmfuturesGetTickerPriceV1RespItem'
-    UmfuturesGetTickerPriceV1RespItem:
-      example: "{ \"symbol\": \"BTCUSDT\", \"price\": \"6000.01\", \"time\": 1589437530011\
-        \    }"
-      properties:
-        price:
-          type: string
-        symbol:
-          type: string
-        time:
-          format: int64
-          type: integer
-      type: object
-    UmfuturesGetTickerPriceV2Resp:
-      oneOf:
-      - items:
-          $ref: '#/components/schemas/UmfuturesGetTickerPriceV2RespItem'
-        type: array
-      - $ref: '#/components/schemas/UmfuturesGetTickerPriceV2RespItem'
-    UmfuturesGetTickerPriceV2RespItem:
-      example: "{ \"symbol\": \"BTCUSDT\", \"price\": \"6000.01\", \"time\": 1589437530011\
-        \    }"
-      properties:
-        price:
-          type: string
-        symbol:
-          type: string
-        time:
-          format: int64
-          type: integer
-      type: object
-    UmfuturesUpdateBatchOrdersV1Req:
-      properties:
-        batchOrders:
-          items:
-            $ref: '#/components/schemas/UmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem'
-          type: array
-        recvWindow:
-          format: int64
-          type: integer
-        timestamp:
-          format: int64
-          type: integer
-      required:
-      - batchOrders
-      - timestamp
-      type: object
-    UmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem:
-      properties:
-        orderId:
-          format: int64
-          type: integer
-        origClientOrderId:
-          default: ""
-          type: string
-        price:
-          default: ""
-          type: string
-        priceMatch:
-          default: ""
-          type: string
-        quantity:
-          default: ""
-          type: string
-        side:
-          default: ""
-          type: string
-        symbol:
-          default: ""
-          type: string
-      required:
-      - price
-      - quantity
-      - side
-      - symbol
-      type: object
-    UmfuturesUpdateBatchOrdersV1Resp:
-      example: "[ { \"orderId\": 20072994037, \"symbol\": \"BTCUSDT\", \"pair\": \"\
-        BTCUSDT\", \"status\": \"NEW\", \"clientOrderId\": \"LJ9R4QZDihCaS8UAOOLpgW\"\
-        , \"price\": \"30005\", \"avgPrice\": \"0.0\", \"origQty\": \"1\", \"executedQty\"\
-        : \"0\", \"cumQty\": \"0\", \"cumBase\": \"0\", \"timeInForce\": \"GTC\",\
-        \ \"type\": \"LIMIT\", \"reduceOnly\": false, \"closePosition\": false, \"\
-        side\": \"BUY\", \"positionSide\": \"LONG\", \"stopPrice\": \"0\", \"workingType\"\
-        : \"CONTRACT_PRICE\", \"priceProtect\": false, \"origType\": \"LIMIT\", \"\
-        priceMatch\": \"NONE\",               \"selfTradePreventionMode\": \"NONE\"\
-        ,  \"goodTillDate\": 0,                  \"updateTime\": 1629182711600 },\
-        \ { \"code\": -2022, \"msg\": \"ReduceOnly Order is rejected.\" } ]"
-      items:
-        $ref: '#/components/schemas/UmfuturesUpdateBatchOrdersV1RespItem'
-      type: array
-    UmfuturesUpdateBatchOrdersV1RespItem:
-      properties:
-        avgPrice:
-          type: string
-        clientOrderId:
-          type: string
-        closePosition:
-          type: boolean
-        cumBase:
-          type: string
-        cumQty:
-          type: string
-        executedQty:
-          type: string
-        goodTillDate:
-          type: integer
-        orderId:
-          format: int64
-          type: integer
-        origQty:
-          type: string
-        origType:
-          type: string
-        pair:
-          type: string
-        positionSide:
-          type: string
-        price:
-          type: string
-        priceMatch:
-          type: string
-        priceProtect:
-          type: boolean
-        reduceOnly:
-          type: boolean
-        selfTradePreventionMode:
-          type: string
-        side:
-          type: string
-        status:
-          type: string
-        stopPrice:
-          type: string
-        symbol:
-          type: string
-        timeInForce:
-          type: string
-        type:
-          type: string
-        updateTime:
-          format: int64
-          type: integer
-        workingType:
-          type: string
-      type: object
     UmfuturesCreateConvertAcceptQuoteV1Req:
       properties:
         quoteId:
@@ -5248,6 +4585,38 @@ components:
         validTimestamp:
           format: int64
           type: integer
+      type: object
+    UmfuturesCreateCountdownCancelAllV1Req:
+      example:
+        symbol: ""
+        countdownTime: 0
+        recvWindow: 6
+        timestamp: 1
+      properties:
+        countdownTime:
+          format: int64
+          type: integer
+        recvWindow:
+          format: int64
+          type: integer
+        symbol:
+          default: ""
+          type: string
+        timestamp:
+          format: int64
+          type: integer
+      required:
+      - countdownTime
+      - symbol
+      - timestamp
+      type: object
+    UmfuturesCreateCountdownCancelAllV1Resp:
+      example: "{ \"symbol\": \"BTCUSDT\", \"countdownTime\": \"100000\" }"
+      properties:
+        countdownTime:
+          type: string
+        symbol:
+          type: string
       type: object
     UmfuturesCreateFeeBurnV1Req:
       properties:
@@ -5706,6 +5075,77 @@ components:
         msg:
           type: string
       type: object
+    UmfuturesDeleteBatchOrdersV1Resp:
+      example: "[ { \"clientOrderId\": \"myOrder1\", \"cumQty\": \"0\", \"cumQuote\"\
+        : \"0\", \"executedQty\": \"0\", \"orderId\": 283194212, \"origQty\": \"11\"\
+        , \"origType\": \"TRAILING_STOP_MARKET\", \"price\": \"0\", \"reduceOnly\"\
+        : false, \"side\": \"BUY\", \"positionSide\": \"SHORT\", \"status\": \"CANCELED\"\
+        , \"stopPrice\": \"9300\", \"closePosition\": false,    \"symbol\": \"BTCUSDT\"\
+        , \"timeInForce\": \"GTC\", \"type\": \"TRAILING_STOP_MARKET\", \"activatePrice\"\
+        : \"9020\", \"priceRate\": \"0.3\", \"updateTime\": 1571110484038, \"workingType\"\
+        : \"CONTRACT_PRICE\", \"priceProtect\": false,             \"priceMatch\"\
+        : \"NONE\",               \"selfTradePreventionMode\": \"NONE\",  \"goodTillDate\"\
+        : 1693207680000       }, { \"code\": -2011, \"msg\": \"Unknown order sent.\"\
+        \ } ]"
+      items:
+        $ref: '#/components/schemas/UmfuturesDeleteBatchOrdersV1Resp_inner'
+      type: array
+    UmfuturesDeleteBatchOrdersV1RespItem:
+      properties:
+        activatePrice:
+          type: string
+        clientOrderId:
+          type: string
+        closePosition:
+          type: boolean
+        cumQty:
+          type: string
+        cumQuote:
+          type: string
+        executedQty:
+          type: string
+        goodTillDate:
+          format: int64
+          type: integer
+        orderId:
+          format: int64
+          type: integer
+        origQty:
+          type: string
+        origType:
+          type: string
+        positionSide:
+          type: string
+        price:
+          type: string
+        priceMatch:
+          type: string
+        priceProtect:
+          type: boolean
+        priceRate:
+          type: string
+        reduceOnly:
+          type: boolean
+        selfTradePreventionMode:
+          type: string
+        side:
+          type: string
+        status:
+          type: string
+        stopPrice:
+          type: string
+        symbol:
+          type: string
+        timeInForce:
+          type: string
+        type:
+          type: string
+        updateTime:
+          format: int64
+          type: integer
+        workingType:
+          type: string
+      type: object
     UmfuturesDeleteListenKeyV1Resp:
       example: "{}"
       type: object
@@ -5953,6 +5393,31 @@ components:
         symbol:
           type: string
       type: object
+    UmfuturesGetAggTradesV1Resp:
+      example: "[ { \"a\": 26129,          \"p\": \"0.01633102\",   \"q\": \"4.70443515\"\
+        ,   \"f\": 27781,          \"l\": 27781,          \"T\": 1498793709153,  \"\
+        m\": true           } ]"
+      items:
+        $ref: '#/components/schemas/UmfuturesGetAggTradesV1RespItem'
+      type: array
+    UmfuturesGetAggTradesV1RespItem:
+      properties:
+        T:
+          format: int64
+          type: integer
+        a:
+          type: integer
+        f:
+          type: integer
+        l:
+          type: integer
+        m:
+          type: boolean
+        p:
+          type: string
+        q:
+          type: string
+      type: object
     UmfuturesGetAllOrdersV1Resp:
       example: "[ { \"avgPrice\": \"0.00000\", \"clientOrderId\": \"abc\", \"cumQuote\"\
         : \"0\", \"executedQty\": \"0\", \"orderId\": 1917641, \"origQty\": \"0.40\"\
@@ -6025,6 +5490,56 @@ components:
           type: integer
         workingType:
           type: string
+      type: object
+    UmfuturesGetApiTradingStatusV1Resp:
+      example:
+        updateTime: 0
+        indicators:
+          key: ""
+      properties:
+        indicators:
+          additionalProperties: {}
+          type: object
+        updateTime:
+          format: int64
+          type: integer
+      type: object
+    UmfuturesGetAssetIndexV1Resp:
+      oneOf:
+      - items:
+          $ref: '#/components/schemas/UmfuturesGetAssetIndexV1RespItem'
+        type: array
+      - $ref: '#/components/schemas/UmfuturesGetAssetIndexV1RespItem'
+    UmfuturesGetAssetIndexV1RespItem:
+      example: "{ \"symbol\": \"ADAUSD\", \"time\": 1635740268004, \"index\": \"1.92957370\"\
+        , \"bidBuffer\": \"0.10000000\", \"askBuffer\": \"0.10000000\", \"bidRate\"\
+        : \"1.73661633\", \"askRate\": \"2.12253107\", \"autoExchangeBidBuffer\":\
+        \ \"0.05000000\", \"autoExchangeAskBuffer\": \"0.05000000\", \"autoExchangeBidRate\"\
+        : \"1.83309501\", \"autoExchangeAskRate\": \"2.02605238\" }"
+      properties:
+        askBuffer:
+          type: string
+        askRate:
+          type: string
+        autoExchangeAskBuffer:
+          type: string
+        autoExchangeAskRate:
+          type: string
+        autoExchangeBidBuffer:
+          type: string
+        autoExchangeBidRate:
+          type: string
+        bidBuffer:
+          type: string
+        bidRate:
+          type: string
+        index:
+          type: string
+        symbol:
+          type: string
+        time:
+          format: int64
+          type: integer
       type: object
     UmfuturesGetBalanceV2Resp:
       example: "[ { \"accountAlias\": \"SgsR\",     \"asset\": \"USDT\",   \"balance\"\
@@ -6116,6 +5631,17 @@ components:
           format: int64
           type: integer
       type: object
+    UmfuturesGetContinuousKlinesV1Resp:
+      example: "[ [ 1607444700000,      \t \"18879.99\",       \t \t \"18900.00\"\
+        ,       \t \t \"18878.98\",       \t \t \"18896.13\",      \t \t \"492.363\"\
+        , \t\t\t \t 1607444759999,       \t \"9302145.66080\",    \t 1874,       \
+        \      \t\t \"385.983\",    \t\t\t \"7292402.33267\",      \t \"0\" \t\t\t\
+        \t\t ] ]"
+      items:
+        items:
+          $ref: '#/components/schemas/UmfuturesGetContinuousKlinesV1Resp_inner_inner'
+        type: array
+      type: array
     UmfuturesGetConvertExchangeInfoV1Resp:
       example: "[ { \"fromAsset\":\"BTC\", \"toAsset\":\"USDT\", \"fromAssetMinAmount\"\
         :\"0.0004\", \"fromAssetMaxAmount\":\"50\", \"toAssetMinAmount\":\"20\", \"\
@@ -6189,6 +5715,56 @@ components:
         lastUpdateId:
           format: int64
           type: integer
+      type: object
+    UmfuturesGetExchangeInfoV1Resp:
+      example: "{ \"exchangeFilters\": [], \"rateLimits\": [ { \"interval\": \"MINUTE\"\
+        , \"intervalNum\": 1, \"limit\": 2400, \"rateLimitType\": \"REQUEST_WEIGHT\"\
+        \ }, { \"interval\": \"MINUTE\", \"intervalNum\": 1, \"limit\": 1200, \"rateLimitType\"\
+        : \"ORDERS\" } ], \"serverTime\": 1565613908500,     \"assets\": [  { \"asset\"\
+        : \"BUSD\", \"marginAvailable\": true,  \"autoAssetExchange\": 0  }, { \"\
+        asset\": \"USDT\", \"marginAvailable\": true, \"autoAssetExchange\": 0 },\
+        \ { \"asset\": \"BNB\", \"marginAvailable\": false, \"autoAssetExchange\"\
+        : null } ], \"symbols\": [ { \"symbol\": \"BLZUSDT\", \"pair\": \"BLZUSDT\"\
+        , \"contractType\": \"PERPETUAL\", \"deliveryDate\": 4133404800000, \"onboardDate\"\
+        : 1598252400000, \"status\": \"TRADING\", \"maintMarginPercent\": \"2.5000\"\
+        ,    \"requiredMarginPercent\": \"5.0000\",   \"baseAsset\": \"BLZ\", \"quoteAsset\"\
+        : \"USDT\", \"marginAsset\": \"USDT\", \"pricePrecision\": 5,\t \"quantityPrecision\"\
+        : 0,  \"baseAssetPrecision\": 8, \"quotePrecision\": 8, \"underlyingType\"\
+        : \"COIN\", \"underlyingSubType\": [\"STORAGE\"], \"settlePlan\": 0, \"triggerProtect\"\
+        : \"0.15\",  \"filters\": [ { \"filterType\": \"PRICE_FILTER\", \"maxPrice\"\
+        : \"300\", \"minPrice\": \"0.0001\", \"tickSize\": \"0.0001\" }, { \"filterType\"\
+        : \"LOT_SIZE\", \"maxQty\": \"10000000\", \"minQty\": \"1\", \"stepSize\"\
+        : \"1\" }, { \"filterType\": \"MARKET_LOT_SIZE\", \"maxQty\": \"590119\",\
+        \ \"minQty\": \"1\", \"stepSize\": \"1\" }, { \"filterType\": \"MAX_NUM_ORDERS\"\
+        , \"limit\": 200 }, { \"filterType\": \"MAX_NUM_ALGO_ORDERS\", \"limit\":\
+        \ 10 }, { \"filterType\": \"MIN_NOTIONAL\", \"notional\": \"5.0\" }, { \"\
+        filterType\": \"PERCENT_PRICE\", \"multiplierUp\": \"1.1500\", \"multiplierDown\"\
+        : \"0.8500\", \"multiplierDecimal\": 4 } ], \"OrderType\": [ \"LIMIT\", \"\
+        MARKET\", \"STOP\", \"STOP_MARKET\", \"TAKE_PROFIT\", \"TAKE_PROFIT_MARKET\"\
+        , \"TRAILING_STOP_MARKET\" ], \"timeInForce\": [ \"GTC\", \"IOC\", \"FOK\"\
+        , \"GTX\" ], \"liquidationFee\": \"0.010000\",\t \"marketTakeBound\": \"0.30\"\
+        \t } ], \"timezone\": \"UTC\" }"
+      properties:
+        assets:
+          items:
+            $ref: '#/components/schemas/UmfuturesGetExchangeInfoV1Resp_assets_inner'
+          type: array
+        exchangeFilters:
+          items:
+            type: string
+          type: array
+        rateLimits:
+          items:
+            $ref: '#/components/schemas/UmfuturesGetExchangeInfoV1Resp_rateLimits_inner'
+          type: array
+        serverTime:
+          type: integer
+        symbols:
+          items:
+            $ref: '#/components/schemas/UmfuturesGetExchangeInfoV1Resp_symbols_inner'
+          type: array
+        timezone:
+          type: string
       type: object
     UmfuturesGetFeeBurnV1Resp:
       example: "{ \"feeBurn\": true  }"
@@ -6326,6 +5902,23 @@ components:
         pair:
           type: string
         timestamp:
+          format: int64
+          type: integer
+      type: object
+    UmfuturesGetFuturesDataDeliveryPriceResp:
+      example: "[ { \"deliveryTime\": 1695945600000, \"deliveryPrice\": 27103.00000000\
+        \ }, { \"deliveryTime\": 1688083200000, \"deliveryPrice\": 30733.60000000\
+        \ }, { \"deliveryTime\": 1680220800000, \"deliveryPrice\": 27814.20000000\
+        \ }, { \"deliveryTime\": 1648166400000, \"deliveryPrice\": 44066.30000000\
+        \ } ]"
+      items:
+        $ref: '#/components/schemas/UmfuturesGetFuturesDataDeliveryPriceRespItem'
+      type: array
+    UmfuturesGetFuturesDataDeliveryPriceRespItem:
+      properties:
+        deliveryPrice:
+          type: number
+        deliveryTime:
           format: int64
           type: integer
       type: object
@@ -6540,6 +6133,56 @@ components:
           format: int64
           type: integer
       type: object
+    UmfuturesGetIndexPriceKlinesV1Resp:
+      example: "[ [ 1591256400000,       \"9653.69440000\",     \"9653.69640000\"\
+        ,      \"9651.38600000\",      \"9651.55200000\",      \"0\",  1591256459999,\
+        \       \"0\",     60,                 \"0\",     \"0\",       \"0\"  ] ]"
+      items:
+        items:
+          $ref: '#/components/schemas/UmfuturesGetContinuousKlinesV1Resp_inner_inner'
+        type: array
+      type: array
+    UmfuturesGetKlinesV1Resp:
+      example: "[ [ 1499040000000,       \"0.01634790\",        \"0.80000000\",  \
+        \      \"0.01575800\",        \"0.01577100\",        \"148976.11427815\",\
+        \   1499644799999,       \"2434.19055334\",     308,                 \"1756.87402397\"\
+        ,     \"28.46694368\",       \"17928899.62484339\"  ] ]"
+      items:
+        items:
+          $ref: '#/components/schemas/UmfuturesGetContinuousKlinesV1Resp_inner_inner'
+        type: array
+      type: array
+    UmfuturesGetLeverageBracketV1Resp:
+      oneOf:
+      - items:
+          $ref: '#/components/schemas/UmfuturesGetLeverageBracketV1RespItem'
+        type: array
+      - $ref: '#/components/schemas/UmfuturesGetLeverageBracketV1RespItem'
+    UmfuturesGetLeverageBracketV1RespItem:
+      example: "{ \"symbol\": \"ETHUSDT\", \"notionalCoef\": 1.50,   \"brackets\"\
+        : [ { \"bracket\": 1,    \"initialLeverage\": 75,   \"notionalCap\": 10000,\
+        \   \"notionalFloor\": 0,   \"maintMarginRatio\": 0.0065,  \"cum\":0  } ]\
+        \ }"
+      properties:
+        brackets:
+          items:
+            $ref: '#/components/schemas/UmfuturesGetLeverageBracketV1RespItem_brackets_inner'
+          type: array
+        notionalCoef:
+          type: number
+        symbol:
+          type: string
+      type: object
+    UmfuturesGetMarkPriceKlinesV1Resp:
+      example: "[ [ 1591256460000,      \"9653.29201333\",     \"9654.56401333\",\
+        \      \"9653.07367333\",      \"9653.07367333\",      \"0\",  1591256519999,\
+        \       \"0\",     60,                  \"0\",     \"0\",        \"0\"  ]\
+        \ ]"
+      items:
+        items:
+          $ref: '#/components/schemas/UmfuturesGetContinuousKlinesV1Resp_inner_inner'
+        type: array
+      type: array
     UmfuturesGetMultiAssetsMarginV1Resp:
       example: "{ \"multiAssetsMargin\": true  }"
       properties:
@@ -6755,6 +6398,16 @@ components:
         status:
           type: string
         url:
+          type: string
+      type: object
+    UmfuturesGetOrderAsynV1Resp:
+      example: "{ \"avgCostTimestampOfLast30d\":7241837,  \"downloadId\":\"546975389218332672\"\
+        \ }"
+      properties:
+        avgCostTimestampOfLast30d:
+          format: int64
+          type: integer
+        downloadId:
           type: string
       type: object
     UmfuturesGetOrderV1Resp:
@@ -6976,6 +6629,48 @@ components:
         dualSidePosition:
           type: boolean
       type: object
+    UmfuturesGetPremiumIndexKlinesV1Resp:
+      example: "[ [ 1691603820000,           \"-0.00042931\",           \"-0.00023641\"\
+        ,           \"-0.00059406\",           \"-0.00043659\",           \"0\", \
+        \                    1691603879999,           \"0\",                     12,\
+        \                      \"0\",                     \"0\",                 \
+        \    \"0\"                      ] ]"
+      items:
+        items:
+          $ref: '#/components/schemas/UmfuturesGetContinuousKlinesV1Resp_inner_inner'
+        type: array
+      type: array
+    UmfuturesGetPremiumIndexV1Resp:
+      oneOf:
+      - items:
+          $ref: '#/components/schemas/UmfuturesGetPremiumIndexV1RespItem'
+        type: array
+      - $ref: '#/components/schemas/UmfuturesGetPremiumIndexV1RespItem'
+    UmfuturesGetPremiumIndexV1RespItem:
+      example: "{ \"symbol\": \"BTCUSDT\", \"markPrice\": \"11793.63104562\", \"indexPrice\"\
+        : \"11781.80495970\", \"estimatedSettlePrice\": \"11781.16138815\",  \"lastFundingRate\"\
+        : \"0.00038246\",   \"interestRate\": \"0.00010000\", \"nextFundingTime\"\
+        : 1597392000000, \"time\": 1597370495002 }"
+      properties:
+        estimatedSettlePrice:
+          type: string
+        indexPrice:
+          type: string
+        interestRate:
+          type: string
+        lastFundingRate:
+          type: string
+        markPrice:
+          type: string
+        nextFundingTime:
+          format: int64
+          type: integer
+        symbol:
+          type: string
+        time:
+          format: int64
+          type: integer
+      type: object
     UmfuturesGetRateLimitOrderV1Resp:
       example: "[ { \"rateLimitType\": \"ORDERS\", \"interval\": \"SECOND\", \"intervalNum\"\
         : 10, \"limit\": 10000 }, { \"rateLimitType\": \"ORDERS\", \"interval\": \"\
@@ -7012,6 +6707,119 @@ components:
           type: string
         symbol:
           type: string
+      type: object
+    UmfuturesGetTicker24hrV1Resp:
+      oneOf:
+      - items:
+          $ref: '#/components/schemas/UmfuturesGetTicker24hrV1RespItem'
+        type: array
+      - $ref: '#/components/schemas/UmfuturesGetTicker24hrV1RespItem'
+    UmfuturesGetTicker24hrV1RespItem:
+      example: "{ \"symbol\": \"BTCUSDT\", \"priceChange\": \"-94.99999800\", \"priceChangePercent\"\
+        : \"-95.960\", \"weightedAvgPrice\": \"0.29628482\", \"lastPrice\": \"4.00000200\"\
+        , \"lastQty\": \"200.00000000\", \"openPrice\": \"99.00000000\", \"highPrice\"\
+        : \"100.00000000\", \"lowPrice\": \"0.10000000\", \"volume\": \"8913.30000000\"\
+        , \"quoteVolume\": \"15.30000000\", \"openTime\": 1499783499040, \"closeTime\"\
+        : 1499869899040, \"firstId\": 28385,    \"lastId\": 28460,     \"count\":\
+        \ 76          }"
+      properties:
+        closeTime:
+          format: int64
+          type: integer
+        count:
+          type: integer
+        firstId:
+          format: int64
+          type: integer
+        highPrice:
+          type: string
+        lastId:
+          format: int64
+          type: integer
+        lastPrice:
+          type: string
+        lastQty:
+          type: string
+        lowPrice:
+          type: string
+        openPrice:
+          type: string
+        openTime:
+          format: int64
+          type: integer
+        priceChange:
+          type: string
+        priceChangePercent:
+          type: string
+        quoteVolume:
+          type: string
+        symbol:
+          type: string
+        volume:
+          type: string
+        weightedAvgPrice:
+          type: string
+      type: object
+    UmfuturesGetTickerBookTickerV1Resp:
+      oneOf:
+      - items:
+          $ref: '#/components/schemas/UmfuturesGetTickerBookTickerV1RespItem'
+        type: array
+      - $ref: '#/components/schemas/UmfuturesGetTickerBookTickerV1RespItem'
+    UmfuturesGetTickerBookTickerV1RespItem:
+      example: "{ \"symbol\": \"BTCUSDT\", \"bidPrice\": \"4.00000000\", \"bidQty\"\
+        : \"431.00000000\", \"askPrice\": \"4.00000200\", \"askQty\": \"9.00000000\"\
+        , \"time\": 1589437530011    }"
+      properties:
+        askPrice:
+          type: string
+        askQty:
+          type: string
+        bidPrice:
+          type: string
+        bidQty:
+          type: string
+        symbol:
+          type: string
+        time:
+          format: int64
+          type: integer
+      type: object
+    UmfuturesGetTickerPriceV1Resp:
+      oneOf:
+      - items:
+          $ref: '#/components/schemas/UmfuturesGetTickerPriceV1RespItem'
+        type: array
+      - $ref: '#/components/schemas/UmfuturesGetTickerPriceV1RespItem'
+    UmfuturesGetTickerPriceV1RespItem:
+      example: "{ \"symbol\": \"BTCUSDT\", \"price\": \"6000.01\", \"time\": 1589437530011\
+        \    }"
+      properties:
+        price:
+          type: string
+        symbol:
+          type: string
+        time:
+          format: int64
+          type: integer
+      type: object
+    UmfuturesGetTickerPriceV2Resp:
+      oneOf:
+      - items:
+          $ref: '#/components/schemas/UmfuturesGetTickerPriceV2RespItem'
+        type: array
+      - $ref: '#/components/schemas/UmfuturesGetTickerPriceV2RespItem'
+    UmfuturesGetTickerPriceV2RespItem:
+      example: "{ \"symbol\": \"BTCUSDT\", \"price\": \"6000.01\", \"time\": 1589437530011\
+        \    }"
+      properties:
+        price:
+          type: string
+        symbol:
+          type: string
+        time:
+          format: int64
+          type: integer
       type: object
     UmfuturesGetTimeV1Resp:
       example: "{ \"serverTime\": 1499827319559 }"
@@ -7113,6 +6921,120 @@ components:
         time:
           format: int64
           type: integer
+      type: object
+    UmfuturesUpdateBatchOrdersV1Req:
+      properties:
+        batchOrders:
+          items:
+            $ref: '#/components/schemas/UmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem'
+          type: array
+        recvWindow:
+          format: int64
+          type: integer
+        timestamp:
+          format: int64
+          type: integer
+      required:
+      - batchOrders
+      - timestamp
+      type: object
+    UmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem:
+      properties:
+        orderId:
+          format: int64
+          type: integer
+        origClientOrderId:
+          default: ""
+          type: string
+        price:
+          default: ""
+          type: string
+        priceMatch:
+          default: ""
+          type: string
+        quantity:
+          default: ""
+          type: string
+        side:
+          default: ""
+          type: string
+        symbol:
+          default: ""
+          type: string
+      required:
+      - price
+      - quantity
+      - side
+      - symbol
+      type: object
+    UmfuturesUpdateBatchOrdersV1Resp:
+      example: "[ { \"orderId\": 20072994037, \"symbol\": \"BTCUSDT\", \"pair\": \"\
+        BTCUSDT\", \"status\": \"NEW\", \"clientOrderId\": \"LJ9R4QZDihCaS8UAOOLpgW\"\
+        , \"price\": \"30005\", \"avgPrice\": \"0.0\", \"origQty\": \"1\", \"executedQty\"\
+        : \"0\", \"cumQty\": \"0\", \"cumBase\": \"0\", \"timeInForce\": \"GTC\",\
+        \ \"type\": \"LIMIT\", \"reduceOnly\": false, \"closePosition\": false, \"\
+        side\": \"BUY\", \"positionSide\": \"LONG\", \"stopPrice\": \"0\", \"workingType\"\
+        : \"CONTRACT_PRICE\", \"priceProtect\": false, \"origType\": \"LIMIT\", \"\
+        priceMatch\": \"NONE\",               \"selfTradePreventionMode\": \"NONE\"\
+        ,  \"goodTillDate\": 0,                  \"updateTime\": 1629182711600 },\
+        \ { \"code\": -2022, \"msg\": \"ReduceOnly Order is rejected.\" } ]"
+      items:
+        $ref: '#/components/schemas/UmfuturesUpdateBatchOrdersV1RespItem'
+      type: array
+    UmfuturesUpdateBatchOrdersV1RespItem:
+      properties:
+        avgPrice:
+          type: string
+        clientOrderId:
+          type: string
+        closePosition:
+          type: boolean
+        cumBase:
+          type: string
+        cumQty:
+          type: string
+        executedQty:
+          type: string
+        goodTillDate:
+          type: integer
+        orderId:
+          format: int64
+          type: integer
+        origQty:
+          type: string
+        origType:
+          type: string
+        pair:
+          type: string
+        positionSide:
+          type: string
+        price:
+          type: string
+        priceMatch:
+          type: string
+        priceProtect:
+          type: boolean
+        reduceOnly:
+          type: boolean
+        selfTradePreventionMode:
+          type: string
+        side:
+          type: string
+        status:
+          type: string
+        stopPrice:
+          type: string
+        symbol:
+          type: string
+        timeInForce:
+          type: string
+        type:
+          type: string
+        updateTime:
+          format: int64
+          type: integer
+        workingType:
+          type: string
       type: object
     UmfuturesUpdateListenKeyV1Resp:
       example: "{ \"listenKey\": \"3HBntNTepshgEdjIwSUIBgB9keLyOCg5qv3n6bYAtktG8ejcaW5HXz9Vx1JgIieg\"\
@@ -7230,116 +7152,6 @@ components:
       oneOf:
       - $ref: '#/components/schemas/UmfuturesDeleteBatchOrdersV1RespItem'
       - $ref: '#/components/schemas/APIError'
-    UmfuturesGetContinuousKlinesV1Resp_inner_inner:
-      oneOf:
-      - type: string
-      - format: int64
-        type: integer
-    UmfuturesGetExchangeInfoV1Resp_assets_inner:
-      properties:
-        asset:
-          type: string
-        autoAssetExchange:
-          type: integer
-        marginAvailable:
-          type: boolean
-      type: object
-    UmfuturesGetExchangeInfoV1Resp_rateLimits_inner:
-      properties:
-        interval:
-          type: string
-        intervalNum:
-          type: integer
-        limit:
-          type: integer
-        rateLimitType:
-          type: string
-      type: object
-    UmfuturesGetExchangeInfoV1Resp_symbols_inner_filters_inner:
-      properties:
-        filterType:
-          type: string
-        maxPrice:
-          type: string
-        minPrice:
-          type: string
-        tickSize:
-          type: string
-      type: object
-    UmfuturesGetExchangeInfoV1Resp_symbols_inner:
-      properties:
-        OrderType:
-          items:
-            type: string
-          type: array
-        baseAsset:
-          type: string
-        baseAssetPrecision:
-          type: integer
-        contractType:
-          type: string
-        deliveryDate:
-          type: integer
-        filters:
-          items:
-            $ref: '#/components/schemas/UmfuturesGetExchangeInfoV1Resp_symbols_inner_filters_inner'
-          type: array
-        liquidationFee:
-          type: string
-        maintMarginPercent:
-          type: string
-        marginAsset:
-          type: string
-        marketTakeBound:
-          type: string
-        onboardDate:
-          type: integer
-        pair:
-          type: string
-        pricePrecision:
-          type: integer
-        quantityPrecision:
-          type: integer
-        quoteAsset:
-          type: string
-        quotePrecision:
-          type: integer
-        requiredMarginPercent:
-          type: string
-        settlePlan:
-          type: integer
-        status:
-          type: string
-        symbol:
-          type: string
-        timeInForce:
-          items:
-            type: string
-          type: array
-        triggerProtect:
-          type: string
-        underlyingSubType:
-          items:
-            type: string
-          type: array
-        underlyingType:
-          type: string
-      type: object
-    UmfuturesGetLeverageBracketV1RespItem_brackets_inner:
-      properties:
-        bracket:
-          type: integer
-        cum:
-          type: integer
-        initialLeverage:
-          type: integer
-        maintMarginRatio:
-          type: number
-        notionalCap:
-          type: integer
-        notionalFloor:
-          type: integer
-      type: object
     UmfuturesGetAccountV2Resp_assets_inner:
       properties:
         asset:
@@ -7476,6 +7288,101 @@ components:
         symbol:
           type: string
       type: object
+    UmfuturesGetContinuousKlinesV1Resp_inner_inner:
+      oneOf:
+      - type: string
+      - format: int64
+        type: integer
+    UmfuturesGetExchangeInfoV1Resp_assets_inner:
+      properties:
+        asset:
+          type: string
+        autoAssetExchange:
+          type: integer
+        marginAvailable:
+          type: boolean
+      type: object
+    UmfuturesGetExchangeInfoV1Resp_rateLimits_inner:
+      properties:
+        interval:
+          type: string
+        intervalNum:
+          type: integer
+        limit:
+          type: integer
+        rateLimitType:
+          type: string
+      type: object
+    UmfuturesGetExchangeInfoV1Resp_symbols_inner_filters_inner:
+      properties:
+        filterType:
+          type: string
+        maxPrice:
+          type: string
+        minPrice:
+          type: string
+        tickSize:
+          type: string
+      type: object
+    UmfuturesGetExchangeInfoV1Resp_symbols_inner:
+      properties:
+        OrderType:
+          items:
+            type: string
+          type: array
+        baseAsset:
+          type: string
+        baseAssetPrecision:
+          type: integer
+        contractType:
+          type: string
+        deliveryDate:
+          type: integer
+        filters:
+          items:
+            $ref: '#/components/schemas/UmfuturesGetExchangeInfoV1Resp_symbols_inner_filters_inner'
+          type: array
+        liquidationFee:
+          type: string
+        maintMarginPercent:
+          type: string
+        marginAsset:
+          type: string
+        marketTakeBound:
+          type: string
+        onboardDate:
+          type: integer
+        pair:
+          type: string
+        pricePrecision:
+          type: integer
+        quantityPrecision:
+          type: integer
+        quoteAsset:
+          type: string
+        quotePrecision:
+          type: integer
+        requiredMarginPercent:
+          type: string
+        settlePlan:
+          type: integer
+        status:
+          type: string
+        symbol:
+          type: string
+        timeInForce:
+          items:
+            type: string
+          type: array
+        triggerProtect:
+          type: string
+        underlyingSubType:
+          items:
+            type: string
+          type: array
+        underlyingType:
+          type: string
+      type: object
     UmfuturesGetIndexInfoV1RespItem_baseAssetList_inner:
       properties:
         baseAsset:
@@ -7486,6 +7393,21 @@ components:
           type: string
         weightInQuantity:
           type: string
+      type: object
+    UmfuturesGetLeverageBracketV1RespItem_brackets_inner:
+      properties:
+        bracket:
+          type: integer
+        cum:
+          type: integer
+        initialLeverage:
+          type: integer
+        maintMarginRatio:
+          type: number
+        notionalCap:
+          type: integer
+        notionalFloor:
+          type: integer
       type: object
     UmfuturesGetOrderAmendmentV1RespItem_amendment_origQty:
       properties:

@@ -1,7 +1,7 @@
 /*
-Binance Margin API
+Binance Margin Trading API
 
-OpenAPI specification for Binance cryptocurrency exchange - Margin API
+OpenAPI specification for Binance exchange - Margin API
 
 API version: 0.1.0
 */
@@ -41,7 +41,7 @@ var (
 	queryDescape    = strings.NewReplacer("%5B", "[", "%5D", "]")
 )
 
-// APIClient manages communication with the Binance Margin API API v0.1.0
+// APIClient manages communication with the Binance Margin Trading API API v0.1.0
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration
@@ -62,8 +62,6 @@ type APIClient struct {
 	TradeDataStreamAPI *TradeDataStreamAPIService
 
 	TransferAPI *TransferAPIService
-
-	V1API *V1APIService
 }
 
 type service struct {
@@ -89,7 +87,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.TradeAPI = (*TradeAPIService)(&c.common)
 	c.TradeDataStreamAPI = (*TradeDataStreamAPIService)(&c.common)
 	c.TransferAPI = (*TransferAPIService)(&c.common)
-	c.V1API = (*V1APIService)(&c.common)
 
 	return c
 }

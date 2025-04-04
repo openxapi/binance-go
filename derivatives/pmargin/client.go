@@ -1,7 +1,7 @@
 /*
-Binance Pmargin API
+Binance Portfolio Margin API
 
-OpenAPI specification for Binance cryptocurrency exchange - Pmargin API
+OpenAPI specification for Binance exchange - Pmargin API
 
 API version: 0.1.0
 */
@@ -41,7 +41,7 @@ var (
 	queryDescape    = strings.NewReplacer("%5B", "[", "%5D", "]")
 )
 
-// APIClient manages communication with the Binance Pmargin API API v0.1.0
+// APIClient manages communication with the Binance Portfolio Margin API API v0.1.0
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration
@@ -56,10 +56,6 @@ type APIClient struct {
 	TradeAPI *TradeAPIService
 
 	UserDataStreamsAPI *UserDataStreamsAPIService
-
-	V1API *V1APIService
-
-	V2API *V2APIService
 }
 
 type service struct {
@@ -82,8 +78,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.MarketDataAPI = (*MarketDataAPIService)(&c.common)
 	c.TradeAPI = (*TradeAPIService)(&c.common)
 	c.UserDataStreamsAPI = (*UserDataStreamsAPIService)(&c.common)
-	c.V1API = (*V1APIService)(&c.common)
-	c.V2API = (*V2APIService)(&c.common)
 
 	return c
 }

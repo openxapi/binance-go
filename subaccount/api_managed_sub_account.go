@@ -22,7 +22,7 @@ import (
 // ManagedSubAccountAPIService ManagedSubAccountAPI service
 type ManagedSubAccountAPIService service
 
-type ManagedSubAccountAPISubaccountCreateManagedSubaccountDepositV1Request struct {
+type ApiSubaccountCreateManagedSubaccountDepositV1Request struct {
 	ctx context.Context
 	ApiService *ManagedSubAccountAPIService
 	amount *string
@@ -32,32 +32,32 @@ type ManagedSubAccountAPISubaccountCreateManagedSubaccountDepositV1Request struc
 	recvWindow *int64
 }
 
-func (r ManagedSubAccountAPISubaccountCreateManagedSubaccountDepositV1Request) Amount(amount string) ManagedSubAccountAPISubaccountCreateManagedSubaccountDepositV1Request {
+func (r ApiSubaccountCreateManagedSubaccountDepositV1Request) Amount(amount string) ApiSubaccountCreateManagedSubaccountDepositV1Request {
 	r.amount = &amount
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountCreateManagedSubaccountDepositV1Request) Asset(asset string) ManagedSubAccountAPISubaccountCreateManagedSubaccountDepositV1Request {
+func (r ApiSubaccountCreateManagedSubaccountDepositV1Request) Asset(asset string) ApiSubaccountCreateManagedSubaccountDepositV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountCreateManagedSubaccountDepositV1Request) Timestamp(timestamp int64) ManagedSubAccountAPISubaccountCreateManagedSubaccountDepositV1Request {
+func (r ApiSubaccountCreateManagedSubaccountDepositV1Request) Timestamp(timestamp int64) ApiSubaccountCreateManagedSubaccountDepositV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountCreateManagedSubaccountDepositV1Request) ToEmail(toEmail string) ManagedSubAccountAPISubaccountCreateManagedSubaccountDepositV1Request {
+func (r ApiSubaccountCreateManagedSubaccountDepositV1Request) ToEmail(toEmail string) ApiSubaccountCreateManagedSubaccountDepositV1Request {
 	r.toEmail = &toEmail
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountCreateManagedSubaccountDepositV1Request) RecvWindow(recvWindow int64) ManagedSubAccountAPISubaccountCreateManagedSubaccountDepositV1Request {
+func (r ApiSubaccountCreateManagedSubaccountDepositV1Request) RecvWindow(recvWindow int64) ApiSubaccountCreateManagedSubaccountDepositV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountCreateManagedSubaccountDepositV1Request) Execute() (*SubaccountCreateManagedSubaccountDepositV1Resp, *http.Response, error) {
+func (r ApiSubaccountCreateManagedSubaccountDepositV1Request) Execute() (*SubaccountCreateManagedSubaccountDepositV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountCreateManagedSubaccountDepositV1Execute(r)
 }
 
@@ -67,10 +67,10 @@ SubaccountCreateManagedSubaccountDepositV1 Deposit Assets Into The Managed Sub-a
 Deposit Assets Into The Managed Sub-account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ManagedSubAccountAPISubaccountCreateManagedSubaccountDepositV1Request
+ @return ApiSubaccountCreateManagedSubaccountDepositV1Request
 */
-func (a *ManagedSubAccountAPIService) SubaccountCreateManagedSubaccountDepositV1(ctx context.Context) ManagedSubAccountAPISubaccountCreateManagedSubaccountDepositV1Request {
-	return ManagedSubAccountAPISubaccountCreateManagedSubaccountDepositV1Request{
+func (a *ManagedSubAccountAPIService) SubaccountCreateManagedSubaccountDepositV1(ctx context.Context) ApiSubaccountCreateManagedSubaccountDepositV1Request {
+	return ApiSubaccountCreateManagedSubaccountDepositV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -78,7 +78,7 @@ func (a *ManagedSubAccountAPIService) SubaccountCreateManagedSubaccountDepositV1
 
 // Execute executes the request
 //  @return SubaccountCreateManagedSubaccountDepositV1Resp
-func (a *ManagedSubAccountAPIService) SubaccountCreateManagedSubaccountDepositV1Execute(r ManagedSubAccountAPISubaccountCreateManagedSubaccountDepositV1Request) (*SubaccountCreateManagedSubaccountDepositV1Resp, *http.Response, error) {
+func (a *ManagedSubAccountAPIService) SubaccountCreateManagedSubaccountDepositV1Execute(r ApiSubaccountCreateManagedSubaccountDepositV1Request) (*SubaccountCreateManagedSubaccountDepositV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -191,7 +191,7 @@ func (a *ManagedSubAccountAPIService) SubaccountCreateManagedSubaccountDepositV1
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ManagedSubAccountAPISubaccountCreateManagedSubaccountWithdrawV1Request struct {
+type ApiSubaccountCreateManagedSubaccountWithdrawV1Request struct {
 	ctx context.Context
 	ApiService *ManagedSubAccountAPIService
 	amount *string
@@ -202,37 +202,37 @@ type ManagedSubAccountAPISubaccountCreateManagedSubaccountWithdrawV1Request stru
 	transferDate *int64
 }
 
-func (r ManagedSubAccountAPISubaccountCreateManagedSubaccountWithdrawV1Request) Amount(amount string) ManagedSubAccountAPISubaccountCreateManagedSubaccountWithdrawV1Request {
+func (r ApiSubaccountCreateManagedSubaccountWithdrawV1Request) Amount(amount string) ApiSubaccountCreateManagedSubaccountWithdrawV1Request {
 	r.amount = &amount
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountCreateManagedSubaccountWithdrawV1Request) Asset(asset string) ManagedSubAccountAPISubaccountCreateManagedSubaccountWithdrawV1Request {
+func (r ApiSubaccountCreateManagedSubaccountWithdrawV1Request) Asset(asset string) ApiSubaccountCreateManagedSubaccountWithdrawV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountCreateManagedSubaccountWithdrawV1Request) FromEmail(fromEmail string) ManagedSubAccountAPISubaccountCreateManagedSubaccountWithdrawV1Request {
+func (r ApiSubaccountCreateManagedSubaccountWithdrawV1Request) FromEmail(fromEmail string) ApiSubaccountCreateManagedSubaccountWithdrawV1Request {
 	r.fromEmail = &fromEmail
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountCreateManagedSubaccountWithdrawV1Request) Timestamp(timestamp int64) ManagedSubAccountAPISubaccountCreateManagedSubaccountWithdrawV1Request {
+func (r ApiSubaccountCreateManagedSubaccountWithdrawV1Request) Timestamp(timestamp int64) ApiSubaccountCreateManagedSubaccountWithdrawV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountCreateManagedSubaccountWithdrawV1Request) RecvWindow(recvWindow int64) ManagedSubAccountAPISubaccountCreateManagedSubaccountWithdrawV1Request {
+func (r ApiSubaccountCreateManagedSubaccountWithdrawV1Request) RecvWindow(recvWindow int64) ApiSubaccountCreateManagedSubaccountWithdrawV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountCreateManagedSubaccountWithdrawV1Request) TransferDate(transferDate int64) ManagedSubAccountAPISubaccountCreateManagedSubaccountWithdrawV1Request {
+func (r ApiSubaccountCreateManagedSubaccountWithdrawV1Request) TransferDate(transferDate int64) ApiSubaccountCreateManagedSubaccountWithdrawV1Request {
 	r.transferDate = &transferDate
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountCreateManagedSubaccountWithdrawV1Request) Execute() (*SubaccountCreateManagedSubaccountWithdrawV1Resp, *http.Response, error) {
+func (r ApiSubaccountCreateManagedSubaccountWithdrawV1Request) Execute() (*SubaccountCreateManagedSubaccountWithdrawV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountCreateManagedSubaccountWithdrawV1Execute(r)
 }
 
@@ -242,10 +242,10 @@ SubaccountCreateManagedSubaccountWithdrawV1 Withdrawl Assets From The Managed Su
 Withdrawl Assets From The Managed Sub-account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ManagedSubAccountAPISubaccountCreateManagedSubaccountWithdrawV1Request
+ @return ApiSubaccountCreateManagedSubaccountWithdrawV1Request
 */
-func (a *ManagedSubAccountAPIService) SubaccountCreateManagedSubaccountWithdrawV1(ctx context.Context) ManagedSubAccountAPISubaccountCreateManagedSubaccountWithdrawV1Request {
-	return ManagedSubAccountAPISubaccountCreateManagedSubaccountWithdrawV1Request{
+func (a *ManagedSubAccountAPIService) SubaccountCreateManagedSubaccountWithdrawV1(ctx context.Context) ApiSubaccountCreateManagedSubaccountWithdrawV1Request {
+	return ApiSubaccountCreateManagedSubaccountWithdrawV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -253,7 +253,7 @@ func (a *ManagedSubAccountAPIService) SubaccountCreateManagedSubaccountWithdrawV
 
 // Execute executes the request
 //  @return SubaccountCreateManagedSubaccountWithdrawV1Resp
-func (a *ManagedSubAccountAPIService) SubaccountCreateManagedSubaccountWithdrawV1Execute(r ManagedSubAccountAPISubaccountCreateManagedSubaccountWithdrawV1Request) (*SubaccountCreateManagedSubaccountWithdrawV1Resp, *http.Response, error) {
+func (a *ManagedSubAccountAPIService) SubaccountCreateManagedSubaccountWithdrawV1Execute(r ApiSubaccountCreateManagedSubaccountWithdrawV1Request) (*SubaccountCreateManagedSubaccountWithdrawV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -369,7 +369,7 @@ func (a *ManagedSubAccountAPIService) SubaccountCreateManagedSubaccountWithdrawV
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ManagedSubAccountAPISubaccountGetManagedSubaccountAccountSnapshotV1Request struct {
+type ApiSubaccountGetManagedSubaccountAccountSnapshotV1Request struct {
 	ctx context.Context
 	ApiService *ManagedSubAccountAPIService
 	email *string
@@ -381,44 +381,44 @@ type ManagedSubAccountAPISubaccountGetManagedSubaccountAccountSnapshotV1Request 
 	recvWindow *int64
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountAccountSnapshotV1Request) Email(email string) ManagedSubAccountAPISubaccountGetManagedSubaccountAccountSnapshotV1Request {
+func (r ApiSubaccountGetManagedSubaccountAccountSnapshotV1Request) Email(email string) ApiSubaccountGetManagedSubaccountAccountSnapshotV1Request {
 	r.email = &email
 	return r
 }
 
 // &amp;#34;SPOT&amp;#34;, &amp;#34;MARGIN&amp;#34;（cross）, &amp;#34;FUTURES&amp;#34;（UM）
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountAccountSnapshotV1Request) Type_(type_ string) ManagedSubAccountAPISubaccountGetManagedSubaccountAccountSnapshotV1Request {
+func (r ApiSubaccountGetManagedSubaccountAccountSnapshotV1Request) Type_(type_ string) ApiSubaccountGetManagedSubaccountAccountSnapshotV1Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountAccountSnapshotV1Request) Timestamp(timestamp int64) ManagedSubAccountAPISubaccountGetManagedSubaccountAccountSnapshotV1Request {
+func (r ApiSubaccountGetManagedSubaccountAccountSnapshotV1Request) Timestamp(timestamp int64) ApiSubaccountGetManagedSubaccountAccountSnapshotV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountAccountSnapshotV1Request) StartTime(startTime int64) ManagedSubAccountAPISubaccountGetManagedSubaccountAccountSnapshotV1Request {
+func (r ApiSubaccountGetManagedSubaccountAccountSnapshotV1Request) StartTime(startTime int64) ApiSubaccountGetManagedSubaccountAccountSnapshotV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountAccountSnapshotV1Request) EndTime(endTime int64) ManagedSubAccountAPISubaccountGetManagedSubaccountAccountSnapshotV1Request {
+func (r ApiSubaccountGetManagedSubaccountAccountSnapshotV1Request) EndTime(endTime int64) ApiSubaccountGetManagedSubaccountAccountSnapshotV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // min 7, max 30, default 7
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountAccountSnapshotV1Request) Limit(limit int32) ManagedSubAccountAPISubaccountGetManagedSubaccountAccountSnapshotV1Request {
+func (r ApiSubaccountGetManagedSubaccountAccountSnapshotV1Request) Limit(limit int32) ApiSubaccountGetManagedSubaccountAccountSnapshotV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountAccountSnapshotV1Request) RecvWindow(recvWindow int64) ManagedSubAccountAPISubaccountGetManagedSubaccountAccountSnapshotV1Request {
+func (r ApiSubaccountGetManagedSubaccountAccountSnapshotV1Request) RecvWindow(recvWindow int64) ApiSubaccountGetManagedSubaccountAccountSnapshotV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountAccountSnapshotV1Request) Execute() (*SubaccountGetManagedSubaccountAccountSnapshotV1Resp, *http.Response, error) {
+func (r ApiSubaccountGetManagedSubaccountAccountSnapshotV1Request) Execute() (*SubaccountGetManagedSubaccountAccountSnapshotV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetManagedSubaccountAccountSnapshotV1Execute(r)
 }
 
@@ -428,10 +428,10 @@ SubaccountGetManagedSubaccountAccountSnapshotV1 Query Managed Sub-account Snapsh
 Query Managed Sub-account Snapshot
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ManagedSubAccountAPISubaccountGetManagedSubaccountAccountSnapshotV1Request
+ @return ApiSubaccountGetManagedSubaccountAccountSnapshotV1Request
 */
-func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountAccountSnapshotV1(ctx context.Context) ManagedSubAccountAPISubaccountGetManagedSubaccountAccountSnapshotV1Request {
-	return ManagedSubAccountAPISubaccountGetManagedSubaccountAccountSnapshotV1Request{
+func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountAccountSnapshotV1(ctx context.Context) ApiSubaccountGetManagedSubaccountAccountSnapshotV1Request {
+	return ApiSubaccountGetManagedSubaccountAccountSnapshotV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -439,7 +439,7 @@ func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountAccountSnaps
 
 // Execute executes the request
 //  @return SubaccountGetManagedSubaccountAccountSnapshotV1Resp
-func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountAccountSnapshotV1Execute(r ManagedSubAccountAPISubaccountGetManagedSubaccountAccountSnapshotV1Request) (*SubaccountGetManagedSubaccountAccountSnapshotV1Resp, *http.Response, error) {
+func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountAccountSnapshotV1Execute(r ApiSubaccountGetManagedSubaccountAccountSnapshotV1Request) (*SubaccountGetManagedSubaccountAccountSnapshotV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -560,7 +560,7 @@ func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountAccountSnaps
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ManagedSubAccountAPISubaccountGetManagedSubaccountAssetV1Request struct {
+type ApiSubaccountGetManagedSubaccountAssetV1Request struct {
 	ctx context.Context
 	ApiService *ManagedSubAccountAPIService
 	email *string
@@ -568,22 +568,22 @@ type ManagedSubAccountAPISubaccountGetManagedSubaccountAssetV1Request struct {
 	recvWindow *int64
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountAssetV1Request) Email(email string) ManagedSubAccountAPISubaccountGetManagedSubaccountAssetV1Request {
+func (r ApiSubaccountGetManagedSubaccountAssetV1Request) Email(email string) ApiSubaccountGetManagedSubaccountAssetV1Request {
 	r.email = &email
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountAssetV1Request) Timestamp(timestamp int64) ManagedSubAccountAPISubaccountGetManagedSubaccountAssetV1Request {
+func (r ApiSubaccountGetManagedSubaccountAssetV1Request) Timestamp(timestamp int64) ApiSubaccountGetManagedSubaccountAssetV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountAssetV1Request) RecvWindow(recvWindow int64) ManagedSubAccountAPISubaccountGetManagedSubaccountAssetV1Request {
+func (r ApiSubaccountGetManagedSubaccountAssetV1Request) RecvWindow(recvWindow int64) ApiSubaccountGetManagedSubaccountAssetV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountAssetV1Request) Execute() ([]SubaccountGetManagedSubaccountAssetV1RespItem, *http.Response, error) {
+func (r ApiSubaccountGetManagedSubaccountAssetV1Request) Execute() ([]SubaccountGetManagedSubaccountAssetV1RespItem, *http.Response, error) {
 	return r.ApiService.SubaccountGetManagedSubaccountAssetV1Execute(r)
 }
 
@@ -593,10 +593,10 @@ SubaccountGetManagedSubaccountAssetV1 Query Managed Sub-account Asset Details(Fo
 Query Managed Sub-account Asset Details
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ManagedSubAccountAPISubaccountGetManagedSubaccountAssetV1Request
+ @return ApiSubaccountGetManagedSubaccountAssetV1Request
 */
-func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountAssetV1(ctx context.Context) ManagedSubAccountAPISubaccountGetManagedSubaccountAssetV1Request {
-	return ManagedSubAccountAPISubaccountGetManagedSubaccountAssetV1Request{
+func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountAssetV1(ctx context.Context) ApiSubaccountGetManagedSubaccountAssetV1Request {
+	return ApiSubaccountGetManagedSubaccountAssetV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -604,7 +604,7 @@ func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountAssetV1(ctx 
 
 // Execute executes the request
 //  @return []SubaccountGetManagedSubaccountAssetV1RespItem
-func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountAssetV1Execute(r ManagedSubAccountAPISubaccountGetManagedSubaccountAssetV1Request) ([]SubaccountGetManagedSubaccountAssetV1RespItem, *http.Response, error) {
+func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountAssetV1Execute(r ApiSubaccountGetManagedSubaccountAssetV1Request) ([]SubaccountGetManagedSubaccountAssetV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -709,7 +709,7 @@ func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountAssetV1Execu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ManagedSubAccountAPISubaccountGetManagedSubaccountDepositAddressV1Request struct {
+type ApiSubaccountGetManagedSubaccountDepositAddressV1Request struct {
 	ctx context.Context
 	ApiService *ManagedSubAccountAPIService
 	email *string
@@ -721,38 +721,38 @@ type ManagedSubAccountAPISubaccountGetManagedSubaccountDepositAddressV1Request s
 }
 
 // Sub user email
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountDepositAddressV1Request) Email(email string) ManagedSubAccountAPISubaccountGetManagedSubaccountDepositAddressV1Request {
+func (r ApiSubaccountGetManagedSubaccountDepositAddressV1Request) Email(email string) ApiSubaccountGetManagedSubaccountDepositAddressV1Request {
 	r.email = &email
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountDepositAddressV1Request) Coin(coin string) ManagedSubAccountAPISubaccountGetManagedSubaccountDepositAddressV1Request {
+func (r ApiSubaccountGetManagedSubaccountDepositAddressV1Request) Coin(coin string) ApiSubaccountGetManagedSubaccountDepositAddressV1Request {
 	r.coin = &coin
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountDepositAddressV1Request) Timestamp(timestamp int64) ManagedSubAccountAPISubaccountGetManagedSubaccountDepositAddressV1Request {
+func (r ApiSubaccountGetManagedSubaccountDepositAddressV1Request) Timestamp(timestamp int64) ApiSubaccountGetManagedSubaccountDepositAddressV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // networks can be found in &#x60;GET /sapi/v1/capital/deposit/address&#x60;
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountDepositAddressV1Request) Network(network string) ManagedSubAccountAPISubaccountGetManagedSubaccountDepositAddressV1Request {
+func (r ApiSubaccountGetManagedSubaccountDepositAddressV1Request) Network(network string) ApiSubaccountGetManagedSubaccountDepositAddressV1Request {
 	r.network = &network
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountDepositAddressV1Request) Amount(amount string) ManagedSubAccountAPISubaccountGetManagedSubaccountDepositAddressV1Request {
+func (r ApiSubaccountGetManagedSubaccountDepositAddressV1Request) Amount(amount string) ApiSubaccountGetManagedSubaccountDepositAddressV1Request {
 	r.amount = &amount
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountDepositAddressV1Request) RecvWindow(recvWindow int64) ManagedSubAccountAPISubaccountGetManagedSubaccountDepositAddressV1Request {
+func (r ApiSubaccountGetManagedSubaccountDepositAddressV1Request) RecvWindow(recvWindow int64) ApiSubaccountGetManagedSubaccountDepositAddressV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountDepositAddressV1Request) Execute() (*SubaccountGetManagedSubaccountDepositAddressV1Resp, *http.Response, error) {
+func (r ApiSubaccountGetManagedSubaccountDepositAddressV1Request) Execute() (*SubaccountGetManagedSubaccountDepositAddressV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetManagedSubaccountDepositAddressV1Execute(r)
 }
 
@@ -762,10 +762,10 @@ SubaccountGetManagedSubaccountDepositAddressV1 Get Managed Sub-account Deposit A
 Get investor's managed sub-account deposit address.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ManagedSubAccountAPISubaccountGetManagedSubaccountDepositAddressV1Request
+ @return ApiSubaccountGetManagedSubaccountDepositAddressV1Request
 */
-func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountDepositAddressV1(ctx context.Context) ManagedSubAccountAPISubaccountGetManagedSubaccountDepositAddressV1Request {
-	return ManagedSubAccountAPISubaccountGetManagedSubaccountDepositAddressV1Request{
+func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountDepositAddressV1(ctx context.Context) ApiSubaccountGetManagedSubaccountDepositAddressV1Request {
+	return ApiSubaccountGetManagedSubaccountDepositAddressV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -773,7 +773,7 @@ func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountDepositAddre
 
 // Execute executes the request
 //  @return SubaccountGetManagedSubaccountDepositAddressV1Resp
-func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountDepositAddressV1Execute(r ManagedSubAccountAPISubaccountGetManagedSubaccountDepositAddressV1Request) (*SubaccountGetManagedSubaccountDepositAddressV1Resp, *http.Response, error) {
+func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountDepositAddressV1Execute(r ApiSubaccountGetManagedSubaccountDepositAddressV1Request) (*SubaccountGetManagedSubaccountDepositAddressV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -900,7 +900,7 @@ func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountDepositAddre
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ManagedSubAccountAPISubaccountGetManagedSubaccountFetchFutureAssetV1Request struct {
+type ApiSubaccountGetManagedSubaccountFetchFutureAssetV1Request struct {
 	ctx context.Context
 	ApiService *ManagedSubAccountAPIService
 	email *string
@@ -908,18 +908,18 @@ type ManagedSubAccountAPISubaccountGetManagedSubaccountFetchFutureAssetV1Request
 }
 
 // Managed Sub Account Email
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountFetchFutureAssetV1Request) Email(email string) ManagedSubAccountAPISubaccountGetManagedSubaccountFetchFutureAssetV1Request {
+func (r ApiSubaccountGetManagedSubaccountFetchFutureAssetV1Request) Email(email string) ApiSubaccountGetManagedSubaccountFetchFutureAssetV1Request {
 	r.email = &email
 	return r
 }
 
 // No input or input &amp;#34;USDT_FUTURE&amp;#34; to get UM Futures account details. Input &amp;#34;COIN_FUTURE&amp;#34; to get CM Futures account details.
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountFetchFutureAssetV1Request) AccountType(accountType string) ManagedSubAccountAPISubaccountGetManagedSubaccountFetchFutureAssetV1Request {
+func (r ApiSubaccountGetManagedSubaccountFetchFutureAssetV1Request) AccountType(accountType string) ApiSubaccountGetManagedSubaccountFetchFutureAssetV1Request {
 	r.accountType = &accountType
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountFetchFutureAssetV1Request) Execute() (*SubaccountGetManagedSubaccountFetchFutureAssetV1Resp, *http.Response, error) {
+func (r ApiSubaccountGetManagedSubaccountFetchFutureAssetV1Request) Execute() (*SubaccountGetManagedSubaccountFetchFutureAssetV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetManagedSubaccountFetchFutureAssetV1Execute(r)
 }
 
@@ -929,10 +929,10 @@ SubaccountGetManagedSubaccountFetchFutureAssetV1 Query Managed Sub-account Futur
 Investor can use this api to query managed sub account futures asset details
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ManagedSubAccountAPISubaccountGetManagedSubaccountFetchFutureAssetV1Request
+ @return ApiSubaccountGetManagedSubaccountFetchFutureAssetV1Request
 */
-func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountFetchFutureAssetV1(ctx context.Context) ManagedSubAccountAPISubaccountGetManagedSubaccountFetchFutureAssetV1Request {
-	return ManagedSubAccountAPISubaccountGetManagedSubaccountFetchFutureAssetV1Request{
+func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountFetchFutureAssetV1(ctx context.Context) ApiSubaccountGetManagedSubaccountFetchFutureAssetV1Request {
+	return ApiSubaccountGetManagedSubaccountFetchFutureAssetV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -940,7 +940,7 @@ func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountFetchFutureA
 
 // Execute executes the request
 //  @return SubaccountGetManagedSubaccountFetchFutureAssetV1Resp
-func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountFetchFutureAssetV1Execute(r ManagedSubAccountAPISubaccountGetManagedSubaccountFetchFutureAssetV1Request) (*SubaccountGetManagedSubaccountFetchFutureAssetV1Resp, *http.Response, error) {
+func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountFetchFutureAssetV1Execute(r ApiSubaccountGetManagedSubaccountFetchFutureAssetV1Request) (*SubaccountGetManagedSubaccountFetchFutureAssetV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1050,7 +1050,7 @@ func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountFetchFutureA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ManagedSubAccountAPISubaccountGetManagedSubaccountInfoV1Request struct {
+type ApiSubaccountGetManagedSubaccountInfoV1Request struct {
 	ctx context.Context
 	ApiService *ManagedSubAccountAPIService
 	timestamp *int64
@@ -1060,35 +1060,35 @@ type ManagedSubAccountAPISubaccountGetManagedSubaccountInfoV1Request struct {
 	recvWindow *int64
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountInfoV1Request) Timestamp(timestamp int64) ManagedSubAccountAPISubaccountGetManagedSubaccountInfoV1Request {
+func (r ApiSubaccountGetManagedSubaccountInfoV1Request) Timestamp(timestamp int64) ApiSubaccountGetManagedSubaccountInfoV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Managed sub-account email
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountInfoV1Request) Email(email string) ManagedSubAccountAPISubaccountGetManagedSubaccountInfoV1Request {
+func (r ApiSubaccountGetManagedSubaccountInfoV1Request) Email(email string) ApiSubaccountGetManagedSubaccountInfoV1Request {
 	r.email = &email
 	return r
 }
 
 // Default value: 1
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountInfoV1Request) Page(page int32) ManagedSubAccountAPISubaccountGetManagedSubaccountInfoV1Request {
+func (r ApiSubaccountGetManagedSubaccountInfoV1Request) Page(page int32) ApiSubaccountGetManagedSubaccountInfoV1Request {
 	r.page = &page
 	return r
 }
 
 // Default value: 20, Max value: 20
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountInfoV1Request) Limit(limit int32) ManagedSubAccountAPISubaccountGetManagedSubaccountInfoV1Request {
+func (r ApiSubaccountGetManagedSubaccountInfoV1Request) Limit(limit int32) ApiSubaccountGetManagedSubaccountInfoV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountInfoV1Request) RecvWindow(recvWindow int64) ManagedSubAccountAPISubaccountGetManagedSubaccountInfoV1Request {
+func (r ApiSubaccountGetManagedSubaccountInfoV1Request) RecvWindow(recvWindow int64) ApiSubaccountGetManagedSubaccountInfoV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountInfoV1Request) Execute() (*SubaccountGetManagedSubaccountInfoV1Resp, *http.Response, error) {
+func (r ApiSubaccountGetManagedSubaccountInfoV1Request) Execute() (*SubaccountGetManagedSubaccountInfoV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetManagedSubaccountInfoV1Execute(r)
 }
 
@@ -1098,10 +1098,10 @@ SubaccountGetManagedSubaccountInfoV1 Query Managed Sub-account List(For Investor
 Get investor's managed sub-account list.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ManagedSubAccountAPISubaccountGetManagedSubaccountInfoV1Request
+ @return ApiSubaccountGetManagedSubaccountInfoV1Request
 */
-func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountInfoV1(ctx context.Context) ManagedSubAccountAPISubaccountGetManagedSubaccountInfoV1Request {
-	return ManagedSubAccountAPISubaccountGetManagedSubaccountInfoV1Request{
+func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountInfoV1(ctx context.Context) ApiSubaccountGetManagedSubaccountInfoV1Request {
+	return ApiSubaccountGetManagedSubaccountInfoV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1109,7 +1109,7 @@ func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountInfoV1(ctx c
 
 // Execute executes the request
 //  @return SubaccountGetManagedSubaccountInfoV1Resp
-func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountInfoV1Execute(r ManagedSubAccountAPISubaccountGetManagedSubaccountInfoV1Request) (*SubaccountGetManagedSubaccountInfoV1Resp, *http.Response, error) {
+func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountInfoV1Execute(r ApiSubaccountGetManagedSubaccountInfoV1Request) (*SubaccountGetManagedSubaccountInfoV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1228,7 +1228,7 @@ func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountInfoV1Execut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ManagedSubAccountAPISubaccountGetManagedSubaccountMarginAssetV1Request struct {
+type ApiSubaccountGetManagedSubaccountMarginAssetV1Request struct {
 	ctx context.Context
 	ApiService *ManagedSubAccountAPIService
 	email *string
@@ -1236,18 +1236,18 @@ type ManagedSubAccountAPISubaccountGetManagedSubaccountMarginAssetV1Request stru
 }
 
 // Managed Sub Account Email
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountMarginAssetV1Request) Email(email string) ManagedSubAccountAPISubaccountGetManagedSubaccountMarginAssetV1Request {
+func (r ApiSubaccountGetManagedSubaccountMarginAssetV1Request) Email(email string) ApiSubaccountGetManagedSubaccountMarginAssetV1Request {
 	r.email = &email
 	return r
 }
 
 // No input or input &amp;#34;MARGIN&amp;#34; to get Cross Margin account details. Input &amp;#34;ISOLATED_MARGIN&amp;#34; to get Isolated Margin account details.
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountMarginAssetV1Request) AccountType(accountType string) ManagedSubAccountAPISubaccountGetManagedSubaccountMarginAssetV1Request {
+func (r ApiSubaccountGetManagedSubaccountMarginAssetV1Request) AccountType(accountType string) ApiSubaccountGetManagedSubaccountMarginAssetV1Request {
 	r.accountType = &accountType
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountMarginAssetV1Request) Execute() (*SubaccountGetManagedSubaccountMarginAssetV1Resp, *http.Response, error) {
+func (r ApiSubaccountGetManagedSubaccountMarginAssetV1Request) Execute() (*SubaccountGetManagedSubaccountMarginAssetV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetManagedSubaccountMarginAssetV1Execute(r)
 }
 
@@ -1257,10 +1257,10 @@ SubaccountGetManagedSubaccountMarginAssetV1 Query Managed Sub-account Margin Ass
 Investor can use this api to query managed sub account margin asset details
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ManagedSubAccountAPISubaccountGetManagedSubaccountMarginAssetV1Request
+ @return ApiSubaccountGetManagedSubaccountMarginAssetV1Request
 */
-func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountMarginAssetV1(ctx context.Context) ManagedSubAccountAPISubaccountGetManagedSubaccountMarginAssetV1Request {
-	return ManagedSubAccountAPISubaccountGetManagedSubaccountMarginAssetV1Request{
+func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountMarginAssetV1(ctx context.Context) ApiSubaccountGetManagedSubaccountMarginAssetV1Request {
+	return ApiSubaccountGetManagedSubaccountMarginAssetV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1268,7 +1268,7 @@ func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountMarginAssetV
 
 // Execute executes the request
 //  @return SubaccountGetManagedSubaccountMarginAssetV1Resp
-func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountMarginAssetV1Execute(r ManagedSubAccountAPISubaccountGetManagedSubaccountMarginAssetV1Request) (*SubaccountGetManagedSubaccountMarginAssetV1Resp, *http.Response, error) {
+func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountMarginAssetV1Execute(r ApiSubaccountGetManagedSubaccountMarginAssetV1Request) (*SubaccountGetManagedSubaccountMarginAssetV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1378,7 +1378,7 @@ func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountMarginAssetV
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request struct {
+type ApiSubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request struct {
 	ctx context.Context
 	ApiService *ManagedSubAccountAPIService
 	email *string
@@ -1391,48 +1391,48 @@ type ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForInvestorV
 }
 
 // Managed Sub Account Email
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request) Email(email string) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request) Email(email string) ApiSubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request {
 	r.email = &email
 	return r
 }
 
 // Start Time
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request) StartTime(startTime int64) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request) StartTime(startTime int64) ApiSubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // End Time (The start time and end time interval cannot exceed half a year)
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request) EndTime(endTime int64) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request) EndTime(endTime int64) ApiSubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Page
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request) Page(page int32) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request) Page(page int32) ApiSubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request {
 	r.page = &page
 	return r
 }
 
 // Limit (Max: 500)
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request) Limit(limit int32) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request) Limit(limit int32) ApiSubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request {
 	r.limit = &limit
 	return r
 }
 
 // Transfer Direction (FROM/TO)
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request) Transfers(transfers string) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request) Transfers(transfers string) ApiSubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request {
 	r.transfers = &transfers
 	return r
 }
 
 // Transfer function account type (SPOT/MARGIN/ISOLATED_MARGIN/USDT_FUTURE/COIN_FUTURE)
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request) TransferFunctionAccountType(transferFunctionAccountType string) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request) TransferFunctionAccountType(transferFunctionAccountType string) ApiSubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request {
 	r.transferFunctionAccountType = &transferFunctionAccountType
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request) Execute() (*SubaccountGetManagedSubaccountQueryTransLogForInvestorV1Resp, *http.Response, error) {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request) Execute() (*SubaccountGetManagedSubaccountQueryTransLogForInvestorV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetManagedSubaccountQueryTransLogForInvestorV1Execute(r)
 }
 
@@ -1443,10 +1443,10 @@ Investor can use this api to query managed sub account transfer log. This endpoi
 Please refer to link
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request
+ @return ApiSubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request
 */
-func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountQueryTransLogForInvestorV1(ctx context.Context) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request {
-	return ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request{
+func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountQueryTransLogForInvestorV1(ctx context.Context) ApiSubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request {
+	return ApiSubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1454,7 +1454,7 @@ func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountQueryTransLo
 
 // Execute executes the request
 //  @return SubaccountGetManagedSubaccountQueryTransLogForInvestorV1Resp
-func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountQueryTransLogForInvestorV1Execute(r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request) (*SubaccountGetManagedSubaccountQueryTransLogForInvestorV1Resp, *http.Response, error) {
+func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountQueryTransLogForInvestorV1Execute(r ApiSubaccountGetManagedSubaccountQueryTransLogForInvestorV1Request) (*SubaccountGetManagedSubaccountQueryTransLogForInvestorV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1589,7 +1589,7 @@ func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountQueryTransLo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request struct {
+type ApiSubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request struct {
 	ctx context.Context
 	ApiService *ManagedSubAccountAPIService
 	email *string
@@ -1602,48 +1602,48 @@ type ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForTradePare
 }
 
 // Managed Sub Account Email
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request) Email(email string) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request) Email(email string) ApiSubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request {
 	r.email = &email
 	return r
 }
 
 // Start Time
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request) StartTime(startTime int64) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request) StartTime(startTime int64) ApiSubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // End Time (The start time and end time interval cannot exceed half a year)
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request) EndTime(endTime int64) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request) EndTime(endTime int64) ApiSubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Page
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request) Page(page int32) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request) Page(page int32) ApiSubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request {
 	r.page = &page
 	return r
 }
 
 // Limit (Max: 500)
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request) Limit(limit int32) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request) Limit(limit int32) ApiSubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request {
 	r.limit = &limit
 	return r
 }
 
 // Transfer Direction (FROM/TO)
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request) Transfers(transfers string) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request) Transfers(transfers string) ApiSubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request {
 	r.transfers = &transfers
 	return r
 }
 
 // Transfer function account type (SPOT/MARGIN/ISOLATED_MARGIN/USDT_FUTURE/COIN_FUTURE)
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request) TransferFunctionAccountType(transferFunctionAccountType string) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request) TransferFunctionAccountType(transferFunctionAccountType string) ApiSubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request {
 	r.transferFunctionAccountType = &transferFunctionAccountType
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request) Execute() (*SubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Resp, *http.Response, error) {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request) Execute() (*SubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Execute(r)
 }
 
@@ -1654,10 +1654,10 @@ Trading team can use this api to query managed sub account transfer log. This en
 Please refer to link
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request
+ @return ApiSubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request
 */
-func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountQueryTransLogForTradeParentV1(ctx context.Context) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request {
-	return ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request{
+func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountQueryTransLogForTradeParentV1(ctx context.Context) ApiSubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request {
+	return ApiSubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1665,7 +1665,7 @@ func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountQueryTransLo
 
 // Execute executes the request
 //  @return SubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Resp
-func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Execute(r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request) (*SubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Resp, *http.Response, error) {
+func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Execute(r ApiSubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Request) (*SubaccountGetManagedSubaccountQueryTransLogForTradeParentV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1800,7 +1800,7 @@ func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountQueryTransLo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogV1Request struct {
+type ApiSubaccountGetManagedSubaccountQueryTransLogV1Request struct {
 	ctx context.Context
 	ApiService *ManagedSubAccountAPIService
 	startTime *int64
@@ -1814,52 +1814,52 @@ type ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogV1Request st
 }
 
 // Start Time
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogV1Request) StartTime(startTime int64) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogV1Request {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogV1Request) StartTime(startTime int64) ApiSubaccountGetManagedSubaccountQueryTransLogV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // End Time (The start time and end time interval cannot exceed half a year)
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogV1Request) EndTime(endTime int64) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogV1Request {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogV1Request) EndTime(endTime int64) ApiSubaccountGetManagedSubaccountQueryTransLogV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Page
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogV1Request) Page(page int32) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogV1Request {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogV1Request) Page(page int32) ApiSubaccountGetManagedSubaccountQueryTransLogV1Request {
 	r.page = &page
 	return r
 }
 
 // Limit (Max: 500)
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogV1Request) Limit(limit int32) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogV1Request {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogV1Request) Limit(limit int32) ApiSubaccountGetManagedSubaccountQueryTransLogV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogV1Request) Timestamp(timestamp int64) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogV1Request {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogV1Request) Timestamp(timestamp int64) ApiSubaccountGetManagedSubaccountQueryTransLogV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Transfer Direction (FROM/TO)
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogV1Request) Transfers(transfers string) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogV1Request {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogV1Request) Transfers(transfers string) ApiSubaccountGetManagedSubaccountQueryTransLogV1Request {
 	r.transfers = &transfers
 	return r
 }
 
 // Transfer function account type (SPOT/MARGIN/ISOLATED_MARGIN/USDT_FUTURE/COIN_FUTURE)
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogV1Request) TransferFunctionAccountType(transferFunctionAccountType string) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogV1Request {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogV1Request) TransferFunctionAccountType(transferFunctionAccountType string) ApiSubaccountGetManagedSubaccountQueryTransLogV1Request {
 	r.transferFunctionAccountType = &transferFunctionAccountType
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogV1Request) RecvWindow(recvWindow int64) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogV1Request {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogV1Request) RecvWindow(recvWindow int64) ApiSubaccountGetManagedSubaccountQueryTransLogV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogV1Request) Execute() (*SubaccountGetManagedSubaccountQueryTransLogV1Resp, *http.Response, error) {
+func (r ApiSubaccountGetManagedSubaccountQueryTransLogV1Request) Execute() (*SubaccountGetManagedSubaccountQueryTransLogV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetManagedSubaccountQueryTransLogV1Execute(r)
 }
 
@@ -1869,10 +1869,10 @@ SubaccountGetManagedSubaccountQueryTransLogV1 Query Managed Sub Account Transfer
 Query Managed Sub Account Transfer Log (For Trading Team Sub Account)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogV1Request
+ @return ApiSubaccountGetManagedSubaccountQueryTransLogV1Request
 */
-func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountQueryTransLogV1(ctx context.Context) ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogV1Request {
-	return ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogV1Request{
+func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountQueryTransLogV1(ctx context.Context) ApiSubaccountGetManagedSubaccountQueryTransLogV1Request {
+	return ApiSubaccountGetManagedSubaccountQueryTransLogV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1880,7 +1880,7 @@ func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountQueryTransLo
 
 // Execute executes the request
 //  @return SubaccountGetManagedSubaccountQueryTransLogV1Resp
-func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountQueryTransLogV1Execute(r ManagedSubAccountAPISubaccountGetManagedSubaccountQueryTransLogV1Request) (*SubaccountGetManagedSubaccountQueryTransLogV1Resp, *http.Response, error) {
+func (a *ManagedSubAccountAPIService) SubaccountGetManagedSubaccountQueryTransLogV1Execute(r ApiSubaccountGetManagedSubaccountQueryTransLogV1Request) (*SubaccountGetManagedSubaccountQueryTransLogV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

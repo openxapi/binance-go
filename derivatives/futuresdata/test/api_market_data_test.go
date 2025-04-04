@@ -1,5 +1,5 @@
 /*
-Binance Futuresdata API
+Binance Futures Data API
 
 Testing MarketDataAPIService
 

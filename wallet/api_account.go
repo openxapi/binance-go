@@ -22,24 +22,24 @@ import (
 // AccountAPIService AccountAPI service
 type AccountAPIService service
 
-type AccountAPIWalletCreateAccountDisableFastWithdrawSwitchV1Request struct {
+type ApiWalletCreateAccountDisableFastWithdrawSwitchV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIWalletCreateAccountDisableFastWithdrawSwitchV1Request) Timestamp(timestamp int64) AccountAPIWalletCreateAccountDisableFastWithdrawSwitchV1Request {
+func (r ApiWalletCreateAccountDisableFastWithdrawSwitchV1Request) Timestamp(timestamp int64) ApiWalletCreateAccountDisableFastWithdrawSwitchV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIWalletCreateAccountDisableFastWithdrawSwitchV1Request) RecvWindow(recvWindow int64) AccountAPIWalletCreateAccountDisableFastWithdrawSwitchV1Request {
+func (r ApiWalletCreateAccountDisableFastWithdrawSwitchV1Request) RecvWindow(recvWindow int64) ApiWalletCreateAccountDisableFastWithdrawSwitchV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIWalletCreateAccountDisableFastWithdrawSwitchV1Request) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiWalletCreateAccountDisableFastWithdrawSwitchV1Request) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.WalletCreateAccountDisableFastWithdrawSwitchV1Execute(r)
 }
 
@@ -47,10 +47,10 @@ func (r AccountAPIWalletCreateAccountDisableFastWithdrawSwitchV1Request) Execute
 WalletCreateAccountDisableFastWithdrawSwitchV1 Disable Fast Withdraw Switch (USER_DATA)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIWalletCreateAccountDisableFastWithdrawSwitchV1Request
+ @return ApiWalletCreateAccountDisableFastWithdrawSwitchV1Request
 */
-func (a *AccountAPIService) WalletCreateAccountDisableFastWithdrawSwitchV1(ctx context.Context) AccountAPIWalletCreateAccountDisableFastWithdrawSwitchV1Request {
-	return AccountAPIWalletCreateAccountDisableFastWithdrawSwitchV1Request{
+func (a *AccountAPIService) WalletCreateAccountDisableFastWithdrawSwitchV1(ctx context.Context) ApiWalletCreateAccountDisableFastWithdrawSwitchV1Request {
+	return ApiWalletCreateAccountDisableFastWithdrawSwitchV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -58,7 +58,7 @@ func (a *AccountAPIService) WalletCreateAccountDisableFastWithdrawSwitchV1(ctx c
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *AccountAPIService) WalletCreateAccountDisableFastWithdrawSwitchV1Execute(r AccountAPIWalletCreateAccountDisableFastWithdrawSwitchV1Request) (map[string]interface{}, *http.Response, error) {
+func (a *AccountAPIService) WalletCreateAccountDisableFastWithdrawSwitchV1Execute(r ApiWalletCreateAccountDisableFastWithdrawSwitchV1Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -165,24 +165,24 @@ func (a *AccountAPIService) WalletCreateAccountDisableFastWithdrawSwitchV1Execut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIWalletCreateAccountEnableFastWithdrawSwitchV1Request struct {
+type ApiWalletCreateAccountEnableFastWithdrawSwitchV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIWalletCreateAccountEnableFastWithdrawSwitchV1Request) Timestamp(timestamp int64) AccountAPIWalletCreateAccountEnableFastWithdrawSwitchV1Request {
+func (r ApiWalletCreateAccountEnableFastWithdrawSwitchV1Request) Timestamp(timestamp int64) ApiWalletCreateAccountEnableFastWithdrawSwitchV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIWalletCreateAccountEnableFastWithdrawSwitchV1Request) RecvWindow(recvWindow int64) AccountAPIWalletCreateAccountEnableFastWithdrawSwitchV1Request {
+func (r ApiWalletCreateAccountEnableFastWithdrawSwitchV1Request) RecvWindow(recvWindow int64) ApiWalletCreateAccountEnableFastWithdrawSwitchV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIWalletCreateAccountEnableFastWithdrawSwitchV1Request) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiWalletCreateAccountEnableFastWithdrawSwitchV1Request) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.WalletCreateAccountEnableFastWithdrawSwitchV1Execute(r)
 }
 
@@ -192,10 +192,10 @@ WalletCreateAccountEnableFastWithdrawSwitchV1 Enable Fast Withdraw Switch (USER_
 Enable Fast Withdraw Switch (USER_DATA)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIWalletCreateAccountEnableFastWithdrawSwitchV1Request
+ @return ApiWalletCreateAccountEnableFastWithdrawSwitchV1Request
 */
-func (a *AccountAPIService) WalletCreateAccountEnableFastWithdrawSwitchV1(ctx context.Context) AccountAPIWalletCreateAccountEnableFastWithdrawSwitchV1Request {
-	return AccountAPIWalletCreateAccountEnableFastWithdrawSwitchV1Request{
+func (a *AccountAPIService) WalletCreateAccountEnableFastWithdrawSwitchV1(ctx context.Context) ApiWalletCreateAccountEnableFastWithdrawSwitchV1Request {
+	return ApiWalletCreateAccountEnableFastWithdrawSwitchV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -203,7 +203,7 @@ func (a *AccountAPIService) WalletCreateAccountEnableFastWithdrawSwitchV1(ctx co
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *AccountAPIService) WalletCreateAccountEnableFastWithdrawSwitchV1Execute(r AccountAPIWalletCreateAccountEnableFastWithdrawSwitchV1Request) (map[string]interface{}, *http.Response, error) {
+func (a *AccountAPIService) WalletCreateAccountEnableFastWithdrawSwitchV1Execute(r ApiWalletCreateAccountEnableFastWithdrawSwitchV1Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -310,24 +310,24 @@ func (a *AccountAPIService) WalletCreateAccountEnableFastWithdrawSwitchV1Execute
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIWalletGetAccountApiRestrictionsV1Request struct {
+type ApiWalletGetAccountApiRestrictionsV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIWalletGetAccountApiRestrictionsV1Request) Timestamp(timestamp int64) AccountAPIWalletGetAccountApiRestrictionsV1Request {
+func (r ApiWalletGetAccountApiRestrictionsV1Request) Timestamp(timestamp int64) ApiWalletGetAccountApiRestrictionsV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIWalletGetAccountApiRestrictionsV1Request) RecvWindow(recvWindow int64) AccountAPIWalletGetAccountApiRestrictionsV1Request {
+func (r ApiWalletGetAccountApiRestrictionsV1Request) RecvWindow(recvWindow int64) ApiWalletGetAccountApiRestrictionsV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIWalletGetAccountApiRestrictionsV1Request) Execute() (*WalletGetAccountApiRestrictionsV1Resp, *http.Response, error) {
+func (r ApiWalletGetAccountApiRestrictionsV1Request) Execute() (*WalletGetAccountApiRestrictionsV1Resp, *http.Response, error) {
 	return r.ApiService.WalletGetAccountApiRestrictionsV1Execute(r)
 }
 
@@ -337,10 +337,10 @@ WalletGetAccountApiRestrictionsV1 Get API Key Permission (USER_DATA)
 Get API Key Permission
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIWalletGetAccountApiRestrictionsV1Request
+ @return ApiWalletGetAccountApiRestrictionsV1Request
 */
-func (a *AccountAPIService) WalletGetAccountApiRestrictionsV1(ctx context.Context) AccountAPIWalletGetAccountApiRestrictionsV1Request {
-	return AccountAPIWalletGetAccountApiRestrictionsV1Request{
+func (a *AccountAPIService) WalletGetAccountApiRestrictionsV1(ctx context.Context) ApiWalletGetAccountApiRestrictionsV1Request {
+	return ApiWalletGetAccountApiRestrictionsV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -348,7 +348,7 @@ func (a *AccountAPIService) WalletGetAccountApiRestrictionsV1(ctx context.Contex
 
 // Execute executes the request
 //  @return WalletGetAccountApiRestrictionsV1Resp
-func (a *AccountAPIService) WalletGetAccountApiRestrictionsV1Execute(r AccountAPIWalletGetAccountApiRestrictionsV1Request) (*WalletGetAccountApiRestrictionsV1Resp, *http.Response, error) {
+func (a *AccountAPIService) WalletGetAccountApiRestrictionsV1Execute(r ApiWalletGetAccountApiRestrictionsV1Request) (*WalletGetAccountApiRestrictionsV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -455,24 +455,24 @@ func (a *AccountAPIService) WalletGetAccountApiRestrictionsV1Execute(r AccountAP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIWalletGetAccountApiTradingStatusV1Request struct {
+type ApiWalletGetAccountApiTradingStatusV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIWalletGetAccountApiTradingStatusV1Request) Timestamp(timestamp int64) AccountAPIWalletGetAccountApiTradingStatusV1Request {
+func (r ApiWalletGetAccountApiTradingStatusV1Request) Timestamp(timestamp int64) ApiWalletGetAccountApiTradingStatusV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIWalletGetAccountApiTradingStatusV1Request) RecvWindow(recvWindow int64) AccountAPIWalletGetAccountApiTradingStatusV1Request {
+func (r ApiWalletGetAccountApiTradingStatusV1Request) RecvWindow(recvWindow int64) ApiWalletGetAccountApiTradingStatusV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIWalletGetAccountApiTradingStatusV1Request) Execute() (*WalletGetAccountApiTradingStatusV1Resp, *http.Response, error) {
+func (r ApiWalletGetAccountApiTradingStatusV1Request) Execute() (*WalletGetAccountApiTradingStatusV1Resp, *http.Response, error) {
 	return r.ApiService.WalletGetAccountApiTradingStatusV1Execute(r)
 }
 
@@ -482,10 +482,10 @@ WalletGetAccountApiTradingStatusV1 Account API Trading Status (USER_DATA)
 Fetch account api trading status detail.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIWalletGetAccountApiTradingStatusV1Request
+ @return ApiWalletGetAccountApiTradingStatusV1Request
 */
-func (a *AccountAPIService) WalletGetAccountApiTradingStatusV1(ctx context.Context) AccountAPIWalletGetAccountApiTradingStatusV1Request {
-	return AccountAPIWalletGetAccountApiTradingStatusV1Request{
+func (a *AccountAPIService) WalletGetAccountApiTradingStatusV1(ctx context.Context) ApiWalletGetAccountApiTradingStatusV1Request {
+	return ApiWalletGetAccountApiTradingStatusV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -493,7 +493,7 @@ func (a *AccountAPIService) WalletGetAccountApiTradingStatusV1(ctx context.Conte
 
 // Execute executes the request
 //  @return WalletGetAccountApiTradingStatusV1Resp
-func (a *AccountAPIService) WalletGetAccountApiTradingStatusV1Execute(r AccountAPIWalletGetAccountApiTradingStatusV1Request) (*WalletGetAccountApiTradingStatusV1Resp, *http.Response, error) {
+func (a *AccountAPIService) WalletGetAccountApiTradingStatusV1Execute(r ApiWalletGetAccountApiTradingStatusV1Request) (*WalletGetAccountApiTradingStatusV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -600,24 +600,24 @@ func (a *AccountAPIService) WalletGetAccountApiTradingStatusV1Execute(r AccountA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIWalletGetAccountInfoV1Request struct {
+type ApiWalletGetAccountInfoV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIWalletGetAccountInfoV1Request) Timestamp(timestamp int64) AccountAPIWalletGetAccountInfoV1Request {
+func (r ApiWalletGetAccountInfoV1Request) Timestamp(timestamp int64) ApiWalletGetAccountInfoV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIWalletGetAccountInfoV1Request) RecvWindow(recvWindow int64) AccountAPIWalletGetAccountInfoV1Request {
+func (r ApiWalletGetAccountInfoV1Request) RecvWindow(recvWindow int64) ApiWalletGetAccountInfoV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIWalletGetAccountInfoV1Request) Execute() (*WalletGetAccountInfoV1Resp, *http.Response, error) {
+func (r ApiWalletGetAccountInfoV1Request) Execute() (*WalletGetAccountInfoV1Resp, *http.Response, error) {
 	return r.ApiService.WalletGetAccountInfoV1Execute(r)
 }
 
@@ -627,10 +627,10 @@ WalletGetAccountInfoV1 Account info (USER_DATA)
 Fetch account info detail.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIWalletGetAccountInfoV1Request
+ @return ApiWalletGetAccountInfoV1Request
 */
-func (a *AccountAPIService) WalletGetAccountInfoV1(ctx context.Context) AccountAPIWalletGetAccountInfoV1Request {
-	return AccountAPIWalletGetAccountInfoV1Request{
+func (a *AccountAPIService) WalletGetAccountInfoV1(ctx context.Context) ApiWalletGetAccountInfoV1Request {
+	return ApiWalletGetAccountInfoV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -638,7 +638,7 @@ func (a *AccountAPIService) WalletGetAccountInfoV1(ctx context.Context) AccountA
 
 // Execute executes the request
 //  @return WalletGetAccountInfoV1Resp
-func (a *AccountAPIService) WalletGetAccountInfoV1Execute(r AccountAPIWalletGetAccountInfoV1Request) (*WalletGetAccountInfoV1Resp, *http.Response, error) {
+func (a *AccountAPIService) WalletGetAccountInfoV1Execute(r ApiWalletGetAccountInfoV1Request) (*WalletGetAccountInfoV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -745,7 +745,7 @@ func (a *AccountAPIService) WalletGetAccountInfoV1Execute(r AccountAPIWalletGetA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIWalletGetAccountSnapshotV1Request struct {
+type ApiWalletGetAccountSnapshotV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	type_ *string
@@ -757,38 +757,38 @@ type AccountAPIWalletGetAccountSnapshotV1Request struct {
 }
 
 // &amp;#34;SPOT&amp;#34;, &amp;#34;MARGIN&amp;#34;, &amp;#34;FUTURES&amp;#34;
-func (r AccountAPIWalletGetAccountSnapshotV1Request) Type_(type_ string) AccountAPIWalletGetAccountSnapshotV1Request {
+func (r ApiWalletGetAccountSnapshotV1Request) Type_(type_ string) ApiWalletGetAccountSnapshotV1Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r AccountAPIWalletGetAccountSnapshotV1Request) Timestamp(timestamp int64) AccountAPIWalletGetAccountSnapshotV1Request {
+func (r ApiWalletGetAccountSnapshotV1Request) Timestamp(timestamp int64) ApiWalletGetAccountSnapshotV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIWalletGetAccountSnapshotV1Request) StartTime(startTime int64) AccountAPIWalletGetAccountSnapshotV1Request {
+func (r ApiWalletGetAccountSnapshotV1Request) StartTime(startTime int64) ApiWalletGetAccountSnapshotV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r AccountAPIWalletGetAccountSnapshotV1Request) EndTime(endTime int64) AccountAPIWalletGetAccountSnapshotV1Request {
+func (r ApiWalletGetAccountSnapshotV1Request) EndTime(endTime int64) ApiWalletGetAccountSnapshotV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // min 7, max 30, default 7
-func (r AccountAPIWalletGetAccountSnapshotV1Request) Limit(limit int32) AccountAPIWalletGetAccountSnapshotV1Request {
+func (r ApiWalletGetAccountSnapshotV1Request) Limit(limit int32) ApiWalletGetAccountSnapshotV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r AccountAPIWalletGetAccountSnapshotV1Request) RecvWindow(recvWindow int64) AccountAPIWalletGetAccountSnapshotV1Request {
+func (r ApiWalletGetAccountSnapshotV1Request) RecvWindow(recvWindow int64) ApiWalletGetAccountSnapshotV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIWalletGetAccountSnapshotV1Request) Execute() (*WalletGetAccountSnapshotV1Resp, *http.Response, error) {
+func (r ApiWalletGetAccountSnapshotV1Request) Execute() (*WalletGetAccountSnapshotV1Resp, *http.Response, error) {
 	return r.ApiService.WalletGetAccountSnapshotV1Execute(r)
 }
 
@@ -798,10 +798,10 @@ WalletGetAccountSnapshotV1 Daily Account Snapshot (USER_DATA)
 Daily account snapshot
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIWalletGetAccountSnapshotV1Request
+ @return ApiWalletGetAccountSnapshotV1Request
 */
-func (a *AccountAPIService) WalletGetAccountSnapshotV1(ctx context.Context) AccountAPIWalletGetAccountSnapshotV1Request {
-	return AccountAPIWalletGetAccountSnapshotV1Request{
+func (a *AccountAPIService) WalletGetAccountSnapshotV1(ctx context.Context) ApiWalletGetAccountSnapshotV1Request {
+	return ApiWalletGetAccountSnapshotV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -809,7 +809,7 @@ func (a *AccountAPIService) WalletGetAccountSnapshotV1(ctx context.Context) Acco
 
 // Execute executes the request
 //  @return WalletGetAccountSnapshotV1Resp
-func (a *AccountAPIService) WalletGetAccountSnapshotV1Execute(r AccountAPIWalletGetAccountSnapshotV1Request) (*WalletGetAccountSnapshotV1Resp, *http.Response, error) {
+func (a *AccountAPIService) WalletGetAccountSnapshotV1Execute(r ApiWalletGetAccountSnapshotV1Request) (*WalletGetAccountSnapshotV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -932,24 +932,24 @@ func (a *AccountAPIService) WalletGetAccountSnapshotV1Execute(r AccountAPIWallet
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIWalletGetAccountStatusV1Request struct {
+type ApiWalletGetAccountStatusV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIWalletGetAccountStatusV1Request) Timestamp(timestamp int64) AccountAPIWalletGetAccountStatusV1Request {
+func (r ApiWalletGetAccountStatusV1Request) Timestamp(timestamp int64) ApiWalletGetAccountStatusV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIWalletGetAccountStatusV1Request) RecvWindow(recvWindow int64) AccountAPIWalletGetAccountStatusV1Request {
+func (r ApiWalletGetAccountStatusV1Request) RecvWindow(recvWindow int64) ApiWalletGetAccountStatusV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIWalletGetAccountStatusV1Request) Execute() (*WalletGetAccountStatusV1Resp, *http.Response, error) {
+func (r ApiWalletGetAccountStatusV1Request) Execute() (*WalletGetAccountStatusV1Resp, *http.Response, error) {
 	return r.ApiService.WalletGetAccountStatusV1Execute(r)
 }
 
@@ -959,10 +959,10 @@ WalletGetAccountStatusV1 Account Status (USER_DATA)
 Fetch account status detail.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIWalletGetAccountStatusV1Request
+ @return ApiWalletGetAccountStatusV1Request
 */
-func (a *AccountAPIService) WalletGetAccountStatusV1(ctx context.Context) AccountAPIWalletGetAccountStatusV1Request {
-	return AccountAPIWalletGetAccountStatusV1Request{
+func (a *AccountAPIService) WalletGetAccountStatusV1(ctx context.Context) ApiWalletGetAccountStatusV1Request {
+	return ApiWalletGetAccountStatusV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -970,7 +970,7 @@ func (a *AccountAPIService) WalletGetAccountStatusV1(ctx context.Context) Accoun
 
 // Execute executes the request
 //  @return WalletGetAccountStatusV1Resp
-func (a *AccountAPIService) WalletGetAccountStatusV1Execute(r AccountAPIWalletGetAccountStatusV1Request) (*WalletGetAccountStatusV1Resp, *http.Response, error) {
+func (a *AccountAPIService) WalletGetAccountStatusV1Execute(r ApiWalletGetAccountStatusV1Request) (*WalletGetAccountStatusV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

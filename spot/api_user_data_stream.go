@@ -1,7 +1,7 @@
 /*
 Binance Spot API
 
-OpenAPI specification for Binance cryptocurrency exchange - Spot API
+OpenAPI specification for Binance exchange - Spot API
 
 API version: 0.1.0
 */
@@ -22,12 +22,12 @@ import (
 // UserDataStreamAPIService UserDataStreamAPI service
 type UserDataStreamAPIService service
 
-type UserDataStreamAPISpotCreateUserDataStreamV3Request struct {
+type ApiSpotCreateUserDataStreamV3Request struct {
 	ctx context.Context
 	ApiService *UserDataStreamAPIService
 }
 
-func (r UserDataStreamAPISpotCreateUserDataStreamV3Request) Execute() (*SpotCreateUserDataStreamV3Resp, *http.Response, error) {
+func (r ApiSpotCreateUserDataStreamV3Request) Execute() (*SpotCreateUserDataStreamV3Resp, *http.Response, error) {
 	return r.ApiService.SpotCreateUserDataStreamV3Execute(r)
 }
 
@@ -37,10 +37,10 @@ SpotCreateUserDataStreamV3 Start user data stream (USER_STREAM)
 Start a new user data stream. The stream will close after 60 minutes unless a keepalive is sent.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return UserDataStreamAPISpotCreateUserDataStreamV3Request
+ @return ApiSpotCreateUserDataStreamV3Request
 */
-func (a *UserDataStreamAPIService) SpotCreateUserDataStreamV3(ctx context.Context) UserDataStreamAPISpotCreateUserDataStreamV3Request {
-	return UserDataStreamAPISpotCreateUserDataStreamV3Request{
+func (a *UserDataStreamAPIService) SpotCreateUserDataStreamV3(ctx context.Context) ApiSpotCreateUserDataStreamV3Request {
+	return ApiSpotCreateUserDataStreamV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -48,7 +48,7 @@ func (a *UserDataStreamAPIService) SpotCreateUserDataStreamV3(ctx context.Contex
 
 // Execute executes the request
 //  @return SpotCreateUserDataStreamV3Resp
-func (a *UserDataStreamAPIService) SpotCreateUserDataStreamV3Execute(r UserDataStreamAPISpotCreateUserDataStreamV3Request) (*SpotCreateUserDataStreamV3Resp, *http.Response, error) {
+func (a *UserDataStreamAPIService) SpotCreateUserDataStreamV3Execute(r ApiSpotCreateUserDataStreamV3Request) (*SpotCreateUserDataStreamV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -148,18 +148,18 @@ func (a *UserDataStreamAPIService) SpotCreateUserDataStreamV3Execute(r UserDataS
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UserDataStreamAPISpotDeleteUserDataStreamV3Request struct {
+type ApiSpotDeleteUserDataStreamV3Request struct {
 	ctx context.Context
 	ApiService *UserDataStreamAPIService
 	listenKey *string
 }
 
-func (r UserDataStreamAPISpotDeleteUserDataStreamV3Request) ListenKey(listenKey string) UserDataStreamAPISpotDeleteUserDataStreamV3Request {
+func (r ApiSpotDeleteUserDataStreamV3Request) ListenKey(listenKey string) ApiSpotDeleteUserDataStreamV3Request {
 	r.listenKey = &listenKey
 	return r
 }
 
-func (r UserDataStreamAPISpotDeleteUserDataStreamV3Request) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiSpotDeleteUserDataStreamV3Request) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.SpotDeleteUserDataStreamV3Execute(r)
 }
 
@@ -169,10 +169,10 @@ SpotDeleteUserDataStreamV3 Close user data stream (USER_STREAM)
 Close out a user data stream.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return UserDataStreamAPISpotDeleteUserDataStreamV3Request
+ @return ApiSpotDeleteUserDataStreamV3Request
 */
-func (a *UserDataStreamAPIService) SpotDeleteUserDataStreamV3(ctx context.Context) UserDataStreamAPISpotDeleteUserDataStreamV3Request {
-	return UserDataStreamAPISpotDeleteUserDataStreamV3Request{
+func (a *UserDataStreamAPIService) SpotDeleteUserDataStreamV3(ctx context.Context) ApiSpotDeleteUserDataStreamV3Request {
+	return ApiSpotDeleteUserDataStreamV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -180,7 +180,7 @@ func (a *UserDataStreamAPIService) SpotDeleteUserDataStreamV3(ctx context.Contex
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *UserDataStreamAPIService) SpotDeleteUserDataStreamV3Execute(r UserDataStreamAPISpotDeleteUserDataStreamV3Request) (map[string]interface{}, *http.Response, error) {
+func (a *UserDataStreamAPIService) SpotDeleteUserDataStreamV3Execute(r ApiSpotDeleteUserDataStreamV3Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -284,18 +284,18 @@ func (a *UserDataStreamAPIService) SpotDeleteUserDataStreamV3Execute(r UserDataS
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UserDataStreamAPISpotUpdateUserDataStreamV3Request struct {
+type ApiSpotUpdateUserDataStreamV3Request struct {
 	ctx context.Context
 	ApiService *UserDataStreamAPIService
 	listenKey *string
 }
 
-func (r UserDataStreamAPISpotUpdateUserDataStreamV3Request) ListenKey(listenKey string) UserDataStreamAPISpotUpdateUserDataStreamV3Request {
+func (r ApiSpotUpdateUserDataStreamV3Request) ListenKey(listenKey string) ApiSpotUpdateUserDataStreamV3Request {
 	r.listenKey = &listenKey
 	return r
 }
 
-func (r UserDataStreamAPISpotUpdateUserDataStreamV3Request) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiSpotUpdateUserDataStreamV3Request) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.SpotUpdateUserDataStreamV3Execute(r)
 }
 
@@ -305,10 +305,10 @@ SpotUpdateUserDataStreamV3 Keepalive user data stream (USER_STREAM)
 Keepalive a user data stream to prevent a time out. User data streams will close after 60 minutes. It's recommended to send a ping about every 30 minutes.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return UserDataStreamAPISpotUpdateUserDataStreamV3Request
+ @return ApiSpotUpdateUserDataStreamV3Request
 */
-func (a *UserDataStreamAPIService) SpotUpdateUserDataStreamV3(ctx context.Context) UserDataStreamAPISpotUpdateUserDataStreamV3Request {
-	return UserDataStreamAPISpotUpdateUserDataStreamV3Request{
+func (a *UserDataStreamAPIService) SpotUpdateUserDataStreamV3(ctx context.Context) ApiSpotUpdateUserDataStreamV3Request {
+	return ApiSpotUpdateUserDataStreamV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -316,7 +316,7 @@ func (a *UserDataStreamAPIService) SpotUpdateUserDataStreamV3(ctx context.Contex
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *UserDataStreamAPIService) SpotUpdateUserDataStreamV3Execute(r UserDataStreamAPISpotUpdateUserDataStreamV3Request) (map[string]interface{}, *http.Response, error) {
+func (a *UserDataStreamAPIService) SpotUpdateUserDataStreamV3Execute(r ApiSpotUpdateUserDataStreamV3Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}

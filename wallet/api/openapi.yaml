@@ -60,7 +60,6 @@ paths:
       summary: Get API Key Permission (USER_DATA)
       tags:
       - Account
-      - V1
   /sapi/v1/account/apiTradingStatus:
     get:
       description: Fetch account api trading status detail.
@@ -106,7 +105,6 @@ paths:
       summary: Account API Trading Status (USER_DATA)
       tags:
       - Account
-      - V1
   /sapi/v1/account/disableFastWithdrawSwitch:
     post:
       operationId: WalletCreateAccountDisableFastWithdrawSwitchV1
@@ -141,7 +139,6 @@ paths:
       summary: Disable Fast Withdraw Switch (USER_DATA)
       tags:
       - Account
-      - V1
   /sapi/v1/account/enableFastWithdrawSwitch:
     post:
       description: Enable Fast Withdraw Switch (USER_DATA)
@@ -177,7 +174,6 @@ paths:
       summary: Enable Fast Withdraw Switch (USER_DATA)
       tags:
       - Account
-      - V1
   /sapi/v1/account/info:
     get:
       description: Fetch account info detail.
@@ -223,7 +219,6 @@ paths:
       summary: Account info (USER_DATA)
       tags:
       - Account
-      - V1
   /sapi/v1/account/status:
     get:
       description: Fetch account status detail.
@@ -269,7 +264,6 @@ paths:
       summary: Account Status (USER_DATA)
       tags:
       - Account
-      - V1
   /sapi/v1/accountSnapshot:
     get:
       description: Daily account snapshot
@@ -351,7 +345,6 @@ paths:
       summary: Daily Account Snapshot (USER_DATA)
       tags:
       - Account
-      - V1
   /sapi/v1/asset/assetDetail:
     get:
       description: Fetch details of assets supported on Binance.
@@ -397,7 +390,6 @@ paths:
       summary: Asset Detail (USER_DATA)
       tags:
       - Asset
-      - V1
   /sapi/v1/asset/assetDividend:
     get:
       description: Query asset dividend record.
@@ -477,7 +469,6 @@ paths:
       summary: Asset Dividend Record (USER_DATA)
       tags:
       - Asset
-      - V1
   /sapi/v1/asset/custody/transfer-history:
     get:
       description: Query User Delegation History
@@ -583,7 +574,6 @@ paths:
       summary: Query User Delegation History(For Master Account)(USER_DATA)
       tags:
       - Asset
-      - V1
   /sapi/v1/asset/dribblet:
     get:
       description: Dustlog
@@ -645,7 +635,6 @@ paths:
       summary: DustLog(USER_DATA)
       tags:
       - Asset
-      - V1
   /sapi/v1/asset/dust:
     post:
       description: Convert dust assets to BNB.
@@ -681,7 +670,6 @@ paths:
       summary: Dust Transfer (USER_DATA)
       tags:
       - Asset
-      - V1
   /sapi/v1/asset/dust-btc:
     post:
       description: Get Assets That Can Be Converted Into BNB
@@ -717,7 +705,6 @@ paths:
       summary: Get Assets That Can Be Converted Into BNB (USER_DATA)
       tags:
       - Asset
-      - V1
   /sapi/v1/asset/get-funding-asset:
     post:
       description: Query Funding Wallet
@@ -753,7 +740,6 @@ paths:
       summary: Funding Wallet (USER_DATA)
       tags:
       - Asset
-      - V1
   /sapi/v1/asset/ledger-transfer/cloud-mining/queryByPage:
     get:
       description: The query of Cloud-Mining payment and refund history
@@ -846,7 +832,6 @@ paths:
       summary: Get Cloud-Mining payment and refund history (USER_DATA)
       tags:
       - Asset
-      - V1
   /sapi/v1/asset/tradeFee:
     get:
       description: Fetch trade fee
@@ -900,7 +885,6 @@ paths:
       summary: Trade Fee (USER_DATA)
       tags:
       - Asset
-      - V1
   /sapi/v1/asset/transfer:
     get:
       description: Query User Universal Transfer History
@@ -1005,7 +989,6 @@ paths:
       summary: Query User Universal Transfer History(USER_DATA)
       tags:
       - Asset
-      - V1
     post:
       description: user universal transfer
       operationId: WalletCreateAssetTransferV1
@@ -1040,7 +1023,6 @@ paths:
       summary: User Universal Transfer (USER_DATA)
       tags:
       - Asset
-      - V1
   /sapi/v1/asset/wallet/balance:
     get:
       description: Query User Wallet Balance
@@ -1095,7 +1077,6 @@ paths:
       summary: Query User Wallet Balance (USER_DATA)
       tags:
       - Asset
-      - V1
   /sapi/v1/bnbBurn:
     post:
       description: Toggle BNB Burn On Spot Trade And Margin Interest
@@ -1131,7 +1112,6 @@ paths:
       summary: Toggle BNB Burn On Spot Trade And Margin Interest (USER_DATA)
       tags:
       - Asset
-      - V1
   /sapi/v1/capital/config/getall:
     get:
       description: Get information of coins (available for deposit and withdraw) for
@@ -1178,7 +1158,6 @@ paths:
       summary: All Coins' Information (USER_DATA)
       tags:
       - Capital
-      - V1
   /sapi/v1/capital/deposit/address:
     get:
       description: Fetch deposit address with network.
@@ -1248,7 +1227,6 @@ paths:
       summary: Deposit Address(supporting network) (USER_DATA)
       tags:
       - Capital
-      - V1
   /sapi/v1/capital/deposit/address/list:
     get:
       description: Fetch deposit address list with network.
@@ -1304,7 +1282,6 @@ paths:
       summary: Fetch deposit address list with network(USER_DATA)
       tags:
       - Capital
-      - V1
   /sapi/v1/capital/deposit/credit-apply:
     post:
       description: Apply deposit credit for expired address (One click arrival)
@@ -1340,7 +1317,6 @@ paths:
       summary: One click arrival deposit apply (for expired address deposit) (USER_DATA)
       tags:
       - Capital
-      - V1
   /sapi/v1/capital/deposit/hisrec:
     get:
       description: Fetch deposit history.
@@ -1454,7 +1430,6 @@ paths:
       summary: Deposit History (supporting network) (USER_DATA)
       tags:
       - Capital
-      - V1
   /sapi/v1/capital/withdraw/address/list:
     get:
       description: Fetch withdraw address list
@@ -1483,7 +1458,6 @@ paths:
       summary: Fetch withdraw address list (USER_DATA)
       tags:
       - Capital
-      - V1
   /sapi/v1/capital/withdraw/apply:
     post:
       description: Submit a withdraw request.
@@ -1519,7 +1493,6 @@ paths:
       summary: Withdraw(USER_DATA)
       tags:
       - Capital
-      - V1
   /sapi/v1/capital/withdraw/history:
     get:
       description: Fetch withdraw history.
@@ -1635,7 +1608,6 @@ paths:
       summary: Withdraw History (supporting network) (USER_DATA)
       tags:
       - Capital
-      - V1
   /sapi/v1/localentity/broker/deposit/provide-info:
     put:
       description: |-
@@ -1675,7 +1647,6 @@ paths:
         rule) (supporting network) (USER_DATA)
       tags:
       - Travel Rule
-      - V1
   /sapi/v1/localentity/broker/withdraw/apply:
     post:
       description: Submit a withdrawal request for brokers of local entities that
@@ -1713,7 +1684,6 @@ paths:
         rule) (USER_DATA)
       tags:
       - Travel Rule
-      - V1
   /sapi/v1/localentity/deposit/history:
     get:
       description: Fetch deposit history for local entities that required travel rule.
@@ -1846,7 +1816,6 @@ paths:
         network) (USER_DATA)
       tags:
       - Travel Rule
-      - V1
   /sapi/v1/localentity/deposit/provide-info:
     put:
       description: |-
@@ -1886,7 +1855,6 @@ paths:
         rule) (supporting network) (USER_DATA)
       tags:
       - Travel Rule
-      - V1
   /sapi/v1/localentity/vasp:
     get:
       description: Fetch the onboarded VASP list for local entities that required
@@ -1917,7 +1885,6 @@ paths:
         network) (USER_DATA)
       tags:
       - Travel Rule
-      - V1
   /sapi/v1/localentity/withdraw/apply:
     post:
       description: Submit a withdrawal request for local entities that required travel
@@ -1954,7 +1921,6 @@ paths:
       summary: Withdraw (for local entities that require travel rule) (USER_DATA)
       tags:
       - Travel Rule
-      - V1
   /sapi/v1/localentity/withdraw/history:
     get:
       description: Fetch withdraw history for local entities that required travel
@@ -2091,7 +2057,6 @@ paths:
         network) (USER_DATA)
       tags:
       - Travel Rule
-      - V1
   /sapi/v1/spot/delist-schedule:
     get:
       description: Get symbols delist schedule for spot
@@ -2135,7 +2100,6 @@ paths:
       summary: Get Spot Delist Schedule (MARKET_DATA)
       tags:
       - Asset
-      - V1
   /sapi/v1/spot/open-symbol-list:
     get:
       description: Get the list of symbols that are scheduled to be opened for trading
@@ -2163,7 +2127,6 @@ paths:
       summary: Get Open Symbol List (MARKET_DATA)
       tags:
       - Asset
-      - V1
   /sapi/v1/system/status:
     get:
       description: Fetch system status.
@@ -2190,7 +2153,6 @@ paths:
       summary: System Status (System)
       tags:
       - Others
-      - V1
   /sapi/v2/localentity/withdraw/history:
     get:
       description: Fetch withdraw history for local entities that required travel
@@ -2327,7 +2289,6 @@ paths:
         network) (USER_DATA)
       tags:
       - Travel Rule
-      - V2
   /sapi/v3/asset/getUserAsset:
     post:
       description: "Get user assets, just for positive data."
@@ -2363,7 +2324,6 @@ paths:
       summary: User Asset (USER_DATA)
       tags:
       - Asset
-      - V3
 components:
   schemas:
     APIError:

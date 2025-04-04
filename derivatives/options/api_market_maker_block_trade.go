@@ -1,7 +1,7 @@
 /*
 Binance Options API
 
-OpenAPI specification for Binance cryptocurrency exchange - Options API
+OpenAPI specification for Binance exchange - Options API
 
 API version: 0.1.0
 */
@@ -22,7 +22,7 @@ import (
 // MarketMakerBlockTradeAPIService MarketMakerBlockTradeAPI service
 type MarketMakerBlockTradeAPIService service
 
-type MarketMakerBlockTradeAPIOptionsCreateBlockOrderCreateV1Request struct {
+type ApiOptionsCreateBlockOrderCreateV1Request struct {
 	ctx context.Context
 	ApiService *MarketMakerBlockTradeAPIService
 	legs *[]string
@@ -35,47 +35,47 @@ type MarketMakerBlockTradeAPIOptionsCreateBlockOrderCreateV1Request struct {
 	recvWindow *int32
 }
 
-func (r MarketMakerBlockTradeAPIOptionsCreateBlockOrderCreateV1Request) Legs(legs []string) MarketMakerBlockTradeAPIOptionsCreateBlockOrderCreateV1Request {
+func (r ApiOptionsCreateBlockOrderCreateV1Request) Legs(legs []string) ApiOptionsCreateBlockOrderCreateV1Request {
 	r.legs = &legs
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsCreateBlockOrderCreateV1Request) Liquidity(liquidity string) MarketMakerBlockTradeAPIOptionsCreateBlockOrderCreateV1Request {
+func (r ApiOptionsCreateBlockOrderCreateV1Request) Liquidity(liquidity string) ApiOptionsCreateBlockOrderCreateV1Request {
 	r.liquidity = &liquidity
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsCreateBlockOrderCreateV1Request) Price(price string) MarketMakerBlockTradeAPIOptionsCreateBlockOrderCreateV1Request {
+func (r ApiOptionsCreateBlockOrderCreateV1Request) Price(price string) ApiOptionsCreateBlockOrderCreateV1Request {
 	r.price = &price
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsCreateBlockOrderCreateV1Request) Quantity(quantity string) MarketMakerBlockTradeAPIOptionsCreateBlockOrderCreateV1Request {
+func (r ApiOptionsCreateBlockOrderCreateV1Request) Quantity(quantity string) ApiOptionsCreateBlockOrderCreateV1Request {
 	r.quantity = &quantity
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsCreateBlockOrderCreateV1Request) Side(side string) MarketMakerBlockTradeAPIOptionsCreateBlockOrderCreateV1Request {
+func (r ApiOptionsCreateBlockOrderCreateV1Request) Side(side string) ApiOptionsCreateBlockOrderCreateV1Request {
 	r.side = &side
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsCreateBlockOrderCreateV1Request) Symbol(symbol string) MarketMakerBlockTradeAPIOptionsCreateBlockOrderCreateV1Request {
+func (r ApiOptionsCreateBlockOrderCreateV1Request) Symbol(symbol string) ApiOptionsCreateBlockOrderCreateV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsCreateBlockOrderCreateV1Request) Timestamp(timestamp int32) MarketMakerBlockTradeAPIOptionsCreateBlockOrderCreateV1Request {
+func (r ApiOptionsCreateBlockOrderCreateV1Request) Timestamp(timestamp int32) ApiOptionsCreateBlockOrderCreateV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsCreateBlockOrderCreateV1Request) RecvWindow(recvWindow int32) MarketMakerBlockTradeAPIOptionsCreateBlockOrderCreateV1Request {
+func (r ApiOptionsCreateBlockOrderCreateV1Request) RecvWindow(recvWindow int32) ApiOptionsCreateBlockOrderCreateV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsCreateBlockOrderCreateV1Request) Execute() (*OptionsCreateBlockOrderCreateV1Resp, *http.Response, error) {
+func (r ApiOptionsCreateBlockOrderCreateV1Request) Execute() (*OptionsCreateBlockOrderCreateV1Resp, *http.Response, error) {
 	return r.ApiService.OptionsCreateBlockOrderCreateV1Execute(r)
 }
 
@@ -85,10 +85,10 @@ OptionsCreateBlockOrderCreateV1 New Block Trade Order (TRADE)
 Send in a new block trade order.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketMakerBlockTradeAPIOptionsCreateBlockOrderCreateV1Request
+ @return ApiOptionsCreateBlockOrderCreateV1Request
 */
-func (a *MarketMakerBlockTradeAPIService) OptionsCreateBlockOrderCreateV1(ctx context.Context) MarketMakerBlockTradeAPIOptionsCreateBlockOrderCreateV1Request {
-	return MarketMakerBlockTradeAPIOptionsCreateBlockOrderCreateV1Request{
+func (a *MarketMakerBlockTradeAPIService) OptionsCreateBlockOrderCreateV1(ctx context.Context) ApiOptionsCreateBlockOrderCreateV1Request {
+	return ApiOptionsCreateBlockOrderCreateV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -96,7 +96,7 @@ func (a *MarketMakerBlockTradeAPIService) OptionsCreateBlockOrderCreateV1(ctx co
 
 // Execute executes the request
 //  @return OptionsCreateBlockOrderCreateV1Resp
-func (a *MarketMakerBlockTradeAPIService) OptionsCreateBlockOrderCreateV1Execute(r MarketMakerBlockTradeAPIOptionsCreateBlockOrderCreateV1Request) (*OptionsCreateBlockOrderCreateV1Resp, *http.Response, error) {
+func (a *MarketMakerBlockTradeAPIService) OptionsCreateBlockOrderCreateV1Execute(r ApiOptionsCreateBlockOrderCreateV1Request) (*OptionsCreateBlockOrderCreateV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -227,7 +227,7 @@ func (a *MarketMakerBlockTradeAPIService) OptionsCreateBlockOrderCreateV1Execute
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketMakerBlockTradeAPIOptionsCreateBlockOrderExecuteV1Request struct {
+type ApiOptionsCreateBlockOrderExecuteV1Request struct {
 	ctx context.Context
 	ApiService *MarketMakerBlockTradeAPIService
 	blockOrderMatchingKey *string
@@ -235,22 +235,22 @@ type MarketMakerBlockTradeAPIOptionsCreateBlockOrderExecuteV1Request struct {
 	recvWindow *int64
 }
 
-func (r MarketMakerBlockTradeAPIOptionsCreateBlockOrderExecuteV1Request) BlockOrderMatchingKey(blockOrderMatchingKey string) MarketMakerBlockTradeAPIOptionsCreateBlockOrderExecuteV1Request {
+func (r ApiOptionsCreateBlockOrderExecuteV1Request) BlockOrderMatchingKey(blockOrderMatchingKey string) ApiOptionsCreateBlockOrderExecuteV1Request {
 	r.blockOrderMatchingKey = &blockOrderMatchingKey
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsCreateBlockOrderExecuteV1Request) Timestamp(timestamp int64) MarketMakerBlockTradeAPIOptionsCreateBlockOrderExecuteV1Request {
+func (r ApiOptionsCreateBlockOrderExecuteV1Request) Timestamp(timestamp int64) ApiOptionsCreateBlockOrderExecuteV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsCreateBlockOrderExecuteV1Request) RecvWindow(recvWindow int64) MarketMakerBlockTradeAPIOptionsCreateBlockOrderExecuteV1Request {
+func (r ApiOptionsCreateBlockOrderExecuteV1Request) RecvWindow(recvWindow int64) ApiOptionsCreateBlockOrderExecuteV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsCreateBlockOrderExecuteV1Request) Execute() (*OptionsCreateBlockOrderExecuteV1Resp, *http.Response, error) {
+func (r ApiOptionsCreateBlockOrderExecuteV1Request) Execute() (*OptionsCreateBlockOrderExecuteV1Resp, *http.Response, error) {
 	return r.ApiService.OptionsCreateBlockOrderExecuteV1Execute(r)
 }
 
@@ -260,10 +260,10 @@ OptionsCreateBlockOrderExecuteV1 Accept Block Trade Order (TRADE)
 Accept a block trade order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketMakerBlockTradeAPIOptionsCreateBlockOrderExecuteV1Request
+ @return ApiOptionsCreateBlockOrderExecuteV1Request
 */
-func (a *MarketMakerBlockTradeAPIService) OptionsCreateBlockOrderExecuteV1(ctx context.Context) MarketMakerBlockTradeAPIOptionsCreateBlockOrderExecuteV1Request {
-	return MarketMakerBlockTradeAPIOptionsCreateBlockOrderExecuteV1Request{
+func (a *MarketMakerBlockTradeAPIService) OptionsCreateBlockOrderExecuteV1(ctx context.Context) ApiOptionsCreateBlockOrderExecuteV1Request {
+	return ApiOptionsCreateBlockOrderExecuteV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -271,7 +271,7 @@ func (a *MarketMakerBlockTradeAPIService) OptionsCreateBlockOrderExecuteV1(ctx c
 
 // Execute executes the request
 //  @return OptionsCreateBlockOrderExecuteV1Resp
-func (a *MarketMakerBlockTradeAPIService) OptionsCreateBlockOrderExecuteV1Execute(r MarketMakerBlockTradeAPIOptionsCreateBlockOrderExecuteV1Request) (*OptionsCreateBlockOrderExecuteV1Resp, *http.Response, error) {
+func (a *MarketMakerBlockTradeAPIService) OptionsCreateBlockOrderExecuteV1Execute(r ApiOptionsCreateBlockOrderExecuteV1Request) (*OptionsCreateBlockOrderExecuteV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -382,7 +382,7 @@ func (a *MarketMakerBlockTradeAPIService) OptionsCreateBlockOrderExecuteV1Execut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketMakerBlockTradeAPIOptionsDeleteBlockOrderCreateV1Request struct {
+type ApiOptionsDeleteBlockOrderCreateV1Request struct {
 	ctx context.Context
 	ApiService *MarketMakerBlockTradeAPIService
 	blockOrderMatchingKey *string
@@ -390,23 +390,23 @@ type MarketMakerBlockTradeAPIOptionsDeleteBlockOrderCreateV1Request struct {
 	recvWindow *int32
 }
 
-func (r MarketMakerBlockTradeAPIOptionsDeleteBlockOrderCreateV1Request) BlockOrderMatchingKey(blockOrderMatchingKey string) MarketMakerBlockTradeAPIOptionsDeleteBlockOrderCreateV1Request {
+func (r ApiOptionsDeleteBlockOrderCreateV1Request) BlockOrderMatchingKey(blockOrderMatchingKey string) ApiOptionsDeleteBlockOrderCreateV1Request {
 	r.blockOrderMatchingKey = &blockOrderMatchingKey
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsDeleteBlockOrderCreateV1Request) Timestamp(timestamp int32) MarketMakerBlockTradeAPIOptionsDeleteBlockOrderCreateV1Request {
+func (r ApiOptionsDeleteBlockOrderCreateV1Request) Timestamp(timestamp int32) ApiOptionsDeleteBlockOrderCreateV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // The value cannot be greater than 60000
-func (r MarketMakerBlockTradeAPIOptionsDeleteBlockOrderCreateV1Request) RecvWindow(recvWindow int32) MarketMakerBlockTradeAPIOptionsDeleteBlockOrderCreateV1Request {
+func (r ApiOptionsDeleteBlockOrderCreateV1Request) RecvWindow(recvWindow int32) ApiOptionsDeleteBlockOrderCreateV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsDeleteBlockOrderCreateV1Request) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiOptionsDeleteBlockOrderCreateV1Request) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.OptionsDeleteBlockOrderCreateV1Execute(r)
 }
 
@@ -416,10 +416,10 @@ OptionsDeleteBlockOrderCreateV1 Cancel Block Trade Order (TRADE)
 Cancel a block trade order.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketMakerBlockTradeAPIOptionsDeleteBlockOrderCreateV1Request
+ @return ApiOptionsDeleteBlockOrderCreateV1Request
 */
-func (a *MarketMakerBlockTradeAPIService) OptionsDeleteBlockOrderCreateV1(ctx context.Context) MarketMakerBlockTradeAPIOptionsDeleteBlockOrderCreateV1Request {
-	return MarketMakerBlockTradeAPIOptionsDeleteBlockOrderCreateV1Request{
+func (a *MarketMakerBlockTradeAPIService) OptionsDeleteBlockOrderCreateV1(ctx context.Context) ApiOptionsDeleteBlockOrderCreateV1Request {
+	return ApiOptionsDeleteBlockOrderCreateV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -427,7 +427,7 @@ func (a *MarketMakerBlockTradeAPIService) OptionsDeleteBlockOrderCreateV1(ctx co
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *MarketMakerBlockTradeAPIService) OptionsDeleteBlockOrderCreateV1Execute(r MarketMakerBlockTradeAPIOptionsDeleteBlockOrderCreateV1Request) (map[string]interface{}, *http.Response, error) {
+func (a *MarketMakerBlockTradeAPIService) OptionsDeleteBlockOrderCreateV1Execute(r ApiOptionsDeleteBlockOrderCreateV1Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -538,7 +538,7 @@ func (a *MarketMakerBlockTradeAPIService) OptionsDeleteBlockOrderCreateV1Execute
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketMakerBlockTradeAPIOptionsGetBlockOrderExecuteV1Request struct {
+type ApiOptionsGetBlockOrderExecuteV1Request struct {
 	ctx context.Context
 	ApiService *MarketMakerBlockTradeAPIService
 	blockOrderMatchingKey *string
@@ -546,23 +546,23 @@ type MarketMakerBlockTradeAPIOptionsGetBlockOrderExecuteV1Request struct {
 	recvWindow *int64
 }
 
-func (r MarketMakerBlockTradeAPIOptionsGetBlockOrderExecuteV1Request) BlockOrderMatchingKey(blockOrderMatchingKey string) MarketMakerBlockTradeAPIOptionsGetBlockOrderExecuteV1Request {
+func (r ApiOptionsGetBlockOrderExecuteV1Request) BlockOrderMatchingKey(blockOrderMatchingKey string) ApiOptionsGetBlockOrderExecuteV1Request {
 	r.blockOrderMatchingKey = &blockOrderMatchingKey
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsGetBlockOrderExecuteV1Request) Timestamp(timestamp int64) MarketMakerBlockTradeAPIOptionsGetBlockOrderExecuteV1Request {
+func (r ApiOptionsGetBlockOrderExecuteV1Request) Timestamp(timestamp int64) ApiOptionsGetBlockOrderExecuteV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // The value cannot be greater than 60000
-func (r MarketMakerBlockTradeAPIOptionsGetBlockOrderExecuteV1Request) RecvWindow(recvWindow int64) MarketMakerBlockTradeAPIOptionsGetBlockOrderExecuteV1Request {
+func (r ApiOptionsGetBlockOrderExecuteV1Request) RecvWindow(recvWindow int64) ApiOptionsGetBlockOrderExecuteV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsGetBlockOrderExecuteV1Request) Execute() (*OptionsGetBlockOrderExecuteV1Resp, *http.Response, error) {
+func (r ApiOptionsGetBlockOrderExecuteV1Request) Execute() (*OptionsGetBlockOrderExecuteV1Resp, *http.Response, error) {
 	return r.ApiService.OptionsGetBlockOrderExecuteV1Execute(r)
 }
 
@@ -572,10 +572,10 @@ OptionsGetBlockOrderExecuteV1 Query Block Trade Details (USER_DATA)
 Query block trade details; returns block trade details from counterparty's perspective.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketMakerBlockTradeAPIOptionsGetBlockOrderExecuteV1Request
+ @return ApiOptionsGetBlockOrderExecuteV1Request
 */
-func (a *MarketMakerBlockTradeAPIService) OptionsGetBlockOrderExecuteV1(ctx context.Context) MarketMakerBlockTradeAPIOptionsGetBlockOrderExecuteV1Request {
-	return MarketMakerBlockTradeAPIOptionsGetBlockOrderExecuteV1Request{
+func (a *MarketMakerBlockTradeAPIService) OptionsGetBlockOrderExecuteV1(ctx context.Context) ApiOptionsGetBlockOrderExecuteV1Request {
+	return ApiOptionsGetBlockOrderExecuteV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -583,7 +583,7 @@ func (a *MarketMakerBlockTradeAPIService) OptionsGetBlockOrderExecuteV1(ctx cont
 
 // Execute executes the request
 //  @return OptionsGetBlockOrderExecuteV1Resp
-func (a *MarketMakerBlockTradeAPIService) OptionsGetBlockOrderExecuteV1Execute(r MarketMakerBlockTradeAPIOptionsGetBlockOrderExecuteV1Request) (*OptionsGetBlockOrderExecuteV1Resp, *http.Response, error) {
+func (a *MarketMakerBlockTradeAPIService) OptionsGetBlockOrderExecuteV1Execute(r ApiOptionsGetBlockOrderExecuteV1Request) (*OptionsGetBlockOrderExecuteV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -694,7 +694,7 @@ func (a *MarketMakerBlockTradeAPIService) OptionsGetBlockOrderExecuteV1Execute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketMakerBlockTradeAPIOptionsGetBlockOrderOrdersV1Request struct {
+type ApiOptionsGetBlockOrderOrdersV1Request struct {
 	ctx context.Context
 	ApiService *MarketMakerBlockTradeAPIService
 	timestamp *int64
@@ -705,39 +705,39 @@ type MarketMakerBlockTradeAPIOptionsGetBlockOrderOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r MarketMakerBlockTradeAPIOptionsGetBlockOrderOrdersV1Request) Timestamp(timestamp int64) MarketMakerBlockTradeAPIOptionsGetBlockOrderOrdersV1Request {
+func (r ApiOptionsGetBlockOrderOrdersV1Request) Timestamp(timestamp int64) ApiOptionsGetBlockOrderOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // If specified, returns the specific block trade associated with the blockOrderMatchingKey
-func (r MarketMakerBlockTradeAPIOptionsGetBlockOrderOrdersV1Request) BlockOrderMatchingKey(blockOrderMatchingKey string) MarketMakerBlockTradeAPIOptionsGetBlockOrderOrdersV1Request {
+func (r ApiOptionsGetBlockOrderOrdersV1Request) BlockOrderMatchingKey(blockOrderMatchingKey string) ApiOptionsGetBlockOrderOrdersV1Request {
 	r.blockOrderMatchingKey = &blockOrderMatchingKey
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsGetBlockOrderOrdersV1Request) EndTime(endTime int64) MarketMakerBlockTradeAPIOptionsGetBlockOrderOrdersV1Request {
+func (r ApiOptionsGetBlockOrderOrdersV1Request) EndTime(endTime int64) ApiOptionsGetBlockOrderOrdersV1Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsGetBlockOrderOrdersV1Request) StartTime(startTime int64) MarketMakerBlockTradeAPIOptionsGetBlockOrderOrdersV1Request {
+func (r ApiOptionsGetBlockOrderOrdersV1Request) StartTime(startTime int64) ApiOptionsGetBlockOrderOrdersV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsGetBlockOrderOrdersV1Request) Underlying(underlying string) MarketMakerBlockTradeAPIOptionsGetBlockOrderOrdersV1Request {
+func (r ApiOptionsGetBlockOrderOrdersV1Request) Underlying(underlying string) ApiOptionsGetBlockOrderOrdersV1Request {
 	r.underlying = &underlying
 	return r
 }
 
 // The value cannot be greater than 60000
-func (r MarketMakerBlockTradeAPIOptionsGetBlockOrderOrdersV1Request) RecvWindow(recvWindow int64) MarketMakerBlockTradeAPIOptionsGetBlockOrderOrdersV1Request {
+func (r ApiOptionsGetBlockOrderOrdersV1Request) RecvWindow(recvWindow int64) ApiOptionsGetBlockOrderOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsGetBlockOrderOrdersV1Request) Execute() ([]OptionsGetBlockOrderOrdersV1RespItem, *http.Response, error) {
+func (r ApiOptionsGetBlockOrderOrdersV1Request) Execute() ([]OptionsGetBlockOrderOrdersV1RespItem, *http.Response, error) {
 	return r.ApiService.OptionsGetBlockOrderOrdersV1Execute(r)
 }
 
@@ -747,10 +747,10 @@ OptionsGetBlockOrderOrdersV1 Query Block Trade Order (TRADE)
 Check block trade order status.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketMakerBlockTradeAPIOptionsGetBlockOrderOrdersV1Request
+ @return ApiOptionsGetBlockOrderOrdersV1Request
 */
-func (a *MarketMakerBlockTradeAPIService) OptionsGetBlockOrderOrdersV1(ctx context.Context) MarketMakerBlockTradeAPIOptionsGetBlockOrderOrdersV1Request {
-	return MarketMakerBlockTradeAPIOptionsGetBlockOrderOrdersV1Request{
+func (a *MarketMakerBlockTradeAPIService) OptionsGetBlockOrderOrdersV1(ctx context.Context) ApiOptionsGetBlockOrderOrdersV1Request {
+	return ApiOptionsGetBlockOrderOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -758,7 +758,7 @@ func (a *MarketMakerBlockTradeAPIService) OptionsGetBlockOrderOrdersV1(ctx conte
 
 // Execute executes the request
 //  @return []OptionsGetBlockOrderOrdersV1RespItem
-func (a *MarketMakerBlockTradeAPIService) OptionsGetBlockOrderOrdersV1Execute(r MarketMakerBlockTradeAPIOptionsGetBlockOrderOrdersV1Request) ([]OptionsGetBlockOrderOrdersV1RespItem, *http.Response, error) {
+func (a *MarketMakerBlockTradeAPIService) OptionsGetBlockOrderOrdersV1Execute(r ApiOptionsGetBlockOrderOrdersV1Request) ([]OptionsGetBlockOrderOrdersV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -883,7 +883,7 @@ func (a *MarketMakerBlockTradeAPIService) OptionsGetBlockOrderOrdersV1Execute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketMakerBlockTradeAPIOptionsGetBlockUserTradesV1Request struct {
+type ApiOptionsGetBlockUserTradesV1Request struct {
 	ctx context.Context
 	ApiService *MarketMakerBlockTradeAPIService
 	timestamp *int64
@@ -893,33 +893,33 @@ type MarketMakerBlockTradeAPIOptionsGetBlockUserTradesV1Request struct {
 	recvWindow *int64
 }
 
-func (r MarketMakerBlockTradeAPIOptionsGetBlockUserTradesV1Request) Timestamp(timestamp int64) MarketMakerBlockTradeAPIOptionsGetBlockUserTradesV1Request {
+func (r ApiOptionsGetBlockUserTradesV1Request) Timestamp(timestamp int64) ApiOptionsGetBlockUserTradesV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsGetBlockUserTradesV1Request) EndTime(endTime int64) MarketMakerBlockTradeAPIOptionsGetBlockUserTradesV1Request {
+func (r ApiOptionsGetBlockUserTradesV1Request) EndTime(endTime int64) ApiOptionsGetBlockUserTradesV1Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsGetBlockUserTradesV1Request) StartTime(startTime int64) MarketMakerBlockTradeAPIOptionsGetBlockUserTradesV1Request {
+func (r ApiOptionsGetBlockUserTradesV1Request) StartTime(startTime int64) ApiOptionsGetBlockUserTradesV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsGetBlockUserTradesV1Request) Underlying(underlying string) MarketMakerBlockTradeAPIOptionsGetBlockUserTradesV1Request {
+func (r ApiOptionsGetBlockUserTradesV1Request) Underlying(underlying string) ApiOptionsGetBlockUserTradesV1Request {
 	r.underlying = &underlying
 	return r
 }
 
 // The value cannot be greater than 60000
-func (r MarketMakerBlockTradeAPIOptionsGetBlockUserTradesV1Request) RecvWindow(recvWindow int64) MarketMakerBlockTradeAPIOptionsGetBlockUserTradesV1Request {
+func (r ApiOptionsGetBlockUserTradesV1Request) RecvWindow(recvWindow int64) ApiOptionsGetBlockUserTradesV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsGetBlockUserTradesV1Request) Execute() ([]OptionsGetBlockUserTradesV1RespItem, *http.Response, error) {
+func (r ApiOptionsGetBlockUserTradesV1Request) Execute() ([]OptionsGetBlockUserTradesV1RespItem, *http.Response, error) {
 	return r.ApiService.OptionsGetBlockUserTradesV1Execute(r)
 }
 
@@ -929,10 +929,10 @@ OptionsGetBlockUserTradesV1 Account Block Trade List (USER_DATA)
 Gets block trades for a specific account.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketMakerBlockTradeAPIOptionsGetBlockUserTradesV1Request
+ @return ApiOptionsGetBlockUserTradesV1Request
 */
-func (a *MarketMakerBlockTradeAPIService) OptionsGetBlockUserTradesV1(ctx context.Context) MarketMakerBlockTradeAPIOptionsGetBlockUserTradesV1Request {
-	return MarketMakerBlockTradeAPIOptionsGetBlockUserTradesV1Request{
+func (a *MarketMakerBlockTradeAPIService) OptionsGetBlockUserTradesV1(ctx context.Context) ApiOptionsGetBlockUserTradesV1Request {
+	return ApiOptionsGetBlockUserTradesV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -940,7 +940,7 @@ func (a *MarketMakerBlockTradeAPIService) OptionsGetBlockUserTradesV1(ctx contex
 
 // Execute executes the request
 //  @return []OptionsGetBlockUserTradesV1RespItem
-func (a *MarketMakerBlockTradeAPIService) OptionsGetBlockUserTradesV1Execute(r MarketMakerBlockTradeAPIOptionsGetBlockUserTradesV1Request) ([]OptionsGetBlockUserTradesV1RespItem, *http.Response, error) {
+func (a *MarketMakerBlockTradeAPIService) OptionsGetBlockUserTradesV1Execute(r ApiOptionsGetBlockUserTradesV1Request) ([]OptionsGetBlockUserTradesV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1059,7 +1059,7 @@ func (a *MarketMakerBlockTradeAPIService) OptionsGetBlockUserTradesV1Execute(r M
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketMakerBlockTradeAPIOptionsUpdateBlockOrderCreateV1Request struct {
+type ApiOptionsUpdateBlockOrderCreateV1Request struct {
 	ctx context.Context
 	ApiService *MarketMakerBlockTradeAPIService
 	blockOrderMatchingKey *string
@@ -1067,22 +1067,22 @@ type MarketMakerBlockTradeAPIOptionsUpdateBlockOrderCreateV1Request struct {
 	recvWindow *int32
 }
 
-func (r MarketMakerBlockTradeAPIOptionsUpdateBlockOrderCreateV1Request) BlockOrderMatchingKey(blockOrderMatchingKey string) MarketMakerBlockTradeAPIOptionsUpdateBlockOrderCreateV1Request {
+func (r ApiOptionsUpdateBlockOrderCreateV1Request) BlockOrderMatchingKey(blockOrderMatchingKey string) ApiOptionsUpdateBlockOrderCreateV1Request {
 	r.blockOrderMatchingKey = &blockOrderMatchingKey
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsUpdateBlockOrderCreateV1Request) Timestamp(timestamp int32) MarketMakerBlockTradeAPIOptionsUpdateBlockOrderCreateV1Request {
+func (r ApiOptionsUpdateBlockOrderCreateV1Request) Timestamp(timestamp int32) ApiOptionsUpdateBlockOrderCreateV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsUpdateBlockOrderCreateV1Request) RecvWindow(recvWindow int32) MarketMakerBlockTradeAPIOptionsUpdateBlockOrderCreateV1Request {
+func (r ApiOptionsUpdateBlockOrderCreateV1Request) RecvWindow(recvWindow int32) ApiOptionsUpdateBlockOrderCreateV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r MarketMakerBlockTradeAPIOptionsUpdateBlockOrderCreateV1Request) Execute() (*OptionsUpdateBlockOrderCreateV1Resp, *http.Response, error) {
+func (r ApiOptionsUpdateBlockOrderCreateV1Request) Execute() (*OptionsUpdateBlockOrderCreateV1Resp, *http.Response, error) {
 	return r.ApiService.OptionsUpdateBlockOrderCreateV1Execute(r)
 }
 
@@ -1092,10 +1092,10 @@ OptionsUpdateBlockOrderCreateV1 Extend Block Trade Order (TRADE)
 Extends a block trade expire time by 30 mins from the current time.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketMakerBlockTradeAPIOptionsUpdateBlockOrderCreateV1Request
+ @return ApiOptionsUpdateBlockOrderCreateV1Request
 */
-func (a *MarketMakerBlockTradeAPIService) OptionsUpdateBlockOrderCreateV1(ctx context.Context) MarketMakerBlockTradeAPIOptionsUpdateBlockOrderCreateV1Request {
-	return MarketMakerBlockTradeAPIOptionsUpdateBlockOrderCreateV1Request{
+func (a *MarketMakerBlockTradeAPIService) OptionsUpdateBlockOrderCreateV1(ctx context.Context) ApiOptionsUpdateBlockOrderCreateV1Request {
+	return ApiOptionsUpdateBlockOrderCreateV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1103,7 +1103,7 @@ func (a *MarketMakerBlockTradeAPIService) OptionsUpdateBlockOrderCreateV1(ctx co
 
 // Execute executes the request
 //  @return OptionsUpdateBlockOrderCreateV1Resp
-func (a *MarketMakerBlockTradeAPIService) OptionsUpdateBlockOrderCreateV1Execute(r MarketMakerBlockTradeAPIOptionsUpdateBlockOrderCreateV1Request) (*OptionsUpdateBlockOrderCreateV1Resp, *http.Response, error) {
+func (a *MarketMakerBlockTradeAPIService) OptionsUpdateBlockOrderCreateV1Execute(r ApiOptionsUpdateBlockOrderCreateV1Request) (*OptionsUpdateBlockOrderCreateV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}

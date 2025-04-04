@@ -22,7 +22,7 @@ import (
 // TravelRuleAPIService TravelRuleAPI service
 type TravelRuleAPIService service
 
-type TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request struct {
+type ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request struct {
 	ctx context.Context
 	ApiService *TravelRuleAPIService
 	address *string
@@ -41,77 +41,77 @@ type TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request struct {
 	walletType *int32
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request) Address(address string) TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request) Address(address string) ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request {
 	r.address = &address
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request) Amount(amount map[string]interface{}) TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request) Amount(amount map[string]interface{}) ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request {
 	r.amount = &amount
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request) Coin(coin string) TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request) Coin(coin string) ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request {
 	r.coin = &coin
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request) OriginatorPii(originatorPii string) TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request) OriginatorPii(originatorPii string) ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request {
 	r.originatorPii = &originatorPii
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request) Questionnaire(questionnaire string) TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request) Questionnaire(questionnaire string) ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request {
 	r.questionnaire = &questionnaire
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request) Signature(signature string) TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request) Signature(signature string) ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request {
 	r.signature = &signature
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request) SubAccountId(subAccountId string) TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request) SubAccountId(subAccountId string) ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request {
 	r.subAccountId = &subAccountId
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request) Timestamp(timestamp int64) TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request) Timestamp(timestamp int64) ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request) WithdrawOrderId(withdrawOrderId string) TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request) WithdrawOrderId(withdrawOrderId string) ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request {
 	r.withdrawOrderId = &withdrawOrderId
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request) AddressName(addressName string) TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request) AddressName(addressName string) ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request {
 	r.addressName = &addressName
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request) AddressTag(addressTag string) TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request) AddressTag(addressTag string) ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request {
 	r.addressTag = &addressTag
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request) Network(network string) TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request) Network(network string) ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request {
 	r.network = &network
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request) TransactionFeeFlag(transactionFeeFlag bool) TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request) TransactionFeeFlag(transactionFeeFlag bool) ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request {
 	r.transactionFeeFlag = &transactionFeeFlag
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request) WalletType(walletType int32) TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request) WalletType(walletType int32) ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request {
 	r.walletType = &walletType
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request) Execute() (*WalletCreateLocalentityBrokerWithdrawApplyV1Resp, *http.Response, error) {
+func (r ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request) Execute() (*WalletCreateLocalentityBrokerWithdrawApplyV1Resp, *http.Response, error) {
 	return r.ApiService.WalletCreateLocalentityBrokerWithdrawApplyV1Execute(r)
 }
 
@@ -121,10 +121,10 @@ WalletCreateLocalentityBrokerWithdrawApplyV1 Broker Withdraw (for brokers of loc
 Submit a withdrawal request for brokers of local entities that required travel rule.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request
+ @return ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request
 */
-func (a *TravelRuleAPIService) WalletCreateLocalentityBrokerWithdrawApplyV1(ctx context.Context) TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request {
-	return TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request{
+func (a *TravelRuleAPIService) WalletCreateLocalentityBrokerWithdrawApplyV1(ctx context.Context) ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request {
+	return ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -132,7 +132,7 @@ func (a *TravelRuleAPIService) WalletCreateLocalentityBrokerWithdrawApplyV1(ctx 
 
 // Execute executes the request
 //  @return WalletCreateLocalentityBrokerWithdrawApplyV1Resp
-func (a *TravelRuleAPIService) WalletCreateLocalentityBrokerWithdrawApplyV1Execute(r TravelRuleAPIWalletCreateLocalentityBrokerWithdrawApplyV1Request) (*WalletCreateLocalentityBrokerWithdrawApplyV1Resp, *http.Response, error) {
+func (a *TravelRuleAPIService) WalletCreateLocalentityBrokerWithdrawApplyV1Execute(r ApiWalletCreateLocalentityBrokerWithdrawApplyV1Request) (*WalletCreateLocalentityBrokerWithdrawApplyV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -283,7 +283,7 @@ func (a *TravelRuleAPIService) WalletCreateLocalentityBrokerWithdrawApplyV1Execu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request struct {
+type ApiWalletCreateLocalentityWithdrawApplyV1Request struct {
 	ctx context.Context
 	ApiService *TravelRuleAPIService
 	address *string
@@ -300,67 +300,67 @@ type TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request struct {
 	withdrawOrderId *string
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request) Address(address string) TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityWithdrawApplyV1Request) Address(address string) ApiWalletCreateLocalentityWithdrawApplyV1Request {
 	r.address = &address
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request) Amount(amount string) TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityWithdrawApplyV1Request) Amount(amount string) ApiWalletCreateLocalentityWithdrawApplyV1Request {
 	r.amount = &amount
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request) Coin(coin string) TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityWithdrawApplyV1Request) Coin(coin string) ApiWalletCreateLocalentityWithdrawApplyV1Request {
 	r.coin = &coin
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request) Questionnaire(questionnaire string) TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityWithdrawApplyV1Request) Questionnaire(questionnaire string) ApiWalletCreateLocalentityWithdrawApplyV1Request {
 	r.questionnaire = &questionnaire
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request) Timestamp(timestamp int64) TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityWithdrawApplyV1Request) Timestamp(timestamp int64) ApiWalletCreateLocalentityWithdrawApplyV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request) AddressTag(addressTag string) TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityWithdrawApplyV1Request) AddressTag(addressTag string) ApiWalletCreateLocalentityWithdrawApplyV1Request {
 	r.addressTag = &addressTag
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request) Name(name string) TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityWithdrawApplyV1Request) Name(name string) ApiWalletCreateLocalentityWithdrawApplyV1Request {
 	r.name = &name
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request) Network(network string) TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityWithdrawApplyV1Request) Network(network string) ApiWalletCreateLocalentityWithdrawApplyV1Request {
 	r.network = &network
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request) RecvWindow(recvWindow int64) TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityWithdrawApplyV1Request) RecvWindow(recvWindow int64) ApiWalletCreateLocalentityWithdrawApplyV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request) TransactionFeeFlag(transactionFeeFlag bool) TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityWithdrawApplyV1Request) TransactionFeeFlag(transactionFeeFlag bool) ApiWalletCreateLocalentityWithdrawApplyV1Request {
 	r.transactionFeeFlag = &transactionFeeFlag
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request) WalletType(walletType int32) TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityWithdrawApplyV1Request) WalletType(walletType int32) ApiWalletCreateLocalentityWithdrawApplyV1Request {
 	r.walletType = &walletType
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request) WithdrawOrderId(withdrawOrderId string) TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request {
+func (r ApiWalletCreateLocalentityWithdrawApplyV1Request) WithdrawOrderId(withdrawOrderId string) ApiWalletCreateLocalentityWithdrawApplyV1Request {
 	r.withdrawOrderId = &withdrawOrderId
 	return r
 }
 
-func (r TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request) Execute() (*WalletCreateLocalentityWithdrawApplyV1Resp, *http.Response, error) {
+func (r ApiWalletCreateLocalentityWithdrawApplyV1Request) Execute() (*WalletCreateLocalentityWithdrawApplyV1Resp, *http.Response, error) {
 	return r.ApiService.WalletCreateLocalentityWithdrawApplyV1Execute(r)
 }
 
@@ -370,10 +370,10 @@ WalletCreateLocalentityWithdrawApplyV1 Withdraw (for local entities that require
 Submit a withdrawal request for local entities that required travel rule.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request
+ @return ApiWalletCreateLocalentityWithdrawApplyV1Request
 */
-func (a *TravelRuleAPIService) WalletCreateLocalentityWithdrawApplyV1(ctx context.Context) TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request {
-	return TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request{
+func (a *TravelRuleAPIService) WalletCreateLocalentityWithdrawApplyV1(ctx context.Context) ApiWalletCreateLocalentityWithdrawApplyV1Request {
+	return ApiWalletCreateLocalentityWithdrawApplyV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -381,7 +381,7 @@ func (a *TravelRuleAPIService) WalletCreateLocalentityWithdrawApplyV1(ctx contex
 
 // Execute executes the request
 //  @return WalletCreateLocalentityWithdrawApplyV1Resp
-func (a *TravelRuleAPIService) WalletCreateLocalentityWithdrawApplyV1Execute(r TravelRuleAPIWalletCreateLocalentityWithdrawApplyV1Request) (*WalletCreateLocalentityWithdrawApplyV1Resp, *http.Response, error) {
+func (a *TravelRuleAPIService) WalletCreateLocalentityWithdrawApplyV1Execute(r ApiWalletCreateLocalentityWithdrawApplyV1Request) (*WalletCreateLocalentityWithdrawApplyV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -522,7 +522,7 @@ func (a *TravelRuleAPIService) WalletCreateLocalentityWithdrawApplyV1Execute(r T
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request struct {
+type ApiWalletGetLocalentityDepositHistoryV1Request struct {
 	ctx context.Context
 	ApiService *TravelRuleAPIService
 	timestamp *int64
@@ -539,76 +539,76 @@ type TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request struct {
 	limit *int32
 }
 
-func (r TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request) Timestamp(timestamp int64) TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request {
+func (r ApiWalletGetLocalentityDepositHistoryV1Request) Timestamp(timestamp int64) ApiWalletGetLocalentityDepositHistoryV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Comma(,) separated list of travel rule record Ids.
-func (r TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request) TrId(trId string) TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request {
+func (r ApiWalletGetLocalentityDepositHistoryV1Request) TrId(trId string) ApiWalletGetLocalentityDepositHistoryV1Request {
 	r.trId = &trId
 	return r
 }
 
 // Comma(,) separated list of transaction Ids.
-func (r TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request) TxId(txId string) TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request {
+func (r ApiWalletGetLocalentityDepositHistoryV1Request) TxId(txId string) ApiWalletGetLocalentityDepositHistoryV1Request {
 	r.txId = &txId
 	return r
 }
 
 // Comma(,) separated list of wallet tran Ids.
-func (r TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request) TranId(tranId string) TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request {
+func (r ApiWalletGetLocalentityDepositHistoryV1Request) TranId(tranId string) ApiWalletGetLocalentityDepositHistoryV1Request {
 	r.tranId = &tranId
 	return r
 }
 
-func (r TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request) Network(network string) TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request {
+func (r ApiWalletGetLocalentityDepositHistoryV1Request) Network(network string) ApiWalletGetLocalentityDepositHistoryV1Request {
 	r.network = &network
 	return r
 }
 
-func (r TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request) Coin(coin string) TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request {
+func (r ApiWalletGetLocalentityDepositHistoryV1Request) Coin(coin string) ApiWalletGetLocalentityDepositHistoryV1Request {
 	r.coin = &coin
 	return r
 }
 
 // 0:Completed,1:Pending,2:Failed
-func (r TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request) TravelRuleStatus(travelRuleStatus int32) TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request {
+func (r ApiWalletGetLocalentityDepositHistoryV1Request) TravelRuleStatus(travelRuleStatus int32) ApiWalletGetLocalentityDepositHistoryV1Request {
 	r.travelRuleStatus = &travelRuleStatus
 	return r
 }
 
 // true: Only return records that pending deposit questionnaire. false/not provided: return all records.
-func (r TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request) PendingQuestionnaire(pendingQuestionnaire bool) TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request {
+func (r ApiWalletGetLocalentityDepositHistoryV1Request) PendingQuestionnaire(pendingQuestionnaire bool) ApiWalletGetLocalentityDepositHistoryV1Request {
 	r.pendingQuestionnaire = &pendingQuestionnaire
 	return r
 }
 
 // Default: 90 days from current timestamp
-func (r TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request) StartTime(startTime int64) TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request {
+func (r ApiWalletGetLocalentityDepositHistoryV1Request) StartTime(startTime int64) ApiWalletGetLocalentityDepositHistoryV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // Default: present timestamp
-func (r TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request) EndTime(endTime int64) TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request {
+func (r ApiWalletGetLocalentityDepositHistoryV1Request) EndTime(endTime int64) ApiWalletGetLocalentityDepositHistoryV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default:0
-func (r TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request) Offset(offset int32) TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request {
+func (r ApiWalletGetLocalentityDepositHistoryV1Request) Offset(offset int32) ApiWalletGetLocalentityDepositHistoryV1Request {
 	r.offset = &offset
 	return r
 }
 
 // Default:1000, Max:1000
-func (r TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request) Limit(limit int32) TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request {
+func (r ApiWalletGetLocalentityDepositHistoryV1Request) Limit(limit int32) ApiWalletGetLocalentityDepositHistoryV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request) Execute() ([]WalletGetLocalentityDepositHistoryV1RespItem, *http.Response, error) {
+func (r ApiWalletGetLocalentityDepositHistoryV1Request) Execute() ([]WalletGetLocalentityDepositHistoryV1RespItem, *http.Response, error) {
 	return r.ApiService.WalletGetLocalentityDepositHistoryV1Execute(r)
 }
 
@@ -618,10 +618,10 @@ WalletGetLocalentityDepositHistoryV1 Deposit History (for local entities that re
 Fetch deposit history for local entities that required travel rule.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request
+ @return ApiWalletGetLocalentityDepositHistoryV1Request
 */
-func (a *TravelRuleAPIService) WalletGetLocalentityDepositHistoryV1(ctx context.Context) TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request {
-	return TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request{
+func (a *TravelRuleAPIService) WalletGetLocalentityDepositHistoryV1(ctx context.Context) ApiWalletGetLocalentityDepositHistoryV1Request {
+	return ApiWalletGetLocalentityDepositHistoryV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -629,7 +629,7 @@ func (a *TravelRuleAPIService) WalletGetLocalentityDepositHistoryV1(ctx context.
 
 // Execute executes the request
 //  @return []WalletGetLocalentityDepositHistoryV1RespItem
-func (a *TravelRuleAPIService) WalletGetLocalentityDepositHistoryV1Execute(r TravelRuleAPIWalletGetLocalentityDepositHistoryV1Request) ([]WalletGetLocalentityDepositHistoryV1RespItem, *http.Response, error) {
+func (a *TravelRuleAPIService) WalletGetLocalentityDepositHistoryV1Execute(r ApiWalletGetLocalentityDepositHistoryV1Request) ([]WalletGetLocalentityDepositHistoryV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -781,12 +781,12 @@ func (a *TravelRuleAPIService) WalletGetLocalentityDepositHistoryV1Execute(r Tra
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TravelRuleAPIWalletGetLocalentityVaspV1Request struct {
+type ApiWalletGetLocalentityVaspV1Request struct {
 	ctx context.Context
 	ApiService *TravelRuleAPIService
 }
 
-func (r TravelRuleAPIWalletGetLocalentityVaspV1Request) Execute() ([]WalletGetLocalentityVaspV1RespItem, *http.Response, error) {
+func (r ApiWalletGetLocalentityVaspV1Request) Execute() ([]WalletGetLocalentityVaspV1RespItem, *http.Response, error) {
 	return r.ApiService.WalletGetLocalentityVaspV1Execute(r)
 }
 
@@ -796,10 +796,10 @@ WalletGetLocalentityVaspV1 Onboarded VASP list (for local entities that require 
 Fetch the onboarded VASP list for local entities that required travel rule.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TravelRuleAPIWalletGetLocalentityVaspV1Request
+ @return ApiWalletGetLocalentityVaspV1Request
 */
-func (a *TravelRuleAPIService) WalletGetLocalentityVaspV1(ctx context.Context) TravelRuleAPIWalletGetLocalentityVaspV1Request {
-	return TravelRuleAPIWalletGetLocalentityVaspV1Request{
+func (a *TravelRuleAPIService) WalletGetLocalentityVaspV1(ctx context.Context) ApiWalletGetLocalentityVaspV1Request {
+	return ApiWalletGetLocalentityVaspV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -807,7 +807,7 @@ func (a *TravelRuleAPIService) WalletGetLocalentityVaspV1(ctx context.Context) T
 
 // Execute executes the request
 //  @return []WalletGetLocalentityVaspV1RespItem
-func (a *TravelRuleAPIService) WalletGetLocalentityVaspV1Execute(r TravelRuleAPIWalletGetLocalentityVaspV1Request) ([]WalletGetLocalentityVaspV1RespItem, *http.Response, error) {
+func (a *TravelRuleAPIService) WalletGetLocalentityVaspV1Execute(r ApiWalletGetLocalentityVaspV1Request) ([]WalletGetLocalentityVaspV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -907,7 +907,7 @@ func (a *TravelRuleAPIService) WalletGetLocalentityVaspV1Execute(r TravelRuleAPI
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request struct {
+type ApiWalletGetLocalentityWithdrawHistoryV1Request struct {
 	ctx context.Context
 	ApiService *TravelRuleAPIService
 	timestamp *int64
@@ -924,75 +924,75 @@ type TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request struct {
 	recvWindow *int64
 }
 
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request) Timestamp(timestamp int64) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request {
+func (r ApiWalletGetLocalentityWithdrawHistoryV1Request) Timestamp(timestamp int64) ApiWalletGetLocalentityWithdrawHistoryV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Comma(,) separated list of travel rule record Ids.
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request) TrId(trId string) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request {
+func (r ApiWalletGetLocalentityWithdrawHistoryV1Request) TrId(trId string) ApiWalletGetLocalentityWithdrawHistoryV1Request {
 	r.trId = &trId
 	return r
 }
 
 // Comma(,) separated list of transaction Ids.
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request) TxId(txId string) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request {
+func (r ApiWalletGetLocalentityWithdrawHistoryV1Request) TxId(txId string) ApiWalletGetLocalentityWithdrawHistoryV1Request {
 	r.txId = &txId
 	return r
 }
 
 // Comma(,) separated list of withdrawID defined by the client (i.e. client&amp;#39;s internal withdrawID).
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request) WithdrawOrderId(withdrawOrderId string) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request {
+func (r ApiWalletGetLocalentityWithdrawHistoryV1Request) WithdrawOrderId(withdrawOrderId string) ApiWalletGetLocalentityWithdrawHistoryV1Request {
 	r.withdrawOrderId = &withdrawOrderId
 	return r
 }
 
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request) Network(network string) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request {
+func (r ApiWalletGetLocalentityWithdrawHistoryV1Request) Network(network string) ApiWalletGetLocalentityWithdrawHistoryV1Request {
 	r.network = &network
 	return r
 }
 
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request) Coin(coin string) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request {
+func (r ApiWalletGetLocalentityWithdrawHistoryV1Request) Coin(coin string) ApiWalletGetLocalentityWithdrawHistoryV1Request {
 	r.coin = &coin
 	return r
 }
 
 // 0:Completed,1:Pending,2:Failed
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request) TravelRuleStatus(travelRuleStatus int32) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request {
+func (r ApiWalletGetLocalentityWithdrawHistoryV1Request) TravelRuleStatus(travelRuleStatus int32) ApiWalletGetLocalentityWithdrawHistoryV1Request {
 	r.travelRuleStatus = &travelRuleStatus
 	return r
 }
 
 // Default: 0
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request) Offset(offset int32) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request {
+func (r ApiWalletGetLocalentityWithdrawHistoryV1Request) Offset(offset int32) ApiWalletGetLocalentityWithdrawHistoryV1Request {
 	r.offset = &offset
 	return r
 }
 
 // Default: 1000, Max: 1000
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request) Limit(limit int32) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request {
+func (r ApiWalletGetLocalentityWithdrawHistoryV1Request) Limit(limit int32) ApiWalletGetLocalentityWithdrawHistoryV1Request {
 	r.limit = &limit
 	return r
 }
 
 // Default: 90 days from current timestamp
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request) StartTime(startTime int64) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request {
+func (r ApiWalletGetLocalentityWithdrawHistoryV1Request) StartTime(startTime int64) ApiWalletGetLocalentityWithdrawHistoryV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // Default: present timestamp
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request) EndTime(endTime int64) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request {
+func (r ApiWalletGetLocalentityWithdrawHistoryV1Request) EndTime(endTime int64) ApiWalletGetLocalentityWithdrawHistoryV1Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request) RecvWindow(recvWindow int64) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request {
+func (r ApiWalletGetLocalentityWithdrawHistoryV1Request) RecvWindow(recvWindow int64) ApiWalletGetLocalentityWithdrawHistoryV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request) Execute() ([]WalletGetLocalentityWithdrawHistoryV1RespItem, *http.Response, error) {
+func (r ApiWalletGetLocalentityWithdrawHistoryV1Request) Execute() ([]WalletGetLocalentityWithdrawHistoryV1RespItem, *http.Response, error) {
 	return r.ApiService.WalletGetLocalentityWithdrawHistoryV1Execute(r)
 }
 
@@ -1002,10 +1002,10 @@ WalletGetLocalentityWithdrawHistoryV1 Withdraw History (for local entities that 
 Fetch withdraw history for local entities that required travel rule.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request
+ @return ApiWalletGetLocalentityWithdrawHistoryV1Request
 */
-func (a *TravelRuleAPIService) WalletGetLocalentityWithdrawHistoryV1(ctx context.Context) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request {
-	return TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request{
+func (a *TravelRuleAPIService) WalletGetLocalentityWithdrawHistoryV1(ctx context.Context) ApiWalletGetLocalentityWithdrawHistoryV1Request {
+	return ApiWalletGetLocalentityWithdrawHistoryV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1013,7 +1013,7 @@ func (a *TravelRuleAPIService) WalletGetLocalentityWithdrawHistoryV1(ctx context
 
 // Execute executes the request
 //  @return []WalletGetLocalentityWithdrawHistoryV1RespItem
-func (a *TravelRuleAPIService) WalletGetLocalentityWithdrawHistoryV1Execute(r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV1Request) ([]WalletGetLocalentityWithdrawHistoryV1RespItem, *http.Response, error) {
+func (a *TravelRuleAPIService) WalletGetLocalentityWithdrawHistoryV1Execute(r ApiWalletGetLocalentityWithdrawHistoryV1Request) ([]WalletGetLocalentityWithdrawHistoryV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1171,7 +1171,7 @@ func (a *TravelRuleAPIService) WalletGetLocalentityWithdrawHistoryV1Execute(r Tr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request struct {
+type ApiWalletGetLocalentityWithdrawHistoryV2Request struct {
 	ctx context.Context
 	ApiService *TravelRuleAPIService
 	timestamp *int64
@@ -1188,75 +1188,75 @@ type TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request struct {
 	recvWindow *int64
 }
 
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request) Timestamp(timestamp int64) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request {
+func (r ApiWalletGetLocalentityWithdrawHistoryV2Request) Timestamp(timestamp int64) ApiWalletGetLocalentityWithdrawHistoryV2Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Comma(,) separated list of travel rule record Ids.
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request) TrId(trId string) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request {
+func (r ApiWalletGetLocalentityWithdrawHistoryV2Request) TrId(trId string) ApiWalletGetLocalentityWithdrawHistoryV2Request {
 	r.trId = &trId
 	return r
 }
 
 // Comma(,) separated list of transaction Ids.
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request) TxId(txId string) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request {
+func (r ApiWalletGetLocalentityWithdrawHistoryV2Request) TxId(txId string) ApiWalletGetLocalentityWithdrawHistoryV2Request {
 	r.txId = &txId
 	return r
 }
 
 // Withdraw ID defined by the client (i.e. client&amp;#39;s internal withdrawID).
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request) WithdrawOrderId(withdrawOrderId string) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request {
+func (r ApiWalletGetLocalentityWithdrawHistoryV2Request) WithdrawOrderId(withdrawOrderId string) ApiWalletGetLocalentityWithdrawHistoryV2Request {
 	r.withdrawOrderId = &withdrawOrderId
 	return r
 }
 
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request) Network(network string) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request {
+func (r ApiWalletGetLocalentityWithdrawHistoryV2Request) Network(network string) ApiWalletGetLocalentityWithdrawHistoryV2Request {
 	r.network = &network
 	return r
 }
 
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request) Coin(coin string) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request {
+func (r ApiWalletGetLocalentityWithdrawHistoryV2Request) Coin(coin string) ApiWalletGetLocalentityWithdrawHistoryV2Request {
 	r.coin = &coin
 	return r
 }
 
 // 0:Completed,1:Pending,2:Failed
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request) TravelRuleStatus(travelRuleStatus int32) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request {
+func (r ApiWalletGetLocalentityWithdrawHistoryV2Request) TravelRuleStatus(travelRuleStatus int32) ApiWalletGetLocalentityWithdrawHistoryV2Request {
 	r.travelRuleStatus = &travelRuleStatus
 	return r
 }
 
 // Default: 0
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request) Offset(offset int32) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request {
+func (r ApiWalletGetLocalentityWithdrawHistoryV2Request) Offset(offset int32) ApiWalletGetLocalentityWithdrawHistoryV2Request {
 	r.offset = &offset
 	return r
 }
 
 // Default: 1000, Max: 1000
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request) Limit(limit int32) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request {
+func (r ApiWalletGetLocalentityWithdrawHistoryV2Request) Limit(limit int32) ApiWalletGetLocalentityWithdrawHistoryV2Request {
 	r.limit = &limit
 	return r
 }
 
 // Default: 90 days from current timestamp
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request) StartTime(startTime int64) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request {
+func (r ApiWalletGetLocalentityWithdrawHistoryV2Request) StartTime(startTime int64) ApiWalletGetLocalentityWithdrawHistoryV2Request {
 	r.startTime = &startTime
 	return r
 }
 
 // Default: present timestamp
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request) EndTime(endTime int64) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request {
+func (r ApiWalletGetLocalentityWithdrawHistoryV2Request) EndTime(endTime int64) ApiWalletGetLocalentityWithdrawHistoryV2Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request) RecvWindow(recvWindow int64) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request {
+func (r ApiWalletGetLocalentityWithdrawHistoryV2Request) RecvWindow(recvWindow int64) ApiWalletGetLocalentityWithdrawHistoryV2Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request) Execute() ([]WalletGetLocalentityWithdrawHistoryV2RespItem, *http.Response, error) {
+func (r ApiWalletGetLocalentityWithdrawHistoryV2Request) Execute() ([]WalletGetLocalentityWithdrawHistoryV2RespItem, *http.Response, error) {
 	return r.ApiService.WalletGetLocalentityWithdrawHistoryV2Execute(r)
 }
 
@@ -1266,10 +1266,10 @@ WalletGetLocalentityWithdrawHistoryV2 Withdraw History V2 (for local entities th
 Fetch withdraw history for local entities that required travel rule.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request
+ @return ApiWalletGetLocalentityWithdrawHistoryV2Request
 */
-func (a *TravelRuleAPIService) WalletGetLocalentityWithdrawHistoryV2(ctx context.Context) TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request {
-	return TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request{
+func (a *TravelRuleAPIService) WalletGetLocalentityWithdrawHistoryV2(ctx context.Context) ApiWalletGetLocalentityWithdrawHistoryV2Request {
+	return ApiWalletGetLocalentityWithdrawHistoryV2Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1277,7 +1277,7 @@ func (a *TravelRuleAPIService) WalletGetLocalentityWithdrawHistoryV2(ctx context
 
 // Execute executes the request
 //  @return []WalletGetLocalentityWithdrawHistoryV2RespItem
-func (a *TravelRuleAPIService) WalletGetLocalentityWithdrawHistoryV2Execute(r TravelRuleAPIWalletGetLocalentityWithdrawHistoryV2Request) ([]WalletGetLocalentityWithdrawHistoryV2RespItem, *http.Response, error) {
+func (a *TravelRuleAPIService) WalletGetLocalentityWithdrawHistoryV2Execute(r ApiWalletGetLocalentityWithdrawHistoryV2Request) ([]WalletGetLocalentityWithdrawHistoryV2RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1435,7 +1435,7 @@ func (a *TravelRuleAPIService) WalletGetLocalentityWithdrawHistoryV2Execute(r Tr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request struct {
+type ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request struct {
 	ctx context.Context
 	ApiService *TravelRuleAPIService
 	beneficiaryPii *string
@@ -1451,62 +1451,62 @@ type TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request struc
 	network *string
 }
 
-func (r TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) BeneficiaryPii(beneficiaryPii string) TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request {
+func (r ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) BeneficiaryPii(beneficiaryPii string) ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request {
 	r.beneficiaryPii = &beneficiaryPii
 	return r
 }
 
-func (r TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) DepositId(depositId string) TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request {
+func (r ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) DepositId(depositId string) ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request {
 	r.depositId = &depositId
 	return r
 }
 
-func (r TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) Questionnaire(questionnaire string) TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request {
+func (r ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) Questionnaire(questionnaire string) ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request {
 	r.questionnaire = &questionnaire
 	return r
 }
 
-func (r TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) Signature(signature string) TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request {
+func (r ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) Signature(signature string) ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request {
 	r.signature = &signature
 	return r
 }
 
-func (r TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) SubAccountId(subAccountId string) TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request {
+func (r ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) SubAccountId(subAccountId string) ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request {
 	r.subAccountId = &subAccountId
 	return r
 }
 
-func (r TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) Timestamp(timestamp int64) TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request {
+func (r ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) Timestamp(timestamp int64) ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) Address(address string) TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request {
+func (r ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) Address(address string) ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request {
 	r.address = &address
 	return r
 }
 
-func (r TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) AddressTag(addressTag string) TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request {
+func (r ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) AddressTag(addressTag string) ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request {
 	r.addressTag = &addressTag
 	return r
 }
 
-func (r TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) Amount(amount map[string]interface{}) TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request {
+func (r ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) Amount(amount map[string]interface{}) ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request {
 	r.amount = &amount
 	return r
 }
 
-func (r TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) Coin(coin string) TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request {
+func (r ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) Coin(coin string) ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request {
 	r.coin = &coin
 	return r
 }
 
-func (r TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) Network(network string) TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request {
+func (r ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) Network(network string) ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request {
 	r.network = &network
 	return r
 }
 
-func (r TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) Execute() (*WalletUpdateLocalentityBrokerDepositProvideInfoV1Resp, *http.Response, error) {
+func (r ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) Execute() (*WalletUpdateLocalentityBrokerDepositProvideInfoV1Resp, *http.Response, error) {
 	return r.ApiService.WalletUpdateLocalentityBrokerDepositProvideInfoV1Execute(r)
 }
 
@@ -1518,10 +1518,10 @@ The questionnaire is only applies to transactions from un-hosted wallets or VASP
 yet onboarded with GTR.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request
+ @return ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request
 */
-func (a *TravelRuleAPIService) WalletUpdateLocalentityBrokerDepositProvideInfoV1(ctx context.Context) TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request {
-	return TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request{
+func (a *TravelRuleAPIService) WalletUpdateLocalentityBrokerDepositProvideInfoV1(ctx context.Context) ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request {
+	return ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1529,7 +1529,7 @@ func (a *TravelRuleAPIService) WalletUpdateLocalentityBrokerDepositProvideInfoV1
 
 // Execute executes the request
 //  @return WalletUpdateLocalentityBrokerDepositProvideInfoV1Resp
-func (a *TravelRuleAPIService) WalletUpdateLocalentityBrokerDepositProvideInfoV1Execute(r TravelRuleAPIWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) (*WalletUpdateLocalentityBrokerDepositProvideInfoV1Resp, *http.Response, error) {
+func (a *TravelRuleAPIService) WalletUpdateLocalentityBrokerDepositProvideInfoV1Execute(r ApiWalletUpdateLocalentityBrokerDepositProvideInfoV1Request) (*WalletUpdateLocalentityBrokerDepositProvideInfoV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1668,7 +1668,7 @@ func (a *TravelRuleAPIService) WalletUpdateLocalentityBrokerDepositProvideInfoV1
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TravelRuleAPIWalletUpdateLocalentityDepositProvideInfoV1Request struct {
+type ApiWalletUpdateLocalentityDepositProvideInfoV1Request struct {
 	ctx context.Context
 	ApiService *TravelRuleAPIService
 	questionnaire *string
@@ -1676,22 +1676,22 @@ type TravelRuleAPIWalletUpdateLocalentityDepositProvideInfoV1Request struct {
 	tranId *int64
 }
 
-func (r TravelRuleAPIWalletUpdateLocalentityDepositProvideInfoV1Request) Questionnaire(questionnaire string) TravelRuleAPIWalletUpdateLocalentityDepositProvideInfoV1Request {
+func (r ApiWalletUpdateLocalentityDepositProvideInfoV1Request) Questionnaire(questionnaire string) ApiWalletUpdateLocalentityDepositProvideInfoV1Request {
 	r.questionnaire = &questionnaire
 	return r
 }
 
-func (r TravelRuleAPIWalletUpdateLocalentityDepositProvideInfoV1Request) Timestamp(timestamp int64) TravelRuleAPIWalletUpdateLocalentityDepositProvideInfoV1Request {
+func (r ApiWalletUpdateLocalentityDepositProvideInfoV1Request) Timestamp(timestamp int64) ApiWalletUpdateLocalentityDepositProvideInfoV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TravelRuleAPIWalletUpdateLocalentityDepositProvideInfoV1Request) TranId(tranId int64) TravelRuleAPIWalletUpdateLocalentityDepositProvideInfoV1Request {
+func (r ApiWalletUpdateLocalentityDepositProvideInfoV1Request) TranId(tranId int64) ApiWalletUpdateLocalentityDepositProvideInfoV1Request {
 	r.tranId = &tranId
 	return r
 }
 
-func (r TravelRuleAPIWalletUpdateLocalentityDepositProvideInfoV1Request) Execute() (*WalletUpdateLocalentityDepositProvideInfoV1Resp, *http.Response, error) {
+func (r ApiWalletUpdateLocalentityDepositProvideInfoV1Request) Execute() (*WalletUpdateLocalentityDepositProvideInfoV1Resp, *http.Response, error) {
 	return r.ApiService.WalletUpdateLocalentityDepositProvideInfoV1Execute(r)
 }
 
@@ -1703,10 +1703,10 @@ The questionnaire is only applies to transactions from unhosted wallets or VASPs
 yet onboarded with GTR.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TravelRuleAPIWalletUpdateLocalentityDepositProvideInfoV1Request
+ @return ApiWalletUpdateLocalentityDepositProvideInfoV1Request
 */
-func (a *TravelRuleAPIService) WalletUpdateLocalentityDepositProvideInfoV1(ctx context.Context) TravelRuleAPIWalletUpdateLocalentityDepositProvideInfoV1Request {
-	return TravelRuleAPIWalletUpdateLocalentityDepositProvideInfoV1Request{
+func (a *TravelRuleAPIService) WalletUpdateLocalentityDepositProvideInfoV1(ctx context.Context) ApiWalletUpdateLocalentityDepositProvideInfoV1Request {
+	return ApiWalletUpdateLocalentityDepositProvideInfoV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1714,7 +1714,7 @@ func (a *TravelRuleAPIService) WalletUpdateLocalentityDepositProvideInfoV1(ctx c
 
 // Execute executes the request
 //  @return WalletUpdateLocalentityDepositProvideInfoV1Resp
-func (a *TravelRuleAPIService) WalletUpdateLocalentityDepositProvideInfoV1Execute(r TravelRuleAPIWalletUpdateLocalentityDepositProvideInfoV1Request) (*WalletUpdateLocalentityDepositProvideInfoV1Resp, *http.Response, error) {
+func (a *TravelRuleAPIService) WalletUpdateLocalentityDepositProvideInfoV1Execute(r ApiWalletUpdateLocalentityDepositProvideInfoV1Request) (*WalletUpdateLocalentityDepositProvideInfoV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}

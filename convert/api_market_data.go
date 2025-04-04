@@ -22,25 +22,25 @@ import (
 // MarketDataAPIService MarketDataAPI service
 type MarketDataAPIService service
 
-type MarketDataAPIConvertGetConvertAssetInfoV1Request struct {
+type ApiConvertGetConvertAssetInfoV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r MarketDataAPIConvertGetConvertAssetInfoV1Request) Timestamp(timestamp int64) MarketDataAPIConvertGetConvertAssetInfoV1Request {
+func (r ApiConvertGetConvertAssetInfoV1Request) Timestamp(timestamp int64) ApiConvertGetConvertAssetInfoV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // The value cannot be greater than 60000
-func (r MarketDataAPIConvertGetConvertAssetInfoV1Request) RecvWindow(recvWindow int64) MarketDataAPIConvertGetConvertAssetInfoV1Request {
+func (r ApiConvertGetConvertAssetInfoV1Request) RecvWindow(recvWindow int64) ApiConvertGetConvertAssetInfoV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r MarketDataAPIConvertGetConvertAssetInfoV1Request) Execute() ([]ConvertGetConvertAssetInfoV1RespItem, *http.Response, error) {
+func (r ApiConvertGetConvertAssetInfoV1Request) Execute() ([]ConvertGetConvertAssetInfoV1RespItem, *http.Response, error) {
 	return r.ApiService.ConvertGetConvertAssetInfoV1Execute(r)
 }
 
@@ -50,10 +50,10 @@ ConvertGetConvertAssetInfoV1 Query order quantity precision per asset(USER_DATA)
 Query for supported asset’s precision information
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIConvertGetConvertAssetInfoV1Request
+ @return ApiConvertGetConvertAssetInfoV1Request
 */
-func (a *MarketDataAPIService) ConvertGetConvertAssetInfoV1(ctx context.Context) MarketDataAPIConvertGetConvertAssetInfoV1Request {
-	return MarketDataAPIConvertGetConvertAssetInfoV1Request{
+func (a *MarketDataAPIService) ConvertGetConvertAssetInfoV1(ctx context.Context) ApiConvertGetConvertAssetInfoV1Request {
+	return ApiConvertGetConvertAssetInfoV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -61,7 +61,7 @@ func (a *MarketDataAPIService) ConvertGetConvertAssetInfoV1(ctx context.Context)
 
 // Execute executes the request
 //  @return []ConvertGetConvertAssetInfoV1RespItem
-func (a *MarketDataAPIService) ConvertGetConvertAssetInfoV1Execute(r MarketDataAPIConvertGetConvertAssetInfoV1Request) ([]ConvertGetConvertAssetInfoV1RespItem, *http.Response, error) {
+func (a *MarketDataAPIService) ConvertGetConvertAssetInfoV1Execute(r ApiConvertGetConvertAssetInfoV1Request) ([]ConvertGetConvertAssetInfoV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -168,7 +168,7 @@ func (a *MarketDataAPIService) ConvertGetConvertAssetInfoV1Execute(r MarketDataA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPIConvertGetConvertExchangeInfoV1Request struct {
+type ApiConvertGetConvertExchangeInfoV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	fromAsset *string
@@ -176,18 +176,18 @@ type MarketDataAPIConvertGetConvertExchangeInfoV1Request struct {
 }
 
 // User spends coin
-func (r MarketDataAPIConvertGetConvertExchangeInfoV1Request) FromAsset(fromAsset string) MarketDataAPIConvertGetConvertExchangeInfoV1Request {
+func (r ApiConvertGetConvertExchangeInfoV1Request) FromAsset(fromAsset string) ApiConvertGetConvertExchangeInfoV1Request {
 	r.fromAsset = &fromAsset
 	return r
 }
 
 // User receives coin
-func (r MarketDataAPIConvertGetConvertExchangeInfoV1Request) ToAsset(toAsset string) MarketDataAPIConvertGetConvertExchangeInfoV1Request {
+func (r ApiConvertGetConvertExchangeInfoV1Request) ToAsset(toAsset string) ApiConvertGetConvertExchangeInfoV1Request {
 	r.toAsset = &toAsset
 	return r
 }
 
-func (r MarketDataAPIConvertGetConvertExchangeInfoV1Request) Execute() ([]ConvertGetConvertExchangeInfoV1RespItem, *http.Response, error) {
+func (r ApiConvertGetConvertExchangeInfoV1Request) Execute() ([]ConvertGetConvertExchangeInfoV1RespItem, *http.Response, error) {
 	return r.ApiService.ConvertGetConvertExchangeInfoV1Execute(r)
 }
 
@@ -197,10 +197,10 @@ ConvertGetConvertExchangeInfoV1 List All Convert Pairs
 Query for all convertible token pairs and the tokens’ respective upper/lower limits
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIConvertGetConvertExchangeInfoV1Request
+ @return ApiConvertGetConvertExchangeInfoV1Request
 */
-func (a *MarketDataAPIService) ConvertGetConvertExchangeInfoV1(ctx context.Context) MarketDataAPIConvertGetConvertExchangeInfoV1Request {
-	return MarketDataAPIConvertGetConvertExchangeInfoV1Request{
+func (a *MarketDataAPIService) ConvertGetConvertExchangeInfoV1(ctx context.Context) ApiConvertGetConvertExchangeInfoV1Request {
+	return ApiConvertGetConvertExchangeInfoV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -208,7 +208,7 @@ func (a *MarketDataAPIService) ConvertGetConvertExchangeInfoV1(ctx context.Conte
 
 // Execute executes the request
 //  @return []ConvertGetConvertExchangeInfoV1RespItem
-func (a *MarketDataAPIService) ConvertGetConvertExchangeInfoV1Execute(r MarketDataAPIConvertGetConvertExchangeInfoV1Request) ([]ConvertGetConvertExchangeInfoV1RespItem, *http.Response, error) {
+func (a *MarketDataAPIService) ConvertGetConvertExchangeInfoV1Execute(r ApiConvertGetConvertExchangeInfoV1Request) ([]ConvertGetConvertExchangeInfoV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

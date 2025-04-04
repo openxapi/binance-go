@@ -1,7 +1,7 @@
 /*
 Binance Options API
 
-OpenAPI specification for Binance cryptocurrency exchange - Options API
+OpenAPI specification for Binance exchange - Options API
 
 API version: 0.1.0
 */
@@ -23,7 +23,7 @@ import (
 // TradeAPIService TradeAPI service
 type TradeAPIService service
 
-type TradeAPIOptionsCreateBatchOrdersV1Request struct {
+type ApiOptionsCreateBatchOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	orders *[]OptionsCreateBatchOrdersV1ReqOrdersItem
@@ -31,22 +31,22 @@ type TradeAPIOptionsCreateBatchOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIOptionsCreateBatchOrdersV1Request) Orders(orders []OptionsCreateBatchOrdersV1ReqOrdersItem) TradeAPIOptionsCreateBatchOrdersV1Request {
+func (r ApiOptionsCreateBatchOrdersV1Request) Orders(orders []OptionsCreateBatchOrdersV1ReqOrdersItem) ApiOptionsCreateBatchOrdersV1Request {
 	r.orders = &orders
 	return r
 }
 
-func (r TradeAPIOptionsCreateBatchOrdersV1Request) Timestamp(timestamp int64) TradeAPIOptionsCreateBatchOrdersV1Request {
+func (r ApiOptionsCreateBatchOrdersV1Request) Timestamp(timestamp int64) ApiOptionsCreateBatchOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIOptionsCreateBatchOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIOptionsCreateBatchOrdersV1Request {
+func (r ApiOptionsCreateBatchOrdersV1Request) RecvWindow(recvWindow int64) ApiOptionsCreateBatchOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIOptionsCreateBatchOrdersV1Request) Execute() ([]OptionsCreateBatchOrdersV1RespInner, *http.Response, error) {
+func (r ApiOptionsCreateBatchOrdersV1Request) Execute() ([]OptionsCreateBatchOrdersV1RespInner, *http.Response, error) {
 	return r.ApiService.OptionsCreateBatchOrdersV1Execute(r)
 }
 
@@ -56,10 +56,10 @@ OptionsCreateBatchOrdersV1 Place Multiple Orders(TRADE)
 Send multiple option orders.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIOptionsCreateBatchOrdersV1Request
+ @return ApiOptionsCreateBatchOrdersV1Request
 */
-func (a *TradeAPIService) OptionsCreateBatchOrdersV1(ctx context.Context) TradeAPIOptionsCreateBatchOrdersV1Request {
-	return TradeAPIOptionsCreateBatchOrdersV1Request{
+func (a *TradeAPIService) OptionsCreateBatchOrdersV1(ctx context.Context) ApiOptionsCreateBatchOrdersV1Request {
+	return ApiOptionsCreateBatchOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -67,7 +67,7 @@ func (a *TradeAPIService) OptionsCreateBatchOrdersV1(ctx context.Context) TradeA
 
 // Execute executes the request
 //  @return []OptionsCreateBatchOrdersV1RespInner
-func (a *TradeAPIService) OptionsCreateBatchOrdersV1Execute(r TradeAPIOptionsCreateBatchOrdersV1Request) ([]OptionsCreateBatchOrdersV1RespInner, *http.Response, error) {
+func (a *TradeAPIService) OptionsCreateBatchOrdersV1Execute(r ApiOptionsCreateBatchOrdersV1Request) ([]OptionsCreateBatchOrdersV1RespInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -178,7 +178,7 @@ func (a *TradeAPIService) OptionsCreateBatchOrdersV1Execute(r TradeAPIOptionsCre
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIOptionsCreateOrderV1Request struct {
+type ApiOptionsCreateOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	quantity *string
@@ -196,72 +196,72 @@ type TradeAPIOptionsCreateOrderV1Request struct {
 	timeInForce *string
 }
 
-func (r TradeAPIOptionsCreateOrderV1Request) Quantity(quantity string) TradeAPIOptionsCreateOrderV1Request {
+func (r ApiOptionsCreateOrderV1Request) Quantity(quantity string) ApiOptionsCreateOrderV1Request {
 	r.quantity = &quantity
 	return r
 }
 
-func (r TradeAPIOptionsCreateOrderV1Request) Side(side string) TradeAPIOptionsCreateOrderV1Request {
+func (r ApiOptionsCreateOrderV1Request) Side(side string) ApiOptionsCreateOrderV1Request {
 	r.side = &side
 	return r
 }
 
-func (r TradeAPIOptionsCreateOrderV1Request) Symbol(symbol string) TradeAPIOptionsCreateOrderV1Request {
+func (r ApiOptionsCreateOrderV1Request) Symbol(symbol string) ApiOptionsCreateOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIOptionsCreateOrderV1Request) Timestamp(timestamp int64) TradeAPIOptionsCreateOrderV1Request {
+func (r ApiOptionsCreateOrderV1Request) Timestamp(timestamp int64) ApiOptionsCreateOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIOptionsCreateOrderV1Request) Type_(type_ string) TradeAPIOptionsCreateOrderV1Request {
+func (r ApiOptionsCreateOrderV1Request) Type_(type_ string) ApiOptionsCreateOrderV1Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r TradeAPIOptionsCreateOrderV1Request) ClientOrderId(clientOrderId string) TradeAPIOptionsCreateOrderV1Request {
+func (r ApiOptionsCreateOrderV1Request) ClientOrderId(clientOrderId string) ApiOptionsCreateOrderV1Request {
 	r.clientOrderId = &clientOrderId
 	return r
 }
 
-func (r TradeAPIOptionsCreateOrderV1Request) IsMmp(isMmp bool) TradeAPIOptionsCreateOrderV1Request {
+func (r ApiOptionsCreateOrderV1Request) IsMmp(isMmp bool) ApiOptionsCreateOrderV1Request {
 	r.isMmp = &isMmp
 	return r
 }
 
-func (r TradeAPIOptionsCreateOrderV1Request) NewOrderRespType(newOrderRespType string) TradeAPIOptionsCreateOrderV1Request {
+func (r ApiOptionsCreateOrderV1Request) NewOrderRespType(newOrderRespType string) ApiOptionsCreateOrderV1Request {
 	r.newOrderRespType = &newOrderRespType
 	return r
 }
 
-func (r TradeAPIOptionsCreateOrderV1Request) PostOnly(postOnly bool) TradeAPIOptionsCreateOrderV1Request {
+func (r ApiOptionsCreateOrderV1Request) PostOnly(postOnly bool) ApiOptionsCreateOrderV1Request {
 	r.postOnly = &postOnly
 	return r
 }
 
-func (r TradeAPIOptionsCreateOrderV1Request) Price(price string) TradeAPIOptionsCreateOrderV1Request {
+func (r ApiOptionsCreateOrderV1Request) Price(price string) ApiOptionsCreateOrderV1Request {
 	r.price = &price
 	return r
 }
 
-func (r TradeAPIOptionsCreateOrderV1Request) RecvWindow(recvWindow int64) TradeAPIOptionsCreateOrderV1Request {
+func (r ApiOptionsCreateOrderV1Request) RecvWindow(recvWindow int64) ApiOptionsCreateOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIOptionsCreateOrderV1Request) ReduceOnly(reduceOnly bool) TradeAPIOptionsCreateOrderV1Request {
+func (r ApiOptionsCreateOrderV1Request) ReduceOnly(reduceOnly bool) ApiOptionsCreateOrderV1Request {
 	r.reduceOnly = &reduceOnly
 	return r
 }
 
-func (r TradeAPIOptionsCreateOrderV1Request) TimeInForce(timeInForce string) TradeAPIOptionsCreateOrderV1Request {
+func (r ApiOptionsCreateOrderV1Request) TimeInForce(timeInForce string) ApiOptionsCreateOrderV1Request {
 	r.timeInForce = &timeInForce
 	return r
 }
 
-func (r TradeAPIOptionsCreateOrderV1Request) Execute() (*OptionsCreateOrderV1Resp, *http.Response, error) {
+func (r ApiOptionsCreateOrderV1Request) Execute() (*OptionsCreateOrderV1Resp, *http.Response, error) {
 	return r.ApiService.OptionsCreateOrderV1Execute(r)
 }
 
@@ -271,10 +271,10 @@ OptionsCreateOrderV1 New Order (TRADE)
 Send a new order.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIOptionsCreateOrderV1Request
+ @return ApiOptionsCreateOrderV1Request
 */
-func (a *TradeAPIService) OptionsCreateOrderV1(ctx context.Context) TradeAPIOptionsCreateOrderV1Request {
-	return TradeAPIOptionsCreateOrderV1Request{
+func (a *TradeAPIService) OptionsCreateOrderV1(ctx context.Context) ApiOptionsCreateOrderV1Request {
+	return ApiOptionsCreateOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -282,7 +282,7 @@ func (a *TradeAPIService) OptionsCreateOrderV1(ctx context.Context) TradeAPIOpti
 
 // Execute executes the request
 //  @return OptionsCreateOrderV1Resp
-func (a *TradeAPIService) OptionsCreateOrderV1Execute(r TradeAPIOptionsCreateOrderV1Request) (*OptionsCreateOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) OptionsCreateOrderV1Execute(r ApiOptionsCreateOrderV1Request) (*OptionsCreateOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -426,7 +426,7 @@ func (a *TradeAPIService) OptionsCreateOrderV1Execute(r TradeAPIOptionsCreateOrd
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIOptionsDeleteAllOpenOrdersByUnderlyingV1Request struct {
+type ApiOptionsDeleteAllOpenOrdersByUnderlyingV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	underlying *string
@@ -435,22 +435,22 @@ type TradeAPIOptionsDeleteAllOpenOrdersByUnderlyingV1Request struct {
 }
 
 // Option underlying, e.g BTCUSDT
-func (r TradeAPIOptionsDeleteAllOpenOrdersByUnderlyingV1Request) Underlying(underlying string) TradeAPIOptionsDeleteAllOpenOrdersByUnderlyingV1Request {
+func (r ApiOptionsDeleteAllOpenOrdersByUnderlyingV1Request) Underlying(underlying string) ApiOptionsDeleteAllOpenOrdersByUnderlyingV1Request {
 	r.underlying = &underlying
 	return r
 }
 
-func (r TradeAPIOptionsDeleteAllOpenOrdersByUnderlyingV1Request) Timestamp(timestamp int64) TradeAPIOptionsDeleteAllOpenOrdersByUnderlyingV1Request {
+func (r ApiOptionsDeleteAllOpenOrdersByUnderlyingV1Request) Timestamp(timestamp int64) ApiOptionsDeleteAllOpenOrdersByUnderlyingV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIOptionsDeleteAllOpenOrdersByUnderlyingV1Request) RecvWindow(recvWindow int64) TradeAPIOptionsDeleteAllOpenOrdersByUnderlyingV1Request {
+func (r ApiOptionsDeleteAllOpenOrdersByUnderlyingV1Request) RecvWindow(recvWindow int64) ApiOptionsDeleteAllOpenOrdersByUnderlyingV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIOptionsDeleteAllOpenOrdersByUnderlyingV1Request) Execute() (*OptionsDeleteAllOpenOrdersByUnderlyingV1Resp, *http.Response, error) {
+func (r ApiOptionsDeleteAllOpenOrdersByUnderlyingV1Request) Execute() (*OptionsDeleteAllOpenOrdersByUnderlyingV1Resp, *http.Response, error) {
 	return r.ApiService.OptionsDeleteAllOpenOrdersByUnderlyingV1Execute(r)
 }
 
@@ -460,10 +460,10 @@ OptionsDeleteAllOpenOrdersByUnderlyingV1 Cancel All Option Orders By Underlying 
 Cancel all active orders on specified underlying.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIOptionsDeleteAllOpenOrdersByUnderlyingV1Request
+ @return ApiOptionsDeleteAllOpenOrdersByUnderlyingV1Request
 */
-func (a *TradeAPIService) OptionsDeleteAllOpenOrdersByUnderlyingV1(ctx context.Context) TradeAPIOptionsDeleteAllOpenOrdersByUnderlyingV1Request {
-	return TradeAPIOptionsDeleteAllOpenOrdersByUnderlyingV1Request{
+func (a *TradeAPIService) OptionsDeleteAllOpenOrdersByUnderlyingV1(ctx context.Context) ApiOptionsDeleteAllOpenOrdersByUnderlyingV1Request {
+	return ApiOptionsDeleteAllOpenOrdersByUnderlyingV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -471,7 +471,7 @@ func (a *TradeAPIService) OptionsDeleteAllOpenOrdersByUnderlyingV1(ctx context.C
 
 // Execute executes the request
 //  @return OptionsDeleteAllOpenOrdersByUnderlyingV1Resp
-func (a *TradeAPIService) OptionsDeleteAllOpenOrdersByUnderlyingV1Execute(r TradeAPIOptionsDeleteAllOpenOrdersByUnderlyingV1Request) (*OptionsDeleteAllOpenOrdersByUnderlyingV1Resp, *http.Response, error) {
+func (a *TradeAPIService) OptionsDeleteAllOpenOrdersByUnderlyingV1Execute(r ApiOptionsDeleteAllOpenOrdersByUnderlyingV1Request) (*OptionsDeleteAllOpenOrdersByUnderlyingV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -582,7 +582,7 @@ func (a *TradeAPIService) OptionsDeleteAllOpenOrdersByUnderlyingV1Execute(r Trad
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIOptionsDeleteAllOpenOrdersV1Request struct {
+type ApiOptionsDeleteAllOpenOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -591,22 +591,22 @@ type TradeAPIOptionsDeleteAllOpenOrdersV1Request struct {
 }
 
 // Option trading pair, e.g BTC-200730-9000-C
-func (r TradeAPIOptionsDeleteAllOpenOrdersV1Request) Symbol(symbol string) TradeAPIOptionsDeleteAllOpenOrdersV1Request {
+func (r ApiOptionsDeleteAllOpenOrdersV1Request) Symbol(symbol string) ApiOptionsDeleteAllOpenOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIOptionsDeleteAllOpenOrdersV1Request) Timestamp(timestamp int64) TradeAPIOptionsDeleteAllOpenOrdersV1Request {
+func (r ApiOptionsDeleteAllOpenOrdersV1Request) Timestamp(timestamp int64) ApiOptionsDeleteAllOpenOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIOptionsDeleteAllOpenOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIOptionsDeleteAllOpenOrdersV1Request {
+func (r ApiOptionsDeleteAllOpenOrdersV1Request) RecvWindow(recvWindow int64) ApiOptionsDeleteAllOpenOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIOptionsDeleteAllOpenOrdersV1Request) Execute() (*OptionsDeleteAllOpenOrdersV1Resp, *http.Response, error) {
+func (r ApiOptionsDeleteAllOpenOrdersV1Request) Execute() (*OptionsDeleteAllOpenOrdersV1Resp, *http.Response, error) {
 	return r.ApiService.OptionsDeleteAllOpenOrdersV1Execute(r)
 }
 
@@ -616,10 +616,10 @@ OptionsDeleteAllOpenOrdersV1 Cancel all Option orders on specific symbol (TRADE)
 Cancel all active order on a symbol.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIOptionsDeleteAllOpenOrdersV1Request
+ @return ApiOptionsDeleteAllOpenOrdersV1Request
 */
-func (a *TradeAPIService) OptionsDeleteAllOpenOrdersV1(ctx context.Context) TradeAPIOptionsDeleteAllOpenOrdersV1Request {
-	return TradeAPIOptionsDeleteAllOpenOrdersV1Request{
+func (a *TradeAPIService) OptionsDeleteAllOpenOrdersV1(ctx context.Context) ApiOptionsDeleteAllOpenOrdersV1Request {
+	return ApiOptionsDeleteAllOpenOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -627,7 +627,7 @@ func (a *TradeAPIService) OptionsDeleteAllOpenOrdersV1(ctx context.Context) Trad
 
 // Execute executes the request
 //  @return OptionsDeleteAllOpenOrdersV1Resp
-func (a *TradeAPIService) OptionsDeleteAllOpenOrdersV1Execute(r TradeAPIOptionsDeleteAllOpenOrdersV1Request) (*OptionsDeleteAllOpenOrdersV1Resp, *http.Response, error) {
+func (a *TradeAPIService) OptionsDeleteAllOpenOrdersV1Execute(r ApiOptionsDeleteAllOpenOrdersV1Request) (*OptionsDeleteAllOpenOrdersV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -738,7 +738,7 @@ func (a *TradeAPIService) OptionsDeleteAllOpenOrdersV1Execute(r TradeAPIOptionsD
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIOptionsDeleteBatchOrdersV1Request struct {
+type ApiOptionsDeleteBatchOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -749,34 +749,34 @@ type TradeAPIOptionsDeleteBatchOrdersV1Request struct {
 }
 
 // Option trading pair, e.g BTC-200730-9000-C
-func (r TradeAPIOptionsDeleteBatchOrdersV1Request) Symbol(symbol string) TradeAPIOptionsDeleteBatchOrdersV1Request {
+func (r ApiOptionsDeleteBatchOrdersV1Request) Symbol(symbol string) ApiOptionsDeleteBatchOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIOptionsDeleteBatchOrdersV1Request) Timestamp(timestamp int64) TradeAPIOptionsDeleteBatchOrdersV1Request {
+func (r ApiOptionsDeleteBatchOrdersV1Request) Timestamp(timestamp int64) ApiOptionsDeleteBatchOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Order ID, e.g [4611875134427365377,4611875134427365378]
-func (r TradeAPIOptionsDeleteBatchOrdersV1Request) OrderIds(orderIds []int64) TradeAPIOptionsDeleteBatchOrdersV1Request {
+func (r ApiOptionsDeleteBatchOrdersV1Request) OrderIds(orderIds []int64) ApiOptionsDeleteBatchOrdersV1Request {
 	r.orderIds = &orderIds
 	return r
 }
 
 // User-defined order ID, e.g [&amp;#34;my_id_1&amp;#34;,&amp;#34;my_id_2&amp;#34;]
-func (r TradeAPIOptionsDeleteBatchOrdersV1Request) ClientOrderIds(clientOrderIds []string) TradeAPIOptionsDeleteBatchOrdersV1Request {
+func (r ApiOptionsDeleteBatchOrdersV1Request) ClientOrderIds(clientOrderIds []string) ApiOptionsDeleteBatchOrdersV1Request {
 	r.clientOrderIds = &clientOrderIds
 	return r
 }
 
-func (r TradeAPIOptionsDeleteBatchOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIOptionsDeleteBatchOrdersV1Request {
+func (r ApiOptionsDeleteBatchOrdersV1Request) RecvWindow(recvWindow int64) ApiOptionsDeleteBatchOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIOptionsDeleteBatchOrdersV1Request) Execute() ([]OptionsDeleteBatchOrdersV1RespInner, *http.Response, error) {
+func (r ApiOptionsDeleteBatchOrdersV1Request) Execute() ([]OptionsDeleteBatchOrdersV1RespInner, *http.Response, error) {
 	return r.ApiService.OptionsDeleteBatchOrdersV1Execute(r)
 }
 
@@ -786,10 +786,10 @@ OptionsDeleteBatchOrdersV1 Cancel Multiple Option Orders (TRADE)
 Cancel multiple orders.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIOptionsDeleteBatchOrdersV1Request
+ @return ApiOptionsDeleteBatchOrdersV1Request
 */
-func (a *TradeAPIService) OptionsDeleteBatchOrdersV1(ctx context.Context) TradeAPIOptionsDeleteBatchOrdersV1Request {
-	return TradeAPIOptionsDeleteBatchOrdersV1Request{
+func (a *TradeAPIService) OptionsDeleteBatchOrdersV1(ctx context.Context) ApiOptionsDeleteBatchOrdersV1Request {
+	return ApiOptionsDeleteBatchOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -797,7 +797,7 @@ func (a *TradeAPIService) OptionsDeleteBatchOrdersV1(ctx context.Context) TradeA
 
 // Execute executes the request
 //  @return []OptionsDeleteBatchOrdersV1RespInner
-func (a *TradeAPIService) OptionsDeleteBatchOrdersV1Execute(r TradeAPIOptionsDeleteBatchOrdersV1Request) ([]OptionsDeleteBatchOrdersV1RespInner, *http.Response, error) {
+func (a *TradeAPIService) OptionsDeleteBatchOrdersV1Execute(r ApiOptionsDeleteBatchOrdersV1Request) ([]OptionsDeleteBatchOrdersV1RespInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -930,7 +930,7 @@ func (a *TradeAPIService) OptionsDeleteBatchOrdersV1Execute(r TradeAPIOptionsDel
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIOptionsDeleteOrderV1Request struct {
+type ApiOptionsDeleteOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -941,34 +941,34 @@ type TradeAPIOptionsDeleteOrderV1Request struct {
 }
 
 // Option trading pair, e.g BTC-200730-9000-C
-func (r TradeAPIOptionsDeleteOrderV1Request) Symbol(symbol string) TradeAPIOptionsDeleteOrderV1Request {
+func (r ApiOptionsDeleteOrderV1Request) Symbol(symbol string) ApiOptionsDeleteOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIOptionsDeleteOrderV1Request) Timestamp(timestamp int64) TradeAPIOptionsDeleteOrderV1Request {
+func (r ApiOptionsDeleteOrderV1Request) Timestamp(timestamp int64) ApiOptionsDeleteOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Order ID, e.g 4611875134427365377
-func (r TradeAPIOptionsDeleteOrderV1Request) OrderId(orderId int64) TradeAPIOptionsDeleteOrderV1Request {
+func (r ApiOptionsDeleteOrderV1Request) OrderId(orderId int64) ApiOptionsDeleteOrderV1Request {
 	r.orderId = &orderId
 	return r
 }
 
 // User-defined order ID, e.g 10000
-func (r TradeAPIOptionsDeleteOrderV1Request) ClientOrderId(clientOrderId string) TradeAPIOptionsDeleteOrderV1Request {
+func (r ApiOptionsDeleteOrderV1Request) ClientOrderId(clientOrderId string) ApiOptionsDeleteOrderV1Request {
 	r.clientOrderId = &clientOrderId
 	return r
 }
 
-func (r TradeAPIOptionsDeleteOrderV1Request) RecvWindow(recvWindow int64) TradeAPIOptionsDeleteOrderV1Request {
+func (r ApiOptionsDeleteOrderV1Request) RecvWindow(recvWindow int64) ApiOptionsDeleteOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIOptionsDeleteOrderV1Request) Execute() (*OptionsDeleteOrderV1Resp, *http.Response, error) {
+func (r ApiOptionsDeleteOrderV1Request) Execute() (*OptionsDeleteOrderV1Resp, *http.Response, error) {
 	return r.ApiService.OptionsDeleteOrderV1Execute(r)
 }
 
@@ -978,10 +978,10 @@ OptionsDeleteOrderV1 Cancel Option Order (TRADE)
 Cancel an active order.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIOptionsDeleteOrderV1Request
+ @return ApiOptionsDeleteOrderV1Request
 */
-func (a *TradeAPIService) OptionsDeleteOrderV1(ctx context.Context) TradeAPIOptionsDeleteOrderV1Request {
-	return TradeAPIOptionsDeleteOrderV1Request{
+func (a *TradeAPIService) OptionsDeleteOrderV1(ctx context.Context) ApiOptionsDeleteOrderV1Request {
+	return ApiOptionsDeleteOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -989,7 +989,7 @@ func (a *TradeAPIService) OptionsDeleteOrderV1(ctx context.Context) TradeAPIOpti
 
 // Execute executes the request
 //  @return OptionsDeleteOrderV1Resp
-func (a *TradeAPIService) OptionsDeleteOrderV1Execute(r TradeAPIOptionsDeleteOrderV1Request) (*OptionsDeleteOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) OptionsDeleteOrderV1Execute(r ApiOptionsDeleteOrderV1Request) (*OptionsDeleteOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -1109,7 +1109,7 @@ func (a *TradeAPIService) OptionsDeleteOrderV1Execute(r TradeAPIOptionsDeleteOrd
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIOptionsGetExerciseRecordV1Request struct {
+type ApiOptionsGetExerciseRecordV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -1120,41 +1120,41 @@ type TradeAPIOptionsGetExerciseRecordV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIOptionsGetExerciseRecordV1Request) Timestamp(timestamp int64) TradeAPIOptionsGetExerciseRecordV1Request {
+func (r ApiOptionsGetExerciseRecordV1Request) Timestamp(timestamp int64) ApiOptionsGetExerciseRecordV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Option trading pair, e.g BTC-200730-9000-C
-func (r TradeAPIOptionsGetExerciseRecordV1Request) Symbol(symbol string) TradeAPIOptionsGetExerciseRecordV1Request {
+func (r ApiOptionsGetExerciseRecordV1Request) Symbol(symbol string) ApiOptionsGetExerciseRecordV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // startTime
-func (r TradeAPIOptionsGetExerciseRecordV1Request) StartTime(startTime int64) TradeAPIOptionsGetExerciseRecordV1Request {
+func (r ApiOptionsGetExerciseRecordV1Request) StartTime(startTime int64) ApiOptionsGetExerciseRecordV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // endTime
-func (r TradeAPIOptionsGetExerciseRecordV1Request) EndTime(endTime int64) TradeAPIOptionsGetExerciseRecordV1Request {
+func (r ApiOptionsGetExerciseRecordV1Request) EndTime(endTime int64) ApiOptionsGetExerciseRecordV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // default 1000, max 1000
-func (r TradeAPIOptionsGetExerciseRecordV1Request) Limit(limit int32) TradeAPIOptionsGetExerciseRecordV1Request {
+func (r ApiOptionsGetExerciseRecordV1Request) Limit(limit int32) ApiOptionsGetExerciseRecordV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r TradeAPIOptionsGetExerciseRecordV1Request) RecvWindow(recvWindow int64) TradeAPIOptionsGetExerciseRecordV1Request {
+func (r ApiOptionsGetExerciseRecordV1Request) RecvWindow(recvWindow int64) ApiOptionsGetExerciseRecordV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIOptionsGetExerciseRecordV1Request) Execute() ([]OptionsGetExerciseRecordV1RespItem, *http.Response, error) {
+func (r ApiOptionsGetExerciseRecordV1Request) Execute() ([]OptionsGetExerciseRecordV1RespItem, *http.Response, error) {
 	return r.ApiService.OptionsGetExerciseRecordV1Execute(r)
 }
 
@@ -1164,10 +1164,10 @@ OptionsGetExerciseRecordV1 User Exercise Record (USER_DATA)
 Get account exercise records.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIOptionsGetExerciseRecordV1Request
+ @return ApiOptionsGetExerciseRecordV1Request
 */
-func (a *TradeAPIService) OptionsGetExerciseRecordV1(ctx context.Context) TradeAPIOptionsGetExerciseRecordV1Request {
-	return TradeAPIOptionsGetExerciseRecordV1Request{
+func (a *TradeAPIService) OptionsGetExerciseRecordV1(ctx context.Context) ApiOptionsGetExerciseRecordV1Request {
+	return ApiOptionsGetExerciseRecordV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1175,7 +1175,7 @@ func (a *TradeAPIService) OptionsGetExerciseRecordV1(ctx context.Context) TradeA
 
 // Execute executes the request
 //  @return []OptionsGetExerciseRecordV1RespItem
-func (a *TradeAPIService) OptionsGetExerciseRecordV1Execute(r TradeAPIOptionsGetExerciseRecordV1Request) ([]OptionsGetExerciseRecordV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) OptionsGetExerciseRecordV1Execute(r ApiOptionsGetExerciseRecordV1Request) ([]OptionsGetExerciseRecordV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1300,7 +1300,7 @@ func (a *TradeAPIService) OptionsGetExerciseRecordV1Execute(r TradeAPIOptionsGet
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIOptionsGetHistoryOrdersV1Request struct {
+type ApiOptionsGetHistoryOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -1313,46 +1313,46 @@ type TradeAPIOptionsGetHistoryOrdersV1Request struct {
 }
 
 // Option trading pair
-func (r TradeAPIOptionsGetHistoryOrdersV1Request) Symbol(symbol string) TradeAPIOptionsGetHistoryOrdersV1Request {
+func (r ApiOptionsGetHistoryOrdersV1Request) Symbol(symbol string) ApiOptionsGetHistoryOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIOptionsGetHistoryOrdersV1Request) Timestamp(timestamp int64) TradeAPIOptionsGetHistoryOrdersV1Request {
+func (r ApiOptionsGetHistoryOrdersV1Request) Timestamp(timestamp int64) ApiOptionsGetHistoryOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Returns the orderId and subsequent orders, the most recent order is returned by default
-func (r TradeAPIOptionsGetHistoryOrdersV1Request) OrderId(orderId int64) TradeAPIOptionsGetHistoryOrdersV1Request {
+func (r ApiOptionsGetHistoryOrdersV1Request) OrderId(orderId int64) ApiOptionsGetHistoryOrdersV1Request {
 	r.orderId = &orderId
 	return r
 }
 
 // Start Time, e.g 1593511200000
-func (r TradeAPIOptionsGetHistoryOrdersV1Request) StartTime(startTime int64) TradeAPIOptionsGetHistoryOrdersV1Request {
+func (r ApiOptionsGetHistoryOrdersV1Request) StartTime(startTime int64) ApiOptionsGetHistoryOrdersV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // End Time, e.g 1593512200000
-func (r TradeAPIOptionsGetHistoryOrdersV1Request) EndTime(endTime int64) TradeAPIOptionsGetHistoryOrdersV1Request {
+func (r ApiOptionsGetHistoryOrdersV1Request) EndTime(endTime int64) ApiOptionsGetHistoryOrdersV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Number of result sets returned Default:100 Max:1000
-func (r TradeAPIOptionsGetHistoryOrdersV1Request) Limit(limit int32) TradeAPIOptionsGetHistoryOrdersV1Request {
+func (r ApiOptionsGetHistoryOrdersV1Request) Limit(limit int32) ApiOptionsGetHistoryOrdersV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r TradeAPIOptionsGetHistoryOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIOptionsGetHistoryOrdersV1Request {
+func (r ApiOptionsGetHistoryOrdersV1Request) RecvWindow(recvWindow int64) ApiOptionsGetHistoryOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIOptionsGetHistoryOrdersV1Request) Execute() ([]OptionsGetHistoryOrdersV1RespItem, *http.Response, error) {
+func (r ApiOptionsGetHistoryOrdersV1Request) Execute() ([]OptionsGetHistoryOrdersV1RespItem, *http.Response, error) {
 	return r.ApiService.OptionsGetHistoryOrdersV1Execute(r)
 }
 
@@ -1362,10 +1362,10 @@ OptionsGetHistoryOrdersV1 Query Option Order History (TRADE)
 Query all finished orders within 5 days, finished status: CANCELLED FILLED REJECTED.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIOptionsGetHistoryOrdersV1Request
+ @return ApiOptionsGetHistoryOrdersV1Request
 */
-func (a *TradeAPIService) OptionsGetHistoryOrdersV1(ctx context.Context) TradeAPIOptionsGetHistoryOrdersV1Request {
-	return TradeAPIOptionsGetHistoryOrdersV1Request{
+func (a *TradeAPIService) OptionsGetHistoryOrdersV1(ctx context.Context) ApiOptionsGetHistoryOrdersV1Request {
+	return ApiOptionsGetHistoryOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1373,7 +1373,7 @@ func (a *TradeAPIService) OptionsGetHistoryOrdersV1(ctx context.Context) TradeAP
 
 // Execute executes the request
 //  @return []OptionsGetHistoryOrdersV1RespItem
-func (a *TradeAPIService) OptionsGetHistoryOrdersV1Execute(r TradeAPIOptionsGetHistoryOrdersV1Request) ([]OptionsGetHistoryOrdersV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) OptionsGetHistoryOrdersV1Execute(r ApiOptionsGetHistoryOrdersV1Request) ([]OptionsGetHistoryOrdersV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1496,7 +1496,7 @@ func (a *TradeAPIService) OptionsGetHistoryOrdersV1Execute(r TradeAPIOptionsGetH
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIOptionsGetOpenOrdersV1Request struct {
+type ApiOptionsGetOpenOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -1508,47 +1508,47 @@ type TradeAPIOptionsGetOpenOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIOptionsGetOpenOrdersV1Request) Timestamp(timestamp int64) TradeAPIOptionsGetOpenOrdersV1Request {
+func (r ApiOptionsGetOpenOrdersV1Request) Timestamp(timestamp int64) ApiOptionsGetOpenOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // return all orders if don&amp;#39;t pass, Option trading pair, e.g BTC-200730-9000-C,
-func (r TradeAPIOptionsGetOpenOrdersV1Request) Symbol(symbol string) TradeAPIOptionsGetOpenOrdersV1Request {
+func (r ApiOptionsGetOpenOrdersV1Request) Symbol(symbol string) ApiOptionsGetOpenOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // Returns the orderId and subsequent orders, the most recent order is returned by default
-func (r TradeAPIOptionsGetOpenOrdersV1Request) OrderId(orderId int64) TradeAPIOptionsGetOpenOrdersV1Request {
+func (r ApiOptionsGetOpenOrdersV1Request) OrderId(orderId int64) ApiOptionsGetOpenOrdersV1Request {
 	r.orderId = &orderId
 	return r
 }
 
 // Start Time
-func (r TradeAPIOptionsGetOpenOrdersV1Request) StartTime(startTime int64) TradeAPIOptionsGetOpenOrdersV1Request {
+func (r ApiOptionsGetOpenOrdersV1Request) StartTime(startTime int64) ApiOptionsGetOpenOrdersV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // End Time
-func (r TradeAPIOptionsGetOpenOrdersV1Request) EndTime(endTime int64) TradeAPIOptionsGetOpenOrdersV1Request {
+func (r ApiOptionsGetOpenOrdersV1Request) EndTime(endTime int64) ApiOptionsGetOpenOrdersV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Number of result sets returned Default:100 Max:1000
-func (r TradeAPIOptionsGetOpenOrdersV1Request) Limit(limit int32) TradeAPIOptionsGetOpenOrdersV1Request {
+func (r ApiOptionsGetOpenOrdersV1Request) Limit(limit int32) ApiOptionsGetOpenOrdersV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r TradeAPIOptionsGetOpenOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIOptionsGetOpenOrdersV1Request {
+func (r ApiOptionsGetOpenOrdersV1Request) RecvWindow(recvWindow int64) ApiOptionsGetOpenOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIOptionsGetOpenOrdersV1Request) Execute() ([]OptionsGetOpenOrdersV1RespItem, *http.Response, error) {
+func (r ApiOptionsGetOpenOrdersV1Request) Execute() ([]OptionsGetOpenOrdersV1RespItem, *http.Response, error) {
 	return r.ApiService.OptionsGetOpenOrdersV1Execute(r)
 }
 
@@ -1558,10 +1558,10 @@ OptionsGetOpenOrdersV1 Query Current Open Option Orders (USER_DATA)
 Query current all open orders, status: ACCEPTED PARTIALLY_FILLED
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIOptionsGetOpenOrdersV1Request
+ @return ApiOptionsGetOpenOrdersV1Request
 */
-func (a *TradeAPIService) OptionsGetOpenOrdersV1(ctx context.Context) TradeAPIOptionsGetOpenOrdersV1Request {
-	return TradeAPIOptionsGetOpenOrdersV1Request{
+func (a *TradeAPIService) OptionsGetOpenOrdersV1(ctx context.Context) ApiOptionsGetOpenOrdersV1Request {
+	return ApiOptionsGetOpenOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1569,7 +1569,7 @@ func (a *TradeAPIService) OptionsGetOpenOrdersV1(ctx context.Context) TradeAPIOp
 
 // Execute executes the request
 //  @return []OptionsGetOpenOrdersV1RespItem
-func (a *TradeAPIService) OptionsGetOpenOrdersV1Execute(r TradeAPIOptionsGetOpenOrdersV1Request) ([]OptionsGetOpenOrdersV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) OptionsGetOpenOrdersV1Execute(r ApiOptionsGetOpenOrdersV1Request) ([]OptionsGetOpenOrdersV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1694,7 +1694,7 @@ func (a *TradeAPIService) OptionsGetOpenOrdersV1Execute(r TradeAPIOptionsGetOpen
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIOptionsGetOrderV1Request struct {
+type ApiOptionsGetOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -1705,34 +1705,34 @@ type TradeAPIOptionsGetOrderV1Request struct {
 }
 
 // Option trading pair, e.g BTC-200730-9000-C
-func (r TradeAPIOptionsGetOrderV1Request) Symbol(symbol string) TradeAPIOptionsGetOrderV1Request {
+func (r ApiOptionsGetOrderV1Request) Symbol(symbol string) ApiOptionsGetOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIOptionsGetOrderV1Request) Timestamp(timestamp int64) TradeAPIOptionsGetOrderV1Request {
+func (r ApiOptionsGetOrderV1Request) Timestamp(timestamp int64) ApiOptionsGetOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Order id
-func (r TradeAPIOptionsGetOrderV1Request) OrderId(orderId int64) TradeAPIOptionsGetOrderV1Request {
+func (r ApiOptionsGetOrderV1Request) OrderId(orderId int64) ApiOptionsGetOrderV1Request {
 	r.orderId = &orderId
 	return r
 }
 
 // User-defined order ID cannot be repeated in pending orders
-func (r TradeAPIOptionsGetOrderV1Request) ClientOrderId(clientOrderId string) TradeAPIOptionsGetOrderV1Request {
+func (r ApiOptionsGetOrderV1Request) ClientOrderId(clientOrderId string) ApiOptionsGetOrderV1Request {
 	r.clientOrderId = &clientOrderId
 	return r
 }
 
-func (r TradeAPIOptionsGetOrderV1Request) RecvWindow(recvWindow int64) TradeAPIOptionsGetOrderV1Request {
+func (r ApiOptionsGetOrderV1Request) RecvWindow(recvWindow int64) ApiOptionsGetOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIOptionsGetOrderV1Request) Execute() (*OptionsGetOrderV1Resp, *http.Response, error) {
+func (r ApiOptionsGetOrderV1Request) Execute() (*OptionsGetOrderV1Resp, *http.Response, error) {
 	return r.ApiService.OptionsGetOrderV1Execute(r)
 }
 
@@ -1742,10 +1742,10 @@ OptionsGetOrderV1 Query Single Order (TRADE)
 Check an order status.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIOptionsGetOrderV1Request
+ @return ApiOptionsGetOrderV1Request
 */
-func (a *TradeAPIService) OptionsGetOrderV1(ctx context.Context) TradeAPIOptionsGetOrderV1Request {
-	return TradeAPIOptionsGetOrderV1Request{
+func (a *TradeAPIService) OptionsGetOrderV1(ctx context.Context) ApiOptionsGetOrderV1Request {
+	return ApiOptionsGetOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1753,7 +1753,7 @@ func (a *TradeAPIService) OptionsGetOrderV1(ctx context.Context) TradeAPIOptions
 
 // Execute executes the request
 //  @return OptionsGetOrderV1Resp
-func (a *TradeAPIService) OptionsGetOrderV1Execute(r TradeAPIOptionsGetOrderV1Request) (*OptionsGetOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) OptionsGetOrderV1Execute(r ApiOptionsGetOrderV1Request) (*OptionsGetOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1873,7 +1873,7 @@ func (a *TradeAPIService) OptionsGetOrderV1Execute(r TradeAPIOptionsGetOrderV1Re
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIOptionsGetPositionV1Request struct {
+type ApiOptionsGetPositionV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -1881,23 +1881,23 @@ type TradeAPIOptionsGetPositionV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIOptionsGetPositionV1Request) Timestamp(timestamp int64) TradeAPIOptionsGetPositionV1Request {
+func (r ApiOptionsGetPositionV1Request) Timestamp(timestamp int64) ApiOptionsGetPositionV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Option trading pair, e.g BTC-200730-9000-C
-func (r TradeAPIOptionsGetPositionV1Request) Symbol(symbol string) TradeAPIOptionsGetPositionV1Request {
+func (r ApiOptionsGetPositionV1Request) Symbol(symbol string) ApiOptionsGetPositionV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIOptionsGetPositionV1Request) RecvWindow(recvWindow int64) TradeAPIOptionsGetPositionV1Request {
+func (r ApiOptionsGetPositionV1Request) RecvWindow(recvWindow int64) ApiOptionsGetPositionV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIOptionsGetPositionV1Request) Execute() ([]OptionsGetPositionV1RespItem, *http.Response, error) {
+func (r ApiOptionsGetPositionV1Request) Execute() ([]OptionsGetPositionV1RespItem, *http.Response, error) {
 	return r.ApiService.OptionsGetPositionV1Execute(r)
 }
 
@@ -1907,10 +1907,10 @@ OptionsGetPositionV1 Option Position Information (USER_DATA)
 Get current position information.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIOptionsGetPositionV1Request
+ @return ApiOptionsGetPositionV1Request
 */
-func (a *TradeAPIService) OptionsGetPositionV1(ctx context.Context) TradeAPIOptionsGetPositionV1Request {
-	return TradeAPIOptionsGetPositionV1Request{
+func (a *TradeAPIService) OptionsGetPositionV1(ctx context.Context) ApiOptionsGetPositionV1Request {
+	return ApiOptionsGetPositionV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1918,7 +1918,7 @@ func (a *TradeAPIService) OptionsGetPositionV1(ctx context.Context) TradeAPIOpti
 
 // Execute executes the request
 //  @return []OptionsGetPositionV1RespItem
-func (a *TradeAPIService) OptionsGetPositionV1Execute(r TradeAPIOptionsGetPositionV1Request) ([]OptionsGetPositionV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) OptionsGetPositionV1Execute(r ApiOptionsGetPositionV1Request) ([]OptionsGetPositionV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2031,7 +2031,7 @@ func (a *TradeAPIService) OptionsGetPositionV1Execute(r TradeAPIOptionsGetPositi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIOptionsGetUserTradesV1Request struct {
+type ApiOptionsGetUserTradesV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -2043,47 +2043,47 @@ type TradeAPIOptionsGetUserTradesV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIOptionsGetUserTradesV1Request) Timestamp(timestamp int64) TradeAPIOptionsGetUserTradesV1Request {
+func (r ApiOptionsGetUserTradesV1Request) Timestamp(timestamp int64) ApiOptionsGetUserTradesV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Option symbol, e.g BTC-200730-9000-C
-func (r TradeAPIOptionsGetUserTradesV1Request) Symbol(symbol string) TradeAPIOptionsGetUserTradesV1Request {
+func (r ApiOptionsGetUserTradesV1Request) Symbol(symbol string) ApiOptionsGetUserTradesV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // Trade id to fetch from. Default gets most recent trades, e.g 4611875134427365376
-func (r TradeAPIOptionsGetUserTradesV1Request) FromId(fromId int64) TradeAPIOptionsGetUserTradesV1Request {
+func (r ApiOptionsGetUserTradesV1Request) FromId(fromId int64) ApiOptionsGetUserTradesV1Request {
 	r.fromId = &fromId
 	return r
 }
 
 // Start time, e.g 1593511200000
-func (r TradeAPIOptionsGetUserTradesV1Request) StartTime(startTime int64) TradeAPIOptionsGetUserTradesV1Request {
+func (r ApiOptionsGetUserTradesV1Request) StartTime(startTime int64) ApiOptionsGetUserTradesV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // End time, e.g 1593512200000
-func (r TradeAPIOptionsGetUserTradesV1Request) EndTime(endTime int64) TradeAPIOptionsGetUserTradesV1Request {
+func (r ApiOptionsGetUserTradesV1Request) EndTime(endTime int64) ApiOptionsGetUserTradesV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 100; max 1000
-func (r TradeAPIOptionsGetUserTradesV1Request) Limit(limit int32) TradeAPIOptionsGetUserTradesV1Request {
+func (r ApiOptionsGetUserTradesV1Request) Limit(limit int32) ApiOptionsGetUserTradesV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r TradeAPIOptionsGetUserTradesV1Request) RecvWindow(recvWindow int64) TradeAPIOptionsGetUserTradesV1Request {
+func (r ApiOptionsGetUserTradesV1Request) RecvWindow(recvWindow int64) ApiOptionsGetUserTradesV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIOptionsGetUserTradesV1Request) Execute() ([]OptionsGetUserTradesV1RespItem, *http.Response, error) {
+func (r ApiOptionsGetUserTradesV1Request) Execute() ([]OptionsGetUserTradesV1RespItem, *http.Response, error) {
 	return r.ApiService.OptionsGetUserTradesV1Execute(r)
 }
 
@@ -2093,10 +2093,10 @@ OptionsGetUserTradesV1 Account Trade List (USER_DATA)
 Get trades for a specific account and symbol.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIOptionsGetUserTradesV1Request
+ @return ApiOptionsGetUserTradesV1Request
 */
-func (a *TradeAPIService) OptionsGetUserTradesV1(ctx context.Context) TradeAPIOptionsGetUserTradesV1Request {
-	return TradeAPIOptionsGetUserTradesV1Request{
+func (a *TradeAPIService) OptionsGetUserTradesV1(ctx context.Context) ApiOptionsGetUserTradesV1Request {
+	return ApiOptionsGetUserTradesV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2104,7 +2104,7 @@ func (a *TradeAPIService) OptionsGetUserTradesV1(ctx context.Context) TradeAPIOp
 
 // Execute executes the request
 //  @return []OptionsGetUserTradesV1RespItem
-func (a *TradeAPIService) OptionsGetUserTradesV1Execute(r TradeAPIOptionsGetUserTradesV1Request) ([]OptionsGetUserTradesV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) OptionsGetUserTradesV1Execute(r ApiOptionsGetUserTradesV1Request) ([]OptionsGetUserTradesV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

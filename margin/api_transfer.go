@@ -1,7 +1,7 @@
 /*
-Binance Margin API
+Binance Margin Trading API
 
-OpenAPI specification for Binance cryptocurrency exchange - Margin API
+OpenAPI specification for Binance exchange - Margin API
 
 API version: 0.1.0
 */
@@ -22,7 +22,7 @@ import (
 // TransferAPIService TransferAPI service
 type TransferAPIService service
 
-type TransferAPIMarginGetMarginMaxTransferableV1Request struct {
+type ApiMarginGetMarginMaxTransferableV1Request struct {
 	ctx context.Context
 	ApiService *TransferAPIService
 	asset *string
@@ -31,29 +31,29 @@ type TransferAPIMarginGetMarginMaxTransferableV1Request struct {
 	recvWindow *int64
 }
 
-func (r TransferAPIMarginGetMarginMaxTransferableV1Request) Asset(asset string) TransferAPIMarginGetMarginMaxTransferableV1Request {
+func (r ApiMarginGetMarginMaxTransferableV1Request) Asset(asset string) ApiMarginGetMarginMaxTransferableV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r TransferAPIMarginGetMarginMaxTransferableV1Request) Timestamp(timestamp int64) TransferAPIMarginGetMarginMaxTransferableV1Request {
+func (r ApiMarginGetMarginMaxTransferableV1Request) Timestamp(timestamp int64) ApiMarginGetMarginMaxTransferableV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // isolated symbol
-func (r TransferAPIMarginGetMarginMaxTransferableV1Request) IsolatedSymbol(isolatedSymbol string) TransferAPIMarginGetMarginMaxTransferableV1Request {
+func (r ApiMarginGetMarginMaxTransferableV1Request) IsolatedSymbol(isolatedSymbol string) ApiMarginGetMarginMaxTransferableV1Request {
 	r.isolatedSymbol = &isolatedSymbol
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TransferAPIMarginGetMarginMaxTransferableV1Request) RecvWindow(recvWindow int64) TransferAPIMarginGetMarginMaxTransferableV1Request {
+func (r ApiMarginGetMarginMaxTransferableV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginMaxTransferableV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TransferAPIMarginGetMarginMaxTransferableV1Request) Execute() (*MarginGetMarginMaxTransferableV1Resp, *http.Response, error) {
+func (r ApiMarginGetMarginMaxTransferableV1Request) Execute() (*MarginGetMarginMaxTransferableV1Resp, *http.Response, error) {
 	return r.ApiService.MarginGetMarginMaxTransferableV1Execute(r)
 }
 
@@ -63,10 +63,10 @@ MarginGetMarginMaxTransferableV1 Query Max Transfer-Out Amount (USER_DATA)
 Query Max Transfer-Out Amount
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TransferAPIMarginGetMarginMaxTransferableV1Request
+ @return ApiMarginGetMarginMaxTransferableV1Request
 */
-func (a *TransferAPIService) MarginGetMarginMaxTransferableV1(ctx context.Context) TransferAPIMarginGetMarginMaxTransferableV1Request {
-	return TransferAPIMarginGetMarginMaxTransferableV1Request{
+func (a *TransferAPIService) MarginGetMarginMaxTransferableV1(ctx context.Context) ApiMarginGetMarginMaxTransferableV1Request {
+	return ApiMarginGetMarginMaxTransferableV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -74,7 +74,7 @@ func (a *TransferAPIService) MarginGetMarginMaxTransferableV1(ctx context.Contex
 
 // Execute executes the request
 //  @return MarginGetMarginMaxTransferableV1Resp
-func (a *TransferAPIService) MarginGetMarginMaxTransferableV1Execute(r TransferAPIMarginGetMarginMaxTransferableV1Request) (*MarginGetMarginMaxTransferableV1Resp, *http.Response, error) {
+func (a *TransferAPIService) MarginGetMarginMaxTransferableV1Execute(r ApiMarginGetMarginMaxTransferableV1Request) (*MarginGetMarginMaxTransferableV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -191,7 +191,7 @@ func (a *TransferAPIService) MarginGetMarginMaxTransferableV1Execute(r TransferA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TransferAPIMarginGetMarginTransferV1Request struct {
+type ApiMarginGetMarginTransferV1Request struct {
 	ctx context.Context
 	ApiService *TransferAPIService
 	timestamp *int64
@@ -205,57 +205,57 @@ type TransferAPIMarginGetMarginTransferV1Request struct {
 	recvWindow *int64
 }
 
-func (r TransferAPIMarginGetMarginTransferV1Request) Timestamp(timestamp int64) TransferAPIMarginGetMarginTransferV1Request {
+func (r ApiMarginGetMarginTransferV1Request) Timestamp(timestamp int64) ApiMarginGetMarginTransferV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TransferAPIMarginGetMarginTransferV1Request) Asset(asset string) TransferAPIMarginGetMarginTransferV1Request {
+func (r ApiMarginGetMarginTransferV1Request) Asset(asset string) ApiMarginGetMarginTransferV1Request {
 	r.asset = &asset
 	return r
 }
 
 // Transfer Type: ROLL_IN, ROLL_OUT
-func (r TransferAPIMarginGetMarginTransferV1Request) Type_(type_ string) TransferAPIMarginGetMarginTransferV1Request {
+func (r ApiMarginGetMarginTransferV1Request) Type_(type_ string) ApiMarginGetMarginTransferV1Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r TransferAPIMarginGetMarginTransferV1Request) StartTime(startTime int64) TransferAPIMarginGetMarginTransferV1Request {
+func (r ApiMarginGetMarginTransferV1Request) StartTime(startTime int64) ApiMarginGetMarginTransferV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r TransferAPIMarginGetMarginTransferV1Request) EndTime(endTime int64) TransferAPIMarginGetMarginTransferV1Request {
+func (r ApiMarginGetMarginTransferV1Request) EndTime(endTime int64) ApiMarginGetMarginTransferV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Currently querying page. Start from 1. Default:1
-func (r TransferAPIMarginGetMarginTransferV1Request) Current(current int64) TransferAPIMarginGetMarginTransferV1Request {
+func (r ApiMarginGetMarginTransferV1Request) Current(current int64) ApiMarginGetMarginTransferV1Request {
 	r.current = &current
 	return r
 }
 
 // Default:10 Max:100
-func (r TransferAPIMarginGetMarginTransferV1Request) Size(size int64) TransferAPIMarginGetMarginTransferV1Request {
+func (r ApiMarginGetMarginTransferV1Request) Size(size int64) ApiMarginGetMarginTransferV1Request {
 	r.size = &size
 	return r
 }
 
 // Symbol in Isolated Margin
-func (r TransferAPIMarginGetMarginTransferV1Request) IsolatedSymbol(isolatedSymbol string) TransferAPIMarginGetMarginTransferV1Request {
+func (r ApiMarginGetMarginTransferV1Request) IsolatedSymbol(isolatedSymbol string) ApiMarginGetMarginTransferV1Request {
 	r.isolatedSymbol = &isolatedSymbol
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TransferAPIMarginGetMarginTransferV1Request) RecvWindow(recvWindow int64) TransferAPIMarginGetMarginTransferV1Request {
+func (r ApiMarginGetMarginTransferV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginTransferV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TransferAPIMarginGetMarginTransferV1Request) Execute() (*MarginGetMarginTransferV1Resp, *http.Response, error) {
+func (r ApiMarginGetMarginTransferV1Request) Execute() (*MarginGetMarginTransferV1Resp, *http.Response, error) {
 	return r.ApiService.MarginGetMarginTransferV1Execute(r)
 }
 
@@ -265,10 +265,10 @@ MarginGetMarginTransferV1 Get Cross Margin Transfer History (USER_DATA)
 Get Cross Margin Transfer History
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TransferAPIMarginGetMarginTransferV1Request
+ @return ApiMarginGetMarginTransferV1Request
 */
-func (a *TransferAPIService) MarginGetMarginTransferV1(ctx context.Context) TransferAPIMarginGetMarginTransferV1Request {
-	return TransferAPIMarginGetMarginTransferV1Request{
+func (a *TransferAPIService) MarginGetMarginTransferV1(ctx context.Context) ApiMarginGetMarginTransferV1Request {
+	return ApiMarginGetMarginTransferV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -276,7 +276,7 @@ func (a *TransferAPIService) MarginGetMarginTransferV1(ctx context.Context) Tran
 
 // Execute executes the request
 //  @return MarginGetMarginTransferV1Resp
-func (a *TransferAPIService) MarginGetMarginTransferV1Execute(r TransferAPIMarginGetMarginTransferV1Request) (*MarginGetMarginTransferV1Resp, *http.Response, error) {
+func (a *TransferAPIService) MarginGetMarginTransferV1Execute(r ApiMarginGetMarginTransferV1Request) (*MarginGetMarginTransferV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

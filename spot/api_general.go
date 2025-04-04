@@ -1,7 +1,7 @@
 /*
 Binance Spot API
 
-OpenAPI specification for Binance cryptocurrency exchange - Spot API
+OpenAPI specification for Binance exchange - Spot API
 
 API version: 0.1.0
 */
@@ -23,7 +23,7 @@ import (
 // GeneralAPIService GeneralAPI service
 type GeneralAPIService service
 
-type GeneralAPISpotGetExchangeInfoV3Request struct {
+type ApiSpotGetExchangeInfoV3Request struct {
 	ctx context.Context
 	ApiService *GeneralAPIService
 	symbol *string
@@ -34,36 +34,36 @@ type GeneralAPISpotGetExchangeInfoV3Request struct {
 }
 
 // Example: curl -X GET &amp;#34;&lt;a href&#x3D;\&quot;https://api.binance.com/api/v3/exchangeInfo?symbol&#x3D;BNBBTC\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;https://api.binance.com/api/v3/exchangeInfo?symbol&#x3D;BNBBTC&lt;/a&gt;&amp;#34;
-func (r GeneralAPISpotGetExchangeInfoV3Request) Symbol(symbol string) GeneralAPISpotGetExchangeInfoV3Request {
+func (r ApiSpotGetExchangeInfoV3Request) Symbol(symbol string) ApiSpotGetExchangeInfoV3Request {
 	r.symbol = &symbol
 	return r
 }
 
 // Examples: curl -X GET &amp;#34;&lt;a href&#x3D;\&quot;https://api.binance.com/api/v3/exchangeInfo?symbols&#x3D;%5B%22BNBBTC%22,%22BTCUSDT%22%5D\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;https://api.binance.com/api/v3/exchangeInfo?symbols&#x3D;%5B%22BNBBTC%22,%22BTCUSDT%22%5D&lt;/a&gt;&amp;#34; &lt;br/&gt; or &lt;br/&gt; curl -g -X  GET &amp;#39;&lt;a href&#x3D;\&quot;https://api.binance.com/api/v3/exchangeInfo?symbols&#x3D;%5B%22BTCUSDT%22,%22BNBBTC\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;https://api.binance.com/api/v3/exchangeInfo?symbols&#x3D;[&amp;#34;BTCUSDT&amp;#34;,&amp;#34;BNBBTC&lt;/a&gt;&amp;#34;]&amp;#39;
-func (r GeneralAPISpotGetExchangeInfoV3Request) Symbols(symbols []string) GeneralAPISpotGetExchangeInfoV3Request {
+func (r ApiSpotGetExchangeInfoV3Request) Symbols(symbols []string) ApiSpotGetExchangeInfoV3Request {
 	r.symbols = &symbols
 	return r
 }
 
 // Examples: curl -X GET &amp;#34;&lt;a href&#x3D;\&quot;https://api.binance.com/api/v3/exchangeInfo?permissions&#x3D;SPOT\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;https://api.binance.com/api/v3/exchangeInfo?permissions&#x3D;SPOT&lt;/a&gt;&amp;#34; &lt;br/&gt; or &lt;br/&gt; curl -X GET &amp;#34;&lt;a href&#x3D;\&quot;https://api.binance.com/api/v3/exchangeInfo?permissions&#x3D;%5B%22MARGIN%22%2C%22LEVERAGED%22%5D\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;https://api.binance.com/api/v3/exchangeInfo?permissions&#x3D;%5B%22MARGIN%22%2C%22LEVERAGED%22%5D&lt;/a&gt;&amp;#34; &lt;br/&gt; or &lt;br/&gt; curl -g -X GET &amp;#39;&lt;a href&#x3D;\&quot;https://api.binance.com/api/v3/exchangeInfo?permissions&#x3D;%5B%22MARGIN%22,%22LEVERAGED\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;https://api.binance.com/api/v3/exchangeInfo?permissions&#x3D;[&amp;#34;MARGIN&amp;#34;,&amp;#34;LEVERAGED&lt;/a&gt;&amp;#34;]&amp;#39;
-func (r GeneralAPISpotGetExchangeInfoV3Request) Permissions(permissions string) GeneralAPISpotGetExchangeInfoV3Request {
+func (r ApiSpotGetExchangeInfoV3Request) Permissions(permissions string) ApiSpotGetExchangeInfoV3Request {
 	r.permissions = &permissions
 	return r
 }
 
 // Controls whether the content of the &#x60;permissionSets&#x60; field is populated or not. Defaults to &#x60;true&#x60;
-func (r GeneralAPISpotGetExchangeInfoV3Request) ShowPermissionSets(showPermissionSets bool) GeneralAPISpotGetExchangeInfoV3Request {
+func (r ApiSpotGetExchangeInfoV3Request) ShowPermissionSets(showPermissionSets bool) ApiSpotGetExchangeInfoV3Request {
 	r.showPermissionSets = &showPermissionSets
 	return r
 }
 
 // Filters symbols that have this &#x60;tradingStatus&#x60;. Valid values: &#x60;TRADING&#x60;, &#x60;HALT&#x60;, &#x60;BREAK&#x60; &lt;br/&gt; Cannot be used in combination with &#x60;symbols&#x60; or &#x60;symbol&#x60;.
-func (r GeneralAPISpotGetExchangeInfoV3Request) SymbolStatus(symbolStatus string) GeneralAPISpotGetExchangeInfoV3Request {
+func (r ApiSpotGetExchangeInfoV3Request) SymbolStatus(symbolStatus string) ApiSpotGetExchangeInfoV3Request {
 	r.symbolStatus = &symbolStatus
 	return r
 }
 
-func (r GeneralAPISpotGetExchangeInfoV3Request) Execute() (*SpotGetExchangeInfoV3Resp, *http.Response, error) {
+func (r ApiSpotGetExchangeInfoV3Request) Execute() (*SpotGetExchangeInfoV3Resp, *http.Response, error) {
 	return r.ApiService.SpotGetExchangeInfoV3Execute(r)
 }
 
@@ -73,10 +73,10 @@ SpotGetExchangeInfoV3 Exchange information
 Current exchange trading rules and symbol information
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return GeneralAPISpotGetExchangeInfoV3Request
+ @return ApiSpotGetExchangeInfoV3Request
 */
-func (a *GeneralAPIService) SpotGetExchangeInfoV3(ctx context.Context) GeneralAPISpotGetExchangeInfoV3Request {
-	return GeneralAPISpotGetExchangeInfoV3Request{
+func (a *GeneralAPIService) SpotGetExchangeInfoV3(ctx context.Context) ApiSpotGetExchangeInfoV3Request {
+	return ApiSpotGetExchangeInfoV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -84,7 +84,7 @@ func (a *GeneralAPIService) SpotGetExchangeInfoV3(ctx context.Context) GeneralAP
 
 // Execute executes the request
 //  @return SpotGetExchangeInfoV3Resp
-func (a *GeneralAPIService) SpotGetExchangeInfoV3Execute(r GeneralAPISpotGetExchangeInfoV3Request) (*SpotGetExchangeInfoV3Resp, *http.Response, error) {
+func (a *GeneralAPIService) SpotGetExchangeInfoV3Execute(r ApiSpotGetExchangeInfoV3Request) (*SpotGetExchangeInfoV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -210,12 +210,12 @@ func (a *GeneralAPIService) SpotGetExchangeInfoV3Execute(r GeneralAPISpotGetExch
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type GeneralAPISpotGetPingV3Request struct {
+type ApiSpotGetPingV3Request struct {
 	ctx context.Context
 	ApiService *GeneralAPIService
 }
 
-func (r GeneralAPISpotGetPingV3Request) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiSpotGetPingV3Request) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.SpotGetPingV3Execute(r)
 }
 
@@ -225,10 +225,10 @@ SpotGetPingV3 Test connectivity
 Test connectivity to the Rest API.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return GeneralAPISpotGetPingV3Request
+ @return ApiSpotGetPingV3Request
 */
-func (a *GeneralAPIService) SpotGetPingV3(ctx context.Context) GeneralAPISpotGetPingV3Request {
-	return GeneralAPISpotGetPingV3Request{
+func (a *GeneralAPIService) SpotGetPingV3(ctx context.Context) ApiSpotGetPingV3Request {
+	return ApiSpotGetPingV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -236,7 +236,7 @@ func (a *GeneralAPIService) SpotGetPingV3(ctx context.Context) GeneralAPISpotGet
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *GeneralAPIService) SpotGetPingV3Execute(r GeneralAPISpotGetPingV3Request) (map[string]interface{}, *http.Response, error) {
+func (a *GeneralAPIService) SpotGetPingV3Execute(r ApiSpotGetPingV3Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -330,12 +330,12 @@ func (a *GeneralAPIService) SpotGetPingV3Execute(r GeneralAPISpotGetPingV3Reques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type GeneralAPISpotGetTimeV3Request struct {
+type ApiSpotGetTimeV3Request struct {
 	ctx context.Context
 	ApiService *GeneralAPIService
 }
 
-func (r GeneralAPISpotGetTimeV3Request) Execute() (*SpotGetTimeV3Resp, *http.Response, error) {
+func (r ApiSpotGetTimeV3Request) Execute() (*SpotGetTimeV3Resp, *http.Response, error) {
 	return r.ApiService.SpotGetTimeV3Execute(r)
 }
 
@@ -345,10 +345,10 @@ SpotGetTimeV3 Check server time
 Test connectivity to the Rest API and get the current server time.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return GeneralAPISpotGetTimeV3Request
+ @return ApiSpotGetTimeV3Request
 */
-func (a *GeneralAPIService) SpotGetTimeV3(ctx context.Context) GeneralAPISpotGetTimeV3Request {
-	return GeneralAPISpotGetTimeV3Request{
+func (a *GeneralAPIService) SpotGetTimeV3(ctx context.Context) ApiSpotGetTimeV3Request {
+	return ApiSpotGetTimeV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -356,7 +356,7 @@ func (a *GeneralAPIService) SpotGetTimeV3(ctx context.Context) GeneralAPISpotGet
 
 // Execute executes the request
 //  @return SpotGetTimeV3Resp
-func (a *GeneralAPIService) SpotGetTimeV3Execute(r GeneralAPISpotGetTimeV3Request) (*SpotGetTimeV3Resp, *http.Response, error) {
+func (a *GeneralAPIService) SpotGetTimeV3Execute(r ApiSpotGetTimeV3Request) (*SpotGetTimeV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

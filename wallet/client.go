@@ -58,12 +58,6 @@ type APIClient struct {
 	OthersAPI *OthersAPIService
 
 	TravelRuleAPI *TravelRuleAPIService
-
-	V1API *V1APIService
-
-	V2API *V2APIService
-
-	V3API *V3APIService
 }
 
 type service struct {
@@ -87,9 +81,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.CapitalAPI = (*CapitalAPIService)(&c.common)
 	c.OthersAPI = (*OthersAPIService)(&c.common)
 	c.TravelRuleAPI = (*TravelRuleAPIService)(&c.common)
-	c.V1API = (*V1APIService)(&c.common)
-	c.V2API = (*V2APIService)(&c.common)
-	c.V3API = (*V3APIService)(&c.common)
 
 	return c
 }

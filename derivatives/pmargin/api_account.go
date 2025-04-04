@@ -1,7 +1,7 @@
 /*
-Binance Pmargin API
+Binance Portfolio Margin API
 
-OpenAPI specification for Binance cryptocurrency exchange - Pmargin API
+OpenAPI specification for Binance exchange - Pmargin API
 
 API version: 0.1.0
 */
@@ -22,7 +22,7 @@ import (
 // AccountAPIService AccountAPI service
 type AccountAPIService service
 
-type AccountAPIPmarginCreateAssetCollectionV1Request struct {
+type ApiPmarginCreateAssetCollectionV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	asset *string
@@ -30,22 +30,22 @@ type AccountAPIPmarginCreateAssetCollectionV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginCreateAssetCollectionV1Request) Asset(asset string) AccountAPIPmarginCreateAssetCollectionV1Request {
+func (r ApiPmarginCreateAssetCollectionV1Request) Asset(asset string) ApiPmarginCreateAssetCollectionV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r AccountAPIPmarginCreateAssetCollectionV1Request) Timestamp(timestamp int64) AccountAPIPmarginCreateAssetCollectionV1Request {
+func (r ApiPmarginCreateAssetCollectionV1Request) Timestamp(timestamp int64) ApiPmarginCreateAssetCollectionV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginCreateAssetCollectionV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginCreateAssetCollectionV1Request {
+func (r ApiPmarginCreateAssetCollectionV1Request) RecvWindow(recvWindow int64) ApiPmarginCreateAssetCollectionV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginCreateAssetCollectionV1Request) Execute() (*PmarginCreateAssetCollectionV1Resp, *http.Response, error) {
+func (r ApiPmarginCreateAssetCollectionV1Request) Execute() (*PmarginCreateAssetCollectionV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginCreateAssetCollectionV1Execute(r)
 }
 
@@ -55,10 +55,10 @@ PmarginCreateAssetCollectionV1 Fund Collection by Asset(TRADE)
 Transfers specific asset from Futures Account to Margin account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginCreateAssetCollectionV1Request
+ @return ApiPmarginCreateAssetCollectionV1Request
 */
-func (a *AccountAPIService) PmarginCreateAssetCollectionV1(ctx context.Context) AccountAPIPmarginCreateAssetCollectionV1Request {
-	return AccountAPIPmarginCreateAssetCollectionV1Request{
+func (a *AccountAPIService) PmarginCreateAssetCollectionV1(ctx context.Context) ApiPmarginCreateAssetCollectionV1Request {
+	return ApiPmarginCreateAssetCollectionV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -66,7 +66,7 @@ func (a *AccountAPIService) PmarginCreateAssetCollectionV1(ctx context.Context) 
 
 // Execute executes the request
 //  @return PmarginCreateAssetCollectionV1Resp
-func (a *AccountAPIService) PmarginCreateAssetCollectionV1Execute(r AccountAPIPmarginCreateAssetCollectionV1Request) (*PmarginCreateAssetCollectionV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginCreateAssetCollectionV1Execute(r ApiPmarginCreateAssetCollectionV1Request) (*PmarginCreateAssetCollectionV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -177,24 +177,24 @@ func (a *AccountAPIService) PmarginCreateAssetCollectionV1Execute(r AccountAPIPm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginCreateAutoCollectionV1Request struct {
+type ApiPmarginCreateAutoCollectionV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginCreateAutoCollectionV1Request) Timestamp(timestamp int64) AccountAPIPmarginCreateAutoCollectionV1Request {
+func (r ApiPmarginCreateAutoCollectionV1Request) Timestamp(timestamp int64) ApiPmarginCreateAutoCollectionV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginCreateAutoCollectionV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginCreateAutoCollectionV1Request {
+func (r ApiPmarginCreateAutoCollectionV1Request) RecvWindow(recvWindow int64) ApiPmarginCreateAutoCollectionV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginCreateAutoCollectionV1Request) Execute() (*PmarginCreateAutoCollectionV1Resp, *http.Response, error) {
+func (r ApiPmarginCreateAutoCollectionV1Request) Execute() (*PmarginCreateAutoCollectionV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginCreateAutoCollectionV1Execute(r)
 }
 
@@ -204,10 +204,10 @@ PmarginCreateAutoCollectionV1 Fund Auto-collection(TRADE)
 Fund collection for Portfolio Margin
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginCreateAutoCollectionV1Request
+ @return ApiPmarginCreateAutoCollectionV1Request
 */
-func (a *AccountAPIService) PmarginCreateAutoCollectionV1(ctx context.Context) AccountAPIPmarginCreateAutoCollectionV1Request {
-	return AccountAPIPmarginCreateAutoCollectionV1Request{
+func (a *AccountAPIService) PmarginCreateAutoCollectionV1(ctx context.Context) ApiPmarginCreateAutoCollectionV1Request {
+	return ApiPmarginCreateAutoCollectionV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -215,7 +215,7 @@ func (a *AccountAPIService) PmarginCreateAutoCollectionV1(ctx context.Context) A
 
 // Execute executes the request
 //  @return PmarginCreateAutoCollectionV1Resp
-func (a *AccountAPIService) PmarginCreateAutoCollectionV1Execute(r AccountAPIPmarginCreateAutoCollectionV1Request) (*PmarginCreateAutoCollectionV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginCreateAutoCollectionV1Execute(r ApiPmarginCreateAutoCollectionV1Request) (*PmarginCreateAutoCollectionV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -322,7 +322,7 @@ func (a *AccountAPIService) PmarginCreateAutoCollectionV1Execute(r AccountAPIPma
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginCreateBnbTransferV1Request struct {
+type ApiPmarginCreateBnbTransferV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	amount *string
@@ -331,27 +331,27 @@ type AccountAPIPmarginCreateBnbTransferV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginCreateBnbTransferV1Request) Amount(amount string) AccountAPIPmarginCreateBnbTransferV1Request {
+func (r ApiPmarginCreateBnbTransferV1Request) Amount(amount string) ApiPmarginCreateBnbTransferV1Request {
 	r.amount = &amount
 	return r
 }
 
-func (r AccountAPIPmarginCreateBnbTransferV1Request) Timestamp(timestamp int64) AccountAPIPmarginCreateBnbTransferV1Request {
+func (r ApiPmarginCreateBnbTransferV1Request) Timestamp(timestamp int64) ApiPmarginCreateBnbTransferV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginCreateBnbTransferV1Request) TransferSide(transferSide string) AccountAPIPmarginCreateBnbTransferV1Request {
+func (r ApiPmarginCreateBnbTransferV1Request) TransferSide(transferSide string) ApiPmarginCreateBnbTransferV1Request {
 	r.transferSide = &transferSide
 	return r
 }
 
-func (r AccountAPIPmarginCreateBnbTransferV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginCreateBnbTransferV1Request {
+func (r ApiPmarginCreateBnbTransferV1Request) RecvWindow(recvWindow int64) ApiPmarginCreateBnbTransferV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginCreateBnbTransferV1Request) Execute() (*PmarginCreateBnbTransferV1Resp, *http.Response, error) {
+func (r ApiPmarginCreateBnbTransferV1Request) Execute() (*PmarginCreateBnbTransferV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginCreateBnbTransferV1Execute(r)
 }
 
@@ -361,10 +361,10 @@ PmarginCreateBnbTransferV1 BNB transfer (TRADE)
 Transfer BNB in and out of UM
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginCreateBnbTransferV1Request
+ @return ApiPmarginCreateBnbTransferV1Request
 */
-func (a *AccountAPIService) PmarginCreateBnbTransferV1(ctx context.Context) AccountAPIPmarginCreateBnbTransferV1Request {
-	return AccountAPIPmarginCreateBnbTransferV1Request{
+func (a *AccountAPIService) PmarginCreateBnbTransferV1(ctx context.Context) ApiPmarginCreateBnbTransferV1Request {
+	return ApiPmarginCreateBnbTransferV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -372,7 +372,7 @@ func (a *AccountAPIService) PmarginCreateBnbTransferV1(ctx context.Context) Acco
 
 // Execute executes the request
 //  @return PmarginCreateBnbTransferV1Resp
-func (a *AccountAPIService) PmarginCreateBnbTransferV1Execute(r AccountAPIPmarginCreateBnbTransferV1Request) (*PmarginCreateBnbTransferV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginCreateBnbTransferV1Execute(r ApiPmarginCreateBnbTransferV1Request) (*PmarginCreateBnbTransferV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -487,7 +487,7 @@ func (a *AccountAPIService) PmarginCreateBnbTransferV1Execute(r AccountAPIPmargi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginCreateCmLeverageV1Request struct {
+type ApiPmarginCreateCmLeverageV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	leverage *int32
@@ -496,27 +496,27 @@ type AccountAPIPmarginCreateCmLeverageV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginCreateCmLeverageV1Request) Leverage(leverage int32) AccountAPIPmarginCreateCmLeverageV1Request {
+func (r ApiPmarginCreateCmLeverageV1Request) Leverage(leverage int32) ApiPmarginCreateCmLeverageV1Request {
 	r.leverage = &leverage
 	return r
 }
 
-func (r AccountAPIPmarginCreateCmLeverageV1Request) Symbol(symbol string) AccountAPIPmarginCreateCmLeverageV1Request {
+func (r ApiPmarginCreateCmLeverageV1Request) Symbol(symbol string) ApiPmarginCreateCmLeverageV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r AccountAPIPmarginCreateCmLeverageV1Request) Timestamp(timestamp int64) AccountAPIPmarginCreateCmLeverageV1Request {
+func (r ApiPmarginCreateCmLeverageV1Request) Timestamp(timestamp int64) ApiPmarginCreateCmLeverageV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginCreateCmLeverageV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginCreateCmLeverageV1Request {
+func (r ApiPmarginCreateCmLeverageV1Request) RecvWindow(recvWindow int64) ApiPmarginCreateCmLeverageV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginCreateCmLeverageV1Request) Execute() (*PmarginCreateCmLeverageV1Resp, *http.Response, error) {
+func (r ApiPmarginCreateCmLeverageV1Request) Execute() (*PmarginCreateCmLeverageV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginCreateCmLeverageV1Execute(r)
 }
 
@@ -526,10 +526,10 @@ PmarginCreateCmLeverageV1 Change CM Initial Leverage (TRADE)
 Change user's initial leverage of specific symbol in CM.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginCreateCmLeverageV1Request
+ @return ApiPmarginCreateCmLeverageV1Request
 */
-func (a *AccountAPIService) PmarginCreateCmLeverageV1(ctx context.Context) AccountAPIPmarginCreateCmLeverageV1Request {
-	return AccountAPIPmarginCreateCmLeverageV1Request{
+func (a *AccountAPIService) PmarginCreateCmLeverageV1(ctx context.Context) ApiPmarginCreateCmLeverageV1Request {
+	return ApiPmarginCreateCmLeverageV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -537,7 +537,7 @@ func (a *AccountAPIService) PmarginCreateCmLeverageV1(ctx context.Context) Accou
 
 // Execute executes the request
 //  @return PmarginCreateCmLeverageV1Resp
-func (a *AccountAPIService) PmarginCreateCmLeverageV1Execute(r AccountAPIPmarginCreateCmLeverageV1Request) (*PmarginCreateCmLeverageV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginCreateCmLeverageV1Execute(r ApiPmarginCreateCmLeverageV1Request) (*PmarginCreateCmLeverageV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -652,7 +652,7 @@ func (a *AccountAPIService) PmarginCreateCmLeverageV1Execute(r AccountAPIPmargin
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginCreateCmPositionSideDualV1Request struct {
+type ApiPmarginCreateCmPositionSideDualV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	dualSidePosition *string
@@ -660,22 +660,22 @@ type AccountAPIPmarginCreateCmPositionSideDualV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginCreateCmPositionSideDualV1Request) DualSidePosition(dualSidePosition string) AccountAPIPmarginCreateCmPositionSideDualV1Request {
+func (r ApiPmarginCreateCmPositionSideDualV1Request) DualSidePosition(dualSidePosition string) ApiPmarginCreateCmPositionSideDualV1Request {
 	r.dualSidePosition = &dualSidePosition
 	return r
 }
 
-func (r AccountAPIPmarginCreateCmPositionSideDualV1Request) Timestamp(timestamp int64) AccountAPIPmarginCreateCmPositionSideDualV1Request {
+func (r ApiPmarginCreateCmPositionSideDualV1Request) Timestamp(timestamp int64) ApiPmarginCreateCmPositionSideDualV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginCreateCmPositionSideDualV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginCreateCmPositionSideDualV1Request {
+func (r ApiPmarginCreateCmPositionSideDualV1Request) RecvWindow(recvWindow int64) ApiPmarginCreateCmPositionSideDualV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginCreateCmPositionSideDualV1Request) Execute() (*PmarginCreateCmPositionSideDualV1Resp, *http.Response, error) {
+func (r ApiPmarginCreateCmPositionSideDualV1Request) Execute() (*PmarginCreateCmPositionSideDualV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginCreateCmPositionSideDualV1Execute(r)
 }
 
@@ -685,10 +685,10 @@ PmarginCreateCmPositionSideDualV1 Change CM Position Mode(TRADE)
 Change user's position mode (Hedge Mode or One-way Mode ) on EVERY symbol in CM
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginCreateCmPositionSideDualV1Request
+ @return ApiPmarginCreateCmPositionSideDualV1Request
 */
-func (a *AccountAPIService) PmarginCreateCmPositionSideDualV1(ctx context.Context) AccountAPIPmarginCreateCmPositionSideDualV1Request {
-	return AccountAPIPmarginCreateCmPositionSideDualV1Request{
+func (a *AccountAPIService) PmarginCreateCmPositionSideDualV1(ctx context.Context) ApiPmarginCreateCmPositionSideDualV1Request {
+	return ApiPmarginCreateCmPositionSideDualV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -696,7 +696,7 @@ func (a *AccountAPIService) PmarginCreateCmPositionSideDualV1(ctx context.Contex
 
 // Execute executes the request
 //  @return PmarginCreateCmPositionSideDualV1Resp
-func (a *AccountAPIService) PmarginCreateCmPositionSideDualV1Execute(r AccountAPIPmarginCreateCmPositionSideDualV1Request) (*PmarginCreateCmPositionSideDualV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginCreateCmPositionSideDualV1Execute(r ApiPmarginCreateCmPositionSideDualV1Request) (*PmarginCreateCmPositionSideDualV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -807,24 +807,24 @@ func (a *AccountAPIService) PmarginCreateCmPositionSideDualV1Execute(r AccountAP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginCreateRepayFuturesNegativeBalanceV1Request struct {
+type ApiPmarginCreateRepayFuturesNegativeBalanceV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginCreateRepayFuturesNegativeBalanceV1Request) Timestamp(timestamp int64) AccountAPIPmarginCreateRepayFuturesNegativeBalanceV1Request {
+func (r ApiPmarginCreateRepayFuturesNegativeBalanceV1Request) Timestamp(timestamp int64) ApiPmarginCreateRepayFuturesNegativeBalanceV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginCreateRepayFuturesNegativeBalanceV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginCreateRepayFuturesNegativeBalanceV1Request {
+func (r ApiPmarginCreateRepayFuturesNegativeBalanceV1Request) RecvWindow(recvWindow int64) ApiPmarginCreateRepayFuturesNegativeBalanceV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginCreateRepayFuturesNegativeBalanceV1Request) Execute() (*PmarginCreateRepayFuturesNegativeBalanceV1Resp, *http.Response, error) {
+func (r ApiPmarginCreateRepayFuturesNegativeBalanceV1Request) Execute() (*PmarginCreateRepayFuturesNegativeBalanceV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginCreateRepayFuturesNegativeBalanceV1Execute(r)
 }
 
@@ -834,10 +834,10 @@ PmarginCreateRepayFuturesNegativeBalanceV1 Repay futures Negative Balance(USER_D
 Repay futures Negative Balance
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginCreateRepayFuturesNegativeBalanceV1Request
+ @return ApiPmarginCreateRepayFuturesNegativeBalanceV1Request
 */
-func (a *AccountAPIService) PmarginCreateRepayFuturesNegativeBalanceV1(ctx context.Context) AccountAPIPmarginCreateRepayFuturesNegativeBalanceV1Request {
-	return AccountAPIPmarginCreateRepayFuturesNegativeBalanceV1Request{
+func (a *AccountAPIService) PmarginCreateRepayFuturesNegativeBalanceV1(ctx context.Context) ApiPmarginCreateRepayFuturesNegativeBalanceV1Request {
+	return ApiPmarginCreateRepayFuturesNegativeBalanceV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -845,7 +845,7 @@ func (a *AccountAPIService) PmarginCreateRepayFuturesNegativeBalanceV1(ctx conte
 
 // Execute executes the request
 //  @return PmarginCreateRepayFuturesNegativeBalanceV1Resp
-func (a *AccountAPIService) PmarginCreateRepayFuturesNegativeBalanceV1Execute(r AccountAPIPmarginCreateRepayFuturesNegativeBalanceV1Request) (*PmarginCreateRepayFuturesNegativeBalanceV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginCreateRepayFuturesNegativeBalanceV1Execute(r ApiPmarginCreateRepayFuturesNegativeBalanceV1Request) (*PmarginCreateRepayFuturesNegativeBalanceV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -952,7 +952,7 @@ func (a *AccountAPIService) PmarginCreateRepayFuturesNegativeBalanceV1Execute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginCreateRepayFuturesSwitchV1Request struct {
+type ApiPmarginCreateRepayFuturesSwitchV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	autoRepay *string
@@ -960,22 +960,22 @@ type AccountAPIPmarginCreateRepayFuturesSwitchV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginCreateRepayFuturesSwitchV1Request) AutoRepay(autoRepay string) AccountAPIPmarginCreateRepayFuturesSwitchV1Request {
+func (r ApiPmarginCreateRepayFuturesSwitchV1Request) AutoRepay(autoRepay string) ApiPmarginCreateRepayFuturesSwitchV1Request {
 	r.autoRepay = &autoRepay
 	return r
 }
 
-func (r AccountAPIPmarginCreateRepayFuturesSwitchV1Request) Timestamp(timestamp int64) AccountAPIPmarginCreateRepayFuturesSwitchV1Request {
+func (r ApiPmarginCreateRepayFuturesSwitchV1Request) Timestamp(timestamp int64) ApiPmarginCreateRepayFuturesSwitchV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginCreateRepayFuturesSwitchV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginCreateRepayFuturesSwitchV1Request {
+func (r ApiPmarginCreateRepayFuturesSwitchV1Request) RecvWindow(recvWindow int64) ApiPmarginCreateRepayFuturesSwitchV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginCreateRepayFuturesSwitchV1Request) Execute() (*PmarginCreateRepayFuturesSwitchV1Resp, *http.Response, error) {
+func (r ApiPmarginCreateRepayFuturesSwitchV1Request) Execute() (*PmarginCreateRepayFuturesSwitchV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginCreateRepayFuturesSwitchV1Execute(r)
 }
 
@@ -985,10 +985,10 @@ PmarginCreateRepayFuturesSwitchV1 Change Auto-repay-futures Status(TRADE)
 Change Auto-repay-futures Status
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginCreateRepayFuturesSwitchV1Request
+ @return ApiPmarginCreateRepayFuturesSwitchV1Request
 */
-func (a *AccountAPIService) PmarginCreateRepayFuturesSwitchV1(ctx context.Context) AccountAPIPmarginCreateRepayFuturesSwitchV1Request {
-	return AccountAPIPmarginCreateRepayFuturesSwitchV1Request{
+func (a *AccountAPIService) PmarginCreateRepayFuturesSwitchV1(ctx context.Context) ApiPmarginCreateRepayFuturesSwitchV1Request {
+	return ApiPmarginCreateRepayFuturesSwitchV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -996,7 +996,7 @@ func (a *AccountAPIService) PmarginCreateRepayFuturesSwitchV1(ctx context.Contex
 
 // Execute executes the request
 //  @return PmarginCreateRepayFuturesSwitchV1Resp
-func (a *AccountAPIService) PmarginCreateRepayFuturesSwitchV1Execute(r AccountAPIPmarginCreateRepayFuturesSwitchV1Request) (*PmarginCreateRepayFuturesSwitchV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginCreateRepayFuturesSwitchV1Execute(r ApiPmarginCreateRepayFuturesSwitchV1Request) (*PmarginCreateRepayFuturesSwitchV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1107,7 +1107,7 @@ func (a *AccountAPIService) PmarginCreateRepayFuturesSwitchV1Execute(r AccountAP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginCreateUmLeverageV1Request struct {
+type ApiPmarginCreateUmLeverageV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	leverage *int32
@@ -1116,27 +1116,27 @@ type AccountAPIPmarginCreateUmLeverageV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginCreateUmLeverageV1Request) Leverage(leverage int32) AccountAPIPmarginCreateUmLeverageV1Request {
+func (r ApiPmarginCreateUmLeverageV1Request) Leverage(leverage int32) ApiPmarginCreateUmLeverageV1Request {
 	r.leverage = &leverage
 	return r
 }
 
-func (r AccountAPIPmarginCreateUmLeverageV1Request) Symbol(symbol string) AccountAPIPmarginCreateUmLeverageV1Request {
+func (r ApiPmarginCreateUmLeverageV1Request) Symbol(symbol string) ApiPmarginCreateUmLeverageV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r AccountAPIPmarginCreateUmLeverageV1Request) Timestamp(timestamp int64) AccountAPIPmarginCreateUmLeverageV1Request {
+func (r ApiPmarginCreateUmLeverageV1Request) Timestamp(timestamp int64) ApiPmarginCreateUmLeverageV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginCreateUmLeverageV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginCreateUmLeverageV1Request {
+func (r ApiPmarginCreateUmLeverageV1Request) RecvWindow(recvWindow int64) ApiPmarginCreateUmLeverageV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginCreateUmLeverageV1Request) Execute() (*PmarginCreateUmLeverageV1Resp, *http.Response, error) {
+func (r ApiPmarginCreateUmLeverageV1Request) Execute() (*PmarginCreateUmLeverageV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginCreateUmLeverageV1Execute(r)
 }
 
@@ -1146,10 +1146,10 @@ PmarginCreateUmLeverageV1 Change UM Initial Leverage(TRADE)
 Change user's initial leverage of specific symbol in UM.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginCreateUmLeverageV1Request
+ @return ApiPmarginCreateUmLeverageV1Request
 */
-func (a *AccountAPIService) PmarginCreateUmLeverageV1(ctx context.Context) AccountAPIPmarginCreateUmLeverageV1Request {
-	return AccountAPIPmarginCreateUmLeverageV1Request{
+func (a *AccountAPIService) PmarginCreateUmLeverageV1(ctx context.Context) ApiPmarginCreateUmLeverageV1Request {
+	return ApiPmarginCreateUmLeverageV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1157,7 +1157,7 @@ func (a *AccountAPIService) PmarginCreateUmLeverageV1(ctx context.Context) Accou
 
 // Execute executes the request
 //  @return PmarginCreateUmLeverageV1Resp
-func (a *AccountAPIService) PmarginCreateUmLeverageV1Execute(r AccountAPIPmarginCreateUmLeverageV1Request) (*PmarginCreateUmLeverageV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginCreateUmLeverageV1Execute(r ApiPmarginCreateUmLeverageV1Request) (*PmarginCreateUmLeverageV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1272,7 +1272,7 @@ func (a *AccountAPIService) PmarginCreateUmLeverageV1Execute(r AccountAPIPmargin
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginCreateUmPositionSideDualV1Request struct {
+type ApiPmarginCreateUmPositionSideDualV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	dualSidePosition *string
@@ -1280,22 +1280,22 @@ type AccountAPIPmarginCreateUmPositionSideDualV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginCreateUmPositionSideDualV1Request) DualSidePosition(dualSidePosition string) AccountAPIPmarginCreateUmPositionSideDualV1Request {
+func (r ApiPmarginCreateUmPositionSideDualV1Request) DualSidePosition(dualSidePosition string) ApiPmarginCreateUmPositionSideDualV1Request {
 	r.dualSidePosition = &dualSidePosition
 	return r
 }
 
-func (r AccountAPIPmarginCreateUmPositionSideDualV1Request) Timestamp(timestamp int64) AccountAPIPmarginCreateUmPositionSideDualV1Request {
+func (r ApiPmarginCreateUmPositionSideDualV1Request) Timestamp(timestamp int64) ApiPmarginCreateUmPositionSideDualV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginCreateUmPositionSideDualV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginCreateUmPositionSideDualV1Request {
+func (r ApiPmarginCreateUmPositionSideDualV1Request) RecvWindow(recvWindow int64) ApiPmarginCreateUmPositionSideDualV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginCreateUmPositionSideDualV1Request) Execute() (*PmarginCreateUmPositionSideDualV1Resp, *http.Response, error) {
+func (r ApiPmarginCreateUmPositionSideDualV1Request) Execute() (*PmarginCreateUmPositionSideDualV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginCreateUmPositionSideDualV1Execute(r)
 }
 
@@ -1305,10 +1305,10 @@ PmarginCreateUmPositionSideDualV1 Change UM Position Mode(TRADE)
 Change user's position mode (Hedge Mode or One-way Mode ) on EVERY symbol in UM
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginCreateUmPositionSideDualV1Request
+ @return ApiPmarginCreateUmPositionSideDualV1Request
 */
-func (a *AccountAPIService) PmarginCreateUmPositionSideDualV1(ctx context.Context) AccountAPIPmarginCreateUmPositionSideDualV1Request {
-	return AccountAPIPmarginCreateUmPositionSideDualV1Request{
+func (a *AccountAPIService) PmarginCreateUmPositionSideDualV1(ctx context.Context) ApiPmarginCreateUmPositionSideDualV1Request {
+	return ApiPmarginCreateUmPositionSideDualV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1316,7 +1316,7 @@ func (a *AccountAPIService) PmarginCreateUmPositionSideDualV1(ctx context.Contex
 
 // Execute executes the request
 //  @return PmarginCreateUmPositionSideDualV1Resp
-func (a *AccountAPIService) PmarginCreateUmPositionSideDualV1Execute(r AccountAPIPmarginCreateUmPositionSideDualV1Request) (*PmarginCreateUmPositionSideDualV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginCreateUmPositionSideDualV1Execute(r ApiPmarginCreateUmPositionSideDualV1Request) (*PmarginCreateUmPositionSideDualV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1427,24 +1427,24 @@ func (a *AccountAPIService) PmarginCreateUmPositionSideDualV1Execute(r AccountAP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetAccountV1Request struct {
+type ApiPmarginGetAccountV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetAccountV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetAccountV1Request {
+func (r ApiPmarginGetAccountV1Request) Timestamp(timestamp int64) ApiPmarginGetAccountV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetAccountV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetAccountV1Request {
+func (r ApiPmarginGetAccountV1Request) RecvWindow(recvWindow int64) ApiPmarginGetAccountV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetAccountV1Request) Execute() (*PmarginGetAccountV1Resp, *http.Response, error) {
+func (r ApiPmarginGetAccountV1Request) Execute() (*PmarginGetAccountV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetAccountV1Execute(r)
 }
 
@@ -1454,10 +1454,10 @@ PmarginGetAccountV1 Account Information(USER_DATA)
 Query account information
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetAccountV1Request
+ @return ApiPmarginGetAccountV1Request
 */
-func (a *AccountAPIService) PmarginGetAccountV1(ctx context.Context) AccountAPIPmarginGetAccountV1Request {
-	return AccountAPIPmarginGetAccountV1Request{
+func (a *AccountAPIService) PmarginGetAccountV1(ctx context.Context) ApiPmarginGetAccountV1Request {
+	return ApiPmarginGetAccountV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1465,7 +1465,7 @@ func (a *AccountAPIService) PmarginGetAccountV1(ctx context.Context) AccountAPIP
 
 // Execute executes the request
 //  @return PmarginGetAccountV1Resp
-func (a *AccountAPIService) PmarginGetAccountV1Execute(r AccountAPIPmarginGetAccountV1Request) (*PmarginGetAccountV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetAccountV1Execute(r ApiPmarginGetAccountV1Request) (*PmarginGetAccountV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1572,7 +1572,7 @@ func (a *AccountAPIService) PmarginGetAccountV1Execute(r AccountAPIPmarginGetAcc
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetBalanceV1Request struct {
+type ApiPmarginGetBalanceV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
@@ -1580,22 +1580,22 @@ type AccountAPIPmarginGetBalanceV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetBalanceV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetBalanceV1Request {
+func (r ApiPmarginGetBalanceV1Request) Timestamp(timestamp int64) ApiPmarginGetBalanceV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetBalanceV1Request) Asset(asset string) AccountAPIPmarginGetBalanceV1Request {
+func (r ApiPmarginGetBalanceV1Request) Asset(asset string) ApiPmarginGetBalanceV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r AccountAPIPmarginGetBalanceV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetBalanceV1Request {
+func (r ApiPmarginGetBalanceV1Request) RecvWindow(recvWindow int64) ApiPmarginGetBalanceV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetBalanceV1Request) Execute() (*PmarginGetBalanceV1Resp, *http.Response, error) {
+func (r ApiPmarginGetBalanceV1Request) Execute() (*PmarginGetBalanceV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetBalanceV1Execute(r)
 }
 
@@ -1605,10 +1605,10 @@ PmarginGetBalanceV1 Account Balance(USER_DATA)
 Query account balance
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetBalanceV1Request
+ @return ApiPmarginGetBalanceV1Request
 */
-func (a *AccountAPIService) PmarginGetBalanceV1(ctx context.Context) AccountAPIPmarginGetBalanceV1Request {
-	return AccountAPIPmarginGetBalanceV1Request{
+func (a *AccountAPIService) PmarginGetBalanceV1(ctx context.Context) ApiPmarginGetBalanceV1Request {
+	return ApiPmarginGetBalanceV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1616,7 +1616,7 @@ func (a *AccountAPIService) PmarginGetBalanceV1(ctx context.Context) AccountAPIP
 
 // Execute executes the request
 //  @return PmarginGetBalanceV1Resp
-func (a *AccountAPIService) PmarginGetBalanceV1Execute(r AccountAPIPmarginGetBalanceV1Request) (*PmarginGetBalanceV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetBalanceV1Execute(r ApiPmarginGetBalanceV1Request) (*PmarginGetBalanceV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1729,24 +1729,24 @@ func (a *AccountAPIService) PmarginGetBalanceV1Execute(r AccountAPIPmarginGetBal
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetCmAccountV1Request struct {
+type ApiPmarginGetCmAccountV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetCmAccountV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetCmAccountV1Request {
+func (r ApiPmarginGetCmAccountV1Request) Timestamp(timestamp int64) ApiPmarginGetCmAccountV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetCmAccountV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetCmAccountV1Request {
+func (r ApiPmarginGetCmAccountV1Request) RecvWindow(recvWindow int64) ApiPmarginGetCmAccountV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetCmAccountV1Request) Execute() (*PmarginGetCmAccountV1Resp, *http.Response, error) {
+func (r ApiPmarginGetCmAccountV1Request) Execute() (*PmarginGetCmAccountV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetCmAccountV1Execute(r)
 }
 
@@ -1756,10 +1756,10 @@ PmarginGetCmAccountV1 Get CM Account Detail(USER_DATA)
 Get current CM account asset and position information.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetCmAccountV1Request
+ @return ApiPmarginGetCmAccountV1Request
 */
-func (a *AccountAPIService) PmarginGetCmAccountV1(ctx context.Context) AccountAPIPmarginGetCmAccountV1Request {
-	return AccountAPIPmarginGetCmAccountV1Request{
+func (a *AccountAPIService) PmarginGetCmAccountV1(ctx context.Context) ApiPmarginGetCmAccountV1Request {
+	return ApiPmarginGetCmAccountV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1767,7 +1767,7 @@ func (a *AccountAPIService) PmarginGetCmAccountV1(ctx context.Context) AccountAP
 
 // Execute executes the request
 //  @return PmarginGetCmAccountV1Resp
-func (a *AccountAPIService) PmarginGetCmAccountV1Execute(r AccountAPIPmarginGetCmAccountV1Request) (*PmarginGetCmAccountV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetCmAccountV1Execute(r ApiPmarginGetCmAccountV1Request) (*PmarginGetCmAccountV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1874,7 +1874,7 @@ func (a *AccountAPIService) PmarginGetCmAccountV1Execute(r AccountAPIPmarginGetC
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetCmCommissionRateV1Request struct {
+type ApiPmarginGetCmCommissionRateV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	symbol *string
@@ -1882,22 +1882,22 @@ type AccountAPIPmarginGetCmCommissionRateV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetCmCommissionRateV1Request) Symbol(symbol string) AccountAPIPmarginGetCmCommissionRateV1Request {
+func (r ApiPmarginGetCmCommissionRateV1Request) Symbol(symbol string) ApiPmarginGetCmCommissionRateV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r AccountAPIPmarginGetCmCommissionRateV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetCmCommissionRateV1Request {
+func (r ApiPmarginGetCmCommissionRateV1Request) Timestamp(timestamp int64) ApiPmarginGetCmCommissionRateV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetCmCommissionRateV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetCmCommissionRateV1Request {
+func (r ApiPmarginGetCmCommissionRateV1Request) RecvWindow(recvWindow int64) ApiPmarginGetCmCommissionRateV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetCmCommissionRateV1Request) Execute() (*PmarginGetCmCommissionRateV1Resp, *http.Response, error) {
+func (r ApiPmarginGetCmCommissionRateV1Request) Execute() (*PmarginGetCmCommissionRateV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetCmCommissionRateV1Execute(r)
 }
 
@@ -1907,10 +1907,10 @@ PmarginGetCmCommissionRateV1 Get User Commission Rate for CM(USER_DATA)
 Get User Commission Rate for CM
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetCmCommissionRateV1Request
+ @return ApiPmarginGetCmCommissionRateV1Request
 */
-func (a *AccountAPIService) PmarginGetCmCommissionRateV1(ctx context.Context) AccountAPIPmarginGetCmCommissionRateV1Request {
-	return AccountAPIPmarginGetCmCommissionRateV1Request{
+func (a *AccountAPIService) PmarginGetCmCommissionRateV1(ctx context.Context) ApiPmarginGetCmCommissionRateV1Request {
+	return ApiPmarginGetCmCommissionRateV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1918,7 +1918,7 @@ func (a *AccountAPIService) PmarginGetCmCommissionRateV1(ctx context.Context) Ac
 
 // Execute executes the request
 //  @return PmarginGetCmCommissionRateV1Resp
-func (a *AccountAPIService) PmarginGetCmCommissionRateV1Execute(r AccountAPIPmarginGetCmCommissionRateV1Request) (*PmarginGetCmCommissionRateV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetCmCommissionRateV1Execute(r ApiPmarginGetCmCommissionRateV1Request) (*PmarginGetCmCommissionRateV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2029,7 +2029,7 @@ func (a *AccountAPIService) PmarginGetCmCommissionRateV1Execute(r AccountAPIPmar
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetCmIncomeV1Request struct {
+type ApiPmarginGetCmIncomeV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
@@ -2042,51 +2042,51 @@ type AccountAPIPmarginGetCmIncomeV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetCmIncomeV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetCmIncomeV1Request {
+func (r ApiPmarginGetCmIncomeV1Request) Timestamp(timestamp int64) ApiPmarginGetCmIncomeV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetCmIncomeV1Request) Symbol(symbol string) AccountAPIPmarginGetCmIncomeV1Request {
+func (r ApiPmarginGetCmIncomeV1Request) Symbol(symbol string) ApiPmarginGetCmIncomeV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // &amp;#34;TRANSFER&amp;#34;,&amp;#34;WELCOME_BONUS&amp;#34;, &amp;#34;FUNDING_FEE&amp;#34;, &amp;#34;REALIZED_PNL&amp;#34;, &amp;#34;COMMISSION&amp;#34;, &amp;#34;INSURANCE_CLEAR&amp;#34;, and &amp;#34;DELIVERED_SETTELMENT&amp;#34;
-func (r AccountAPIPmarginGetCmIncomeV1Request) IncomeType(incomeType string) AccountAPIPmarginGetCmIncomeV1Request {
+func (r ApiPmarginGetCmIncomeV1Request) IncomeType(incomeType string) ApiPmarginGetCmIncomeV1Request {
 	r.incomeType = &incomeType
 	return r
 }
 
 // Timestamp in ms to get funding from INCLUSIVE.
-func (r AccountAPIPmarginGetCmIncomeV1Request) StartTime(startTime int64) AccountAPIPmarginGetCmIncomeV1Request {
+func (r ApiPmarginGetCmIncomeV1Request) StartTime(startTime int64) ApiPmarginGetCmIncomeV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // Timestamp in ms to get funding until INCLUSIVE.
-func (r AccountAPIPmarginGetCmIncomeV1Request) EndTime(endTime int64) AccountAPIPmarginGetCmIncomeV1Request {
+func (r ApiPmarginGetCmIncomeV1Request) EndTime(endTime int64) ApiPmarginGetCmIncomeV1Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r AccountAPIPmarginGetCmIncomeV1Request) Page(page int32) AccountAPIPmarginGetCmIncomeV1Request {
+func (r ApiPmarginGetCmIncomeV1Request) Page(page int32) ApiPmarginGetCmIncomeV1Request {
 	r.page = &page
 	return r
 }
 
 // Default 100; max 1000
-func (r AccountAPIPmarginGetCmIncomeV1Request) Limit(limit int32) AccountAPIPmarginGetCmIncomeV1Request {
+func (r ApiPmarginGetCmIncomeV1Request) Limit(limit int32) ApiPmarginGetCmIncomeV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r AccountAPIPmarginGetCmIncomeV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetCmIncomeV1Request {
+func (r ApiPmarginGetCmIncomeV1Request) RecvWindow(recvWindow int64) ApiPmarginGetCmIncomeV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetCmIncomeV1Request) Execute() ([]PmarginGetCmIncomeV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetCmIncomeV1Request) Execute() ([]PmarginGetCmIncomeV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetCmIncomeV1Execute(r)
 }
 
@@ -2096,10 +2096,10 @@ PmarginGetCmIncomeV1 Get CM Income History(USER_DATA)
 Get CM Income History
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetCmIncomeV1Request
+ @return ApiPmarginGetCmIncomeV1Request
 */
-func (a *AccountAPIService) PmarginGetCmIncomeV1(ctx context.Context) AccountAPIPmarginGetCmIncomeV1Request {
-	return AccountAPIPmarginGetCmIncomeV1Request{
+func (a *AccountAPIService) PmarginGetCmIncomeV1(ctx context.Context) ApiPmarginGetCmIncomeV1Request {
+	return ApiPmarginGetCmIncomeV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2107,7 +2107,7 @@ func (a *AccountAPIService) PmarginGetCmIncomeV1(ctx context.Context) AccountAPI
 
 // Execute executes the request
 //  @return []PmarginGetCmIncomeV1RespItem
-func (a *AccountAPIService) PmarginGetCmIncomeV1Execute(r AccountAPIPmarginGetCmIncomeV1Request) ([]PmarginGetCmIncomeV1RespItem, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetCmIncomeV1Execute(r ApiPmarginGetCmIncomeV1Request) ([]PmarginGetCmIncomeV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2241,7 +2241,7 @@ func (a *AccountAPIService) PmarginGetCmIncomeV1Execute(r AccountAPIPmarginGetCm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetCmLeverageBracketV1Request struct {
+type ApiPmarginGetCmLeverageBracketV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
@@ -2249,22 +2249,22 @@ type AccountAPIPmarginGetCmLeverageBracketV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetCmLeverageBracketV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetCmLeverageBracketV1Request {
+func (r ApiPmarginGetCmLeverageBracketV1Request) Timestamp(timestamp int64) ApiPmarginGetCmLeverageBracketV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetCmLeverageBracketV1Request) Symbol(symbol string) AccountAPIPmarginGetCmLeverageBracketV1Request {
+func (r ApiPmarginGetCmLeverageBracketV1Request) Symbol(symbol string) ApiPmarginGetCmLeverageBracketV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r AccountAPIPmarginGetCmLeverageBracketV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetCmLeverageBracketV1Request {
+func (r ApiPmarginGetCmLeverageBracketV1Request) RecvWindow(recvWindow int64) ApiPmarginGetCmLeverageBracketV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetCmLeverageBracketV1Request) Execute() ([]PmarginGetCmLeverageBracketV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetCmLeverageBracketV1Request) Execute() ([]PmarginGetCmLeverageBracketV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetCmLeverageBracketV1Execute(r)
 }
 
@@ -2274,10 +2274,10 @@ PmarginGetCmLeverageBracketV1 CM Notional and Leverage Brackets(USER_DATA)
 Query CM notional and leverage brackets
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetCmLeverageBracketV1Request
+ @return ApiPmarginGetCmLeverageBracketV1Request
 */
-func (a *AccountAPIService) PmarginGetCmLeverageBracketV1(ctx context.Context) AccountAPIPmarginGetCmLeverageBracketV1Request {
-	return AccountAPIPmarginGetCmLeverageBracketV1Request{
+func (a *AccountAPIService) PmarginGetCmLeverageBracketV1(ctx context.Context) ApiPmarginGetCmLeverageBracketV1Request {
+	return ApiPmarginGetCmLeverageBracketV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2285,7 +2285,7 @@ func (a *AccountAPIService) PmarginGetCmLeverageBracketV1(ctx context.Context) A
 
 // Execute executes the request
 //  @return []PmarginGetCmLeverageBracketV1RespItem
-func (a *AccountAPIService) PmarginGetCmLeverageBracketV1Execute(r AccountAPIPmarginGetCmLeverageBracketV1Request) ([]PmarginGetCmLeverageBracketV1RespItem, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetCmLeverageBracketV1Execute(r ApiPmarginGetCmLeverageBracketV1Request) ([]PmarginGetCmLeverageBracketV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2398,7 +2398,7 @@ func (a *AccountAPIService) PmarginGetCmLeverageBracketV1Execute(r AccountAPIPma
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetCmPositionRiskV1Request struct {
+type ApiPmarginGetCmPositionRiskV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
@@ -2407,27 +2407,27 @@ type AccountAPIPmarginGetCmPositionRiskV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetCmPositionRiskV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetCmPositionRiskV1Request {
+func (r ApiPmarginGetCmPositionRiskV1Request) Timestamp(timestamp int64) ApiPmarginGetCmPositionRiskV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetCmPositionRiskV1Request) MarginAsset(marginAsset string) AccountAPIPmarginGetCmPositionRiskV1Request {
+func (r ApiPmarginGetCmPositionRiskV1Request) MarginAsset(marginAsset string) ApiPmarginGetCmPositionRiskV1Request {
 	r.marginAsset = &marginAsset
 	return r
 }
 
-func (r AccountAPIPmarginGetCmPositionRiskV1Request) Pair(pair string) AccountAPIPmarginGetCmPositionRiskV1Request {
+func (r ApiPmarginGetCmPositionRiskV1Request) Pair(pair string) ApiPmarginGetCmPositionRiskV1Request {
 	r.pair = &pair
 	return r
 }
 
-func (r AccountAPIPmarginGetCmPositionRiskV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetCmPositionRiskV1Request {
+func (r ApiPmarginGetCmPositionRiskV1Request) RecvWindow(recvWindow int64) ApiPmarginGetCmPositionRiskV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetCmPositionRiskV1Request) Execute() ([]PmarginGetCmPositionRiskV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetCmPositionRiskV1Request) Execute() ([]PmarginGetCmPositionRiskV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetCmPositionRiskV1Execute(r)
 }
 
@@ -2437,10 +2437,10 @@ PmarginGetCmPositionRiskV1 Query CM Position Information(USER_DATA)
 Get current CM position information.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetCmPositionRiskV1Request
+ @return ApiPmarginGetCmPositionRiskV1Request
 */
-func (a *AccountAPIService) PmarginGetCmPositionRiskV1(ctx context.Context) AccountAPIPmarginGetCmPositionRiskV1Request {
-	return AccountAPIPmarginGetCmPositionRiskV1Request{
+func (a *AccountAPIService) PmarginGetCmPositionRiskV1(ctx context.Context) ApiPmarginGetCmPositionRiskV1Request {
+	return ApiPmarginGetCmPositionRiskV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2448,7 +2448,7 @@ func (a *AccountAPIService) PmarginGetCmPositionRiskV1(ctx context.Context) Acco
 
 // Execute executes the request
 //  @return []PmarginGetCmPositionRiskV1RespItem
-func (a *AccountAPIService) PmarginGetCmPositionRiskV1Execute(r AccountAPIPmarginGetCmPositionRiskV1Request) ([]PmarginGetCmPositionRiskV1RespItem, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetCmPositionRiskV1Execute(r ApiPmarginGetCmPositionRiskV1Request) ([]PmarginGetCmPositionRiskV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2567,24 +2567,24 @@ func (a *AccountAPIService) PmarginGetCmPositionRiskV1Execute(r AccountAPIPmargi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetCmPositionSideDualV1Request struct {
+type ApiPmarginGetCmPositionSideDualV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetCmPositionSideDualV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetCmPositionSideDualV1Request {
+func (r ApiPmarginGetCmPositionSideDualV1Request) Timestamp(timestamp int64) ApiPmarginGetCmPositionSideDualV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetCmPositionSideDualV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetCmPositionSideDualV1Request {
+func (r ApiPmarginGetCmPositionSideDualV1Request) RecvWindow(recvWindow int64) ApiPmarginGetCmPositionSideDualV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetCmPositionSideDualV1Request) Execute() (*PmarginGetCmPositionSideDualV1Resp, *http.Response, error) {
+func (r ApiPmarginGetCmPositionSideDualV1Request) Execute() (*PmarginGetCmPositionSideDualV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetCmPositionSideDualV1Execute(r)
 }
 
@@ -2594,10 +2594,10 @@ PmarginGetCmPositionSideDualV1 Get CM Current Position Mode(USER_DATA)
 Get user's position mode (Hedge Mode or One-way Mode ) on EVERY symbol in CM
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetCmPositionSideDualV1Request
+ @return ApiPmarginGetCmPositionSideDualV1Request
 */
-func (a *AccountAPIService) PmarginGetCmPositionSideDualV1(ctx context.Context) AccountAPIPmarginGetCmPositionSideDualV1Request {
-	return AccountAPIPmarginGetCmPositionSideDualV1Request{
+func (a *AccountAPIService) PmarginGetCmPositionSideDualV1(ctx context.Context) ApiPmarginGetCmPositionSideDualV1Request {
+	return ApiPmarginGetCmPositionSideDualV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2605,7 +2605,7 @@ func (a *AccountAPIService) PmarginGetCmPositionSideDualV1(ctx context.Context) 
 
 // Execute executes the request
 //  @return PmarginGetCmPositionSideDualV1Resp
-func (a *AccountAPIService) PmarginGetCmPositionSideDualV1Execute(r AccountAPIPmarginGetCmPositionSideDualV1Request) (*PmarginGetCmPositionSideDualV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetCmPositionSideDualV1Execute(r ApiPmarginGetCmPositionSideDualV1Request) (*PmarginGetCmPositionSideDualV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2712,7 +2712,7 @@ func (a *AccountAPIService) PmarginGetCmPositionSideDualV1Execute(r AccountAPIPm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetMarginMarginInterestHistoryV1Request struct {
+type ApiPmarginGetMarginMarginInterestHistoryV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
@@ -2725,51 +2725,51 @@ type AccountAPIPmarginGetMarginMarginInterestHistoryV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetMarginMarginInterestHistoryV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetMarginMarginInterestHistoryV1Request {
+func (r ApiPmarginGetMarginMarginInterestHistoryV1Request) Timestamp(timestamp int64) ApiPmarginGetMarginMarginInterestHistoryV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetMarginMarginInterestHistoryV1Request) Asset(asset string) AccountAPIPmarginGetMarginMarginInterestHistoryV1Request {
+func (r ApiPmarginGetMarginMarginInterestHistoryV1Request) Asset(asset string) ApiPmarginGetMarginMarginInterestHistoryV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r AccountAPIPmarginGetMarginMarginInterestHistoryV1Request) StartTime(startTime int64) AccountAPIPmarginGetMarginMarginInterestHistoryV1Request {
+func (r ApiPmarginGetMarginMarginInterestHistoryV1Request) StartTime(startTime int64) ApiPmarginGetMarginMarginInterestHistoryV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r AccountAPIPmarginGetMarginMarginInterestHistoryV1Request) EndTime(endTime int64) AccountAPIPmarginGetMarginMarginInterestHistoryV1Request {
+func (r ApiPmarginGetMarginMarginInterestHistoryV1Request) EndTime(endTime int64) ApiPmarginGetMarginMarginInterestHistoryV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Currently querying page. Start from 1. Default:1
-func (r AccountAPIPmarginGetMarginMarginInterestHistoryV1Request) Current(current int64) AccountAPIPmarginGetMarginMarginInterestHistoryV1Request {
+func (r ApiPmarginGetMarginMarginInterestHistoryV1Request) Current(current int64) ApiPmarginGetMarginMarginInterestHistoryV1Request {
 	r.current = &current
 	return r
 }
 
 // Default:10 Max:100
-func (r AccountAPIPmarginGetMarginMarginInterestHistoryV1Request) Size(size int64) AccountAPIPmarginGetMarginMarginInterestHistoryV1Request {
+func (r ApiPmarginGetMarginMarginInterestHistoryV1Request) Size(size int64) ApiPmarginGetMarginMarginInterestHistoryV1Request {
 	r.size = &size
 	return r
 }
 
 // Default: &#x60;false&#x60;. Set to &#x60;true&#x60; for archived data from 6 months ago
-func (r AccountAPIPmarginGetMarginMarginInterestHistoryV1Request) Archived(archived string) AccountAPIPmarginGetMarginMarginInterestHistoryV1Request {
+func (r ApiPmarginGetMarginMarginInterestHistoryV1Request) Archived(archived string) ApiPmarginGetMarginMarginInterestHistoryV1Request {
 	r.archived = &archived
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r AccountAPIPmarginGetMarginMarginInterestHistoryV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetMarginMarginInterestHistoryV1Request {
+func (r ApiPmarginGetMarginMarginInterestHistoryV1Request) RecvWindow(recvWindow int64) ApiPmarginGetMarginMarginInterestHistoryV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetMarginMarginInterestHistoryV1Request) Execute() (*PmarginGetMarginMarginInterestHistoryV1Resp, *http.Response, error) {
+func (r ApiPmarginGetMarginMarginInterestHistoryV1Request) Execute() (*PmarginGetMarginMarginInterestHistoryV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetMarginMarginInterestHistoryV1Execute(r)
 }
 
@@ -2779,10 +2779,10 @@ PmarginGetMarginMarginInterestHistoryV1 Get Margin Borrow/Loan Interest History(
 Get Margin Borrow/Loan Interest History
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetMarginMarginInterestHistoryV1Request
+ @return ApiPmarginGetMarginMarginInterestHistoryV1Request
 */
-func (a *AccountAPIService) PmarginGetMarginMarginInterestHistoryV1(ctx context.Context) AccountAPIPmarginGetMarginMarginInterestHistoryV1Request {
-	return AccountAPIPmarginGetMarginMarginInterestHistoryV1Request{
+func (a *AccountAPIService) PmarginGetMarginMarginInterestHistoryV1(ctx context.Context) ApiPmarginGetMarginMarginInterestHistoryV1Request {
+	return ApiPmarginGetMarginMarginInterestHistoryV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2790,7 +2790,7 @@ func (a *AccountAPIService) PmarginGetMarginMarginInterestHistoryV1(ctx context.
 
 // Execute executes the request
 //  @return PmarginGetMarginMarginInterestHistoryV1Resp
-func (a *AccountAPIService) PmarginGetMarginMarginInterestHistoryV1Execute(r AccountAPIPmarginGetMarginMarginInterestHistoryV1Request) (*PmarginGetMarginMarginInterestHistoryV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetMarginMarginInterestHistoryV1Execute(r ApiPmarginGetMarginMarginInterestHistoryV1Request) (*PmarginGetMarginMarginInterestHistoryV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2921,7 +2921,7 @@ func (a *AccountAPIService) PmarginGetMarginMarginInterestHistoryV1Execute(r Acc
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetMarginMarginLoanV1Request struct {
+type ApiPmarginGetMarginMarginLoanV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	asset *string
@@ -2935,57 +2935,57 @@ type AccountAPIPmarginGetMarginMarginLoanV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetMarginMarginLoanV1Request) Asset(asset string) AccountAPIPmarginGetMarginMarginLoanV1Request {
+func (r ApiPmarginGetMarginMarginLoanV1Request) Asset(asset string) ApiPmarginGetMarginMarginLoanV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r AccountAPIPmarginGetMarginMarginLoanV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetMarginMarginLoanV1Request {
+func (r ApiPmarginGetMarginMarginLoanV1Request) Timestamp(timestamp int64) ApiPmarginGetMarginMarginLoanV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // the &#x60;tranId&#x60; in &#x60;POST/papi/v1/marginLoan&#x60;
-func (r AccountAPIPmarginGetMarginMarginLoanV1Request) TxId(txId int64) AccountAPIPmarginGetMarginMarginLoanV1Request {
+func (r ApiPmarginGetMarginMarginLoanV1Request) TxId(txId int64) ApiPmarginGetMarginMarginLoanV1Request {
 	r.txId = &txId
 	return r
 }
 
-func (r AccountAPIPmarginGetMarginMarginLoanV1Request) StartTime(startTime int64) AccountAPIPmarginGetMarginMarginLoanV1Request {
+func (r ApiPmarginGetMarginMarginLoanV1Request) StartTime(startTime int64) ApiPmarginGetMarginMarginLoanV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r AccountAPIPmarginGetMarginMarginLoanV1Request) EndTime(endTime int64) AccountAPIPmarginGetMarginMarginLoanV1Request {
+func (r ApiPmarginGetMarginMarginLoanV1Request) EndTime(endTime int64) ApiPmarginGetMarginMarginLoanV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Currently querying page. Start from 1. Default:1
-func (r AccountAPIPmarginGetMarginMarginLoanV1Request) Current(current int64) AccountAPIPmarginGetMarginMarginLoanV1Request {
+func (r ApiPmarginGetMarginMarginLoanV1Request) Current(current int64) ApiPmarginGetMarginMarginLoanV1Request {
 	r.current = &current
 	return r
 }
 
 // Default:10 Max:100
-func (r AccountAPIPmarginGetMarginMarginLoanV1Request) Size(size int64) AccountAPIPmarginGetMarginMarginLoanV1Request {
+func (r ApiPmarginGetMarginMarginLoanV1Request) Size(size int64) ApiPmarginGetMarginMarginLoanV1Request {
 	r.size = &size
 	return r
 }
 
 // Default: &#x60;false&#x60;. Set to &#x60;true&#x60; for archived data from 6 months ago
-func (r AccountAPIPmarginGetMarginMarginLoanV1Request) Archived(archived string) AccountAPIPmarginGetMarginMarginLoanV1Request {
+func (r ApiPmarginGetMarginMarginLoanV1Request) Archived(archived string) ApiPmarginGetMarginMarginLoanV1Request {
 	r.archived = &archived
 	return r
 }
 
 // The value cannot be greater than 60000
-func (r AccountAPIPmarginGetMarginMarginLoanV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetMarginMarginLoanV1Request {
+func (r ApiPmarginGetMarginMarginLoanV1Request) RecvWindow(recvWindow int64) ApiPmarginGetMarginMarginLoanV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetMarginMarginLoanV1Request) Execute() (*PmarginGetMarginMarginLoanV1Resp, *http.Response, error) {
+func (r ApiPmarginGetMarginMarginLoanV1Request) Execute() (*PmarginGetMarginMarginLoanV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetMarginMarginLoanV1Execute(r)
 }
 
@@ -2995,10 +2995,10 @@ PmarginGetMarginMarginLoanV1 Query Margin Loan Record(USER_DATA)
 Query margin loan record
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetMarginMarginLoanV1Request
+ @return ApiPmarginGetMarginMarginLoanV1Request
 */
-func (a *AccountAPIService) PmarginGetMarginMarginLoanV1(ctx context.Context) AccountAPIPmarginGetMarginMarginLoanV1Request {
-	return AccountAPIPmarginGetMarginMarginLoanV1Request{
+func (a *AccountAPIService) PmarginGetMarginMarginLoanV1(ctx context.Context) ApiPmarginGetMarginMarginLoanV1Request {
+	return ApiPmarginGetMarginMarginLoanV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3006,7 +3006,7 @@ func (a *AccountAPIService) PmarginGetMarginMarginLoanV1(ctx context.Context) Ac
 
 // Execute executes the request
 //  @return PmarginGetMarginMarginLoanV1Resp
-func (a *AccountAPIService) PmarginGetMarginMarginLoanV1Execute(r AccountAPIPmarginGetMarginMarginLoanV1Request) (*PmarginGetMarginMarginLoanV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetMarginMarginLoanV1Execute(r ApiPmarginGetMarginMarginLoanV1Request) (*PmarginGetMarginMarginLoanV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3138,7 +3138,7 @@ func (a *AccountAPIService) PmarginGetMarginMarginLoanV1Execute(r AccountAPIPmar
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetMarginMaxBorrowableV1Request struct {
+type ApiPmarginGetMarginMaxBorrowableV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	asset *string
@@ -3146,23 +3146,23 @@ type AccountAPIPmarginGetMarginMaxBorrowableV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetMarginMaxBorrowableV1Request) Asset(asset string) AccountAPIPmarginGetMarginMaxBorrowableV1Request {
+func (r ApiPmarginGetMarginMaxBorrowableV1Request) Asset(asset string) ApiPmarginGetMarginMaxBorrowableV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r AccountAPIPmarginGetMarginMaxBorrowableV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetMarginMaxBorrowableV1Request {
+func (r ApiPmarginGetMarginMaxBorrowableV1Request) Timestamp(timestamp int64) ApiPmarginGetMarginMaxBorrowableV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r AccountAPIPmarginGetMarginMaxBorrowableV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetMarginMaxBorrowableV1Request {
+func (r ApiPmarginGetMarginMaxBorrowableV1Request) RecvWindow(recvWindow int64) ApiPmarginGetMarginMaxBorrowableV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetMarginMaxBorrowableV1Request) Execute() (*PmarginGetMarginMaxBorrowableV1Resp, *http.Response, error) {
+func (r ApiPmarginGetMarginMaxBorrowableV1Request) Execute() (*PmarginGetMarginMaxBorrowableV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetMarginMaxBorrowableV1Execute(r)
 }
 
@@ -3172,10 +3172,10 @@ PmarginGetMarginMaxBorrowableV1 Margin Max Borrow(USER_DATA)
 Query margin max borrow
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetMarginMaxBorrowableV1Request
+ @return ApiPmarginGetMarginMaxBorrowableV1Request
 */
-func (a *AccountAPIService) PmarginGetMarginMaxBorrowableV1(ctx context.Context) AccountAPIPmarginGetMarginMaxBorrowableV1Request {
-	return AccountAPIPmarginGetMarginMaxBorrowableV1Request{
+func (a *AccountAPIService) PmarginGetMarginMaxBorrowableV1(ctx context.Context) ApiPmarginGetMarginMaxBorrowableV1Request {
+	return ApiPmarginGetMarginMaxBorrowableV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3183,7 +3183,7 @@ func (a *AccountAPIService) PmarginGetMarginMaxBorrowableV1(ctx context.Context)
 
 // Execute executes the request
 //  @return PmarginGetMarginMaxBorrowableV1Resp
-func (a *AccountAPIService) PmarginGetMarginMaxBorrowableV1Execute(r AccountAPIPmarginGetMarginMaxBorrowableV1Request) (*PmarginGetMarginMaxBorrowableV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetMarginMaxBorrowableV1Execute(r ApiPmarginGetMarginMaxBorrowableV1Request) (*PmarginGetMarginMaxBorrowableV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3294,7 +3294,7 @@ func (a *AccountAPIService) PmarginGetMarginMaxBorrowableV1Execute(r AccountAPIP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetMarginMaxWithdrawV1Request struct {
+type ApiPmarginGetMarginMaxWithdrawV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	asset *string
@@ -3302,23 +3302,23 @@ type AccountAPIPmarginGetMarginMaxWithdrawV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetMarginMaxWithdrawV1Request) Asset(asset string) AccountAPIPmarginGetMarginMaxWithdrawV1Request {
+func (r ApiPmarginGetMarginMaxWithdrawV1Request) Asset(asset string) ApiPmarginGetMarginMaxWithdrawV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r AccountAPIPmarginGetMarginMaxWithdrawV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetMarginMaxWithdrawV1Request {
+func (r ApiPmarginGetMarginMaxWithdrawV1Request) Timestamp(timestamp int64) ApiPmarginGetMarginMaxWithdrawV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r AccountAPIPmarginGetMarginMaxWithdrawV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetMarginMaxWithdrawV1Request {
+func (r ApiPmarginGetMarginMaxWithdrawV1Request) RecvWindow(recvWindow int64) ApiPmarginGetMarginMaxWithdrawV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetMarginMaxWithdrawV1Request) Execute() (*PmarginGetMarginMaxWithdrawV1Resp, *http.Response, error) {
+func (r ApiPmarginGetMarginMaxWithdrawV1Request) Execute() (*PmarginGetMarginMaxWithdrawV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetMarginMaxWithdrawV1Execute(r)
 }
 
@@ -3328,10 +3328,10 @@ PmarginGetMarginMaxWithdrawV1 Query Margin Max Withdraw(USER_DATA)
 Query Margin Max Withdraw
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetMarginMaxWithdrawV1Request
+ @return ApiPmarginGetMarginMaxWithdrawV1Request
 */
-func (a *AccountAPIService) PmarginGetMarginMaxWithdrawV1(ctx context.Context) AccountAPIPmarginGetMarginMaxWithdrawV1Request {
-	return AccountAPIPmarginGetMarginMaxWithdrawV1Request{
+func (a *AccountAPIService) PmarginGetMarginMaxWithdrawV1(ctx context.Context) ApiPmarginGetMarginMaxWithdrawV1Request {
+	return ApiPmarginGetMarginMaxWithdrawV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3339,7 +3339,7 @@ func (a *AccountAPIService) PmarginGetMarginMaxWithdrawV1(ctx context.Context) A
 
 // Execute executes the request
 //  @return PmarginGetMarginMaxWithdrawV1Resp
-func (a *AccountAPIService) PmarginGetMarginMaxWithdrawV1Execute(r AccountAPIPmarginGetMarginMaxWithdrawV1Request) (*PmarginGetMarginMaxWithdrawV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetMarginMaxWithdrawV1Execute(r ApiPmarginGetMarginMaxWithdrawV1Request) (*PmarginGetMarginMaxWithdrawV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3450,7 +3450,7 @@ func (a *AccountAPIService) PmarginGetMarginMaxWithdrawV1Execute(r AccountAPIPma
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetMarginRepayLoanV1Request struct {
+type ApiPmarginGetMarginRepayLoanV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	asset *string
@@ -3464,57 +3464,57 @@ type AccountAPIPmarginGetMarginRepayLoanV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetMarginRepayLoanV1Request) Asset(asset string) AccountAPIPmarginGetMarginRepayLoanV1Request {
+func (r ApiPmarginGetMarginRepayLoanV1Request) Asset(asset string) ApiPmarginGetMarginRepayLoanV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r AccountAPIPmarginGetMarginRepayLoanV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetMarginRepayLoanV1Request {
+func (r ApiPmarginGetMarginRepayLoanV1Request) Timestamp(timestamp int64) ApiPmarginGetMarginRepayLoanV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // the tranId in &#x60;POST/papi/v1/repayLoan&#x60;
-func (r AccountAPIPmarginGetMarginRepayLoanV1Request) TxId(txId int64) AccountAPIPmarginGetMarginRepayLoanV1Request {
+func (r ApiPmarginGetMarginRepayLoanV1Request) TxId(txId int64) ApiPmarginGetMarginRepayLoanV1Request {
 	r.txId = &txId
 	return r
 }
 
-func (r AccountAPIPmarginGetMarginRepayLoanV1Request) StartTime(startTime int64) AccountAPIPmarginGetMarginRepayLoanV1Request {
+func (r ApiPmarginGetMarginRepayLoanV1Request) StartTime(startTime int64) ApiPmarginGetMarginRepayLoanV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r AccountAPIPmarginGetMarginRepayLoanV1Request) EndTime(endTime int64) AccountAPIPmarginGetMarginRepayLoanV1Request {
+func (r ApiPmarginGetMarginRepayLoanV1Request) EndTime(endTime int64) ApiPmarginGetMarginRepayLoanV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Currently querying page. Start from 1. Default:1
-func (r AccountAPIPmarginGetMarginRepayLoanV1Request) Current(current int64) AccountAPIPmarginGetMarginRepayLoanV1Request {
+func (r ApiPmarginGetMarginRepayLoanV1Request) Current(current int64) ApiPmarginGetMarginRepayLoanV1Request {
 	r.current = &current
 	return r
 }
 
 // Default:10 Max:100
-func (r AccountAPIPmarginGetMarginRepayLoanV1Request) Size(size int64) AccountAPIPmarginGetMarginRepayLoanV1Request {
+func (r ApiPmarginGetMarginRepayLoanV1Request) Size(size int64) ApiPmarginGetMarginRepayLoanV1Request {
 	r.size = &size
 	return r
 }
 
 // Default: &#x60;false&#x60;. Set to &#x60;true&#x60; for archived data from 6 months ago
-func (r AccountAPIPmarginGetMarginRepayLoanV1Request) Archived(archived string) AccountAPIPmarginGetMarginRepayLoanV1Request {
+func (r ApiPmarginGetMarginRepayLoanV1Request) Archived(archived string) ApiPmarginGetMarginRepayLoanV1Request {
 	r.archived = &archived
 	return r
 }
 
 // The value cannot be greater than 60000
-func (r AccountAPIPmarginGetMarginRepayLoanV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetMarginRepayLoanV1Request {
+func (r ApiPmarginGetMarginRepayLoanV1Request) RecvWindow(recvWindow int64) ApiPmarginGetMarginRepayLoanV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetMarginRepayLoanV1Request) Execute() (*PmarginGetMarginRepayLoanV1Resp, *http.Response, error) {
+func (r ApiPmarginGetMarginRepayLoanV1Request) Execute() (*PmarginGetMarginRepayLoanV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetMarginRepayLoanV1Execute(r)
 }
 
@@ -3524,10 +3524,10 @@ PmarginGetMarginRepayLoanV1 Query Margin repay Record(USER_DATA)
 Query margin repay record.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetMarginRepayLoanV1Request
+ @return ApiPmarginGetMarginRepayLoanV1Request
 */
-func (a *AccountAPIService) PmarginGetMarginRepayLoanV1(ctx context.Context) AccountAPIPmarginGetMarginRepayLoanV1Request {
-	return AccountAPIPmarginGetMarginRepayLoanV1Request{
+func (a *AccountAPIService) PmarginGetMarginRepayLoanV1(ctx context.Context) ApiPmarginGetMarginRepayLoanV1Request {
+	return ApiPmarginGetMarginRepayLoanV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3535,7 +3535,7 @@ func (a *AccountAPIService) PmarginGetMarginRepayLoanV1(ctx context.Context) Acc
 
 // Execute executes the request
 //  @return PmarginGetMarginRepayLoanV1Resp
-func (a *AccountAPIService) PmarginGetMarginRepayLoanV1Execute(r AccountAPIPmarginGetMarginRepayLoanV1Request) (*PmarginGetMarginRepayLoanV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetMarginRepayLoanV1Execute(r ApiPmarginGetMarginRepayLoanV1Request) (*PmarginGetMarginRepayLoanV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3667,7 +3667,7 @@ func (a *AccountAPIService) PmarginGetMarginRepayLoanV1Execute(r AccountAPIPmarg
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetPortfolioInterestHistoryV1Request struct {
+type ApiPmarginGetPortfolioInterestHistoryV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
@@ -3678,38 +3678,38 @@ type AccountAPIPmarginGetPortfolioInterestHistoryV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetPortfolioInterestHistoryV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetPortfolioInterestHistoryV1Request {
+func (r ApiPmarginGetPortfolioInterestHistoryV1Request) Timestamp(timestamp int64) ApiPmarginGetPortfolioInterestHistoryV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetPortfolioInterestHistoryV1Request) Asset(asset string) AccountAPIPmarginGetPortfolioInterestHistoryV1Request {
+func (r ApiPmarginGetPortfolioInterestHistoryV1Request) Asset(asset string) ApiPmarginGetPortfolioInterestHistoryV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r AccountAPIPmarginGetPortfolioInterestHistoryV1Request) StartTime(startTime int64) AccountAPIPmarginGetPortfolioInterestHistoryV1Request {
+func (r ApiPmarginGetPortfolioInterestHistoryV1Request) StartTime(startTime int64) ApiPmarginGetPortfolioInterestHistoryV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r AccountAPIPmarginGetPortfolioInterestHistoryV1Request) EndTime(endTime int64) AccountAPIPmarginGetPortfolioInterestHistoryV1Request {
+func (r ApiPmarginGetPortfolioInterestHistoryV1Request) EndTime(endTime int64) ApiPmarginGetPortfolioInterestHistoryV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default:10 Max:100
-func (r AccountAPIPmarginGetPortfolioInterestHistoryV1Request) Size(size int64) AccountAPIPmarginGetPortfolioInterestHistoryV1Request {
+func (r ApiPmarginGetPortfolioInterestHistoryV1Request) Size(size int64) ApiPmarginGetPortfolioInterestHistoryV1Request {
 	r.size = &size
 	return r
 }
 
-func (r AccountAPIPmarginGetPortfolioInterestHistoryV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetPortfolioInterestHistoryV1Request {
+func (r ApiPmarginGetPortfolioInterestHistoryV1Request) RecvWindow(recvWindow int64) ApiPmarginGetPortfolioInterestHistoryV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetPortfolioInterestHistoryV1Request) Execute() ([]PmarginGetPortfolioInterestHistoryV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetPortfolioInterestHistoryV1Request) Execute() ([]PmarginGetPortfolioInterestHistoryV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetPortfolioInterestHistoryV1Execute(r)
 }
 
@@ -3719,10 +3719,10 @@ PmarginGetPortfolioInterestHistoryV1 Query Portfolio Margin Negative Balance Int
 Query interest history of negative balance for portfolio margin.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetPortfolioInterestHistoryV1Request
+ @return ApiPmarginGetPortfolioInterestHistoryV1Request
 */
-func (a *AccountAPIService) PmarginGetPortfolioInterestHistoryV1(ctx context.Context) AccountAPIPmarginGetPortfolioInterestHistoryV1Request {
-	return AccountAPIPmarginGetPortfolioInterestHistoryV1Request{
+func (a *AccountAPIService) PmarginGetPortfolioInterestHistoryV1(ctx context.Context) ApiPmarginGetPortfolioInterestHistoryV1Request {
+	return ApiPmarginGetPortfolioInterestHistoryV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3730,7 +3730,7 @@ func (a *AccountAPIService) PmarginGetPortfolioInterestHistoryV1(ctx context.Con
 
 // Execute executes the request
 //  @return []PmarginGetPortfolioInterestHistoryV1RespItem
-func (a *AccountAPIService) PmarginGetPortfolioInterestHistoryV1Execute(r AccountAPIPmarginGetPortfolioInterestHistoryV1Request) ([]PmarginGetPortfolioInterestHistoryV1RespItem, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetPortfolioInterestHistoryV1Execute(r ApiPmarginGetPortfolioInterestHistoryV1Request) ([]PmarginGetPortfolioInterestHistoryV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3852,7 +3852,7 @@ func (a *AccountAPIService) PmarginGetPortfolioInterestHistoryV1Execute(r Accoun
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request struct {
+type ApiPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	startTime *int64
@@ -3861,28 +3861,28 @@ type AccountAPIPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request struct 
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request) StartTime(startTime int64) AccountAPIPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request {
+func (r ApiPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request) StartTime(startTime int64) ApiPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r AccountAPIPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request) EndTime(endTime int64) AccountAPIPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request {
+func (r ApiPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request) EndTime(endTime int64) ApiPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r AccountAPIPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request {
+func (r ApiPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request) Timestamp(timestamp int64) ApiPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // The value cannot be greater than 60000
-func (r AccountAPIPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request {
+func (r ApiPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request) RecvWindow(recvWindow int64) ApiPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request) Execute() (*PmarginGetPortfolioNegativeBalanceExchangeRecordV1Resp, *http.Response, error) {
+func (r ApiPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request) Execute() (*PmarginGetPortfolioNegativeBalanceExchangeRecordV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetPortfolioNegativeBalanceExchangeRecordV1Execute(r)
 }
 
@@ -3892,10 +3892,10 @@ PmarginGetPortfolioNegativeBalanceExchangeRecordV1 Query User Negative Balance A
 Query user negative balance auto exchange record
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request
+ @return ApiPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request
 */
-func (a *AccountAPIService) PmarginGetPortfolioNegativeBalanceExchangeRecordV1(ctx context.Context) AccountAPIPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request {
-	return AccountAPIPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request{
+func (a *AccountAPIService) PmarginGetPortfolioNegativeBalanceExchangeRecordV1(ctx context.Context) ApiPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request {
+	return ApiPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3903,7 +3903,7 @@ func (a *AccountAPIService) PmarginGetPortfolioNegativeBalanceExchangeRecordV1(c
 
 // Execute executes the request
 //  @return PmarginGetPortfolioNegativeBalanceExchangeRecordV1Resp
-func (a *AccountAPIService) PmarginGetPortfolioNegativeBalanceExchangeRecordV1Execute(r AccountAPIPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request) (*PmarginGetPortfolioNegativeBalanceExchangeRecordV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetPortfolioNegativeBalanceExchangeRecordV1Execute(r ApiPmarginGetPortfolioNegativeBalanceExchangeRecordV1Request) (*PmarginGetPortfolioNegativeBalanceExchangeRecordV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4018,24 +4018,24 @@ func (a *AccountAPIService) PmarginGetPortfolioNegativeBalanceExchangeRecordV1Ex
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetRateLimitOrderV1Request struct {
+type ApiPmarginGetRateLimitOrderV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetRateLimitOrderV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetRateLimitOrderV1Request {
+func (r ApiPmarginGetRateLimitOrderV1Request) Timestamp(timestamp int64) ApiPmarginGetRateLimitOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetRateLimitOrderV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetRateLimitOrderV1Request {
+func (r ApiPmarginGetRateLimitOrderV1Request) RecvWindow(recvWindow int64) ApiPmarginGetRateLimitOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetRateLimitOrderV1Request) Execute() ([]PmarginGetRateLimitOrderV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetRateLimitOrderV1Request) Execute() ([]PmarginGetRateLimitOrderV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetRateLimitOrderV1Execute(r)
 }
 
@@ -4045,10 +4045,10 @@ PmarginGetRateLimitOrderV1 Query User Rate Limit (USER_DATA)
 Query User Rate Limit
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetRateLimitOrderV1Request
+ @return ApiPmarginGetRateLimitOrderV1Request
 */
-func (a *AccountAPIService) PmarginGetRateLimitOrderV1(ctx context.Context) AccountAPIPmarginGetRateLimitOrderV1Request {
-	return AccountAPIPmarginGetRateLimitOrderV1Request{
+func (a *AccountAPIService) PmarginGetRateLimitOrderV1(ctx context.Context) ApiPmarginGetRateLimitOrderV1Request {
+	return ApiPmarginGetRateLimitOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4056,7 +4056,7 @@ func (a *AccountAPIService) PmarginGetRateLimitOrderV1(ctx context.Context) Acco
 
 // Execute executes the request
 //  @return []PmarginGetRateLimitOrderV1RespItem
-func (a *AccountAPIService) PmarginGetRateLimitOrderV1Execute(r AccountAPIPmarginGetRateLimitOrderV1Request) ([]PmarginGetRateLimitOrderV1RespItem, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetRateLimitOrderV1Execute(r ApiPmarginGetRateLimitOrderV1Request) ([]PmarginGetRateLimitOrderV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4163,24 +4163,24 @@ func (a *AccountAPIService) PmarginGetRateLimitOrderV1Execute(r AccountAPIPmargi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetRepayFuturesSwitchV1Request struct {
+type ApiPmarginGetRepayFuturesSwitchV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetRepayFuturesSwitchV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetRepayFuturesSwitchV1Request {
+func (r ApiPmarginGetRepayFuturesSwitchV1Request) Timestamp(timestamp int64) ApiPmarginGetRepayFuturesSwitchV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetRepayFuturesSwitchV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetRepayFuturesSwitchV1Request {
+func (r ApiPmarginGetRepayFuturesSwitchV1Request) RecvWindow(recvWindow int64) ApiPmarginGetRepayFuturesSwitchV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetRepayFuturesSwitchV1Request) Execute() (*PmarginGetRepayFuturesSwitchV1Resp, *http.Response, error) {
+func (r ApiPmarginGetRepayFuturesSwitchV1Request) Execute() (*PmarginGetRepayFuturesSwitchV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetRepayFuturesSwitchV1Execute(r)
 }
 
@@ -4190,10 +4190,10 @@ PmarginGetRepayFuturesSwitchV1 Get Auto-repay-futures Status(USER_DATA)
 Query Auto-repay-futures Status
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetRepayFuturesSwitchV1Request
+ @return ApiPmarginGetRepayFuturesSwitchV1Request
 */
-func (a *AccountAPIService) PmarginGetRepayFuturesSwitchV1(ctx context.Context) AccountAPIPmarginGetRepayFuturesSwitchV1Request {
-	return AccountAPIPmarginGetRepayFuturesSwitchV1Request{
+func (a *AccountAPIService) PmarginGetRepayFuturesSwitchV1(ctx context.Context) ApiPmarginGetRepayFuturesSwitchV1Request {
+	return ApiPmarginGetRepayFuturesSwitchV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4201,7 +4201,7 @@ func (a *AccountAPIService) PmarginGetRepayFuturesSwitchV1(ctx context.Context) 
 
 // Execute executes the request
 //  @return PmarginGetRepayFuturesSwitchV1Resp
-func (a *AccountAPIService) PmarginGetRepayFuturesSwitchV1Execute(r AccountAPIPmarginGetRepayFuturesSwitchV1Request) (*PmarginGetRepayFuturesSwitchV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetRepayFuturesSwitchV1Execute(r ApiPmarginGetRepayFuturesSwitchV1Request) (*PmarginGetRepayFuturesSwitchV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4308,24 +4308,24 @@ func (a *AccountAPIService) PmarginGetRepayFuturesSwitchV1Execute(r AccountAPIPm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetUmAccountConfigV1Request struct {
+type ApiPmarginGetUmAccountConfigV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetUmAccountConfigV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetUmAccountConfigV1Request {
+func (r ApiPmarginGetUmAccountConfigV1Request) Timestamp(timestamp int64) ApiPmarginGetUmAccountConfigV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetUmAccountConfigV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetUmAccountConfigV1Request {
+func (r ApiPmarginGetUmAccountConfigV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmAccountConfigV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetUmAccountConfigV1Request) Execute() (*PmarginGetUmAccountConfigV1Resp, *http.Response, error) {
+func (r ApiPmarginGetUmAccountConfigV1Request) Execute() (*PmarginGetUmAccountConfigV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetUmAccountConfigV1Execute(r)
 }
 
@@ -4335,10 +4335,10 @@ PmarginGetUmAccountConfigV1 UM Futures Account Configuration(USER_DATA)
 Query UM Futures account configuration
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetUmAccountConfigV1Request
+ @return ApiPmarginGetUmAccountConfigV1Request
 */
-func (a *AccountAPIService) PmarginGetUmAccountConfigV1(ctx context.Context) AccountAPIPmarginGetUmAccountConfigV1Request {
-	return AccountAPIPmarginGetUmAccountConfigV1Request{
+func (a *AccountAPIService) PmarginGetUmAccountConfigV1(ctx context.Context) ApiPmarginGetUmAccountConfigV1Request {
+	return ApiPmarginGetUmAccountConfigV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4346,7 +4346,7 @@ func (a *AccountAPIService) PmarginGetUmAccountConfigV1(ctx context.Context) Acc
 
 // Execute executes the request
 //  @return PmarginGetUmAccountConfigV1Resp
-func (a *AccountAPIService) PmarginGetUmAccountConfigV1Execute(r AccountAPIPmarginGetUmAccountConfigV1Request) (*PmarginGetUmAccountConfigV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetUmAccountConfigV1Execute(r ApiPmarginGetUmAccountConfigV1Request) (*PmarginGetUmAccountConfigV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4453,24 +4453,24 @@ func (a *AccountAPIService) PmarginGetUmAccountConfigV1Execute(r AccountAPIPmarg
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetUmAccountV1Request struct {
+type ApiPmarginGetUmAccountV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetUmAccountV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetUmAccountV1Request {
+func (r ApiPmarginGetUmAccountV1Request) Timestamp(timestamp int64) ApiPmarginGetUmAccountV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetUmAccountV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetUmAccountV1Request {
+func (r ApiPmarginGetUmAccountV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmAccountV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetUmAccountV1Request) Execute() (*PmarginGetUmAccountV1Resp, *http.Response, error) {
+func (r ApiPmarginGetUmAccountV1Request) Execute() (*PmarginGetUmAccountV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetUmAccountV1Execute(r)
 }
 
@@ -4480,10 +4480,10 @@ PmarginGetUmAccountV1 Get UM Account Detail(USER_DATA)
 Get current UM account asset and position information.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetUmAccountV1Request
+ @return ApiPmarginGetUmAccountV1Request
 */
-func (a *AccountAPIService) PmarginGetUmAccountV1(ctx context.Context) AccountAPIPmarginGetUmAccountV1Request {
-	return AccountAPIPmarginGetUmAccountV1Request{
+func (a *AccountAPIService) PmarginGetUmAccountV1(ctx context.Context) ApiPmarginGetUmAccountV1Request {
+	return ApiPmarginGetUmAccountV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4491,7 +4491,7 @@ func (a *AccountAPIService) PmarginGetUmAccountV1(ctx context.Context) AccountAP
 
 // Execute executes the request
 //  @return PmarginGetUmAccountV1Resp
-func (a *AccountAPIService) PmarginGetUmAccountV1Execute(r AccountAPIPmarginGetUmAccountV1Request) (*PmarginGetUmAccountV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetUmAccountV1Execute(r ApiPmarginGetUmAccountV1Request) (*PmarginGetUmAccountV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4598,24 +4598,24 @@ func (a *AccountAPIService) PmarginGetUmAccountV1Execute(r AccountAPIPmarginGetU
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetUmAccountV2Request struct {
+type ApiPmarginGetUmAccountV2Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetUmAccountV2Request) Timestamp(timestamp int64) AccountAPIPmarginGetUmAccountV2Request {
+func (r ApiPmarginGetUmAccountV2Request) Timestamp(timestamp int64) ApiPmarginGetUmAccountV2Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetUmAccountV2Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetUmAccountV2Request {
+func (r ApiPmarginGetUmAccountV2Request) RecvWindow(recvWindow int64) ApiPmarginGetUmAccountV2Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetUmAccountV2Request) Execute() (*PmarginGetUmAccountV2Resp, *http.Response, error) {
+func (r ApiPmarginGetUmAccountV2Request) Execute() (*PmarginGetUmAccountV2Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetUmAccountV2Execute(r)
 }
 
@@ -4625,10 +4625,10 @@ PmarginGetUmAccountV2 Get UM Account Detail V2(USER_DATA)
 Get current UM account asset and position information.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetUmAccountV2Request
+ @return ApiPmarginGetUmAccountV2Request
 */
-func (a *AccountAPIService) PmarginGetUmAccountV2(ctx context.Context) AccountAPIPmarginGetUmAccountV2Request {
-	return AccountAPIPmarginGetUmAccountV2Request{
+func (a *AccountAPIService) PmarginGetUmAccountV2(ctx context.Context) ApiPmarginGetUmAccountV2Request {
+	return ApiPmarginGetUmAccountV2Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4636,7 +4636,7 @@ func (a *AccountAPIService) PmarginGetUmAccountV2(ctx context.Context) AccountAP
 
 // Execute executes the request
 //  @return PmarginGetUmAccountV2Resp
-func (a *AccountAPIService) PmarginGetUmAccountV2Execute(r AccountAPIPmarginGetUmAccountV2Request) (*PmarginGetUmAccountV2Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetUmAccountV2Execute(r ApiPmarginGetUmAccountV2Request) (*PmarginGetUmAccountV2Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4743,7 +4743,7 @@ func (a *AccountAPIService) PmarginGetUmAccountV2Execute(r AccountAPIPmarginGetU
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetUmApiTradingStatusV1Request struct {
+type ApiPmarginGetUmApiTradingStatusV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
@@ -4751,22 +4751,22 @@ type AccountAPIPmarginGetUmApiTradingStatusV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetUmApiTradingStatusV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetUmApiTradingStatusV1Request {
+func (r ApiPmarginGetUmApiTradingStatusV1Request) Timestamp(timestamp int64) ApiPmarginGetUmApiTradingStatusV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetUmApiTradingStatusV1Request) Symbol(symbol string) AccountAPIPmarginGetUmApiTradingStatusV1Request {
+func (r ApiPmarginGetUmApiTradingStatusV1Request) Symbol(symbol string) ApiPmarginGetUmApiTradingStatusV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r AccountAPIPmarginGetUmApiTradingStatusV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetUmApiTradingStatusV1Request {
+func (r ApiPmarginGetUmApiTradingStatusV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmApiTradingStatusV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetUmApiTradingStatusV1Request) Execute() (*PmarginGetUmApiTradingStatusV1Resp, *http.Response, error) {
+func (r ApiPmarginGetUmApiTradingStatusV1Request) Execute() (*PmarginGetUmApiTradingStatusV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetUmApiTradingStatusV1Execute(r)
 }
 
@@ -4776,10 +4776,10 @@ PmarginGetUmApiTradingStatusV1 Portfolio Margin UM Trading Quantitative Rules In
 Portfolio Margin UM Trading Quantitative Rules Indicators
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetUmApiTradingStatusV1Request
+ @return ApiPmarginGetUmApiTradingStatusV1Request
 */
-func (a *AccountAPIService) PmarginGetUmApiTradingStatusV1(ctx context.Context) AccountAPIPmarginGetUmApiTradingStatusV1Request {
-	return AccountAPIPmarginGetUmApiTradingStatusV1Request{
+func (a *AccountAPIService) PmarginGetUmApiTradingStatusV1(ctx context.Context) ApiPmarginGetUmApiTradingStatusV1Request {
+	return ApiPmarginGetUmApiTradingStatusV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4787,7 +4787,7 @@ func (a *AccountAPIService) PmarginGetUmApiTradingStatusV1(ctx context.Context) 
 
 // Execute executes the request
 //  @return PmarginGetUmApiTradingStatusV1Resp
-func (a *AccountAPIService) PmarginGetUmApiTradingStatusV1Execute(r AccountAPIPmarginGetUmApiTradingStatusV1Request) (*PmarginGetUmApiTradingStatusV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetUmApiTradingStatusV1Execute(r ApiPmarginGetUmApiTradingStatusV1Request) (*PmarginGetUmApiTradingStatusV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4900,7 +4900,7 @@ func (a *AccountAPIService) PmarginGetUmApiTradingStatusV1Execute(r AccountAPIPm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetUmCommissionRateV1Request struct {
+type ApiPmarginGetUmCommissionRateV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	symbol *string
@@ -4908,22 +4908,22 @@ type AccountAPIPmarginGetUmCommissionRateV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetUmCommissionRateV1Request) Symbol(symbol string) AccountAPIPmarginGetUmCommissionRateV1Request {
+func (r ApiPmarginGetUmCommissionRateV1Request) Symbol(symbol string) ApiPmarginGetUmCommissionRateV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r AccountAPIPmarginGetUmCommissionRateV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetUmCommissionRateV1Request {
+func (r ApiPmarginGetUmCommissionRateV1Request) Timestamp(timestamp int64) ApiPmarginGetUmCommissionRateV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetUmCommissionRateV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetUmCommissionRateV1Request {
+func (r ApiPmarginGetUmCommissionRateV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmCommissionRateV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetUmCommissionRateV1Request) Execute() (*PmarginGetUmCommissionRateV1Resp, *http.Response, error) {
+func (r ApiPmarginGetUmCommissionRateV1Request) Execute() (*PmarginGetUmCommissionRateV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetUmCommissionRateV1Execute(r)
 }
 
@@ -4933,10 +4933,10 @@ PmarginGetUmCommissionRateV1 Get User Commission Rate for UM(USER_DATA)
 Get User Commission Rate for UM
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetUmCommissionRateV1Request
+ @return ApiPmarginGetUmCommissionRateV1Request
 */
-func (a *AccountAPIService) PmarginGetUmCommissionRateV1(ctx context.Context) AccountAPIPmarginGetUmCommissionRateV1Request {
-	return AccountAPIPmarginGetUmCommissionRateV1Request{
+func (a *AccountAPIService) PmarginGetUmCommissionRateV1(ctx context.Context) ApiPmarginGetUmCommissionRateV1Request {
+	return ApiPmarginGetUmCommissionRateV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4944,7 +4944,7 @@ func (a *AccountAPIService) PmarginGetUmCommissionRateV1(ctx context.Context) Ac
 
 // Execute executes the request
 //  @return PmarginGetUmCommissionRateV1Resp
-func (a *AccountAPIService) PmarginGetUmCommissionRateV1Execute(r AccountAPIPmarginGetUmCommissionRateV1Request) (*PmarginGetUmCommissionRateV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetUmCommissionRateV1Execute(r ApiPmarginGetUmCommissionRateV1Request) (*PmarginGetUmCommissionRateV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5055,7 +5055,7 @@ func (a *AccountAPIService) PmarginGetUmCommissionRateV1Execute(r AccountAPIPmar
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetUmIncomeAsynIdV1Request struct {
+type ApiPmarginGetUmIncomeAsynIdV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	downloadId *string
@@ -5064,22 +5064,22 @@ type AccountAPIPmarginGetUmIncomeAsynIdV1Request struct {
 }
 
 // get by download id api
-func (r AccountAPIPmarginGetUmIncomeAsynIdV1Request) DownloadId(downloadId string) AccountAPIPmarginGetUmIncomeAsynIdV1Request {
+func (r ApiPmarginGetUmIncomeAsynIdV1Request) DownloadId(downloadId string) ApiPmarginGetUmIncomeAsynIdV1Request {
 	r.downloadId = &downloadId
 	return r
 }
 
-func (r AccountAPIPmarginGetUmIncomeAsynIdV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetUmIncomeAsynIdV1Request {
+func (r ApiPmarginGetUmIncomeAsynIdV1Request) Timestamp(timestamp int64) ApiPmarginGetUmIncomeAsynIdV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetUmIncomeAsynIdV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetUmIncomeAsynIdV1Request {
+func (r ApiPmarginGetUmIncomeAsynIdV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmIncomeAsynIdV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetUmIncomeAsynIdV1Request) Execute() (*PmarginGetUmIncomeAsynIdV1Resp, *http.Response, error) {
+func (r ApiPmarginGetUmIncomeAsynIdV1Request) Execute() (*PmarginGetUmIncomeAsynIdV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetUmIncomeAsynIdV1Execute(r)
 }
 
@@ -5089,10 +5089,10 @@ PmarginGetUmIncomeAsynIdV1 Get UM Futures Transaction Download Link by Id(USER_D
 Get UM futures Transaction download link by Id
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetUmIncomeAsynIdV1Request
+ @return ApiPmarginGetUmIncomeAsynIdV1Request
 */
-func (a *AccountAPIService) PmarginGetUmIncomeAsynIdV1(ctx context.Context) AccountAPIPmarginGetUmIncomeAsynIdV1Request {
-	return AccountAPIPmarginGetUmIncomeAsynIdV1Request{
+func (a *AccountAPIService) PmarginGetUmIncomeAsynIdV1(ctx context.Context) ApiPmarginGetUmIncomeAsynIdV1Request {
+	return ApiPmarginGetUmIncomeAsynIdV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -5100,7 +5100,7 @@ func (a *AccountAPIService) PmarginGetUmIncomeAsynIdV1(ctx context.Context) Acco
 
 // Execute executes the request
 //  @return PmarginGetUmIncomeAsynIdV1Resp
-func (a *AccountAPIService) PmarginGetUmIncomeAsynIdV1Execute(r AccountAPIPmarginGetUmIncomeAsynIdV1Request) (*PmarginGetUmIncomeAsynIdV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetUmIncomeAsynIdV1Execute(r ApiPmarginGetUmIncomeAsynIdV1Request) (*PmarginGetUmIncomeAsynIdV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5211,7 +5211,7 @@ func (a *AccountAPIService) PmarginGetUmIncomeAsynIdV1Execute(r AccountAPIPmargi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetUmIncomeAsynV1Request struct {
+type ApiPmarginGetUmIncomeAsynV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	startTime *int64
@@ -5221,28 +5221,28 @@ type AccountAPIPmarginGetUmIncomeAsynV1Request struct {
 }
 
 // Timestamp in ms
-func (r AccountAPIPmarginGetUmIncomeAsynV1Request) StartTime(startTime int64) AccountAPIPmarginGetUmIncomeAsynV1Request {
+func (r ApiPmarginGetUmIncomeAsynV1Request) StartTime(startTime int64) ApiPmarginGetUmIncomeAsynV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // Timestamp in ms
-func (r AccountAPIPmarginGetUmIncomeAsynV1Request) EndTime(endTime int64) AccountAPIPmarginGetUmIncomeAsynV1Request {
+func (r ApiPmarginGetUmIncomeAsynV1Request) EndTime(endTime int64) ApiPmarginGetUmIncomeAsynV1Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r AccountAPIPmarginGetUmIncomeAsynV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetUmIncomeAsynV1Request {
+func (r ApiPmarginGetUmIncomeAsynV1Request) Timestamp(timestamp int64) ApiPmarginGetUmIncomeAsynV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetUmIncomeAsynV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetUmIncomeAsynV1Request {
+func (r ApiPmarginGetUmIncomeAsynV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmIncomeAsynV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetUmIncomeAsynV1Request) Execute() (*PmarginGetUmIncomeAsynV1Resp, *http.Response, error) {
+func (r ApiPmarginGetUmIncomeAsynV1Request) Execute() (*PmarginGetUmIncomeAsynV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetUmIncomeAsynV1Execute(r)
 }
 
@@ -5252,10 +5252,10 @@ PmarginGetUmIncomeAsynV1 Get Download Id For UM Futures Transaction History (USE
 Get download id for UM futures transaction history
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetUmIncomeAsynV1Request
+ @return ApiPmarginGetUmIncomeAsynV1Request
 */
-func (a *AccountAPIService) PmarginGetUmIncomeAsynV1(ctx context.Context) AccountAPIPmarginGetUmIncomeAsynV1Request {
-	return AccountAPIPmarginGetUmIncomeAsynV1Request{
+func (a *AccountAPIService) PmarginGetUmIncomeAsynV1(ctx context.Context) ApiPmarginGetUmIncomeAsynV1Request {
+	return ApiPmarginGetUmIncomeAsynV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -5263,7 +5263,7 @@ func (a *AccountAPIService) PmarginGetUmIncomeAsynV1(ctx context.Context) Accoun
 
 // Execute executes the request
 //  @return PmarginGetUmIncomeAsynV1Resp
-func (a *AccountAPIService) PmarginGetUmIncomeAsynV1Execute(r AccountAPIPmarginGetUmIncomeAsynV1Request) (*PmarginGetUmIncomeAsynV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetUmIncomeAsynV1Execute(r ApiPmarginGetUmIncomeAsynV1Request) (*PmarginGetUmIncomeAsynV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5378,7 +5378,7 @@ func (a *AccountAPIService) PmarginGetUmIncomeAsynV1Execute(r AccountAPIPmarginG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetUmIncomeV1Request struct {
+type ApiPmarginGetUmIncomeV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
@@ -5391,51 +5391,51 @@ type AccountAPIPmarginGetUmIncomeV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetUmIncomeV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetUmIncomeV1Request {
+func (r ApiPmarginGetUmIncomeV1Request) Timestamp(timestamp int64) ApiPmarginGetUmIncomeV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetUmIncomeV1Request) Symbol(symbol string) AccountAPIPmarginGetUmIncomeV1Request {
+func (r ApiPmarginGetUmIncomeV1Request) Symbol(symbol string) ApiPmarginGetUmIncomeV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // TRANSFER, WELCOME_BONUS, REALIZED_PNL, FUNDING_FEE, COMMISSION, INSURANCE_CLEAR, REFERRAL_KICKBACK, COMMISSION_REBATE, API_REBATE, CONTEST_REWARD, CROSS_COLLATERAL_TRANSFER, OPTIONS_PREMIUM_FEE, OPTIONS_SETTLE_PROFIT, INTERNAL_TRANSFER, AUTO_EXCHANGE, DELIVERED_SETTELMENT, COIN_SWAP_DEPOSIT, COIN_SWAP_WITHDRAW, POSITION_LIMIT_INCREASE_FEE
-func (r AccountAPIPmarginGetUmIncomeV1Request) IncomeType(incomeType string) AccountAPIPmarginGetUmIncomeV1Request {
+func (r ApiPmarginGetUmIncomeV1Request) IncomeType(incomeType string) ApiPmarginGetUmIncomeV1Request {
 	r.incomeType = &incomeType
 	return r
 }
 
 // Timestamp in ms to get funding from INCLUSIVE.
-func (r AccountAPIPmarginGetUmIncomeV1Request) StartTime(startTime int64) AccountAPIPmarginGetUmIncomeV1Request {
+func (r ApiPmarginGetUmIncomeV1Request) StartTime(startTime int64) ApiPmarginGetUmIncomeV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // Timestamp in ms to get funding until INCLUSIVE.
-func (r AccountAPIPmarginGetUmIncomeV1Request) EndTime(endTime int64) AccountAPIPmarginGetUmIncomeV1Request {
+func (r ApiPmarginGetUmIncomeV1Request) EndTime(endTime int64) ApiPmarginGetUmIncomeV1Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r AccountAPIPmarginGetUmIncomeV1Request) Page(page int32) AccountAPIPmarginGetUmIncomeV1Request {
+func (r ApiPmarginGetUmIncomeV1Request) Page(page int32) ApiPmarginGetUmIncomeV1Request {
 	r.page = &page
 	return r
 }
 
 // Default 100; max 1000
-func (r AccountAPIPmarginGetUmIncomeV1Request) Limit(limit int32) AccountAPIPmarginGetUmIncomeV1Request {
+func (r ApiPmarginGetUmIncomeV1Request) Limit(limit int32) ApiPmarginGetUmIncomeV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r AccountAPIPmarginGetUmIncomeV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetUmIncomeV1Request {
+func (r ApiPmarginGetUmIncomeV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmIncomeV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetUmIncomeV1Request) Execute() ([]PmarginGetUmIncomeV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetUmIncomeV1Request) Execute() ([]PmarginGetUmIncomeV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetUmIncomeV1Execute(r)
 }
 
@@ -5445,10 +5445,10 @@ PmarginGetUmIncomeV1 Get UM Income History(USER_DATA)
 Get UM Income History
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetUmIncomeV1Request
+ @return ApiPmarginGetUmIncomeV1Request
 */
-func (a *AccountAPIService) PmarginGetUmIncomeV1(ctx context.Context) AccountAPIPmarginGetUmIncomeV1Request {
-	return AccountAPIPmarginGetUmIncomeV1Request{
+func (a *AccountAPIService) PmarginGetUmIncomeV1(ctx context.Context) ApiPmarginGetUmIncomeV1Request {
+	return ApiPmarginGetUmIncomeV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -5456,7 +5456,7 @@ func (a *AccountAPIService) PmarginGetUmIncomeV1(ctx context.Context) AccountAPI
 
 // Execute executes the request
 //  @return []PmarginGetUmIncomeV1RespItem
-func (a *AccountAPIService) PmarginGetUmIncomeV1Execute(r AccountAPIPmarginGetUmIncomeV1Request) ([]PmarginGetUmIncomeV1RespItem, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetUmIncomeV1Execute(r ApiPmarginGetUmIncomeV1Request) ([]PmarginGetUmIncomeV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5590,7 +5590,7 @@ func (a *AccountAPIService) PmarginGetUmIncomeV1Execute(r AccountAPIPmarginGetUm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetUmLeverageBracketV1Request struct {
+type ApiPmarginGetUmLeverageBracketV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
@@ -5598,22 +5598,22 @@ type AccountAPIPmarginGetUmLeverageBracketV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetUmLeverageBracketV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetUmLeverageBracketV1Request {
+func (r ApiPmarginGetUmLeverageBracketV1Request) Timestamp(timestamp int64) ApiPmarginGetUmLeverageBracketV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetUmLeverageBracketV1Request) Symbol(symbol string) AccountAPIPmarginGetUmLeverageBracketV1Request {
+func (r ApiPmarginGetUmLeverageBracketV1Request) Symbol(symbol string) ApiPmarginGetUmLeverageBracketV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r AccountAPIPmarginGetUmLeverageBracketV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetUmLeverageBracketV1Request {
+func (r ApiPmarginGetUmLeverageBracketV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmLeverageBracketV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetUmLeverageBracketV1Request) Execute() ([]PmarginGetUmLeverageBracketV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetUmLeverageBracketV1Request) Execute() ([]PmarginGetUmLeverageBracketV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetUmLeverageBracketV1Execute(r)
 }
 
@@ -5623,10 +5623,10 @@ PmarginGetUmLeverageBracketV1 UM Notional and Leverage Brackets (USER_DATA)
 Query UM notional and leverage brackets
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetUmLeverageBracketV1Request
+ @return ApiPmarginGetUmLeverageBracketV1Request
 */
-func (a *AccountAPIService) PmarginGetUmLeverageBracketV1(ctx context.Context) AccountAPIPmarginGetUmLeverageBracketV1Request {
-	return AccountAPIPmarginGetUmLeverageBracketV1Request{
+func (a *AccountAPIService) PmarginGetUmLeverageBracketV1(ctx context.Context) ApiPmarginGetUmLeverageBracketV1Request {
+	return ApiPmarginGetUmLeverageBracketV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -5634,7 +5634,7 @@ func (a *AccountAPIService) PmarginGetUmLeverageBracketV1(ctx context.Context) A
 
 // Execute executes the request
 //  @return []PmarginGetUmLeverageBracketV1RespItem
-func (a *AccountAPIService) PmarginGetUmLeverageBracketV1Execute(r AccountAPIPmarginGetUmLeverageBracketV1Request) ([]PmarginGetUmLeverageBracketV1RespItem, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetUmLeverageBracketV1Execute(r ApiPmarginGetUmLeverageBracketV1Request) ([]PmarginGetUmLeverageBracketV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5747,7 +5747,7 @@ func (a *AccountAPIService) PmarginGetUmLeverageBracketV1Execute(r AccountAPIPma
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetUmOrderAsynIdV1Request struct {
+type ApiPmarginGetUmOrderAsynIdV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	downloadId *string
@@ -5756,22 +5756,22 @@ type AccountAPIPmarginGetUmOrderAsynIdV1Request struct {
 }
 
 // get by download id api
-func (r AccountAPIPmarginGetUmOrderAsynIdV1Request) DownloadId(downloadId string) AccountAPIPmarginGetUmOrderAsynIdV1Request {
+func (r ApiPmarginGetUmOrderAsynIdV1Request) DownloadId(downloadId string) ApiPmarginGetUmOrderAsynIdV1Request {
 	r.downloadId = &downloadId
 	return r
 }
 
-func (r AccountAPIPmarginGetUmOrderAsynIdV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetUmOrderAsynIdV1Request {
+func (r ApiPmarginGetUmOrderAsynIdV1Request) Timestamp(timestamp int64) ApiPmarginGetUmOrderAsynIdV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetUmOrderAsynIdV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetUmOrderAsynIdV1Request {
+func (r ApiPmarginGetUmOrderAsynIdV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmOrderAsynIdV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetUmOrderAsynIdV1Request) Execute() (*PmarginGetUmOrderAsynIdV1Resp, *http.Response, error) {
+func (r ApiPmarginGetUmOrderAsynIdV1Request) Execute() (*PmarginGetUmOrderAsynIdV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetUmOrderAsynIdV1Execute(r)
 }
 
@@ -5781,10 +5781,10 @@ PmarginGetUmOrderAsynIdV1 Get UM Futures Order Download Link by Id(USER_DATA)
 Get UM futures order download link by Id
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetUmOrderAsynIdV1Request
+ @return ApiPmarginGetUmOrderAsynIdV1Request
 */
-func (a *AccountAPIService) PmarginGetUmOrderAsynIdV1(ctx context.Context) AccountAPIPmarginGetUmOrderAsynIdV1Request {
-	return AccountAPIPmarginGetUmOrderAsynIdV1Request{
+func (a *AccountAPIService) PmarginGetUmOrderAsynIdV1(ctx context.Context) ApiPmarginGetUmOrderAsynIdV1Request {
+	return ApiPmarginGetUmOrderAsynIdV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -5792,7 +5792,7 @@ func (a *AccountAPIService) PmarginGetUmOrderAsynIdV1(ctx context.Context) Accou
 
 // Execute executes the request
 //  @return PmarginGetUmOrderAsynIdV1Resp
-func (a *AccountAPIService) PmarginGetUmOrderAsynIdV1Execute(r AccountAPIPmarginGetUmOrderAsynIdV1Request) (*PmarginGetUmOrderAsynIdV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetUmOrderAsynIdV1Execute(r ApiPmarginGetUmOrderAsynIdV1Request) (*PmarginGetUmOrderAsynIdV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5903,7 +5903,7 @@ func (a *AccountAPIService) PmarginGetUmOrderAsynIdV1Execute(r AccountAPIPmargin
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetUmOrderAsynV1Request struct {
+type ApiPmarginGetUmOrderAsynV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	startTime *int64
@@ -5913,28 +5913,28 @@ type AccountAPIPmarginGetUmOrderAsynV1Request struct {
 }
 
 // Timestamp in ms
-func (r AccountAPIPmarginGetUmOrderAsynV1Request) StartTime(startTime int64) AccountAPIPmarginGetUmOrderAsynV1Request {
+func (r ApiPmarginGetUmOrderAsynV1Request) StartTime(startTime int64) ApiPmarginGetUmOrderAsynV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // Timestamp in ms
-func (r AccountAPIPmarginGetUmOrderAsynV1Request) EndTime(endTime int64) AccountAPIPmarginGetUmOrderAsynV1Request {
+func (r ApiPmarginGetUmOrderAsynV1Request) EndTime(endTime int64) ApiPmarginGetUmOrderAsynV1Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r AccountAPIPmarginGetUmOrderAsynV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetUmOrderAsynV1Request {
+func (r ApiPmarginGetUmOrderAsynV1Request) Timestamp(timestamp int64) ApiPmarginGetUmOrderAsynV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetUmOrderAsynV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetUmOrderAsynV1Request {
+func (r ApiPmarginGetUmOrderAsynV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmOrderAsynV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetUmOrderAsynV1Request) Execute() (*PmarginGetUmOrderAsynV1Resp, *http.Response, error) {
+func (r ApiPmarginGetUmOrderAsynV1Request) Execute() (*PmarginGetUmOrderAsynV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetUmOrderAsynV1Execute(r)
 }
 
@@ -5944,10 +5944,10 @@ PmarginGetUmOrderAsynV1 Get Download Id For UM Futures Order History (USER_DATA)
 Get download id for UM futures order history
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetUmOrderAsynV1Request
+ @return ApiPmarginGetUmOrderAsynV1Request
 */
-func (a *AccountAPIService) PmarginGetUmOrderAsynV1(ctx context.Context) AccountAPIPmarginGetUmOrderAsynV1Request {
-	return AccountAPIPmarginGetUmOrderAsynV1Request{
+func (a *AccountAPIService) PmarginGetUmOrderAsynV1(ctx context.Context) ApiPmarginGetUmOrderAsynV1Request {
+	return ApiPmarginGetUmOrderAsynV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -5955,7 +5955,7 @@ func (a *AccountAPIService) PmarginGetUmOrderAsynV1(ctx context.Context) Account
 
 // Execute executes the request
 //  @return PmarginGetUmOrderAsynV1Resp
-func (a *AccountAPIService) PmarginGetUmOrderAsynV1Execute(r AccountAPIPmarginGetUmOrderAsynV1Request) (*PmarginGetUmOrderAsynV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetUmOrderAsynV1Execute(r ApiPmarginGetUmOrderAsynV1Request) (*PmarginGetUmOrderAsynV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -6070,12 +6070,12 @@ func (a *AccountAPIService) PmarginGetUmOrderAsynV1Execute(r AccountAPIPmarginGe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetUmPositionRiskV1Request struct {
+type ApiPmarginGetUmPositionRiskV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 }
 
-func (r AccountAPIPmarginGetUmPositionRiskV1Request) Execute() ([]PmarginGetUmPositionRiskV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetUmPositionRiskV1Request) Execute() ([]PmarginGetUmPositionRiskV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetUmPositionRiskV1Execute(r)
 }
 
@@ -6085,10 +6085,10 @@ PmarginGetUmPositionRiskV1 Query UM Position Information(USER_DATA)
 Get current UM position information.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetUmPositionRiskV1Request
+ @return ApiPmarginGetUmPositionRiskV1Request
 */
-func (a *AccountAPIService) PmarginGetUmPositionRiskV1(ctx context.Context) AccountAPIPmarginGetUmPositionRiskV1Request {
-	return AccountAPIPmarginGetUmPositionRiskV1Request{
+func (a *AccountAPIService) PmarginGetUmPositionRiskV1(ctx context.Context) ApiPmarginGetUmPositionRiskV1Request {
+	return ApiPmarginGetUmPositionRiskV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -6096,7 +6096,7 @@ func (a *AccountAPIService) PmarginGetUmPositionRiskV1(ctx context.Context) Acco
 
 // Execute executes the request
 //  @return []PmarginGetUmPositionRiskV1RespItem
-func (a *AccountAPIService) PmarginGetUmPositionRiskV1Execute(r AccountAPIPmarginGetUmPositionRiskV1Request) ([]PmarginGetUmPositionRiskV1RespItem, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetUmPositionRiskV1Execute(r ApiPmarginGetUmPositionRiskV1Request) ([]PmarginGetUmPositionRiskV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -6196,24 +6196,24 @@ func (a *AccountAPIService) PmarginGetUmPositionRiskV1Execute(r AccountAPIPmargi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetUmPositionSideDualV1Request struct {
+type ApiPmarginGetUmPositionSideDualV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetUmPositionSideDualV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetUmPositionSideDualV1Request {
+func (r ApiPmarginGetUmPositionSideDualV1Request) Timestamp(timestamp int64) ApiPmarginGetUmPositionSideDualV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetUmPositionSideDualV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetUmPositionSideDualV1Request {
+func (r ApiPmarginGetUmPositionSideDualV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmPositionSideDualV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetUmPositionSideDualV1Request) Execute() (*PmarginGetUmPositionSideDualV1Resp, *http.Response, error) {
+func (r ApiPmarginGetUmPositionSideDualV1Request) Execute() (*PmarginGetUmPositionSideDualV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetUmPositionSideDualV1Execute(r)
 }
 
@@ -6223,10 +6223,10 @@ PmarginGetUmPositionSideDualV1 Get UM Current Position Mode(USER_DATA)
 Get user's position mode (Hedge Mode or One-way Mode ) on EVERY symbol in UM
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetUmPositionSideDualV1Request
+ @return ApiPmarginGetUmPositionSideDualV1Request
 */
-func (a *AccountAPIService) PmarginGetUmPositionSideDualV1(ctx context.Context) AccountAPIPmarginGetUmPositionSideDualV1Request {
-	return AccountAPIPmarginGetUmPositionSideDualV1Request{
+func (a *AccountAPIService) PmarginGetUmPositionSideDualV1(ctx context.Context) ApiPmarginGetUmPositionSideDualV1Request {
+	return ApiPmarginGetUmPositionSideDualV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -6234,7 +6234,7 @@ func (a *AccountAPIService) PmarginGetUmPositionSideDualV1(ctx context.Context) 
 
 // Execute executes the request
 //  @return PmarginGetUmPositionSideDualV1Resp
-func (a *AccountAPIService) PmarginGetUmPositionSideDualV1Execute(r AccountAPIPmarginGetUmPositionSideDualV1Request) (*PmarginGetUmPositionSideDualV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetUmPositionSideDualV1Execute(r ApiPmarginGetUmPositionSideDualV1Request) (*PmarginGetUmPositionSideDualV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -6341,7 +6341,7 @@ func (a *AccountAPIService) PmarginGetUmPositionSideDualV1Execute(r AccountAPIPm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetUmSymbolConfigV1Request struct {
+type ApiPmarginGetUmSymbolConfigV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
@@ -6349,22 +6349,22 @@ type AccountAPIPmarginGetUmSymbolConfigV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPIPmarginGetUmSymbolConfigV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetUmSymbolConfigV1Request {
+func (r ApiPmarginGetUmSymbolConfigV1Request) Timestamp(timestamp int64) ApiPmarginGetUmSymbolConfigV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetUmSymbolConfigV1Request) Symbol(symbol string) AccountAPIPmarginGetUmSymbolConfigV1Request {
+func (r ApiPmarginGetUmSymbolConfigV1Request) Symbol(symbol string) ApiPmarginGetUmSymbolConfigV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r AccountAPIPmarginGetUmSymbolConfigV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetUmSymbolConfigV1Request {
+func (r ApiPmarginGetUmSymbolConfigV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmSymbolConfigV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetUmSymbolConfigV1Request) Execute() ([]PmarginGetUmSymbolConfigV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetUmSymbolConfigV1Request) Execute() ([]PmarginGetUmSymbolConfigV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetUmSymbolConfigV1Execute(r)
 }
 
@@ -6374,10 +6374,10 @@ PmarginGetUmSymbolConfigV1 UM Futures Symbol Configuration(USER_DATA)
 Get current UM account symbol configuration.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetUmSymbolConfigV1Request
+ @return ApiPmarginGetUmSymbolConfigV1Request
 */
-func (a *AccountAPIService) PmarginGetUmSymbolConfigV1(ctx context.Context) AccountAPIPmarginGetUmSymbolConfigV1Request {
-	return AccountAPIPmarginGetUmSymbolConfigV1Request{
+func (a *AccountAPIService) PmarginGetUmSymbolConfigV1(ctx context.Context) ApiPmarginGetUmSymbolConfigV1Request {
+	return ApiPmarginGetUmSymbolConfigV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -6385,7 +6385,7 @@ func (a *AccountAPIService) PmarginGetUmSymbolConfigV1(ctx context.Context) Acco
 
 // Execute executes the request
 //  @return []PmarginGetUmSymbolConfigV1RespItem
-func (a *AccountAPIService) PmarginGetUmSymbolConfigV1Execute(r AccountAPIPmarginGetUmSymbolConfigV1Request) ([]PmarginGetUmSymbolConfigV1RespItem, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetUmSymbolConfigV1Execute(r ApiPmarginGetUmSymbolConfigV1Request) ([]PmarginGetUmSymbolConfigV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -6498,7 +6498,7 @@ func (a *AccountAPIService) PmarginGetUmSymbolConfigV1Execute(r AccountAPIPmargi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetUmTradeAsynIdV1Request struct {
+type ApiPmarginGetUmTradeAsynIdV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	downloadId *string
@@ -6507,22 +6507,22 @@ type AccountAPIPmarginGetUmTradeAsynIdV1Request struct {
 }
 
 // get by download id api
-func (r AccountAPIPmarginGetUmTradeAsynIdV1Request) DownloadId(downloadId string) AccountAPIPmarginGetUmTradeAsynIdV1Request {
+func (r ApiPmarginGetUmTradeAsynIdV1Request) DownloadId(downloadId string) ApiPmarginGetUmTradeAsynIdV1Request {
 	r.downloadId = &downloadId
 	return r
 }
 
-func (r AccountAPIPmarginGetUmTradeAsynIdV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetUmTradeAsynIdV1Request {
+func (r ApiPmarginGetUmTradeAsynIdV1Request) Timestamp(timestamp int64) ApiPmarginGetUmTradeAsynIdV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetUmTradeAsynIdV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetUmTradeAsynIdV1Request {
+func (r ApiPmarginGetUmTradeAsynIdV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmTradeAsynIdV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetUmTradeAsynIdV1Request) Execute() (*PmarginGetUmTradeAsynIdV1Resp, *http.Response, error) {
+func (r ApiPmarginGetUmTradeAsynIdV1Request) Execute() (*PmarginGetUmTradeAsynIdV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetUmTradeAsynIdV1Execute(r)
 }
 
@@ -6532,10 +6532,10 @@ PmarginGetUmTradeAsynIdV1 Get UM Futures Trade Download Link by Id(USER_DATA)
 Get UM futures trade download link by Id
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetUmTradeAsynIdV1Request
+ @return ApiPmarginGetUmTradeAsynIdV1Request
 */
-func (a *AccountAPIService) PmarginGetUmTradeAsynIdV1(ctx context.Context) AccountAPIPmarginGetUmTradeAsynIdV1Request {
-	return AccountAPIPmarginGetUmTradeAsynIdV1Request{
+func (a *AccountAPIService) PmarginGetUmTradeAsynIdV1(ctx context.Context) ApiPmarginGetUmTradeAsynIdV1Request {
+	return ApiPmarginGetUmTradeAsynIdV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -6543,7 +6543,7 @@ func (a *AccountAPIService) PmarginGetUmTradeAsynIdV1(ctx context.Context) Accou
 
 // Execute executes the request
 //  @return PmarginGetUmTradeAsynIdV1Resp
-func (a *AccountAPIService) PmarginGetUmTradeAsynIdV1Execute(r AccountAPIPmarginGetUmTradeAsynIdV1Request) (*PmarginGetUmTradeAsynIdV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetUmTradeAsynIdV1Execute(r ApiPmarginGetUmTradeAsynIdV1Request) (*PmarginGetUmTradeAsynIdV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -6654,7 +6654,7 @@ func (a *AccountAPIService) PmarginGetUmTradeAsynIdV1Execute(r AccountAPIPmargin
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIPmarginGetUmTradeAsynV1Request struct {
+type ApiPmarginGetUmTradeAsynV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	startTime *int64
@@ -6664,28 +6664,28 @@ type AccountAPIPmarginGetUmTradeAsynV1Request struct {
 }
 
 // Timestamp in ms
-func (r AccountAPIPmarginGetUmTradeAsynV1Request) StartTime(startTime int64) AccountAPIPmarginGetUmTradeAsynV1Request {
+func (r ApiPmarginGetUmTradeAsynV1Request) StartTime(startTime int64) ApiPmarginGetUmTradeAsynV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // Timestamp in ms
-func (r AccountAPIPmarginGetUmTradeAsynV1Request) EndTime(endTime int64) AccountAPIPmarginGetUmTradeAsynV1Request {
+func (r ApiPmarginGetUmTradeAsynV1Request) EndTime(endTime int64) ApiPmarginGetUmTradeAsynV1Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r AccountAPIPmarginGetUmTradeAsynV1Request) Timestamp(timestamp int64) AccountAPIPmarginGetUmTradeAsynV1Request {
+func (r ApiPmarginGetUmTradeAsynV1Request) Timestamp(timestamp int64) ApiPmarginGetUmTradeAsynV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIPmarginGetUmTradeAsynV1Request) RecvWindow(recvWindow int64) AccountAPIPmarginGetUmTradeAsynV1Request {
+func (r ApiPmarginGetUmTradeAsynV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmTradeAsynV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIPmarginGetUmTradeAsynV1Request) Execute() (*PmarginGetUmTradeAsynV1Resp, *http.Response, error) {
+func (r ApiPmarginGetUmTradeAsynV1Request) Execute() (*PmarginGetUmTradeAsynV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetUmTradeAsynV1Execute(r)
 }
 
@@ -6695,10 +6695,10 @@ PmarginGetUmTradeAsynV1 Get Download Id For UM Futures Trade History (USER_DATA)
 Get download id for UM futures trade history
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIPmarginGetUmTradeAsynV1Request
+ @return ApiPmarginGetUmTradeAsynV1Request
 */
-func (a *AccountAPIService) PmarginGetUmTradeAsynV1(ctx context.Context) AccountAPIPmarginGetUmTradeAsynV1Request {
-	return AccountAPIPmarginGetUmTradeAsynV1Request{
+func (a *AccountAPIService) PmarginGetUmTradeAsynV1(ctx context.Context) ApiPmarginGetUmTradeAsynV1Request {
+	return ApiPmarginGetUmTradeAsynV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -6706,7 +6706,7 @@ func (a *AccountAPIService) PmarginGetUmTradeAsynV1(ctx context.Context) Account
 
 // Execute executes the request
 //  @return PmarginGetUmTradeAsynV1Resp
-func (a *AccountAPIService) PmarginGetUmTradeAsynV1Execute(r AccountAPIPmarginGetUmTradeAsynV1Request) (*PmarginGetUmTradeAsynV1Resp, *http.Response, error) {
+func (a *AccountAPIService) PmarginGetUmTradeAsynV1Execute(r ApiPmarginGetUmTradeAsynV1Request) (*PmarginGetUmTradeAsynV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

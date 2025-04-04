@@ -1,7 +1,7 @@
 /*
-Binance Margin API
+Binance Margin Trading API
 
-OpenAPI specification for Binance cryptocurrency exchange - Margin API
+OpenAPI specification for Binance exchange - Margin API
 
 API version: 0.1.0
 */
@@ -22,7 +22,7 @@ import (
 // BorrowAndRepayAPIService BorrowAndRepayAPI service
 type BorrowAndRepayAPIService service
 
-type BorrowAndRepayAPIMarginCreateMarginBorrowRepayV1Request struct {
+type ApiMarginCreateMarginBorrowRepayV1Request struct {
 	ctx context.Context
 	ApiService *BorrowAndRepayAPIService
 	amount *string
@@ -34,42 +34,42 @@ type BorrowAndRepayAPIMarginCreateMarginBorrowRepayV1Request struct {
 	recvWindow *int64
 }
 
-func (r BorrowAndRepayAPIMarginCreateMarginBorrowRepayV1Request) Amount(amount string) BorrowAndRepayAPIMarginCreateMarginBorrowRepayV1Request {
+func (r ApiMarginCreateMarginBorrowRepayV1Request) Amount(amount string) ApiMarginCreateMarginBorrowRepayV1Request {
 	r.amount = &amount
 	return r
 }
 
-func (r BorrowAndRepayAPIMarginCreateMarginBorrowRepayV1Request) Asset(asset string) BorrowAndRepayAPIMarginCreateMarginBorrowRepayV1Request {
+func (r ApiMarginCreateMarginBorrowRepayV1Request) Asset(asset string) ApiMarginCreateMarginBorrowRepayV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r BorrowAndRepayAPIMarginCreateMarginBorrowRepayV1Request) IsIsolated(isIsolated string) BorrowAndRepayAPIMarginCreateMarginBorrowRepayV1Request {
+func (r ApiMarginCreateMarginBorrowRepayV1Request) IsIsolated(isIsolated string) ApiMarginCreateMarginBorrowRepayV1Request {
 	r.isIsolated = &isIsolated
 	return r
 }
 
-func (r BorrowAndRepayAPIMarginCreateMarginBorrowRepayV1Request) Symbol(symbol string) BorrowAndRepayAPIMarginCreateMarginBorrowRepayV1Request {
+func (r ApiMarginCreateMarginBorrowRepayV1Request) Symbol(symbol string) ApiMarginCreateMarginBorrowRepayV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r BorrowAndRepayAPIMarginCreateMarginBorrowRepayV1Request) Timestamp(timestamp int64) BorrowAndRepayAPIMarginCreateMarginBorrowRepayV1Request {
+func (r ApiMarginCreateMarginBorrowRepayV1Request) Timestamp(timestamp int64) ApiMarginCreateMarginBorrowRepayV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r BorrowAndRepayAPIMarginCreateMarginBorrowRepayV1Request) Type_(type_ string) BorrowAndRepayAPIMarginCreateMarginBorrowRepayV1Request {
+func (r ApiMarginCreateMarginBorrowRepayV1Request) Type_(type_ string) ApiMarginCreateMarginBorrowRepayV1Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r BorrowAndRepayAPIMarginCreateMarginBorrowRepayV1Request) RecvWindow(recvWindow int64) BorrowAndRepayAPIMarginCreateMarginBorrowRepayV1Request {
+func (r ApiMarginCreateMarginBorrowRepayV1Request) RecvWindow(recvWindow int64) ApiMarginCreateMarginBorrowRepayV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r BorrowAndRepayAPIMarginCreateMarginBorrowRepayV1Request) Execute() (*MarginCreateMarginBorrowRepayV1Resp, *http.Response, error) {
+func (r ApiMarginCreateMarginBorrowRepayV1Request) Execute() (*MarginCreateMarginBorrowRepayV1Resp, *http.Response, error) {
 	return r.ApiService.MarginCreateMarginBorrowRepayV1Execute(r)
 }
 
@@ -79,10 +79,10 @@ MarginCreateMarginBorrowRepayV1 Margin account borrow/repay(MARGIN)
 Margin account borrow/repay(MARGIN)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return BorrowAndRepayAPIMarginCreateMarginBorrowRepayV1Request
+ @return ApiMarginCreateMarginBorrowRepayV1Request
 */
-func (a *BorrowAndRepayAPIService) MarginCreateMarginBorrowRepayV1(ctx context.Context) BorrowAndRepayAPIMarginCreateMarginBorrowRepayV1Request {
-	return BorrowAndRepayAPIMarginCreateMarginBorrowRepayV1Request{
+func (a *BorrowAndRepayAPIService) MarginCreateMarginBorrowRepayV1(ctx context.Context) ApiMarginCreateMarginBorrowRepayV1Request {
+	return ApiMarginCreateMarginBorrowRepayV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -90,7 +90,7 @@ func (a *BorrowAndRepayAPIService) MarginCreateMarginBorrowRepayV1(ctx context.C
 
 // Execute executes the request
 //  @return MarginCreateMarginBorrowRepayV1Resp
-func (a *BorrowAndRepayAPIService) MarginCreateMarginBorrowRepayV1Execute(r BorrowAndRepayAPIMarginCreateMarginBorrowRepayV1Request) (*MarginCreateMarginBorrowRepayV1Resp, *http.Response, error) {
+func (a *BorrowAndRepayAPIService) MarginCreateMarginBorrowRepayV1Execute(r ApiMarginCreateMarginBorrowRepayV1Request) (*MarginCreateMarginBorrowRepayV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -211,7 +211,7 @@ func (a *BorrowAndRepayAPIService) MarginCreateMarginBorrowRepayV1Execute(r Borr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request struct {
+type ApiMarginGetMarginBorrowRepayV1Request struct {
 	ctx context.Context
 	ApiService *BorrowAndRepayAPIService
 	type_ *string
@@ -227,62 +227,62 @@ type BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request struct {
 }
 
 // &#x60;BORROW&#x60; or &#x60;REPAY&#x60;
-func (r BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request) Type_(type_ string) BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request {
+func (r ApiMarginGetMarginBorrowRepayV1Request) Type_(type_ string) ApiMarginGetMarginBorrowRepayV1Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request) Timestamp(timestamp int64) BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request {
+func (r ApiMarginGetMarginBorrowRepayV1Request) Timestamp(timestamp int64) ApiMarginGetMarginBorrowRepayV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request) Asset(asset string) BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request {
+func (r ApiMarginGetMarginBorrowRepayV1Request) Asset(asset string) ApiMarginGetMarginBorrowRepayV1Request {
 	r.asset = &asset
 	return r
 }
 
 // Symbol in Isolated Margin
-func (r BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request) IsolatedSymbol(isolatedSymbol string) BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request {
+func (r ApiMarginGetMarginBorrowRepayV1Request) IsolatedSymbol(isolatedSymbol string) ApiMarginGetMarginBorrowRepayV1Request {
 	r.isolatedSymbol = &isolatedSymbol
 	return r
 }
 
 // &#x60;tranId&#x60; in &#x60;POST /sapi/v1/margin/loan&#x60;
-func (r BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request) TxId(txId int64) BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request {
+func (r ApiMarginGetMarginBorrowRepayV1Request) TxId(txId int64) ApiMarginGetMarginBorrowRepayV1Request {
 	r.txId = &txId
 	return r
 }
 
-func (r BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request) StartTime(startTime int64) BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request {
+func (r ApiMarginGetMarginBorrowRepayV1Request) StartTime(startTime int64) ApiMarginGetMarginBorrowRepayV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request) EndTime(endTime int64) BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request {
+func (r ApiMarginGetMarginBorrowRepayV1Request) EndTime(endTime int64) ApiMarginGetMarginBorrowRepayV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Current querying page. Start from 1. Default:1
-func (r BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request) Current(current int64) BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request {
+func (r ApiMarginGetMarginBorrowRepayV1Request) Current(current int64) ApiMarginGetMarginBorrowRepayV1Request {
 	r.current = &current
 	return r
 }
 
 // Default:10 Max:100
-func (r BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request) Size(size int64) BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request {
+func (r ApiMarginGetMarginBorrowRepayV1Request) Size(size int64) ApiMarginGetMarginBorrowRepayV1Request {
 	r.size = &size
 	return r
 }
 
 // The value cannot be greater than 60000
-func (r BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request) RecvWindow(recvWindow int64) BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request {
+func (r ApiMarginGetMarginBorrowRepayV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginBorrowRepayV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request) Execute() (*MarginGetMarginBorrowRepayV1Resp, *http.Response, error) {
+func (r ApiMarginGetMarginBorrowRepayV1Request) Execute() (*MarginGetMarginBorrowRepayV1Resp, *http.Response, error) {
 	return r.ApiService.MarginGetMarginBorrowRepayV1Execute(r)
 }
 
@@ -292,10 +292,10 @@ MarginGetMarginBorrowRepayV1 Query borrow/repay records in Margin account(USER_D
 Query borrow/repay records in Margin account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request
+ @return ApiMarginGetMarginBorrowRepayV1Request
 */
-func (a *BorrowAndRepayAPIService) MarginGetMarginBorrowRepayV1(ctx context.Context) BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request {
-	return BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request{
+func (a *BorrowAndRepayAPIService) MarginGetMarginBorrowRepayV1(ctx context.Context) ApiMarginGetMarginBorrowRepayV1Request {
+	return ApiMarginGetMarginBorrowRepayV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -303,7 +303,7 @@ func (a *BorrowAndRepayAPIService) MarginGetMarginBorrowRepayV1(ctx context.Cont
 
 // Execute executes the request
 //  @return MarginGetMarginBorrowRepayV1Resp
-func (a *BorrowAndRepayAPIService) MarginGetMarginBorrowRepayV1Execute(r BorrowAndRepayAPIMarginGetMarginBorrowRepayV1Request) (*MarginGetMarginBorrowRepayV1Resp, *http.Response, error) {
+func (a *BorrowAndRepayAPIService) MarginGetMarginBorrowRepayV1Execute(r ApiMarginGetMarginBorrowRepayV1Request) (*MarginGetMarginBorrowRepayV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -441,7 +441,7 @@ func (a *BorrowAndRepayAPIService) MarginGetMarginBorrowRepayV1Execute(r BorrowA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type BorrowAndRepayAPIMarginGetMarginInterestHistoryV1Request struct {
+type ApiMarginGetMarginInterestHistoryV1Request struct {
 	ctx context.Context
 	ApiService *BorrowAndRepayAPIService
 	timestamp *int64
@@ -454,51 +454,51 @@ type BorrowAndRepayAPIMarginGetMarginInterestHistoryV1Request struct {
 	recvWindow *int64
 }
 
-func (r BorrowAndRepayAPIMarginGetMarginInterestHistoryV1Request) Timestamp(timestamp int64) BorrowAndRepayAPIMarginGetMarginInterestHistoryV1Request {
+func (r ApiMarginGetMarginInterestHistoryV1Request) Timestamp(timestamp int64) ApiMarginGetMarginInterestHistoryV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r BorrowAndRepayAPIMarginGetMarginInterestHistoryV1Request) Asset(asset string) BorrowAndRepayAPIMarginGetMarginInterestHistoryV1Request {
+func (r ApiMarginGetMarginInterestHistoryV1Request) Asset(asset string) ApiMarginGetMarginInterestHistoryV1Request {
 	r.asset = &asset
 	return r
 }
 
 // isolated symbol
-func (r BorrowAndRepayAPIMarginGetMarginInterestHistoryV1Request) IsolatedSymbol(isolatedSymbol string) BorrowAndRepayAPIMarginGetMarginInterestHistoryV1Request {
+func (r ApiMarginGetMarginInterestHistoryV1Request) IsolatedSymbol(isolatedSymbol string) ApiMarginGetMarginInterestHistoryV1Request {
 	r.isolatedSymbol = &isolatedSymbol
 	return r
 }
 
-func (r BorrowAndRepayAPIMarginGetMarginInterestHistoryV1Request) StartTime(startTime int64) BorrowAndRepayAPIMarginGetMarginInterestHistoryV1Request {
+func (r ApiMarginGetMarginInterestHistoryV1Request) StartTime(startTime int64) ApiMarginGetMarginInterestHistoryV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r BorrowAndRepayAPIMarginGetMarginInterestHistoryV1Request) EndTime(endTime int64) BorrowAndRepayAPIMarginGetMarginInterestHistoryV1Request {
+func (r ApiMarginGetMarginInterestHistoryV1Request) EndTime(endTime int64) ApiMarginGetMarginInterestHistoryV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Currently querying page. Start from 1. Default:1
-func (r BorrowAndRepayAPIMarginGetMarginInterestHistoryV1Request) Current(current int64) BorrowAndRepayAPIMarginGetMarginInterestHistoryV1Request {
+func (r ApiMarginGetMarginInterestHistoryV1Request) Current(current int64) ApiMarginGetMarginInterestHistoryV1Request {
 	r.current = &current
 	return r
 }
 
 // Default:10 Max:100
-func (r BorrowAndRepayAPIMarginGetMarginInterestHistoryV1Request) Size(size int64) BorrowAndRepayAPIMarginGetMarginInterestHistoryV1Request {
+func (r ApiMarginGetMarginInterestHistoryV1Request) Size(size int64) ApiMarginGetMarginInterestHistoryV1Request {
 	r.size = &size
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r BorrowAndRepayAPIMarginGetMarginInterestHistoryV1Request) RecvWindow(recvWindow int64) BorrowAndRepayAPIMarginGetMarginInterestHistoryV1Request {
+func (r ApiMarginGetMarginInterestHistoryV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginInterestHistoryV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r BorrowAndRepayAPIMarginGetMarginInterestHistoryV1Request) Execute() (*MarginGetMarginInterestHistoryV1Resp, *http.Response, error) {
+func (r ApiMarginGetMarginInterestHistoryV1Request) Execute() (*MarginGetMarginInterestHistoryV1Resp, *http.Response, error) {
 	return r.ApiService.MarginGetMarginInterestHistoryV1Execute(r)
 }
 
@@ -508,10 +508,10 @@ MarginGetMarginInterestHistoryV1 Get Interest History (USER_DATA)
 Get Interest History
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return BorrowAndRepayAPIMarginGetMarginInterestHistoryV1Request
+ @return ApiMarginGetMarginInterestHistoryV1Request
 */
-func (a *BorrowAndRepayAPIService) MarginGetMarginInterestHistoryV1(ctx context.Context) BorrowAndRepayAPIMarginGetMarginInterestHistoryV1Request {
-	return BorrowAndRepayAPIMarginGetMarginInterestHistoryV1Request{
+func (a *BorrowAndRepayAPIService) MarginGetMarginInterestHistoryV1(ctx context.Context) ApiMarginGetMarginInterestHistoryV1Request {
+	return ApiMarginGetMarginInterestHistoryV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -519,7 +519,7 @@ func (a *BorrowAndRepayAPIService) MarginGetMarginInterestHistoryV1(ctx context.
 
 // Execute executes the request
 //  @return MarginGetMarginInterestHistoryV1Resp
-func (a *BorrowAndRepayAPIService) MarginGetMarginInterestHistoryV1Execute(r BorrowAndRepayAPIMarginGetMarginInterestHistoryV1Request) (*MarginGetMarginInterestHistoryV1Resp, *http.Response, error) {
+func (a *BorrowAndRepayAPIService) MarginGetMarginInterestHistoryV1Execute(r ApiMarginGetMarginInterestHistoryV1Request) (*MarginGetMarginInterestHistoryV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -650,7 +650,7 @@ func (a *BorrowAndRepayAPIService) MarginGetMarginInterestHistoryV1Execute(r Bor
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type BorrowAndRepayAPIMarginGetMarginInterestRateHistoryV1Request struct {
+type ApiMarginGetMarginInterestRateHistoryV1Request struct {
 	ctx context.Context
 	ApiService *BorrowAndRepayAPIService
 	asset *string
@@ -661,41 +661,41 @@ type BorrowAndRepayAPIMarginGetMarginInterestRateHistoryV1Request struct {
 	recvWindow *int64
 }
 
-func (r BorrowAndRepayAPIMarginGetMarginInterestRateHistoryV1Request) Asset(asset string) BorrowAndRepayAPIMarginGetMarginInterestRateHistoryV1Request {
+func (r ApiMarginGetMarginInterestRateHistoryV1Request) Asset(asset string) ApiMarginGetMarginInterestRateHistoryV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r BorrowAndRepayAPIMarginGetMarginInterestRateHistoryV1Request) Timestamp(timestamp int64) BorrowAndRepayAPIMarginGetMarginInterestRateHistoryV1Request {
+func (r ApiMarginGetMarginInterestRateHistoryV1Request) Timestamp(timestamp int64) ApiMarginGetMarginInterestRateHistoryV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Default: user&amp;#39;s vip level
-func (r BorrowAndRepayAPIMarginGetMarginInterestRateHistoryV1Request) VipLevel(vipLevel int32) BorrowAndRepayAPIMarginGetMarginInterestRateHistoryV1Request {
+func (r ApiMarginGetMarginInterestRateHistoryV1Request) VipLevel(vipLevel int32) ApiMarginGetMarginInterestRateHistoryV1Request {
 	r.vipLevel = &vipLevel
 	return r
 }
 
 // Default: 7 days ago
-func (r BorrowAndRepayAPIMarginGetMarginInterestRateHistoryV1Request) StartTime(startTime int64) BorrowAndRepayAPIMarginGetMarginInterestRateHistoryV1Request {
+func (r ApiMarginGetMarginInterestRateHistoryV1Request) StartTime(startTime int64) ApiMarginGetMarginInterestRateHistoryV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // Default: present. Maximum range: 1 months.
-func (r BorrowAndRepayAPIMarginGetMarginInterestRateHistoryV1Request) EndTime(endTime int64) BorrowAndRepayAPIMarginGetMarginInterestRateHistoryV1Request {
+func (r ApiMarginGetMarginInterestRateHistoryV1Request) EndTime(endTime int64) ApiMarginGetMarginInterestRateHistoryV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // No more than 60000
-func (r BorrowAndRepayAPIMarginGetMarginInterestRateHistoryV1Request) RecvWindow(recvWindow int64) BorrowAndRepayAPIMarginGetMarginInterestRateHistoryV1Request {
+func (r ApiMarginGetMarginInterestRateHistoryV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginInterestRateHistoryV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r BorrowAndRepayAPIMarginGetMarginInterestRateHistoryV1Request) Execute() ([]MarginGetMarginInterestRateHistoryV1RespItem, *http.Response, error) {
+func (r ApiMarginGetMarginInterestRateHistoryV1Request) Execute() ([]MarginGetMarginInterestRateHistoryV1RespItem, *http.Response, error) {
 	return r.ApiService.MarginGetMarginInterestRateHistoryV1Execute(r)
 }
 
@@ -705,10 +705,10 @@ MarginGetMarginInterestRateHistoryV1 Query Margin Interest Rate History (USER_DA
 Query Margin Interest Rate History
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return BorrowAndRepayAPIMarginGetMarginInterestRateHistoryV1Request
+ @return ApiMarginGetMarginInterestRateHistoryV1Request
 */
-func (a *BorrowAndRepayAPIService) MarginGetMarginInterestRateHistoryV1(ctx context.Context) BorrowAndRepayAPIMarginGetMarginInterestRateHistoryV1Request {
-	return BorrowAndRepayAPIMarginGetMarginInterestRateHistoryV1Request{
+func (a *BorrowAndRepayAPIService) MarginGetMarginInterestRateHistoryV1(ctx context.Context) ApiMarginGetMarginInterestRateHistoryV1Request {
+	return ApiMarginGetMarginInterestRateHistoryV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -716,7 +716,7 @@ func (a *BorrowAndRepayAPIService) MarginGetMarginInterestRateHistoryV1(ctx cont
 
 // Execute executes the request
 //  @return []MarginGetMarginInterestRateHistoryV1RespItem
-func (a *BorrowAndRepayAPIService) MarginGetMarginInterestRateHistoryV1Execute(r BorrowAndRepayAPIMarginGetMarginInterestRateHistoryV1Request) ([]MarginGetMarginInterestRateHistoryV1RespItem, *http.Response, error) {
+func (a *BorrowAndRepayAPIService) MarginGetMarginInterestRateHistoryV1Execute(r ApiMarginGetMarginInterestRateHistoryV1Request) ([]MarginGetMarginInterestRateHistoryV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -836,7 +836,7 @@ func (a *BorrowAndRepayAPIService) MarginGetMarginInterestRateHistoryV1Execute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type BorrowAndRepayAPIMarginGetMarginMaxBorrowableV1Request struct {
+type ApiMarginGetMarginMaxBorrowableV1Request struct {
 	ctx context.Context
 	ApiService *BorrowAndRepayAPIService
 	asset *string
@@ -845,29 +845,29 @@ type BorrowAndRepayAPIMarginGetMarginMaxBorrowableV1Request struct {
 	recvWindow *int64
 }
 
-func (r BorrowAndRepayAPIMarginGetMarginMaxBorrowableV1Request) Asset(asset string) BorrowAndRepayAPIMarginGetMarginMaxBorrowableV1Request {
+func (r ApiMarginGetMarginMaxBorrowableV1Request) Asset(asset string) ApiMarginGetMarginMaxBorrowableV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r BorrowAndRepayAPIMarginGetMarginMaxBorrowableV1Request) Timestamp(timestamp int64) BorrowAndRepayAPIMarginGetMarginMaxBorrowableV1Request {
+func (r ApiMarginGetMarginMaxBorrowableV1Request) Timestamp(timestamp int64) ApiMarginGetMarginMaxBorrowableV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // isolated symbol
-func (r BorrowAndRepayAPIMarginGetMarginMaxBorrowableV1Request) IsolatedSymbol(isolatedSymbol string) BorrowAndRepayAPIMarginGetMarginMaxBorrowableV1Request {
+func (r ApiMarginGetMarginMaxBorrowableV1Request) IsolatedSymbol(isolatedSymbol string) ApiMarginGetMarginMaxBorrowableV1Request {
 	r.isolatedSymbol = &isolatedSymbol
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r BorrowAndRepayAPIMarginGetMarginMaxBorrowableV1Request) RecvWindow(recvWindow int64) BorrowAndRepayAPIMarginGetMarginMaxBorrowableV1Request {
+func (r ApiMarginGetMarginMaxBorrowableV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginMaxBorrowableV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r BorrowAndRepayAPIMarginGetMarginMaxBorrowableV1Request) Execute() (*MarginGetMarginMaxBorrowableV1Resp, *http.Response, error) {
+func (r ApiMarginGetMarginMaxBorrowableV1Request) Execute() (*MarginGetMarginMaxBorrowableV1Resp, *http.Response, error) {
 	return r.ApiService.MarginGetMarginMaxBorrowableV1Execute(r)
 }
 
@@ -877,10 +877,10 @@ MarginGetMarginMaxBorrowableV1 Query Max Borrow (USER_DATA)
 Query Max Borrow
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return BorrowAndRepayAPIMarginGetMarginMaxBorrowableV1Request
+ @return ApiMarginGetMarginMaxBorrowableV1Request
 */
-func (a *BorrowAndRepayAPIService) MarginGetMarginMaxBorrowableV1(ctx context.Context) BorrowAndRepayAPIMarginGetMarginMaxBorrowableV1Request {
-	return BorrowAndRepayAPIMarginGetMarginMaxBorrowableV1Request{
+func (a *BorrowAndRepayAPIService) MarginGetMarginMaxBorrowableV1(ctx context.Context) ApiMarginGetMarginMaxBorrowableV1Request {
+	return ApiMarginGetMarginMaxBorrowableV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -888,7 +888,7 @@ func (a *BorrowAndRepayAPIService) MarginGetMarginMaxBorrowableV1(ctx context.Co
 
 // Execute executes the request
 //  @return MarginGetMarginMaxBorrowableV1Resp
-func (a *BorrowAndRepayAPIService) MarginGetMarginMaxBorrowableV1Execute(r BorrowAndRepayAPIMarginGetMarginMaxBorrowableV1Request) (*MarginGetMarginMaxBorrowableV1Resp, *http.Response, error) {
+func (a *BorrowAndRepayAPIService) MarginGetMarginMaxBorrowableV1Execute(r ApiMarginGetMarginMaxBorrowableV1Request) (*MarginGetMarginMaxBorrowableV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1005,7 +1005,7 @@ func (a *BorrowAndRepayAPIService) MarginGetMarginMaxBorrowableV1Execute(r Borro
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type BorrowAndRepayAPIMarginGetMarginNextHourlyInterestRateV1Request struct {
+type ApiMarginGetMarginNextHourlyInterestRateV1Request struct {
 	ctx context.Context
 	ApiService *BorrowAndRepayAPIService
 	assets *string
@@ -1013,18 +1013,18 @@ type BorrowAndRepayAPIMarginGetMarginNextHourlyInterestRateV1Request struct {
 }
 
 // List of assets, separated by commas, up to 20
-func (r BorrowAndRepayAPIMarginGetMarginNextHourlyInterestRateV1Request) Assets(assets string) BorrowAndRepayAPIMarginGetMarginNextHourlyInterestRateV1Request {
+func (r ApiMarginGetMarginNextHourlyInterestRateV1Request) Assets(assets string) ApiMarginGetMarginNextHourlyInterestRateV1Request {
 	r.assets = &assets
 	return r
 }
 
 // for isolated margin or not, &amp;#34;TRUE&amp;#34;, &amp;#34;FALSE&amp;#34;
-func (r BorrowAndRepayAPIMarginGetMarginNextHourlyInterestRateV1Request) IsIsolated(isIsolated bool) BorrowAndRepayAPIMarginGetMarginNextHourlyInterestRateV1Request {
+func (r ApiMarginGetMarginNextHourlyInterestRateV1Request) IsIsolated(isIsolated bool) ApiMarginGetMarginNextHourlyInterestRateV1Request {
 	r.isIsolated = &isIsolated
 	return r
 }
 
-func (r BorrowAndRepayAPIMarginGetMarginNextHourlyInterestRateV1Request) Execute() ([]MarginGetMarginNextHourlyInterestRateV1RespItem, *http.Response, error) {
+func (r ApiMarginGetMarginNextHourlyInterestRateV1Request) Execute() ([]MarginGetMarginNextHourlyInterestRateV1RespItem, *http.Response, error) {
 	return r.ApiService.MarginGetMarginNextHourlyInterestRateV1Execute(r)
 }
 
@@ -1034,10 +1034,10 @@ MarginGetMarginNextHourlyInterestRateV1 Get future hourly interest rate (USER_DA
 Get future hourly interest rate
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return BorrowAndRepayAPIMarginGetMarginNextHourlyInterestRateV1Request
+ @return ApiMarginGetMarginNextHourlyInterestRateV1Request
 */
-func (a *BorrowAndRepayAPIService) MarginGetMarginNextHourlyInterestRateV1(ctx context.Context) BorrowAndRepayAPIMarginGetMarginNextHourlyInterestRateV1Request {
-	return BorrowAndRepayAPIMarginGetMarginNextHourlyInterestRateV1Request{
+func (a *BorrowAndRepayAPIService) MarginGetMarginNextHourlyInterestRateV1(ctx context.Context) ApiMarginGetMarginNextHourlyInterestRateV1Request {
+	return ApiMarginGetMarginNextHourlyInterestRateV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1045,7 +1045,7 @@ func (a *BorrowAndRepayAPIService) MarginGetMarginNextHourlyInterestRateV1(ctx c
 
 // Execute executes the request
 //  @return []MarginGetMarginNextHourlyInterestRateV1RespItem
-func (a *BorrowAndRepayAPIService) MarginGetMarginNextHourlyInterestRateV1Execute(r BorrowAndRepayAPIMarginGetMarginNextHourlyInterestRateV1Request) ([]MarginGetMarginNextHourlyInterestRateV1RespItem, *http.Response, error) {
+func (a *BorrowAndRepayAPIService) MarginGetMarginNextHourlyInterestRateV1Execute(r ApiMarginGetMarginNextHourlyInterestRateV1Request) ([]MarginGetMarginNextHourlyInterestRateV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

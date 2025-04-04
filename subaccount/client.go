@@ -56,14 +56,6 @@ type APIClient struct {
 	AssetManagementAPI *AssetManagementAPIService
 
 	ManagedSubAccountAPI *ManagedSubAccountAPIService
-
-	V1API *V1APIService
-
-	V2API *V2APIService
-
-	V3API *V3APIService
-
-	V4API *V4APIService
 }
 
 type service struct {
@@ -86,10 +78,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ApiManagementAPI = (*ApiManagementAPIService)(&c.common)
 	c.AssetManagementAPI = (*AssetManagementAPIService)(&c.common)
 	c.ManagedSubAccountAPI = (*ManagedSubAccountAPIService)(&c.common)
-	c.V1API = (*V1APIService)(&c.common)
-	c.V2API = (*V2APIService)(&c.common)
-	c.V3API = (*V3APIService)(&c.common)
-	c.V4API = (*V4APIService)(&c.common)
 
 	return c
 }

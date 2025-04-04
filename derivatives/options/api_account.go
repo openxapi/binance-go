@@ -1,7 +1,7 @@
 /*
 Binance Options API
 
-OpenAPI specification for Binance cryptocurrency exchange - Options API
+OpenAPI specification for Binance exchange - Options API
 
 API version: 0.1.0
 */
@@ -22,24 +22,24 @@ import (
 // AccountAPIService AccountAPI service
 type AccountAPIService service
 
-type AccountAPIOptionsGetAccountV1Request struct {
+type ApiOptionsGetAccountV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPIOptionsGetAccountV1Request) Timestamp(timestamp int64) AccountAPIOptionsGetAccountV1Request {
+func (r ApiOptionsGetAccountV1Request) Timestamp(timestamp int64) ApiOptionsGetAccountV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIOptionsGetAccountV1Request) RecvWindow(recvWindow int64) AccountAPIOptionsGetAccountV1Request {
+func (r ApiOptionsGetAccountV1Request) RecvWindow(recvWindow int64) ApiOptionsGetAccountV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIOptionsGetAccountV1Request) Execute() (*OptionsGetAccountV1Resp, *http.Response, error) {
+func (r ApiOptionsGetAccountV1Request) Execute() (*OptionsGetAccountV1Resp, *http.Response, error) {
 	return r.ApiService.OptionsGetAccountV1Execute(r)
 }
 
@@ -49,10 +49,10 @@ OptionsGetAccountV1 Option Account Information(TRADE)
 Get current account information.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIOptionsGetAccountV1Request
+ @return ApiOptionsGetAccountV1Request
 */
-func (a *AccountAPIService) OptionsGetAccountV1(ctx context.Context) AccountAPIOptionsGetAccountV1Request {
-	return AccountAPIOptionsGetAccountV1Request{
+func (a *AccountAPIService) OptionsGetAccountV1(ctx context.Context) ApiOptionsGetAccountV1Request {
+	return ApiOptionsGetAccountV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -60,7 +60,7 @@ func (a *AccountAPIService) OptionsGetAccountV1(ctx context.Context) AccountAPIO
 
 // Execute executes the request
 //  @return OptionsGetAccountV1Resp
-func (a *AccountAPIService) OptionsGetAccountV1Execute(r AccountAPIOptionsGetAccountV1Request) (*OptionsGetAccountV1Resp, *http.Response, error) {
+func (a *AccountAPIService) OptionsGetAccountV1Execute(r ApiOptionsGetAccountV1Request) (*OptionsGetAccountV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -167,7 +167,7 @@ func (a *AccountAPIService) OptionsGetAccountV1Execute(r AccountAPIOptionsGetAcc
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIOptionsGetBillV1Request struct {
+type ApiOptionsGetBillV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	currency *string
@@ -180,46 +180,46 @@ type AccountAPIOptionsGetBillV1Request struct {
 }
 
 // Asset type, only support USDT  as of now
-func (r AccountAPIOptionsGetBillV1Request) Currency(currency string) AccountAPIOptionsGetBillV1Request {
+func (r ApiOptionsGetBillV1Request) Currency(currency string) ApiOptionsGetBillV1Request {
 	r.currency = &currency
 	return r
 }
 
-func (r AccountAPIOptionsGetBillV1Request) Timestamp(timestamp int64) AccountAPIOptionsGetBillV1Request {
+func (r ApiOptionsGetBillV1Request) Timestamp(timestamp int64) ApiOptionsGetBillV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Return the recordId and subsequent data, the latest data is returned by default, e.g 100000
-func (r AccountAPIOptionsGetBillV1Request) RecordId(recordId int64) AccountAPIOptionsGetBillV1Request {
+func (r ApiOptionsGetBillV1Request) RecordId(recordId int64) ApiOptionsGetBillV1Request {
 	r.recordId = &recordId
 	return r
 }
 
 // Start Time, e.g 1593511200000
-func (r AccountAPIOptionsGetBillV1Request) StartTime(startTime int64) AccountAPIOptionsGetBillV1Request {
+func (r ApiOptionsGetBillV1Request) StartTime(startTime int64) ApiOptionsGetBillV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // End Time, e.g 1593512200000
-func (r AccountAPIOptionsGetBillV1Request) EndTime(endTime int64) AccountAPIOptionsGetBillV1Request {
+func (r ApiOptionsGetBillV1Request) EndTime(endTime int64) ApiOptionsGetBillV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Number of result sets returned Default:100 Max:1000
-func (r AccountAPIOptionsGetBillV1Request) Limit(limit int32) AccountAPIOptionsGetBillV1Request {
+func (r ApiOptionsGetBillV1Request) Limit(limit int32) ApiOptionsGetBillV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r AccountAPIOptionsGetBillV1Request) RecvWindow(recvWindow int64) AccountAPIOptionsGetBillV1Request {
+func (r ApiOptionsGetBillV1Request) RecvWindow(recvWindow int64) ApiOptionsGetBillV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIOptionsGetBillV1Request) Execute() ([]OptionsGetBillV1RespItem, *http.Response, error) {
+func (r ApiOptionsGetBillV1Request) Execute() ([]OptionsGetBillV1RespItem, *http.Response, error) {
 	return r.ApiService.OptionsGetBillV1Execute(r)
 }
 
@@ -229,10 +229,10 @@ OptionsGetBillV1 Account Funding Flow (USER_DATA)
 Query account funding flows.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIOptionsGetBillV1Request
+ @return ApiOptionsGetBillV1Request
 */
-func (a *AccountAPIService) OptionsGetBillV1(ctx context.Context) AccountAPIOptionsGetBillV1Request {
-	return AccountAPIOptionsGetBillV1Request{
+func (a *AccountAPIService) OptionsGetBillV1(ctx context.Context) ApiOptionsGetBillV1Request {
+	return ApiOptionsGetBillV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -240,7 +240,7 @@ func (a *AccountAPIService) OptionsGetBillV1(ctx context.Context) AccountAPIOpti
 
 // Execute executes the request
 //  @return []OptionsGetBillV1RespItem
-func (a *AccountAPIService) OptionsGetBillV1Execute(r AccountAPIOptionsGetBillV1Request) ([]OptionsGetBillV1RespItem, *http.Response, error) {
+func (a *AccountAPIService) OptionsGetBillV1Execute(r ApiOptionsGetBillV1Request) ([]OptionsGetBillV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -363,7 +363,7 @@ func (a *AccountAPIService) OptionsGetBillV1Execute(r AccountAPIOptionsGetBillV1
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIOptionsGetIncomeAsynIdV1Request struct {
+type ApiOptionsGetIncomeAsynIdV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	downloadId *string
@@ -372,22 +372,22 @@ type AccountAPIOptionsGetIncomeAsynIdV1Request struct {
 }
 
 // get by download id api
-func (r AccountAPIOptionsGetIncomeAsynIdV1Request) DownloadId(downloadId string) AccountAPIOptionsGetIncomeAsynIdV1Request {
+func (r ApiOptionsGetIncomeAsynIdV1Request) DownloadId(downloadId string) ApiOptionsGetIncomeAsynIdV1Request {
 	r.downloadId = &downloadId
 	return r
 }
 
-func (r AccountAPIOptionsGetIncomeAsynIdV1Request) Timestamp(timestamp int64) AccountAPIOptionsGetIncomeAsynIdV1Request {
+func (r ApiOptionsGetIncomeAsynIdV1Request) Timestamp(timestamp int64) ApiOptionsGetIncomeAsynIdV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPIOptionsGetIncomeAsynIdV1Request) RecvWindow(recvWindow int64) AccountAPIOptionsGetIncomeAsynIdV1Request {
+func (r ApiOptionsGetIncomeAsynIdV1Request) RecvWindow(recvWindow int64) ApiOptionsGetIncomeAsynIdV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPIOptionsGetIncomeAsynIdV1Request) Execute() (*OptionsGetIncomeAsynIdV1Resp, *http.Response, error) {
+func (r ApiOptionsGetIncomeAsynIdV1Request) Execute() (*OptionsGetIncomeAsynIdV1Resp, *http.Response, error) {
 	return r.ApiService.OptionsGetIncomeAsynIdV1Execute(r)
 }
 
@@ -397,10 +397,10 @@ OptionsGetIncomeAsynIdV1 Get Option Transaction History Download Link by Id (USE
 Get option transaction history download Link by Id
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIOptionsGetIncomeAsynIdV1Request
+ @return ApiOptionsGetIncomeAsynIdV1Request
 */
-func (a *AccountAPIService) OptionsGetIncomeAsynIdV1(ctx context.Context) AccountAPIOptionsGetIncomeAsynIdV1Request {
-	return AccountAPIOptionsGetIncomeAsynIdV1Request{
+func (a *AccountAPIService) OptionsGetIncomeAsynIdV1(ctx context.Context) ApiOptionsGetIncomeAsynIdV1Request {
+	return ApiOptionsGetIncomeAsynIdV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -408,7 +408,7 @@ func (a *AccountAPIService) OptionsGetIncomeAsynIdV1(ctx context.Context) Accoun
 
 // Execute executes the request
 //  @return OptionsGetIncomeAsynIdV1Resp
-func (a *AccountAPIService) OptionsGetIncomeAsynIdV1Execute(r AccountAPIOptionsGetIncomeAsynIdV1Request) (*OptionsGetIncomeAsynIdV1Resp, *http.Response, error) {
+func (a *AccountAPIService) OptionsGetIncomeAsynIdV1Execute(r ApiOptionsGetIncomeAsynIdV1Request) (*OptionsGetIncomeAsynIdV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -519,12 +519,12 @@ func (a *AccountAPIService) OptionsGetIncomeAsynIdV1Execute(r AccountAPIOptionsG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPIOptionsGetIncomeAsynV1Request struct {
+type ApiOptionsGetIncomeAsynV1Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 }
 
-func (r AccountAPIOptionsGetIncomeAsynV1Request) Execute() (*OptionsGetIncomeAsynV1Resp, *http.Response, error) {
+func (r ApiOptionsGetIncomeAsynV1Request) Execute() (*OptionsGetIncomeAsynV1Resp, *http.Response, error) {
 	return r.ApiService.OptionsGetIncomeAsynV1Execute(r)
 }
 
@@ -534,10 +534,10 @@ OptionsGetIncomeAsynV1 Get Download Id For Option Transaction History (USER_DATA
 Get download id for option transaction history
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPIOptionsGetIncomeAsynV1Request
+ @return ApiOptionsGetIncomeAsynV1Request
 */
-func (a *AccountAPIService) OptionsGetIncomeAsynV1(ctx context.Context) AccountAPIOptionsGetIncomeAsynV1Request {
-	return AccountAPIOptionsGetIncomeAsynV1Request{
+func (a *AccountAPIService) OptionsGetIncomeAsynV1(ctx context.Context) ApiOptionsGetIncomeAsynV1Request {
+	return ApiOptionsGetIncomeAsynV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -545,7 +545,7 @@ func (a *AccountAPIService) OptionsGetIncomeAsynV1(ctx context.Context) AccountA
 
 // Execute executes the request
 //  @return OptionsGetIncomeAsynV1Resp
-func (a *AccountAPIService) OptionsGetIncomeAsynV1Execute(r AccountAPIOptionsGetIncomeAsynV1Request) (*OptionsGetIncomeAsynV1Resp, *http.Response, error) {
+func (a *AccountAPIService) OptionsGetIncomeAsynV1Execute(r ApiOptionsGetIncomeAsynV1Request) (*OptionsGetIncomeAsynV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

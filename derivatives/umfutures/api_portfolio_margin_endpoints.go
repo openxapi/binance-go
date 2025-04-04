@@ -1,7 +1,7 @@
 /*
-Binance Umfutures API
+Binance USD-M Futures API
 
-OpenAPI specification for Binance cryptocurrency exchange - Umfutures API
+OpenAPI specification for Binance exchange - Umfutures API
 
 API version: 0.1.0
 */
@@ -22,7 +22,7 @@ import (
 // PortfolioMarginEndpointsAPIService PortfolioMarginEndpointsAPI service
 type PortfolioMarginEndpointsAPIService service
 
-type PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request struct {
+type ApiUmfuturesGetPmAccountInfoV1Request struct {
 	ctx context.Context
 	ApiService *PortfolioMarginEndpointsAPIService
 	asset *string
@@ -30,22 +30,22 @@ type PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request struct {
 	recvWindow *int64
 }
 
-func (r PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request) Asset(asset string) PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request {
+func (r ApiUmfuturesGetPmAccountInfoV1Request) Asset(asset string) ApiUmfuturesGetPmAccountInfoV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request) Timestamp(timestamp int64) PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request {
+func (r ApiUmfuturesGetPmAccountInfoV1Request) Timestamp(timestamp int64) ApiUmfuturesGetPmAccountInfoV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request) RecvWindow(recvWindow int64) PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request {
+func (r ApiUmfuturesGetPmAccountInfoV1Request) RecvWindow(recvWindow int64) ApiUmfuturesGetPmAccountInfoV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request) Execute() (*UmfuturesGetPmAccountInfoV1Resp, *http.Response, error) {
+func (r ApiUmfuturesGetPmAccountInfoV1Request) Execute() (*UmfuturesGetPmAccountInfoV1Resp, *http.Response, error) {
 	return r.ApiService.UmfuturesGetPmAccountInfoV1Execute(r)
 }
 
@@ -55,10 +55,10 @@ UmfuturesGetPmAccountInfoV1 Classic Portfolio Margin Account Information (USER_D
 Get Classic Portfolio Margin current account information.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request
+ @return ApiUmfuturesGetPmAccountInfoV1Request
 */
-func (a *PortfolioMarginEndpointsAPIService) UmfuturesGetPmAccountInfoV1(ctx context.Context) PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request {
-	return PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request{
+func (a *PortfolioMarginEndpointsAPIService) UmfuturesGetPmAccountInfoV1(ctx context.Context) ApiUmfuturesGetPmAccountInfoV1Request {
+	return ApiUmfuturesGetPmAccountInfoV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -66,7 +66,7 @@ func (a *PortfolioMarginEndpointsAPIService) UmfuturesGetPmAccountInfoV1(ctx con
 
 // Execute executes the request
 //  @return UmfuturesGetPmAccountInfoV1Resp
-func (a *PortfolioMarginEndpointsAPIService) UmfuturesGetPmAccountInfoV1Execute(r PortfolioMarginEndpointsAPIUmfuturesGetPmAccountInfoV1Request) (*UmfuturesGetPmAccountInfoV1Resp, *http.Response, error) {
+func (a *PortfolioMarginEndpointsAPIService) UmfuturesGetPmAccountInfoV1Execute(r ApiUmfuturesGetPmAccountInfoV1Request) (*UmfuturesGetPmAccountInfoV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

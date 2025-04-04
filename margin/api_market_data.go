@@ -1,7 +1,7 @@
 /*
-Binance Margin API
+Binance Margin Trading API
 
-OpenAPI specification for Binance cryptocurrency exchange - Margin API
+OpenAPI specification for Binance exchange - Margin API
 
 API version: 0.1.0
 */
@@ -22,18 +22,18 @@ import (
 // MarketDataAPIService MarketDataAPI service
 type MarketDataAPIService service
 
-type MarketDataAPIMarginGetMarginAllAssetsV1Request struct {
+type ApiMarginGetMarginAllAssetsV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	asset *string
 }
 
-func (r MarketDataAPIMarginGetMarginAllAssetsV1Request) Asset(asset string) MarketDataAPIMarginGetMarginAllAssetsV1Request {
+func (r ApiMarginGetMarginAllAssetsV1Request) Asset(asset string) ApiMarginGetMarginAllAssetsV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r MarketDataAPIMarginGetMarginAllAssetsV1Request) Execute() ([]MarginGetMarginAllAssetsV1RespItem, *http.Response, error) {
+func (r ApiMarginGetMarginAllAssetsV1Request) Execute() ([]MarginGetMarginAllAssetsV1RespItem, *http.Response, error) {
 	return r.ApiService.MarginGetMarginAllAssetsV1Execute(r)
 }
 
@@ -43,10 +43,10 @@ MarginGetMarginAllAssetsV1 Get All Margin Assets (MARKET_DATA)
 Get All Margin Assets.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIMarginGetMarginAllAssetsV1Request
+ @return ApiMarginGetMarginAllAssetsV1Request
 */
-func (a *MarketDataAPIService) MarginGetMarginAllAssetsV1(ctx context.Context) MarketDataAPIMarginGetMarginAllAssetsV1Request {
-	return MarketDataAPIMarginGetMarginAllAssetsV1Request{
+func (a *MarketDataAPIService) MarginGetMarginAllAssetsV1(ctx context.Context) ApiMarginGetMarginAllAssetsV1Request {
+	return ApiMarginGetMarginAllAssetsV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -54,7 +54,7 @@ func (a *MarketDataAPIService) MarginGetMarginAllAssetsV1(ctx context.Context) M
 
 // Execute executes the request
 //  @return []MarginGetMarginAllAssetsV1RespItem
-func (a *MarketDataAPIService) MarginGetMarginAllAssetsV1Execute(r MarketDataAPIMarginGetMarginAllAssetsV1Request) ([]MarginGetMarginAllAssetsV1RespItem, *http.Response, error) {
+func (a *MarketDataAPIService) MarginGetMarginAllAssetsV1Execute(r ApiMarginGetMarginAllAssetsV1Request) ([]MarginGetMarginAllAssetsV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -154,18 +154,18 @@ func (a *MarketDataAPIService) MarginGetMarginAllAssetsV1Execute(r MarketDataAPI
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPIMarginGetMarginAllPairsV1Request struct {
+type ApiMarginGetMarginAllPairsV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
 }
 
-func (r MarketDataAPIMarginGetMarginAllPairsV1Request) Symbol(symbol string) MarketDataAPIMarginGetMarginAllPairsV1Request {
+func (r ApiMarginGetMarginAllPairsV1Request) Symbol(symbol string) ApiMarginGetMarginAllPairsV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r MarketDataAPIMarginGetMarginAllPairsV1Request) Execute() ([]MarginGetMarginAllPairsV1RespItem, *http.Response, error) {
+func (r ApiMarginGetMarginAllPairsV1Request) Execute() ([]MarginGetMarginAllPairsV1RespItem, *http.Response, error) {
 	return r.ApiService.MarginGetMarginAllPairsV1Execute(r)
 }
 
@@ -175,10 +175,10 @@ MarginGetMarginAllPairsV1 Get All Cross Margin Pairs (MARKET_DATA)
 Get All Cross Margin Pairs
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIMarginGetMarginAllPairsV1Request
+ @return ApiMarginGetMarginAllPairsV1Request
 */
-func (a *MarketDataAPIService) MarginGetMarginAllPairsV1(ctx context.Context) MarketDataAPIMarginGetMarginAllPairsV1Request {
-	return MarketDataAPIMarginGetMarginAllPairsV1Request{
+func (a *MarketDataAPIService) MarginGetMarginAllPairsV1(ctx context.Context) ApiMarginGetMarginAllPairsV1Request {
+	return ApiMarginGetMarginAllPairsV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -186,7 +186,7 @@ func (a *MarketDataAPIService) MarginGetMarginAllPairsV1(ctx context.Context) Ma
 
 // Execute executes the request
 //  @return []MarginGetMarginAllPairsV1RespItem
-func (a *MarketDataAPIService) MarginGetMarginAllPairsV1Execute(r MarketDataAPIMarginGetMarginAllPairsV1Request) ([]MarginGetMarginAllPairsV1RespItem, *http.Response, error) {
+func (a *MarketDataAPIService) MarginGetMarginAllPairsV1Execute(r ApiMarginGetMarginAllPairsV1Request) ([]MarginGetMarginAllPairsV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -286,19 +286,19 @@ func (a *MarketDataAPIService) MarginGetMarginAllPairsV1Execute(r MarketDataAPIM
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPIMarginGetMarginAvailableInventoryV1Request struct {
+type ApiMarginGetMarginAvailableInventoryV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	type_ *string
 }
 
 // MARGIN,ISOLATED
-func (r MarketDataAPIMarginGetMarginAvailableInventoryV1Request) Type_(type_ string) MarketDataAPIMarginGetMarginAvailableInventoryV1Request {
+func (r ApiMarginGetMarginAvailableInventoryV1Request) Type_(type_ string) ApiMarginGetMarginAvailableInventoryV1Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r MarketDataAPIMarginGetMarginAvailableInventoryV1Request) Execute() (*MarginGetMarginAvailableInventoryV1Resp, *http.Response, error) {
+func (r ApiMarginGetMarginAvailableInventoryV1Request) Execute() (*MarginGetMarginAvailableInventoryV1Resp, *http.Response, error) {
 	return r.ApiService.MarginGetMarginAvailableInventoryV1Execute(r)
 }
 
@@ -308,10 +308,10 @@ MarginGetMarginAvailableInventoryV1 Query Margin Available Inventory(USER_DATA)
 Margin available Inventory query
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIMarginGetMarginAvailableInventoryV1Request
+ @return ApiMarginGetMarginAvailableInventoryV1Request
 */
-func (a *MarketDataAPIService) MarginGetMarginAvailableInventoryV1(ctx context.Context) MarketDataAPIMarginGetMarginAvailableInventoryV1Request {
-	return MarketDataAPIMarginGetMarginAvailableInventoryV1Request{
+func (a *MarketDataAPIService) MarginGetMarginAvailableInventoryV1(ctx context.Context) ApiMarginGetMarginAvailableInventoryV1Request {
+	return ApiMarginGetMarginAvailableInventoryV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -319,7 +319,7 @@ func (a *MarketDataAPIService) MarginGetMarginAvailableInventoryV1(ctx context.C
 
 // Execute executes the request
 //  @return MarginGetMarginAvailableInventoryV1Resp
-func (a *MarketDataAPIService) MarginGetMarginAvailableInventoryV1Execute(r MarketDataAPIMarginGetMarginAvailableInventoryV1Request) (*MarginGetMarginAvailableInventoryV1Resp, *http.Response, error) {
+func (a *MarketDataAPIService) MarginGetMarginAvailableInventoryV1Execute(r ApiMarginGetMarginAvailableInventoryV1Request) (*MarginGetMarginAvailableInventoryV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -423,12 +423,12 @@ func (a *MarketDataAPIService) MarginGetMarginAvailableInventoryV1Execute(r Mark
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPIMarginGetMarginCrossMarginCollateralRatioV1Request struct {
+type ApiMarginGetMarginCrossMarginCollateralRatioV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 }
 
-func (r MarketDataAPIMarginGetMarginCrossMarginCollateralRatioV1Request) Execute() ([]MarginGetMarginCrossMarginCollateralRatioV1RespItem, *http.Response, error) {
+func (r ApiMarginGetMarginCrossMarginCollateralRatioV1Request) Execute() ([]MarginGetMarginCrossMarginCollateralRatioV1RespItem, *http.Response, error) {
 	return r.ApiService.MarginGetMarginCrossMarginCollateralRatioV1Execute(r)
 }
 
@@ -438,10 +438,10 @@ MarginGetMarginCrossMarginCollateralRatioV1 Cross margin collateral ratio (MARKE
 Cross margin collateral ratio
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIMarginGetMarginCrossMarginCollateralRatioV1Request
+ @return ApiMarginGetMarginCrossMarginCollateralRatioV1Request
 */
-func (a *MarketDataAPIService) MarginGetMarginCrossMarginCollateralRatioV1(ctx context.Context) MarketDataAPIMarginGetMarginCrossMarginCollateralRatioV1Request {
-	return MarketDataAPIMarginGetMarginCrossMarginCollateralRatioV1Request{
+func (a *MarketDataAPIService) MarginGetMarginCrossMarginCollateralRatioV1(ctx context.Context) ApiMarginGetMarginCrossMarginCollateralRatioV1Request {
+	return ApiMarginGetMarginCrossMarginCollateralRatioV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -449,7 +449,7 @@ func (a *MarketDataAPIService) MarginGetMarginCrossMarginCollateralRatioV1(ctx c
 
 // Execute executes the request
 //  @return []MarginGetMarginCrossMarginCollateralRatioV1RespItem
-func (a *MarketDataAPIService) MarginGetMarginCrossMarginCollateralRatioV1Execute(r MarketDataAPIMarginGetMarginCrossMarginCollateralRatioV1Request) ([]MarginGetMarginCrossMarginCollateralRatioV1RespItem, *http.Response, error) {
+func (a *MarketDataAPIService) MarginGetMarginCrossMarginCollateralRatioV1Execute(r ApiMarginGetMarginCrossMarginCollateralRatioV1Request) ([]MarginGetMarginCrossMarginCollateralRatioV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -543,24 +543,24 @@ func (a *MarketDataAPIService) MarginGetMarginCrossMarginCollateralRatioV1Execut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPIMarginGetMarginDelistScheduleV1Request struct {
+type ApiMarginGetMarginDelistScheduleV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r MarketDataAPIMarginGetMarginDelistScheduleV1Request) Timestamp(timestamp int64) MarketDataAPIMarginGetMarginDelistScheduleV1Request {
+func (r ApiMarginGetMarginDelistScheduleV1Request) Timestamp(timestamp int64) ApiMarginGetMarginDelistScheduleV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r MarketDataAPIMarginGetMarginDelistScheduleV1Request) RecvWindow(recvWindow int64) MarketDataAPIMarginGetMarginDelistScheduleV1Request {
+func (r ApiMarginGetMarginDelistScheduleV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginDelistScheduleV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r MarketDataAPIMarginGetMarginDelistScheduleV1Request) Execute() ([]MarginGetMarginDelistScheduleV1RespItem, *http.Response, error) {
+func (r ApiMarginGetMarginDelistScheduleV1Request) Execute() ([]MarginGetMarginDelistScheduleV1RespItem, *http.Response, error) {
 	return r.ApiService.MarginGetMarginDelistScheduleV1Execute(r)
 }
 
@@ -570,10 +570,10 @@ MarginGetMarginDelistScheduleV1 Get Delist Schedule (MARKET_DATA)
 Get tokens or symbols delist schedule for cross margin and isolated margin
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIMarginGetMarginDelistScheduleV1Request
+ @return ApiMarginGetMarginDelistScheduleV1Request
 */
-func (a *MarketDataAPIService) MarginGetMarginDelistScheduleV1(ctx context.Context) MarketDataAPIMarginGetMarginDelistScheduleV1Request {
-	return MarketDataAPIMarginGetMarginDelistScheduleV1Request{
+func (a *MarketDataAPIService) MarginGetMarginDelistScheduleV1(ctx context.Context) ApiMarginGetMarginDelistScheduleV1Request {
+	return ApiMarginGetMarginDelistScheduleV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -581,7 +581,7 @@ func (a *MarketDataAPIService) MarginGetMarginDelistScheduleV1(ctx context.Conte
 
 // Execute executes the request
 //  @return []MarginGetMarginDelistScheduleV1RespItem
-func (a *MarketDataAPIService) MarginGetMarginDelistScheduleV1Execute(r MarketDataAPIMarginGetMarginDelistScheduleV1Request) ([]MarginGetMarginDelistScheduleV1RespItem, *http.Response, error) {
+func (a *MarketDataAPIService) MarginGetMarginDelistScheduleV1Execute(r ApiMarginGetMarginDelistScheduleV1Request) ([]MarginGetMarginDelistScheduleV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -682,7 +682,7 @@ func (a *MarketDataAPIService) MarginGetMarginDelistScheduleV1Execute(r MarketDa
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPIMarginGetMarginIsolatedAllPairsV1Request struct {
+type ApiMarginGetMarginIsolatedAllPairsV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	timestamp *int64
@@ -690,23 +690,23 @@ type MarketDataAPIMarginGetMarginIsolatedAllPairsV1Request struct {
 	recvWindow *int64
 }
 
-func (r MarketDataAPIMarginGetMarginIsolatedAllPairsV1Request) Timestamp(timestamp int64) MarketDataAPIMarginGetMarginIsolatedAllPairsV1Request {
+func (r ApiMarginGetMarginIsolatedAllPairsV1Request) Timestamp(timestamp int64) ApiMarginGetMarginIsolatedAllPairsV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r MarketDataAPIMarginGetMarginIsolatedAllPairsV1Request) Symbol(symbol string) MarketDataAPIMarginGetMarginIsolatedAllPairsV1Request {
+func (r ApiMarginGetMarginIsolatedAllPairsV1Request) Symbol(symbol string) ApiMarginGetMarginIsolatedAllPairsV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // No more than 60000
-func (r MarketDataAPIMarginGetMarginIsolatedAllPairsV1Request) RecvWindow(recvWindow int64) MarketDataAPIMarginGetMarginIsolatedAllPairsV1Request {
+func (r ApiMarginGetMarginIsolatedAllPairsV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginIsolatedAllPairsV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r MarketDataAPIMarginGetMarginIsolatedAllPairsV1Request) Execute() ([]MarginGetMarginIsolatedAllPairsV1RespItem, *http.Response, error) {
+func (r ApiMarginGetMarginIsolatedAllPairsV1Request) Execute() ([]MarginGetMarginIsolatedAllPairsV1RespItem, *http.Response, error) {
 	return r.ApiService.MarginGetMarginIsolatedAllPairsV1Execute(r)
 }
 
@@ -716,10 +716,10 @@ MarginGetMarginIsolatedAllPairsV1 Get All Isolated Margin Symbol(MARKET_DATA)
 Get All Isolated Margin Symbol
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIMarginGetMarginIsolatedAllPairsV1Request
+ @return ApiMarginGetMarginIsolatedAllPairsV1Request
 */
-func (a *MarketDataAPIService) MarginGetMarginIsolatedAllPairsV1(ctx context.Context) MarketDataAPIMarginGetMarginIsolatedAllPairsV1Request {
-	return MarketDataAPIMarginGetMarginIsolatedAllPairsV1Request{
+func (a *MarketDataAPIService) MarginGetMarginIsolatedAllPairsV1(ctx context.Context) ApiMarginGetMarginIsolatedAllPairsV1Request {
+	return ApiMarginGetMarginIsolatedAllPairsV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -727,7 +727,7 @@ func (a *MarketDataAPIService) MarginGetMarginIsolatedAllPairsV1(ctx context.Con
 
 // Execute executes the request
 //  @return []MarginGetMarginIsolatedAllPairsV1RespItem
-func (a *MarketDataAPIService) MarginGetMarginIsolatedAllPairsV1Execute(r MarketDataAPIMarginGetMarginIsolatedAllPairsV1Request) ([]MarginGetMarginIsolatedAllPairsV1RespItem, *http.Response, error) {
+func (a *MarketDataAPIService) MarginGetMarginIsolatedAllPairsV1Execute(r ApiMarginGetMarginIsolatedAllPairsV1Request) ([]MarginGetMarginIsolatedAllPairsV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -834,7 +834,7 @@ func (a *MarketDataAPIService) MarginGetMarginIsolatedAllPairsV1Execute(r Market
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPIMarginGetMarginIsolatedMarginTierV1Request struct {
+type ApiMarginGetMarginIsolatedMarginTierV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
@@ -843,29 +843,29 @@ type MarketDataAPIMarginGetMarginIsolatedMarginTierV1Request struct {
 	recvWindow *int64
 }
 
-func (r MarketDataAPIMarginGetMarginIsolatedMarginTierV1Request) Symbol(symbol string) MarketDataAPIMarginGetMarginIsolatedMarginTierV1Request {
+func (r ApiMarginGetMarginIsolatedMarginTierV1Request) Symbol(symbol string) ApiMarginGetMarginIsolatedMarginTierV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r MarketDataAPIMarginGetMarginIsolatedMarginTierV1Request) Timestamp(timestamp int64) MarketDataAPIMarginGetMarginIsolatedMarginTierV1Request {
+func (r ApiMarginGetMarginIsolatedMarginTierV1Request) Timestamp(timestamp int64) ApiMarginGetMarginIsolatedMarginTierV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // All margin tier data will be returned if tier is omitted
-func (r MarketDataAPIMarginGetMarginIsolatedMarginTierV1Request) Tier(tier int32) MarketDataAPIMarginGetMarginIsolatedMarginTierV1Request {
+func (r ApiMarginGetMarginIsolatedMarginTierV1Request) Tier(tier int32) ApiMarginGetMarginIsolatedMarginTierV1Request {
 	r.tier = &tier
 	return r
 }
 
 // No more than &#x60;60000&#x60;
-func (r MarketDataAPIMarginGetMarginIsolatedMarginTierV1Request) RecvWindow(recvWindow int64) MarketDataAPIMarginGetMarginIsolatedMarginTierV1Request {
+func (r ApiMarginGetMarginIsolatedMarginTierV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginIsolatedMarginTierV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r MarketDataAPIMarginGetMarginIsolatedMarginTierV1Request) Execute() ([]MarginGetMarginIsolatedMarginTierV1RespItem, *http.Response, error) {
+func (r ApiMarginGetMarginIsolatedMarginTierV1Request) Execute() ([]MarginGetMarginIsolatedMarginTierV1RespItem, *http.Response, error) {
 	return r.ApiService.MarginGetMarginIsolatedMarginTierV1Execute(r)
 }
 
@@ -875,10 +875,10 @@ MarginGetMarginIsolatedMarginTierV1 Query Isolated Margin Tier Data (USER_DATA)
 Get isolated margin tier data collection with any tier as https://www.binance.com/en/margin-data
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIMarginGetMarginIsolatedMarginTierV1Request
+ @return ApiMarginGetMarginIsolatedMarginTierV1Request
 */
-func (a *MarketDataAPIService) MarginGetMarginIsolatedMarginTierV1(ctx context.Context) MarketDataAPIMarginGetMarginIsolatedMarginTierV1Request {
-	return MarketDataAPIMarginGetMarginIsolatedMarginTierV1Request{
+func (a *MarketDataAPIService) MarginGetMarginIsolatedMarginTierV1(ctx context.Context) ApiMarginGetMarginIsolatedMarginTierV1Request {
+	return ApiMarginGetMarginIsolatedMarginTierV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -886,7 +886,7 @@ func (a *MarketDataAPIService) MarginGetMarginIsolatedMarginTierV1(ctx context.C
 
 // Execute executes the request
 //  @return []MarginGetMarginIsolatedMarginTierV1RespItem
-func (a *MarketDataAPIService) MarginGetMarginIsolatedMarginTierV1Execute(r MarketDataAPIMarginGetMarginIsolatedMarginTierV1Request) ([]MarginGetMarginIsolatedMarginTierV1RespItem, *http.Response, error) {
+func (a *MarketDataAPIService) MarginGetMarginIsolatedMarginTierV1Execute(r ApiMarginGetMarginIsolatedMarginTierV1Request) ([]MarginGetMarginIsolatedMarginTierV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1000,12 +1000,12 @@ func (a *MarketDataAPIService) MarginGetMarginIsolatedMarginTierV1Execute(r Mark
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPIMarginGetMarginLeverageBracketV1Request struct {
+type ApiMarginGetMarginLeverageBracketV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 }
 
-func (r MarketDataAPIMarginGetMarginLeverageBracketV1Request) Execute() ([]MarginGetMarginLeverageBracketV1RespItem, *http.Response, error) {
+func (r ApiMarginGetMarginLeverageBracketV1Request) Execute() ([]MarginGetMarginLeverageBracketV1RespItem, *http.Response, error) {
 	return r.ApiService.MarginGetMarginLeverageBracketV1Execute(r)
 }
 
@@ -1015,10 +1015,10 @@ MarginGetMarginLeverageBracketV1 Query Liability Coin Leverage Bracket in Cross 
 Liability Coin Leverage Bracket in Cross Margin Pro Mode
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIMarginGetMarginLeverageBracketV1Request
+ @return ApiMarginGetMarginLeverageBracketV1Request
 */
-func (a *MarketDataAPIService) MarginGetMarginLeverageBracketV1(ctx context.Context) MarketDataAPIMarginGetMarginLeverageBracketV1Request {
-	return MarketDataAPIMarginGetMarginLeverageBracketV1Request{
+func (a *MarketDataAPIService) MarginGetMarginLeverageBracketV1(ctx context.Context) ApiMarginGetMarginLeverageBracketV1Request {
+	return ApiMarginGetMarginLeverageBracketV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1026,7 +1026,7 @@ func (a *MarketDataAPIService) MarginGetMarginLeverageBracketV1(ctx context.Cont
 
 // Execute executes the request
 //  @return []MarginGetMarginLeverageBracketV1RespItem
-func (a *MarketDataAPIService) MarginGetMarginLeverageBracketV1Execute(r MarketDataAPIMarginGetMarginLeverageBracketV1Request) ([]MarginGetMarginLeverageBracketV1RespItem, *http.Response, error) {
+func (a *MarketDataAPIService) MarginGetMarginLeverageBracketV1Execute(r ApiMarginGetMarginLeverageBracketV1Request) ([]MarginGetMarginLeverageBracketV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1120,18 +1120,18 @@ func (a *MarketDataAPIService) MarginGetMarginLeverageBracketV1Execute(r MarketD
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPIMarginGetMarginPriceIndexV1Request struct {
+type ApiMarginGetMarginPriceIndexV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
 }
 
-func (r MarketDataAPIMarginGetMarginPriceIndexV1Request) Symbol(symbol string) MarketDataAPIMarginGetMarginPriceIndexV1Request {
+func (r ApiMarginGetMarginPriceIndexV1Request) Symbol(symbol string) ApiMarginGetMarginPriceIndexV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r MarketDataAPIMarginGetMarginPriceIndexV1Request) Execute() (*MarginGetMarginPriceIndexV1Resp, *http.Response, error) {
+func (r ApiMarginGetMarginPriceIndexV1Request) Execute() (*MarginGetMarginPriceIndexV1Resp, *http.Response, error) {
 	return r.ApiService.MarginGetMarginPriceIndexV1Execute(r)
 }
 
@@ -1141,10 +1141,10 @@ MarginGetMarginPriceIndexV1 Query Margin PriceIndex (MARKET_DATA)
 Query Margin PriceIndex
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIMarginGetMarginPriceIndexV1Request
+ @return ApiMarginGetMarginPriceIndexV1Request
 */
-func (a *MarketDataAPIService) MarginGetMarginPriceIndexV1(ctx context.Context) MarketDataAPIMarginGetMarginPriceIndexV1Request {
-	return MarketDataAPIMarginGetMarginPriceIndexV1Request{
+func (a *MarketDataAPIService) MarginGetMarginPriceIndexV1(ctx context.Context) ApiMarginGetMarginPriceIndexV1Request {
+	return ApiMarginGetMarginPriceIndexV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1152,7 +1152,7 @@ func (a *MarketDataAPIService) MarginGetMarginPriceIndexV1(ctx context.Context) 
 
 // Execute executes the request
 //  @return MarginGetMarginPriceIndexV1Resp
-func (a *MarketDataAPIService) MarginGetMarginPriceIndexV1Execute(r MarketDataAPIMarginGetMarginPriceIndexV1Request) (*MarginGetMarginPriceIndexV1Resp, *http.Response, error) {
+func (a *MarketDataAPIService) MarginGetMarginPriceIndexV1Execute(r ApiMarginGetMarginPriceIndexV1Request) (*MarginGetMarginPriceIndexV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

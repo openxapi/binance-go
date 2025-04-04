@@ -1,8 +1,7 @@
 openapi: 3.0.3
 info:
-  description: OpenAPI specification for Binance cryptocurrency exchange - Cmfutures
-    API
-  title: Binance Cmfutures API
+  description: OpenAPI specification for Binance exchange - Cmfutures API
+  title: Binance COIN-M Futures API
   version: 0.1.0
 servers:
 - description: Binance Cmfutures API Server
@@ -53,7 +52,6 @@ paths:
       summary: Account Information (USER_DATA)
       tags:
       - Account
-      - V1
   /dapi/v1/adlQuantile:
     get:
       description: Query position ADL quantile estimation
@@ -107,7 +105,6 @@ paths:
       summary: Position ADL Quantile Estimation(USER_DATA)
       tags:
       - Trade
-      - V1
   /dapi/v1/aggTrades:
     get:
       description: "Get compressed, aggregate trades. Market trades that fill in 100ms\
@@ -181,7 +178,6 @@ paths:
       summary: Compressed/Aggregate Trades List
       tags:
       - Market Data
-      - V1
   /dapi/v1/allOpenOrders:
     delete:
       description: Cancel All Open Orders
@@ -235,7 +231,6 @@ paths:
       summary: Cancel All Open Orders(TRADE)
       tags:
       - Trade
-      - V1
   /dapi/v1/allOrders:
     get:
       description: "Get all account orders; active, canceled, or filled."
@@ -331,7 +326,6 @@ paths:
       summary: All Orders (USER_DATA)
       tags:
       - Trade
-      - V1
   /dapi/v1/balance:
     get:
       description: Check futures account balance
@@ -377,7 +371,6 @@ paths:
       summary: Futures Account Balance (USER_DATA)
       tags:
       - Account
-      - V1
   /dapi/v1/batchOrders:
     delete:
       description: Cancel Multiple Orders
@@ -454,7 +447,6 @@ paths:
       summary: Cancel Multiple Orders(TRADE)
       tags:
       - Trade
-      - V1
     post:
       description: Place multiple orders
       operationId: CmfuturesCreateBatchOrdersV1
@@ -489,7 +481,6 @@ paths:
       summary: Place Multiple Orders(TRADE)
       tags:
       - Trade
-      - V1
     put:
       description: Modify Multiple Orders
       operationId: CmfuturesUpdateBatchOrdersV1
@@ -524,7 +515,6 @@ paths:
       summary: Modify Multiple Orders(TRADE)
       tags:
       - Trade
-      - V1
   /dapi/v1/commissionRate:
     get:
       description: Query user commission rate
@@ -578,7 +568,6 @@ paths:
       summary: User Commission Rate (USER_DATA)
       tags:
       - Account
-      - V1
   /dapi/v1/constituents:
     get:
       description: Query index price constituents
@@ -614,7 +603,6 @@ paths:
       summary: Query Index Price Constituents
       tags:
       - Market Data
-      - V1
   /dapi/v1/continuousKlines:
     get:
       description: |-
@@ -694,7 +682,6 @@ paths:
       summary: Continuous Contract Kline/Candlestick Data
       tags:
       - Market Data
-      - V1
   /dapi/v1/countdownCancelAll:
     post:
       description: "Cancel all open orders of the specified symbol at the end of the\
@@ -737,7 +724,6 @@ paths:
       summary: Auto-Cancel All Open Orders (TRADE)
       tags:
       - Trade
-      - V1
   /dapi/v1/depth:
     get:
       description: Query orderbook on specific symbol
@@ -782,7 +768,6 @@ paths:
       summary: Order Book
       tags:
       - Market Data
-      - V1
   /dapi/v1/exchangeInfo:
     get:
       description: Current exchange trading rules and symbol information
@@ -809,7 +794,6 @@ paths:
       summary: Exchange Information
       tags:
       - Market Data
-      - V1
   /dapi/v1/forceOrders:
     get:
       description: User's Force Orders
@@ -896,7 +880,6 @@ paths:
       summary: User's Force Orders(USER_DATA)
       tags:
       - Trade
-      - V1
   /dapi/v1/fundingInfo:
     get:
       description: Query funding rate info for symbols that had FundingRateCap/ FundingRateFloor
@@ -924,7 +907,6 @@ paths:
       summary: Get Funding Rate Info
       tags:
       - Market Data
-      - V1
   /dapi/v1/fundingRate:
     get:
       description: Get Funding Rate History of Perpetual Futures
@@ -988,7 +970,6 @@ paths:
       summary: Get Funding Rate History of Perpetual Futures
       tags:
       - Market Data
-      - V1
   /dapi/v1/historicalTrades:
     get:
       description: Get older market historical trades.
@@ -1043,7 +1024,6 @@ paths:
       summary: Old Trades Lookup(MARKET_DATA)
       tags:
       - Market Data
-      - V1
   /dapi/v1/income:
     get:
       description: Get income history
@@ -1143,7 +1123,6 @@ paths:
       summary: Get Income History(USER_DATA)
       tags:
       - Account
-      - V1
   /dapi/v1/income/asyn:
     get:
       description: Get download id for futures transaction history
@@ -1207,7 +1186,6 @@ paths:
       summary: Get Download Id For Futures Transaction History(USER_DATA)
       tags:
       - Account
-      - V1
   /dapi/v1/income/asyn/id:
     get:
       description: Get futures transaction history download link by Id
@@ -1262,7 +1240,6 @@ paths:
       summary: Get Futures Transaction History Download Link by Id (USER_DATA)
       tags:
       - Account
-      - V1
   /dapi/v1/indexPriceKlines:
     get:
       description: Kline/candlestick bars for the index price of a pair. Klines are
@@ -1333,7 +1310,6 @@ paths:
       summary: Index Price Kline/Candlestick Data
       tags:
       - Market Data
-      - V1
   /dapi/v1/klines:
     get:
       description: |-
@@ -1405,7 +1381,6 @@ paths:
       summary: Kline/Candlestick Data
       tags:
       - Market Data
-      - V1
   /dapi/v1/leverage:
     post:
       description: |-
@@ -1443,7 +1418,6 @@ paths:
       summary: Change Initial Leverage (TRADE)
       tags:
       - Trade
-      - V1
   /dapi/v1/leverageBracket:
     get:
       description: Not recommended to continue using this v1 endpoint
@@ -1497,7 +1471,6 @@ paths:
       summary: Notional Bracket for Pair(USER_DATA)
       tags:
       - Account
-      - V1
   /dapi/v1/listenKey:
     delete:
       description: Close out a user data stream.
@@ -1526,7 +1499,6 @@ paths:
       summary: Close User Data Stream(USER_STREAM)
       tags:
       - User Data Streams
-      - V1
     post:
       description: "Start a new user data stream. The stream will close after 60 minutes\
         \ unless a keepalive is sent. If the account has an active listenKey, that\
@@ -1556,7 +1528,6 @@ paths:
       summary: Start User Data Stream (USER_STREAM)
       tags:
       - User Data Streams
-      - V1
     put:
       description: Keepalive a user data stream to prevent a time out. User data streams
         will close after 60 minutes.
@@ -1585,7 +1556,6 @@ paths:
       summary: Keepalive User Data Stream (USER_STREAM)
       tags:
       - User Data Streams
-      - V1
   /dapi/v1/marginType:
     post:
       description: |-
@@ -1623,7 +1593,6 @@ paths:
       summary: Change Margin Type (TRADE)
       tags:
       - Trade
-      - V1
   /dapi/v1/markPriceKlines:
     get:
       description: |-
@@ -1695,7 +1664,6 @@ paths:
       summary: Mark Price Kline/Candlestick Data
       tags:
       - Market Data
-      - V1
   /dapi/v1/openInterest:
     get:
       description: Get present open interest of a specific symbol.
@@ -1731,7 +1699,6 @@ paths:
       summary: Open Interest
       tags:
       - Market Data
-      - V1
   /dapi/v1/openOrder:
     get:
       description: Query Current Open Order
@@ -1801,7 +1768,6 @@ paths:
       summary: Query Current Open Order(USER_DATA)
       tags:
       - Trade
-      - V1
   /dapi/v1/openOrders:
     get:
       description: Get all open orders on a symbol. Careful when accessing this with
@@ -1864,7 +1830,6 @@ paths:
       summary: Current All Open Orders (USER_DATA)
       tags:
       - Trade
-      - V1
   /dapi/v1/order:
     delete:
       description: Cancel an active order.
@@ -1934,7 +1899,6 @@ paths:
       summary: Cancel Order (TRADE)
       tags:
       - Trade
-      - V1
     get:
       description: Check an order's status.
       operationId: CmfuturesGetOrderV1
@@ -2003,7 +1967,6 @@ paths:
       summary: Query Order (USER_DATA)
       tags:
       - Trade
-      - V1
     post:
       description: Send in a new order.
       operationId: CmfuturesCreateOrderV1
@@ -2038,7 +2001,6 @@ paths:
       summary: New Order (TRADE)
       tags:
       - Trade
-      - V1
     put:
       description: "Order modify function, currently only LIMIT order modification\
         \ is supported, modified orders will be reordered in the match queue"
@@ -2074,7 +2036,6 @@ paths:
       summary: Modify Order (TRADE)
       tags:
       - Trade
-      - V1
   /dapi/v1/order/asyn:
     get:
       description: Get Download Id For Futures Order History
@@ -2138,7 +2099,6 @@ paths:
       summary: Get Download Id For Futures Order History (USER_DATA)
       tags:
       - Account
-      - V1
   /dapi/v1/order/asyn/id:
     get:
       description: Get futures order history download link by Id
@@ -2193,7 +2153,6 @@ paths:
       summary: Get Futures Order History Download Link by Id (USER_DATA)
       tags:
       - Account
-      - V1
   /dapi/v1/orderAmendment:
     get:
       description: Get order modification history
@@ -2291,7 +2250,6 @@ paths:
       summary: Get Order Modify History (USER_DATA)
       tags:
       - Trade
-      - V1
   /dapi/v1/ping:
     get:
       description: Test connectivity to the Rest API.
@@ -2318,7 +2276,6 @@ paths:
       summary: Test Connectivity
       tags:
       - Market Data
-      - V1
   /dapi/v1/pmAccountInfo:
     get:
       description: Get Classic Portfolio Margin current account information.
@@ -2364,7 +2321,6 @@ paths:
       summary: Classic Portfolio Margin Account Information (USER_DATA)
       tags:
       - Portfolio Margin Endpoints
-      - V1
   /dapi/v1/positionMargin:
     post:
       description: Modify Isolated Position Margin
@@ -2400,7 +2356,6 @@ paths:
       summary: Modify Isolated Position Margin(TRADE)
       tags:
       - Trade
-      - V1
   /dapi/v1/positionMargin/history:
     get:
       description: Get position margin change history
@@ -2487,7 +2442,6 @@ paths:
       summary: Get Position Margin Change History(TRADE)
       tags:
       - Trade
-      - V1
   /dapi/v1/positionRisk:
     get:
       description: Get current account information.
@@ -2549,7 +2503,6 @@ paths:
       summary: Position Information(USER_DATA)
       tags:
       - Trade
-      - V1
   /dapi/v1/positionSide/dual:
     get:
       description: Get user's position mode (Hedge Mode or One-way Mode ) on EVERY
@@ -2596,7 +2549,6 @@ paths:
       summary: Get Current Position Mode(USER_DATA)
       tags:
       - Account
-      - V1
     post:
       description: Change user's position mode (Hedge Mode or One-way Mode ) on EVERY
         symbol
@@ -2632,7 +2584,6 @@ paths:
       summary: Change Position Mode(TRADE)
       tags:
       - Trade
-      - V1
   /dapi/v1/premiumIndex:
     get:
       description: Query index price and mark price
@@ -2676,7 +2627,6 @@ paths:
       summary: Index Price and Mark Price
       tags:
       - Market Data
-      - V1
   /dapi/v1/premiumIndexKlines:
     get:
       description: Premium index kline bars of a symbol. Klines are uniquely identified
@@ -2747,7 +2697,6 @@ paths:
       summary: Premium index Kline Data
       tags:
       - Market Data
-      - V1
   /dapi/v1/ticker/24hr:
     get:
       description: 24 hour rolling window price change statistics.
@@ -2791,7 +2740,6 @@ paths:
       summary: 24hr Ticker Price Change Statistics
       tags:
       - Market Data
-      - V1
   /dapi/v1/ticker/bookTicker:
     get:
       description: Best price/qty on the order book for a symbol or symbols.
@@ -2835,7 +2783,6 @@ paths:
       summary: Symbol Order Book Ticker
       tags:
       - Market Data
-      - V1
   /dapi/v1/ticker/price:
     get:
       description: Latest price for a symbol or symbols.
@@ -2879,7 +2826,6 @@ paths:
       summary: Symbol Price Ticker
       tags:
       - Market Data
-      - V1
   /dapi/v1/time:
     get:
       description: Test connectivity to the Rest API and get the current server time.
@@ -2906,7 +2852,6 @@ paths:
       summary: Check Server time
       tags:
       - Market Data
-      - V1
   /dapi/v1/trade/asyn:
     get:
       description: Get download id for futures trade history
@@ -2970,7 +2915,6 @@ paths:
       summary: Get Download Id For Futures Trade History (USER_DATA)
       tags:
       - Account
-      - V1
   /dapi/v1/trade/asyn/id:
     get:
       description: Get futures trade download link by Id
@@ -3025,7 +2969,6 @@ paths:
       summary: Get Futures Trade Download Link by Id(USER_DATA)
       tags:
       - Account
-      - V1
   /dapi/v1/trades:
     get:
       description: Get recent market trades
@@ -3071,7 +3014,6 @@ paths:
       summary: Recent Trades List
       tags:
       - Market Data
-      - V1
   /dapi/v1/userTrades:
     get:
       description: Get trades for a specific account and symbol.
@@ -3176,7 +3118,6 @@ paths:
       summary: Account Trade List (USER_DATA)
       tags:
       - Trade
-      - V1
   /dapi/v2/leverageBracket:
     get:
       description: Get the symbol's notional bracket list.
@@ -3230,7 +3171,6 @@ paths:
       summary: Notional Bracket for Symbol(USER_DATA)
       tags:
       - Account
-      - V2
   /futures/data/basis:
     get:
       description: Query basis
@@ -3859,375 +3799,6 @@ components:
         workingType:
           type: string
       type: object
-    CmfuturesDeleteBatchOrdersV1Resp:
-      example: "[ { \"avgPrice\": \"0.0\", \"clientOrderId\": \"myOrder1\", \"cumQty\"\
-        : \"0\", \"cumBase\": \"0\", \"executedQty\": \"0\", \"orderId\": 283194212,\
-        \ \"origQty\": \"11\", \"origType\": \"TRAILING_STOP_MARKET\", \"price\":\
-        \ \"0\", \"reduceOnly\": false, \"side\": \"BUY\", \"positionSide\": \"SHORT\"\
-        , \"status\": \"CANCELED\", \"stopPrice\": \"9300\", \"closePosition\": false,\
-        \    \"symbol\": \"BTCUSD_200925\", \"timeInForce\": \"GTC\", \"type\": \"\
-        TRAILING_STOP_MARKET\", \"activatePrice\": \"9020\", \"priceRate\": \"0.3\"\
-        , \"workingType\": \"CONTRACT_PRICE\", \"priceProtect\": false,          \
-        \     \"priceMatch\": \"NONE\",                \"selfTradePreventionMode\"\
-        : \"NONE\",   \"updateTime\": 1571110484038 }, { \"code\": -2011, \"msg\"\
-        : \"Unknown order sent.\" } ]"
-      items:
-        $ref: '#/components/schemas/CmfuturesDeleteBatchOrdersV1Resp_inner'
-      type: array
-    CmfuturesDeleteBatchOrdersV1RespItem:
-      properties:
-        activatePrice:
-          type: string
-        avgPrice:
-          type: string
-        clientOrderId:
-          type: string
-        closePosition:
-          type: boolean
-        cumBase:
-          type: string
-        cumQty:
-          type: string
-        executedQty:
-          type: string
-        orderId:
-          format: int64
-          type: integer
-        origQty:
-          type: string
-        origType:
-          type: string
-        positionSide:
-          type: string
-        price:
-          type: string
-        priceMatch:
-          type: string
-        priceProtect:
-          type: boolean
-        priceRate:
-          type: string
-        reduceOnly:
-          type: boolean
-        selfTradePreventionMode:
-          type: string
-        side:
-          type: string
-        status:
-          type: string
-        stopPrice:
-          type: string
-        symbol:
-          type: string
-        timeInForce:
-          type: string
-        type:
-          type: string
-        updateTime:
-          format: int64
-          type: integer
-        workingType:
-          type: string
-      type: object
-    CmfuturesGetContinuousKlinesV1Resp:
-      example: "[ [ 1591258320000,       \"9640.7\",         \"9642.4\",         \"\
-        9640.6\",         \"9642.0\",         \"206\",   1591258379999,        \"\
-        2.13660389\",     48,              \"119\",     \"1.23424865\",       \"0\"\
-        \  ] ]"
-      items:
-        items:
-          $ref: '#/components/schemas/CmfuturesGetContinuousKlinesV1Resp_inner_inner'
-        type: array
-      type: array
-    CmfuturesGetExchangeInfoV1Resp:
-      example: "{ \"exchangeFilters\": [], \"rateLimits\": [ { \"interval\": \"MINUTE\"\
-        , \"intervalNum\": 1, \"limit\": 6000, \"rateLimitType\": \"REQUEST_WEIGHT\"\
-        \ }, { \"interval\": \"MINUTE\", \"intervalNum\": 1, \"limit\": 6000, \"rateLimitType\"\
-        : \"ORDERS\" } ], \"serverTime\": 1565613908500,  \"symbols\": [  { \"filters\"\
-        : [ { \"filterType\": \"PRICE_FILTER\", \"maxPrice\": \"100000\", \"minPrice\"\
-        : \"0.1\", \"tickSize\": \"0.1\" }, { \"filterType\": \"LOT_SIZE\", \"maxQty\"\
-        : \"100000\", \"minQty\": \"1\", \"stepSize\": \"1\" }, { \"filterType\":\
-        \ \"MARKET_LOT_SIZE\", \"maxQty\": \"100000\", \"minQty\": \"1\", \"stepSize\"\
-        : \"1\" }, { \"filterType\": \"MAX_NUM_ORDERS\", \"limit\": 200 }, { \"filterType\"\
-        : \"PERCENT_PRICE\", \"multiplierUp\": \"1.0500\", \"multiplierDown\": \"\
-        0.9500\", \"multiplierDecimal\": 4 } ], \"OrderType\": [ \"LIMIT\", \"MARKET\"\
-        , \"STOP\", \"TAKE_PROFIT\", \"TRAILING_STOP_MARKET\" ], \"timeInForce\":\
-        \ [ \"GTC\", \"IOC\", \"FOK\", \"GTX\" ], \"liquidationFee\": \"0.010000\"\
-        , \"marketTakeBound\": \"0.30\", \"symbol\": \"BTCUSD_200925\",  \"pair\"\
-        : \"BTCUSD\",   \"contractType\": \"CURRENT_QUARTER\", \"deliveryDate\": 1601020800000,\
-        \ \"onboardDate\": 1590739200000, \"contractStatus\": \"TRADING\", \"contractSize\"\
-        : 100, \"quoteAsset\": \"USD\", \"baseAsset\": \"BTC\", \"marginAsset\": \"\
-        BTC\", \"pricePrecision\": 1, \"quantityPrecision\": 0, \"baseAssetPrecision\"\
-        : 8, \"quotePrecision\": 8, \"equalQtyPrecision\": 4,  \"triggerProtect\"\
-        : \"0.0500\", \"maintMarginPercent\": \"2.5000\",   \"requiredMarginPercent\"\
-        : \"5.0000\",   \"underlyingType\": \"COIN\", \"underlyingSubType\": [] }\
-        \ ], \"timezone\": \"UTC\" }"
-      properties:
-        exchangeFilters:
-          items:
-            type: object
-          type: array
-        rateLimits:
-          items:
-            $ref: '#/components/schemas/CmfuturesGetExchangeInfoV1Resp_rateLimits_inner'
-          type: array
-        serverTime:
-          format: int64
-          type: integer
-        symbols:
-          items:
-            $ref: '#/components/schemas/CmfuturesGetExchangeInfoV1Resp_symbols_inner'
-          type: array
-        timezone:
-          type: string
-      type: object
-    CmfuturesGetForceOrdersV1Resp:
-      example: "[ { \"orderId\": 165123080, \"symbol\": \"BTCUSD_200925\", \"pair\"\
-        : \"BTCUSD\", \"status\": \"FILLED\", \"clientOrderId\": \"autoclose-1596542005017000006\"\
-        , \"price\": \"11326.9\", \"avgPrice\": \"11326.9\", \"origQty\": \"1\", \"\
-        executedQty\": \"1\", \"cumBase\": \"0.00882854\", \"timeInForce\": \"IOC\"\
-        , \"type\": \"LIMIT\", \"reduceOnly\": false, \"closePosition\": false, \"\
-        side\": \"SELL\", \"positionSide\": \"BOTH\", \"stopPrice\": \"0\", \"workingType\"\
-        : \"CONTRACT_PRICE\", \"priceProtect\": false, \"origType\": \"LIMIT\", \"\
-        time\": 1596542005019, \"updateTime\": 1596542005050 }, { \"orderId\": 207251986,\
-        \ \"symbol\": \"BTCUSD_200925\", \"pair\": \"BTCUSD\", \"status\": \"FILLED\"\
-        , \"clientOrderId\": \"autoclose-1597307316020000006\", \"price\": \"11619.4\"\
-        , \"avgPrice\": \"11661.2\", \"origQty\": \"1\", \"executedQty\": \"1\", \"\
-        cumBase\": \"0.00857544\", \"timeInForce\": \"IOC\", \"type\": \"LIMIT\",\
-        \ \"reduceOnly\": false, \"closePosition\": false, \"side\": \"SELL\", \"\
-        positionSide\": \"LONG\", \"stopPrice\": \"0\", \"workingType\": \"CONTRACT_PRICE\"\
-        , \"priceProtect\": false, \"origType\": \"LIMIT\", \"time\": 1597307316022,\
-        \ \"updateTime\": 1597307316035 } ]"
-      items:
-        $ref: '#/components/schemas/CmfuturesGetForceOrdersV1RespItem'
-      type: array
-    CmfuturesGetForceOrdersV1RespItem:
-      properties:
-        avgPrice:
-          type: string
-        clientOrderId:
-          type: string
-        closePosition:
-          type: boolean
-        cumBase:
-          type: string
-        executedQty:
-          type: string
-        orderId:
-          format: int64
-          type: integer
-        origQty:
-          type: string
-        origType:
-          type: string
-        pair:
-          type: string
-        positionSide:
-          type: string
-        price:
-          type: string
-        priceProtect:
-          type: boolean
-        reduceOnly:
-          type: boolean
-        side:
-          type: string
-        status:
-          type: string
-        stopPrice:
-          type: string
-        symbol:
-          type: string
-        time:
-          format: int64
-          type: integer
-        timeInForce:
-          type: string
-        type:
-          type: string
-        updateTime:
-          format: int64
-          type: integer
-        workingType:
-          type: string
-      type: object
-    CmfuturesGetIndexPriceKlinesV1Resp:
-      example: "[ [ 1591256400000,       \"9653.69440000\",     \"9653.69640000\"\
-        ,      \"9651.38600000\",      \"9651.55200000\",      \"0\",  1591256459999,\
-        \       \"0\",     60,                 \"0\",     \"0\",       \"0\"  ] ]"
-      items:
-        items:
-          $ref: '#/components/schemas/CmfuturesGetContinuousKlinesV1Resp_inner_inner'
-        type: array
-      type: array
-    CmfuturesGetKlinesV1Resp:
-      example: "[ [ 1591258320000,       \"9640.7\",         \"9642.4\",         \"\
-        9640.6\",         \"9642.0\",         \"206\",   1591258379999,        \"\
-        2.13660389\",     48,              \"119\",     \"1.23424865\",       \"0\"\
-        \  ] ]"
-      items:
-        items:
-          $ref: '#/components/schemas/CmfuturesGetContinuousKlinesV1Resp_inner_inner'
-        type: array
-      type: array
-    CmfuturesGetMarkPriceKlinesV1Resp:
-      example: "[ [ 1591256460000,      \"9653.29201333\",     \"9654.56401333\",\
-        \      \"9653.07367333\",      \"9653.07367333\",      \"0\",  1591256519999,\
-        \       \"0\",     60,                  \"0\",     \"0\",        \"0\"  ]\
-        \ ]"
-      items:
-        items:
-          $ref: '#/components/schemas/CmfuturesGetContinuousKlinesV1Resp_inner_inner'
-        type: array
-      type: array
-    CmfuturesGetPremiumIndexKlinesV1Resp:
-      example: "[ [ 1691603820000,           \"-0.00042931\",           \"-0.00023641\"\
-        ,           \"-0.00059406\",           \"-0.00043659\",           \"0\", \
-        \                    1691603879999,           \"0\",                     12,\
-        \                      \"0\",                     \"0\",                 \
-        \    \"0\"                      ] ]"
-      items:
-        items:
-          $ref: '#/components/schemas/CmfuturesGetContinuousKlinesV1Resp_inner_inner'
-        type: array
-      type: array
-    CmfuturesSymbolFilter:
-      properties:
-        filterType:
-          type: string
-        limit:
-          type: integer
-        maxPrice:
-          type: string
-        maxQty:
-          type: string
-        minPrice:
-          type: string
-        minQty:
-          type: string
-        multiplierDecimal:
-          type: integer
-        multiplierDown:
-          type: string
-        multiplierUp:
-          type: string
-        stepSize:
-          type: string
-        tickSize:
-          type: string
-      type: object
-    CmfuturesUpdateBatchOrdersV1Req:
-      properties:
-        batchOrders:
-          type: object
-        recvWindow:
-          format: int64
-          type: integer
-        timestamp:
-          format: int64
-          type: integer
-      required:
-      - batchOrders
-      - timestamp
-      type: object
-    CmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem:
-      properties:
-        orderId:
-          format: int64
-          type: integer
-        origClientOrderId:
-          default: ""
-          type: string
-        price:
-          default: ""
-          type: string
-        quantity:
-          default: ""
-          type: string
-        recvWindow:
-          format: int64
-          type: integer
-        side:
-          default: ""
-          type: string
-        symbol:
-          default: ""
-          type: string
-        timestamp:
-          format: int64
-          type: integer
-      required:
-      - side
-      - symbol
-      - timestamp
-      type: object
-    CmfuturesUpdateBatchOrdersV1Resp:
-      example: "[ { \"orderId\": 20072994037, \"symbol\": \"BTCUSD_PERP\", \"pair\"\
-        : \"BTCUSD\", \"status\": \"NEW\", \"clientOrderId\": \"LJ9R4QZDihCaS8UAOOLpgW\"\
-        , \"price\": \"30005\", \"avgPrice\": \"0.0\", \"origQty\": \"1\", \"executedQty\"\
-        : \"0\", \"cumQty\": \"0\", \"cumBase\": \"0\", \"timeInForce\": \"GTC\",\
-        \ \"type\": \"LIMIT\", \"reduceOnly\": false, \"closePosition\": false, \"\
-        side\": \"BUY\", \"positionSide\": \"LONG\", \"stopPrice\": \"0\", \"workingType\"\
-        : \"CONTRACT_PRICE\", \"priceProtect\": false, \"origType\": \"LIMIT\", \"\
-        priceMatch\": \"NONE\",                \"selfTradePreventionMode\": \"NONE\"\
-        ,   \"updateTime\": 1629182711600 }, { \"code\": -2022, \"msg\": \"ReduceOnly\
-        \ Order is rejected.\" } ]"
-      items:
-        $ref: '#/components/schemas/CmfuturesUpdateBatchOrdersV1Resp_inner'
-      type: array
-    CmfuturesUpdateBatchOrdersV1RespItem:
-      properties:
-        avgPrice:
-          type: string
-        clientOrderId:
-          type: string
-        closePosition:
-          type: boolean
-        cumBase:
-          type: string
-        cumQty:
-          type: string
-        executedQty:
-          type: string
-        orderId:
-          format: int64
-          type: integer
-        origQty:
-          type: string
-        origType:
-          type: string
-        pair:
-          type: string
-        positionSide:
-          type: string
-        price:
-          type: string
-        priceMatch:
-          type: string
-        priceProtect:
-          type: boolean
-        reduceOnly:
-          type: boolean
-        selfTradePreventionMode:
-          type: string
-        side:
-          type: string
-        status:
-          type: string
-        stopPrice:
-          type: string
-        symbol:
-          type: string
-        timeInForce:
-          type: string
-        type:
-          type: string
-        updateTime:
-          format: int64
-          type: integer
-        workingType:
-          type: string
-      type: object
     CmfuturesCreateCountdownCancelAllV1Req:
       properties:
         countdownTime:
@@ -4523,6 +4094,76 @@ components:
         msg:
           type: string
       type: object
+    CmfuturesDeleteBatchOrdersV1Resp:
+      example: "[ { \"avgPrice\": \"0.0\", \"clientOrderId\": \"myOrder1\", \"cumQty\"\
+        : \"0\", \"cumBase\": \"0\", \"executedQty\": \"0\", \"orderId\": 283194212,\
+        \ \"origQty\": \"11\", \"origType\": \"TRAILING_STOP_MARKET\", \"price\":\
+        \ \"0\", \"reduceOnly\": false, \"side\": \"BUY\", \"positionSide\": \"SHORT\"\
+        , \"status\": \"CANCELED\", \"stopPrice\": \"9300\", \"closePosition\": false,\
+        \    \"symbol\": \"BTCUSD_200925\", \"timeInForce\": \"GTC\", \"type\": \"\
+        TRAILING_STOP_MARKET\", \"activatePrice\": \"9020\", \"priceRate\": \"0.3\"\
+        , \"workingType\": \"CONTRACT_PRICE\", \"priceProtect\": false,          \
+        \     \"priceMatch\": \"NONE\",                \"selfTradePreventionMode\"\
+        : \"NONE\",   \"updateTime\": 1571110484038 }, { \"code\": -2011, \"msg\"\
+        : \"Unknown order sent.\" } ]"
+      items:
+        $ref: '#/components/schemas/CmfuturesDeleteBatchOrdersV1Resp_inner'
+      type: array
+    CmfuturesDeleteBatchOrdersV1RespItem:
+      properties:
+        activatePrice:
+          type: string
+        avgPrice:
+          type: string
+        clientOrderId:
+          type: string
+        closePosition:
+          type: boolean
+        cumBase:
+          type: string
+        cumQty:
+          type: string
+        executedQty:
+          type: string
+        orderId:
+          format: int64
+          type: integer
+        origQty:
+          type: string
+        origType:
+          type: string
+        positionSide:
+          type: string
+        price:
+          type: string
+        priceMatch:
+          type: string
+        priceProtect:
+          type: boolean
+        priceRate:
+          type: string
+        reduceOnly:
+          type: boolean
+        selfTradePreventionMode:
+          type: string
+        side:
+          type: string
+        status:
+          type: string
+        stopPrice:
+          type: string
+        symbol:
+          type: string
+        timeInForce:
+          type: string
+        type:
+          type: string
+        updateTime:
+          format: int64
+          type: integer
+        workingType:
+          type: string
+      type: object
     CmfuturesDeleteListenKeyV1Resp:
       example: "{}"
       type: object
@@ -4805,6 +4446,16 @@ components:
           format: int64
           type: integer
       type: object
+    CmfuturesGetContinuousKlinesV1Resp:
+      example: "[ [ 1591258320000,       \"9640.7\",         \"9642.4\",         \"\
+        9640.6\",         \"9642.0\",         \"206\",   1591258379999,        \"\
+        2.13660389\",     48,              \"119\",     \"1.23424865\",       \"0\"\
+        \  ] ]"
+      items:
+        items:
+          $ref: '#/components/schemas/CmfuturesGetContinuousKlinesV1Resp_inner_inner'
+        type: array
+      type: array
     CmfuturesGetDepthV1Resp:
       example: "{ \"lastUpdateId\": 16769853, \"symbol\": \"BTCUSD_PERP\",  \"pair\"\
         : \"BTCUSD\",  \"E\": 1591250106370,    \"T\": 1591250106368,    \"bids\"\
@@ -4833,6 +4484,118 @@ components:
         pair:
           type: string
         symbol:
+          type: string
+      type: object
+    CmfuturesGetExchangeInfoV1Resp:
+      example: "{ \"exchangeFilters\": [], \"rateLimits\": [ { \"interval\": \"MINUTE\"\
+        , \"intervalNum\": 1, \"limit\": 6000, \"rateLimitType\": \"REQUEST_WEIGHT\"\
+        \ }, { \"interval\": \"MINUTE\", \"intervalNum\": 1, \"limit\": 6000, \"rateLimitType\"\
+        : \"ORDERS\" } ], \"serverTime\": 1565613908500,  \"symbols\": [  { \"filters\"\
+        : [ { \"filterType\": \"PRICE_FILTER\", \"maxPrice\": \"100000\", \"minPrice\"\
+        : \"0.1\", \"tickSize\": \"0.1\" }, { \"filterType\": \"LOT_SIZE\", \"maxQty\"\
+        : \"100000\", \"minQty\": \"1\", \"stepSize\": \"1\" }, { \"filterType\":\
+        \ \"MARKET_LOT_SIZE\", \"maxQty\": \"100000\", \"minQty\": \"1\", \"stepSize\"\
+        : \"1\" }, { \"filterType\": \"MAX_NUM_ORDERS\", \"limit\": 200 }, { \"filterType\"\
+        : \"PERCENT_PRICE\", \"multiplierUp\": \"1.0500\", \"multiplierDown\": \"\
+        0.9500\", \"multiplierDecimal\": 4 } ], \"OrderType\": [ \"LIMIT\", \"MARKET\"\
+        , \"STOP\", \"TAKE_PROFIT\", \"TRAILING_STOP_MARKET\" ], \"timeInForce\":\
+        \ [ \"GTC\", \"IOC\", \"FOK\", \"GTX\" ], \"liquidationFee\": \"0.010000\"\
+        , \"marketTakeBound\": \"0.30\", \"symbol\": \"BTCUSD_200925\",  \"pair\"\
+        : \"BTCUSD\",   \"contractType\": \"CURRENT_QUARTER\", \"deliveryDate\": 1601020800000,\
+        \ \"onboardDate\": 1590739200000, \"contractStatus\": \"TRADING\", \"contractSize\"\
+        : 100, \"quoteAsset\": \"USD\", \"baseAsset\": \"BTC\", \"marginAsset\": \"\
+        BTC\", \"pricePrecision\": 1, \"quantityPrecision\": 0, \"baseAssetPrecision\"\
+        : 8, \"quotePrecision\": 8, \"equalQtyPrecision\": 4,  \"triggerProtect\"\
+        : \"0.0500\", \"maintMarginPercent\": \"2.5000\",   \"requiredMarginPercent\"\
+        : \"5.0000\",   \"underlyingType\": \"COIN\", \"underlyingSubType\": [] }\
+        \ ], \"timezone\": \"UTC\" }"
+      properties:
+        exchangeFilters:
+          items:
+            type: object
+          type: array
+        rateLimits:
+          items:
+            $ref: '#/components/schemas/CmfuturesGetExchangeInfoV1Resp_rateLimits_inner'
+          type: array
+        serverTime:
+          format: int64
+          type: integer
+        symbols:
+          items:
+            $ref: '#/components/schemas/CmfuturesGetExchangeInfoV1Resp_symbols_inner'
+          type: array
+        timezone:
+          type: string
+      type: object
+    CmfuturesGetForceOrdersV1Resp:
+      example: "[ { \"orderId\": 165123080, \"symbol\": \"BTCUSD_200925\", \"pair\"\
+        : \"BTCUSD\", \"status\": \"FILLED\", \"clientOrderId\": \"autoclose-1596542005017000006\"\
+        , \"price\": \"11326.9\", \"avgPrice\": \"11326.9\", \"origQty\": \"1\", \"\
+        executedQty\": \"1\", \"cumBase\": \"0.00882854\", \"timeInForce\": \"IOC\"\
+        , \"type\": \"LIMIT\", \"reduceOnly\": false, \"closePosition\": false, \"\
+        side\": \"SELL\", \"positionSide\": \"BOTH\", \"stopPrice\": \"0\", \"workingType\"\
+        : \"CONTRACT_PRICE\", \"priceProtect\": false, \"origType\": \"LIMIT\", \"\
+        time\": 1596542005019, \"updateTime\": 1596542005050 }, { \"orderId\": 207251986,\
+        \ \"symbol\": \"BTCUSD_200925\", \"pair\": \"BTCUSD\", \"status\": \"FILLED\"\
+        , \"clientOrderId\": \"autoclose-1597307316020000006\", \"price\": \"11619.4\"\
+        , \"avgPrice\": \"11661.2\", \"origQty\": \"1\", \"executedQty\": \"1\", \"\
+        cumBase\": \"0.00857544\", \"timeInForce\": \"IOC\", \"type\": \"LIMIT\",\
+        \ \"reduceOnly\": false, \"closePosition\": false, \"side\": \"SELL\", \"\
+        positionSide\": \"LONG\", \"stopPrice\": \"0\", \"workingType\": \"CONTRACT_PRICE\"\
+        , \"priceProtect\": false, \"origType\": \"LIMIT\", \"time\": 1597307316022,\
+        \ \"updateTime\": 1597307316035 } ]"
+      items:
+        $ref: '#/components/schemas/CmfuturesGetForceOrdersV1RespItem'
+      type: array
+    CmfuturesGetForceOrdersV1RespItem:
+      properties:
+        avgPrice:
+          type: string
+        clientOrderId:
+          type: string
+        closePosition:
+          type: boolean
+        cumBase:
+          type: string
+        executedQty:
+          type: string
+        orderId:
+          format: int64
+          type: integer
+        origQty:
+          type: string
+        origType:
+          type: string
+        pair:
+          type: string
+        positionSide:
+          type: string
+        price:
+          type: string
+        priceProtect:
+          type: boolean
+        reduceOnly:
+          type: boolean
+        side:
+          type: string
+        status:
+          type: string
+        stopPrice:
+          type: string
+        symbol:
+          type: string
+        time:
+          format: int64
+          type: integer
+        timeInForce:
+          type: string
+        type:
+          type: string
+        updateTime:
+          format: int64
+          type: integer
+        workingType:
           type: string
       type: object
     CmfuturesGetFundingInfoV1Resp:
@@ -5101,6 +4864,25 @@ components:
         tranId:
           type: string
       type: object
+    CmfuturesGetIndexPriceKlinesV1Resp:
+      example: "[ [ 1591256400000,       \"9653.69440000\",     \"9653.69640000\"\
+        ,      \"9651.38600000\",      \"9651.55200000\",      \"0\",  1591256459999,\
+        \       \"0\",     60,                 \"0\",     \"0\",       \"0\"  ] ]"
+      items:
+        items:
+          $ref: '#/components/schemas/CmfuturesGetContinuousKlinesV1Resp_inner_inner'
+        type: array
+      type: array
+    CmfuturesGetKlinesV1Resp:
+      example: "[ [ 1591258320000,       \"9640.7\",         \"9642.4\",         \"\
+        9640.6\",         \"9642.0\",         \"206\",   1591258379999,        \"\
+        2.13660389\",     48,              \"119\",     \"1.23424865\",       \"0\"\
+        \  ] ]"
+      items:
+        items:
+          $ref: '#/components/schemas/CmfuturesGetContinuousKlinesV1Resp_inner_inner'
+        type: array
+      type: array
     CmfuturesGetLeverageBracketV1Resp:
       example: "[ { \"pair\": \"BTCUSD\", \"brackets\": [ { \"bracket\": 1,    \"\
         initialLeverage\": 125,   \"qtyCap\": 50,   \"qtylFloor\": 0,   \"maintMarginRatio\"\
@@ -5135,6 +4917,16 @@ components:
         symbol:
           type: string
       type: object
+    CmfuturesGetMarkPriceKlinesV1Resp:
+      example: "[ [ 1591256460000,      \"9653.29201333\",     \"9654.56401333\",\
+        \      \"9653.07367333\",      \"9653.07367333\",      \"0\",  1591256519999,\
+        \       \"0\",     60,                  \"0\",     \"0\",        \"0\"  ]\
+        \ ]"
+      items:
+        items:
+          $ref: '#/components/schemas/CmfuturesGetContinuousKlinesV1Resp_inner_inner'
+        type: array
+      type: array
     CmfuturesGetOpenInterestV1Resp:
       example: "{ \"symbol\": \"BTCUSD_200626\", \"pair\": \"BTCUSD\", \"openInterest\"\
         : \"15004\", \"contractType\": \"CURRENT_QUARTER\", \"time\": 1591261042378\
@@ -5519,6 +5311,17 @@ components:
         dualSidePosition:
           type: boolean
       type: object
+    CmfuturesGetPremiumIndexKlinesV1Resp:
+      example: "[ [ 1691603820000,           \"-0.00042931\",           \"-0.00023641\"\
+        ,           \"-0.00059406\",           \"-0.00043659\",           \"0\", \
+        \                    1691603879999,           \"0\",                     12,\
+        \                      \"0\",                     \"0\",                 \
+        \    \"0\"                      ] ]"
+      items:
+        items:
+          $ref: '#/components/schemas/CmfuturesGetContinuousKlinesV1Resp_inner_inner'
+        type: array
+      type: array
     CmfuturesGetPremiumIndexV1Resp:
       example: "[ { \"symbol\": \"BTCUSD_PERP\", \"pair\": \"BTCUSD\", \"markPrice\"\
         : \"11029.69574559\", \"indexPrice\": \"10979.14437500\", \"estimatedSettlePrice\"\
@@ -5757,6 +5560,143 @@ components:
           format: int64
           type: integer
       type: object
+    CmfuturesSymbolFilter:
+      properties:
+        filterType:
+          type: string
+        limit:
+          type: integer
+        maxPrice:
+          type: string
+        maxQty:
+          type: string
+        minPrice:
+          type: string
+        minQty:
+          type: string
+        multiplierDecimal:
+          type: integer
+        multiplierDown:
+          type: string
+        multiplierUp:
+          type: string
+        stepSize:
+          type: string
+        tickSize:
+          type: string
+      type: object
+    CmfuturesUpdateBatchOrdersV1Req:
+      properties:
+        batchOrders:
+          type: object
+        recvWindow:
+          format: int64
+          type: integer
+        timestamp:
+          format: int64
+          type: integer
+      required:
+      - batchOrders
+      - timestamp
+      type: object
+    CmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem:
+      properties:
+        orderId:
+          format: int64
+          type: integer
+        origClientOrderId:
+          default: ""
+          type: string
+        price:
+          default: ""
+          type: string
+        quantity:
+          default: ""
+          type: string
+        recvWindow:
+          format: int64
+          type: integer
+        side:
+          default: ""
+          type: string
+        symbol:
+          default: ""
+          type: string
+        timestamp:
+          format: int64
+          type: integer
+      required:
+      - side
+      - symbol
+      - timestamp
+      type: object
+    CmfuturesUpdateBatchOrdersV1Resp:
+      example: "[ { \"orderId\": 20072994037, \"symbol\": \"BTCUSD_PERP\", \"pair\"\
+        : \"BTCUSD\", \"status\": \"NEW\", \"clientOrderId\": \"LJ9R4QZDihCaS8UAOOLpgW\"\
+        , \"price\": \"30005\", \"avgPrice\": \"0.0\", \"origQty\": \"1\", \"executedQty\"\
+        : \"0\", \"cumQty\": \"0\", \"cumBase\": \"0\", \"timeInForce\": \"GTC\",\
+        \ \"type\": \"LIMIT\", \"reduceOnly\": false, \"closePosition\": false, \"\
+        side\": \"BUY\", \"positionSide\": \"LONG\", \"stopPrice\": \"0\", \"workingType\"\
+        : \"CONTRACT_PRICE\", \"priceProtect\": false, \"origType\": \"LIMIT\", \"\
+        priceMatch\": \"NONE\",                \"selfTradePreventionMode\": \"NONE\"\
+        ,   \"updateTime\": 1629182711600 }, { \"code\": -2022, \"msg\": \"ReduceOnly\
+        \ Order is rejected.\" } ]"
+      items:
+        $ref: '#/components/schemas/CmfuturesUpdateBatchOrdersV1Resp_inner'
+      type: array
+    CmfuturesUpdateBatchOrdersV1RespItem:
+      properties:
+        avgPrice:
+          type: string
+        clientOrderId:
+          type: string
+        closePosition:
+          type: boolean
+        cumBase:
+          type: string
+        cumQty:
+          type: string
+        executedQty:
+          type: string
+        orderId:
+          format: int64
+          type: integer
+        origQty:
+          type: string
+        origType:
+          type: string
+        pair:
+          type: string
+        positionSide:
+          type: string
+        price:
+          type: string
+        priceMatch:
+          type: string
+        priceProtect:
+          type: boolean
+        reduceOnly:
+          type: boolean
+        selfTradePreventionMode:
+          type: string
+        side:
+          type: string
+        status:
+          type: string
+        stopPrice:
+          type: string
+        symbol:
+          type: string
+        timeInForce:
+          type: string
+        type:
+          type: string
+        updateTime:
+          format: int64
+          type: integer
+        workingType:
+          type: string
+      type: object
     CmfuturesUpdateListenKeyV1Resp:
       example: "{}"
       type: object
@@ -5864,87 +5804,6 @@ components:
       oneOf:
       - $ref: '#/components/schemas/CmfuturesDeleteBatchOrdersV1RespItem'
       - $ref: '#/components/schemas/APIError'
-    CmfuturesGetContinuousKlinesV1Resp_inner_inner:
-      oneOf:
-      - format: int64
-        type: integer
-      - type: string
-    CmfuturesGetExchangeInfoV1Resp_rateLimits_inner:
-      properties:
-        interval:
-          type: string
-        intervalNum:
-          type: integer
-        limit:
-          type: integer
-        rateLimitType:
-          type: string
-      type: object
-    CmfuturesGetExchangeInfoV1Resp_symbols_inner:
-      properties:
-        OrderType:
-          items:
-            type: string
-          type: array
-        baseAsset:
-          type: string
-        baseAssetPrecision:
-          type: integer
-        contractSize:
-          type: integer
-        contractStatus:
-          type: string
-        contractType:
-          type: string
-        deliveryDate:
-          type: integer
-        equalQtyPrecision:
-          type: integer
-        filters:
-          items:
-            $ref: '#/components/schemas/CmfuturesSymbolFilter'
-          type: array
-        liquidationFee:
-          type: string
-        maintMarginPercent:
-          type: string
-        marginAsset:
-          type: string
-        marketTakeBound:
-          type: string
-        onboardDate:
-          type: integer
-        pair:
-          type: string
-        pricePrecision:
-          type: integer
-        quantityPrecision:
-          type: integer
-        quoteAsset:
-          type: string
-        quotePrecision:
-          type: integer
-        requiredMarginPercent:
-          type: string
-        symbol:
-          type: string
-        timeInForce:
-          items:
-            type: string
-          type: array
-        triggerProtect:
-          type: string
-        underlyingSubType:
-          items:
-            type: string
-          type: array
-        underlyingType:
-          type: string
-      type: object
-    CmfuturesUpdateBatchOrdersV1Resp_inner:
-      oneOf:
-      - $ref: '#/components/schemas/CmfuturesUpdateBatchOrdersV1RespItem'
-      - $ref: '#/components/schemas/APIError'
     CmfuturesGetAccountV1Resp_assets_inner:
       properties:
         asset:
@@ -6023,6 +5882,83 @@ components:
         symbol:
           type: string
       type: object
+    CmfuturesGetContinuousKlinesV1Resp_inner_inner:
+      oneOf:
+      - format: int64
+        type: integer
+      - type: string
+    CmfuturesGetExchangeInfoV1Resp_rateLimits_inner:
+      properties:
+        interval:
+          type: string
+        intervalNum:
+          type: integer
+        limit:
+          type: integer
+        rateLimitType:
+          type: string
+      type: object
+    CmfuturesGetExchangeInfoV1Resp_symbols_inner:
+      properties:
+        OrderType:
+          items:
+            type: string
+          type: array
+        baseAsset:
+          type: string
+        baseAssetPrecision:
+          type: integer
+        contractSize:
+          type: integer
+        contractStatus:
+          type: string
+        contractType:
+          type: string
+        deliveryDate:
+          type: integer
+        equalQtyPrecision:
+          type: integer
+        filters:
+          items:
+            $ref: '#/components/schemas/CmfuturesSymbolFilter'
+          type: array
+        liquidationFee:
+          type: string
+        maintMarginPercent:
+          type: string
+        marginAsset:
+          type: string
+        marketTakeBound:
+          type: string
+        onboardDate:
+          type: integer
+        pair:
+          type: string
+        pricePrecision:
+          type: integer
+        quantityPrecision:
+          type: integer
+        quoteAsset:
+          type: string
+        quotePrecision:
+          type: integer
+        requiredMarginPercent:
+          type: string
+        symbol:
+          type: string
+        timeInForce:
+          items:
+            type: string
+          type: array
+        triggerProtect:
+          type: string
+        underlyingSubType:
+          items:
+            type: string
+          type: array
+        underlyingType:
+          type: string
+      type: object
     CmfuturesGetLeverageBracketV1RespItem_brackets_inner:
       properties:
         bracket:
@@ -6054,6 +5990,10 @@ components:
         price:
           $ref: '#/components/schemas/CmfuturesGetOrderAmendmentV1RespItem_amendment_origQty'
       type: object
+    CmfuturesUpdateBatchOrdersV1Resp_inner:
+      oneOf:
+      - $ref: '#/components/schemas/CmfuturesUpdateBatchOrdersV1RespItem'
+      - $ref: '#/components/schemas/APIError'
   securitySchemes:
     ApiKey:
       in: header

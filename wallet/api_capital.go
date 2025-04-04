@@ -22,7 +22,7 @@ import (
 // CapitalAPIService CapitalAPI service
 type CapitalAPIService service
 
-type CapitalAPIWalletCreateCapitalDepositCreditApplyV1Request struct {
+type ApiWalletCreateCapitalDepositCreditApplyV1Request struct {
 	ctx context.Context
 	ApiService *CapitalAPIService
 	depositId *int64
@@ -31,27 +31,27 @@ type CapitalAPIWalletCreateCapitalDepositCreditApplyV1Request struct {
 	txId *string
 }
 
-func (r CapitalAPIWalletCreateCapitalDepositCreditApplyV1Request) DepositId(depositId int64) CapitalAPIWalletCreateCapitalDepositCreditApplyV1Request {
+func (r ApiWalletCreateCapitalDepositCreditApplyV1Request) DepositId(depositId int64) ApiWalletCreateCapitalDepositCreditApplyV1Request {
 	r.depositId = &depositId
 	return r
 }
 
-func (r CapitalAPIWalletCreateCapitalDepositCreditApplyV1Request) SubAccountId(subAccountId int64) CapitalAPIWalletCreateCapitalDepositCreditApplyV1Request {
+func (r ApiWalletCreateCapitalDepositCreditApplyV1Request) SubAccountId(subAccountId int64) ApiWalletCreateCapitalDepositCreditApplyV1Request {
 	r.subAccountId = &subAccountId
 	return r
 }
 
-func (r CapitalAPIWalletCreateCapitalDepositCreditApplyV1Request) SubUserId(subUserId int64) CapitalAPIWalletCreateCapitalDepositCreditApplyV1Request {
+func (r ApiWalletCreateCapitalDepositCreditApplyV1Request) SubUserId(subUserId int64) ApiWalletCreateCapitalDepositCreditApplyV1Request {
 	r.subUserId = &subUserId
 	return r
 }
 
-func (r CapitalAPIWalletCreateCapitalDepositCreditApplyV1Request) TxId(txId string) CapitalAPIWalletCreateCapitalDepositCreditApplyV1Request {
+func (r ApiWalletCreateCapitalDepositCreditApplyV1Request) TxId(txId string) ApiWalletCreateCapitalDepositCreditApplyV1Request {
 	r.txId = &txId
 	return r
 }
 
-func (r CapitalAPIWalletCreateCapitalDepositCreditApplyV1Request) Execute() (*WalletCreateCapitalDepositCreditApplyV1Resp, *http.Response, error) {
+func (r ApiWalletCreateCapitalDepositCreditApplyV1Request) Execute() (*WalletCreateCapitalDepositCreditApplyV1Resp, *http.Response, error) {
 	return r.ApiService.WalletCreateCapitalDepositCreditApplyV1Execute(r)
 }
 
@@ -61,10 +61,10 @@ WalletCreateCapitalDepositCreditApplyV1 One click arrival deposit apply (for exp
 Apply deposit credit for expired address (One click arrival)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return CapitalAPIWalletCreateCapitalDepositCreditApplyV1Request
+ @return ApiWalletCreateCapitalDepositCreditApplyV1Request
 */
-func (a *CapitalAPIService) WalletCreateCapitalDepositCreditApplyV1(ctx context.Context) CapitalAPIWalletCreateCapitalDepositCreditApplyV1Request {
-	return CapitalAPIWalletCreateCapitalDepositCreditApplyV1Request{
+func (a *CapitalAPIService) WalletCreateCapitalDepositCreditApplyV1(ctx context.Context) ApiWalletCreateCapitalDepositCreditApplyV1Request {
+	return ApiWalletCreateCapitalDepositCreditApplyV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -72,7 +72,7 @@ func (a *CapitalAPIService) WalletCreateCapitalDepositCreditApplyV1(ctx context.
 
 // Execute executes the request
 //  @return WalletCreateCapitalDepositCreditApplyV1Resp
-func (a *CapitalAPIService) WalletCreateCapitalDepositCreditApplyV1Execute(r CapitalAPIWalletCreateCapitalDepositCreditApplyV1Request) (*WalletCreateCapitalDepositCreditApplyV1Resp, *http.Response, error) {
+func (a *CapitalAPIService) WalletCreateCapitalDepositCreditApplyV1Execute(r ApiWalletCreateCapitalDepositCreditApplyV1Request) (*WalletCreateCapitalDepositCreditApplyV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -184,7 +184,7 @@ func (a *CapitalAPIService) WalletCreateCapitalDepositCreditApplyV1Execute(r Cap
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type CapitalAPIWalletCreateCapitalWithdrawApplyV1Request struct {
+type ApiWalletCreateCapitalWithdrawApplyV1Request struct {
 	ctx context.Context
 	ApiService *CapitalAPIService
 	address *string
@@ -200,62 +200,62 @@ type CapitalAPIWalletCreateCapitalWithdrawApplyV1Request struct {
 	withdrawOrderId *string
 }
 
-func (r CapitalAPIWalletCreateCapitalWithdrawApplyV1Request) Address(address string) CapitalAPIWalletCreateCapitalWithdrawApplyV1Request {
+func (r ApiWalletCreateCapitalWithdrawApplyV1Request) Address(address string) ApiWalletCreateCapitalWithdrawApplyV1Request {
 	r.address = &address
 	return r
 }
 
-func (r CapitalAPIWalletCreateCapitalWithdrawApplyV1Request) Amount(amount string) CapitalAPIWalletCreateCapitalWithdrawApplyV1Request {
+func (r ApiWalletCreateCapitalWithdrawApplyV1Request) Amount(amount string) ApiWalletCreateCapitalWithdrawApplyV1Request {
 	r.amount = &amount
 	return r
 }
 
-func (r CapitalAPIWalletCreateCapitalWithdrawApplyV1Request) Coin(coin string) CapitalAPIWalletCreateCapitalWithdrawApplyV1Request {
+func (r ApiWalletCreateCapitalWithdrawApplyV1Request) Coin(coin string) ApiWalletCreateCapitalWithdrawApplyV1Request {
 	r.coin = &coin
 	return r
 }
 
-func (r CapitalAPIWalletCreateCapitalWithdrawApplyV1Request) Timestamp(timestamp int64) CapitalAPIWalletCreateCapitalWithdrawApplyV1Request {
+func (r ApiWalletCreateCapitalWithdrawApplyV1Request) Timestamp(timestamp int64) ApiWalletCreateCapitalWithdrawApplyV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r CapitalAPIWalletCreateCapitalWithdrawApplyV1Request) AddressTag(addressTag string) CapitalAPIWalletCreateCapitalWithdrawApplyV1Request {
+func (r ApiWalletCreateCapitalWithdrawApplyV1Request) AddressTag(addressTag string) ApiWalletCreateCapitalWithdrawApplyV1Request {
 	r.addressTag = &addressTag
 	return r
 }
 
-func (r CapitalAPIWalletCreateCapitalWithdrawApplyV1Request) Name(name string) CapitalAPIWalletCreateCapitalWithdrawApplyV1Request {
+func (r ApiWalletCreateCapitalWithdrawApplyV1Request) Name(name string) ApiWalletCreateCapitalWithdrawApplyV1Request {
 	r.name = &name
 	return r
 }
 
-func (r CapitalAPIWalletCreateCapitalWithdrawApplyV1Request) Network(network string) CapitalAPIWalletCreateCapitalWithdrawApplyV1Request {
+func (r ApiWalletCreateCapitalWithdrawApplyV1Request) Network(network string) ApiWalletCreateCapitalWithdrawApplyV1Request {
 	r.network = &network
 	return r
 }
 
-func (r CapitalAPIWalletCreateCapitalWithdrawApplyV1Request) RecvWindow(recvWindow int64) CapitalAPIWalletCreateCapitalWithdrawApplyV1Request {
+func (r ApiWalletCreateCapitalWithdrawApplyV1Request) RecvWindow(recvWindow int64) ApiWalletCreateCapitalWithdrawApplyV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r CapitalAPIWalletCreateCapitalWithdrawApplyV1Request) TransactionFeeFlag(transactionFeeFlag bool) CapitalAPIWalletCreateCapitalWithdrawApplyV1Request {
+func (r ApiWalletCreateCapitalWithdrawApplyV1Request) TransactionFeeFlag(transactionFeeFlag bool) ApiWalletCreateCapitalWithdrawApplyV1Request {
 	r.transactionFeeFlag = &transactionFeeFlag
 	return r
 }
 
-func (r CapitalAPIWalletCreateCapitalWithdrawApplyV1Request) WalletType(walletType int32) CapitalAPIWalletCreateCapitalWithdrawApplyV1Request {
+func (r ApiWalletCreateCapitalWithdrawApplyV1Request) WalletType(walletType int32) ApiWalletCreateCapitalWithdrawApplyV1Request {
 	r.walletType = &walletType
 	return r
 }
 
-func (r CapitalAPIWalletCreateCapitalWithdrawApplyV1Request) WithdrawOrderId(withdrawOrderId string) CapitalAPIWalletCreateCapitalWithdrawApplyV1Request {
+func (r ApiWalletCreateCapitalWithdrawApplyV1Request) WithdrawOrderId(withdrawOrderId string) ApiWalletCreateCapitalWithdrawApplyV1Request {
 	r.withdrawOrderId = &withdrawOrderId
 	return r
 }
 
-func (r CapitalAPIWalletCreateCapitalWithdrawApplyV1Request) Execute() (*WalletCreateCapitalWithdrawApplyV1Resp, *http.Response, error) {
+func (r ApiWalletCreateCapitalWithdrawApplyV1Request) Execute() (*WalletCreateCapitalWithdrawApplyV1Resp, *http.Response, error) {
 	return r.ApiService.WalletCreateCapitalWithdrawApplyV1Execute(r)
 }
 
@@ -265,10 +265,10 @@ WalletCreateCapitalWithdrawApplyV1 Withdraw(USER_DATA)
 Submit a withdraw request.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return CapitalAPIWalletCreateCapitalWithdrawApplyV1Request
+ @return ApiWalletCreateCapitalWithdrawApplyV1Request
 */
-func (a *CapitalAPIService) WalletCreateCapitalWithdrawApplyV1(ctx context.Context) CapitalAPIWalletCreateCapitalWithdrawApplyV1Request {
-	return CapitalAPIWalletCreateCapitalWithdrawApplyV1Request{
+func (a *CapitalAPIService) WalletCreateCapitalWithdrawApplyV1(ctx context.Context) ApiWalletCreateCapitalWithdrawApplyV1Request {
+	return ApiWalletCreateCapitalWithdrawApplyV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -276,7 +276,7 @@ func (a *CapitalAPIService) WalletCreateCapitalWithdrawApplyV1(ctx context.Conte
 
 // Execute executes the request
 //  @return WalletCreateCapitalWithdrawApplyV1Resp
-func (a *CapitalAPIService) WalletCreateCapitalWithdrawApplyV1Execute(r CapitalAPIWalletCreateCapitalWithdrawApplyV1Request) (*WalletCreateCapitalWithdrawApplyV1Resp, *http.Response, error) {
+func (a *CapitalAPIService) WalletCreateCapitalWithdrawApplyV1Execute(r ApiWalletCreateCapitalWithdrawApplyV1Request) (*WalletCreateCapitalWithdrawApplyV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -413,24 +413,24 @@ func (a *CapitalAPIService) WalletCreateCapitalWithdrawApplyV1Execute(r CapitalA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type CapitalAPIWalletGetCapitalConfigGetallV1Request struct {
+type ApiWalletGetCapitalConfigGetallV1Request struct {
 	ctx context.Context
 	ApiService *CapitalAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r CapitalAPIWalletGetCapitalConfigGetallV1Request) Timestamp(timestamp int64) CapitalAPIWalletGetCapitalConfigGetallV1Request {
+func (r ApiWalletGetCapitalConfigGetallV1Request) Timestamp(timestamp int64) ApiWalletGetCapitalConfigGetallV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r CapitalAPIWalletGetCapitalConfigGetallV1Request) RecvWindow(recvWindow int64) CapitalAPIWalletGetCapitalConfigGetallV1Request {
+func (r ApiWalletGetCapitalConfigGetallV1Request) RecvWindow(recvWindow int64) ApiWalletGetCapitalConfigGetallV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r CapitalAPIWalletGetCapitalConfigGetallV1Request) Execute() ([]WalletGetCapitalConfigGetallV1RespItem, *http.Response, error) {
+func (r ApiWalletGetCapitalConfigGetallV1Request) Execute() ([]WalletGetCapitalConfigGetallV1RespItem, *http.Response, error) {
 	return r.ApiService.WalletGetCapitalConfigGetallV1Execute(r)
 }
 
@@ -440,10 +440,10 @@ WalletGetCapitalConfigGetallV1 All Coins' Information (USER_DATA)
 Get information of coins (available for deposit and withdraw) for user.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return CapitalAPIWalletGetCapitalConfigGetallV1Request
+ @return ApiWalletGetCapitalConfigGetallV1Request
 */
-func (a *CapitalAPIService) WalletGetCapitalConfigGetallV1(ctx context.Context) CapitalAPIWalletGetCapitalConfigGetallV1Request {
-	return CapitalAPIWalletGetCapitalConfigGetallV1Request{
+func (a *CapitalAPIService) WalletGetCapitalConfigGetallV1(ctx context.Context) ApiWalletGetCapitalConfigGetallV1Request {
+	return ApiWalletGetCapitalConfigGetallV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -451,7 +451,7 @@ func (a *CapitalAPIService) WalletGetCapitalConfigGetallV1(ctx context.Context) 
 
 // Execute executes the request
 //  @return []WalletGetCapitalConfigGetallV1RespItem
-func (a *CapitalAPIService) WalletGetCapitalConfigGetallV1Execute(r CapitalAPIWalletGetCapitalConfigGetallV1Request) ([]WalletGetCapitalConfigGetallV1RespItem, *http.Response, error) {
+func (a *CapitalAPIService) WalletGetCapitalConfigGetallV1Execute(r ApiWalletGetCapitalConfigGetallV1Request) ([]WalletGetCapitalConfigGetallV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -558,7 +558,7 @@ func (a *CapitalAPIService) WalletGetCapitalConfigGetallV1Execute(r CapitalAPIWa
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type CapitalAPIWalletGetCapitalDepositAddressListV1Request struct {
+type ApiWalletGetCapitalDepositAddressListV1Request struct {
 	ctx context.Context
 	ApiService *CapitalAPIService
 	coin *string
@@ -567,22 +567,22 @@ type CapitalAPIWalletGetCapitalDepositAddressListV1Request struct {
 }
 
 // &#x60;coin&#x60; refers to the parent network address format that the address is using
-func (r CapitalAPIWalletGetCapitalDepositAddressListV1Request) Coin(coin string) CapitalAPIWalletGetCapitalDepositAddressListV1Request {
+func (r ApiWalletGetCapitalDepositAddressListV1Request) Coin(coin string) ApiWalletGetCapitalDepositAddressListV1Request {
 	r.coin = &coin
 	return r
 }
 
-func (r CapitalAPIWalletGetCapitalDepositAddressListV1Request) Timestamp(timestamp int64) CapitalAPIWalletGetCapitalDepositAddressListV1Request {
+func (r ApiWalletGetCapitalDepositAddressListV1Request) Timestamp(timestamp int64) ApiWalletGetCapitalDepositAddressListV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r CapitalAPIWalletGetCapitalDepositAddressListV1Request) Network(network string) CapitalAPIWalletGetCapitalDepositAddressListV1Request {
+func (r ApiWalletGetCapitalDepositAddressListV1Request) Network(network string) ApiWalletGetCapitalDepositAddressListV1Request {
 	r.network = &network
 	return r
 }
 
-func (r CapitalAPIWalletGetCapitalDepositAddressListV1Request) Execute() ([]WalletGetCapitalDepositAddressListV1RespItem, *http.Response, error) {
+func (r ApiWalletGetCapitalDepositAddressListV1Request) Execute() ([]WalletGetCapitalDepositAddressListV1RespItem, *http.Response, error) {
 	return r.ApiService.WalletGetCapitalDepositAddressListV1Execute(r)
 }
 
@@ -592,10 +592,10 @@ WalletGetCapitalDepositAddressListV1 Fetch deposit address list with network(USE
 Fetch deposit address list with network.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return CapitalAPIWalletGetCapitalDepositAddressListV1Request
+ @return ApiWalletGetCapitalDepositAddressListV1Request
 */
-func (a *CapitalAPIService) WalletGetCapitalDepositAddressListV1(ctx context.Context) CapitalAPIWalletGetCapitalDepositAddressListV1Request {
-	return CapitalAPIWalletGetCapitalDepositAddressListV1Request{
+func (a *CapitalAPIService) WalletGetCapitalDepositAddressListV1(ctx context.Context) ApiWalletGetCapitalDepositAddressListV1Request {
+	return ApiWalletGetCapitalDepositAddressListV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -603,7 +603,7 @@ func (a *CapitalAPIService) WalletGetCapitalDepositAddressListV1(ctx context.Con
 
 // Execute executes the request
 //  @return []WalletGetCapitalDepositAddressListV1RespItem
-func (a *CapitalAPIService) WalletGetCapitalDepositAddressListV1Execute(r CapitalAPIWalletGetCapitalDepositAddressListV1Request) ([]WalletGetCapitalDepositAddressListV1RespItem, *http.Response, error) {
+func (a *CapitalAPIService) WalletGetCapitalDepositAddressListV1Execute(r ApiWalletGetCapitalDepositAddressListV1Request) ([]WalletGetCapitalDepositAddressListV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -717,7 +717,7 @@ func (a *CapitalAPIService) WalletGetCapitalDepositAddressListV1Execute(r Capita
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type CapitalAPIWalletGetCapitalDepositAddressV1Request struct {
+type ApiWalletGetCapitalDepositAddressV1Request struct {
 	ctx context.Context
 	ApiService *CapitalAPIService
 	coin *string
@@ -727,32 +727,32 @@ type CapitalAPIWalletGetCapitalDepositAddressV1Request struct {
 	recvWindow *int64
 }
 
-func (r CapitalAPIWalletGetCapitalDepositAddressV1Request) Coin(coin string) CapitalAPIWalletGetCapitalDepositAddressV1Request {
+func (r ApiWalletGetCapitalDepositAddressV1Request) Coin(coin string) ApiWalletGetCapitalDepositAddressV1Request {
 	r.coin = &coin
 	return r
 }
 
-func (r CapitalAPIWalletGetCapitalDepositAddressV1Request) Timestamp(timestamp int64) CapitalAPIWalletGetCapitalDepositAddressV1Request {
+func (r ApiWalletGetCapitalDepositAddressV1Request) Timestamp(timestamp int64) ApiWalletGetCapitalDepositAddressV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r CapitalAPIWalletGetCapitalDepositAddressV1Request) Network(network string) CapitalAPIWalletGetCapitalDepositAddressV1Request {
+func (r ApiWalletGetCapitalDepositAddressV1Request) Network(network string) ApiWalletGetCapitalDepositAddressV1Request {
 	r.network = &network
 	return r
 }
 
-func (r CapitalAPIWalletGetCapitalDepositAddressV1Request) Amount(amount string) CapitalAPIWalletGetCapitalDepositAddressV1Request {
+func (r ApiWalletGetCapitalDepositAddressV1Request) Amount(amount string) ApiWalletGetCapitalDepositAddressV1Request {
 	r.amount = &amount
 	return r
 }
 
-func (r CapitalAPIWalletGetCapitalDepositAddressV1Request) RecvWindow(recvWindow int64) CapitalAPIWalletGetCapitalDepositAddressV1Request {
+func (r ApiWalletGetCapitalDepositAddressV1Request) RecvWindow(recvWindow int64) ApiWalletGetCapitalDepositAddressV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r CapitalAPIWalletGetCapitalDepositAddressV1Request) Execute() (*WalletGetCapitalDepositAddressV1Resp, *http.Response, error) {
+func (r ApiWalletGetCapitalDepositAddressV1Request) Execute() (*WalletGetCapitalDepositAddressV1Resp, *http.Response, error) {
 	return r.ApiService.WalletGetCapitalDepositAddressV1Execute(r)
 }
 
@@ -762,10 +762,10 @@ WalletGetCapitalDepositAddressV1 Deposit Address(supporting network) (USER_DATA)
 Fetch deposit address with network.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return CapitalAPIWalletGetCapitalDepositAddressV1Request
+ @return ApiWalletGetCapitalDepositAddressV1Request
 */
-func (a *CapitalAPIService) WalletGetCapitalDepositAddressV1(ctx context.Context) CapitalAPIWalletGetCapitalDepositAddressV1Request {
-	return CapitalAPIWalletGetCapitalDepositAddressV1Request{
+func (a *CapitalAPIService) WalletGetCapitalDepositAddressV1(ctx context.Context) ApiWalletGetCapitalDepositAddressV1Request {
+	return ApiWalletGetCapitalDepositAddressV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -773,7 +773,7 @@ func (a *CapitalAPIService) WalletGetCapitalDepositAddressV1(ctx context.Context
 
 // Execute executes the request
 //  @return WalletGetCapitalDepositAddressV1Resp
-func (a *CapitalAPIService) WalletGetCapitalDepositAddressV1Execute(r CapitalAPIWalletGetCapitalDepositAddressV1Request) (*WalletGetCapitalDepositAddressV1Resp, *http.Response, error) {
+func (a *CapitalAPIService) WalletGetCapitalDepositAddressV1Execute(r ApiWalletGetCapitalDepositAddressV1Request) (*WalletGetCapitalDepositAddressV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -896,7 +896,7 @@ func (a *CapitalAPIService) WalletGetCapitalDepositAddressV1Execute(r CapitalAPI
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type CapitalAPIWalletGetCapitalDepositHisrecV1Request struct {
+type ApiWalletGetCapitalDepositHisrecV1Request struct {
 	ctx context.Context
 	ApiService *CapitalAPIService
 	timestamp *int64
@@ -911,63 +911,63 @@ type CapitalAPIWalletGetCapitalDepositHisrecV1Request struct {
 	txId *string
 }
 
-func (r CapitalAPIWalletGetCapitalDepositHisrecV1Request) Timestamp(timestamp int64) CapitalAPIWalletGetCapitalDepositHisrecV1Request {
+func (r ApiWalletGetCapitalDepositHisrecV1Request) Timestamp(timestamp int64) ApiWalletGetCapitalDepositHisrecV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Default: &#x60;false&#x60;, return &#x60;sourceAddress&#x60;field when set to &#x60;true&#x60;
-func (r CapitalAPIWalletGetCapitalDepositHisrecV1Request) IncludeSource(includeSource bool) CapitalAPIWalletGetCapitalDepositHisrecV1Request {
+func (r ApiWalletGetCapitalDepositHisrecV1Request) IncludeSource(includeSource bool) ApiWalletGetCapitalDepositHisrecV1Request {
 	r.includeSource = &includeSource
 	return r
 }
 
-func (r CapitalAPIWalletGetCapitalDepositHisrecV1Request) Coin(coin string) CapitalAPIWalletGetCapitalDepositHisrecV1Request {
+func (r ApiWalletGetCapitalDepositHisrecV1Request) Coin(coin string) ApiWalletGetCapitalDepositHisrecV1Request {
 	r.coin = &coin
 	return r
 }
 
 // 0(0:pending, 6:credited but cannot withdraw, 7:Wrong Deposit, 8:Waiting User confirm, 1:success, 2:rejected)
-func (r CapitalAPIWalletGetCapitalDepositHisrecV1Request) Status(status int32) CapitalAPIWalletGetCapitalDepositHisrecV1Request {
+func (r ApiWalletGetCapitalDepositHisrecV1Request) Status(status int32) ApiWalletGetCapitalDepositHisrecV1Request {
 	r.status = &status
 	return r
 }
 
 // Default: 90 days from current timestamp
-func (r CapitalAPIWalletGetCapitalDepositHisrecV1Request) StartTime(startTime int64) CapitalAPIWalletGetCapitalDepositHisrecV1Request {
+func (r ApiWalletGetCapitalDepositHisrecV1Request) StartTime(startTime int64) ApiWalletGetCapitalDepositHisrecV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // Default: present timestamp
-func (r CapitalAPIWalletGetCapitalDepositHisrecV1Request) EndTime(endTime int64) CapitalAPIWalletGetCapitalDepositHisrecV1Request {
+func (r ApiWalletGetCapitalDepositHisrecV1Request) EndTime(endTime int64) ApiWalletGetCapitalDepositHisrecV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default:0
-func (r CapitalAPIWalletGetCapitalDepositHisrecV1Request) Offset(offset int32) CapitalAPIWalletGetCapitalDepositHisrecV1Request {
+func (r ApiWalletGetCapitalDepositHisrecV1Request) Offset(offset int32) ApiWalletGetCapitalDepositHisrecV1Request {
 	r.offset = &offset
 	return r
 }
 
 // Default:1000, Max:1000
-func (r CapitalAPIWalletGetCapitalDepositHisrecV1Request) Limit(limit int32) CapitalAPIWalletGetCapitalDepositHisrecV1Request {
+func (r ApiWalletGetCapitalDepositHisrecV1Request) Limit(limit int32) ApiWalletGetCapitalDepositHisrecV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r CapitalAPIWalletGetCapitalDepositHisrecV1Request) RecvWindow(recvWindow int64) CapitalAPIWalletGetCapitalDepositHisrecV1Request {
+func (r ApiWalletGetCapitalDepositHisrecV1Request) RecvWindow(recvWindow int64) ApiWalletGetCapitalDepositHisrecV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r CapitalAPIWalletGetCapitalDepositHisrecV1Request) TxId(txId string) CapitalAPIWalletGetCapitalDepositHisrecV1Request {
+func (r ApiWalletGetCapitalDepositHisrecV1Request) TxId(txId string) ApiWalletGetCapitalDepositHisrecV1Request {
 	r.txId = &txId
 	return r
 }
 
-func (r CapitalAPIWalletGetCapitalDepositHisrecV1Request) Execute() ([]WalletGetCapitalDepositHisrecV1RespItem, *http.Response, error) {
+func (r ApiWalletGetCapitalDepositHisrecV1Request) Execute() ([]WalletGetCapitalDepositHisrecV1RespItem, *http.Response, error) {
 	return r.ApiService.WalletGetCapitalDepositHisrecV1Execute(r)
 }
 
@@ -977,10 +977,10 @@ WalletGetCapitalDepositHisrecV1 Deposit History (supporting network) (USER_DATA)
 Fetch deposit history.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return CapitalAPIWalletGetCapitalDepositHisrecV1Request
+ @return ApiWalletGetCapitalDepositHisrecV1Request
 */
-func (a *CapitalAPIService) WalletGetCapitalDepositHisrecV1(ctx context.Context) CapitalAPIWalletGetCapitalDepositHisrecV1Request {
-	return CapitalAPIWalletGetCapitalDepositHisrecV1Request{
+func (a *CapitalAPIService) WalletGetCapitalDepositHisrecV1(ctx context.Context) ApiWalletGetCapitalDepositHisrecV1Request {
+	return ApiWalletGetCapitalDepositHisrecV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -988,7 +988,7 @@ func (a *CapitalAPIService) WalletGetCapitalDepositHisrecV1(ctx context.Context)
 
 // Execute executes the request
 //  @return []WalletGetCapitalDepositHisrecV1RespItem
-func (a *CapitalAPIService) WalletGetCapitalDepositHisrecV1Execute(r CapitalAPIWalletGetCapitalDepositHisrecV1Request) ([]WalletGetCapitalDepositHisrecV1RespItem, *http.Response, error) {
+func (a *CapitalAPIService) WalletGetCapitalDepositHisrecV1Execute(r ApiWalletGetCapitalDepositHisrecV1Request) ([]WalletGetCapitalDepositHisrecV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1128,12 +1128,12 @@ func (a *CapitalAPIService) WalletGetCapitalDepositHisrecV1Execute(r CapitalAPIW
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type CapitalAPIWalletGetCapitalWithdrawAddressListV1Request struct {
+type ApiWalletGetCapitalWithdrawAddressListV1Request struct {
 	ctx context.Context
 	ApiService *CapitalAPIService
 }
 
-func (r CapitalAPIWalletGetCapitalWithdrawAddressListV1Request) Execute() ([]WalletGetCapitalWithdrawAddressListV1RespItem, *http.Response, error) {
+func (r ApiWalletGetCapitalWithdrawAddressListV1Request) Execute() ([]WalletGetCapitalWithdrawAddressListV1RespItem, *http.Response, error) {
 	return r.ApiService.WalletGetCapitalWithdrawAddressListV1Execute(r)
 }
 
@@ -1143,10 +1143,10 @@ WalletGetCapitalWithdrawAddressListV1 Fetch withdraw address list (USER_DATA)
 Fetch withdraw address list
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return CapitalAPIWalletGetCapitalWithdrawAddressListV1Request
+ @return ApiWalletGetCapitalWithdrawAddressListV1Request
 */
-func (a *CapitalAPIService) WalletGetCapitalWithdrawAddressListV1(ctx context.Context) CapitalAPIWalletGetCapitalWithdrawAddressListV1Request {
-	return CapitalAPIWalletGetCapitalWithdrawAddressListV1Request{
+func (a *CapitalAPIService) WalletGetCapitalWithdrawAddressListV1(ctx context.Context) ApiWalletGetCapitalWithdrawAddressListV1Request {
+	return ApiWalletGetCapitalWithdrawAddressListV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1154,7 +1154,7 @@ func (a *CapitalAPIService) WalletGetCapitalWithdrawAddressListV1(ctx context.Co
 
 // Execute executes the request
 //  @return []WalletGetCapitalWithdrawAddressListV1RespItem
-func (a *CapitalAPIService) WalletGetCapitalWithdrawAddressListV1Execute(r CapitalAPIWalletGetCapitalWithdrawAddressListV1Request) ([]WalletGetCapitalWithdrawAddressListV1RespItem, *http.Response, error) {
+func (a *CapitalAPIService) WalletGetCapitalWithdrawAddressListV1Execute(r ApiWalletGetCapitalWithdrawAddressListV1Request) ([]WalletGetCapitalWithdrawAddressListV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1254,7 +1254,7 @@ func (a *CapitalAPIService) WalletGetCapitalWithdrawAddressListV1Execute(r Capit
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type CapitalAPIWalletGetCapitalWithdrawHistoryV1Request struct {
+type ApiWalletGetCapitalWithdrawHistoryV1Request struct {
 	ctx context.Context
 	ApiService *CapitalAPIService
 	timestamp *int64
@@ -1269,62 +1269,62 @@ type CapitalAPIWalletGetCapitalWithdrawHistoryV1Request struct {
 	recvWindow *int64
 }
 
-func (r CapitalAPIWalletGetCapitalWithdrawHistoryV1Request) Timestamp(timestamp int64) CapitalAPIWalletGetCapitalWithdrawHistoryV1Request {
+func (r ApiWalletGetCapitalWithdrawHistoryV1Request) Timestamp(timestamp int64) ApiWalletGetCapitalWithdrawHistoryV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r CapitalAPIWalletGetCapitalWithdrawHistoryV1Request) Coin(coin string) CapitalAPIWalletGetCapitalWithdrawHistoryV1Request {
+func (r ApiWalletGetCapitalWithdrawHistoryV1Request) Coin(coin string) ApiWalletGetCapitalWithdrawHistoryV1Request {
 	r.coin = &coin
 	return r
 }
 
-func (r CapitalAPIWalletGetCapitalWithdrawHistoryV1Request) WithdrawOrderId(withdrawOrderId string) CapitalAPIWalletGetCapitalWithdrawHistoryV1Request {
+func (r ApiWalletGetCapitalWithdrawHistoryV1Request) WithdrawOrderId(withdrawOrderId string) ApiWalletGetCapitalWithdrawHistoryV1Request {
 	r.withdrawOrderId = &withdrawOrderId
 	return r
 }
 
 // 0(0:Email Sent, 2:Awaiting Approval 3:Rejected 4:Processing 6:Completed)
-func (r CapitalAPIWalletGetCapitalWithdrawHistoryV1Request) Status(status int32) CapitalAPIWalletGetCapitalWithdrawHistoryV1Request {
+func (r ApiWalletGetCapitalWithdrawHistoryV1Request) Status(status int32) ApiWalletGetCapitalWithdrawHistoryV1Request {
 	r.status = &status
 	return r
 }
 
-func (r CapitalAPIWalletGetCapitalWithdrawHistoryV1Request) Offset(offset int32) CapitalAPIWalletGetCapitalWithdrawHistoryV1Request {
+func (r ApiWalletGetCapitalWithdrawHistoryV1Request) Offset(offset int32) ApiWalletGetCapitalWithdrawHistoryV1Request {
 	r.offset = &offset
 	return r
 }
 
 // Default: 1000, Max: 1000
-func (r CapitalAPIWalletGetCapitalWithdrawHistoryV1Request) Limit(limit int32) CapitalAPIWalletGetCapitalWithdrawHistoryV1Request {
+func (r ApiWalletGetCapitalWithdrawHistoryV1Request) Limit(limit int32) ApiWalletGetCapitalWithdrawHistoryV1Request {
 	r.limit = &limit
 	return r
 }
 
 // id list returned in the response of POST &#x60;/sapi/v1/capital/withdraw/apply&#x60;, separated by &#x60;,&#x60;
-func (r CapitalAPIWalletGetCapitalWithdrawHistoryV1Request) IdList(idList string) CapitalAPIWalletGetCapitalWithdrawHistoryV1Request {
+func (r ApiWalletGetCapitalWithdrawHistoryV1Request) IdList(idList string) ApiWalletGetCapitalWithdrawHistoryV1Request {
 	r.idList = &idList
 	return r
 }
 
 // Default: 90 days from current timestamp
-func (r CapitalAPIWalletGetCapitalWithdrawHistoryV1Request) StartTime(startTime int64) CapitalAPIWalletGetCapitalWithdrawHistoryV1Request {
+func (r ApiWalletGetCapitalWithdrawHistoryV1Request) StartTime(startTime int64) ApiWalletGetCapitalWithdrawHistoryV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // Default: present timestamp
-func (r CapitalAPIWalletGetCapitalWithdrawHistoryV1Request) EndTime(endTime int64) CapitalAPIWalletGetCapitalWithdrawHistoryV1Request {
+func (r ApiWalletGetCapitalWithdrawHistoryV1Request) EndTime(endTime int64) ApiWalletGetCapitalWithdrawHistoryV1Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r CapitalAPIWalletGetCapitalWithdrawHistoryV1Request) RecvWindow(recvWindow int64) CapitalAPIWalletGetCapitalWithdrawHistoryV1Request {
+func (r ApiWalletGetCapitalWithdrawHistoryV1Request) RecvWindow(recvWindow int64) ApiWalletGetCapitalWithdrawHistoryV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r CapitalAPIWalletGetCapitalWithdrawHistoryV1Request) Execute() ([]WalletGetCapitalWithdrawHistoryV1RespItem, *http.Response, error) {
+func (r ApiWalletGetCapitalWithdrawHistoryV1Request) Execute() ([]WalletGetCapitalWithdrawHistoryV1RespItem, *http.Response, error) {
 	return r.ApiService.WalletGetCapitalWithdrawHistoryV1Execute(r)
 }
 
@@ -1334,10 +1334,10 @@ WalletGetCapitalWithdrawHistoryV1 Withdraw History (supporting network) (USER_DA
 Fetch withdraw history.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return CapitalAPIWalletGetCapitalWithdrawHistoryV1Request
+ @return ApiWalletGetCapitalWithdrawHistoryV1Request
 */
-func (a *CapitalAPIService) WalletGetCapitalWithdrawHistoryV1(ctx context.Context) CapitalAPIWalletGetCapitalWithdrawHistoryV1Request {
-	return CapitalAPIWalletGetCapitalWithdrawHistoryV1Request{
+func (a *CapitalAPIService) WalletGetCapitalWithdrawHistoryV1(ctx context.Context) ApiWalletGetCapitalWithdrawHistoryV1Request {
+	return ApiWalletGetCapitalWithdrawHistoryV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1345,7 +1345,7 @@ func (a *CapitalAPIService) WalletGetCapitalWithdrawHistoryV1(ctx context.Contex
 
 // Execute executes the request
 //  @return []WalletGetCapitalWithdrawHistoryV1RespItem
-func (a *CapitalAPIService) WalletGetCapitalWithdrawHistoryV1Execute(r CapitalAPIWalletGetCapitalWithdrawHistoryV1Request) ([]WalletGetCapitalWithdrawHistoryV1RespItem, *http.Response, error) {
+func (a *CapitalAPIService) WalletGetCapitalWithdrawHistoryV1Execute(r ApiWalletGetCapitalWithdrawHistoryV1Request) ([]WalletGetCapitalWithdrawHistoryV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

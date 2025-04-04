@@ -22,7 +22,7 @@ import (
 // AccountManagementAPIService AccountManagementAPI service
 type AccountManagementAPIService service
 
-type AccountManagementAPISubaccountCreateSubAccountBlvtEnableV1Request struct {
+type ApiSubaccountCreateSubAccountBlvtEnableV1Request struct {
 	ctx context.Context
 	ApiService *AccountManagementAPIService
 	email *string
@@ -31,27 +31,27 @@ type AccountManagementAPISubaccountCreateSubAccountBlvtEnableV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountManagementAPISubaccountCreateSubAccountBlvtEnableV1Request) Email(email string) AccountManagementAPISubaccountCreateSubAccountBlvtEnableV1Request {
+func (r ApiSubaccountCreateSubAccountBlvtEnableV1Request) Email(email string) ApiSubaccountCreateSubAccountBlvtEnableV1Request {
 	r.email = &email
 	return r
 }
 
-func (r AccountManagementAPISubaccountCreateSubAccountBlvtEnableV1Request) EnableBlvt(enableBlvt bool) AccountManagementAPISubaccountCreateSubAccountBlvtEnableV1Request {
+func (r ApiSubaccountCreateSubAccountBlvtEnableV1Request) EnableBlvt(enableBlvt bool) ApiSubaccountCreateSubAccountBlvtEnableV1Request {
 	r.enableBlvt = &enableBlvt
 	return r
 }
 
-func (r AccountManagementAPISubaccountCreateSubAccountBlvtEnableV1Request) Timestamp(timestamp int64) AccountManagementAPISubaccountCreateSubAccountBlvtEnableV1Request {
+func (r ApiSubaccountCreateSubAccountBlvtEnableV1Request) Timestamp(timestamp int64) ApiSubaccountCreateSubAccountBlvtEnableV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountManagementAPISubaccountCreateSubAccountBlvtEnableV1Request) RecvWindow(recvWindow int64) AccountManagementAPISubaccountCreateSubAccountBlvtEnableV1Request {
+func (r ApiSubaccountCreateSubAccountBlvtEnableV1Request) RecvWindow(recvWindow int64) ApiSubaccountCreateSubAccountBlvtEnableV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountManagementAPISubaccountCreateSubAccountBlvtEnableV1Request) Execute() (*SubaccountCreateSubAccountBlvtEnableV1Resp, *http.Response, error) {
+func (r ApiSubaccountCreateSubAccountBlvtEnableV1Request) Execute() (*SubaccountCreateSubAccountBlvtEnableV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountCreateSubAccountBlvtEnableV1Execute(r)
 }
 
@@ -61,10 +61,10 @@ SubaccountCreateSubAccountBlvtEnableV1 Enable Leverage Token for Sub-account(For
 Enable Leverage Token for Sub-account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountManagementAPISubaccountCreateSubAccountBlvtEnableV1Request
+ @return ApiSubaccountCreateSubAccountBlvtEnableV1Request
 */
-func (a *AccountManagementAPIService) SubaccountCreateSubAccountBlvtEnableV1(ctx context.Context) AccountManagementAPISubaccountCreateSubAccountBlvtEnableV1Request {
-	return AccountManagementAPISubaccountCreateSubAccountBlvtEnableV1Request{
+func (a *AccountManagementAPIService) SubaccountCreateSubAccountBlvtEnableV1(ctx context.Context) ApiSubaccountCreateSubAccountBlvtEnableV1Request {
+	return ApiSubaccountCreateSubAccountBlvtEnableV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -72,7 +72,7 @@ func (a *AccountManagementAPIService) SubaccountCreateSubAccountBlvtEnableV1(ctx
 
 // Execute executes the request
 //  @return SubaccountCreateSubAccountBlvtEnableV1Resp
-func (a *AccountManagementAPIService) SubaccountCreateSubAccountBlvtEnableV1Execute(r AccountManagementAPISubaccountCreateSubAccountBlvtEnableV1Request) (*SubaccountCreateSubAccountBlvtEnableV1Resp, *http.Response, error) {
+func (a *AccountManagementAPIService) SubaccountCreateSubAccountBlvtEnableV1Execute(r ApiSubaccountCreateSubAccountBlvtEnableV1Request) (*SubaccountCreateSubAccountBlvtEnableV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -181,7 +181,7 @@ func (a *AccountManagementAPIService) SubaccountCreateSubAccountBlvtEnableV1Exec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountManagementAPISubaccountCreateSubAccountEoptionsEnableV1Request struct {
+type ApiSubaccountCreateSubAccountEoptionsEnableV1Request struct {
 	ctx context.Context
 	ApiService *AccountManagementAPIService
 	email *string
@@ -189,22 +189,22 @@ type AccountManagementAPISubaccountCreateSubAccountEoptionsEnableV1Request struc
 	recvWindow *int64
 }
 
-func (r AccountManagementAPISubaccountCreateSubAccountEoptionsEnableV1Request) Email(email string) AccountManagementAPISubaccountCreateSubAccountEoptionsEnableV1Request {
+func (r ApiSubaccountCreateSubAccountEoptionsEnableV1Request) Email(email string) ApiSubaccountCreateSubAccountEoptionsEnableV1Request {
 	r.email = &email
 	return r
 }
 
-func (r AccountManagementAPISubaccountCreateSubAccountEoptionsEnableV1Request) Timestamp(timestamp int64) AccountManagementAPISubaccountCreateSubAccountEoptionsEnableV1Request {
+func (r ApiSubaccountCreateSubAccountEoptionsEnableV1Request) Timestamp(timestamp int64) ApiSubaccountCreateSubAccountEoptionsEnableV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountManagementAPISubaccountCreateSubAccountEoptionsEnableV1Request) RecvWindow(recvWindow int64) AccountManagementAPISubaccountCreateSubAccountEoptionsEnableV1Request {
+func (r ApiSubaccountCreateSubAccountEoptionsEnableV1Request) RecvWindow(recvWindow int64) ApiSubaccountCreateSubAccountEoptionsEnableV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountManagementAPISubaccountCreateSubAccountEoptionsEnableV1Request) Execute() (*SubaccountCreateSubAccountEoptionsEnableV1Resp, *http.Response, error) {
+func (r ApiSubaccountCreateSubAccountEoptionsEnableV1Request) Execute() (*SubaccountCreateSubAccountEoptionsEnableV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountCreateSubAccountEoptionsEnableV1Execute(r)
 }
 
@@ -214,10 +214,10 @@ SubaccountCreateSubAccountEoptionsEnableV1 Enable Options for Sub-account(For Ma
 Enable Options for Sub-account (For Master Account).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountManagementAPISubaccountCreateSubAccountEoptionsEnableV1Request
+ @return ApiSubaccountCreateSubAccountEoptionsEnableV1Request
 */
-func (a *AccountManagementAPIService) SubaccountCreateSubAccountEoptionsEnableV1(ctx context.Context) AccountManagementAPISubaccountCreateSubAccountEoptionsEnableV1Request {
-	return AccountManagementAPISubaccountCreateSubAccountEoptionsEnableV1Request{
+func (a *AccountManagementAPIService) SubaccountCreateSubAccountEoptionsEnableV1(ctx context.Context) ApiSubaccountCreateSubAccountEoptionsEnableV1Request {
+	return ApiSubaccountCreateSubAccountEoptionsEnableV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -225,7 +225,7 @@ func (a *AccountManagementAPIService) SubaccountCreateSubAccountEoptionsEnableV1
 
 // Execute executes the request
 //  @return SubaccountCreateSubAccountEoptionsEnableV1Resp
-func (a *AccountManagementAPIService) SubaccountCreateSubAccountEoptionsEnableV1Execute(r AccountManagementAPISubaccountCreateSubAccountEoptionsEnableV1Request) (*SubaccountCreateSubAccountEoptionsEnableV1Resp, *http.Response, error) {
+func (a *AccountManagementAPIService) SubaccountCreateSubAccountEoptionsEnableV1Execute(r ApiSubaccountCreateSubAccountEoptionsEnableV1Request) (*SubaccountCreateSubAccountEoptionsEnableV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -336,7 +336,7 @@ func (a *AccountManagementAPIService) SubaccountCreateSubAccountEoptionsEnableV1
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountManagementAPISubaccountCreateSubAccountFuturesEnableV1Request struct {
+type ApiSubaccountCreateSubAccountFuturesEnableV1Request struct {
 	ctx context.Context
 	ApiService *AccountManagementAPIService
 	email *string
@@ -344,22 +344,22 @@ type AccountManagementAPISubaccountCreateSubAccountFuturesEnableV1Request struct
 	recvWindow *int64
 }
 
-func (r AccountManagementAPISubaccountCreateSubAccountFuturesEnableV1Request) Email(email string) AccountManagementAPISubaccountCreateSubAccountFuturesEnableV1Request {
+func (r ApiSubaccountCreateSubAccountFuturesEnableV1Request) Email(email string) ApiSubaccountCreateSubAccountFuturesEnableV1Request {
 	r.email = &email
 	return r
 }
 
-func (r AccountManagementAPISubaccountCreateSubAccountFuturesEnableV1Request) Timestamp(timestamp int64) AccountManagementAPISubaccountCreateSubAccountFuturesEnableV1Request {
+func (r ApiSubaccountCreateSubAccountFuturesEnableV1Request) Timestamp(timestamp int64) ApiSubaccountCreateSubAccountFuturesEnableV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountManagementAPISubaccountCreateSubAccountFuturesEnableV1Request) RecvWindow(recvWindow int64) AccountManagementAPISubaccountCreateSubAccountFuturesEnableV1Request {
+func (r ApiSubaccountCreateSubAccountFuturesEnableV1Request) RecvWindow(recvWindow int64) ApiSubaccountCreateSubAccountFuturesEnableV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountManagementAPISubaccountCreateSubAccountFuturesEnableV1Request) Execute() (*SubaccountCreateSubAccountFuturesEnableV1Resp, *http.Response, error) {
+func (r ApiSubaccountCreateSubAccountFuturesEnableV1Request) Execute() (*SubaccountCreateSubAccountFuturesEnableV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountCreateSubAccountFuturesEnableV1Execute(r)
 }
 
@@ -369,10 +369,10 @@ SubaccountCreateSubAccountFuturesEnableV1 Enable Futures for Sub-account(For Mas
 Enable Futures for Sub-account for Master Account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountManagementAPISubaccountCreateSubAccountFuturesEnableV1Request
+ @return ApiSubaccountCreateSubAccountFuturesEnableV1Request
 */
-func (a *AccountManagementAPIService) SubaccountCreateSubAccountFuturesEnableV1(ctx context.Context) AccountManagementAPISubaccountCreateSubAccountFuturesEnableV1Request {
-	return AccountManagementAPISubaccountCreateSubAccountFuturesEnableV1Request{
+func (a *AccountManagementAPIService) SubaccountCreateSubAccountFuturesEnableV1(ctx context.Context) ApiSubaccountCreateSubAccountFuturesEnableV1Request {
+	return ApiSubaccountCreateSubAccountFuturesEnableV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -380,7 +380,7 @@ func (a *AccountManagementAPIService) SubaccountCreateSubAccountFuturesEnableV1(
 
 // Execute executes the request
 //  @return SubaccountCreateSubAccountFuturesEnableV1Resp
-func (a *AccountManagementAPIService) SubaccountCreateSubAccountFuturesEnableV1Execute(r AccountManagementAPISubaccountCreateSubAccountFuturesEnableV1Request) (*SubaccountCreateSubAccountFuturesEnableV1Resp, *http.Response, error) {
+func (a *AccountManagementAPIService) SubaccountCreateSubAccountFuturesEnableV1Execute(r ApiSubaccountCreateSubAccountFuturesEnableV1Request) (*SubaccountCreateSubAccountFuturesEnableV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -485,7 +485,7 @@ func (a *AccountManagementAPIService) SubaccountCreateSubAccountFuturesEnableV1E
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountManagementAPISubaccountCreateSubAccountMarginEnableV1Request struct {
+type ApiSubaccountCreateSubAccountMarginEnableV1Request struct {
 	ctx context.Context
 	ApiService *AccountManagementAPIService
 	email *string
@@ -493,22 +493,22 @@ type AccountManagementAPISubaccountCreateSubAccountMarginEnableV1Request struct 
 	recvWindow *int64
 }
 
-func (r AccountManagementAPISubaccountCreateSubAccountMarginEnableV1Request) Email(email string) AccountManagementAPISubaccountCreateSubAccountMarginEnableV1Request {
+func (r ApiSubaccountCreateSubAccountMarginEnableV1Request) Email(email string) ApiSubaccountCreateSubAccountMarginEnableV1Request {
 	r.email = &email
 	return r
 }
 
-func (r AccountManagementAPISubaccountCreateSubAccountMarginEnableV1Request) Timestamp(timestamp int64) AccountManagementAPISubaccountCreateSubAccountMarginEnableV1Request {
+func (r ApiSubaccountCreateSubAccountMarginEnableV1Request) Timestamp(timestamp int64) ApiSubaccountCreateSubAccountMarginEnableV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountManagementAPISubaccountCreateSubAccountMarginEnableV1Request) RecvWindow(recvWindow int64) AccountManagementAPISubaccountCreateSubAccountMarginEnableV1Request {
+func (r ApiSubaccountCreateSubAccountMarginEnableV1Request) RecvWindow(recvWindow int64) ApiSubaccountCreateSubAccountMarginEnableV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountManagementAPISubaccountCreateSubAccountMarginEnableV1Request) Execute() (*SubaccountCreateSubAccountMarginEnableV1Resp, *http.Response, error) {
+func (r ApiSubaccountCreateSubAccountMarginEnableV1Request) Execute() (*SubaccountCreateSubAccountMarginEnableV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountCreateSubAccountMarginEnableV1Execute(r)
 }
 
@@ -518,10 +518,10 @@ SubaccountCreateSubAccountMarginEnableV1 Enable Margin for Sub-account(For Maste
 Enable Margin for Sub-account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountManagementAPISubaccountCreateSubAccountMarginEnableV1Request
+ @return ApiSubaccountCreateSubAccountMarginEnableV1Request
 */
-func (a *AccountManagementAPIService) SubaccountCreateSubAccountMarginEnableV1(ctx context.Context) AccountManagementAPISubaccountCreateSubAccountMarginEnableV1Request {
-	return AccountManagementAPISubaccountCreateSubAccountMarginEnableV1Request{
+func (a *AccountManagementAPIService) SubaccountCreateSubAccountMarginEnableV1(ctx context.Context) ApiSubaccountCreateSubAccountMarginEnableV1Request {
+	return ApiSubaccountCreateSubAccountMarginEnableV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -529,7 +529,7 @@ func (a *AccountManagementAPIService) SubaccountCreateSubAccountMarginEnableV1(c
 
 // Execute executes the request
 //  @return SubaccountCreateSubAccountMarginEnableV1Resp
-func (a *AccountManagementAPIService) SubaccountCreateSubAccountMarginEnableV1Execute(r AccountManagementAPISubaccountCreateSubAccountMarginEnableV1Request) (*SubaccountCreateSubAccountMarginEnableV1Resp, *http.Response, error) {
+func (a *AccountManagementAPIService) SubaccountCreateSubAccountMarginEnableV1Execute(r ApiSubaccountCreateSubAccountMarginEnableV1Request) (*SubaccountCreateSubAccountMarginEnableV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -634,7 +634,7 @@ func (a *AccountManagementAPIService) SubaccountCreateSubAccountMarginEnableV1Ex
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountManagementAPISubaccountCreateSubAccountVirtualSubAccountV1Request struct {
+type ApiSubaccountCreateSubAccountVirtualSubAccountV1Request struct {
 	ctx context.Context
 	ApiService *AccountManagementAPIService
 	subAccountString *string
@@ -642,22 +642,22 @@ type AccountManagementAPISubaccountCreateSubAccountVirtualSubAccountV1Request st
 	recvWindow *int64
 }
 
-func (r AccountManagementAPISubaccountCreateSubAccountVirtualSubAccountV1Request) SubAccountString(subAccountString string) AccountManagementAPISubaccountCreateSubAccountVirtualSubAccountV1Request {
+func (r ApiSubaccountCreateSubAccountVirtualSubAccountV1Request) SubAccountString(subAccountString string) ApiSubaccountCreateSubAccountVirtualSubAccountV1Request {
 	r.subAccountString = &subAccountString
 	return r
 }
 
-func (r AccountManagementAPISubaccountCreateSubAccountVirtualSubAccountV1Request) Timestamp(timestamp int64) AccountManagementAPISubaccountCreateSubAccountVirtualSubAccountV1Request {
+func (r ApiSubaccountCreateSubAccountVirtualSubAccountV1Request) Timestamp(timestamp int64) ApiSubaccountCreateSubAccountVirtualSubAccountV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountManagementAPISubaccountCreateSubAccountVirtualSubAccountV1Request) RecvWindow(recvWindow int64) AccountManagementAPISubaccountCreateSubAccountVirtualSubAccountV1Request {
+func (r ApiSubaccountCreateSubAccountVirtualSubAccountV1Request) RecvWindow(recvWindow int64) ApiSubaccountCreateSubAccountVirtualSubAccountV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountManagementAPISubaccountCreateSubAccountVirtualSubAccountV1Request) Execute() (*SubaccountCreateSubAccountVirtualSubAccountV1Resp, *http.Response, error) {
+func (r ApiSubaccountCreateSubAccountVirtualSubAccountV1Request) Execute() (*SubaccountCreateSubAccountVirtualSubAccountV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountCreateSubAccountVirtualSubAccountV1Execute(r)
 }
 
@@ -667,10 +667,10 @@ SubaccountCreateSubAccountVirtualSubAccountV1 Create a Virtual Sub-account(For M
 Create a Virtual Sub-account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountManagementAPISubaccountCreateSubAccountVirtualSubAccountV1Request
+ @return ApiSubaccountCreateSubAccountVirtualSubAccountV1Request
 */
-func (a *AccountManagementAPIService) SubaccountCreateSubAccountVirtualSubAccountV1(ctx context.Context) AccountManagementAPISubaccountCreateSubAccountVirtualSubAccountV1Request {
-	return AccountManagementAPISubaccountCreateSubAccountVirtualSubAccountV1Request{
+func (a *AccountManagementAPIService) SubaccountCreateSubAccountVirtualSubAccountV1(ctx context.Context) ApiSubaccountCreateSubAccountVirtualSubAccountV1Request {
+	return ApiSubaccountCreateSubAccountVirtualSubAccountV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -678,7 +678,7 @@ func (a *AccountManagementAPIService) SubaccountCreateSubAccountVirtualSubAccoun
 
 // Execute executes the request
 //  @return SubaccountCreateSubAccountVirtualSubAccountV1Resp
-func (a *AccountManagementAPIService) SubaccountCreateSubAccountVirtualSubAccountV1Execute(r AccountManagementAPISubaccountCreateSubAccountVirtualSubAccountV1Request) (*SubaccountCreateSubAccountVirtualSubAccountV1Resp, *http.Response, error) {
+func (a *AccountManagementAPIService) SubaccountCreateSubAccountVirtualSubAccountV1Execute(r ApiSubaccountCreateSubAccountVirtualSubAccountV1Request) (*SubaccountCreateSubAccountVirtualSubAccountV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -783,7 +783,7 @@ func (a *AccountManagementAPIService) SubaccountCreateSubAccountVirtualSubAccoun
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV1Request struct {
+type ApiSubaccountGetSubAccountFuturesPositionRiskV1Request struct {
 	ctx context.Context
 	ApiService *AccountManagementAPIService
 	email *string
@@ -792,22 +792,22 @@ type AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV1Request str
 }
 
 // &lt;a href&#x3D;\&quot;/docs/sub_account/account-management/Get-Futures-Position-Risk-of-Sub-account#email-address\&quot;&gt;Sub-account email&lt;/a&gt;
-func (r AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV1Request) Email(email string) AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV1Request {
+func (r ApiSubaccountGetSubAccountFuturesPositionRiskV1Request) Email(email string) ApiSubaccountGetSubAccountFuturesPositionRiskV1Request {
 	r.email = &email
 	return r
 }
 
-func (r AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV1Request) Timestamp(timestamp int64) AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV1Request {
+func (r ApiSubaccountGetSubAccountFuturesPositionRiskV1Request) Timestamp(timestamp int64) ApiSubaccountGetSubAccountFuturesPositionRiskV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV1Request) RecvWindow(recvWindow int64) AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV1Request {
+func (r ApiSubaccountGetSubAccountFuturesPositionRiskV1Request) RecvWindow(recvWindow int64) ApiSubaccountGetSubAccountFuturesPositionRiskV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV1Request) Execute() ([]SubaccountGetSubAccountFuturesPositionRiskV1RespItem, *http.Response, error) {
+func (r ApiSubaccountGetSubAccountFuturesPositionRiskV1Request) Execute() ([]SubaccountGetSubAccountFuturesPositionRiskV1RespItem, *http.Response, error) {
 	return r.ApiService.SubaccountGetSubAccountFuturesPositionRiskV1Execute(r)
 }
 
@@ -817,10 +817,10 @@ SubaccountGetSubAccountFuturesPositionRiskV1 Get Futures Position-Risk of Sub-ac
 Get Futures Position-Risk of Sub-account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV1Request
+ @return ApiSubaccountGetSubAccountFuturesPositionRiskV1Request
 */
-func (a *AccountManagementAPIService) SubaccountGetSubAccountFuturesPositionRiskV1(ctx context.Context) AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV1Request {
-	return AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV1Request{
+func (a *AccountManagementAPIService) SubaccountGetSubAccountFuturesPositionRiskV1(ctx context.Context) ApiSubaccountGetSubAccountFuturesPositionRiskV1Request {
+	return ApiSubaccountGetSubAccountFuturesPositionRiskV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -828,7 +828,7 @@ func (a *AccountManagementAPIService) SubaccountGetSubAccountFuturesPositionRisk
 
 // Execute executes the request
 //  @return []SubaccountGetSubAccountFuturesPositionRiskV1RespItem
-func (a *AccountManagementAPIService) SubaccountGetSubAccountFuturesPositionRiskV1Execute(r AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV1Request) ([]SubaccountGetSubAccountFuturesPositionRiskV1RespItem, *http.Response, error) {
+func (a *AccountManagementAPIService) SubaccountGetSubAccountFuturesPositionRiskV1Execute(r ApiSubaccountGetSubAccountFuturesPositionRiskV1Request) ([]SubaccountGetSubAccountFuturesPositionRiskV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -933,7 +933,7 @@ func (a *AccountManagementAPIService) SubaccountGetSubAccountFuturesPositionRisk
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV2Request struct {
+type ApiSubaccountGetSubAccountFuturesPositionRiskV2Request struct {
 	ctx context.Context
 	ApiService *AccountManagementAPIService
 	email *string
@@ -943,28 +943,28 @@ type AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV2Request str
 }
 
 // &lt;a href&#x3D;\&quot;/docs/sub_account/account-management/Get-Futures-Position-Risk-of-Sub-account-V2#email-address\&quot;&gt;Sub-account email&lt;/a&gt;
-func (r AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV2Request) Email(email string) AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV2Request {
+func (r ApiSubaccountGetSubAccountFuturesPositionRiskV2Request) Email(email string) ApiSubaccountGetSubAccountFuturesPositionRiskV2Request {
 	r.email = &email
 	return r
 }
 
 // 1:USDT Margined Futures, 2:COIN Margined Futures
-func (r AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV2Request) FuturesType(futuresType int32) AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV2Request {
+func (r ApiSubaccountGetSubAccountFuturesPositionRiskV2Request) FuturesType(futuresType int32) ApiSubaccountGetSubAccountFuturesPositionRiskV2Request {
 	r.futuresType = &futuresType
 	return r
 }
 
-func (r AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV2Request) Timestamp(timestamp int64) AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV2Request {
+func (r ApiSubaccountGetSubAccountFuturesPositionRiskV2Request) Timestamp(timestamp int64) ApiSubaccountGetSubAccountFuturesPositionRiskV2Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV2Request) RecvWindow(recvWindow int64) AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV2Request {
+func (r ApiSubaccountGetSubAccountFuturesPositionRiskV2Request) RecvWindow(recvWindow int64) ApiSubaccountGetSubAccountFuturesPositionRiskV2Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV2Request) Execute() (*SubaccountGetSubAccountFuturesPositionRiskV2Resp, *http.Response, error) {
+func (r ApiSubaccountGetSubAccountFuturesPositionRiskV2Request) Execute() (*SubaccountGetSubAccountFuturesPositionRiskV2Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetSubAccountFuturesPositionRiskV2Execute(r)
 }
 
@@ -974,10 +974,10 @@ SubaccountGetSubAccountFuturesPositionRiskV2 Get Futures Position-Risk of Sub-ac
 Get Futures Position-Risk of Sub-account V2
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV2Request
+ @return ApiSubaccountGetSubAccountFuturesPositionRiskV2Request
 */
-func (a *AccountManagementAPIService) SubaccountGetSubAccountFuturesPositionRiskV2(ctx context.Context) AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV2Request {
-	return AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV2Request{
+func (a *AccountManagementAPIService) SubaccountGetSubAccountFuturesPositionRiskV2(ctx context.Context) ApiSubaccountGetSubAccountFuturesPositionRiskV2Request {
+	return ApiSubaccountGetSubAccountFuturesPositionRiskV2Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -985,7 +985,7 @@ func (a *AccountManagementAPIService) SubaccountGetSubAccountFuturesPositionRisk
 
 // Execute executes the request
 //  @return SubaccountGetSubAccountFuturesPositionRiskV2Resp
-func (a *AccountManagementAPIService) SubaccountGetSubAccountFuturesPositionRiskV2Execute(r AccountManagementAPISubaccountGetSubAccountFuturesPositionRiskV2Request) (*SubaccountGetSubAccountFuturesPositionRiskV2Resp, *http.Response, error) {
+func (a *AccountManagementAPIService) SubaccountGetSubAccountFuturesPositionRiskV2Execute(r ApiSubaccountGetSubAccountFuturesPositionRiskV2Request) (*SubaccountGetSubAccountFuturesPositionRiskV2Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1094,7 +1094,7 @@ func (a *AccountManagementAPIService) SubaccountGetSubAccountFuturesPositionRisk
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountManagementAPISubaccountGetSubAccountListV1Request struct {
+type ApiSubaccountGetSubAccountListV1Request struct {
 	ctx context.Context
 	ApiService *AccountManagementAPIService
 	timestamp *int64
@@ -1105,41 +1105,41 @@ type AccountManagementAPISubaccountGetSubAccountListV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountManagementAPISubaccountGetSubAccountListV1Request) Timestamp(timestamp int64) AccountManagementAPISubaccountGetSubAccountListV1Request {
+func (r ApiSubaccountGetSubAccountListV1Request) Timestamp(timestamp int64) ApiSubaccountGetSubAccountListV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // &lt;a href&#x3D;\&quot;/docs/sub_account/account-management/Query-Sub-account-List#email-address\&quot;&gt;Sub-account email&lt;/a&gt;
-func (r AccountManagementAPISubaccountGetSubAccountListV1Request) Email(email string) AccountManagementAPISubaccountGetSubAccountListV1Request {
+func (r ApiSubaccountGetSubAccountListV1Request) Email(email string) ApiSubaccountGetSubAccountListV1Request {
 	r.email = &email
 	return r
 }
 
 // true or false
-func (r AccountManagementAPISubaccountGetSubAccountListV1Request) IsFreeze(isFreeze string) AccountManagementAPISubaccountGetSubAccountListV1Request {
+func (r ApiSubaccountGetSubAccountListV1Request) IsFreeze(isFreeze string) ApiSubaccountGetSubAccountListV1Request {
 	r.isFreeze = &isFreeze
 	return r
 }
 
 // Default value: 1
-func (r AccountManagementAPISubaccountGetSubAccountListV1Request) Page(page int32) AccountManagementAPISubaccountGetSubAccountListV1Request {
+func (r ApiSubaccountGetSubAccountListV1Request) Page(page int32) ApiSubaccountGetSubAccountListV1Request {
 	r.page = &page
 	return r
 }
 
 // Default value: 1, Max value: 200
-func (r AccountManagementAPISubaccountGetSubAccountListV1Request) Limit(limit int32) AccountManagementAPISubaccountGetSubAccountListV1Request {
+func (r ApiSubaccountGetSubAccountListV1Request) Limit(limit int32) ApiSubaccountGetSubAccountListV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r AccountManagementAPISubaccountGetSubAccountListV1Request) RecvWindow(recvWindow int64) AccountManagementAPISubaccountGetSubAccountListV1Request {
+func (r ApiSubaccountGetSubAccountListV1Request) RecvWindow(recvWindow int64) ApiSubaccountGetSubAccountListV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountManagementAPISubaccountGetSubAccountListV1Request) Execute() (*SubaccountGetSubAccountListV1Resp, *http.Response, error) {
+func (r ApiSubaccountGetSubAccountListV1Request) Execute() (*SubaccountGetSubAccountListV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetSubAccountListV1Execute(r)
 }
 
@@ -1149,10 +1149,10 @@ SubaccountGetSubAccountListV1 Query Sub-account List(For Master Account)
 Query Sub-account List
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountManagementAPISubaccountGetSubAccountListV1Request
+ @return ApiSubaccountGetSubAccountListV1Request
 */
-func (a *AccountManagementAPIService) SubaccountGetSubAccountListV1(ctx context.Context) AccountManagementAPISubaccountGetSubAccountListV1Request {
-	return AccountManagementAPISubaccountGetSubAccountListV1Request{
+func (a *AccountManagementAPIService) SubaccountGetSubAccountListV1(ctx context.Context) ApiSubaccountGetSubAccountListV1Request {
+	return ApiSubaccountGetSubAccountListV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1160,7 +1160,7 @@ func (a *AccountManagementAPIService) SubaccountGetSubAccountListV1(ctx context.
 
 // Execute executes the request
 //  @return SubaccountGetSubAccountListV1Resp
-func (a *AccountManagementAPIService) SubaccountGetSubAccountListV1Execute(r AccountManagementAPISubaccountGetSubAccountListV1Request) (*SubaccountGetSubAccountListV1Resp, *http.Response, error) {
+func (a *AccountManagementAPIService) SubaccountGetSubAccountListV1Execute(r ApiSubaccountGetSubAccountListV1Request) (*SubaccountGetSubAccountListV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1279,7 +1279,7 @@ func (a *AccountManagementAPIService) SubaccountGetSubAccountListV1Execute(r Acc
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountManagementAPISubaccountGetSubAccountStatusV1Request struct {
+type ApiSubaccountGetSubAccountStatusV1Request struct {
 	ctx context.Context
 	ApiService *AccountManagementAPIService
 	timestamp *int64
@@ -1287,23 +1287,23 @@ type AccountManagementAPISubaccountGetSubAccountStatusV1Request struct {
 	recvWindow *int64
 }
 
-func (r AccountManagementAPISubaccountGetSubAccountStatusV1Request) Timestamp(timestamp int64) AccountManagementAPISubaccountGetSubAccountStatusV1Request {
+func (r ApiSubaccountGetSubAccountStatusV1Request) Timestamp(timestamp int64) ApiSubaccountGetSubAccountStatusV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // &lt;a href&#x3D;\&quot;/docs/sub_account/account-management/Get-Sub-accounts-Status-on-Margin-Or-Futures#email-address\&quot;&gt;Sub-account email&lt;/a&gt;
-func (r AccountManagementAPISubaccountGetSubAccountStatusV1Request) Email(email string) AccountManagementAPISubaccountGetSubAccountStatusV1Request {
+func (r ApiSubaccountGetSubAccountStatusV1Request) Email(email string) ApiSubaccountGetSubAccountStatusV1Request {
 	r.email = &email
 	return r
 }
 
-func (r AccountManagementAPISubaccountGetSubAccountStatusV1Request) RecvWindow(recvWindow int64) AccountManagementAPISubaccountGetSubAccountStatusV1Request {
+func (r ApiSubaccountGetSubAccountStatusV1Request) RecvWindow(recvWindow int64) ApiSubaccountGetSubAccountStatusV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountManagementAPISubaccountGetSubAccountStatusV1Request) Execute() ([]SubaccountGetSubAccountStatusV1RespItem, *http.Response, error) {
+func (r ApiSubaccountGetSubAccountStatusV1Request) Execute() ([]SubaccountGetSubAccountStatusV1RespItem, *http.Response, error) {
 	return r.ApiService.SubaccountGetSubAccountStatusV1Execute(r)
 }
 
@@ -1313,10 +1313,10 @@ SubaccountGetSubAccountStatusV1 Get Sub-account's Status on Margin Or Futures(Fo
 Get Sub-account's Status on Margin Or Futures
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountManagementAPISubaccountGetSubAccountStatusV1Request
+ @return ApiSubaccountGetSubAccountStatusV1Request
 */
-func (a *AccountManagementAPIService) SubaccountGetSubAccountStatusV1(ctx context.Context) AccountManagementAPISubaccountGetSubAccountStatusV1Request {
-	return AccountManagementAPISubaccountGetSubAccountStatusV1Request{
+func (a *AccountManagementAPIService) SubaccountGetSubAccountStatusV1(ctx context.Context) ApiSubaccountGetSubAccountStatusV1Request {
+	return ApiSubaccountGetSubAccountStatusV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1324,7 +1324,7 @@ func (a *AccountManagementAPIService) SubaccountGetSubAccountStatusV1(ctx contex
 
 // Execute executes the request
 //  @return []SubaccountGetSubAccountStatusV1RespItem
-func (a *AccountManagementAPIService) SubaccountGetSubAccountStatusV1Execute(r AccountManagementAPISubaccountGetSubAccountStatusV1Request) ([]SubaccountGetSubAccountStatusV1RespItem, *http.Response, error) {
+func (a *AccountManagementAPIService) SubaccountGetSubAccountStatusV1Execute(r ApiSubaccountGetSubAccountStatusV1Request) ([]SubaccountGetSubAccountStatusV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1431,7 +1431,7 @@ func (a *AccountManagementAPIService) SubaccountGetSubAccountStatusV1Execute(r A
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountManagementAPISubaccountGetSubAccountTransactionStatisticsV1Request struct {
+type ApiSubaccountGetSubAccountTransactionStatisticsV1Request struct {
 	ctx context.Context
 	ApiService *AccountManagementAPIService
 	email *string
@@ -1440,22 +1440,22 @@ type AccountManagementAPISubaccountGetSubAccountTransactionStatisticsV1Request s
 }
 
 // Sub user email
-func (r AccountManagementAPISubaccountGetSubAccountTransactionStatisticsV1Request) Email(email string) AccountManagementAPISubaccountGetSubAccountTransactionStatisticsV1Request {
+func (r ApiSubaccountGetSubAccountTransactionStatisticsV1Request) Email(email string) ApiSubaccountGetSubAccountTransactionStatisticsV1Request {
 	r.email = &email
 	return r
 }
 
-func (r AccountManagementAPISubaccountGetSubAccountTransactionStatisticsV1Request) Timestamp(timestamp int64) AccountManagementAPISubaccountGetSubAccountTransactionStatisticsV1Request {
+func (r ApiSubaccountGetSubAccountTransactionStatisticsV1Request) Timestamp(timestamp int64) ApiSubaccountGetSubAccountTransactionStatisticsV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountManagementAPISubaccountGetSubAccountTransactionStatisticsV1Request) RecvWindow(recvWindow int64) AccountManagementAPISubaccountGetSubAccountTransactionStatisticsV1Request {
+func (r ApiSubaccountGetSubAccountTransactionStatisticsV1Request) RecvWindow(recvWindow int64) ApiSubaccountGetSubAccountTransactionStatisticsV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountManagementAPISubaccountGetSubAccountTransactionStatisticsV1Request) Execute() (*SubaccountGetSubAccountTransactionStatisticsV1Resp, *http.Response, error) {
+func (r ApiSubaccountGetSubAccountTransactionStatisticsV1Request) Execute() (*SubaccountGetSubAccountTransactionStatisticsV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetSubAccountTransactionStatisticsV1Execute(r)
 }
 
@@ -1465,10 +1465,10 @@ SubaccountGetSubAccountTransactionStatisticsV1 Query Sub-account Transaction Sta
 Query Sub-account Transaction statistics (For Master Account).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountManagementAPISubaccountGetSubAccountTransactionStatisticsV1Request
+ @return ApiSubaccountGetSubAccountTransactionStatisticsV1Request
 */
-func (a *AccountManagementAPIService) SubaccountGetSubAccountTransactionStatisticsV1(ctx context.Context) AccountManagementAPISubaccountGetSubAccountTransactionStatisticsV1Request {
-	return AccountManagementAPISubaccountGetSubAccountTransactionStatisticsV1Request{
+func (a *AccountManagementAPIService) SubaccountGetSubAccountTransactionStatisticsV1(ctx context.Context) ApiSubaccountGetSubAccountTransactionStatisticsV1Request {
+	return ApiSubaccountGetSubAccountTransactionStatisticsV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1476,7 +1476,7 @@ func (a *AccountManagementAPIService) SubaccountGetSubAccountTransactionStatisti
 
 // Execute executes the request
 //  @return SubaccountGetSubAccountTransactionStatisticsV1Resp
-func (a *AccountManagementAPIService) SubaccountGetSubAccountTransactionStatisticsV1Execute(r AccountManagementAPISubaccountGetSubAccountTransactionStatisticsV1Request) (*SubaccountGetSubAccountTransactionStatisticsV1Resp, *http.Response, error) {
+func (a *AccountManagementAPIService) SubaccountGetSubAccountTransactionStatisticsV1Execute(r ApiSubaccountGetSubAccountTransactionStatisticsV1Request) (*SubaccountGetSubAccountTransactionStatisticsV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

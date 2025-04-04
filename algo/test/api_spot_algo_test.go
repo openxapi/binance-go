@@ -1,5 +1,5 @@
 /*
-Binance Algo API
+Binance Algorithmic Trading API
 
 Testing SpotAlgoAPIService
 

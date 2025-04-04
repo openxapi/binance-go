@@ -1,7 +1,7 @@
 /*
-Binance Futuresdata API
+Binance Futures Data API
 
-OpenAPI specification for Binance cryptocurrency exchange - Futuresdata API
+OpenAPI specification for Binance exchange - Futuresdata API
 
 API version: 0.1.0
 */
@@ -41,7 +41,7 @@ var (
 	queryDescape    = strings.NewReplacer("%5B", "[", "%5D", "]")
 )
 
-// APIClient manages communication with the Binance Futuresdata API API v0.1.0
+// APIClient manages communication with the Binance Futures Data API API v0.1.0
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration
@@ -50,8 +50,6 @@ type APIClient struct {
 	// API Services
 
 	MarketDataAPI *MarketDataAPIService
-
-	V1API *V1APIService
 }
 
 type service struct {
@@ -71,7 +69,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 
 	// API Services
 	c.MarketDataAPI = (*MarketDataAPIService)(&c.common)
-	c.V1API = (*V1APIService)(&c.common)
 
 	return c
 }

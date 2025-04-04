@@ -1,5 +1,5 @@
 /*
-Binance Cmfutures API
+Binance COIN-M Futures API
 
 Testing AccountAPIService
 

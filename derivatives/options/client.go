@@ -1,7 +1,7 @@
 /*
 Binance Options API
 
-OpenAPI specification for Binance cryptocurrency exchange - Options API
+OpenAPI specification for Binance exchange - Options API
 
 API version: 0.1.0
 */
@@ -60,8 +60,6 @@ type APIClient struct {
 	TradeAPI *TradeAPIService
 
 	UserDataStreamsAPI *UserDataStreamsAPIService
-
-	V1API *V1APIService
 }
 
 type service struct {
@@ -86,7 +84,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.MarketMakerEndpointsAPI = (*MarketMakerEndpointsAPIService)(&c.common)
 	c.TradeAPI = (*TradeAPIService)(&c.common)
 	c.UserDataStreamsAPI = (*UserDataStreamsAPIService)(&c.common)
-	c.V1API = (*V1APIService)(&c.common)
 
 	return c
 }

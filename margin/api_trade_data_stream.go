@@ -1,7 +1,7 @@
 /*
-Binance Margin API
+Binance Margin Trading API
 
-OpenAPI specification for Binance cryptocurrency exchange - Margin API
+OpenAPI specification for Binance exchange - Margin API
 
 API version: 0.1.0
 */
@@ -22,18 +22,18 @@ import (
 // TradeDataStreamAPIService TradeDataStreamAPI service
 type TradeDataStreamAPIService service
 
-type TradeDataStreamAPIMarginCreateUserDataStreamIsolatedV1Request struct {
+type ApiMarginCreateUserDataStreamIsolatedV1Request struct {
 	ctx context.Context
 	ApiService *TradeDataStreamAPIService
 	symbol *string
 }
 
-func (r TradeDataStreamAPIMarginCreateUserDataStreamIsolatedV1Request) Symbol(symbol string) TradeDataStreamAPIMarginCreateUserDataStreamIsolatedV1Request {
+func (r ApiMarginCreateUserDataStreamIsolatedV1Request) Symbol(symbol string) ApiMarginCreateUserDataStreamIsolatedV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeDataStreamAPIMarginCreateUserDataStreamIsolatedV1Request) Execute() (*MarginCreateUserDataStreamIsolatedV1Resp, *http.Response, error) {
+func (r ApiMarginCreateUserDataStreamIsolatedV1Request) Execute() (*MarginCreateUserDataStreamIsolatedV1Resp, *http.Response, error) {
 	return r.ApiService.MarginCreateUserDataStreamIsolatedV1Execute(r)
 }
 
@@ -43,10 +43,10 @@ MarginCreateUserDataStreamIsolatedV1 Start Isolated Margin User Data Stream (USE
 Start a new isolated margin user data stream. The stream will close after 60 minutes unless a keepalive is sent. If the account has an active listenKey, that listenKey will be returned and its validity will be extended for 60 minutes.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeDataStreamAPIMarginCreateUserDataStreamIsolatedV1Request
+ @return ApiMarginCreateUserDataStreamIsolatedV1Request
 */
-func (a *TradeDataStreamAPIService) MarginCreateUserDataStreamIsolatedV1(ctx context.Context) TradeDataStreamAPIMarginCreateUserDataStreamIsolatedV1Request {
-	return TradeDataStreamAPIMarginCreateUserDataStreamIsolatedV1Request{
+func (a *TradeDataStreamAPIService) MarginCreateUserDataStreamIsolatedV1(ctx context.Context) ApiMarginCreateUserDataStreamIsolatedV1Request {
+	return ApiMarginCreateUserDataStreamIsolatedV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -54,7 +54,7 @@ func (a *TradeDataStreamAPIService) MarginCreateUserDataStreamIsolatedV1(ctx con
 
 // Execute executes the request
 //  @return MarginCreateUserDataStreamIsolatedV1Resp
-func (a *TradeDataStreamAPIService) MarginCreateUserDataStreamIsolatedV1Execute(r TradeDataStreamAPIMarginCreateUserDataStreamIsolatedV1Request) (*MarginCreateUserDataStreamIsolatedV1Resp, *http.Response, error) {
+func (a *TradeDataStreamAPIService) MarginCreateUserDataStreamIsolatedV1Execute(r ApiMarginCreateUserDataStreamIsolatedV1Request) (*MarginCreateUserDataStreamIsolatedV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -158,12 +158,12 @@ func (a *TradeDataStreamAPIService) MarginCreateUserDataStreamIsolatedV1Execute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeDataStreamAPIMarginCreateUserDataStreamV1Request struct {
+type ApiMarginCreateUserDataStreamV1Request struct {
 	ctx context.Context
 	ApiService *TradeDataStreamAPIService
 }
 
-func (r TradeDataStreamAPIMarginCreateUserDataStreamV1Request) Execute() (*MarginCreateUserDataStreamV1Resp, *http.Response, error) {
+func (r ApiMarginCreateUserDataStreamV1Request) Execute() (*MarginCreateUserDataStreamV1Resp, *http.Response, error) {
 	return r.ApiService.MarginCreateUserDataStreamV1Execute(r)
 }
 
@@ -173,10 +173,10 @@ MarginCreateUserDataStreamV1 Start Margin User Data Stream (USER_STREAM)
 Start a new margin user data stream. The stream will close after 60 minutes unless a keepalive is sent. If the account has an active listenKey, that listenKey will be returned and its validity will be extended for 60 minutes.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeDataStreamAPIMarginCreateUserDataStreamV1Request
+ @return ApiMarginCreateUserDataStreamV1Request
 */
-func (a *TradeDataStreamAPIService) MarginCreateUserDataStreamV1(ctx context.Context) TradeDataStreamAPIMarginCreateUserDataStreamV1Request {
-	return TradeDataStreamAPIMarginCreateUserDataStreamV1Request{
+func (a *TradeDataStreamAPIService) MarginCreateUserDataStreamV1(ctx context.Context) ApiMarginCreateUserDataStreamV1Request {
+	return ApiMarginCreateUserDataStreamV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -184,7 +184,7 @@ func (a *TradeDataStreamAPIService) MarginCreateUserDataStreamV1(ctx context.Con
 
 // Execute executes the request
 //  @return MarginCreateUserDataStreamV1Resp
-func (a *TradeDataStreamAPIService) MarginCreateUserDataStreamV1Execute(r TradeDataStreamAPIMarginCreateUserDataStreamV1Request) (*MarginCreateUserDataStreamV1Resp, *http.Response, error) {
+func (a *TradeDataStreamAPIService) MarginCreateUserDataStreamV1Execute(r ApiMarginCreateUserDataStreamV1Request) (*MarginCreateUserDataStreamV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -284,24 +284,24 @@ func (a *TradeDataStreamAPIService) MarginCreateUserDataStreamV1Execute(r TradeD
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeDataStreamAPIMarginDeleteUserDataStreamIsolatedV1Request struct {
+type ApiMarginDeleteUserDataStreamIsolatedV1Request struct {
 	ctx context.Context
 	ApiService *TradeDataStreamAPIService
 	symbol *string
 	listenkey *string
 }
 
-func (r TradeDataStreamAPIMarginDeleteUserDataStreamIsolatedV1Request) Symbol(symbol string) TradeDataStreamAPIMarginDeleteUserDataStreamIsolatedV1Request {
+func (r ApiMarginDeleteUserDataStreamIsolatedV1Request) Symbol(symbol string) ApiMarginDeleteUserDataStreamIsolatedV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeDataStreamAPIMarginDeleteUserDataStreamIsolatedV1Request) Listenkey(listenkey string) TradeDataStreamAPIMarginDeleteUserDataStreamIsolatedV1Request {
+func (r ApiMarginDeleteUserDataStreamIsolatedV1Request) Listenkey(listenkey string) ApiMarginDeleteUserDataStreamIsolatedV1Request {
 	r.listenkey = &listenkey
 	return r
 }
 
-func (r TradeDataStreamAPIMarginDeleteUserDataStreamIsolatedV1Request) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiMarginDeleteUserDataStreamIsolatedV1Request) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.MarginDeleteUserDataStreamIsolatedV1Execute(r)
 }
 
@@ -311,10 +311,10 @@ MarginDeleteUserDataStreamIsolatedV1 Close Isolated Margin User Data Stream (USE
 Close out a isolated margin user data stream.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeDataStreamAPIMarginDeleteUserDataStreamIsolatedV1Request
+ @return ApiMarginDeleteUserDataStreamIsolatedV1Request
 */
-func (a *TradeDataStreamAPIService) MarginDeleteUserDataStreamIsolatedV1(ctx context.Context) TradeDataStreamAPIMarginDeleteUserDataStreamIsolatedV1Request {
-	return TradeDataStreamAPIMarginDeleteUserDataStreamIsolatedV1Request{
+func (a *TradeDataStreamAPIService) MarginDeleteUserDataStreamIsolatedV1(ctx context.Context) ApiMarginDeleteUserDataStreamIsolatedV1Request {
+	return ApiMarginDeleteUserDataStreamIsolatedV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -322,7 +322,7 @@ func (a *TradeDataStreamAPIService) MarginDeleteUserDataStreamIsolatedV1(ctx con
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *TradeDataStreamAPIService) MarginDeleteUserDataStreamIsolatedV1Execute(r TradeDataStreamAPIMarginDeleteUserDataStreamIsolatedV1Request) (map[string]interface{}, *http.Response, error) {
+func (a *TradeDataStreamAPIService) MarginDeleteUserDataStreamIsolatedV1Execute(r ApiMarginDeleteUserDataStreamIsolatedV1Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -430,18 +430,18 @@ func (a *TradeDataStreamAPIService) MarginDeleteUserDataStreamIsolatedV1Execute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeDataStreamAPIMarginDeleteUserDataStreamV1Request struct {
+type ApiMarginDeleteUserDataStreamV1Request struct {
 	ctx context.Context
 	ApiService *TradeDataStreamAPIService
 	listenkey *string
 }
 
-func (r TradeDataStreamAPIMarginDeleteUserDataStreamV1Request) Listenkey(listenkey string) TradeDataStreamAPIMarginDeleteUserDataStreamV1Request {
+func (r ApiMarginDeleteUserDataStreamV1Request) Listenkey(listenkey string) ApiMarginDeleteUserDataStreamV1Request {
 	r.listenkey = &listenkey
 	return r
 }
 
-func (r TradeDataStreamAPIMarginDeleteUserDataStreamV1Request) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiMarginDeleteUserDataStreamV1Request) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.MarginDeleteUserDataStreamV1Execute(r)
 }
 
@@ -451,10 +451,10 @@ MarginDeleteUserDataStreamV1 Close Margin User Data Stream (USER_STREAM)
 Close out a Margin user data stream.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeDataStreamAPIMarginDeleteUserDataStreamV1Request
+ @return ApiMarginDeleteUserDataStreamV1Request
 */
-func (a *TradeDataStreamAPIService) MarginDeleteUserDataStreamV1(ctx context.Context) TradeDataStreamAPIMarginDeleteUserDataStreamV1Request {
-	return TradeDataStreamAPIMarginDeleteUserDataStreamV1Request{
+func (a *TradeDataStreamAPIService) MarginDeleteUserDataStreamV1(ctx context.Context) ApiMarginDeleteUserDataStreamV1Request {
+	return ApiMarginDeleteUserDataStreamV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -462,7 +462,7 @@ func (a *TradeDataStreamAPIService) MarginDeleteUserDataStreamV1(ctx context.Con
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *TradeDataStreamAPIService) MarginDeleteUserDataStreamV1Execute(r TradeDataStreamAPIMarginDeleteUserDataStreamV1Request) (map[string]interface{}, *http.Response, error) {
+func (a *TradeDataStreamAPIService) MarginDeleteUserDataStreamV1Execute(r ApiMarginDeleteUserDataStreamV1Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -566,24 +566,24 @@ func (a *TradeDataStreamAPIService) MarginDeleteUserDataStreamV1Execute(r TradeD
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeDataStreamAPIMarginUpdateUserDataStreamIsolatedV1Request struct {
+type ApiMarginUpdateUserDataStreamIsolatedV1Request struct {
 	ctx context.Context
 	ApiService *TradeDataStreamAPIService
 	listenKey *string
 	symbol *string
 }
 
-func (r TradeDataStreamAPIMarginUpdateUserDataStreamIsolatedV1Request) ListenKey(listenKey string) TradeDataStreamAPIMarginUpdateUserDataStreamIsolatedV1Request {
+func (r ApiMarginUpdateUserDataStreamIsolatedV1Request) ListenKey(listenKey string) ApiMarginUpdateUserDataStreamIsolatedV1Request {
 	r.listenKey = &listenKey
 	return r
 }
 
-func (r TradeDataStreamAPIMarginUpdateUserDataStreamIsolatedV1Request) Symbol(symbol string) TradeDataStreamAPIMarginUpdateUserDataStreamIsolatedV1Request {
+func (r ApiMarginUpdateUserDataStreamIsolatedV1Request) Symbol(symbol string) ApiMarginUpdateUserDataStreamIsolatedV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeDataStreamAPIMarginUpdateUserDataStreamIsolatedV1Request) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiMarginUpdateUserDataStreamIsolatedV1Request) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.MarginUpdateUserDataStreamIsolatedV1Execute(r)
 }
 
@@ -593,10 +593,10 @@ MarginUpdateUserDataStreamIsolatedV1 Keepalive Isolated Margin User Data Stream 
 Keepalive an isolated margin user data stream to prevent a time out.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeDataStreamAPIMarginUpdateUserDataStreamIsolatedV1Request
+ @return ApiMarginUpdateUserDataStreamIsolatedV1Request
 */
-func (a *TradeDataStreamAPIService) MarginUpdateUserDataStreamIsolatedV1(ctx context.Context) TradeDataStreamAPIMarginUpdateUserDataStreamIsolatedV1Request {
-	return TradeDataStreamAPIMarginUpdateUserDataStreamIsolatedV1Request{
+func (a *TradeDataStreamAPIService) MarginUpdateUserDataStreamIsolatedV1(ctx context.Context) ApiMarginUpdateUserDataStreamIsolatedV1Request {
+	return ApiMarginUpdateUserDataStreamIsolatedV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -604,7 +604,7 @@ func (a *TradeDataStreamAPIService) MarginUpdateUserDataStreamIsolatedV1(ctx con
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *TradeDataStreamAPIService) MarginUpdateUserDataStreamIsolatedV1Execute(r TradeDataStreamAPIMarginUpdateUserDataStreamIsolatedV1Request) (map[string]interface{}, *http.Response, error) {
+func (a *TradeDataStreamAPIService) MarginUpdateUserDataStreamIsolatedV1Execute(r ApiMarginUpdateUserDataStreamIsolatedV1Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -712,18 +712,18 @@ func (a *TradeDataStreamAPIService) MarginUpdateUserDataStreamIsolatedV1Execute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeDataStreamAPIMarginUpdateUserDataStreamV1Request struct {
+type ApiMarginUpdateUserDataStreamV1Request struct {
 	ctx context.Context
 	ApiService *TradeDataStreamAPIService
 	listenKey *string
 }
 
-func (r TradeDataStreamAPIMarginUpdateUserDataStreamV1Request) ListenKey(listenKey string) TradeDataStreamAPIMarginUpdateUserDataStreamV1Request {
+func (r ApiMarginUpdateUserDataStreamV1Request) ListenKey(listenKey string) ApiMarginUpdateUserDataStreamV1Request {
 	r.listenKey = &listenKey
 	return r
 }
 
-func (r TradeDataStreamAPIMarginUpdateUserDataStreamV1Request) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiMarginUpdateUserDataStreamV1Request) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.MarginUpdateUserDataStreamV1Execute(r)
 }
 
@@ -733,10 +733,10 @@ MarginUpdateUserDataStreamV1 Keepalive Margin User Data Stream (USER_STREAM)
 Keepalive a margin user data stream to prevent a time out.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeDataStreamAPIMarginUpdateUserDataStreamV1Request
+ @return ApiMarginUpdateUserDataStreamV1Request
 */
-func (a *TradeDataStreamAPIService) MarginUpdateUserDataStreamV1(ctx context.Context) TradeDataStreamAPIMarginUpdateUserDataStreamV1Request {
-	return TradeDataStreamAPIMarginUpdateUserDataStreamV1Request{
+func (a *TradeDataStreamAPIService) MarginUpdateUserDataStreamV1(ctx context.Context) ApiMarginUpdateUserDataStreamV1Request {
+	return ApiMarginUpdateUserDataStreamV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -744,7 +744,7 @@ func (a *TradeDataStreamAPIService) MarginUpdateUserDataStreamV1(ctx context.Con
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *TradeDataStreamAPIService) MarginUpdateUserDataStreamV1Execute(r TradeDataStreamAPIMarginUpdateUserDataStreamV1Request) (map[string]interface{}, *http.Response, error) {
+func (a *TradeDataStreamAPIService) MarginUpdateUserDataStreamV1Execute(r ApiMarginUpdateUserDataStreamV1Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}

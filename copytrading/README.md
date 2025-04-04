@@ -124,8 +124,6 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *FutureCopyTradingAPI* | [**CopytradingGetCopyTradingFuturesLeadSymbolV1**](docs/FutureCopyTradingAPI.md#copytradinggetcopytradingfuturesleadsymbolv1) | **Get** /sapi/v1/copyTrading/futures/leadSymbol | Get Futures Lead Trading Symbol Whitelist(USER_DATA)
 *FutureCopyTradingAPI* | [**CopytradingGetCopyTradingFuturesUserStatusV1**](docs/FutureCopyTradingAPI.md#copytradinggetcopytradingfuturesuserstatusv1) | **Get** /sapi/v1/copyTrading/futures/userStatus | Get Futures Lead Trader Status(TRADE)
-*V1API* | [**CopytradingGetCopyTradingFuturesLeadSymbolV1**](docs/V1API.md#copytradinggetcopytradingfuturesleadsymbolv1) | **Get** /sapi/v1/copyTrading/futures/leadSymbol | Get Futures Lead Trading Symbol Whitelist(USER_DATA)
-*V1API* | [**CopytradingGetCopyTradingFuturesUserStatusV1**](docs/V1API.md#copytradinggetcopytradingfuturesuserstatusv1) | **Get** /sapi/v1/copyTrading/futures/userStatus | Get Futures Lead Trader Status(TRADE)
 
 
 ## Documentation For Models

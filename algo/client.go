@@ -1,7 +1,7 @@
 /*
-Binance Algo API
+Binance Algorithmic Trading API
 
-OpenAPI specification for Binance cryptocurrency exchange - Algo API
+OpenAPI specification for Binance exchange - Algo API
 
 API version: 0.1.0
 */
@@ -41,7 +41,7 @@ var (
 	queryDescape    = strings.NewReplacer("%5B", "[", "%5D", "]")
 )
 
-// APIClient manages communication with the Binance Algo API API v0.1.0
+// APIClient manages communication with the Binance Algorithmic Trading API API v0.1.0
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration
@@ -52,8 +52,6 @@ type APIClient struct {
 	FutureAlgoAPI *FutureAlgoAPIService
 
 	SpotAlgoAPI *SpotAlgoAPIService
-
-	V1API *V1APIService
 }
 
 type service struct {
@@ -74,7 +72,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	// API Services
 	c.FutureAlgoAPI = (*FutureAlgoAPIService)(&c.common)
 	c.SpotAlgoAPI = (*SpotAlgoAPIService)(&c.common)
-	c.V1API = (*V1APIService)(&c.common)
 
 	return c
 }

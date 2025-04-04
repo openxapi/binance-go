@@ -1,5 +1,5 @@
 /*
-Binance Pmargin API
+Binance Portfolio Margin API
 
 Testing MarketDataAPIService
 

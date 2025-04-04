@@ -1,7 +1,7 @@
 /*
-Binance Pmargin API
+Binance Portfolio Margin API
 
-OpenAPI specification for Binance cryptocurrency exchange - Pmargin API
+OpenAPI specification for Binance exchange - Pmargin API
 
 API version: 0.1.0
 */
@@ -22,12 +22,12 @@ import (
 // UserDataStreamsAPIService UserDataStreamsAPI service
 type UserDataStreamsAPIService service
 
-type UserDataStreamsAPIPmarginCreateListenKeyV1Request struct {
+type ApiPmarginCreateListenKeyV1Request struct {
 	ctx context.Context
 	ApiService *UserDataStreamsAPIService
 }
 
-func (r UserDataStreamsAPIPmarginCreateListenKeyV1Request) Execute() (*PmarginCreateListenKeyV1Resp, *http.Response, error) {
+func (r ApiPmarginCreateListenKeyV1Request) Execute() (*PmarginCreateListenKeyV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginCreateListenKeyV1Execute(r)
 }
 
@@ -37,10 +37,10 @@ PmarginCreateListenKeyV1 Start User Data Stream(USER_STREAM)
 Start a new user data stream. The stream will close after 60 minutes unless a keepalive is sent. If the account has an active listenKey, that listenKey will be returned and its validity will be extended for 60 minutes.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return UserDataStreamsAPIPmarginCreateListenKeyV1Request
+ @return ApiPmarginCreateListenKeyV1Request
 */
-func (a *UserDataStreamsAPIService) PmarginCreateListenKeyV1(ctx context.Context) UserDataStreamsAPIPmarginCreateListenKeyV1Request {
-	return UserDataStreamsAPIPmarginCreateListenKeyV1Request{
+func (a *UserDataStreamsAPIService) PmarginCreateListenKeyV1(ctx context.Context) ApiPmarginCreateListenKeyV1Request {
+	return ApiPmarginCreateListenKeyV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -48,7 +48,7 @@ func (a *UserDataStreamsAPIService) PmarginCreateListenKeyV1(ctx context.Context
 
 // Execute executes the request
 //  @return PmarginCreateListenKeyV1Resp
-func (a *UserDataStreamsAPIService) PmarginCreateListenKeyV1Execute(r UserDataStreamsAPIPmarginCreateListenKeyV1Request) (*PmarginCreateListenKeyV1Resp, *http.Response, error) {
+func (a *UserDataStreamsAPIService) PmarginCreateListenKeyV1Execute(r ApiPmarginCreateListenKeyV1Request) (*PmarginCreateListenKeyV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -148,12 +148,12 @@ func (a *UserDataStreamsAPIService) PmarginCreateListenKeyV1Execute(r UserDataSt
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UserDataStreamsAPIPmarginDeleteListenKeyV1Request struct {
+type ApiPmarginDeleteListenKeyV1Request struct {
 	ctx context.Context
 	ApiService *UserDataStreamsAPIService
 }
 
-func (r UserDataStreamsAPIPmarginDeleteListenKeyV1Request) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiPmarginDeleteListenKeyV1Request) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.PmarginDeleteListenKeyV1Execute(r)
 }
 
@@ -163,10 +163,10 @@ PmarginDeleteListenKeyV1 Close User Data Stream(USER_STREAM)
 Close out a user data stream.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return UserDataStreamsAPIPmarginDeleteListenKeyV1Request
+ @return ApiPmarginDeleteListenKeyV1Request
 */
-func (a *UserDataStreamsAPIService) PmarginDeleteListenKeyV1(ctx context.Context) UserDataStreamsAPIPmarginDeleteListenKeyV1Request {
-	return UserDataStreamsAPIPmarginDeleteListenKeyV1Request{
+func (a *UserDataStreamsAPIService) PmarginDeleteListenKeyV1(ctx context.Context) ApiPmarginDeleteListenKeyV1Request {
+	return ApiPmarginDeleteListenKeyV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -174,7 +174,7 @@ func (a *UserDataStreamsAPIService) PmarginDeleteListenKeyV1(ctx context.Context
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *UserDataStreamsAPIService) PmarginDeleteListenKeyV1Execute(r UserDataStreamsAPIPmarginDeleteListenKeyV1Request) (map[string]interface{}, *http.Response, error) {
+func (a *UserDataStreamsAPIService) PmarginDeleteListenKeyV1Execute(r ApiPmarginDeleteListenKeyV1Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -274,12 +274,12 @@ func (a *UserDataStreamsAPIService) PmarginDeleteListenKeyV1Execute(r UserDataSt
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UserDataStreamsAPIPmarginUpdateListenKeyV1Request struct {
+type ApiPmarginUpdateListenKeyV1Request struct {
 	ctx context.Context
 	ApiService *UserDataStreamsAPIService
 }
 
-func (r UserDataStreamsAPIPmarginUpdateListenKeyV1Request) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiPmarginUpdateListenKeyV1Request) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.PmarginUpdateListenKeyV1Execute(r)
 }
 
@@ -289,10 +289,10 @@ PmarginUpdateListenKeyV1 Keepalive User Data Stream (USER_STREAM)
 Keepalive a user data stream to prevent a time out. User data streams will close after 60 minutes. It's recommended to send a ping about every 60 minutes.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return UserDataStreamsAPIPmarginUpdateListenKeyV1Request
+ @return ApiPmarginUpdateListenKeyV1Request
 */
-func (a *UserDataStreamsAPIService) PmarginUpdateListenKeyV1(ctx context.Context) UserDataStreamsAPIPmarginUpdateListenKeyV1Request {
-	return UserDataStreamsAPIPmarginUpdateListenKeyV1Request{
+func (a *UserDataStreamsAPIService) PmarginUpdateListenKeyV1(ctx context.Context) ApiPmarginUpdateListenKeyV1Request {
+	return ApiPmarginUpdateListenKeyV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -300,7 +300,7 @@ func (a *UserDataStreamsAPIService) PmarginUpdateListenKeyV1(ctx context.Context
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *UserDataStreamsAPIService) PmarginUpdateListenKeyV1Execute(r UserDataStreamsAPIPmarginUpdateListenKeyV1Request) (map[string]interface{}, *http.Response, error) {
+func (a *UserDataStreamsAPIService) PmarginUpdateListenKeyV1Execute(r ApiPmarginUpdateListenKeyV1Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}

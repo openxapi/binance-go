@@ -60,7 +60,6 @@ paths:
       summary: Get Futures Lead Trading Symbol Whitelist(USER_DATA)
       tags:
       - Future Copy Trading
-      - V1
   /sapi/v1/copyTrading/futures/userStatus:
     get:
       description: Get Futures Lead Trader Status
@@ -106,7 +105,6 @@ paths:
       summary: Get Futures Lead Trader Status(TRADE)
       tags:
       - Future Copy Trading
-      - V1
 components:
   schemas:
     APIError:

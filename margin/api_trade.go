@@ -1,7 +1,7 @@
 /*
-Binance Margin API
+Binance Margin Trading API
 
-OpenAPI specification for Binance cryptocurrency exchange - Margin API
+OpenAPI specification for Binance exchange - Margin API
 
 API version: 0.1.0
 */
@@ -22,7 +22,7 @@ import (
 // TradeAPIService TradeAPI service
 type TradeAPIService service
 
-type TradeAPIMarginCreateMarginApiKeyV1Request struct {
+type ApiMarginCreateMarginApiKeyV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	apiName *string
@@ -34,42 +34,42 @@ type TradeAPIMarginCreateMarginApiKeyV1Request struct {
 	symbol *string
 }
 
-func (r TradeAPIMarginCreateMarginApiKeyV1Request) ApiName(apiName string) TradeAPIMarginCreateMarginApiKeyV1Request {
+func (r ApiMarginCreateMarginApiKeyV1Request) ApiName(apiName string) ApiMarginCreateMarginApiKeyV1Request {
 	r.apiName = &apiName
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginApiKeyV1Request) Timestamp(timestamp int64) TradeAPIMarginCreateMarginApiKeyV1Request {
+func (r ApiMarginCreateMarginApiKeyV1Request) Timestamp(timestamp int64) ApiMarginCreateMarginApiKeyV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginApiKeyV1Request) Ip(ip string) TradeAPIMarginCreateMarginApiKeyV1Request {
+func (r ApiMarginCreateMarginApiKeyV1Request) Ip(ip string) ApiMarginCreateMarginApiKeyV1Request {
 	r.ip = &ip
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginApiKeyV1Request) PermissionMode(permissionMode string) TradeAPIMarginCreateMarginApiKeyV1Request {
+func (r ApiMarginCreateMarginApiKeyV1Request) PermissionMode(permissionMode string) ApiMarginCreateMarginApiKeyV1Request {
 	r.permissionMode = &permissionMode
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginApiKeyV1Request) PublicKey(publicKey string) TradeAPIMarginCreateMarginApiKeyV1Request {
+func (r ApiMarginCreateMarginApiKeyV1Request) PublicKey(publicKey string) ApiMarginCreateMarginApiKeyV1Request {
 	r.publicKey = &publicKey
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginApiKeyV1Request) RecvWindow(recvWindow int64) TradeAPIMarginCreateMarginApiKeyV1Request {
+func (r ApiMarginCreateMarginApiKeyV1Request) RecvWindow(recvWindow int64) ApiMarginCreateMarginApiKeyV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginApiKeyV1Request) Symbol(symbol string) TradeAPIMarginCreateMarginApiKeyV1Request {
+func (r ApiMarginCreateMarginApiKeyV1Request) Symbol(symbol string) ApiMarginCreateMarginApiKeyV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginApiKeyV1Request) Execute() (*MarginCreateMarginApiKeyV1Resp, *http.Response, error) {
+func (r ApiMarginCreateMarginApiKeyV1Request) Execute() (*MarginCreateMarginApiKeyV1Resp, *http.Response, error) {
 	return r.ApiService.MarginCreateMarginApiKeyV1Execute(r)
 }
 
@@ -79,10 +79,10 @@ MarginCreateMarginApiKeyV1 Create Special Key(Low-Latency Trading)(TRADE)
 **Binance Margin offers low-latency trading through a special key, available exclusively to users with VIP level 4 or higher. **
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginCreateMarginApiKeyV1Request
+ @return ApiMarginCreateMarginApiKeyV1Request
 */
-func (a *TradeAPIService) MarginCreateMarginApiKeyV1(ctx context.Context) TradeAPIMarginCreateMarginApiKeyV1Request {
-	return TradeAPIMarginCreateMarginApiKeyV1Request{
+func (a *TradeAPIService) MarginCreateMarginApiKeyV1(ctx context.Context) ApiMarginCreateMarginApiKeyV1Request {
+	return ApiMarginCreateMarginApiKeyV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -90,7 +90,7 @@ func (a *TradeAPIService) MarginCreateMarginApiKeyV1(ctx context.Context) TradeA
 
 // Execute executes the request
 //  @return MarginCreateMarginApiKeyV1Resp
-func (a *TradeAPIService) MarginCreateMarginApiKeyV1Execute(r TradeAPIMarginCreateMarginApiKeyV1Request) (*MarginCreateMarginApiKeyV1Resp, *http.Response, error) {
+func (a *TradeAPIService) MarginCreateMarginApiKeyV1Execute(r ApiMarginCreateMarginApiKeyV1Request) (*MarginCreateMarginApiKeyV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -213,7 +213,7 @@ func (a *TradeAPIService) MarginCreateMarginApiKeyV1Execute(r TradeAPIMarginCrea
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIMarginCreateMarginExchangeSmallLiabilityV1Request struct {
+type ApiMarginCreateMarginExchangeSmallLiabilityV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	assetNames *[]string
@@ -221,22 +221,22 @@ type TradeAPIMarginCreateMarginExchangeSmallLiabilityV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIMarginCreateMarginExchangeSmallLiabilityV1Request) AssetNames(assetNames []string) TradeAPIMarginCreateMarginExchangeSmallLiabilityV1Request {
+func (r ApiMarginCreateMarginExchangeSmallLiabilityV1Request) AssetNames(assetNames []string) ApiMarginCreateMarginExchangeSmallLiabilityV1Request {
 	r.assetNames = &assetNames
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginExchangeSmallLiabilityV1Request) Timestamp(timestamp int64) TradeAPIMarginCreateMarginExchangeSmallLiabilityV1Request {
+func (r ApiMarginCreateMarginExchangeSmallLiabilityV1Request) Timestamp(timestamp int64) ApiMarginCreateMarginExchangeSmallLiabilityV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginExchangeSmallLiabilityV1Request) RecvWindow(recvWindow int64) TradeAPIMarginCreateMarginExchangeSmallLiabilityV1Request {
+func (r ApiMarginCreateMarginExchangeSmallLiabilityV1Request) RecvWindow(recvWindow int64) ApiMarginCreateMarginExchangeSmallLiabilityV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginExchangeSmallLiabilityV1Request) Execute() (*MarginCreateMarginExchangeSmallLiabilityV1Resp, *http.Response, error) {
+func (r ApiMarginCreateMarginExchangeSmallLiabilityV1Request) Execute() (*MarginCreateMarginExchangeSmallLiabilityV1Resp, *http.Response, error) {
 	return r.ApiService.MarginCreateMarginExchangeSmallLiabilityV1Execute(r)
 }
 
@@ -246,10 +246,10 @@ MarginCreateMarginExchangeSmallLiabilityV1 Small Liability Exchange (MARGIN)
 Small Liability Exchange
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginCreateMarginExchangeSmallLiabilityV1Request
+ @return ApiMarginCreateMarginExchangeSmallLiabilityV1Request
 */
-func (a *TradeAPIService) MarginCreateMarginExchangeSmallLiabilityV1(ctx context.Context) TradeAPIMarginCreateMarginExchangeSmallLiabilityV1Request {
-	return TradeAPIMarginCreateMarginExchangeSmallLiabilityV1Request{
+func (a *TradeAPIService) MarginCreateMarginExchangeSmallLiabilityV1(ctx context.Context) ApiMarginCreateMarginExchangeSmallLiabilityV1Request {
+	return ApiMarginCreateMarginExchangeSmallLiabilityV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -257,7 +257,7 @@ func (a *TradeAPIService) MarginCreateMarginExchangeSmallLiabilityV1(ctx context
 
 // Execute executes the request
 //  @return MarginCreateMarginExchangeSmallLiabilityV1Resp
-func (a *TradeAPIService) MarginCreateMarginExchangeSmallLiabilityV1Execute(r TradeAPIMarginCreateMarginExchangeSmallLiabilityV1Request) (*MarginCreateMarginExchangeSmallLiabilityV1Resp, *http.Response, error) {
+func (a *TradeAPIService) MarginCreateMarginExchangeSmallLiabilityV1Execute(r ApiMarginCreateMarginExchangeSmallLiabilityV1Request) (*MarginCreateMarginExchangeSmallLiabilityV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -362,7 +362,7 @@ func (a *TradeAPIService) MarginCreateMarginExchangeSmallLiabilityV1Execute(r Tr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIMarginCreateMarginManualLiquidationV1Request struct {
+type ApiMarginCreateMarginManualLiquidationV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -371,27 +371,27 @@ type TradeAPIMarginCreateMarginManualLiquidationV1Request struct {
 	symbol *string
 }
 
-func (r TradeAPIMarginCreateMarginManualLiquidationV1Request) Timestamp(timestamp int64) TradeAPIMarginCreateMarginManualLiquidationV1Request {
+func (r ApiMarginCreateMarginManualLiquidationV1Request) Timestamp(timestamp int64) ApiMarginCreateMarginManualLiquidationV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginManualLiquidationV1Request) Type_(type_ string) TradeAPIMarginCreateMarginManualLiquidationV1Request {
+func (r ApiMarginCreateMarginManualLiquidationV1Request) Type_(type_ string) ApiMarginCreateMarginManualLiquidationV1Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginManualLiquidationV1Request) RecvWindow(recvWindow int64) TradeAPIMarginCreateMarginManualLiquidationV1Request {
+func (r ApiMarginCreateMarginManualLiquidationV1Request) RecvWindow(recvWindow int64) ApiMarginCreateMarginManualLiquidationV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginManualLiquidationV1Request) Symbol(symbol string) TradeAPIMarginCreateMarginManualLiquidationV1Request {
+func (r ApiMarginCreateMarginManualLiquidationV1Request) Symbol(symbol string) ApiMarginCreateMarginManualLiquidationV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginManualLiquidationV1Request) Execute() (*MarginCreateMarginManualLiquidationV1Resp, *http.Response, error) {
+func (r ApiMarginCreateMarginManualLiquidationV1Request) Execute() (*MarginCreateMarginManualLiquidationV1Resp, *http.Response, error) {
 	return r.ApiService.MarginCreateMarginManualLiquidationV1Execute(r)
 }
 
@@ -401,10 +401,10 @@ MarginCreateMarginManualLiquidationV1 Margin Manual Liquidation(MARGIN)
 Margin Manual Liquidation
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginCreateMarginManualLiquidationV1Request
+ @return ApiMarginCreateMarginManualLiquidationV1Request
 */
-func (a *TradeAPIService) MarginCreateMarginManualLiquidationV1(ctx context.Context) TradeAPIMarginCreateMarginManualLiquidationV1Request {
-	return TradeAPIMarginCreateMarginManualLiquidationV1Request{
+func (a *TradeAPIService) MarginCreateMarginManualLiquidationV1(ctx context.Context) ApiMarginCreateMarginManualLiquidationV1Request {
+	return ApiMarginCreateMarginManualLiquidationV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -412,7 +412,7 @@ func (a *TradeAPIService) MarginCreateMarginManualLiquidationV1(ctx context.Cont
 
 // Execute executes the request
 //  @return MarginCreateMarginManualLiquidationV1Resp
-func (a *TradeAPIService) MarginCreateMarginManualLiquidationV1Execute(r TradeAPIMarginCreateMarginManualLiquidationV1Request) (*MarginCreateMarginManualLiquidationV1Resp, *http.Response, error) {
+func (a *TradeAPIService) MarginCreateMarginManualLiquidationV1Execute(r ApiMarginCreateMarginManualLiquidationV1Request) (*MarginCreateMarginManualLiquidationV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -520,7 +520,7 @@ func (a *TradeAPIService) MarginCreateMarginManualLiquidationV1Execute(r TradeAP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIMarginCreateMarginOrderOcoV1Request struct {
+type ApiMarginCreateMarginOrderOcoV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	price *string
@@ -544,102 +544,102 @@ type TradeAPIMarginCreateMarginOrderOcoV1Request struct {
 	stopLimitTimeInForce *string
 }
 
-func (r TradeAPIMarginCreateMarginOrderOcoV1Request) Price(price string) TradeAPIMarginCreateMarginOrderOcoV1Request {
+func (r ApiMarginCreateMarginOrderOcoV1Request) Price(price string) ApiMarginCreateMarginOrderOcoV1Request {
 	r.price = &price
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOcoV1Request) Quantity(quantity string) TradeAPIMarginCreateMarginOrderOcoV1Request {
+func (r ApiMarginCreateMarginOrderOcoV1Request) Quantity(quantity string) ApiMarginCreateMarginOrderOcoV1Request {
 	r.quantity = &quantity
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOcoV1Request) Side(side string) TradeAPIMarginCreateMarginOrderOcoV1Request {
+func (r ApiMarginCreateMarginOrderOcoV1Request) Side(side string) ApiMarginCreateMarginOrderOcoV1Request {
 	r.side = &side
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOcoV1Request) StopPrice(stopPrice string) TradeAPIMarginCreateMarginOrderOcoV1Request {
+func (r ApiMarginCreateMarginOrderOcoV1Request) StopPrice(stopPrice string) ApiMarginCreateMarginOrderOcoV1Request {
 	r.stopPrice = &stopPrice
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOcoV1Request) Symbol(symbol string) TradeAPIMarginCreateMarginOrderOcoV1Request {
+func (r ApiMarginCreateMarginOrderOcoV1Request) Symbol(symbol string) ApiMarginCreateMarginOrderOcoV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOcoV1Request) Timestamp(timestamp int64) TradeAPIMarginCreateMarginOrderOcoV1Request {
+func (r ApiMarginCreateMarginOrderOcoV1Request) Timestamp(timestamp int64) ApiMarginCreateMarginOrderOcoV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOcoV1Request) AutoRepayAtCancel(autoRepayAtCancel bool) TradeAPIMarginCreateMarginOrderOcoV1Request {
+func (r ApiMarginCreateMarginOrderOcoV1Request) AutoRepayAtCancel(autoRepayAtCancel bool) ApiMarginCreateMarginOrderOcoV1Request {
 	r.autoRepayAtCancel = &autoRepayAtCancel
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOcoV1Request) IsIsolated(isIsolated string) TradeAPIMarginCreateMarginOrderOcoV1Request {
+func (r ApiMarginCreateMarginOrderOcoV1Request) IsIsolated(isIsolated string) ApiMarginCreateMarginOrderOcoV1Request {
 	r.isIsolated = &isIsolated
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOcoV1Request) LimitClientOrderId(limitClientOrderId string) TradeAPIMarginCreateMarginOrderOcoV1Request {
+func (r ApiMarginCreateMarginOrderOcoV1Request) LimitClientOrderId(limitClientOrderId string) ApiMarginCreateMarginOrderOcoV1Request {
 	r.limitClientOrderId = &limitClientOrderId
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOcoV1Request) LimitIcebergQty(limitIcebergQty string) TradeAPIMarginCreateMarginOrderOcoV1Request {
+func (r ApiMarginCreateMarginOrderOcoV1Request) LimitIcebergQty(limitIcebergQty string) ApiMarginCreateMarginOrderOcoV1Request {
 	r.limitIcebergQty = &limitIcebergQty
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOcoV1Request) ListClientOrderId(listClientOrderId string) TradeAPIMarginCreateMarginOrderOcoV1Request {
+func (r ApiMarginCreateMarginOrderOcoV1Request) ListClientOrderId(listClientOrderId string) ApiMarginCreateMarginOrderOcoV1Request {
 	r.listClientOrderId = &listClientOrderId
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOcoV1Request) NewOrderRespType(newOrderRespType string) TradeAPIMarginCreateMarginOrderOcoV1Request {
+func (r ApiMarginCreateMarginOrderOcoV1Request) NewOrderRespType(newOrderRespType string) ApiMarginCreateMarginOrderOcoV1Request {
 	r.newOrderRespType = &newOrderRespType
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOcoV1Request) RecvWindow(recvWindow int64) TradeAPIMarginCreateMarginOrderOcoV1Request {
+func (r ApiMarginCreateMarginOrderOcoV1Request) RecvWindow(recvWindow int64) ApiMarginCreateMarginOrderOcoV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOcoV1Request) SelfTradePreventionMode(selfTradePreventionMode string) TradeAPIMarginCreateMarginOrderOcoV1Request {
+func (r ApiMarginCreateMarginOrderOcoV1Request) SelfTradePreventionMode(selfTradePreventionMode string) ApiMarginCreateMarginOrderOcoV1Request {
 	r.selfTradePreventionMode = &selfTradePreventionMode
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOcoV1Request) SideEffectType(sideEffectType string) TradeAPIMarginCreateMarginOrderOcoV1Request {
+func (r ApiMarginCreateMarginOrderOcoV1Request) SideEffectType(sideEffectType string) ApiMarginCreateMarginOrderOcoV1Request {
 	r.sideEffectType = &sideEffectType
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOcoV1Request) StopClientOrderId(stopClientOrderId string) TradeAPIMarginCreateMarginOrderOcoV1Request {
+func (r ApiMarginCreateMarginOrderOcoV1Request) StopClientOrderId(stopClientOrderId string) ApiMarginCreateMarginOrderOcoV1Request {
 	r.stopClientOrderId = &stopClientOrderId
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOcoV1Request) StopIcebergQty(stopIcebergQty string) TradeAPIMarginCreateMarginOrderOcoV1Request {
+func (r ApiMarginCreateMarginOrderOcoV1Request) StopIcebergQty(stopIcebergQty string) ApiMarginCreateMarginOrderOcoV1Request {
 	r.stopIcebergQty = &stopIcebergQty
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOcoV1Request) StopLimitPrice(stopLimitPrice string) TradeAPIMarginCreateMarginOrderOcoV1Request {
+func (r ApiMarginCreateMarginOrderOcoV1Request) StopLimitPrice(stopLimitPrice string) ApiMarginCreateMarginOrderOcoV1Request {
 	r.stopLimitPrice = &stopLimitPrice
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOcoV1Request) StopLimitTimeInForce(stopLimitTimeInForce string) TradeAPIMarginCreateMarginOrderOcoV1Request {
+func (r ApiMarginCreateMarginOrderOcoV1Request) StopLimitTimeInForce(stopLimitTimeInForce string) ApiMarginCreateMarginOrderOcoV1Request {
 	r.stopLimitTimeInForce = &stopLimitTimeInForce
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOcoV1Request) Execute() (*MarginCreateMarginOrderOcoV1Resp, *http.Response, error) {
+func (r ApiMarginCreateMarginOrderOcoV1Request) Execute() (*MarginCreateMarginOrderOcoV1Resp, *http.Response, error) {
 	return r.ApiService.MarginCreateMarginOrderOcoV1Execute(r)
 }
 
@@ -649,10 +649,10 @@ MarginCreateMarginOrderOcoV1 Margin Account New OCO (TRADE)
 Send in a new OCO for a margin account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginCreateMarginOrderOcoV1Request
+ @return ApiMarginCreateMarginOrderOcoV1Request
 */
-func (a *TradeAPIService) MarginCreateMarginOrderOcoV1(ctx context.Context) TradeAPIMarginCreateMarginOrderOcoV1Request {
-	return TradeAPIMarginCreateMarginOrderOcoV1Request{
+func (a *TradeAPIService) MarginCreateMarginOrderOcoV1(ctx context.Context) ApiMarginCreateMarginOrderOcoV1Request {
+	return ApiMarginCreateMarginOrderOcoV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -660,7 +660,7 @@ func (a *TradeAPIService) MarginCreateMarginOrderOcoV1(ctx context.Context) Trad
 
 // Execute executes the request
 //  @return MarginCreateMarginOrderOcoV1Resp
-func (a *TradeAPIService) MarginCreateMarginOrderOcoV1Execute(r TradeAPIMarginCreateMarginOrderOcoV1Request) (*MarginCreateMarginOrderOcoV1Resp, *http.Response, error) {
+func (a *TradeAPIService) MarginCreateMarginOrderOcoV1Execute(r ApiMarginCreateMarginOrderOcoV1Request) (*MarginCreateMarginOrderOcoV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -823,7 +823,7 @@ func (a *TradeAPIService) MarginCreateMarginOrderOcoV1Execute(r TradeAPIMarginCr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIMarginCreateMarginOrderOtoV1Request struct {
+type ApiMarginCreateMarginOrderOtoV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	pendingQuantity *string
@@ -851,122 +851,122 @@ type TradeAPIMarginCreateMarginOrderOtoV1Request struct {
 	workingTimeInForce *string
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtoV1Request) PendingQuantity(pendingQuantity string) TradeAPIMarginCreateMarginOrderOtoV1Request {
+func (r ApiMarginCreateMarginOrderOtoV1Request) PendingQuantity(pendingQuantity string) ApiMarginCreateMarginOrderOtoV1Request {
 	r.pendingQuantity = &pendingQuantity
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtoV1Request) PendingSide(pendingSide string) TradeAPIMarginCreateMarginOrderOtoV1Request {
+func (r ApiMarginCreateMarginOrderOtoV1Request) PendingSide(pendingSide string) ApiMarginCreateMarginOrderOtoV1Request {
 	r.pendingSide = &pendingSide
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtoV1Request) PendingType(pendingType string) TradeAPIMarginCreateMarginOrderOtoV1Request {
+func (r ApiMarginCreateMarginOrderOtoV1Request) PendingType(pendingType string) ApiMarginCreateMarginOrderOtoV1Request {
 	r.pendingType = &pendingType
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtoV1Request) Symbol(symbol string) TradeAPIMarginCreateMarginOrderOtoV1Request {
+func (r ApiMarginCreateMarginOrderOtoV1Request) Symbol(symbol string) ApiMarginCreateMarginOrderOtoV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtoV1Request) WorkingIcebergQty(workingIcebergQty string) TradeAPIMarginCreateMarginOrderOtoV1Request {
+func (r ApiMarginCreateMarginOrderOtoV1Request) WorkingIcebergQty(workingIcebergQty string) ApiMarginCreateMarginOrderOtoV1Request {
 	r.workingIcebergQty = &workingIcebergQty
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtoV1Request) WorkingPrice(workingPrice string) TradeAPIMarginCreateMarginOrderOtoV1Request {
+func (r ApiMarginCreateMarginOrderOtoV1Request) WorkingPrice(workingPrice string) ApiMarginCreateMarginOrderOtoV1Request {
 	r.workingPrice = &workingPrice
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtoV1Request) WorkingQuantity(workingQuantity string) TradeAPIMarginCreateMarginOrderOtoV1Request {
+func (r ApiMarginCreateMarginOrderOtoV1Request) WorkingQuantity(workingQuantity string) ApiMarginCreateMarginOrderOtoV1Request {
 	r.workingQuantity = &workingQuantity
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtoV1Request) WorkingSide(workingSide string) TradeAPIMarginCreateMarginOrderOtoV1Request {
+func (r ApiMarginCreateMarginOrderOtoV1Request) WorkingSide(workingSide string) ApiMarginCreateMarginOrderOtoV1Request {
 	r.workingSide = &workingSide
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtoV1Request) WorkingType(workingType string) TradeAPIMarginCreateMarginOrderOtoV1Request {
+func (r ApiMarginCreateMarginOrderOtoV1Request) WorkingType(workingType string) ApiMarginCreateMarginOrderOtoV1Request {
 	r.workingType = &workingType
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtoV1Request) AutoRepayAtCancel(autoRepayAtCancel bool) TradeAPIMarginCreateMarginOrderOtoV1Request {
+func (r ApiMarginCreateMarginOrderOtoV1Request) AutoRepayAtCancel(autoRepayAtCancel bool) ApiMarginCreateMarginOrderOtoV1Request {
 	r.autoRepayAtCancel = &autoRepayAtCancel
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtoV1Request) IsIsolated(isIsolated string) TradeAPIMarginCreateMarginOrderOtoV1Request {
+func (r ApiMarginCreateMarginOrderOtoV1Request) IsIsolated(isIsolated string) ApiMarginCreateMarginOrderOtoV1Request {
 	r.isIsolated = &isIsolated
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtoV1Request) ListClientOrderId(listClientOrderId string) TradeAPIMarginCreateMarginOrderOtoV1Request {
+func (r ApiMarginCreateMarginOrderOtoV1Request) ListClientOrderId(listClientOrderId string) ApiMarginCreateMarginOrderOtoV1Request {
 	r.listClientOrderId = &listClientOrderId
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtoV1Request) NewOrderRespType(newOrderRespType string) TradeAPIMarginCreateMarginOrderOtoV1Request {
+func (r ApiMarginCreateMarginOrderOtoV1Request) NewOrderRespType(newOrderRespType string) ApiMarginCreateMarginOrderOtoV1Request {
 	r.newOrderRespType = &newOrderRespType
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtoV1Request) PendingClientOrderId(pendingClientOrderId string) TradeAPIMarginCreateMarginOrderOtoV1Request {
+func (r ApiMarginCreateMarginOrderOtoV1Request) PendingClientOrderId(pendingClientOrderId string) ApiMarginCreateMarginOrderOtoV1Request {
 	r.pendingClientOrderId = &pendingClientOrderId
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtoV1Request) PendingIcebergQty(pendingIcebergQty string) TradeAPIMarginCreateMarginOrderOtoV1Request {
+func (r ApiMarginCreateMarginOrderOtoV1Request) PendingIcebergQty(pendingIcebergQty string) ApiMarginCreateMarginOrderOtoV1Request {
 	r.pendingIcebergQty = &pendingIcebergQty
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtoV1Request) PendingPrice(pendingPrice string) TradeAPIMarginCreateMarginOrderOtoV1Request {
+func (r ApiMarginCreateMarginOrderOtoV1Request) PendingPrice(pendingPrice string) ApiMarginCreateMarginOrderOtoV1Request {
 	r.pendingPrice = &pendingPrice
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtoV1Request) PendingStopPrice(pendingStopPrice string) TradeAPIMarginCreateMarginOrderOtoV1Request {
+func (r ApiMarginCreateMarginOrderOtoV1Request) PendingStopPrice(pendingStopPrice string) ApiMarginCreateMarginOrderOtoV1Request {
 	r.pendingStopPrice = &pendingStopPrice
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtoV1Request) PendingTimeInForce(pendingTimeInForce string) TradeAPIMarginCreateMarginOrderOtoV1Request {
+func (r ApiMarginCreateMarginOrderOtoV1Request) PendingTimeInForce(pendingTimeInForce string) ApiMarginCreateMarginOrderOtoV1Request {
 	r.pendingTimeInForce = &pendingTimeInForce
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtoV1Request) PendingTrailingDelta(pendingTrailingDelta string) TradeAPIMarginCreateMarginOrderOtoV1Request {
+func (r ApiMarginCreateMarginOrderOtoV1Request) PendingTrailingDelta(pendingTrailingDelta string) ApiMarginCreateMarginOrderOtoV1Request {
 	r.pendingTrailingDelta = &pendingTrailingDelta
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtoV1Request) SelfTradePreventionMode(selfTradePreventionMode string) TradeAPIMarginCreateMarginOrderOtoV1Request {
+func (r ApiMarginCreateMarginOrderOtoV1Request) SelfTradePreventionMode(selfTradePreventionMode string) ApiMarginCreateMarginOrderOtoV1Request {
 	r.selfTradePreventionMode = &selfTradePreventionMode
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtoV1Request) SideEffectType(sideEffectType string) TradeAPIMarginCreateMarginOrderOtoV1Request {
+func (r ApiMarginCreateMarginOrderOtoV1Request) SideEffectType(sideEffectType string) ApiMarginCreateMarginOrderOtoV1Request {
 	r.sideEffectType = &sideEffectType
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtoV1Request) WorkingClientOrderId(workingClientOrderId string) TradeAPIMarginCreateMarginOrderOtoV1Request {
+func (r ApiMarginCreateMarginOrderOtoV1Request) WorkingClientOrderId(workingClientOrderId string) ApiMarginCreateMarginOrderOtoV1Request {
 	r.workingClientOrderId = &workingClientOrderId
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtoV1Request) WorkingTimeInForce(workingTimeInForce string) TradeAPIMarginCreateMarginOrderOtoV1Request {
+func (r ApiMarginCreateMarginOrderOtoV1Request) WorkingTimeInForce(workingTimeInForce string) ApiMarginCreateMarginOrderOtoV1Request {
 	r.workingTimeInForce = &workingTimeInForce
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtoV1Request) Execute() (*MarginCreateMarginOrderOtoV1Resp, *http.Response, error) {
+func (r ApiMarginCreateMarginOrderOtoV1Request) Execute() (*MarginCreateMarginOrderOtoV1Resp, *http.Response, error) {
 	return r.ApiService.MarginCreateMarginOrderOtoV1Execute(r)
 }
 
@@ -976,10 +976,10 @@ MarginCreateMarginOrderOtoV1 Margin Account New OTO (TRADE)
 Post a new OTO order for margin account:
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginCreateMarginOrderOtoV1Request
+ @return ApiMarginCreateMarginOrderOtoV1Request
 */
-func (a *TradeAPIService) MarginCreateMarginOrderOtoV1(ctx context.Context) TradeAPIMarginCreateMarginOrderOtoV1Request {
-	return TradeAPIMarginCreateMarginOrderOtoV1Request{
+func (a *TradeAPIService) MarginCreateMarginOrderOtoV1(ctx context.Context) ApiMarginCreateMarginOrderOtoV1Request {
+	return ApiMarginCreateMarginOrderOtoV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -987,7 +987,7 @@ func (a *TradeAPIService) MarginCreateMarginOrderOtoV1(ctx context.Context) Trad
 
 // Execute executes the request
 //  @return MarginCreateMarginOrderOtoV1Resp
-func (a *TradeAPIService) MarginCreateMarginOrderOtoV1Execute(r TradeAPIMarginCreateMarginOrderOtoV1Request) (*MarginCreateMarginOrderOtoV1Resp, *http.Response, error) {
+func (a *TradeAPIService) MarginCreateMarginOrderOtoV1Execute(r ApiMarginCreateMarginOrderOtoV1Request) (*MarginCreateMarginOrderOtoV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1165,7 +1165,7 @@ func (a *TradeAPIService) MarginCreateMarginOrderOtoV1Execute(r TradeAPIMarginCr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIMarginCreateMarginOrderOtocoV1Request struct {
+type ApiMarginCreateMarginOrderOtocoV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	pendingAboveType *string
@@ -1200,157 +1200,157 @@ type TradeAPIMarginCreateMarginOrderOtocoV1Request struct {
 	workingTimeInForce *string
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) PendingAboveType(pendingAboveType string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) PendingAboveType(pendingAboveType string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.pendingAboveType = &pendingAboveType
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) PendingQuantity(pendingQuantity string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) PendingQuantity(pendingQuantity string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.pendingQuantity = &pendingQuantity
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) PendingSide(pendingSide string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) PendingSide(pendingSide string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.pendingSide = &pendingSide
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) Symbol(symbol string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) Symbol(symbol string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) WorkingPrice(workingPrice string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) WorkingPrice(workingPrice string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.workingPrice = &workingPrice
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) WorkingQuantity(workingQuantity string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) WorkingQuantity(workingQuantity string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.workingQuantity = &workingQuantity
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) WorkingSide(workingSide string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) WorkingSide(workingSide string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.workingSide = &workingSide
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) WorkingType(workingType string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) WorkingType(workingType string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.workingType = &workingType
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) AutoRepayAtCancel(autoRepayAtCancel bool) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) AutoRepayAtCancel(autoRepayAtCancel bool) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.autoRepayAtCancel = &autoRepayAtCancel
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) IsIsolated(isIsolated string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) IsIsolated(isIsolated string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.isIsolated = &isIsolated
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) ListClientOrderId(listClientOrderId string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) ListClientOrderId(listClientOrderId string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.listClientOrderId = &listClientOrderId
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) NewOrderRespType(newOrderRespType string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) NewOrderRespType(newOrderRespType string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.newOrderRespType = &newOrderRespType
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) PendingAboveClientOrderId(pendingAboveClientOrderId string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) PendingAboveClientOrderId(pendingAboveClientOrderId string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.pendingAboveClientOrderId = &pendingAboveClientOrderId
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) PendingAboveIcebergQty(pendingAboveIcebergQty string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) PendingAboveIcebergQty(pendingAboveIcebergQty string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.pendingAboveIcebergQty = &pendingAboveIcebergQty
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) PendingAbovePrice(pendingAbovePrice string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) PendingAbovePrice(pendingAbovePrice string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.pendingAbovePrice = &pendingAbovePrice
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) PendingAboveStopPrice(pendingAboveStopPrice string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) PendingAboveStopPrice(pendingAboveStopPrice string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.pendingAboveStopPrice = &pendingAboveStopPrice
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) PendingAboveTimeInForce(pendingAboveTimeInForce string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) PendingAboveTimeInForce(pendingAboveTimeInForce string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.pendingAboveTimeInForce = &pendingAboveTimeInForce
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) PendingAboveTrailingDelta(pendingAboveTrailingDelta string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) PendingAboveTrailingDelta(pendingAboveTrailingDelta string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.pendingAboveTrailingDelta = &pendingAboveTrailingDelta
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) PendingBelowClientOrderId(pendingBelowClientOrderId string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) PendingBelowClientOrderId(pendingBelowClientOrderId string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.pendingBelowClientOrderId = &pendingBelowClientOrderId
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) PendingBelowIcebergQty(pendingBelowIcebergQty string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) PendingBelowIcebergQty(pendingBelowIcebergQty string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.pendingBelowIcebergQty = &pendingBelowIcebergQty
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) PendingBelowPrice(pendingBelowPrice string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) PendingBelowPrice(pendingBelowPrice string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.pendingBelowPrice = &pendingBelowPrice
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) PendingBelowStopPrice(pendingBelowStopPrice string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) PendingBelowStopPrice(pendingBelowStopPrice string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.pendingBelowStopPrice = &pendingBelowStopPrice
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) PendingBelowTimeInForce(pendingBelowTimeInForce string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) PendingBelowTimeInForce(pendingBelowTimeInForce string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.pendingBelowTimeInForce = &pendingBelowTimeInForce
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) PendingBelowTrailingDelta(pendingBelowTrailingDelta string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) PendingBelowTrailingDelta(pendingBelowTrailingDelta string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.pendingBelowTrailingDelta = &pendingBelowTrailingDelta
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) PendingBelowType(pendingBelowType string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) PendingBelowType(pendingBelowType string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.pendingBelowType = &pendingBelowType
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) SelfTradePreventionMode(selfTradePreventionMode string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) SelfTradePreventionMode(selfTradePreventionMode string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.selfTradePreventionMode = &selfTradePreventionMode
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) SideEffectType(sideEffectType string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) SideEffectType(sideEffectType string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.sideEffectType = &sideEffectType
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) WorkingClientOrderId(workingClientOrderId string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) WorkingClientOrderId(workingClientOrderId string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.workingClientOrderId = &workingClientOrderId
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) WorkingIcebergQty(workingIcebergQty string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) WorkingIcebergQty(workingIcebergQty string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.workingIcebergQty = &workingIcebergQty
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) WorkingTimeInForce(workingTimeInForce string) TradeAPIMarginCreateMarginOrderOtocoV1Request {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) WorkingTimeInForce(workingTimeInForce string) ApiMarginCreateMarginOrderOtocoV1Request {
 	r.workingTimeInForce = &workingTimeInForce
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderOtocoV1Request) Execute() (*MarginCreateMarginOrderOtocoV1Resp, *http.Response, error) {
+func (r ApiMarginCreateMarginOrderOtocoV1Request) Execute() (*MarginCreateMarginOrderOtocoV1Resp, *http.Response, error) {
 	return r.ApiService.MarginCreateMarginOrderOtocoV1Execute(r)
 }
 
@@ -1360,10 +1360,10 @@ MarginCreateMarginOrderOtocoV1 Margin Account New OTOCO (TRADE)
 Post a new OTOCO order for margin account：
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginCreateMarginOrderOtocoV1Request
+ @return ApiMarginCreateMarginOrderOtocoV1Request
 */
-func (a *TradeAPIService) MarginCreateMarginOrderOtocoV1(ctx context.Context) TradeAPIMarginCreateMarginOrderOtocoV1Request {
-	return TradeAPIMarginCreateMarginOrderOtocoV1Request{
+func (a *TradeAPIService) MarginCreateMarginOrderOtocoV1(ctx context.Context) ApiMarginCreateMarginOrderOtocoV1Request {
+	return ApiMarginCreateMarginOrderOtocoV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1371,7 +1371,7 @@ func (a *TradeAPIService) MarginCreateMarginOrderOtocoV1(ctx context.Context) Tr
 
 // Execute executes the request
 //  @return MarginCreateMarginOrderOtocoV1Resp
-func (a *TradeAPIService) MarginCreateMarginOrderOtocoV1Execute(r TradeAPIMarginCreateMarginOrderOtocoV1Request) (*MarginCreateMarginOrderOtocoV1Resp, *http.Response, error) {
+func (a *TradeAPIService) MarginCreateMarginOrderOtocoV1Execute(r ApiMarginCreateMarginOrderOtocoV1Request) (*MarginCreateMarginOrderOtocoV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1569,7 +1569,7 @@ func (a *TradeAPIService) MarginCreateMarginOrderOtocoV1Execute(r TradeAPIMargin
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIMarginCreateMarginOrderV1Request struct {
+type ApiMarginCreateMarginOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	side *string
@@ -1591,92 +1591,92 @@ type TradeAPIMarginCreateMarginOrderV1Request struct {
 	timeInForce *string
 }
 
-func (r TradeAPIMarginCreateMarginOrderV1Request) Side(side string) TradeAPIMarginCreateMarginOrderV1Request {
+func (r ApiMarginCreateMarginOrderV1Request) Side(side string) ApiMarginCreateMarginOrderV1Request {
 	r.side = &side
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderV1Request) Symbol(symbol string) TradeAPIMarginCreateMarginOrderV1Request {
+func (r ApiMarginCreateMarginOrderV1Request) Symbol(symbol string) ApiMarginCreateMarginOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderV1Request) Timestamp(timestamp int64) TradeAPIMarginCreateMarginOrderV1Request {
+func (r ApiMarginCreateMarginOrderV1Request) Timestamp(timestamp int64) ApiMarginCreateMarginOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderV1Request) Type_(type_ string) TradeAPIMarginCreateMarginOrderV1Request {
+func (r ApiMarginCreateMarginOrderV1Request) Type_(type_ string) ApiMarginCreateMarginOrderV1Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderV1Request) AutoRepayAtCancel(autoRepayAtCancel bool) TradeAPIMarginCreateMarginOrderV1Request {
+func (r ApiMarginCreateMarginOrderV1Request) AutoRepayAtCancel(autoRepayAtCancel bool) ApiMarginCreateMarginOrderV1Request {
 	r.autoRepayAtCancel = &autoRepayAtCancel
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderV1Request) IcebergQty(icebergQty string) TradeAPIMarginCreateMarginOrderV1Request {
+func (r ApiMarginCreateMarginOrderV1Request) IcebergQty(icebergQty string) ApiMarginCreateMarginOrderV1Request {
 	r.icebergQty = &icebergQty
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderV1Request) IsIsolated(isIsolated string) TradeAPIMarginCreateMarginOrderV1Request {
+func (r ApiMarginCreateMarginOrderV1Request) IsIsolated(isIsolated string) ApiMarginCreateMarginOrderV1Request {
 	r.isIsolated = &isIsolated
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderV1Request) NewClientOrderId(newClientOrderId string) TradeAPIMarginCreateMarginOrderV1Request {
+func (r ApiMarginCreateMarginOrderV1Request) NewClientOrderId(newClientOrderId string) ApiMarginCreateMarginOrderV1Request {
 	r.newClientOrderId = &newClientOrderId
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderV1Request) NewOrderRespType(newOrderRespType string) TradeAPIMarginCreateMarginOrderV1Request {
+func (r ApiMarginCreateMarginOrderV1Request) NewOrderRespType(newOrderRespType string) ApiMarginCreateMarginOrderV1Request {
 	r.newOrderRespType = &newOrderRespType
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderV1Request) Price(price string) TradeAPIMarginCreateMarginOrderV1Request {
+func (r ApiMarginCreateMarginOrderV1Request) Price(price string) ApiMarginCreateMarginOrderV1Request {
 	r.price = &price
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderV1Request) Quantity(quantity string) TradeAPIMarginCreateMarginOrderV1Request {
+func (r ApiMarginCreateMarginOrderV1Request) Quantity(quantity string) ApiMarginCreateMarginOrderV1Request {
 	r.quantity = &quantity
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderV1Request) QuoteOrderQty(quoteOrderQty string) TradeAPIMarginCreateMarginOrderV1Request {
+func (r ApiMarginCreateMarginOrderV1Request) QuoteOrderQty(quoteOrderQty string) ApiMarginCreateMarginOrderV1Request {
 	r.quoteOrderQty = &quoteOrderQty
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderV1Request) RecvWindow(recvWindow int64) TradeAPIMarginCreateMarginOrderV1Request {
+func (r ApiMarginCreateMarginOrderV1Request) RecvWindow(recvWindow int64) ApiMarginCreateMarginOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderV1Request) SelfTradePreventionMode(selfTradePreventionMode string) TradeAPIMarginCreateMarginOrderV1Request {
+func (r ApiMarginCreateMarginOrderV1Request) SelfTradePreventionMode(selfTradePreventionMode string) ApiMarginCreateMarginOrderV1Request {
 	r.selfTradePreventionMode = &selfTradePreventionMode
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderV1Request) SideEffectType(sideEffectType string) TradeAPIMarginCreateMarginOrderV1Request {
+func (r ApiMarginCreateMarginOrderV1Request) SideEffectType(sideEffectType string) ApiMarginCreateMarginOrderV1Request {
 	r.sideEffectType = &sideEffectType
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderV1Request) StopPrice(stopPrice string) TradeAPIMarginCreateMarginOrderV1Request {
+func (r ApiMarginCreateMarginOrderV1Request) StopPrice(stopPrice string) ApiMarginCreateMarginOrderV1Request {
 	r.stopPrice = &stopPrice
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderV1Request) TimeInForce(timeInForce string) TradeAPIMarginCreateMarginOrderV1Request {
+func (r ApiMarginCreateMarginOrderV1Request) TimeInForce(timeInForce string) ApiMarginCreateMarginOrderV1Request {
 	r.timeInForce = &timeInForce
 	return r
 }
 
-func (r TradeAPIMarginCreateMarginOrderV1Request) Execute() (*MarginCreateMarginOrderV1Resp, *http.Response, error) {
+func (r ApiMarginCreateMarginOrderV1Request) Execute() (*MarginCreateMarginOrderV1Resp, *http.Response, error) {
 	return r.ApiService.MarginCreateMarginOrderV1Execute(r)
 }
 
@@ -1686,10 +1686,10 @@ MarginCreateMarginOrderV1 Margin Account New Order (TRADE)
 Post a new order for margin account.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginCreateMarginOrderV1Request
+ @return ApiMarginCreateMarginOrderV1Request
 */
-func (a *TradeAPIService) MarginCreateMarginOrderV1(ctx context.Context) TradeAPIMarginCreateMarginOrderV1Request {
-	return TradeAPIMarginCreateMarginOrderV1Request{
+func (a *TradeAPIService) MarginCreateMarginOrderV1(ctx context.Context) ApiMarginCreateMarginOrderV1Request {
+	return ApiMarginCreateMarginOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1697,7 +1697,7 @@ func (a *TradeAPIService) MarginCreateMarginOrderV1(ctx context.Context) TradeAP
 
 // Execute executes the request
 //  @return MarginCreateMarginOrderV1Resp
-func (a *TradeAPIService) MarginCreateMarginOrderV1Execute(r TradeAPIMarginCreateMarginOrderV1Request) (*MarginCreateMarginOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) MarginCreateMarginOrderV1Execute(r ApiMarginCreateMarginOrderV1Request) (*MarginCreateMarginOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1852,7 +1852,7 @@ func (a *TradeAPIService) MarginCreateMarginOrderV1Execute(r TradeAPIMarginCreat
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIMarginDeleteMarginApiKeyV1Request struct {
+type ApiMarginDeleteMarginApiKeyV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -1862,34 +1862,34 @@ type TradeAPIMarginDeleteMarginApiKeyV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIMarginDeleteMarginApiKeyV1Request) Timestamp(timestamp int64) TradeAPIMarginDeleteMarginApiKeyV1Request {
+func (r ApiMarginDeleteMarginApiKeyV1Request) Timestamp(timestamp int64) ApiMarginDeleteMarginApiKeyV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIMarginDeleteMarginApiKeyV1Request) ApiKey(apiKey string) TradeAPIMarginDeleteMarginApiKeyV1Request {
+func (r ApiMarginDeleteMarginApiKeyV1Request) ApiKey(apiKey string) ApiMarginDeleteMarginApiKeyV1Request {
 	r.apiKey = &apiKey
 	return r
 }
 
-func (r TradeAPIMarginDeleteMarginApiKeyV1Request) ApiName(apiName string) TradeAPIMarginDeleteMarginApiKeyV1Request {
+func (r ApiMarginDeleteMarginApiKeyV1Request) ApiName(apiName string) ApiMarginDeleteMarginApiKeyV1Request {
 	r.apiName = &apiName
 	return r
 }
 
 // isolated margin pair
-func (r TradeAPIMarginDeleteMarginApiKeyV1Request) Symbol(symbol string) TradeAPIMarginDeleteMarginApiKeyV1Request {
+func (r ApiMarginDeleteMarginApiKeyV1Request) Symbol(symbol string) ApiMarginDeleteMarginApiKeyV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TradeAPIMarginDeleteMarginApiKeyV1Request) RecvWindow(recvWindow int64) TradeAPIMarginDeleteMarginApiKeyV1Request {
+func (r ApiMarginDeleteMarginApiKeyV1Request) RecvWindow(recvWindow int64) ApiMarginDeleteMarginApiKeyV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIMarginDeleteMarginApiKeyV1Request) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiMarginDeleteMarginApiKeyV1Request) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.MarginDeleteMarginApiKeyV1Execute(r)
 }
 
@@ -1899,10 +1899,10 @@ MarginDeleteMarginApiKeyV1 Delete Special Key(Low-Latency Trading)(TRADE)
 This only applies to Special Key for Low Latency Trading.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginDeleteMarginApiKeyV1Request
+ @return ApiMarginDeleteMarginApiKeyV1Request
 */
-func (a *TradeAPIService) MarginDeleteMarginApiKeyV1(ctx context.Context) TradeAPIMarginDeleteMarginApiKeyV1Request {
-	return TradeAPIMarginDeleteMarginApiKeyV1Request{
+func (a *TradeAPIService) MarginDeleteMarginApiKeyV1(ctx context.Context) ApiMarginDeleteMarginApiKeyV1Request {
+	return ApiMarginDeleteMarginApiKeyV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1910,7 +1910,7 @@ func (a *TradeAPIService) MarginDeleteMarginApiKeyV1(ctx context.Context) TradeA
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *TradeAPIService) MarginDeleteMarginApiKeyV1Execute(r TradeAPIMarginDeleteMarginApiKeyV1Request) (map[string]interface{}, *http.Response, error) {
+func (a *TradeAPIService) MarginDeleteMarginApiKeyV1Execute(r ApiMarginDeleteMarginApiKeyV1Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -2035,7 +2035,7 @@ func (a *TradeAPIService) MarginDeleteMarginApiKeyV1Execute(r TradeAPIMarginDele
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIMarginDeleteMarginOpenOrdersV1Request struct {
+type ApiMarginDeleteMarginOpenOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -2044,29 +2044,29 @@ type TradeAPIMarginDeleteMarginOpenOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIMarginDeleteMarginOpenOrdersV1Request) Symbol(symbol string) TradeAPIMarginDeleteMarginOpenOrdersV1Request {
+func (r ApiMarginDeleteMarginOpenOrdersV1Request) Symbol(symbol string) ApiMarginDeleteMarginOpenOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIMarginDeleteMarginOpenOrdersV1Request) Timestamp(timestamp int64) TradeAPIMarginDeleteMarginOpenOrdersV1Request {
+func (r ApiMarginDeleteMarginOpenOrdersV1Request) Timestamp(timestamp int64) ApiMarginDeleteMarginOpenOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // for isolated margin or not, &amp;#34;TRUE&amp;#34;, &amp;#34;FALSE&amp;#34;，default &amp;#34;FALSE&amp;#34;
-func (r TradeAPIMarginDeleteMarginOpenOrdersV1Request) IsIsolated(isIsolated string) TradeAPIMarginDeleteMarginOpenOrdersV1Request {
+func (r ApiMarginDeleteMarginOpenOrdersV1Request) IsIsolated(isIsolated string) ApiMarginDeleteMarginOpenOrdersV1Request {
 	r.isIsolated = &isIsolated
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TradeAPIMarginDeleteMarginOpenOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIMarginDeleteMarginOpenOrdersV1Request {
+func (r ApiMarginDeleteMarginOpenOrdersV1Request) RecvWindow(recvWindow int64) ApiMarginDeleteMarginOpenOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIMarginDeleteMarginOpenOrdersV1Request) Execute() ([]MarginDeleteMarginOpenOrdersV1RespItem, *http.Response, error) {
+func (r ApiMarginDeleteMarginOpenOrdersV1Request) Execute() ([]MarginDeleteMarginOpenOrdersV1RespItem, *http.Response, error) {
 	return r.ApiService.MarginDeleteMarginOpenOrdersV1Execute(r)
 }
 
@@ -2077,10 +2077,10 @@ Cancels all active orders on a symbol for margin account.
 This includes OCO orders.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginDeleteMarginOpenOrdersV1Request
+ @return ApiMarginDeleteMarginOpenOrdersV1Request
 */
-func (a *TradeAPIService) MarginDeleteMarginOpenOrdersV1(ctx context.Context) TradeAPIMarginDeleteMarginOpenOrdersV1Request {
-	return TradeAPIMarginDeleteMarginOpenOrdersV1Request{
+func (a *TradeAPIService) MarginDeleteMarginOpenOrdersV1(ctx context.Context) ApiMarginDeleteMarginOpenOrdersV1Request {
+	return ApiMarginDeleteMarginOpenOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2088,7 +2088,7 @@ func (a *TradeAPIService) MarginDeleteMarginOpenOrdersV1(ctx context.Context) Tr
 
 // Execute executes the request
 //  @return []MarginDeleteMarginOpenOrdersV1RespItem
-func (a *TradeAPIService) MarginDeleteMarginOpenOrdersV1Execute(r TradeAPIMarginDeleteMarginOpenOrdersV1Request) ([]MarginDeleteMarginOpenOrdersV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) MarginDeleteMarginOpenOrdersV1Execute(r ApiMarginDeleteMarginOpenOrdersV1Request) ([]MarginDeleteMarginOpenOrdersV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -2205,7 +2205,7 @@ func (a *TradeAPIService) MarginDeleteMarginOpenOrdersV1Execute(r TradeAPIMargin
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIMarginDeleteMarginOrderListV1Request struct {
+type ApiMarginDeleteMarginOrderListV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -2217,47 +2217,47 @@ type TradeAPIMarginDeleteMarginOrderListV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIMarginDeleteMarginOrderListV1Request) Symbol(symbol string) TradeAPIMarginDeleteMarginOrderListV1Request {
+func (r ApiMarginDeleteMarginOrderListV1Request) Symbol(symbol string) ApiMarginDeleteMarginOrderListV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIMarginDeleteMarginOrderListV1Request) Timestamp(timestamp int64) TradeAPIMarginDeleteMarginOrderListV1Request {
+func (r ApiMarginDeleteMarginOrderListV1Request) Timestamp(timestamp int64) ApiMarginDeleteMarginOrderListV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // for isolated margin or not, &amp;#34;TRUE&amp;#34;, &amp;#34;FALSE&amp;#34;，default &amp;#34;FALSE&amp;#34;
-func (r TradeAPIMarginDeleteMarginOrderListV1Request) IsIsolated(isIsolated string) TradeAPIMarginDeleteMarginOrderListV1Request {
+func (r ApiMarginDeleteMarginOrderListV1Request) IsIsolated(isIsolated string) ApiMarginDeleteMarginOrderListV1Request {
 	r.isIsolated = &isIsolated
 	return r
 }
 
 // Either &#x60;orderListId&#x60; or &#x60;listClientOrderId&#x60; must be provided
-func (r TradeAPIMarginDeleteMarginOrderListV1Request) OrderListId(orderListId int64) TradeAPIMarginDeleteMarginOrderListV1Request {
+func (r ApiMarginDeleteMarginOrderListV1Request) OrderListId(orderListId int64) ApiMarginDeleteMarginOrderListV1Request {
 	r.orderListId = &orderListId
 	return r
 }
 
 // Either &#x60;orderListId&#x60; or &#x60;listClientOrderId&#x60; must be provided
-func (r TradeAPIMarginDeleteMarginOrderListV1Request) ListClientOrderId(listClientOrderId string) TradeAPIMarginDeleteMarginOrderListV1Request {
+func (r ApiMarginDeleteMarginOrderListV1Request) ListClientOrderId(listClientOrderId string) ApiMarginDeleteMarginOrderListV1Request {
 	r.listClientOrderId = &listClientOrderId
 	return r
 }
 
 // Used to uniquely identify this cancel. Automatically generated by default
-func (r TradeAPIMarginDeleteMarginOrderListV1Request) NewClientOrderId(newClientOrderId string) TradeAPIMarginDeleteMarginOrderListV1Request {
+func (r ApiMarginDeleteMarginOrderListV1Request) NewClientOrderId(newClientOrderId string) ApiMarginDeleteMarginOrderListV1Request {
 	r.newClientOrderId = &newClientOrderId
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TradeAPIMarginDeleteMarginOrderListV1Request) RecvWindow(recvWindow int64) TradeAPIMarginDeleteMarginOrderListV1Request {
+func (r ApiMarginDeleteMarginOrderListV1Request) RecvWindow(recvWindow int64) ApiMarginDeleteMarginOrderListV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIMarginDeleteMarginOrderListV1Request) Execute() (*MarginDeleteMarginOrderListV1Resp, *http.Response, error) {
+func (r ApiMarginDeleteMarginOrderListV1Request) Execute() (*MarginDeleteMarginOrderListV1Resp, *http.Response, error) {
 	return r.ApiService.MarginDeleteMarginOrderListV1Execute(r)
 }
 
@@ -2267,10 +2267,10 @@ MarginDeleteMarginOrderListV1 Margin Account Cancel OCO (TRADE)
 Cancel an entire Order List for a margin account.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginDeleteMarginOrderListV1Request
+ @return ApiMarginDeleteMarginOrderListV1Request
 */
-func (a *TradeAPIService) MarginDeleteMarginOrderListV1(ctx context.Context) TradeAPIMarginDeleteMarginOrderListV1Request {
-	return TradeAPIMarginDeleteMarginOrderListV1Request{
+func (a *TradeAPIService) MarginDeleteMarginOrderListV1(ctx context.Context) ApiMarginDeleteMarginOrderListV1Request {
+	return ApiMarginDeleteMarginOrderListV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2278,7 +2278,7 @@ func (a *TradeAPIService) MarginDeleteMarginOrderListV1(ctx context.Context) Tra
 
 // Execute executes the request
 //  @return MarginDeleteMarginOrderListV1Resp
-func (a *TradeAPIService) MarginDeleteMarginOrderListV1Execute(r TradeAPIMarginDeleteMarginOrderListV1Request) (*MarginDeleteMarginOrderListV1Resp, *http.Response, error) {
+func (a *TradeAPIService) MarginDeleteMarginOrderListV1Execute(r ApiMarginDeleteMarginOrderListV1Request) (*MarginDeleteMarginOrderListV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -2410,7 +2410,7 @@ func (a *TradeAPIService) MarginDeleteMarginOrderListV1Execute(r TradeAPIMarginD
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIMarginDeleteMarginOrderV1Request struct {
+type ApiMarginDeleteMarginOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -2422,45 +2422,45 @@ type TradeAPIMarginDeleteMarginOrderV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIMarginDeleteMarginOrderV1Request) Symbol(symbol string) TradeAPIMarginDeleteMarginOrderV1Request {
+func (r ApiMarginDeleteMarginOrderV1Request) Symbol(symbol string) ApiMarginDeleteMarginOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIMarginDeleteMarginOrderV1Request) Timestamp(timestamp int64) TradeAPIMarginDeleteMarginOrderV1Request {
+func (r ApiMarginDeleteMarginOrderV1Request) Timestamp(timestamp int64) ApiMarginDeleteMarginOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // for isolated margin or not, &amp;#34;TRUE&amp;#34;, &amp;#34;FALSE&amp;#34;，default &amp;#34;FALSE&amp;#34;
-func (r TradeAPIMarginDeleteMarginOrderV1Request) IsIsolated(isIsolated string) TradeAPIMarginDeleteMarginOrderV1Request {
+func (r ApiMarginDeleteMarginOrderV1Request) IsIsolated(isIsolated string) ApiMarginDeleteMarginOrderV1Request {
 	r.isIsolated = &isIsolated
 	return r
 }
 
-func (r TradeAPIMarginDeleteMarginOrderV1Request) OrderId(orderId int64) TradeAPIMarginDeleteMarginOrderV1Request {
+func (r ApiMarginDeleteMarginOrderV1Request) OrderId(orderId int64) ApiMarginDeleteMarginOrderV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPIMarginDeleteMarginOrderV1Request) OrigClientOrderId(origClientOrderId string) TradeAPIMarginDeleteMarginOrderV1Request {
+func (r ApiMarginDeleteMarginOrderV1Request) OrigClientOrderId(origClientOrderId string) ApiMarginDeleteMarginOrderV1Request {
 	r.origClientOrderId = &origClientOrderId
 	return r
 }
 
 // Used to uniquely identify this cancel. Automatically generated by default.
-func (r TradeAPIMarginDeleteMarginOrderV1Request) NewClientOrderId(newClientOrderId string) TradeAPIMarginDeleteMarginOrderV1Request {
+func (r ApiMarginDeleteMarginOrderV1Request) NewClientOrderId(newClientOrderId string) ApiMarginDeleteMarginOrderV1Request {
 	r.newClientOrderId = &newClientOrderId
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TradeAPIMarginDeleteMarginOrderV1Request) RecvWindow(recvWindow int64) TradeAPIMarginDeleteMarginOrderV1Request {
+func (r ApiMarginDeleteMarginOrderV1Request) RecvWindow(recvWindow int64) ApiMarginDeleteMarginOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIMarginDeleteMarginOrderV1Request) Execute() (*MarginDeleteMarginOrderV1Resp, *http.Response, error) {
+func (r ApiMarginDeleteMarginOrderV1Request) Execute() (*MarginDeleteMarginOrderV1Resp, *http.Response, error) {
 	return r.ApiService.MarginDeleteMarginOrderV1Execute(r)
 }
 
@@ -2470,10 +2470,10 @@ MarginDeleteMarginOrderV1 Margin Account Cancel Order (TRADE)
 Cancel an active order for margin account.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginDeleteMarginOrderV1Request
+ @return ApiMarginDeleteMarginOrderV1Request
 */
-func (a *TradeAPIService) MarginDeleteMarginOrderV1(ctx context.Context) TradeAPIMarginDeleteMarginOrderV1Request {
-	return TradeAPIMarginDeleteMarginOrderV1Request{
+func (a *TradeAPIService) MarginDeleteMarginOrderV1(ctx context.Context) ApiMarginDeleteMarginOrderV1Request {
+	return ApiMarginDeleteMarginOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2481,7 +2481,7 @@ func (a *TradeAPIService) MarginDeleteMarginOrderV1(ctx context.Context) TradeAP
 
 // Execute executes the request
 //  @return MarginDeleteMarginOrderV1Resp
-func (a *TradeAPIService) MarginDeleteMarginOrderV1Execute(r TradeAPIMarginDeleteMarginOrderV1Request) (*MarginDeleteMarginOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) MarginDeleteMarginOrderV1Execute(r ApiMarginDeleteMarginOrderV1Request) (*MarginDeleteMarginOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -2613,7 +2613,7 @@ func (a *TradeAPIService) MarginDeleteMarginOrderV1Execute(r TradeAPIMarginDelet
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIMarginGetMarginAllOrderListV1Request struct {
+type ApiMarginGetMarginAllOrderListV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -2626,52 +2626,52 @@ type TradeAPIMarginGetMarginAllOrderListV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIMarginGetMarginAllOrderListV1Request) Timestamp(timestamp int64) TradeAPIMarginGetMarginAllOrderListV1Request {
+func (r ApiMarginGetMarginAllOrderListV1Request) Timestamp(timestamp int64) ApiMarginGetMarginAllOrderListV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // for isolated margin or not, &amp;#34;TRUE&amp;#34;, &amp;#34;FALSE&amp;#34;，default &amp;#34;FALSE&amp;#34;
-func (r TradeAPIMarginGetMarginAllOrderListV1Request) IsIsolated(isIsolated string) TradeAPIMarginGetMarginAllOrderListV1Request {
+func (r ApiMarginGetMarginAllOrderListV1Request) IsIsolated(isIsolated string) ApiMarginGetMarginAllOrderListV1Request {
 	r.isIsolated = &isIsolated
 	return r
 }
 
 // mandatory for isolated margin, not supported for cross margin
-func (r TradeAPIMarginGetMarginAllOrderListV1Request) Symbol(symbol string) TradeAPIMarginGetMarginAllOrderListV1Request {
+func (r ApiMarginGetMarginAllOrderListV1Request) Symbol(symbol string) ApiMarginGetMarginAllOrderListV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // If supplied, neither &#x60;startTime&#x60; or &#x60;endTime&#x60; can be provided
-func (r TradeAPIMarginGetMarginAllOrderListV1Request) FromId(fromId int64) TradeAPIMarginGetMarginAllOrderListV1Request {
+func (r ApiMarginGetMarginAllOrderListV1Request) FromId(fromId int64) ApiMarginGetMarginAllOrderListV1Request {
 	r.fromId = &fromId
 	return r
 }
 
-func (r TradeAPIMarginGetMarginAllOrderListV1Request) StartTime(startTime int64) TradeAPIMarginGetMarginAllOrderListV1Request {
+func (r ApiMarginGetMarginAllOrderListV1Request) StartTime(startTime int64) ApiMarginGetMarginAllOrderListV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r TradeAPIMarginGetMarginAllOrderListV1Request) EndTime(endTime int64) TradeAPIMarginGetMarginAllOrderListV1Request {
+func (r ApiMarginGetMarginAllOrderListV1Request) EndTime(endTime int64) ApiMarginGetMarginAllOrderListV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default Value: 500; Max Value: 1000
-func (r TradeAPIMarginGetMarginAllOrderListV1Request) Limit(limit int32) TradeAPIMarginGetMarginAllOrderListV1Request {
+func (r ApiMarginGetMarginAllOrderListV1Request) Limit(limit int32) ApiMarginGetMarginAllOrderListV1Request {
 	r.limit = &limit
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TradeAPIMarginGetMarginAllOrderListV1Request) RecvWindow(recvWindow int64) TradeAPIMarginGetMarginAllOrderListV1Request {
+func (r ApiMarginGetMarginAllOrderListV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginAllOrderListV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIMarginGetMarginAllOrderListV1Request) Execute() ([]MarginGetMarginAllOrderListV1RespItem, *http.Response, error) {
+func (r ApiMarginGetMarginAllOrderListV1Request) Execute() ([]MarginGetMarginAllOrderListV1RespItem, *http.Response, error) {
 	return r.ApiService.MarginGetMarginAllOrderListV1Execute(r)
 }
 
@@ -2681,10 +2681,10 @@ MarginGetMarginAllOrderListV1 Query Margin Account's all OCO (USER_DATA)
 Retrieves all OCO for a specific margin account based on provided optional parameters
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginGetMarginAllOrderListV1Request
+ @return ApiMarginGetMarginAllOrderListV1Request
 */
-func (a *TradeAPIService) MarginGetMarginAllOrderListV1(ctx context.Context) TradeAPIMarginGetMarginAllOrderListV1Request {
-	return TradeAPIMarginGetMarginAllOrderListV1Request{
+func (a *TradeAPIService) MarginGetMarginAllOrderListV1(ctx context.Context) ApiMarginGetMarginAllOrderListV1Request {
+	return ApiMarginGetMarginAllOrderListV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2692,7 +2692,7 @@ func (a *TradeAPIService) MarginGetMarginAllOrderListV1(ctx context.Context) Tra
 
 // Execute executes the request
 //  @return []MarginGetMarginAllOrderListV1RespItem
-func (a *TradeAPIService) MarginGetMarginAllOrderListV1Execute(r TradeAPIMarginGetMarginAllOrderListV1Request) ([]MarginGetMarginAllOrderListV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) MarginGetMarginAllOrderListV1Execute(r ApiMarginGetMarginAllOrderListV1Request) ([]MarginGetMarginAllOrderListV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2823,7 +2823,7 @@ func (a *TradeAPIService) MarginGetMarginAllOrderListV1Execute(r TradeAPIMarginG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIMarginGetMarginAllOrdersV1Request struct {
+type ApiMarginGetMarginAllOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -2836,50 +2836,50 @@ type TradeAPIMarginGetMarginAllOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIMarginGetMarginAllOrdersV1Request) Symbol(symbol string) TradeAPIMarginGetMarginAllOrdersV1Request {
+func (r ApiMarginGetMarginAllOrdersV1Request) Symbol(symbol string) ApiMarginGetMarginAllOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIMarginGetMarginAllOrdersV1Request) Timestamp(timestamp int64) TradeAPIMarginGetMarginAllOrdersV1Request {
+func (r ApiMarginGetMarginAllOrdersV1Request) Timestamp(timestamp int64) ApiMarginGetMarginAllOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // for isolated margin or not, &amp;#34;TRUE&amp;#34;, &amp;#34;FALSE&amp;#34;，default &amp;#34;FALSE&amp;#34;
-func (r TradeAPIMarginGetMarginAllOrdersV1Request) IsIsolated(isIsolated string) TradeAPIMarginGetMarginAllOrdersV1Request {
+func (r ApiMarginGetMarginAllOrdersV1Request) IsIsolated(isIsolated string) ApiMarginGetMarginAllOrdersV1Request {
 	r.isIsolated = &isIsolated
 	return r
 }
 
-func (r TradeAPIMarginGetMarginAllOrdersV1Request) OrderId(orderId int64) TradeAPIMarginGetMarginAllOrdersV1Request {
+func (r ApiMarginGetMarginAllOrdersV1Request) OrderId(orderId int64) ApiMarginGetMarginAllOrdersV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPIMarginGetMarginAllOrdersV1Request) StartTime(startTime int64) TradeAPIMarginGetMarginAllOrdersV1Request {
+func (r ApiMarginGetMarginAllOrdersV1Request) StartTime(startTime int64) ApiMarginGetMarginAllOrdersV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r TradeAPIMarginGetMarginAllOrdersV1Request) EndTime(endTime int64) TradeAPIMarginGetMarginAllOrdersV1Request {
+func (r ApiMarginGetMarginAllOrdersV1Request) EndTime(endTime int64) ApiMarginGetMarginAllOrdersV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 500; max 500.
-func (r TradeAPIMarginGetMarginAllOrdersV1Request) Limit(limit int32) TradeAPIMarginGetMarginAllOrdersV1Request {
+func (r ApiMarginGetMarginAllOrdersV1Request) Limit(limit int32) ApiMarginGetMarginAllOrdersV1Request {
 	r.limit = &limit
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TradeAPIMarginGetMarginAllOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIMarginGetMarginAllOrdersV1Request {
+func (r ApiMarginGetMarginAllOrdersV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginAllOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIMarginGetMarginAllOrdersV1Request) Execute() ([]MarginGetMarginAllOrdersV1RespItem, *http.Response, error) {
+func (r ApiMarginGetMarginAllOrdersV1Request) Execute() ([]MarginGetMarginAllOrdersV1RespItem, *http.Response, error) {
 	return r.ApiService.MarginGetMarginAllOrdersV1Execute(r)
 }
 
@@ -2889,10 +2889,10 @@ MarginGetMarginAllOrdersV1 Query Margin Account's All Orders (USER_DATA)
 Query Margin Account's All Orders
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginGetMarginAllOrdersV1Request
+ @return ApiMarginGetMarginAllOrdersV1Request
 */
-func (a *TradeAPIService) MarginGetMarginAllOrdersV1(ctx context.Context) TradeAPIMarginGetMarginAllOrdersV1Request {
-	return TradeAPIMarginGetMarginAllOrdersV1Request{
+func (a *TradeAPIService) MarginGetMarginAllOrdersV1(ctx context.Context) ApiMarginGetMarginAllOrdersV1Request {
+	return ApiMarginGetMarginAllOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2900,7 +2900,7 @@ func (a *TradeAPIService) MarginGetMarginAllOrdersV1(ctx context.Context) TradeA
 
 // Execute executes the request
 //  @return []MarginGetMarginAllOrdersV1RespItem
-func (a *TradeAPIService) MarginGetMarginAllOrdersV1Execute(r TradeAPIMarginGetMarginAllOrdersV1Request) ([]MarginGetMarginAllOrdersV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) MarginGetMarginAllOrdersV1Execute(r ApiMarginGetMarginAllOrdersV1Request) ([]MarginGetMarginAllOrdersV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3032,7 +3032,7 @@ func (a *TradeAPIService) MarginGetMarginAllOrdersV1Execute(r TradeAPIMarginGetM
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIMarginGetMarginApiKeyListV1Request struct {
+type ApiMarginGetMarginApiKeyListV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -3040,24 +3040,24 @@ type TradeAPIMarginGetMarginApiKeyListV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIMarginGetMarginApiKeyListV1Request) Timestamp(timestamp int64) TradeAPIMarginGetMarginApiKeyListV1Request {
+func (r ApiMarginGetMarginApiKeyListV1Request) Timestamp(timestamp int64) ApiMarginGetMarginApiKeyListV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // isolated margin pair
-func (r TradeAPIMarginGetMarginApiKeyListV1Request) Symbol(symbol string) TradeAPIMarginGetMarginApiKeyListV1Request {
+func (r ApiMarginGetMarginApiKeyListV1Request) Symbol(symbol string) ApiMarginGetMarginApiKeyListV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TradeAPIMarginGetMarginApiKeyListV1Request) RecvWindow(recvWindow int64) TradeAPIMarginGetMarginApiKeyListV1Request {
+func (r ApiMarginGetMarginApiKeyListV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginApiKeyListV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIMarginGetMarginApiKeyListV1Request) Execute() ([]MarginGetMarginApiKeyListV1RespItem, *http.Response, error) {
+func (r ApiMarginGetMarginApiKeyListV1Request) Execute() ([]MarginGetMarginApiKeyListV1RespItem, *http.Response, error) {
 	return r.ApiService.MarginGetMarginApiKeyListV1Execute(r)
 }
 
@@ -3067,10 +3067,10 @@ MarginGetMarginApiKeyListV1 Query Special key List(Low Latency Trading)(TRADE)
 This only applies to Special Key for Low Latency Trading.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginGetMarginApiKeyListV1Request
+ @return ApiMarginGetMarginApiKeyListV1Request
 */
-func (a *TradeAPIService) MarginGetMarginApiKeyListV1(ctx context.Context) TradeAPIMarginGetMarginApiKeyListV1Request {
-	return TradeAPIMarginGetMarginApiKeyListV1Request{
+func (a *TradeAPIService) MarginGetMarginApiKeyListV1(ctx context.Context) ApiMarginGetMarginApiKeyListV1Request {
+	return ApiMarginGetMarginApiKeyListV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3078,7 +3078,7 @@ func (a *TradeAPIService) MarginGetMarginApiKeyListV1(ctx context.Context) Trade
 
 // Execute executes the request
 //  @return []MarginGetMarginApiKeyListV1RespItem
-func (a *TradeAPIService) MarginGetMarginApiKeyListV1Execute(r TradeAPIMarginGetMarginApiKeyListV1Request) ([]MarginGetMarginApiKeyListV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) MarginGetMarginApiKeyListV1Execute(r ApiMarginGetMarginApiKeyListV1Request) ([]MarginGetMarginApiKeyListV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3191,7 +3191,7 @@ func (a *TradeAPIService) MarginGetMarginApiKeyListV1Execute(r TradeAPIMarginGet
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIMarginGetMarginApiKeyV1Request struct {
+type ApiMarginGetMarginApiKeyV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	apiKey *string
@@ -3200,29 +3200,29 @@ type TradeAPIMarginGetMarginApiKeyV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIMarginGetMarginApiKeyV1Request) ApiKey(apiKey string) TradeAPIMarginGetMarginApiKeyV1Request {
+func (r ApiMarginGetMarginApiKeyV1Request) ApiKey(apiKey string) ApiMarginGetMarginApiKeyV1Request {
 	r.apiKey = &apiKey
 	return r
 }
 
-func (r TradeAPIMarginGetMarginApiKeyV1Request) Timestamp(timestamp int64) TradeAPIMarginGetMarginApiKeyV1Request {
+func (r ApiMarginGetMarginApiKeyV1Request) Timestamp(timestamp int64) ApiMarginGetMarginApiKeyV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // isolated margin pair
-func (r TradeAPIMarginGetMarginApiKeyV1Request) Symbol(symbol string) TradeAPIMarginGetMarginApiKeyV1Request {
+func (r ApiMarginGetMarginApiKeyV1Request) Symbol(symbol string) ApiMarginGetMarginApiKeyV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TradeAPIMarginGetMarginApiKeyV1Request) RecvWindow(recvWindow int64) TradeAPIMarginGetMarginApiKeyV1Request {
+func (r ApiMarginGetMarginApiKeyV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginApiKeyV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIMarginGetMarginApiKeyV1Request) Execute() (*MarginGetMarginApiKeyV1Resp, *http.Response, error) {
+func (r ApiMarginGetMarginApiKeyV1Request) Execute() (*MarginGetMarginApiKeyV1Resp, *http.Response, error) {
 	return r.ApiService.MarginGetMarginApiKeyV1Execute(r)
 }
 
@@ -3232,10 +3232,10 @@ MarginGetMarginApiKeyV1 Query Special key(Low Latency Trading)(TRADE)
 Query Special Key Information.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginGetMarginApiKeyV1Request
+ @return ApiMarginGetMarginApiKeyV1Request
 */
-func (a *TradeAPIService) MarginGetMarginApiKeyV1(ctx context.Context) TradeAPIMarginGetMarginApiKeyV1Request {
-	return TradeAPIMarginGetMarginApiKeyV1Request{
+func (a *TradeAPIService) MarginGetMarginApiKeyV1(ctx context.Context) ApiMarginGetMarginApiKeyV1Request {
+	return ApiMarginGetMarginApiKeyV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3243,7 +3243,7 @@ func (a *TradeAPIService) MarginGetMarginApiKeyV1(ctx context.Context) TradeAPIM
 
 // Execute executes the request
 //  @return MarginGetMarginApiKeyV1Resp
-func (a *TradeAPIService) MarginGetMarginApiKeyV1Execute(r TradeAPIMarginGetMarginApiKeyV1Request) (*MarginGetMarginApiKeyV1Resp, *http.Response, error) {
+func (a *TradeAPIService) MarginGetMarginApiKeyV1Execute(r ApiMarginGetMarginApiKeyV1Request) (*MarginGetMarginApiKeyV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3360,7 +3360,7 @@ func (a *TradeAPIService) MarginGetMarginApiKeyV1Execute(r TradeAPIMarginGetMarg
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIMarginGetMarginExchangeSmallLiabilityHistoryV1Request struct {
+type ApiMarginGetMarginExchangeSmallLiabilityHistoryV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	current *int32
@@ -3372,40 +3372,40 @@ type TradeAPIMarginGetMarginExchangeSmallLiabilityHistoryV1Request struct {
 }
 
 // Currently querying page. Start from 1. Default:1
-func (r TradeAPIMarginGetMarginExchangeSmallLiabilityHistoryV1Request) Current(current int32) TradeAPIMarginGetMarginExchangeSmallLiabilityHistoryV1Request {
+func (r ApiMarginGetMarginExchangeSmallLiabilityHistoryV1Request) Current(current int32) ApiMarginGetMarginExchangeSmallLiabilityHistoryV1Request {
 	r.current = &current
 	return r
 }
 
 // Default:10, Max:100
-func (r TradeAPIMarginGetMarginExchangeSmallLiabilityHistoryV1Request) Size(size int32) TradeAPIMarginGetMarginExchangeSmallLiabilityHistoryV1Request {
+func (r ApiMarginGetMarginExchangeSmallLiabilityHistoryV1Request) Size(size int32) ApiMarginGetMarginExchangeSmallLiabilityHistoryV1Request {
 	r.size = &size
 	return r
 }
 
-func (r TradeAPIMarginGetMarginExchangeSmallLiabilityHistoryV1Request) Timestamp(timestamp int64) TradeAPIMarginGetMarginExchangeSmallLiabilityHistoryV1Request {
+func (r ApiMarginGetMarginExchangeSmallLiabilityHistoryV1Request) Timestamp(timestamp int64) ApiMarginGetMarginExchangeSmallLiabilityHistoryV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Default: 30 days from current timestamp
-func (r TradeAPIMarginGetMarginExchangeSmallLiabilityHistoryV1Request) StartTime(startTime int64) TradeAPIMarginGetMarginExchangeSmallLiabilityHistoryV1Request {
+func (r ApiMarginGetMarginExchangeSmallLiabilityHistoryV1Request) StartTime(startTime int64) ApiMarginGetMarginExchangeSmallLiabilityHistoryV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // Default: present timestamp
-func (r TradeAPIMarginGetMarginExchangeSmallLiabilityHistoryV1Request) EndTime(endTime int64) TradeAPIMarginGetMarginExchangeSmallLiabilityHistoryV1Request {
+func (r ApiMarginGetMarginExchangeSmallLiabilityHistoryV1Request) EndTime(endTime int64) ApiMarginGetMarginExchangeSmallLiabilityHistoryV1Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r TradeAPIMarginGetMarginExchangeSmallLiabilityHistoryV1Request) RecvWindow(recvWindow int64) TradeAPIMarginGetMarginExchangeSmallLiabilityHistoryV1Request {
+func (r ApiMarginGetMarginExchangeSmallLiabilityHistoryV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginExchangeSmallLiabilityHistoryV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIMarginGetMarginExchangeSmallLiabilityHistoryV1Request) Execute() (*MarginGetMarginExchangeSmallLiabilityHistoryV1Resp, *http.Response, error) {
+func (r ApiMarginGetMarginExchangeSmallLiabilityHistoryV1Request) Execute() (*MarginGetMarginExchangeSmallLiabilityHistoryV1Resp, *http.Response, error) {
 	return r.ApiService.MarginGetMarginExchangeSmallLiabilityHistoryV1Execute(r)
 }
 
@@ -3415,10 +3415,10 @@ MarginGetMarginExchangeSmallLiabilityHistoryV1 Get Small Liability Exchange Hist
 Get Small liability Exchange History
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginGetMarginExchangeSmallLiabilityHistoryV1Request
+ @return ApiMarginGetMarginExchangeSmallLiabilityHistoryV1Request
 */
-func (a *TradeAPIService) MarginGetMarginExchangeSmallLiabilityHistoryV1(ctx context.Context) TradeAPIMarginGetMarginExchangeSmallLiabilityHistoryV1Request {
-	return TradeAPIMarginGetMarginExchangeSmallLiabilityHistoryV1Request{
+func (a *TradeAPIService) MarginGetMarginExchangeSmallLiabilityHistoryV1(ctx context.Context) ApiMarginGetMarginExchangeSmallLiabilityHistoryV1Request {
+	return ApiMarginGetMarginExchangeSmallLiabilityHistoryV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3426,7 +3426,7 @@ func (a *TradeAPIService) MarginGetMarginExchangeSmallLiabilityHistoryV1(ctx con
 
 // Execute executes the request
 //  @return MarginGetMarginExchangeSmallLiabilityHistoryV1Resp
-func (a *TradeAPIService) MarginGetMarginExchangeSmallLiabilityHistoryV1Execute(r TradeAPIMarginGetMarginExchangeSmallLiabilityHistoryV1Request) (*MarginGetMarginExchangeSmallLiabilityHistoryV1Resp, *http.Response, error) {
+func (a *TradeAPIService) MarginGetMarginExchangeSmallLiabilityHistoryV1Execute(r ApiMarginGetMarginExchangeSmallLiabilityHistoryV1Request) (*MarginGetMarginExchangeSmallLiabilityHistoryV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3547,24 +3547,24 @@ func (a *TradeAPIService) MarginGetMarginExchangeSmallLiabilityHistoryV1Execute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIMarginGetMarginExchangeSmallLiabilityV1Request struct {
+type ApiMarginGetMarginExchangeSmallLiabilityV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r TradeAPIMarginGetMarginExchangeSmallLiabilityV1Request) Timestamp(timestamp int64) TradeAPIMarginGetMarginExchangeSmallLiabilityV1Request {
+func (r ApiMarginGetMarginExchangeSmallLiabilityV1Request) Timestamp(timestamp int64) ApiMarginGetMarginExchangeSmallLiabilityV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIMarginGetMarginExchangeSmallLiabilityV1Request) RecvWindow(recvWindow int64) TradeAPIMarginGetMarginExchangeSmallLiabilityV1Request {
+func (r ApiMarginGetMarginExchangeSmallLiabilityV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginExchangeSmallLiabilityV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIMarginGetMarginExchangeSmallLiabilityV1Request) Execute() ([]MarginGetMarginExchangeSmallLiabilityV1RespItem, *http.Response, error) {
+func (r ApiMarginGetMarginExchangeSmallLiabilityV1Request) Execute() ([]MarginGetMarginExchangeSmallLiabilityV1RespItem, *http.Response, error) {
 	return r.ApiService.MarginGetMarginExchangeSmallLiabilityV1Execute(r)
 }
 
@@ -3574,10 +3574,10 @@ MarginGetMarginExchangeSmallLiabilityV1 Get Small Liability Exchange Coin List (
 Query the coins which can be small liability exchange
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginGetMarginExchangeSmallLiabilityV1Request
+ @return ApiMarginGetMarginExchangeSmallLiabilityV1Request
 */
-func (a *TradeAPIService) MarginGetMarginExchangeSmallLiabilityV1(ctx context.Context) TradeAPIMarginGetMarginExchangeSmallLiabilityV1Request {
-	return TradeAPIMarginGetMarginExchangeSmallLiabilityV1Request{
+func (a *TradeAPIService) MarginGetMarginExchangeSmallLiabilityV1(ctx context.Context) ApiMarginGetMarginExchangeSmallLiabilityV1Request {
+	return ApiMarginGetMarginExchangeSmallLiabilityV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3585,7 +3585,7 @@ func (a *TradeAPIService) MarginGetMarginExchangeSmallLiabilityV1(ctx context.Co
 
 // Execute executes the request
 //  @return []MarginGetMarginExchangeSmallLiabilityV1RespItem
-func (a *TradeAPIService) MarginGetMarginExchangeSmallLiabilityV1Execute(r TradeAPIMarginGetMarginExchangeSmallLiabilityV1Request) ([]MarginGetMarginExchangeSmallLiabilityV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) MarginGetMarginExchangeSmallLiabilityV1Execute(r ApiMarginGetMarginExchangeSmallLiabilityV1Request) ([]MarginGetMarginExchangeSmallLiabilityV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3692,7 +3692,7 @@ func (a *TradeAPIService) MarginGetMarginExchangeSmallLiabilityV1Execute(r Trade
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIMarginGetMarginForceLiquidationRecV1Request struct {
+type ApiMarginGetMarginForceLiquidationRecV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -3704,45 +3704,45 @@ type TradeAPIMarginGetMarginForceLiquidationRecV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIMarginGetMarginForceLiquidationRecV1Request) Timestamp(timestamp int64) TradeAPIMarginGetMarginForceLiquidationRecV1Request {
+func (r ApiMarginGetMarginForceLiquidationRecV1Request) Timestamp(timestamp int64) ApiMarginGetMarginForceLiquidationRecV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIMarginGetMarginForceLiquidationRecV1Request) StartTime(startTime int64) TradeAPIMarginGetMarginForceLiquidationRecV1Request {
+func (r ApiMarginGetMarginForceLiquidationRecV1Request) StartTime(startTime int64) ApiMarginGetMarginForceLiquidationRecV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r TradeAPIMarginGetMarginForceLiquidationRecV1Request) EndTime(endTime int64) TradeAPIMarginGetMarginForceLiquidationRecV1Request {
+func (r ApiMarginGetMarginForceLiquidationRecV1Request) EndTime(endTime int64) ApiMarginGetMarginForceLiquidationRecV1Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r TradeAPIMarginGetMarginForceLiquidationRecV1Request) IsolatedSymbol(isolatedSymbol string) TradeAPIMarginGetMarginForceLiquidationRecV1Request {
+func (r ApiMarginGetMarginForceLiquidationRecV1Request) IsolatedSymbol(isolatedSymbol string) ApiMarginGetMarginForceLiquidationRecV1Request {
 	r.isolatedSymbol = &isolatedSymbol
 	return r
 }
 
 // Currently querying page. Start from 1. Default:1
-func (r TradeAPIMarginGetMarginForceLiquidationRecV1Request) Current(current int64) TradeAPIMarginGetMarginForceLiquidationRecV1Request {
+func (r ApiMarginGetMarginForceLiquidationRecV1Request) Current(current int64) ApiMarginGetMarginForceLiquidationRecV1Request {
 	r.current = &current
 	return r
 }
 
 // Default:10 Max:100
-func (r TradeAPIMarginGetMarginForceLiquidationRecV1Request) Size(size int64) TradeAPIMarginGetMarginForceLiquidationRecV1Request {
+func (r ApiMarginGetMarginForceLiquidationRecV1Request) Size(size int64) ApiMarginGetMarginForceLiquidationRecV1Request {
 	r.size = &size
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TradeAPIMarginGetMarginForceLiquidationRecV1Request) RecvWindow(recvWindow int64) TradeAPIMarginGetMarginForceLiquidationRecV1Request {
+func (r ApiMarginGetMarginForceLiquidationRecV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginForceLiquidationRecV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIMarginGetMarginForceLiquidationRecV1Request) Execute() (*MarginGetMarginForceLiquidationRecV1Resp, *http.Response, error) {
+func (r ApiMarginGetMarginForceLiquidationRecV1Request) Execute() (*MarginGetMarginForceLiquidationRecV1Resp, *http.Response, error) {
 	return r.ApiService.MarginGetMarginForceLiquidationRecV1Execute(r)
 }
 
@@ -3752,10 +3752,10 @@ MarginGetMarginForceLiquidationRecV1 Get Force Liquidation Record (USER_DATA)
 Get Force Liquidation Record
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginGetMarginForceLiquidationRecV1Request
+ @return ApiMarginGetMarginForceLiquidationRecV1Request
 */
-func (a *TradeAPIService) MarginGetMarginForceLiquidationRecV1(ctx context.Context) TradeAPIMarginGetMarginForceLiquidationRecV1Request {
-	return TradeAPIMarginGetMarginForceLiquidationRecV1Request{
+func (a *TradeAPIService) MarginGetMarginForceLiquidationRecV1(ctx context.Context) ApiMarginGetMarginForceLiquidationRecV1Request {
+	return ApiMarginGetMarginForceLiquidationRecV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3763,7 +3763,7 @@ func (a *TradeAPIService) MarginGetMarginForceLiquidationRecV1(ctx context.Conte
 
 // Execute executes the request
 //  @return MarginGetMarginForceLiquidationRecV1Resp
-func (a *TradeAPIService) MarginGetMarginForceLiquidationRecV1Execute(r TradeAPIMarginGetMarginForceLiquidationRecV1Request) (*MarginGetMarginForceLiquidationRecV1Resp, *http.Response, error) {
+func (a *TradeAPIService) MarginGetMarginForceLiquidationRecV1Execute(r ApiMarginGetMarginForceLiquidationRecV1Request) (*MarginGetMarginForceLiquidationRecV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3888,7 +3888,7 @@ func (a *TradeAPIService) MarginGetMarginForceLiquidationRecV1Execute(r TradeAPI
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIMarginGetMarginMyTradesV1Request struct {
+type ApiMarginGetMarginMyTradesV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -3902,56 +3902,56 @@ type TradeAPIMarginGetMarginMyTradesV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIMarginGetMarginMyTradesV1Request) Symbol(symbol string) TradeAPIMarginGetMarginMyTradesV1Request {
+func (r ApiMarginGetMarginMyTradesV1Request) Symbol(symbol string) ApiMarginGetMarginMyTradesV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIMarginGetMarginMyTradesV1Request) Timestamp(timestamp int64) TradeAPIMarginGetMarginMyTradesV1Request {
+func (r ApiMarginGetMarginMyTradesV1Request) Timestamp(timestamp int64) ApiMarginGetMarginMyTradesV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // for isolated margin or not, &amp;#34;TRUE&amp;#34;, &amp;#34;FALSE&amp;#34;，default &amp;#34;FALSE&amp;#34;
-func (r TradeAPIMarginGetMarginMyTradesV1Request) IsIsolated(isIsolated string) TradeAPIMarginGetMarginMyTradesV1Request {
+func (r ApiMarginGetMarginMyTradesV1Request) IsIsolated(isIsolated string) ApiMarginGetMarginMyTradesV1Request {
 	r.isIsolated = &isIsolated
 	return r
 }
 
-func (r TradeAPIMarginGetMarginMyTradesV1Request) OrderId(orderId int64) TradeAPIMarginGetMarginMyTradesV1Request {
+func (r ApiMarginGetMarginMyTradesV1Request) OrderId(orderId int64) ApiMarginGetMarginMyTradesV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPIMarginGetMarginMyTradesV1Request) StartTime(startTime int64) TradeAPIMarginGetMarginMyTradesV1Request {
+func (r ApiMarginGetMarginMyTradesV1Request) StartTime(startTime int64) ApiMarginGetMarginMyTradesV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r TradeAPIMarginGetMarginMyTradesV1Request) EndTime(endTime int64) TradeAPIMarginGetMarginMyTradesV1Request {
+func (r ApiMarginGetMarginMyTradesV1Request) EndTime(endTime int64) ApiMarginGetMarginMyTradesV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // TradeId to fetch from. Default gets most recent trades.
-func (r TradeAPIMarginGetMarginMyTradesV1Request) FromId(fromId int64) TradeAPIMarginGetMarginMyTradesV1Request {
+func (r ApiMarginGetMarginMyTradesV1Request) FromId(fromId int64) ApiMarginGetMarginMyTradesV1Request {
 	r.fromId = &fromId
 	return r
 }
 
 // Default 500; max 1000.
-func (r TradeAPIMarginGetMarginMyTradesV1Request) Limit(limit int32) TradeAPIMarginGetMarginMyTradesV1Request {
+func (r ApiMarginGetMarginMyTradesV1Request) Limit(limit int32) ApiMarginGetMarginMyTradesV1Request {
 	r.limit = &limit
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TradeAPIMarginGetMarginMyTradesV1Request) RecvWindow(recvWindow int64) TradeAPIMarginGetMarginMyTradesV1Request {
+func (r ApiMarginGetMarginMyTradesV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginMyTradesV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIMarginGetMarginMyTradesV1Request) Execute() ([]MarginGetMarginMyTradesV1RespItem, *http.Response, error) {
+func (r ApiMarginGetMarginMyTradesV1Request) Execute() ([]MarginGetMarginMyTradesV1RespItem, *http.Response, error) {
 	return r.ApiService.MarginGetMarginMyTradesV1Execute(r)
 }
 
@@ -3961,10 +3961,10 @@ MarginGetMarginMyTradesV1 Query Margin Account's Trade List (USER_DATA)
 Query Margin Account's Trade List
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginGetMarginMyTradesV1Request
+ @return ApiMarginGetMarginMyTradesV1Request
 */
-func (a *TradeAPIService) MarginGetMarginMyTradesV1(ctx context.Context) TradeAPIMarginGetMarginMyTradesV1Request {
-	return TradeAPIMarginGetMarginMyTradesV1Request{
+func (a *TradeAPIService) MarginGetMarginMyTradesV1(ctx context.Context) ApiMarginGetMarginMyTradesV1Request {
+	return ApiMarginGetMarginMyTradesV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3972,7 +3972,7 @@ func (a *TradeAPIService) MarginGetMarginMyTradesV1(ctx context.Context) TradeAP
 
 // Execute executes the request
 //  @return []MarginGetMarginMyTradesV1RespItem
-func (a *TradeAPIService) MarginGetMarginMyTradesV1Execute(r TradeAPIMarginGetMarginMyTradesV1Request) ([]MarginGetMarginMyTradesV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) MarginGetMarginMyTradesV1Execute(r ApiMarginGetMarginMyTradesV1Request) ([]MarginGetMarginMyTradesV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4107,7 +4107,7 @@ func (a *TradeAPIService) MarginGetMarginMyTradesV1Execute(r TradeAPIMarginGetMa
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIMarginGetMarginOpenOrderListV1Request struct {
+type ApiMarginGetMarginOpenOrderListV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -4116,30 +4116,30 @@ type TradeAPIMarginGetMarginOpenOrderListV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIMarginGetMarginOpenOrderListV1Request) Timestamp(timestamp int64) TradeAPIMarginGetMarginOpenOrderListV1Request {
+func (r ApiMarginGetMarginOpenOrderListV1Request) Timestamp(timestamp int64) ApiMarginGetMarginOpenOrderListV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // for isolated margin or not, &amp;#34;TRUE&amp;#34;, &amp;#34;FALSE&amp;#34;，default &amp;#34;FALSE&amp;#34;
-func (r TradeAPIMarginGetMarginOpenOrderListV1Request) IsIsolated(isIsolated string) TradeAPIMarginGetMarginOpenOrderListV1Request {
+func (r ApiMarginGetMarginOpenOrderListV1Request) IsIsolated(isIsolated string) ApiMarginGetMarginOpenOrderListV1Request {
 	r.isIsolated = &isIsolated
 	return r
 }
 
 // mandatory for isolated margin, not supported for cross margin
-func (r TradeAPIMarginGetMarginOpenOrderListV1Request) Symbol(symbol string) TradeAPIMarginGetMarginOpenOrderListV1Request {
+func (r ApiMarginGetMarginOpenOrderListV1Request) Symbol(symbol string) ApiMarginGetMarginOpenOrderListV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TradeAPIMarginGetMarginOpenOrderListV1Request) RecvWindow(recvWindow int64) TradeAPIMarginGetMarginOpenOrderListV1Request {
+func (r ApiMarginGetMarginOpenOrderListV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginOpenOrderListV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIMarginGetMarginOpenOrderListV1Request) Execute() ([]MarginGetMarginOpenOrderListV1RespItem, *http.Response, error) {
+func (r ApiMarginGetMarginOpenOrderListV1Request) Execute() ([]MarginGetMarginOpenOrderListV1RespItem, *http.Response, error) {
 	return r.ApiService.MarginGetMarginOpenOrderListV1Execute(r)
 }
 
@@ -4149,10 +4149,10 @@ MarginGetMarginOpenOrderListV1 Query Margin Account's Open OCO (USER_DATA)
 Query Margin Account's Open OCO
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginGetMarginOpenOrderListV1Request
+ @return ApiMarginGetMarginOpenOrderListV1Request
 */
-func (a *TradeAPIService) MarginGetMarginOpenOrderListV1(ctx context.Context) TradeAPIMarginGetMarginOpenOrderListV1Request {
-	return TradeAPIMarginGetMarginOpenOrderListV1Request{
+func (a *TradeAPIService) MarginGetMarginOpenOrderListV1(ctx context.Context) ApiMarginGetMarginOpenOrderListV1Request {
+	return ApiMarginGetMarginOpenOrderListV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4160,7 +4160,7 @@ func (a *TradeAPIService) MarginGetMarginOpenOrderListV1(ctx context.Context) Tr
 
 // Execute executes the request
 //  @return []MarginGetMarginOpenOrderListV1RespItem
-func (a *TradeAPIService) MarginGetMarginOpenOrderListV1Execute(r TradeAPIMarginGetMarginOpenOrderListV1Request) ([]MarginGetMarginOpenOrderListV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) MarginGetMarginOpenOrderListV1Execute(r ApiMarginGetMarginOpenOrderListV1Request) ([]MarginGetMarginOpenOrderListV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4279,7 +4279,7 @@ func (a *TradeAPIService) MarginGetMarginOpenOrderListV1Execute(r TradeAPIMargin
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIMarginGetMarginOpenOrdersV1Request struct {
+type ApiMarginGetMarginOpenOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -4288,29 +4288,29 @@ type TradeAPIMarginGetMarginOpenOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIMarginGetMarginOpenOrdersV1Request) Timestamp(timestamp int64) TradeAPIMarginGetMarginOpenOrdersV1Request {
+func (r ApiMarginGetMarginOpenOrdersV1Request) Timestamp(timestamp int64) ApiMarginGetMarginOpenOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIMarginGetMarginOpenOrdersV1Request) Symbol(symbol string) TradeAPIMarginGetMarginOpenOrdersV1Request {
+func (r ApiMarginGetMarginOpenOrdersV1Request) Symbol(symbol string) ApiMarginGetMarginOpenOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // for isolated margin or not, &amp;#34;TRUE&amp;#34;, &amp;#34;FALSE&amp;#34;，default &amp;#34;FALSE&amp;#34;
-func (r TradeAPIMarginGetMarginOpenOrdersV1Request) IsIsolated(isIsolated string) TradeAPIMarginGetMarginOpenOrdersV1Request {
+func (r ApiMarginGetMarginOpenOrdersV1Request) IsIsolated(isIsolated string) ApiMarginGetMarginOpenOrdersV1Request {
 	r.isIsolated = &isIsolated
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TradeAPIMarginGetMarginOpenOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIMarginGetMarginOpenOrdersV1Request {
+func (r ApiMarginGetMarginOpenOrdersV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginOpenOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIMarginGetMarginOpenOrdersV1Request) Execute() ([]MarginGetMarginOpenOrdersV1RespItem, *http.Response, error) {
+func (r ApiMarginGetMarginOpenOrdersV1Request) Execute() ([]MarginGetMarginOpenOrdersV1RespItem, *http.Response, error) {
 	return r.ApiService.MarginGetMarginOpenOrdersV1Execute(r)
 }
 
@@ -4320,10 +4320,10 @@ MarginGetMarginOpenOrdersV1 Query Margin Account's Open Orders (USER_DATA)
 Query Margin Account's Open Orders
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginGetMarginOpenOrdersV1Request
+ @return ApiMarginGetMarginOpenOrdersV1Request
 */
-func (a *TradeAPIService) MarginGetMarginOpenOrdersV1(ctx context.Context) TradeAPIMarginGetMarginOpenOrdersV1Request {
-	return TradeAPIMarginGetMarginOpenOrdersV1Request{
+func (a *TradeAPIService) MarginGetMarginOpenOrdersV1(ctx context.Context) ApiMarginGetMarginOpenOrdersV1Request {
+	return ApiMarginGetMarginOpenOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4331,7 +4331,7 @@ func (a *TradeAPIService) MarginGetMarginOpenOrdersV1(ctx context.Context) Trade
 
 // Execute executes the request
 //  @return []MarginGetMarginOpenOrdersV1RespItem
-func (a *TradeAPIService) MarginGetMarginOpenOrdersV1Execute(r TradeAPIMarginGetMarginOpenOrdersV1Request) ([]MarginGetMarginOpenOrdersV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) MarginGetMarginOpenOrdersV1Execute(r ApiMarginGetMarginOpenOrdersV1Request) ([]MarginGetMarginOpenOrdersV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4450,7 +4450,7 @@ func (a *TradeAPIService) MarginGetMarginOpenOrdersV1Execute(r TradeAPIMarginGet
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIMarginGetMarginOrderListV1Request struct {
+type ApiMarginGetMarginOrderListV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -4461,42 +4461,42 @@ type TradeAPIMarginGetMarginOrderListV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIMarginGetMarginOrderListV1Request) Timestamp(timestamp int64) TradeAPIMarginGetMarginOrderListV1Request {
+func (r ApiMarginGetMarginOrderListV1Request) Timestamp(timestamp int64) ApiMarginGetMarginOrderListV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // for isolated margin or not, &amp;#34;TRUE&amp;#34;, &amp;#34;FALSE&amp;#34;，default &amp;#34;FALSE&amp;#34;
-func (r TradeAPIMarginGetMarginOrderListV1Request) IsIsolated(isIsolated string) TradeAPIMarginGetMarginOrderListV1Request {
+func (r ApiMarginGetMarginOrderListV1Request) IsIsolated(isIsolated string) ApiMarginGetMarginOrderListV1Request {
 	r.isIsolated = &isIsolated
 	return r
 }
 
 // mandatory for isolated margin, not supported for cross margin
-func (r TradeAPIMarginGetMarginOrderListV1Request) Symbol(symbol string) TradeAPIMarginGetMarginOrderListV1Request {
+func (r ApiMarginGetMarginOrderListV1Request) Symbol(symbol string) ApiMarginGetMarginOrderListV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // Either &#x60;orderListId&#x60; or &#x60;origClientOrderId&#x60; must be provided
-func (r TradeAPIMarginGetMarginOrderListV1Request) OrderListId(orderListId int64) TradeAPIMarginGetMarginOrderListV1Request {
+func (r ApiMarginGetMarginOrderListV1Request) OrderListId(orderListId int64) ApiMarginGetMarginOrderListV1Request {
 	r.orderListId = &orderListId
 	return r
 }
 
 // Either &#x60;orderListId&#x60; or &#x60;origClientOrderId&#x60; must be provided
-func (r TradeAPIMarginGetMarginOrderListV1Request) OrigClientOrderId(origClientOrderId string) TradeAPIMarginGetMarginOrderListV1Request {
+func (r ApiMarginGetMarginOrderListV1Request) OrigClientOrderId(origClientOrderId string) ApiMarginGetMarginOrderListV1Request {
 	r.origClientOrderId = &origClientOrderId
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TradeAPIMarginGetMarginOrderListV1Request) RecvWindow(recvWindow int64) TradeAPIMarginGetMarginOrderListV1Request {
+func (r ApiMarginGetMarginOrderListV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginOrderListV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIMarginGetMarginOrderListV1Request) Execute() (*MarginGetMarginOrderListV1Resp, *http.Response, error) {
+func (r ApiMarginGetMarginOrderListV1Request) Execute() (*MarginGetMarginOrderListV1Resp, *http.Response, error) {
 	return r.ApiService.MarginGetMarginOrderListV1Execute(r)
 }
 
@@ -4506,10 +4506,10 @@ MarginGetMarginOrderListV1 Query Margin Account's OCO (USER_DATA)
 Retrieves a specific OCO based on provided optional parameters
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginGetMarginOrderListV1Request
+ @return ApiMarginGetMarginOrderListV1Request
 */
-func (a *TradeAPIService) MarginGetMarginOrderListV1(ctx context.Context) TradeAPIMarginGetMarginOrderListV1Request {
-	return TradeAPIMarginGetMarginOrderListV1Request{
+func (a *TradeAPIService) MarginGetMarginOrderListV1(ctx context.Context) ApiMarginGetMarginOrderListV1Request {
+	return ApiMarginGetMarginOrderListV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4517,7 +4517,7 @@ func (a *TradeAPIService) MarginGetMarginOrderListV1(ctx context.Context) TradeA
 
 // Execute executes the request
 //  @return MarginGetMarginOrderListV1Resp
-func (a *TradeAPIService) MarginGetMarginOrderListV1Execute(r TradeAPIMarginGetMarginOrderListV1Request) (*MarginGetMarginOrderListV1Resp, *http.Response, error) {
+func (a *TradeAPIService) MarginGetMarginOrderListV1Execute(r ApiMarginGetMarginOrderListV1Request) (*MarginGetMarginOrderListV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4645,7 +4645,7 @@ func (a *TradeAPIService) MarginGetMarginOrderListV1Execute(r TradeAPIMarginGetM
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIMarginGetMarginOrderV1Request struct {
+type ApiMarginGetMarginOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -4656,39 +4656,39 @@ type TradeAPIMarginGetMarginOrderV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIMarginGetMarginOrderV1Request) Symbol(symbol string) TradeAPIMarginGetMarginOrderV1Request {
+func (r ApiMarginGetMarginOrderV1Request) Symbol(symbol string) ApiMarginGetMarginOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIMarginGetMarginOrderV1Request) Timestamp(timestamp int64) TradeAPIMarginGetMarginOrderV1Request {
+func (r ApiMarginGetMarginOrderV1Request) Timestamp(timestamp int64) ApiMarginGetMarginOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // for isolated margin or not, &amp;#34;TRUE&amp;#34;, &amp;#34;FALSE&amp;#34;，default &amp;#34;FALSE&amp;#34;
-func (r TradeAPIMarginGetMarginOrderV1Request) IsIsolated(isIsolated string) TradeAPIMarginGetMarginOrderV1Request {
+func (r ApiMarginGetMarginOrderV1Request) IsIsolated(isIsolated string) ApiMarginGetMarginOrderV1Request {
 	r.isIsolated = &isIsolated
 	return r
 }
 
-func (r TradeAPIMarginGetMarginOrderV1Request) OrderId(orderId int64) TradeAPIMarginGetMarginOrderV1Request {
+func (r ApiMarginGetMarginOrderV1Request) OrderId(orderId int64) ApiMarginGetMarginOrderV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPIMarginGetMarginOrderV1Request) OrigClientOrderId(origClientOrderId string) TradeAPIMarginGetMarginOrderV1Request {
+func (r ApiMarginGetMarginOrderV1Request) OrigClientOrderId(origClientOrderId string) ApiMarginGetMarginOrderV1Request {
 	r.origClientOrderId = &origClientOrderId
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TradeAPIMarginGetMarginOrderV1Request) RecvWindow(recvWindow int64) TradeAPIMarginGetMarginOrderV1Request {
+func (r ApiMarginGetMarginOrderV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIMarginGetMarginOrderV1Request) Execute() (*MarginGetMarginOrderV1Resp, *http.Response, error) {
+func (r ApiMarginGetMarginOrderV1Request) Execute() (*MarginGetMarginOrderV1Resp, *http.Response, error) {
 	return r.ApiService.MarginGetMarginOrderV1Execute(r)
 }
 
@@ -4698,10 +4698,10 @@ MarginGetMarginOrderV1 Query Margin Account's Order (USER_DATA)
 Query Margin Account's Order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginGetMarginOrderV1Request
+ @return ApiMarginGetMarginOrderV1Request
 */
-func (a *TradeAPIService) MarginGetMarginOrderV1(ctx context.Context) TradeAPIMarginGetMarginOrderV1Request {
-	return TradeAPIMarginGetMarginOrderV1Request{
+func (a *TradeAPIService) MarginGetMarginOrderV1(ctx context.Context) ApiMarginGetMarginOrderV1Request {
+	return ApiMarginGetMarginOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4709,7 +4709,7 @@ func (a *TradeAPIService) MarginGetMarginOrderV1(ctx context.Context) TradeAPIMa
 
 // Execute executes the request
 //  @return MarginGetMarginOrderV1Resp
-func (a *TradeAPIService) MarginGetMarginOrderV1Execute(r TradeAPIMarginGetMarginOrderV1Request) (*MarginGetMarginOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) MarginGetMarginOrderV1Execute(r ApiMarginGetMarginOrderV1Request) (*MarginGetMarginOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4835,7 +4835,7 @@ func (a *TradeAPIService) MarginGetMarginOrderV1Execute(r TradeAPIMarginGetMargi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIMarginGetMarginRateLimitOrderV1Request struct {
+type ApiMarginGetMarginRateLimitOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -4844,30 +4844,30 @@ type TradeAPIMarginGetMarginRateLimitOrderV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIMarginGetMarginRateLimitOrderV1Request) Timestamp(timestamp int64) TradeAPIMarginGetMarginRateLimitOrderV1Request {
+func (r ApiMarginGetMarginRateLimitOrderV1Request) Timestamp(timestamp int64) ApiMarginGetMarginRateLimitOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // for isolated margin or not, &amp;#34;TRUE&amp;#34;, &amp;#34;FALSE&amp;#34;，default &amp;#34;FALSE&amp;#34;
-func (r TradeAPIMarginGetMarginRateLimitOrderV1Request) IsIsolated(isIsolated string) TradeAPIMarginGetMarginRateLimitOrderV1Request {
+func (r ApiMarginGetMarginRateLimitOrderV1Request) IsIsolated(isIsolated string) ApiMarginGetMarginRateLimitOrderV1Request {
 	r.isIsolated = &isIsolated
 	return r
 }
 
 // isolated symbol, mandatory for isolated margin
-func (r TradeAPIMarginGetMarginRateLimitOrderV1Request) Symbol(symbol string) TradeAPIMarginGetMarginRateLimitOrderV1Request {
+func (r ApiMarginGetMarginRateLimitOrderV1Request) Symbol(symbol string) ApiMarginGetMarginRateLimitOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TradeAPIMarginGetMarginRateLimitOrderV1Request) RecvWindow(recvWindow int64) TradeAPIMarginGetMarginRateLimitOrderV1Request {
+func (r ApiMarginGetMarginRateLimitOrderV1Request) RecvWindow(recvWindow int64) ApiMarginGetMarginRateLimitOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIMarginGetMarginRateLimitOrderV1Request) Execute() ([]MarginGetMarginRateLimitOrderV1RespItem, *http.Response, error) {
+func (r ApiMarginGetMarginRateLimitOrderV1Request) Execute() ([]MarginGetMarginRateLimitOrderV1RespItem, *http.Response, error) {
 	return r.ApiService.MarginGetMarginRateLimitOrderV1Execute(r)
 }
 
@@ -4877,10 +4877,10 @@ MarginGetMarginRateLimitOrderV1 Query Current Margin Order Count Usage (TRADE)
 Displays the user's current margin order count usage for all intervals.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginGetMarginRateLimitOrderV1Request
+ @return ApiMarginGetMarginRateLimitOrderV1Request
 */
-func (a *TradeAPIService) MarginGetMarginRateLimitOrderV1(ctx context.Context) TradeAPIMarginGetMarginRateLimitOrderV1Request {
-	return TradeAPIMarginGetMarginRateLimitOrderV1Request{
+func (a *TradeAPIService) MarginGetMarginRateLimitOrderV1(ctx context.Context) ApiMarginGetMarginRateLimitOrderV1Request {
+	return ApiMarginGetMarginRateLimitOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4888,7 +4888,7 @@ func (a *TradeAPIService) MarginGetMarginRateLimitOrderV1(ctx context.Context) T
 
 // Execute executes the request
 //  @return []MarginGetMarginRateLimitOrderV1RespItem
-func (a *TradeAPIService) MarginGetMarginRateLimitOrderV1Execute(r TradeAPIMarginGetMarginRateLimitOrderV1Request) ([]MarginGetMarginRateLimitOrderV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) MarginGetMarginRateLimitOrderV1Execute(r ApiMarginGetMarginRateLimitOrderV1Request) ([]MarginGetMarginRateLimitOrderV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5007,7 +5007,7 @@ func (a *TradeAPIService) MarginGetMarginRateLimitOrderV1Execute(r TradeAPIMargi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIMarginUpdateMarginApiKeyIpV1Request struct {
+type ApiMarginUpdateMarginApiKeyIpV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	apiKey *string
@@ -5017,32 +5017,32 @@ type TradeAPIMarginUpdateMarginApiKeyIpV1Request struct {
 	symbol *string
 }
 
-func (r TradeAPIMarginUpdateMarginApiKeyIpV1Request) ApiKey(apiKey string) TradeAPIMarginUpdateMarginApiKeyIpV1Request {
+func (r ApiMarginUpdateMarginApiKeyIpV1Request) ApiKey(apiKey string) ApiMarginUpdateMarginApiKeyIpV1Request {
 	r.apiKey = &apiKey
 	return r
 }
 
-func (r TradeAPIMarginUpdateMarginApiKeyIpV1Request) Ip(ip string) TradeAPIMarginUpdateMarginApiKeyIpV1Request {
+func (r ApiMarginUpdateMarginApiKeyIpV1Request) Ip(ip string) ApiMarginUpdateMarginApiKeyIpV1Request {
 	r.ip = &ip
 	return r
 }
 
-func (r TradeAPIMarginUpdateMarginApiKeyIpV1Request) Timestamp(timestamp int64) TradeAPIMarginUpdateMarginApiKeyIpV1Request {
+func (r ApiMarginUpdateMarginApiKeyIpV1Request) Timestamp(timestamp int64) ApiMarginUpdateMarginApiKeyIpV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIMarginUpdateMarginApiKeyIpV1Request) RecvWindow(recvWindow int64) TradeAPIMarginUpdateMarginApiKeyIpV1Request {
+func (r ApiMarginUpdateMarginApiKeyIpV1Request) RecvWindow(recvWindow int64) ApiMarginUpdateMarginApiKeyIpV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIMarginUpdateMarginApiKeyIpV1Request) Symbol(symbol string) TradeAPIMarginUpdateMarginApiKeyIpV1Request {
+func (r ApiMarginUpdateMarginApiKeyIpV1Request) Symbol(symbol string) ApiMarginUpdateMarginApiKeyIpV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIMarginUpdateMarginApiKeyIpV1Request) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiMarginUpdateMarginApiKeyIpV1Request) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.MarginUpdateMarginApiKeyIpV1Execute(r)
 }
 
@@ -5052,10 +5052,10 @@ MarginUpdateMarginApiKeyIpV1 Edit ip for Special Key(Low-Latency Trading)(TRADE)
 Edit ip restriction. This only applies to Special Key for Low Latency Trading.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIMarginUpdateMarginApiKeyIpV1Request
+ @return ApiMarginUpdateMarginApiKeyIpV1Request
 */
-func (a *TradeAPIService) MarginUpdateMarginApiKeyIpV1(ctx context.Context) TradeAPIMarginUpdateMarginApiKeyIpV1Request {
-	return TradeAPIMarginUpdateMarginApiKeyIpV1Request{
+func (a *TradeAPIService) MarginUpdateMarginApiKeyIpV1(ctx context.Context) ApiMarginUpdateMarginApiKeyIpV1Request {
+	return ApiMarginUpdateMarginApiKeyIpV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -5063,7 +5063,7 @@ func (a *TradeAPIService) MarginUpdateMarginApiKeyIpV1(ctx context.Context) Trad
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *TradeAPIService) MarginUpdateMarginApiKeyIpV1Execute(r TradeAPIMarginUpdateMarginApiKeyIpV1Request) (map[string]interface{}, *http.Response, error) {
+func (a *TradeAPIService) MarginUpdateMarginApiKeyIpV1Execute(r ApiMarginUpdateMarginApiKeyIpV1Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}

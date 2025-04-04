@@ -1,7 +1,7 @@
 /*
 Binance Options API
 
-OpenAPI specification for Binance cryptocurrency exchange - Options API
+OpenAPI specification for Binance exchange - Options API
 
 API version: 0.1.0
 */
@@ -22,7 +22,7 @@ import (
 // MarketMakerEndpointsAPIService MarketMakerEndpointsAPI service
 type MarketMakerEndpointsAPIService service
 
-type MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllHeartBeatV1Request struct {
+type ApiOptionsCreateCountdownCancelAllHeartBeatV1Request struct {
 	ctx context.Context
 	ApiService *MarketMakerEndpointsAPIService
 	timestamp *int64
@@ -30,22 +30,22 @@ type MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllHeartBeatV1Request st
 	recvWindow *int64
 }
 
-func (r MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllHeartBeatV1Request) Timestamp(timestamp int64) MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllHeartBeatV1Request {
+func (r ApiOptionsCreateCountdownCancelAllHeartBeatV1Request) Timestamp(timestamp int64) ApiOptionsCreateCountdownCancelAllHeartBeatV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllHeartBeatV1Request) Underlyings(underlyings string) MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllHeartBeatV1Request {
+func (r ApiOptionsCreateCountdownCancelAllHeartBeatV1Request) Underlyings(underlyings string) ApiOptionsCreateCountdownCancelAllHeartBeatV1Request {
 	r.underlyings = &underlyings
 	return r
 }
 
-func (r MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllHeartBeatV1Request) RecvWindow(recvWindow int64) MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllHeartBeatV1Request {
+func (r ApiOptionsCreateCountdownCancelAllHeartBeatV1Request) RecvWindow(recvWindow int64) ApiOptionsCreateCountdownCancelAllHeartBeatV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllHeartBeatV1Request) Execute() (*OptionsCreateCountdownCancelAllHeartBeatV1Resp, *http.Response, error) {
+func (r ApiOptionsCreateCountdownCancelAllHeartBeatV1Request) Execute() (*OptionsCreateCountdownCancelAllHeartBeatV1Resp, *http.Response, error) {
 	return r.ApiService.OptionsCreateCountdownCancelAllHeartBeatV1Execute(r)
 }
 
@@ -55,10 +55,10 @@ OptionsCreateCountdownCancelAllHeartBeatV1 Auto-Cancel All Open Orders (Kill-Swi
 This endpoint resets the time from which the countdown will begin to the time this messaged is received.  It should be called repeatedly as heartbeats.  Multiple heartbeats can be updated at once by specifying the underlying symbols as a list (ex. BTCUSDT,ETHUSDT) in the underlyings parameter.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllHeartBeatV1Request
+ @return ApiOptionsCreateCountdownCancelAllHeartBeatV1Request
 */
-func (a *MarketMakerEndpointsAPIService) OptionsCreateCountdownCancelAllHeartBeatV1(ctx context.Context) MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllHeartBeatV1Request {
-	return MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllHeartBeatV1Request{
+func (a *MarketMakerEndpointsAPIService) OptionsCreateCountdownCancelAllHeartBeatV1(ctx context.Context) ApiOptionsCreateCountdownCancelAllHeartBeatV1Request {
+	return ApiOptionsCreateCountdownCancelAllHeartBeatV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -66,7 +66,7 @@ func (a *MarketMakerEndpointsAPIService) OptionsCreateCountdownCancelAllHeartBea
 
 // Execute executes the request
 //  @return OptionsCreateCountdownCancelAllHeartBeatV1Resp
-func (a *MarketMakerEndpointsAPIService) OptionsCreateCountdownCancelAllHeartBeatV1Execute(r MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllHeartBeatV1Request) (*OptionsCreateCountdownCancelAllHeartBeatV1Resp, *http.Response, error) {
+func (a *MarketMakerEndpointsAPIService) OptionsCreateCountdownCancelAllHeartBeatV1Execute(r ApiOptionsCreateCountdownCancelAllHeartBeatV1Request) (*OptionsCreateCountdownCancelAllHeartBeatV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -177,7 +177,7 @@ func (a *MarketMakerEndpointsAPIService) OptionsCreateCountdownCancelAllHeartBea
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllV1Request struct {
+type ApiOptionsCreateCountdownCancelAllV1Request struct {
 	ctx context.Context
 	ApiService *MarketMakerEndpointsAPIService
 	countdownTime *int64
@@ -186,27 +186,27 @@ type MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllV1Request struct {
 	recvWindow *int64
 }
 
-func (r MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllV1Request) CountdownTime(countdownTime int64) MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllV1Request {
+func (r ApiOptionsCreateCountdownCancelAllV1Request) CountdownTime(countdownTime int64) ApiOptionsCreateCountdownCancelAllV1Request {
 	r.countdownTime = &countdownTime
 	return r
 }
 
-func (r MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllV1Request) Timestamp(timestamp int64) MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllV1Request {
+func (r ApiOptionsCreateCountdownCancelAllV1Request) Timestamp(timestamp int64) ApiOptionsCreateCountdownCancelAllV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllV1Request) Underlying(underlying string) MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllV1Request {
+func (r ApiOptionsCreateCountdownCancelAllV1Request) Underlying(underlying string) ApiOptionsCreateCountdownCancelAllV1Request {
 	r.underlying = &underlying
 	return r
 }
 
-func (r MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllV1Request) RecvWindow(recvWindow int64) MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllV1Request {
+func (r ApiOptionsCreateCountdownCancelAllV1Request) RecvWindow(recvWindow int64) ApiOptionsCreateCountdownCancelAllV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllV1Request) Execute() (*OptionsCreateCountdownCancelAllV1Resp, *http.Response, error) {
+func (r ApiOptionsCreateCountdownCancelAllV1Request) Execute() (*OptionsCreateCountdownCancelAllV1Resp, *http.Response, error) {
 	return r.ApiService.OptionsCreateCountdownCancelAllV1Execute(r)
 }
 
@@ -216,10 +216,10 @@ OptionsCreateCountdownCancelAllV1 Set Auto-Cancel All Open Orders (Kill-Switch) 
 This endpoint sets the parameters of the auto-cancel feature which cancels all open orders (both market maker protection and non market maker protection order types) of the underlying symbol at the end of the specified countdown time period if no heartbeat message is sent.  After the countdown time period, all open orders will be cancelled and new orders will be rejected with error code -2010 until either a heartbeat message is sent or the auto-cancel feature is turned off by setting countdownTime to 0.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllV1Request
+ @return ApiOptionsCreateCountdownCancelAllV1Request
 */
-func (a *MarketMakerEndpointsAPIService) OptionsCreateCountdownCancelAllV1(ctx context.Context) MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllV1Request {
-	return MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllV1Request{
+func (a *MarketMakerEndpointsAPIService) OptionsCreateCountdownCancelAllV1(ctx context.Context) ApiOptionsCreateCountdownCancelAllV1Request {
+	return ApiOptionsCreateCountdownCancelAllV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -227,7 +227,7 @@ func (a *MarketMakerEndpointsAPIService) OptionsCreateCountdownCancelAllV1(ctx c
 
 // Execute executes the request
 //  @return OptionsCreateCountdownCancelAllV1Resp
-func (a *MarketMakerEndpointsAPIService) OptionsCreateCountdownCancelAllV1Execute(r MarketMakerEndpointsAPIOptionsCreateCountdownCancelAllV1Request) (*OptionsCreateCountdownCancelAllV1Resp, *http.Response, error) {
+func (a *MarketMakerEndpointsAPIService) OptionsCreateCountdownCancelAllV1Execute(r ApiOptionsCreateCountdownCancelAllV1Request) (*OptionsCreateCountdownCancelAllV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -342,7 +342,7 @@ func (a *MarketMakerEndpointsAPIService) OptionsCreateCountdownCancelAllV1Execut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketMakerEndpointsAPIOptionsCreateMmpResetV1Request struct {
+type ApiOptionsCreateMmpResetV1Request struct {
 	ctx context.Context
 	ApiService *MarketMakerEndpointsAPIService
 	timestamp *int64
@@ -350,22 +350,22 @@ type MarketMakerEndpointsAPIOptionsCreateMmpResetV1Request struct {
 	underlying *string
 }
 
-func (r MarketMakerEndpointsAPIOptionsCreateMmpResetV1Request) Timestamp(timestamp int64) MarketMakerEndpointsAPIOptionsCreateMmpResetV1Request {
+func (r ApiOptionsCreateMmpResetV1Request) Timestamp(timestamp int64) ApiOptionsCreateMmpResetV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r MarketMakerEndpointsAPIOptionsCreateMmpResetV1Request) RecvWindow(recvWindow int64) MarketMakerEndpointsAPIOptionsCreateMmpResetV1Request {
+func (r ApiOptionsCreateMmpResetV1Request) RecvWindow(recvWindow int64) ApiOptionsCreateMmpResetV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r MarketMakerEndpointsAPIOptionsCreateMmpResetV1Request) Underlying(underlying string) MarketMakerEndpointsAPIOptionsCreateMmpResetV1Request {
+func (r ApiOptionsCreateMmpResetV1Request) Underlying(underlying string) ApiOptionsCreateMmpResetV1Request {
 	r.underlying = &underlying
 	return r
 }
 
-func (r MarketMakerEndpointsAPIOptionsCreateMmpResetV1Request) Execute() (*OptionsCreateMmpResetV1Resp, *http.Response, error) {
+func (r ApiOptionsCreateMmpResetV1Request) Execute() (*OptionsCreateMmpResetV1Resp, *http.Response, error) {
 	return r.ApiService.OptionsCreateMmpResetV1Execute(r)
 }
 
@@ -375,10 +375,10 @@ OptionsCreateMmpResetV1 Reset Market Maker Protection Config (TRADE)
 Reset MMP, start MMP order again.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketMakerEndpointsAPIOptionsCreateMmpResetV1Request
+ @return ApiOptionsCreateMmpResetV1Request
 */
-func (a *MarketMakerEndpointsAPIService) OptionsCreateMmpResetV1(ctx context.Context) MarketMakerEndpointsAPIOptionsCreateMmpResetV1Request {
-	return MarketMakerEndpointsAPIOptionsCreateMmpResetV1Request{
+func (a *MarketMakerEndpointsAPIService) OptionsCreateMmpResetV1(ctx context.Context) ApiOptionsCreateMmpResetV1Request {
+	return ApiOptionsCreateMmpResetV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -386,7 +386,7 @@ func (a *MarketMakerEndpointsAPIService) OptionsCreateMmpResetV1(ctx context.Con
 
 // Execute executes the request
 //  @return OptionsCreateMmpResetV1Resp
-func (a *MarketMakerEndpointsAPIService) OptionsCreateMmpResetV1Execute(r MarketMakerEndpointsAPIOptionsCreateMmpResetV1Request) (*OptionsCreateMmpResetV1Resp, *http.Response, error) {
+func (a *MarketMakerEndpointsAPIService) OptionsCreateMmpResetV1Execute(r ApiOptionsCreateMmpResetV1Request) (*OptionsCreateMmpResetV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -496,7 +496,7 @@ func (a *MarketMakerEndpointsAPIService) OptionsCreateMmpResetV1Execute(r Market
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketMakerEndpointsAPIOptionsCreateMmpSetV1Request struct {
+type ApiOptionsCreateMmpSetV1Request struct {
 	ctx context.Context
 	ApiService *MarketMakerEndpointsAPIService
 	timestamp *int64
@@ -508,42 +508,42 @@ type MarketMakerEndpointsAPIOptionsCreateMmpSetV1Request struct {
 	windowTimeInMilliseconds *int64
 }
 
-func (r MarketMakerEndpointsAPIOptionsCreateMmpSetV1Request) Timestamp(timestamp int64) MarketMakerEndpointsAPIOptionsCreateMmpSetV1Request {
+func (r ApiOptionsCreateMmpSetV1Request) Timestamp(timestamp int64) ApiOptionsCreateMmpSetV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r MarketMakerEndpointsAPIOptionsCreateMmpSetV1Request) DeltaLimit(deltaLimit string) MarketMakerEndpointsAPIOptionsCreateMmpSetV1Request {
+func (r ApiOptionsCreateMmpSetV1Request) DeltaLimit(deltaLimit string) ApiOptionsCreateMmpSetV1Request {
 	r.deltaLimit = &deltaLimit
 	return r
 }
 
-func (r MarketMakerEndpointsAPIOptionsCreateMmpSetV1Request) FrozenTimeInMilliseconds(frozenTimeInMilliseconds int64) MarketMakerEndpointsAPIOptionsCreateMmpSetV1Request {
+func (r ApiOptionsCreateMmpSetV1Request) FrozenTimeInMilliseconds(frozenTimeInMilliseconds int64) ApiOptionsCreateMmpSetV1Request {
 	r.frozenTimeInMilliseconds = &frozenTimeInMilliseconds
 	return r
 }
 
-func (r MarketMakerEndpointsAPIOptionsCreateMmpSetV1Request) QtyLimit(qtyLimit string) MarketMakerEndpointsAPIOptionsCreateMmpSetV1Request {
+func (r ApiOptionsCreateMmpSetV1Request) QtyLimit(qtyLimit string) ApiOptionsCreateMmpSetV1Request {
 	r.qtyLimit = &qtyLimit
 	return r
 }
 
-func (r MarketMakerEndpointsAPIOptionsCreateMmpSetV1Request) RecvWindow(recvWindow int64) MarketMakerEndpointsAPIOptionsCreateMmpSetV1Request {
+func (r ApiOptionsCreateMmpSetV1Request) RecvWindow(recvWindow int64) ApiOptionsCreateMmpSetV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r MarketMakerEndpointsAPIOptionsCreateMmpSetV1Request) Underlying(underlying string) MarketMakerEndpointsAPIOptionsCreateMmpSetV1Request {
+func (r ApiOptionsCreateMmpSetV1Request) Underlying(underlying string) ApiOptionsCreateMmpSetV1Request {
 	r.underlying = &underlying
 	return r
 }
 
-func (r MarketMakerEndpointsAPIOptionsCreateMmpSetV1Request) WindowTimeInMilliseconds(windowTimeInMilliseconds int64) MarketMakerEndpointsAPIOptionsCreateMmpSetV1Request {
+func (r ApiOptionsCreateMmpSetV1Request) WindowTimeInMilliseconds(windowTimeInMilliseconds int64) ApiOptionsCreateMmpSetV1Request {
 	r.windowTimeInMilliseconds = &windowTimeInMilliseconds
 	return r
 }
 
-func (r MarketMakerEndpointsAPIOptionsCreateMmpSetV1Request) Execute() (*OptionsCreateMmpSetV1Resp, *http.Response, error) {
+func (r ApiOptionsCreateMmpSetV1Request) Execute() (*OptionsCreateMmpSetV1Resp, *http.Response, error) {
 	return r.ApiService.OptionsCreateMmpSetV1Execute(r)
 }
 
@@ -554,10 +554,10 @@ Set config for MMP.
 Market Maker Protection(MMP) is a set of protection mechanism for option market maker, this mechanism is able to prevent mass trading in short period time. Once market maker's account branches the threshold, the Market Maker Protection will be triggered. When Market Maker Protection triggers, all the current MMP orders will be canceled, new MMP orders will be rejected. Market maker can use this time to reevaluate market and modify order price.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketMakerEndpointsAPIOptionsCreateMmpSetV1Request
+ @return ApiOptionsCreateMmpSetV1Request
 */
-func (a *MarketMakerEndpointsAPIService) OptionsCreateMmpSetV1(ctx context.Context) MarketMakerEndpointsAPIOptionsCreateMmpSetV1Request {
-	return MarketMakerEndpointsAPIOptionsCreateMmpSetV1Request{
+func (a *MarketMakerEndpointsAPIService) OptionsCreateMmpSetV1(ctx context.Context) ApiOptionsCreateMmpSetV1Request {
+	return ApiOptionsCreateMmpSetV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -565,7 +565,7 @@ func (a *MarketMakerEndpointsAPIService) OptionsCreateMmpSetV1(ctx context.Conte
 
 // Execute executes the request
 //  @return OptionsCreateMmpSetV1Resp
-func (a *MarketMakerEndpointsAPIService) OptionsCreateMmpSetV1Execute(r MarketMakerEndpointsAPIOptionsCreateMmpSetV1Request) (*OptionsCreateMmpSetV1Resp, *http.Response, error) {
+func (a *MarketMakerEndpointsAPIService) OptionsCreateMmpSetV1Execute(r ApiOptionsCreateMmpSetV1Request) (*OptionsCreateMmpSetV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -687,7 +687,7 @@ func (a *MarketMakerEndpointsAPIService) OptionsCreateMmpSetV1Execute(r MarketMa
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketMakerEndpointsAPIOptionsGetCountdownCancelAllV1Request struct {
+type ApiOptionsGetCountdownCancelAllV1Request struct {
 	ctx context.Context
 	ApiService *MarketMakerEndpointsAPIService
 	timestamp *int64
@@ -695,23 +695,23 @@ type MarketMakerEndpointsAPIOptionsGetCountdownCancelAllV1Request struct {
 	recvWindow *int64
 }
 
-func (r MarketMakerEndpointsAPIOptionsGetCountdownCancelAllV1Request) Timestamp(timestamp int64) MarketMakerEndpointsAPIOptionsGetCountdownCancelAllV1Request {
+func (r ApiOptionsGetCountdownCancelAllV1Request) Timestamp(timestamp int64) ApiOptionsGetCountdownCancelAllV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Option underlying, e.g BTCUSDT
-func (r MarketMakerEndpointsAPIOptionsGetCountdownCancelAllV1Request) Underlying(underlying string) MarketMakerEndpointsAPIOptionsGetCountdownCancelAllV1Request {
+func (r ApiOptionsGetCountdownCancelAllV1Request) Underlying(underlying string) ApiOptionsGetCountdownCancelAllV1Request {
 	r.underlying = &underlying
 	return r
 }
 
-func (r MarketMakerEndpointsAPIOptionsGetCountdownCancelAllV1Request) RecvWindow(recvWindow int64) MarketMakerEndpointsAPIOptionsGetCountdownCancelAllV1Request {
+func (r ApiOptionsGetCountdownCancelAllV1Request) RecvWindow(recvWindow int64) ApiOptionsGetCountdownCancelAllV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r MarketMakerEndpointsAPIOptionsGetCountdownCancelAllV1Request) Execute() (*OptionsGetCountdownCancelAllV1Resp, *http.Response, error) {
+func (r ApiOptionsGetCountdownCancelAllV1Request) Execute() (*OptionsGetCountdownCancelAllV1Resp, *http.Response, error) {
 	return r.ApiService.OptionsGetCountdownCancelAllV1Execute(r)
 }
 
@@ -721,10 +721,10 @@ OptionsGetCountdownCancelAllV1 Get Auto-Cancel All Open Orders (Kill-Switch) Con
 This endpoint returns the auto-cancel parameters for each underlying symbol. Note only active auto-cancel parameters will be returned, if countdownTime is set to 0 (ie. countdownTime has been turned off), the underlying symbol and corresponding countdownTime parameter will not be returned in the response.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketMakerEndpointsAPIOptionsGetCountdownCancelAllV1Request
+ @return ApiOptionsGetCountdownCancelAllV1Request
 */
-func (a *MarketMakerEndpointsAPIService) OptionsGetCountdownCancelAllV1(ctx context.Context) MarketMakerEndpointsAPIOptionsGetCountdownCancelAllV1Request {
-	return MarketMakerEndpointsAPIOptionsGetCountdownCancelAllV1Request{
+func (a *MarketMakerEndpointsAPIService) OptionsGetCountdownCancelAllV1(ctx context.Context) ApiOptionsGetCountdownCancelAllV1Request {
+	return ApiOptionsGetCountdownCancelAllV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -732,7 +732,7 @@ func (a *MarketMakerEndpointsAPIService) OptionsGetCountdownCancelAllV1(ctx cont
 
 // Execute executes the request
 //  @return OptionsGetCountdownCancelAllV1Resp
-func (a *MarketMakerEndpointsAPIService) OptionsGetCountdownCancelAllV1Execute(r MarketMakerEndpointsAPIOptionsGetCountdownCancelAllV1Request) (*OptionsGetCountdownCancelAllV1Resp, *http.Response, error) {
+func (a *MarketMakerEndpointsAPIService) OptionsGetCountdownCancelAllV1Execute(r ApiOptionsGetCountdownCancelAllV1Request) (*OptionsGetCountdownCancelAllV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -845,24 +845,24 @@ func (a *MarketMakerEndpointsAPIService) OptionsGetCountdownCancelAllV1Execute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketMakerEndpointsAPIOptionsGetMarginAccountV1Request struct {
+type ApiOptionsGetMarginAccountV1Request struct {
 	ctx context.Context
 	ApiService *MarketMakerEndpointsAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r MarketMakerEndpointsAPIOptionsGetMarginAccountV1Request) Timestamp(timestamp int64) MarketMakerEndpointsAPIOptionsGetMarginAccountV1Request {
+func (r ApiOptionsGetMarginAccountV1Request) Timestamp(timestamp int64) ApiOptionsGetMarginAccountV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r MarketMakerEndpointsAPIOptionsGetMarginAccountV1Request) RecvWindow(recvWindow int64) MarketMakerEndpointsAPIOptionsGetMarginAccountV1Request {
+func (r ApiOptionsGetMarginAccountV1Request) RecvWindow(recvWindow int64) ApiOptionsGetMarginAccountV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r MarketMakerEndpointsAPIOptionsGetMarginAccountV1Request) Execute() (*OptionsGetMarginAccountV1Resp, *http.Response, error) {
+func (r ApiOptionsGetMarginAccountV1Request) Execute() (*OptionsGetMarginAccountV1Resp, *http.Response, error) {
 	return r.ApiService.OptionsGetMarginAccountV1Execute(r)
 }
 
@@ -872,10 +872,10 @@ OptionsGetMarginAccountV1 Option Margin Account Information (USER_DATA)
 Get current account information.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketMakerEndpointsAPIOptionsGetMarginAccountV1Request
+ @return ApiOptionsGetMarginAccountV1Request
 */
-func (a *MarketMakerEndpointsAPIService) OptionsGetMarginAccountV1(ctx context.Context) MarketMakerEndpointsAPIOptionsGetMarginAccountV1Request {
-	return MarketMakerEndpointsAPIOptionsGetMarginAccountV1Request{
+func (a *MarketMakerEndpointsAPIService) OptionsGetMarginAccountV1(ctx context.Context) ApiOptionsGetMarginAccountV1Request {
+	return ApiOptionsGetMarginAccountV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -883,7 +883,7 @@ func (a *MarketMakerEndpointsAPIService) OptionsGetMarginAccountV1(ctx context.C
 
 // Execute executes the request
 //  @return OptionsGetMarginAccountV1Resp
-func (a *MarketMakerEndpointsAPIService) OptionsGetMarginAccountV1Execute(r MarketMakerEndpointsAPIOptionsGetMarginAccountV1Request) (*OptionsGetMarginAccountV1Resp, *http.Response, error) {
+func (a *MarketMakerEndpointsAPIService) OptionsGetMarginAccountV1Execute(r ApiOptionsGetMarginAccountV1Request) (*OptionsGetMarginAccountV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -990,7 +990,7 @@ func (a *MarketMakerEndpointsAPIService) OptionsGetMarginAccountV1Execute(r Mark
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketMakerEndpointsAPIOptionsGetMmpV1Request struct {
+type ApiOptionsGetMmpV1Request struct {
 	ctx context.Context
 	ApiService *MarketMakerEndpointsAPIService
 	timestamp *int64
@@ -998,23 +998,23 @@ type MarketMakerEndpointsAPIOptionsGetMmpV1Request struct {
 	recvWindow *int64
 }
 
-func (r MarketMakerEndpointsAPIOptionsGetMmpV1Request) Timestamp(timestamp int64) MarketMakerEndpointsAPIOptionsGetMmpV1Request {
+func (r ApiOptionsGetMmpV1Request) Timestamp(timestamp int64) ApiOptionsGetMmpV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // underlying, e.g BTCUSDT
-func (r MarketMakerEndpointsAPIOptionsGetMmpV1Request) Underlying(underlying string) MarketMakerEndpointsAPIOptionsGetMmpV1Request {
+func (r ApiOptionsGetMmpV1Request) Underlying(underlying string) ApiOptionsGetMmpV1Request {
 	r.underlying = &underlying
 	return r
 }
 
-func (r MarketMakerEndpointsAPIOptionsGetMmpV1Request) RecvWindow(recvWindow int64) MarketMakerEndpointsAPIOptionsGetMmpV1Request {
+func (r ApiOptionsGetMmpV1Request) RecvWindow(recvWindow int64) ApiOptionsGetMmpV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r MarketMakerEndpointsAPIOptionsGetMmpV1Request) Execute() (*OptionsGetMmpV1Resp, *http.Response, error) {
+func (r ApiOptionsGetMmpV1Request) Execute() (*OptionsGetMmpV1Resp, *http.Response, error) {
 	return r.ApiService.OptionsGetMmpV1Execute(r)
 }
 
@@ -1024,10 +1024,10 @@ OptionsGetMmpV1 Get Market Maker Protection Config (TRADE)
 Get config for MMP.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketMakerEndpointsAPIOptionsGetMmpV1Request
+ @return ApiOptionsGetMmpV1Request
 */
-func (a *MarketMakerEndpointsAPIService) OptionsGetMmpV1(ctx context.Context) MarketMakerEndpointsAPIOptionsGetMmpV1Request {
-	return MarketMakerEndpointsAPIOptionsGetMmpV1Request{
+func (a *MarketMakerEndpointsAPIService) OptionsGetMmpV1(ctx context.Context) ApiOptionsGetMmpV1Request {
+	return ApiOptionsGetMmpV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1035,7 +1035,7 @@ func (a *MarketMakerEndpointsAPIService) OptionsGetMmpV1(ctx context.Context) Ma
 
 // Execute executes the request
 //  @return OptionsGetMmpV1Resp
-func (a *MarketMakerEndpointsAPIService) OptionsGetMmpV1Execute(r MarketMakerEndpointsAPIOptionsGetMmpV1Request) (*OptionsGetMmpV1Resp, *http.Response, error) {
+func (a *MarketMakerEndpointsAPIService) OptionsGetMmpV1Execute(r ApiOptionsGetMmpV1Request) (*OptionsGetMmpV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

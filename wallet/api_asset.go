@@ -22,7 +22,7 @@ import (
 // AssetAPIService AssetAPI service
 type AssetAPIService service
 
-type AssetAPIWalletCreateAssetDustBtcV1Request struct {
+type ApiWalletCreateAssetDustBtcV1Request struct {
 	ctx context.Context
 	ApiService *AssetAPIService
 	timestamp *int64
@@ -30,22 +30,22 @@ type AssetAPIWalletCreateAssetDustBtcV1Request struct {
 	recvWindow *int64
 }
 
-func (r AssetAPIWalletCreateAssetDustBtcV1Request) Timestamp(timestamp int64) AssetAPIWalletCreateAssetDustBtcV1Request {
+func (r ApiWalletCreateAssetDustBtcV1Request) Timestamp(timestamp int64) ApiWalletCreateAssetDustBtcV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetAPIWalletCreateAssetDustBtcV1Request) AccountType(accountType string) AssetAPIWalletCreateAssetDustBtcV1Request {
+func (r ApiWalletCreateAssetDustBtcV1Request) AccountType(accountType string) ApiWalletCreateAssetDustBtcV1Request {
 	r.accountType = &accountType
 	return r
 }
 
-func (r AssetAPIWalletCreateAssetDustBtcV1Request) RecvWindow(recvWindow int64) AssetAPIWalletCreateAssetDustBtcV1Request {
+func (r ApiWalletCreateAssetDustBtcV1Request) RecvWindow(recvWindow int64) ApiWalletCreateAssetDustBtcV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetAPIWalletCreateAssetDustBtcV1Request) Execute() (*WalletCreateAssetDustBtcV1Resp, *http.Response, error) {
+func (r ApiWalletCreateAssetDustBtcV1Request) Execute() (*WalletCreateAssetDustBtcV1Resp, *http.Response, error) {
 	return r.ApiService.WalletCreateAssetDustBtcV1Execute(r)
 }
 
@@ -55,10 +55,10 @@ WalletCreateAssetDustBtcV1 Get Assets That Can Be Converted Into BNB (USER_DATA)
 Get Assets That Can Be Converted Into BNB
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetAPIWalletCreateAssetDustBtcV1Request
+ @return ApiWalletCreateAssetDustBtcV1Request
 */
-func (a *AssetAPIService) WalletCreateAssetDustBtcV1(ctx context.Context) AssetAPIWalletCreateAssetDustBtcV1Request {
-	return AssetAPIWalletCreateAssetDustBtcV1Request{
+func (a *AssetAPIService) WalletCreateAssetDustBtcV1(ctx context.Context) ApiWalletCreateAssetDustBtcV1Request {
+	return ApiWalletCreateAssetDustBtcV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -66,7 +66,7 @@ func (a *AssetAPIService) WalletCreateAssetDustBtcV1(ctx context.Context) AssetA
 
 // Execute executes the request
 //  @return WalletCreateAssetDustBtcV1Resp
-func (a *AssetAPIService) WalletCreateAssetDustBtcV1Execute(r AssetAPIWalletCreateAssetDustBtcV1Request) (*WalletCreateAssetDustBtcV1Resp, *http.Response, error) {
+func (a *AssetAPIService) WalletCreateAssetDustBtcV1Execute(r ApiWalletCreateAssetDustBtcV1Request) (*WalletCreateAssetDustBtcV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -176,7 +176,7 @@ func (a *AssetAPIService) WalletCreateAssetDustBtcV1Execute(r AssetAPIWalletCrea
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetAPIWalletCreateAssetDustV1Request struct {
+type ApiWalletCreateAssetDustV1Request struct {
 	ctx context.Context
 	ApiService *AssetAPIService
 	asset *[]string
@@ -185,27 +185,27 @@ type AssetAPIWalletCreateAssetDustV1Request struct {
 	recvWindow *int64
 }
 
-func (r AssetAPIWalletCreateAssetDustV1Request) Asset(asset []string) AssetAPIWalletCreateAssetDustV1Request {
+func (r ApiWalletCreateAssetDustV1Request) Asset(asset []string) ApiWalletCreateAssetDustV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r AssetAPIWalletCreateAssetDustV1Request) Timestamp(timestamp int64) AssetAPIWalletCreateAssetDustV1Request {
+func (r ApiWalletCreateAssetDustV1Request) Timestamp(timestamp int64) ApiWalletCreateAssetDustV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetAPIWalletCreateAssetDustV1Request) AccountType(accountType string) AssetAPIWalletCreateAssetDustV1Request {
+func (r ApiWalletCreateAssetDustV1Request) AccountType(accountType string) ApiWalletCreateAssetDustV1Request {
 	r.accountType = &accountType
 	return r
 }
 
-func (r AssetAPIWalletCreateAssetDustV1Request) RecvWindow(recvWindow int64) AssetAPIWalletCreateAssetDustV1Request {
+func (r ApiWalletCreateAssetDustV1Request) RecvWindow(recvWindow int64) ApiWalletCreateAssetDustV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetAPIWalletCreateAssetDustV1Request) Execute() (*WalletCreateAssetDustV1Resp, *http.Response, error) {
+func (r ApiWalletCreateAssetDustV1Request) Execute() (*WalletCreateAssetDustV1Resp, *http.Response, error) {
 	return r.ApiService.WalletCreateAssetDustV1Execute(r)
 }
 
@@ -215,10 +215,10 @@ WalletCreateAssetDustV1 Dust Transfer (USER_DATA)
 Convert dust assets to BNB.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetAPIWalletCreateAssetDustV1Request
+ @return ApiWalletCreateAssetDustV1Request
 */
-func (a *AssetAPIService) WalletCreateAssetDustV1(ctx context.Context) AssetAPIWalletCreateAssetDustV1Request {
-	return AssetAPIWalletCreateAssetDustV1Request{
+func (a *AssetAPIService) WalletCreateAssetDustV1(ctx context.Context) ApiWalletCreateAssetDustV1Request {
+	return ApiWalletCreateAssetDustV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -226,7 +226,7 @@ func (a *AssetAPIService) WalletCreateAssetDustV1(ctx context.Context) AssetAPIW
 
 // Execute executes the request
 //  @return WalletCreateAssetDustV1Resp
-func (a *AssetAPIService) WalletCreateAssetDustV1Execute(r AssetAPIWalletCreateAssetDustV1Request) (*WalletCreateAssetDustV1Resp, *http.Response, error) {
+func (a *AssetAPIService) WalletCreateAssetDustV1Execute(r ApiWalletCreateAssetDustV1Request) (*WalletCreateAssetDustV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -340,7 +340,7 @@ func (a *AssetAPIService) WalletCreateAssetDustV1Execute(r AssetAPIWalletCreateA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetAPIWalletCreateAssetGetFundingAssetV1Request struct {
+type ApiWalletCreateAssetGetFundingAssetV1Request struct {
 	ctx context.Context
 	ApiService *AssetAPIService
 	timestamp *int64
@@ -349,27 +349,27 @@ type AssetAPIWalletCreateAssetGetFundingAssetV1Request struct {
 	recvWindow *int64
 }
 
-func (r AssetAPIWalletCreateAssetGetFundingAssetV1Request) Timestamp(timestamp int64) AssetAPIWalletCreateAssetGetFundingAssetV1Request {
+func (r ApiWalletCreateAssetGetFundingAssetV1Request) Timestamp(timestamp int64) ApiWalletCreateAssetGetFundingAssetV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetAPIWalletCreateAssetGetFundingAssetV1Request) Asset(asset string) AssetAPIWalletCreateAssetGetFundingAssetV1Request {
+func (r ApiWalletCreateAssetGetFundingAssetV1Request) Asset(asset string) ApiWalletCreateAssetGetFundingAssetV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r AssetAPIWalletCreateAssetGetFundingAssetV1Request) NeedBtcValuation(needBtcValuation string) AssetAPIWalletCreateAssetGetFundingAssetV1Request {
+func (r ApiWalletCreateAssetGetFundingAssetV1Request) NeedBtcValuation(needBtcValuation string) ApiWalletCreateAssetGetFundingAssetV1Request {
 	r.needBtcValuation = &needBtcValuation
 	return r
 }
 
-func (r AssetAPIWalletCreateAssetGetFundingAssetV1Request) RecvWindow(recvWindow int64) AssetAPIWalletCreateAssetGetFundingAssetV1Request {
+func (r ApiWalletCreateAssetGetFundingAssetV1Request) RecvWindow(recvWindow int64) ApiWalletCreateAssetGetFundingAssetV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetAPIWalletCreateAssetGetFundingAssetV1Request) Execute() ([]WalletCreateAssetGetFundingAssetV1RespItem, *http.Response, error) {
+func (r ApiWalletCreateAssetGetFundingAssetV1Request) Execute() ([]WalletCreateAssetGetFundingAssetV1RespItem, *http.Response, error) {
 	return r.ApiService.WalletCreateAssetGetFundingAssetV1Execute(r)
 }
 
@@ -379,10 +379,10 @@ WalletCreateAssetGetFundingAssetV1 Funding Wallet (USER_DATA)
 Query Funding Wallet
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetAPIWalletCreateAssetGetFundingAssetV1Request
+ @return ApiWalletCreateAssetGetFundingAssetV1Request
 */
-func (a *AssetAPIService) WalletCreateAssetGetFundingAssetV1(ctx context.Context) AssetAPIWalletCreateAssetGetFundingAssetV1Request {
-	return AssetAPIWalletCreateAssetGetFundingAssetV1Request{
+func (a *AssetAPIService) WalletCreateAssetGetFundingAssetV1(ctx context.Context) ApiWalletCreateAssetGetFundingAssetV1Request {
+	return ApiWalletCreateAssetGetFundingAssetV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -390,7 +390,7 @@ func (a *AssetAPIService) WalletCreateAssetGetFundingAssetV1(ctx context.Context
 
 // Execute executes the request
 //  @return []WalletCreateAssetGetFundingAssetV1RespItem
-func (a *AssetAPIService) WalletCreateAssetGetFundingAssetV1Execute(r AssetAPIWalletCreateAssetGetFundingAssetV1Request) ([]WalletCreateAssetGetFundingAssetV1RespItem, *http.Response, error) {
+func (a *AssetAPIService) WalletCreateAssetGetFundingAssetV1Execute(r ApiWalletCreateAssetGetFundingAssetV1Request) ([]WalletCreateAssetGetFundingAssetV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -503,7 +503,7 @@ func (a *AssetAPIService) WalletCreateAssetGetFundingAssetV1Execute(r AssetAPIWa
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetAPIWalletCreateAssetGetUserAssetV3Request struct {
+type ApiWalletCreateAssetGetUserAssetV3Request struct {
 	ctx context.Context
 	ApiService *AssetAPIService
 	timestamp *int64
@@ -512,27 +512,27 @@ type AssetAPIWalletCreateAssetGetUserAssetV3Request struct {
 	recvWindow *int64
 }
 
-func (r AssetAPIWalletCreateAssetGetUserAssetV3Request) Timestamp(timestamp int64) AssetAPIWalletCreateAssetGetUserAssetV3Request {
+func (r ApiWalletCreateAssetGetUserAssetV3Request) Timestamp(timestamp int64) ApiWalletCreateAssetGetUserAssetV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetAPIWalletCreateAssetGetUserAssetV3Request) Asset(asset string) AssetAPIWalletCreateAssetGetUserAssetV3Request {
+func (r ApiWalletCreateAssetGetUserAssetV3Request) Asset(asset string) ApiWalletCreateAssetGetUserAssetV3Request {
 	r.asset = &asset
 	return r
 }
 
-func (r AssetAPIWalletCreateAssetGetUserAssetV3Request) NeedBtcValuation(needBtcValuation bool) AssetAPIWalletCreateAssetGetUserAssetV3Request {
+func (r ApiWalletCreateAssetGetUserAssetV3Request) NeedBtcValuation(needBtcValuation bool) ApiWalletCreateAssetGetUserAssetV3Request {
 	r.needBtcValuation = &needBtcValuation
 	return r
 }
 
-func (r AssetAPIWalletCreateAssetGetUserAssetV3Request) RecvWindow(recvWindow int64) AssetAPIWalletCreateAssetGetUserAssetV3Request {
+func (r ApiWalletCreateAssetGetUserAssetV3Request) RecvWindow(recvWindow int64) ApiWalletCreateAssetGetUserAssetV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetAPIWalletCreateAssetGetUserAssetV3Request) Execute() ([]WalletCreateAssetGetUserAssetV3RespItem, *http.Response, error) {
+func (r ApiWalletCreateAssetGetUserAssetV3Request) Execute() ([]WalletCreateAssetGetUserAssetV3RespItem, *http.Response, error) {
 	return r.ApiService.WalletCreateAssetGetUserAssetV3Execute(r)
 }
 
@@ -542,10 +542,10 @@ WalletCreateAssetGetUserAssetV3 User Asset (USER_DATA)
 Get user assets, just for positive data.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetAPIWalletCreateAssetGetUserAssetV3Request
+ @return ApiWalletCreateAssetGetUserAssetV3Request
 */
-func (a *AssetAPIService) WalletCreateAssetGetUserAssetV3(ctx context.Context) AssetAPIWalletCreateAssetGetUserAssetV3Request {
-	return AssetAPIWalletCreateAssetGetUserAssetV3Request{
+func (a *AssetAPIService) WalletCreateAssetGetUserAssetV3(ctx context.Context) ApiWalletCreateAssetGetUserAssetV3Request {
+	return ApiWalletCreateAssetGetUserAssetV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -553,7 +553,7 @@ func (a *AssetAPIService) WalletCreateAssetGetUserAssetV3(ctx context.Context) A
 
 // Execute executes the request
 //  @return []WalletCreateAssetGetUserAssetV3RespItem
-func (a *AssetAPIService) WalletCreateAssetGetUserAssetV3Execute(r AssetAPIWalletCreateAssetGetUserAssetV3Request) ([]WalletCreateAssetGetUserAssetV3RespItem, *http.Response, error) {
+func (a *AssetAPIService) WalletCreateAssetGetUserAssetV3Execute(r ApiWalletCreateAssetGetUserAssetV3Request) ([]WalletCreateAssetGetUserAssetV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -666,7 +666,7 @@ func (a *AssetAPIService) WalletCreateAssetGetUserAssetV3Execute(r AssetAPIWalle
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetAPIWalletCreateAssetTransferV1Request struct {
+type ApiWalletCreateAssetTransferV1Request struct {
 	ctx context.Context
 	ApiService *AssetAPIService
 	amount *string
@@ -678,42 +678,42 @@ type AssetAPIWalletCreateAssetTransferV1Request struct {
 	toSymbol *string
 }
 
-func (r AssetAPIWalletCreateAssetTransferV1Request) Amount(amount string) AssetAPIWalletCreateAssetTransferV1Request {
+func (r ApiWalletCreateAssetTransferV1Request) Amount(amount string) ApiWalletCreateAssetTransferV1Request {
 	r.amount = &amount
 	return r
 }
 
-func (r AssetAPIWalletCreateAssetTransferV1Request) Asset(asset string) AssetAPIWalletCreateAssetTransferV1Request {
+func (r ApiWalletCreateAssetTransferV1Request) Asset(asset string) ApiWalletCreateAssetTransferV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r AssetAPIWalletCreateAssetTransferV1Request) Timestamp(timestamp int64) AssetAPIWalletCreateAssetTransferV1Request {
+func (r ApiWalletCreateAssetTransferV1Request) Timestamp(timestamp int64) ApiWalletCreateAssetTransferV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetAPIWalletCreateAssetTransferV1Request) Type_(type_ string) AssetAPIWalletCreateAssetTransferV1Request {
+func (r ApiWalletCreateAssetTransferV1Request) Type_(type_ string) ApiWalletCreateAssetTransferV1Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r AssetAPIWalletCreateAssetTransferV1Request) FromSymbol(fromSymbol string) AssetAPIWalletCreateAssetTransferV1Request {
+func (r ApiWalletCreateAssetTransferV1Request) FromSymbol(fromSymbol string) ApiWalletCreateAssetTransferV1Request {
 	r.fromSymbol = &fromSymbol
 	return r
 }
 
-func (r AssetAPIWalletCreateAssetTransferV1Request) RecvWindow(recvWindow int64) AssetAPIWalletCreateAssetTransferV1Request {
+func (r ApiWalletCreateAssetTransferV1Request) RecvWindow(recvWindow int64) ApiWalletCreateAssetTransferV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetAPIWalletCreateAssetTransferV1Request) ToSymbol(toSymbol string) AssetAPIWalletCreateAssetTransferV1Request {
+func (r ApiWalletCreateAssetTransferV1Request) ToSymbol(toSymbol string) ApiWalletCreateAssetTransferV1Request {
 	r.toSymbol = &toSymbol
 	return r
 }
 
-func (r AssetAPIWalletCreateAssetTransferV1Request) Execute() (*WalletCreateAssetTransferV1Resp, *http.Response, error) {
+func (r ApiWalletCreateAssetTransferV1Request) Execute() (*WalletCreateAssetTransferV1Resp, *http.Response, error) {
 	return r.ApiService.WalletCreateAssetTransferV1Execute(r)
 }
 
@@ -723,10 +723,10 @@ WalletCreateAssetTransferV1 User Universal Transfer (USER_DATA)
 user universal transfer
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetAPIWalletCreateAssetTransferV1Request
+ @return ApiWalletCreateAssetTransferV1Request
 */
-func (a *AssetAPIService) WalletCreateAssetTransferV1(ctx context.Context) AssetAPIWalletCreateAssetTransferV1Request {
-	return AssetAPIWalletCreateAssetTransferV1Request{
+func (a *AssetAPIService) WalletCreateAssetTransferV1(ctx context.Context) ApiWalletCreateAssetTransferV1Request {
+	return ApiWalletCreateAssetTransferV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -734,7 +734,7 @@ func (a *AssetAPIService) WalletCreateAssetTransferV1(ctx context.Context) Asset
 
 // Execute executes the request
 //  @return WalletCreateAssetTransferV1Resp
-func (a *AssetAPIService) WalletCreateAssetTransferV1Execute(r AssetAPIWalletCreateAssetTransferV1Request) (*WalletCreateAssetTransferV1Resp, *http.Response, error) {
+func (a *AssetAPIService) WalletCreateAssetTransferV1Execute(r ApiWalletCreateAssetTransferV1Request) (*WalletCreateAssetTransferV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -859,7 +859,7 @@ func (a *AssetAPIService) WalletCreateAssetTransferV1Execute(r AssetAPIWalletCre
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetAPIWalletCreateBnbBurnV1Request struct {
+type ApiWalletCreateBnbBurnV1Request struct {
 	ctx context.Context
 	ApiService *AssetAPIService
 	timestamp *int64
@@ -868,27 +868,27 @@ type AssetAPIWalletCreateBnbBurnV1Request struct {
 	spotBNBBurn *string
 }
 
-func (r AssetAPIWalletCreateBnbBurnV1Request) Timestamp(timestamp int64) AssetAPIWalletCreateBnbBurnV1Request {
+func (r ApiWalletCreateBnbBurnV1Request) Timestamp(timestamp int64) ApiWalletCreateBnbBurnV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetAPIWalletCreateBnbBurnV1Request) InterestBNBBurn(interestBNBBurn string) AssetAPIWalletCreateBnbBurnV1Request {
+func (r ApiWalletCreateBnbBurnV1Request) InterestBNBBurn(interestBNBBurn string) ApiWalletCreateBnbBurnV1Request {
 	r.interestBNBBurn = &interestBNBBurn
 	return r
 }
 
-func (r AssetAPIWalletCreateBnbBurnV1Request) RecvWindow(recvWindow int64) AssetAPIWalletCreateBnbBurnV1Request {
+func (r ApiWalletCreateBnbBurnV1Request) RecvWindow(recvWindow int64) ApiWalletCreateBnbBurnV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetAPIWalletCreateBnbBurnV1Request) SpotBNBBurn(spotBNBBurn string) AssetAPIWalletCreateBnbBurnV1Request {
+func (r ApiWalletCreateBnbBurnV1Request) SpotBNBBurn(spotBNBBurn string) ApiWalletCreateBnbBurnV1Request {
 	r.spotBNBBurn = &spotBNBBurn
 	return r
 }
 
-func (r AssetAPIWalletCreateBnbBurnV1Request) Execute() (*WalletCreateBnbBurnV1Resp, *http.Response, error) {
+func (r ApiWalletCreateBnbBurnV1Request) Execute() (*WalletCreateBnbBurnV1Resp, *http.Response, error) {
 	return r.ApiService.WalletCreateBnbBurnV1Execute(r)
 }
 
@@ -898,10 +898,10 @@ WalletCreateBnbBurnV1 Toggle BNB Burn On Spot Trade And Margin Interest (USER_DA
 Toggle BNB Burn On Spot Trade And Margin Interest
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetAPIWalletCreateBnbBurnV1Request
+ @return ApiWalletCreateBnbBurnV1Request
 */
-func (a *AssetAPIService) WalletCreateBnbBurnV1(ctx context.Context) AssetAPIWalletCreateBnbBurnV1Request {
-	return AssetAPIWalletCreateBnbBurnV1Request{
+func (a *AssetAPIService) WalletCreateBnbBurnV1(ctx context.Context) ApiWalletCreateBnbBurnV1Request {
+	return ApiWalletCreateBnbBurnV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -909,7 +909,7 @@ func (a *AssetAPIService) WalletCreateBnbBurnV1(ctx context.Context) AssetAPIWal
 
 // Execute executes the request
 //  @return WalletCreateBnbBurnV1Resp
-func (a *AssetAPIService) WalletCreateBnbBurnV1Execute(r AssetAPIWalletCreateBnbBurnV1Request) (*WalletCreateBnbBurnV1Resp, *http.Response, error) {
+func (a *AssetAPIService) WalletCreateBnbBurnV1Execute(r ApiWalletCreateBnbBurnV1Request) (*WalletCreateBnbBurnV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1022,24 +1022,24 @@ func (a *AssetAPIService) WalletCreateBnbBurnV1Execute(r AssetAPIWalletCreateBnb
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetAPIWalletGetAssetAssetDetailV1Request struct {
+type ApiWalletGetAssetAssetDetailV1Request struct {
 	ctx context.Context
 	ApiService *AssetAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AssetAPIWalletGetAssetAssetDetailV1Request) Timestamp(timestamp int64) AssetAPIWalletGetAssetAssetDetailV1Request {
+func (r ApiWalletGetAssetAssetDetailV1Request) Timestamp(timestamp int64) ApiWalletGetAssetAssetDetailV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetAPIWalletGetAssetAssetDetailV1Request) RecvWindow(recvWindow int64) AssetAPIWalletGetAssetAssetDetailV1Request {
+func (r ApiWalletGetAssetAssetDetailV1Request) RecvWindow(recvWindow int64) ApiWalletGetAssetAssetDetailV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetAPIWalletGetAssetAssetDetailV1Request) Execute() (*map[string]WalletGetAssetAssetDetailV1RespValue, *http.Response, error) {
+func (r ApiWalletGetAssetAssetDetailV1Request) Execute() (*map[string]WalletGetAssetAssetDetailV1RespValue, *http.Response, error) {
 	return r.ApiService.WalletGetAssetAssetDetailV1Execute(r)
 }
 
@@ -1049,10 +1049,10 @@ WalletGetAssetAssetDetailV1 Asset Detail (USER_DATA)
 Fetch details of assets supported on Binance.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetAPIWalletGetAssetAssetDetailV1Request
+ @return ApiWalletGetAssetAssetDetailV1Request
 */
-func (a *AssetAPIService) WalletGetAssetAssetDetailV1(ctx context.Context) AssetAPIWalletGetAssetAssetDetailV1Request {
-	return AssetAPIWalletGetAssetAssetDetailV1Request{
+func (a *AssetAPIService) WalletGetAssetAssetDetailV1(ctx context.Context) ApiWalletGetAssetAssetDetailV1Request {
+	return ApiWalletGetAssetAssetDetailV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1060,7 +1060,7 @@ func (a *AssetAPIService) WalletGetAssetAssetDetailV1(ctx context.Context) Asset
 
 // Execute executes the request
 //  @return map[string]WalletGetAssetAssetDetailV1RespValue
-func (a *AssetAPIService) WalletGetAssetAssetDetailV1Execute(r AssetAPIWalletGetAssetAssetDetailV1Request) (*map[string]WalletGetAssetAssetDetailV1RespValue, *http.Response, error) {
+func (a *AssetAPIService) WalletGetAssetAssetDetailV1Execute(r ApiWalletGetAssetAssetDetailV1Request) (*map[string]WalletGetAssetAssetDetailV1RespValue, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1167,7 +1167,7 @@ func (a *AssetAPIService) WalletGetAssetAssetDetailV1Execute(r AssetAPIWalletGet
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetAPIWalletGetAssetAssetDividendV1Request struct {
+type ApiWalletGetAssetAssetDividendV1Request struct {
 	ctx context.Context
 	ApiService *AssetAPIService
 	timestamp *int64
@@ -1178,38 +1178,38 @@ type AssetAPIWalletGetAssetAssetDividendV1Request struct {
 	recvWindow *int64
 }
 
-func (r AssetAPIWalletGetAssetAssetDividendV1Request) Timestamp(timestamp int64) AssetAPIWalletGetAssetAssetDividendV1Request {
+func (r ApiWalletGetAssetAssetDividendV1Request) Timestamp(timestamp int64) ApiWalletGetAssetAssetDividendV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetAPIWalletGetAssetAssetDividendV1Request) Asset(asset string) AssetAPIWalletGetAssetAssetDividendV1Request {
+func (r ApiWalletGetAssetAssetDividendV1Request) Asset(asset string) ApiWalletGetAssetAssetDividendV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r AssetAPIWalletGetAssetAssetDividendV1Request) StartTime(startTime int64) AssetAPIWalletGetAssetAssetDividendV1Request {
+func (r ApiWalletGetAssetAssetDividendV1Request) StartTime(startTime int64) ApiWalletGetAssetAssetDividendV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r AssetAPIWalletGetAssetAssetDividendV1Request) EndTime(endTime int64) AssetAPIWalletGetAssetAssetDividendV1Request {
+func (r ApiWalletGetAssetAssetDividendV1Request) EndTime(endTime int64) ApiWalletGetAssetAssetDividendV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 20, max 500
-func (r AssetAPIWalletGetAssetAssetDividendV1Request) Limit(limit int32) AssetAPIWalletGetAssetAssetDividendV1Request {
+func (r ApiWalletGetAssetAssetDividendV1Request) Limit(limit int32) ApiWalletGetAssetAssetDividendV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r AssetAPIWalletGetAssetAssetDividendV1Request) RecvWindow(recvWindow int64) AssetAPIWalletGetAssetAssetDividendV1Request {
+func (r ApiWalletGetAssetAssetDividendV1Request) RecvWindow(recvWindow int64) ApiWalletGetAssetAssetDividendV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetAPIWalletGetAssetAssetDividendV1Request) Execute() (*WalletGetAssetAssetDividendV1Resp, *http.Response, error) {
+func (r ApiWalletGetAssetAssetDividendV1Request) Execute() (*WalletGetAssetAssetDividendV1Resp, *http.Response, error) {
 	return r.ApiService.WalletGetAssetAssetDividendV1Execute(r)
 }
 
@@ -1219,10 +1219,10 @@ WalletGetAssetAssetDividendV1 Asset Dividend Record (USER_DATA)
 Query asset dividend record.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetAPIWalletGetAssetAssetDividendV1Request
+ @return ApiWalletGetAssetAssetDividendV1Request
 */
-func (a *AssetAPIService) WalletGetAssetAssetDividendV1(ctx context.Context) AssetAPIWalletGetAssetAssetDividendV1Request {
-	return AssetAPIWalletGetAssetAssetDividendV1Request{
+func (a *AssetAPIService) WalletGetAssetAssetDividendV1(ctx context.Context) ApiWalletGetAssetAssetDividendV1Request {
+	return ApiWalletGetAssetAssetDividendV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1230,7 +1230,7 @@ func (a *AssetAPIService) WalletGetAssetAssetDividendV1(ctx context.Context) Ass
 
 // Execute executes the request
 //  @return WalletGetAssetAssetDividendV1Resp
-func (a *AssetAPIService) WalletGetAssetAssetDividendV1Execute(r AssetAPIWalletGetAssetAssetDividendV1Request) (*WalletGetAssetAssetDividendV1Resp, *http.Response, error) {
+func (a *AssetAPIService) WalletGetAssetAssetDividendV1Execute(r ApiWalletGetAssetAssetDividendV1Request) (*WalletGetAssetAssetDividendV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1355,7 +1355,7 @@ func (a *AssetAPIService) WalletGetAssetAssetDividendV1Execute(r AssetAPIWalletG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetAPIWalletGetAssetCustodyTransferHistoryV1Request struct {
+type ApiWalletGetAssetCustodyTransferHistoryV1Request struct {
 	ctx context.Context
 	ApiService *AssetAPIService
 	email *string
@@ -1369,55 +1369,55 @@ type AssetAPIWalletGetAssetCustodyTransferHistoryV1Request struct {
 	recvWindow *int64
 }
 
-func (r AssetAPIWalletGetAssetCustodyTransferHistoryV1Request) Email(email string) AssetAPIWalletGetAssetCustodyTransferHistoryV1Request {
+func (r ApiWalletGetAssetCustodyTransferHistoryV1Request) Email(email string) ApiWalletGetAssetCustodyTransferHistoryV1Request {
 	r.email = &email
 	return r
 }
 
-func (r AssetAPIWalletGetAssetCustodyTransferHistoryV1Request) StartTime(startTime int64) AssetAPIWalletGetAssetCustodyTransferHistoryV1Request {
+func (r ApiWalletGetAssetCustodyTransferHistoryV1Request) StartTime(startTime int64) ApiWalletGetAssetCustodyTransferHistoryV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r AssetAPIWalletGetAssetCustodyTransferHistoryV1Request) EndTime(endTime int64) AssetAPIWalletGetAssetCustodyTransferHistoryV1Request {
+func (r ApiWalletGetAssetCustodyTransferHistoryV1Request) EndTime(endTime int64) ApiWalletGetAssetCustodyTransferHistoryV1Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r AssetAPIWalletGetAssetCustodyTransferHistoryV1Request) Timestamp(timestamp int64) AssetAPIWalletGetAssetCustodyTransferHistoryV1Request {
+func (r ApiWalletGetAssetCustodyTransferHistoryV1Request) Timestamp(timestamp int64) ApiWalletGetAssetCustodyTransferHistoryV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Delegate/Undelegate
-func (r AssetAPIWalletGetAssetCustodyTransferHistoryV1Request) Type_(type_ string) AssetAPIWalletGetAssetCustodyTransferHistoryV1Request {
+func (r ApiWalletGetAssetCustodyTransferHistoryV1Request) Type_(type_ string) ApiWalletGetAssetCustodyTransferHistoryV1Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r AssetAPIWalletGetAssetCustodyTransferHistoryV1Request) Asset(asset string) AssetAPIWalletGetAssetCustodyTransferHistoryV1Request {
+func (r ApiWalletGetAssetCustodyTransferHistoryV1Request) Asset(asset string) ApiWalletGetAssetCustodyTransferHistoryV1Request {
 	r.asset = &asset
 	return r
 }
 
 // default 1
-func (r AssetAPIWalletGetAssetCustodyTransferHistoryV1Request) Current(current int32) AssetAPIWalletGetAssetCustodyTransferHistoryV1Request {
+func (r ApiWalletGetAssetCustodyTransferHistoryV1Request) Current(current int32) ApiWalletGetAssetCustodyTransferHistoryV1Request {
 	r.current = &current
 	return r
 }
 
 // default 10, max 100
-func (r AssetAPIWalletGetAssetCustodyTransferHistoryV1Request) Size(size int32) AssetAPIWalletGetAssetCustodyTransferHistoryV1Request {
+func (r ApiWalletGetAssetCustodyTransferHistoryV1Request) Size(size int32) ApiWalletGetAssetCustodyTransferHistoryV1Request {
 	r.size = &size
 	return r
 }
 
-func (r AssetAPIWalletGetAssetCustodyTransferHistoryV1Request) RecvWindow(recvWindow int64) AssetAPIWalletGetAssetCustodyTransferHistoryV1Request {
+func (r ApiWalletGetAssetCustodyTransferHistoryV1Request) RecvWindow(recvWindow int64) ApiWalletGetAssetCustodyTransferHistoryV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetAPIWalletGetAssetCustodyTransferHistoryV1Request) Execute() (*WalletGetAssetCustodyTransferHistoryV1Resp, *http.Response, error) {
+func (r ApiWalletGetAssetCustodyTransferHistoryV1Request) Execute() (*WalletGetAssetCustodyTransferHistoryV1Resp, *http.Response, error) {
 	return r.ApiService.WalletGetAssetCustodyTransferHistoryV1Execute(r)
 }
 
@@ -1427,10 +1427,10 @@ WalletGetAssetCustodyTransferHistoryV1 Query User Delegation History(For Master 
 Query User Delegation History
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetAPIWalletGetAssetCustodyTransferHistoryV1Request
+ @return ApiWalletGetAssetCustodyTransferHistoryV1Request
 */
-func (a *AssetAPIService) WalletGetAssetCustodyTransferHistoryV1(ctx context.Context) AssetAPIWalletGetAssetCustodyTransferHistoryV1Request {
-	return AssetAPIWalletGetAssetCustodyTransferHistoryV1Request{
+func (a *AssetAPIService) WalletGetAssetCustodyTransferHistoryV1(ctx context.Context) ApiWalletGetAssetCustodyTransferHistoryV1Request {
+	return ApiWalletGetAssetCustodyTransferHistoryV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1438,7 +1438,7 @@ func (a *AssetAPIService) WalletGetAssetCustodyTransferHistoryV1(ctx context.Con
 
 // Execute executes the request
 //  @return WalletGetAssetCustodyTransferHistoryV1Resp
-func (a *AssetAPIService) WalletGetAssetCustodyTransferHistoryV1Execute(r AssetAPIWalletGetAssetCustodyTransferHistoryV1Request) (*WalletGetAssetCustodyTransferHistoryV1Resp, *http.Response, error) {
+func (a *AssetAPIService) WalletGetAssetCustodyTransferHistoryV1Execute(r ApiWalletGetAssetCustodyTransferHistoryV1Request) (*WalletGetAssetCustodyTransferHistoryV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1581,7 +1581,7 @@ func (a *AssetAPIService) WalletGetAssetCustodyTransferHistoryV1Execute(r AssetA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetAPIWalletGetAssetDribbletV1Request struct {
+type ApiWalletGetAssetDribbletV1Request struct {
 	ctx context.Context
 	ApiService *AssetAPIService
 	timestamp *int64
@@ -1590,27 +1590,27 @@ type AssetAPIWalletGetAssetDribbletV1Request struct {
 	recvWindow *int64
 }
 
-func (r AssetAPIWalletGetAssetDribbletV1Request) Timestamp(timestamp int64) AssetAPIWalletGetAssetDribbletV1Request {
+func (r ApiWalletGetAssetDribbletV1Request) Timestamp(timestamp int64) ApiWalletGetAssetDribbletV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetAPIWalletGetAssetDribbletV1Request) StartTime(startTime int64) AssetAPIWalletGetAssetDribbletV1Request {
+func (r ApiWalletGetAssetDribbletV1Request) StartTime(startTime int64) ApiWalletGetAssetDribbletV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r AssetAPIWalletGetAssetDribbletV1Request) EndTime(endTime int64) AssetAPIWalletGetAssetDribbletV1Request {
+func (r ApiWalletGetAssetDribbletV1Request) EndTime(endTime int64) ApiWalletGetAssetDribbletV1Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r AssetAPIWalletGetAssetDribbletV1Request) RecvWindow(recvWindow int64) AssetAPIWalletGetAssetDribbletV1Request {
+func (r ApiWalletGetAssetDribbletV1Request) RecvWindow(recvWindow int64) ApiWalletGetAssetDribbletV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetAPIWalletGetAssetDribbletV1Request) Execute() (*WalletGetAssetDribbletV1Resp, *http.Response, error) {
+func (r ApiWalletGetAssetDribbletV1Request) Execute() (*WalletGetAssetDribbletV1Resp, *http.Response, error) {
 	return r.ApiService.WalletGetAssetDribbletV1Execute(r)
 }
 
@@ -1620,10 +1620,10 @@ WalletGetAssetDribbletV1 DustLog(USER_DATA)
 Dustlog
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetAPIWalletGetAssetDribbletV1Request
+ @return ApiWalletGetAssetDribbletV1Request
 */
-func (a *AssetAPIService) WalletGetAssetDribbletV1(ctx context.Context) AssetAPIWalletGetAssetDribbletV1Request {
-	return AssetAPIWalletGetAssetDribbletV1Request{
+func (a *AssetAPIService) WalletGetAssetDribbletV1(ctx context.Context) ApiWalletGetAssetDribbletV1Request {
+	return ApiWalletGetAssetDribbletV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1631,7 +1631,7 @@ func (a *AssetAPIService) WalletGetAssetDribbletV1(ctx context.Context) AssetAPI
 
 // Execute executes the request
 //  @return WalletGetAssetDribbletV1Resp
-func (a *AssetAPIService) WalletGetAssetDribbletV1Execute(r AssetAPIWalletGetAssetDribbletV1Request) (*WalletGetAssetDribbletV1Resp, *http.Response, error) {
+func (a *AssetAPIService) WalletGetAssetDribbletV1Execute(r ApiWalletGetAssetDribbletV1Request) (*WalletGetAssetDribbletV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1744,7 +1744,7 @@ func (a *AssetAPIService) WalletGetAssetDribbletV1Execute(r AssetAPIWalletGetAss
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetAPIWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request struct {
+type ApiWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request struct {
 	ctx context.Context
 	ApiService *AssetAPIService
 	startTime *int64
@@ -1757,48 +1757,48 @@ type AssetAPIWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request struct 
 }
 
 // inclusive, unit: ms
-func (r AssetAPIWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request) StartTime(startTime int64) AssetAPIWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request {
+func (r ApiWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request) StartTime(startTime int64) ApiWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // exclusive, unit: ms
-func (r AssetAPIWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request) EndTime(endTime int64) AssetAPIWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request {
+func (r ApiWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request) EndTime(endTime int64) ApiWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // The transaction id
-func (r AssetAPIWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request) TranId(tranId int64) AssetAPIWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request {
+func (r ApiWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request) TranId(tranId int64) ApiWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request {
 	r.tranId = &tranId
 	return r
 }
 
 // The unique flag
-func (r AssetAPIWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request) ClientTranId(clientTranId string) AssetAPIWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request {
+func (r ApiWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request) ClientTranId(clientTranId string) ApiWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request {
 	r.clientTranId = &clientTranId
 	return r
 }
 
 // If it is blank, we will query all assets
-func (r AssetAPIWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request) Asset(asset string) AssetAPIWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request {
+func (r ApiWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request) Asset(asset string) ApiWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request {
 	r.asset = &asset
 	return r
 }
 
 // current page, default 1, the min value is 1
-func (r AssetAPIWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request) Current(current int32) AssetAPIWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request {
+func (r ApiWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request) Current(current int32) ApiWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request {
 	r.current = &current
 	return r
 }
 
 // page size, default 10, the max value is 100
-func (r AssetAPIWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request) Size(size int32) AssetAPIWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request {
+func (r ApiWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request) Size(size int32) ApiWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request {
 	r.size = &size
 	return r
 }
 
-func (r AssetAPIWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request) Execute() (*WalletGetAssetLedgerTransferCloudMiningQueryByPageV1Resp, *http.Response, error) {
+func (r ApiWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request) Execute() (*WalletGetAssetLedgerTransferCloudMiningQueryByPageV1Resp, *http.Response, error) {
 	return r.ApiService.WalletGetAssetLedgerTransferCloudMiningQueryByPageV1Execute(r)
 }
 
@@ -1808,10 +1808,10 @@ WalletGetAssetLedgerTransferCloudMiningQueryByPageV1 Get Cloud-Mining payment an
 The query of Cloud-Mining payment and refund history
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetAPIWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request
+ @return ApiWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request
 */
-func (a *AssetAPIService) WalletGetAssetLedgerTransferCloudMiningQueryByPageV1(ctx context.Context) AssetAPIWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request {
-	return AssetAPIWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request{
+func (a *AssetAPIService) WalletGetAssetLedgerTransferCloudMiningQueryByPageV1(ctx context.Context) ApiWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request {
+	return ApiWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1819,7 +1819,7 @@ func (a *AssetAPIService) WalletGetAssetLedgerTransferCloudMiningQueryByPageV1(c
 
 // Execute executes the request
 //  @return WalletGetAssetLedgerTransferCloudMiningQueryByPageV1Resp
-func (a *AssetAPIService) WalletGetAssetLedgerTransferCloudMiningQueryByPageV1Execute(r AssetAPIWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request) (*WalletGetAssetLedgerTransferCloudMiningQueryByPageV1Resp, *http.Response, error) {
+func (a *AssetAPIService) WalletGetAssetLedgerTransferCloudMiningQueryByPageV1Execute(r ApiWalletGetAssetLedgerTransferCloudMiningQueryByPageV1Request) (*WalletGetAssetLedgerTransferCloudMiningQueryByPageV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1954,7 +1954,7 @@ func (a *AssetAPIService) WalletGetAssetLedgerTransferCloudMiningQueryByPageV1Ex
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetAPIWalletGetAssetTradeFeeV1Request struct {
+type ApiWalletGetAssetTradeFeeV1Request struct {
 	ctx context.Context
 	ApiService *AssetAPIService
 	timestamp *int64
@@ -1962,22 +1962,22 @@ type AssetAPIWalletGetAssetTradeFeeV1Request struct {
 	recvWindow *int64
 }
 
-func (r AssetAPIWalletGetAssetTradeFeeV1Request) Timestamp(timestamp int64) AssetAPIWalletGetAssetTradeFeeV1Request {
+func (r ApiWalletGetAssetTradeFeeV1Request) Timestamp(timestamp int64) ApiWalletGetAssetTradeFeeV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetAPIWalletGetAssetTradeFeeV1Request) Symbol(symbol string) AssetAPIWalletGetAssetTradeFeeV1Request {
+func (r ApiWalletGetAssetTradeFeeV1Request) Symbol(symbol string) ApiWalletGetAssetTradeFeeV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r AssetAPIWalletGetAssetTradeFeeV1Request) RecvWindow(recvWindow int64) AssetAPIWalletGetAssetTradeFeeV1Request {
+func (r ApiWalletGetAssetTradeFeeV1Request) RecvWindow(recvWindow int64) ApiWalletGetAssetTradeFeeV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetAPIWalletGetAssetTradeFeeV1Request) Execute() ([]WalletGetAssetTradeFeeV1RespItem, *http.Response, error) {
+func (r ApiWalletGetAssetTradeFeeV1Request) Execute() ([]WalletGetAssetTradeFeeV1RespItem, *http.Response, error) {
 	return r.ApiService.WalletGetAssetTradeFeeV1Execute(r)
 }
 
@@ -1987,10 +1987,10 @@ WalletGetAssetTradeFeeV1 Trade Fee (USER_DATA)
 Fetch trade fee
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetAPIWalletGetAssetTradeFeeV1Request
+ @return ApiWalletGetAssetTradeFeeV1Request
 */
-func (a *AssetAPIService) WalletGetAssetTradeFeeV1(ctx context.Context) AssetAPIWalletGetAssetTradeFeeV1Request {
-	return AssetAPIWalletGetAssetTradeFeeV1Request{
+func (a *AssetAPIService) WalletGetAssetTradeFeeV1(ctx context.Context) ApiWalletGetAssetTradeFeeV1Request {
+	return ApiWalletGetAssetTradeFeeV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1998,7 +1998,7 @@ func (a *AssetAPIService) WalletGetAssetTradeFeeV1(ctx context.Context) AssetAPI
 
 // Execute executes the request
 //  @return []WalletGetAssetTradeFeeV1RespItem
-func (a *AssetAPIService) WalletGetAssetTradeFeeV1Execute(r AssetAPIWalletGetAssetTradeFeeV1Request) ([]WalletGetAssetTradeFeeV1RespItem, *http.Response, error) {
+func (a *AssetAPIService) WalletGetAssetTradeFeeV1Execute(r ApiWalletGetAssetTradeFeeV1Request) ([]WalletGetAssetTradeFeeV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2111,7 +2111,7 @@ func (a *AssetAPIService) WalletGetAssetTradeFeeV1Execute(r AssetAPIWalletGetAss
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetAPIWalletGetAssetTransferV1Request struct {
+type ApiWalletGetAssetTransferV1Request struct {
 	ctx context.Context
 	ApiService *AssetAPIService
 	type_ *string
@@ -2125,54 +2125,54 @@ type AssetAPIWalletGetAssetTransferV1Request struct {
 	recvWindow *int64
 }
 
-func (r AssetAPIWalletGetAssetTransferV1Request) Type_(type_ string) AssetAPIWalletGetAssetTransferV1Request {
+func (r ApiWalletGetAssetTransferV1Request) Type_(type_ string) ApiWalletGetAssetTransferV1Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r AssetAPIWalletGetAssetTransferV1Request) Timestamp(timestamp int64) AssetAPIWalletGetAssetTransferV1Request {
+func (r ApiWalletGetAssetTransferV1Request) Timestamp(timestamp int64) ApiWalletGetAssetTransferV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetAPIWalletGetAssetTransferV1Request) StartTime(startTime int64) AssetAPIWalletGetAssetTransferV1Request {
+func (r ApiWalletGetAssetTransferV1Request) StartTime(startTime int64) ApiWalletGetAssetTransferV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r AssetAPIWalletGetAssetTransferV1Request) EndTime(endTime int64) AssetAPIWalletGetAssetTransferV1Request {
+func (r ApiWalletGetAssetTransferV1Request) EndTime(endTime int64) ApiWalletGetAssetTransferV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 1
-func (r AssetAPIWalletGetAssetTransferV1Request) Current(current int32) AssetAPIWalletGetAssetTransferV1Request {
+func (r ApiWalletGetAssetTransferV1Request) Current(current int32) ApiWalletGetAssetTransferV1Request {
 	r.current = &current
 	return r
 }
 
 // Default 10, Max 100
-func (r AssetAPIWalletGetAssetTransferV1Request) Size(size int32) AssetAPIWalletGetAssetTransferV1Request {
+func (r ApiWalletGetAssetTransferV1Request) Size(size int32) ApiWalletGetAssetTransferV1Request {
 	r.size = &size
 	return r
 }
 
-func (r AssetAPIWalletGetAssetTransferV1Request) FromSymbol(fromSymbol string) AssetAPIWalletGetAssetTransferV1Request {
+func (r ApiWalletGetAssetTransferV1Request) FromSymbol(fromSymbol string) ApiWalletGetAssetTransferV1Request {
 	r.fromSymbol = &fromSymbol
 	return r
 }
 
-func (r AssetAPIWalletGetAssetTransferV1Request) ToSymbol(toSymbol string) AssetAPIWalletGetAssetTransferV1Request {
+func (r ApiWalletGetAssetTransferV1Request) ToSymbol(toSymbol string) ApiWalletGetAssetTransferV1Request {
 	r.toSymbol = &toSymbol
 	return r
 }
 
-func (r AssetAPIWalletGetAssetTransferV1Request) RecvWindow(recvWindow int64) AssetAPIWalletGetAssetTransferV1Request {
+func (r ApiWalletGetAssetTransferV1Request) RecvWindow(recvWindow int64) ApiWalletGetAssetTransferV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetAPIWalletGetAssetTransferV1Request) Execute() (*WalletGetAssetTransferV1Resp, *http.Response, error) {
+func (r ApiWalletGetAssetTransferV1Request) Execute() (*WalletGetAssetTransferV1Resp, *http.Response, error) {
 	return r.ApiService.WalletGetAssetTransferV1Execute(r)
 }
 
@@ -2182,10 +2182,10 @@ WalletGetAssetTransferV1 Query User Universal Transfer History(USER_DATA)
 Query User Universal Transfer History
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetAPIWalletGetAssetTransferV1Request
+ @return ApiWalletGetAssetTransferV1Request
 */
-func (a *AssetAPIService) WalletGetAssetTransferV1(ctx context.Context) AssetAPIWalletGetAssetTransferV1Request {
-	return AssetAPIWalletGetAssetTransferV1Request{
+func (a *AssetAPIService) WalletGetAssetTransferV1(ctx context.Context) ApiWalletGetAssetTransferV1Request {
+	return ApiWalletGetAssetTransferV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2193,7 +2193,7 @@ func (a *AssetAPIService) WalletGetAssetTransferV1(ctx context.Context) AssetAPI
 
 // Execute executes the request
 //  @return WalletGetAssetTransferV1Resp
-func (a *AssetAPIService) WalletGetAssetTransferV1Execute(r AssetAPIWalletGetAssetTransferV1Request) (*WalletGetAssetTransferV1Resp, *http.Response, error) {
+func (a *AssetAPIService) WalletGetAssetTransferV1Execute(r ApiWalletGetAssetTransferV1Request) (*WalletGetAssetTransferV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2334,7 +2334,7 @@ func (a *AssetAPIService) WalletGetAssetTransferV1Execute(r AssetAPIWalletGetAss
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetAPIWalletGetAssetWalletBalanceV1Request struct {
+type ApiWalletGetAssetWalletBalanceV1Request struct {
 	ctx context.Context
 	ApiService *AssetAPIService
 	timestamp *int64
@@ -2342,23 +2342,23 @@ type AssetAPIWalletGetAssetWalletBalanceV1Request struct {
 	recvWindow *int64
 }
 
-func (r AssetAPIWalletGetAssetWalletBalanceV1Request) Timestamp(timestamp int64) AssetAPIWalletGetAssetWalletBalanceV1Request {
+func (r ApiWalletGetAssetWalletBalanceV1Request) Timestamp(timestamp int64) ApiWalletGetAssetWalletBalanceV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // &#x60;USDT&#x60;, &#x60;ETH&#x60;, &#x60;USDC&#x60;, &#x60;BNB&#x60;, etc. default &#x60;BTC&#x60;
-func (r AssetAPIWalletGetAssetWalletBalanceV1Request) QuoteAsset(quoteAsset string) AssetAPIWalletGetAssetWalletBalanceV1Request {
+func (r ApiWalletGetAssetWalletBalanceV1Request) QuoteAsset(quoteAsset string) ApiWalletGetAssetWalletBalanceV1Request {
 	r.quoteAsset = &quoteAsset
 	return r
 }
 
-func (r AssetAPIWalletGetAssetWalletBalanceV1Request) RecvWindow(recvWindow int64) AssetAPIWalletGetAssetWalletBalanceV1Request {
+func (r ApiWalletGetAssetWalletBalanceV1Request) RecvWindow(recvWindow int64) ApiWalletGetAssetWalletBalanceV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetAPIWalletGetAssetWalletBalanceV1Request) Execute() ([]WalletGetAssetWalletBalanceV1RespItem, *http.Response, error) {
+func (r ApiWalletGetAssetWalletBalanceV1Request) Execute() ([]WalletGetAssetWalletBalanceV1RespItem, *http.Response, error) {
 	return r.ApiService.WalletGetAssetWalletBalanceV1Execute(r)
 }
 
@@ -2368,10 +2368,10 @@ WalletGetAssetWalletBalanceV1 Query User Wallet Balance (USER_DATA)
 Query User Wallet Balance
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetAPIWalletGetAssetWalletBalanceV1Request
+ @return ApiWalletGetAssetWalletBalanceV1Request
 */
-func (a *AssetAPIService) WalletGetAssetWalletBalanceV1(ctx context.Context) AssetAPIWalletGetAssetWalletBalanceV1Request {
-	return AssetAPIWalletGetAssetWalletBalanceV1Request{
+func (a *AssetAPIService) WalletGetAssetWalletBalanceV1(ctx context.Context) ApiWalletGetAssetWalletBalanceV1Request {
+	return ApiWalletGetAssetWalletBalanceV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2379,7 +2379,7 @@ func (a *AssetAPIService) WalletGetAssetWalletBalanceV1(ctx context.Context) Ass
 
 // Execute executes the request
 //  @return []WalletGetAssetWalletBalanceV1RespItem
-func (a *AssetAPIService) WalletGetAssetWalletBalanceV1Execute(r AssetAPIWalletGetAssetWalletBalanceV1Request) ([]WalletGetAssetWalletBalanceV1RespItem, *http.Response, error) {
+func (a *AssetAPIService) WalletGetAssetWalletBalanceV1Execute(r ApiWalletGetAssetWalletBalanceV1Request) ([]WalletGetAssetWalletBalanceV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2492,24 +2492,24 @@ func (a *AssetAPIService) WalletGetAssetWalletBalanceV1Execute(r AssetAPIWalletG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetAPIWalletGetSpotDelistScheduleV1Request struct {
+type ApiWalletGetSpotDelistScheduleV1Request struct {
 	ctx context.Context
 	ApiService *AssetAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AssetAPIWalletGetSpotDelistScheduleV1Request) Timestamp(timestamp int64) AssetAPIWalletGetSpotDelistScheduleV1Request {
+func (r ApiWalletGetSpotDelistScheduleV1Request) Timestamp(timestamp int64) ApiWalletGetSpotDelistScheduleV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetAPIWalletGetSpotDelistScheduleV1Request) RecvWindow(recvWindow int64) AssetAPIWalletGetSpotDelistScheduleV1Request {
+func (r ApiWalletGetSpotDelistScheduleV1Request) RecvWindow(recvWindow int64) ApiWalletGetSpotDelistScheduleV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetAPIWalletGetSpotDelistScheduleV1Request) Execute() ([]WalletGetSpotDelistScheduleV1RespItem, *http.Response, error) {
+func (r ApiWalletGetSpotDelistScheduleV1Request) Execute() ([]WalletGetSpotDelistScheduleV1RespItem, *http.Response, error) {
 	return r.ApiService.WalletGetSpotDelistScheduleV1Execute(r)
 }
 
@@ -2519,10 +2519,10 @@ WalletGetSpotDelistScheduleV1 Get Spot Delist Schedule (MARKET_DATA)
 Get symbols delist schedule for spot
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetAPIWalletGetSpotDelistScheduleV1Request
+ @return ApiWalletGetSpotDelistScheduleV1Request
 */
-func (a *AssetAPIService) WalletGetSpotDelistScheduleV1(ctx context.Context) AssetAPIWalletGetSpotDelistScheduleV1Request {
-	return AssetAPIWalletGetSpotDelistScheduleV1Request{
+func (a *AssetAPIService) WalletGetSpotDelistScheduleV1(ctx context.Context) ApiWalletGetSpotDelistScheduleV1Request {
+	return ApiWalletGetSpotDelistScheduleV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2530,7 +2530,7 @@ func (a *AssetAPIService) WalletGetSpotDelistScheduleV1(ctx context.Context) Ass
 
 // Execute executes the request
 //  @return []WalletGetSpotDelistScheduleV1RespItem
-func (a *AssetAPIService) WalletGetSpotDelistScheduleV1Execute(r AssetAPIWalletGetSpotDelistScheduleV1Request) ([]WalletGetSpotDelistScheduleV1RespItem, *http.Response, error) {
+func (a *AssetAPIService) WalletGetSpotDelistScheduleV1Execute(r ApiWalletGetSpotDelistScheduleV1Request) ([]WalletGetSpotDelistScheduleV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2631,12 +2631,12 @@ func (a *AssetAPIService) WalletGetSpotDelistScheduleV1Execute(r AssetAPIWalletG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetAPIWalletGetSpotOpenSymbolListV1Request struct {
+type ApiWalletGetSpotOpenSymbolListV1Request struct {
 	ctx context.Context
 	ApiService *AssetAPIService
 }
 
-func (r AssetAPIWalletGetSpotOpenSymbolListV1Request) Execute() ([]WalletGetSpotOpenSymbolListV1RespItem, *http.Response, error) {
+func (r ApiWalletGetSpotOpenSymbolListV1Request) Execute() ([]WalletGetSpotOpenSymbolListV1RespItem, *http.Response, error) {
 	return r.ApiService.WalletGetSpotOpenSymbolListV1Execute(r)
 }
 
@@ -2646,10 +2646,10 @@ WalletGetSpotOpenSymbolListV1 Get Open Symbol List (MARKET_DATA)
 Get the list of symbols that are scheduled to be opened for trading in the market.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetAPIWalletGetSpotOpenSymbolListV1Request
+ @return ApiWalletGetSpotOpenSymbolListV1Request
 */
-func (a *AssetAPIService) WalletGetSpotOpenSymbolListV1(ctx context.Context) AssetAPIWalletGetSpotOpenSymbolListV1Request {
-	return AssetAPIWalletGetSpotOpenSymbolListV1Request{
+func (a *AssetAPIService) WalletGetSpotOpenSymbolListV1(ctx context.Context) ApiWalletGetSpotOpenSymbolListV1Request {
+	return ApiWalletGetSpotOpenSymbolListV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2657,7 +2657,7 @@ func (a *AssetAPIService) WalletGetSpotOpenSymbolListV1(ctx context.Context) Ass
 
 // Execute executes the request
 //  @return []WalletGetSpotOpenSymbolListV1RespItem
-func (a *AssetAPIService) WalletGetSpotOpenSymbolListV1Execute(r AssetAPIWalletGetSpotOpenSymbolListV1Request) ([]WalletGetSpotOpenSymbolListV1RespItem, *http.Response, error) {
+func (a *AssetAPIService) WalletGetSpotOpenSymbolListV1Execute(r ApiWalletGetSpotOpenSymbolListV1Request) ([]WalletGetSpotOpenSymbolListV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

@@ -1,5 +1,5 @@
 /*
-Binance Margin API
+Binance Margin Trading API
 
 Testing TradeAPIService
 

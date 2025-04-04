@@ -1,7 +1,7 @@
 /*
-Binance Futuresdata API
+Binance Futures Data API
 
-OpenAPI specification for Binance cryptocurrency exchange - Futuresdata API
+OpenAPI specification for Binance exchange - Futuresdata API
 
 API version: 0.1.0
 */
@@ -22,7 +22,7 @@ import (
 // MarketDataAPIService MarketDataAPI service
 type MarketDataAPIService service
 
-type MarketDataAPIFuturesdataGetFuturesHistDataLinkV1Request struct {
+type ApiFuturesdataGetFuturesHistDataLinkV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
@@ -34,38 +34,38 @@ type MarketDataAPIFuturesdataGetFuturesHistDataLinkV1Request struct {
 }
 
 // symbol name, e.g. BTCUSDT or BTCUSD_PERP ｜
-func (r MarketDataAPIFuturesdataGetFuturesHistDataLinkV1Request) Symbol(symbol string) MarketDataAPIFuturesdataGetFuturesHistDataLinkV1Request {
+func (r ApiFuturesdataGetFuturesHistDataLinkV1Request) Symbol(symbol string) ApiFuturesdataGetFuturesHistDataLinkV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // &#x60;T_DEPTH&#x60; for ticklevel orderbook data, &#x60;S_DEPTH&#x60; for orderbook snapshot data
-func (r MarketDataAPIFuturesdataGetFuturesHistDataLinkV1Request) DataType(dataType string) MarketDataAPIFuturesdataGetFuturesHistDataLinkV1Request {
+func (r ApiFuturesdataGetFuturesHistDataLinkV1Request) DataType(dataType string) ApiFuturesdataGetFuturesHistDataLinkV1Request {
 	r.dataType = &dataType
 	return r
 }
 
-func (r MarketDataAPIFuturesdataGetFuturesHistDataLinkV1Request) StartTime(startTime int64) MarketDataAPIFuturesdataGetFuturesHistDataLinkV1Request {
+func (r ApiFuturesdataGetFuturesHistDataLinkV1Request) StartTime(startTime int64) ApiFuturesdataGetFuturesHistDataLinkV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r MarketDataAPIFuturesdataGetFuturesHistDataLinkV1Request) EndTime(endTime int64) MarketDataAPIFuturesdataGetFuturesHistDataLinkV1Request {
+func (r ApiFuturesdataGetFuturesHistDataLinkV1Request) EndTime(endTime int64) ApiFuturesdataGetFuturesHistDataLinkV1Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r MarketDataAPIFuturesdataGetFuturesHistDataLinkV1Request) Timestamp(timestamp int64) MarketDataAPIFuturesdataGetFuturesHistDataLinkV1Request {
+func (r ApiFuturesdataGetFuturesHistDataLinkV1Request) Timestamp(timestamp int64) ApiFuturesdataGetFuturesHistDataLinkV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r MarketDataAPIFuturesdataGetFuturesHistDataLinkV1Request) RecvWindow(recvWindow int64) MarketDataAPIFuturesdataGetFuturesHistDataLinkV1Request {
+func (r ApiFuturesdataGetFuturesHistDataLinkV1Request) RecvWindow(recvWindow int64) ApiFuturesdataGetFuturesHistDataLinkV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r MarketDataAPIFuturesdataGetFuturesHistDataLinkV1Request) Execute() (*FuturesdataGetFuturesHistDataLinkV1Resp, *http.Response, error) {
+func (r ApiFuturesdataGetFuturesHistDataLinkV1Request) Execute() (*FuturesdataGetFuturesHistDataLinkV1Resp, *http.Response, error) {
 	return r.ApiService.FuturesdataGetFuturesHistDataLinkV1Execute(r)
 }
 
@@ -75,10 +75,10 @@ FuturesdataGetFuturesHistDataLinkV1 Get Future TickLevel Orderbook Historical Da
 Get Future TickLevel Orderbook Historical Data Download Link
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIFuturesdataGetFuturesHistDataLinkV1Request
+ @return ApiFuturesdataGetFuturesHistDataLinkV1Request
 */
-func (a *MarketDataAPIService) FuturesdataGetFuturesHistDataLinkV1(ctx context.Context) MarketDataAPIFuturesdataGetFuturesHistDataLinkV1Request {
-	return MarketDataAPIFuturesdataGetFuturesHistDataLinkV1Request{
+func (a *MarketDataAPIService) FuturesdataGetFuturesHistDataLinkV1(ctx context.Context) ApiFuturesdataGetFuturesHistDataLinkV1Request {
+	return ApiFuturesdataGetFuturesHistDataLinkV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -86,7 +86,7 @@ func (a *MarketDataAPIService) FuturesdataGetFuturesHistDataLinkV1(ctx context.C
 
 // Execute executes the request
 //  @return FuturesdataGetFuturesHistDataLinkV1Resp
-func (a *MarketDataAPIService) FuturesdataGetFuturesHistDataLinkV1Execute(r MarketDataAPIFuturesdataGetFuturesHistDataLinkV1Request) (*FuturesdataGetFuturesHistDataLinkV1Resp, *http.Response, error) {
+func (a *MarketDataAPIService) FuturesdataGetFuturesHistDataLinkV1Execute(r ApiFuturesdataGetFuturesHistDataLinkV1Request) (*FuturesdataGetFuturesHistDataLinkV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

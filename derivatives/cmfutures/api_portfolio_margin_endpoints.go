@@ -1,7 +1,7 @@
 /*
-Binance Cmfutures API
+Binance COIN-M Futures API
 
-OpenAPI specification for Binance cryptocurrency exchange - Cmfutures API
+OpenAPI specification for Binance exchange - Cmfutures API
 
 API version: 0.1.0
 */
@@ -22,24 +22,24 @@ import (
 // PortfolioMarginEndpointsAPIService PortfolioMarginEndpointsAPI service
 type PortfolioMarginEndpointsAPIService service
 
-type PortfolioMarginEndpointsAPICmfuturesGetPmAccountInfoV1Request struct {
+type ApiCmfuturesGetPmAccountInfoV1Request struct {
 	ctx context.Context
 	ApiService *PortfolioMarginEndpointsAPIService
 	asset *string
 	recvWindow *int64
 }
 
-func (r PortfolioMarginEndpointsAPICmfuturesGetPmAccountInfoV1Request) Asset(asset string) PortfolioMarginEndpointsAPICmfuturesGetPmAccountInfoV1Request {
+func (r ApiCmfuturesGetPmAccountInfoV1Request) Asset(asset string) ApiCmfuturesGetPmAccountInfoV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r PortfolioMarginEndpointsAPICmfuturesGetPmAccountInfoV1Request) RecvWindow(recvWindow int64) PortfolioMarginEndpointsAPICmfuturesGetPmAccountInfoV1Request {
+func (r ApiCmfuturesGetPmAccountInfoV1Request) RecvWindow(recvWindow int64) ApiCmfuturesGetPmAccountInfoV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r PortfolioMarginEndpointsAPICmfuturesGetPmAccountInfoV1Request) Execute() (*CmfuturesGetPmAccountInfoV1Resp, *http.Response, error) {
+func (r ApiCmfuturesGetPmAccountInfoV1Request) Execute() (*CmfuturesGetPmAccountInfoV1Resp, *http.Response, error) {
 	return r.ApiService.CmfuturesGetPmAccountInfoV1Execute(r)
 }
 
@@ -49,10 +49,10 @@ CmfuturesGetPmAccountInfoV1 Classic Portfolio Margin Account Information (USER_D
 Get Classic Portfolio Margin current account information.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PortfolioMarginEndpointsAPICmfuturesGetPmAccountInfoV1Request
+ @return ApiCmfuturesGetPmAccountInfoV1Request
 */
-func (a *PortfolioMarginEndpointsAPIService) CmfuturesGetPmAccountInfoV1(ctx context.Context) PortfolioMarginEndpointsAPICmfuturesGetPmAccountInfoV1Request {
-	return PortfolioMarginEndpointsAPICmfuturesGetPmAccountInfoV1Request{
+func (a *PortfolioMarginEndpointsAPIService) CmfuturesGetPmAccountInfoV1(ctx context.Context) ApiCmfuturesGetPmAccountInfoV1Request {
+	return ApiCmfuturesGetPmAccountInfoV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -60,7 +60,7 @@ func (a *PortfolioMarginEndpointsAPIService) CmfuturesGetPmAccountInfoV1(ctx con
 
 // Execute executes the request
 //  @return CmfuturesGetPmAccountInfoV1Resp
-func (a *PortfolioMarginEndpointsAPIService) CmfuturesGetPmAccountInfoV1Execute(r PortfolioMarginEndpointsAPICmfuturesGetPmAccountInfoV1Request) (*CmfuturesGetPmAccountInfoV1Resp, *http.Response, error) {
+func (a *PortfolioMarginEndpointsAPIService) CmfuturesGetPmAccountInfoV1Execute(r ApiCmfuturesGetPmAccountInfoV1Request) (*CmfuturesGetPmAccountInfoV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

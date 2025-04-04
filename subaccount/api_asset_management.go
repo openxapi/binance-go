@@ -22,7 +22,7 @@ import (
 // AssetManagementAPIService AssetManagementAPI service
 type AssetManagementAPIService service
 
-type AssetManagementAPISubaccountCreateSubAccountFuturesInternalTransferV1Request struct {
+type ApiSubaccountCreateSubAccountFuturesInternalTransferV1Request struct {
 	ctx context.Context
 	ApiService *AssetManagementAPIService
 	amount *string
@@ -34,42 +34,42 @@ type AssetManagementAPISubaccountCreateSubAccountFuturesInternalTransferV1Reques
 	recvWindow *int64
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountFuturesInternalTransferV1Request) Amount(amount string) AssetManagementAPISubaccountCreateSubAccountFuturesInternalTransferV1Request {
+func (r ApiSubaccountCreateSubAccountFuturesInternalTransferV1Request) Amount(amount string) ApiSubaccountCreateSubAccountFuturesInternalTransferV1Request {
 	r.amount = &amount
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountFuturesInternalTransferV1Request) Asset(asset string) AssetManagementAPISubaccountCreateSubAccountFuturesInternalTransferV1Request {
+func (r ApiSubaccountCreateSubAccountFuturesInternalTransferV1Request) Asset(asset string) ApiSubaccountCreateSubAccountFuturesInternalTransferV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountFuturesInternalTransferV1Request) FromEmail(fromEmail string) AssetManagementAPISubaccountCreateSubAccountFuturesInternalTransferV1Request {
+func (r ApiSubaccountCreateSubAccountFuturesInternalTransferV1Request) FromEmail(fromEmail string) ApiSubaccountCreateSubAccountFuturesInternalTransferV1Request {
 	r.fromEmail = &fromEmail
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountFuturesInternalTransferV1Request) FuturesType(futuresType int64) AssetManagementAPISubaccountCreateSubAccountFuturesInternalTransferV1Request {
+func (r ApiSubaccountCreateSubAccountFuturesInternalTransferV1Request) FuturesType(futuresType int64) ApiSubaccountCreateSubAccountFuturesInternalTransferV1Request {
 	r.futuresType = &futuresType
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountFuturesInternalTransferV1Request) Timestamp(timestamp int64) AssetManagementAPISubaccountCreateSubAccountFuturesInternalTransferV1Request {
+func (r ApiSubaccountCreateSubAccountFuturesInternalTransferV1Request) Timestamp(timestamp int64) ApiSubaccountCreateSubAccountFuturesInternalTransferV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountFuturesInternalTransferV1Request) ToEmail(toEmail string) AssetManagementAPISubaccountCreateSubAccountFuturesInternalTransferV1Request {
+func (r ApiSubaccountCreateSubAccountFuturesInternalTransferV1Request) ToEmail(toEmail string) ApiSubaccountCreateSubAccountFuturesInternalTransferV1Request {
 	r.toEmail = &toEmail
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountFuturesInternalTransferV1Request) RecvWindow(recvWindow int64) AssetManagementAPISubaccountCreateSubAccountFuturesInternalTransferV1Request {
+func (r ApiSubaccountCreateSubAccountFuturesInternalTransferV1Request) RecvWindow(recvWindow int64) ApiSubaccountCreateSubAccountFuturesInternalTransferV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountFuturesInternalTransferV1Request) Execute() (*SubaccountCreateSubAccountFuturesInternalTransferV1Resp, *http.Response, error) {
+func (r ApiSubaccountCreateSubAccountFuturesInternalTransferV1Request) Execute() (*SubaccountCreateSubAccountFuturesInternalTransferV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountCreateSubAccountFuturesInternalTransferV1Execute(r)
 }
 
@@ -79,10 +79,10 @@ SubaccountCreateSubAccountFuturesInternalTransferV1 Sub-account Futures Asset Tr
 Sub-account Futures Asset Transfer
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetManagementAPISubaccountCreateSubAccountFuturesInternalTransferV1Request
+ @return ApiSubaccountCreateSubAccountFuturesInternalTransferV1Request
 */
-func (a *AssetManagementAPIService) SubaccountCreateSubAccountFuturesInternalTransferV1(ctx context.Context) AssetManagementAPISubaccountCreateSubAccountFuturesInternalTransferV1Request {
-	return AssetManagementAPISubaccountCreateSubAccountFuturesInternalTransferV1Request{
+func (a *AssetManagementAPIService) SubaccountCreateSubAccountFuturesInternalTransferV1(ctx context.Context) ApiSubaccountCreateSubAccountFuturesInternalTransferV1Request {
+	return ApiSubaccountCreateSubAccountFuturesInternalTransferV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -90,7 +90,7 @@ func (a *AssetManagementAPIService) SubaccountCreateSubAccountFuturesInternalTra
 
 // Execute executes the request
 //  @return SubaccountCreateSubAccountFuturesInternalTransferV1Resp
-func (a *AssetManagementAPIService) SubaccountCreateSubAccountFuturesInternalTransferV1Execute(r AssetManagementAPISubaccountCreateSubAccountFuturesInternalTransferV1Request) (*SubaccountCreateSubAccountFuturesInternalTransferV1Resp, *http.Response, error) {
+func (a *AssetManagementAPIService) SubaccountCreateSubAccountFuturesInternalTransferV1Execute(r ApiSubaccountCreateSubAccountFuturesInternalTransferV1Request) (*SubaccountCreateSubAccountFuturesInternalTransferV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -211,7 +211,7 @@ func (a *AssetManagementAPIService) SubaccountCreateSubAccountFuturesInternalTra
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetManagementAPISubaccountCreateSubAccountFuturesMovePositionV1Request struct {
+type ApiSubaccountCreateSubAccountFuturesMovePositionV1Request struct {
 	ctx context.Context
 	ApiService *AssetManagementAPIService
 	fromUserEmail *string
@@ -222,37 +222,37 @@ type AssetManagementAPISubaccountCreateSubAccountFuturesMovePositionV1Request st
 	recvWindow *int64
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountFuturesMovePositionV1Request) FromUserEmail(fromUserEmail string) AssetManagementAPISubaccountCreateSubAccountFuturesMovePositionV1Request {
+func (r ApiSubaccountCreateSubAccountFuturesMovePositionV1Request) FromUserEmail(fromUserEmail string) ApiSubaccountCreateSubAccountFuturesMovePositionV1Request {
 	r.fromUserEmail = &fromUserEmail
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountFuturesMovePositionV1Request) OrderArgs(orderArgs []map[string]interface{}) AssetManagementAPISubaccountCreateSubAccountFuturesMovePositionV1Request {
+func (r ApiSubaccountCreateSubAccountFuturesMovePositionV1Request) OrderArgs(orderArgs []map[string]interface{}) ApiSubaccountCreateSubAccountFuturesMovePositionV1Request {
 	r.orderArgs = &orderArgs
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountFuturesMovePositionV1Request) ProductType(productType string) AssetManagementAPISubaccountCreateSubAccountFuturesMovePositionV1Request {
+func (r ApiSubaccountCreateSubAccountFuturesMovePositionV1Request) ProductType(productType string) ApiSubaccountCreateSubAccountFuturesMovePositionV1Request {
 	r.productType = &productType
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountFuturesMovePositionV1Request) Timestamp(timestamp int64) AssetManagementAPISubaccountCreateSubAccountFuturesMovePositionV1Request {
+func (r ApiSubaccountCreateSubAccountFuturesMovePositionV1Request) Timestamp(timestamp int64) ApiSubaccountCreateSubAccountFuturesMovePositionV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountFuturesMovePositionV1Request) ToUserEmail(toUserEmail string) AssetManagementAPISubaccountCreateSubAccountFuturesMovePositionV1Request {
+func (r ApiSubaccountCreateSubAccountFuturesMovePositionV1Request) ToUserEmail(toUserEmail string) ApiSubaccountCreateSubAccountFuturesMovePositionV1Request {
 	r.toUserEmail = &toUserEmail
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountFuturesMovePositionV1Request) RecvWindow(recvWindow int64) AssetManagementAPISubaccountCreateSubAccountFuturesMovePositionV1Request {
+func (r ApiSubaccountCreateSubAccountFuturesMovePositionV1Request) RecvWindow(recvWindow int64) ApiSubaccountCreateSubAccountFuturesMovePositionV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountFuturesMovePositionV1Request) Execute() (*SubaccountCreateSubAccountFuturesMovePositionV1Resp, *http.Response, error) {
+func (r ApiSubaccountCreateSubAccountFuturesMovePositionV1Request) Execute() (*SubaccountCreateSubAccountFuturesMovePositionV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountCreateSubAccountFuturesMovePositionV1Execute(r)
 }
 
@@ -262,10 +262,10 @@ SubaccountCreateSubAccountFuturesMovePositionV1 Move Position for Sub-account (F
 Move position between sub-master, master-sub, or sub-sub accounts when necessary
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetManagementAPISubaccountCreateSubAccountFuturesMovePositionV1Request
+ @return ApiSubaccountCreateSubAccountFuturesMovePositionV1Request
 */
-func (a *AssetManagementAPIService) SubaccountCreateSubAccountFuturesMovePositionV1(ctx context.Context) AssetManagementAPISubaccountCreateSubAccountFuturesMovePositionV1Request {
-	return AssetManagementAPISubaccountCreateSubAccountFuturesMovePositionV1Request{
+func (a *AssetManagementAPIService) SubaccountCreateSubAccountFuturesMovePositionV1(ctx context.Context) ApiSubaccountCreateSubAccountFuturesMovePositionV1Request {
+	return ApiSubaccountCreateSubAccountFuturesMovePositionV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -273,7 +273,7 @@ func (a *AssetManagementAPIService) SubaccountCreateSubAccountFuturesMovePositio
 
 // Execute executes the request
 //  @return SubaccountCreateSubAccountFuturesMovePositionV1Resp
-func (a *AssetManagementAPIService) SubaccountCreateSubAccountFuturesMovePositionV1Execute(r AssetManagementAPISubaccountCreateSubAccountFuturesMovePositionV1Request) (*SubaccountCreateSubAccountFuturesMovePositionV1Resp, *http.Response, error) {
+func (a *AssetManagementAPIService) SubaccountCreateSubAccountFuturesMovePositionV1Execute(r ApiSubaccountCreateSubAccountFuturesMovePositionV1Request) (*SubaccountCreateSubAccountFuturesMovePositionV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -390,7 +390,7 @@ func (a *AssetManagementAPIService) SubaccountCreateSubAccountFuturesMovePositio
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetManagementAPISubaccountCreateSubAccountFuturesTransferV1Request struct {
+type ApiSubaccountCreateSubAccountFuturesTransferV1Request struct {
 	ctx context.Context
 	ApiService *AssetManagementAPIService
 	amount *string
@@ -401,37 +401,37 @@ type AssetManagementAPISubaccountCreateSubAccountFuturesTransferV1Request struct
 	recvWindow *int64
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountFuturesTransferV1Request) Amount(amount string) AssetManagementAPISubaccountCreateSubAccountFuturesTransferV1Request {
+func (r ApiSubaccountCreateSubAccountFuturesTransferV1Request) Amount(amount string) ApiSubaccountCreateSubAccountFuturesTransferV1Request {
 	r.amount = &amount
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountFuturesTransferV1Request) Asset(asset string) AssetManagementAPISubaccountCreateSubAccountFuturesTransferV1Request {
+func (r ApiSubaccountCreateSubAccountFuturesTransferV1Request) Asset(asset string) ApiSubaccountCreateSubAccountFuturesTransferV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountFuturesTransferV1Request) Email(email string) AssetManagementAPISubaccountCreateSubAccountFuturesTransferV1Request {
+func (r ApiSubaccountCreateSubAccountFuturesTransferV1Request) Email(email string) ApiSubaccountCreateSubAccountFuturesTransferV1Request {
 	r.email = &email
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountFuturesTransferV1Request) Timestamp(timestamp int64) AssetManagementAPISubaccountCreateSubAccountFuturesTransferV1Request {
+func (r ApiSubaccountCreateSubAccountFuturesTransferV1Request) Timestamp(timestamp int64) ApiSubaccountCreateSubAccountFuturesTransferV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountFuturesTransferV1Request) Type_(type_ int32) AssetManagementAPISubaccountCreateSubAccountFuturesTransferV1Request {
+func (r ApiSubaccountCreateSubAccountFuturesTransferV1Request) Type_(type_ int32) ApiSubaccountCreateSubAccountFuturesTransferV1Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountFuturesTransferV1Request) RecvWindow(recvWindow int64) AssetManagementAPISubaccountCreateSubAccountFuturesTransferV1Request {
+func (r ApiSubaccountCreateSubAccountFuturesTransferV1Request) RecvWindow(recvWindow int64) ApiSubaccountCreateSubAccountFuturesTransferV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountFuturesTransferV1Request) Execute() (*SubaccountCreateSubAccountFuturesTransferV1Resp, *http.Response, error) {
+func (r ApiSubaccountCreateSubAccountFuturesTransferV1Request) Execute() (*SubaccountCreateSubAccountFuturesTransferV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountCreateSubAccountFuturesTransferV1Execute(r)
 }
 
@@ -441,10 +441,10 @@ SubaccountCreateSubAccountFuturesTransferV1 Futures Transfer for Sub-account(For
 Futures Transfer for Sub-account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetManagementAPISubaccountCreateSubAccountFuturesTransferV1Request
+ @return ApiSubaccountCreateSubAccountFuturesTransferV1Request
 */
-func (a *AssetManagementAPIService) SubaccountCreateSubAccountFuturesTransferV1(ctx context.Context) AssetManagementAPISubaccountCreateSubAccountFuturesTransferV1Request {
-	return AssetManagementAPISubaccountCreateSubAccountFuturesTransferV1Request{
+func (a *AssetManagementAPIService) SubaccountCreateSubAccountFuturesTransferV1(ctx context.Context) ApiSubaccountCreateSubAccountFuturesTransferV1Request {
+	return ApiSubaccountCreateSubAccountFuturesTransferV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -452,7 +452,7 @@ func (a *AssetManagementAPIService) SubaccountCreateSubAccountFuturesTransferV1(
 
 // Execute executes the request
 //  @return SubaccountCreateSubAccountFuturesTransferV1Resp
-func (a *AssetManagementAPIService) SubaccountCreateSubAccountFuturesTransferV1Execute(r AssetManagementAPISubaccountCreateSubAccountFuturesTransferV1Request) (*SubaccountCreateSubAccountFuturesTransferV1Resp, *http.Response, error) {
+func (a *AssetManagementAPIService) SubaccountCreateSubAccountFuturesTransferV1Execute(r ApiSubaccountCreateSubAccountFuturesTransferV1Request) (*SubaccountCreateSubAccountFuturesTransferV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -569,7 +569,7 @@ func (a *AssetManagementAPIService) SubaccountCreateSubAccountFuturesTransferV1E
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetManagementAPISubaccountCreateSubAccountMarginTransferV1Request struct {
+type ApiSubaccountCreateSubAccountMarginTransferV1Request struct {
 	ctx context.Context
 	ApiService *AssetManagementAPIService
 	amount *string
@@ -580,37 +580,37 @@ type AssetManagementAPISubaccountCreateSubAccountMarginTransferV1Request struct 
 	recvWindow *int64
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountMarginTransferV1Request) Amount(amount string) AssetManagementAPISubaccountCreateSubAccountMarginTransferV1Request {
+func (r ApiSubaccountCreateSubAccountMarginTransferV1Request) Amount(amount string) ApiSubaccountCreateSubAccountMarginTransferV1Request {
 	r.amount = &amount
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountMarginTransferV1Request) Asset(asset string) AssetManagementAPISubaccountCreateSubAccountMarginTransferV1Request {
+func (r ApiSubaccountCreateSubAccountMarginTransferV1Request) Asset(asset string) ApiSubaccountCreateSubAccountMarginTransferV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountMarginTransferV1Request) Email(email string) AssetManagementAPISubaccountCreateSubAccountMarginTransferV1Request {
+func (r ApiSubaccountCreateSubAccountMarginTransferV1Request) Email(email string) ApiSubaccountCreateSubAccountMarginTransferV1Request {
 	r.email = &email
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountMarginTransferV1Request) Timestamp(timestamp int64) AssetManagementAPISubaccountCreateSubAccountMarginTransferV1Request {
+func (r ApiSubaccountCreateSubAccountMarginTransferV1Request) Timestamp(timestamp int64) ApiSubaccountCreateSubAccountMarginTransferV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountMarginTransferV1Request) Type_(type_ int32) AssetManagementAPISubaccountCreateSubAccountMarginTransferV1Request {
+func (r ApiSubaccountCreateSubAccountMarginTransferV1Request) Type_(type_ int32) ApiSubaccountCreateSubAccountMarginTransferV1Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountMarginTransferV1Request) RecvWindow(recvWindow int64) AssetManagementAPISubaccountCreateSubAccountMarginTransferV1Request {
+func (r ApiSubaccountCreateSubAccountMarginTransferV1Request) RecvWindow(recvWindow int64) ApiSubaccountCreateSubAccountMarginTransferV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountMarginTransferV1Request) Execute() (*SubaccountCreateSubAccountMarginTransferV1Resp, *http.Response, error) {
+func (r ApiSubaccountCreateSubAccountMarginTransferV1Request) Execute() (*SubaccountCreateSubAccountMarginTransferV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountCreateSubAccountMarginTransferV1Execute(r)
 }
 
@@ -620,10 +620,10 @@ SubaccountCreateSubAccountMarginTransferV1 Margin Transfer for Sub-account(For M
 Margin Transfer for Sub-account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetManagementAPISubaccountCreateSubAccountMarginTransferV1Request
+ @return ApiSubaccountCreateSubAccountMarginTransferV1Request
 */
-func (a *AssetManagementAPIService) SubaccountCreateSubAccountMarginTransferV1(ctx context.Context) AssetManagementAPISubaccountCreateSubAccountMarginTransferV1Request {
-	return AssetManagementAPISubaccountCreateSubAccountMarginTransferV1Request{
+func (a *AssetManagementAPIService) SubaccountCreateSubAccountMarginTransferV1(ctx context.Context) ApiSubaccountCreateSubAccountMarginTransferV1Request {
+	return ApiSubaccountCreateSubAccountMarginTransferV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -631,7 +631,7 @@ func (a *AssetManagementAPIService) SubaccountCreateSubAccountMarginTransferV1(c
 
 // Execute executes the request
 //  @return SubaccountCreateSubAccountMarginTransferV1Resp
-func (a *AssetManagementAPIService) SubaccountCreateSubAccountMarginTransferV1Execute(r AssetManagementAPISubaccountCreateSubAccountMarginTransferV1Request) (*SubaccountCreateSubAccountMarginTransferV1Resp, *http.Response, error) {
+func (a *AssetManagementAPIService) SubaccountCreateSubAccountMarginTransferV1Execute(r ApiSubaccountCreateSubAccountMarginTransferV1Request) (*SubaccountCreateSubAccountMarginTransferV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -748,7 +748,7 @@ func (a *AssetManagementAPIService) SubaccountCreateSubAccountMarginTransferV1Ex
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetManagementAPISubaccountCreateSubAccountTransferSubToMasterV1Request struct {
+type ApiSubaccountCreateSubAccountTransferSubToMasterV1Request struct {
 	ctx context.Context
 	ApiService *AssetManagementAPIService
 	amount *string
@@ -757,27 +757,27 @@ type AssetManagementAPISubaccountCreateSubAccountTransferSubToMasterV1Request st
 	recvWindow *int64
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountTransferSubToMasterV1Request) Amount(amount string) AssetManagementAPISubaccountCreateSubAccountTransferSubToMasterV1Request {
+func (r ApiSubaccountCreateSubAccountTransferSubToMasterV1Request) Amount(amount string) ApiSubaccountCreateSubAccountTransferSubToMasterV1Request {
 	r.amount = &amount
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountTransferSubToMasterV1Request) Asset(asset string) AssetManagementAPISubaccountCreateSubAccountTransferSubToMasterV1Request {
+func (r ApiSubaccountCreateSubAccountTransferSubToMasterV1Request) Asset(asset string) ApiSubaccountCreateSubAccountTransferSubToMasterV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountTransferSubToMasterV1Request) Timestamp(timestamp int64) AssetManagementAPISubaccountCreateSubAccountTransferSubToMasterV1Request {
+func (r ApiSubaccountCreateSubAccountTransferSubToMasterV1Request) Timestamp(timestamp int64) ApiSubaccountCreateSubAccountTransferSubToMasterV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountTransferSubToMasterV1Request) RecvWindow(recvWindow int64) AssetManagementAPISubaccountCreateSubAccountTransferSubToMasterV1Request {
+func (r ApiSubaccountCreateSubAccountTransferSubToMasterV1Request) RecvWindow(recvWindow int64) ApiSubaccountCreateSubAccountTransferSubToMasterV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountTransferSubToMasterV1Request) Execute() (*SubaccountCreateSubAccountTransferSubToMasterV1Resp, *http.Response, error) {
+func (r ApiSubaccountCreateSubAccountTransferSubToMasterV1Request) Execute() (*SubaccountCreateSubAccountTransferSubToMasterV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountCreateSubAccountTransferSubToMasterV1Execute(r)
 }
 
@@ -787,10 +787,10 @@ SubaccountCreateSubAccountTransferSubToMasterV1 Transfer to Master(For Sub-accou
 Transfer to Master
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetManagementAPISubaccountCreateSubAccountTransferSubToMasterV1Request
+ @return ApiSubaccountCreateSubAccountTransferSubToMasterV1Request
 */
-func (a *AssetManagementAPIService) SubaccountCreateSubAccountTransferSubToMasterV1(ctx context.Context) AssetManagementAPISubaccountCreateSubAccountTransferSubToMasterV1Request {
-	return AssetManagementAPISubaccountCreateSubAccountTransferSubToMasterV1Request{
+func (a *AssetManagementAPIService) SubaccountCreateSubAccountTransferSubToMasterV1(ctx context.Context) ApiSubaccountCreateSubAccountTransferSubToMasterV1Request {
+	return ApiSubaccountCreateSubAccountTransferSubToMasterV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -798,7 +798,7 @@ func (a *AssetManagementAPIService) SubaccountCreateSubAccountTransferSubToMaste
 
 // Execute executes the request
 //  @return SubaccountCreateSubAccountTransferSubToMasterV1Resp
-func (a *AssetManagementAPIService) SubaccountCreateSubAccountTransferSubToMasterV1Execute(r AssetManagementAPISubaccountCreateSubAccountTransferSubToMasterV1Request) (*SubaccountCreateSubAccountTransferSubToMasterV1Resp, *http.Response, error) {
+func (a *AssetManagementAPIService) SubaccountCreateSubAccountTransferSubToMasterV1Execute(r ApiSubaccountCreateSubAccountTransferSubToMasterV1Request) (*SubaccountCreateSubAccountTransferSubToMasterV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -907,7 +907,7 @@ func (a *AssetManagementAPIService) SubaccountCreateSubAccountTransferSubToMaste
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetManagementAPISubaccountCreateSubAccountTransferSubToSubV1Request struct {
+type ApiSubaccountCreateSubAccountTransferSubToSubV1Request struct {
 	ctx context.Context
 	ApiService *AssetManagementAPIService
 	amount *string
@@ -917,32 +917,32 @@ type AssetManagementAPISubaccountCreateSubAccountTransferSubToSubV1Request struc
 	recvWindow *int64
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountTransferSubToSubV1Request) Amount(amount string) AssetManagementAPISubaccountCreateSubAccountTransferSubToSubV1Request {
+func (r ApiSubaccountCreateSubAccountTransferSubToSubV1Request) Amount(amount string) ApiSubaccountCreateSubAccountTransferSubToSubV1Request {
 	r.amount = &amount
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountTransferSubToSubV1Request) Asset(asset string) AssetManagementAPISubaccountCreateSubAccountTransferSubToSubV1Request {
+func (r ApiSubaccountCreateSubAccountTransferSubToSubV1Request) Asset(asset string) ApiSubaccountCreateSubAccountTransferSubToSubV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountTransferSubToSubV1Request) Timestamp(timestamp int64) AssetManagementAPISubaccountCreateSubAccountTransferSubToSubV1Request {
+func (r ApiSubaccountCreateSubAccountTransferSubToSubV1Request) Timestamp(timestamp int64) ApiSubaccountCreateSubAccountTransferSubToSubV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountTransferSubToSubV1Request) ToEmail(toEmail string) AssetManagementAPISubaccountCreateSubAccountTransferSubToSubV1Request {
+func (r ApiSubaccountCreateSubAccountTransferSubToSubV1Request) ToEmail(toEmail string) ApiSubaccountCreateSubAccountTransferSubToSubV1Request {
 	r.toEmail = &toEmail
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountTransferSubToSubV1Request) RecvWindow(recvWindow int64) AssetManagementAPISubaccountCreateSubAccountTransferSubToSubV1Request {
+func (r ApiSubaccountCreateSubAccountTransferSubToSubV1Request) RecvWindow(recvWindow int64) ApiSubaccountCreateSubAccountTransferSubToSubV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountTransferSubToSubV1Request) Execute() (*SubaccountCreateSubAccountTransferSubToSubV1Resp, *http.Response, error) {
+func (r ApiSubaccountCreateSubAccountTransferSubToSubV1Request) Execute() (*SubaccountCreateSubAccountTransferSubToSubV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountCreateSubAccountTransferSubToSubV1Execute(r)
 }
 
@@ -952,10 +952,10 @@ SubaccountCreateSubAccountTransferSubToSubV1 Transfer to Sub-account of Same Mas
 Transfer to Sub-account of Same Master
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetManagementAPISubaccountCreateSubAccountTransferSubToSubV1Request
+ @return ApiSubaccountCreateSubAccountTransferSubToSubV1Request
 */
-func (a *AssetManagementAPIService) SubaccountCreateSubAccountTransferSubToSubV1(ctx context.Context) AssetManagementAPISubaccountCreateSubAccountTransferSubToSubV1Request {
-	return AssetManagementAPISubaccountCreateSubAccountTransferSubToSubV1Request{
+func (a *AssetManagementAPIService) SubaccountCreateSubAccountTransferSubToSubV1(ctx context.Context) ApiSubaccountCreateSubAccountTransferSubToSubV1Request {
+	return ApiSubaccountCreateSubAccountTransferSubToSubV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -963,7 +963,7 @@ func (a *AssetManagementAPIService) SubaccountCreateSubAccountTransferSubToSubV1
 
 // Execute executes the request
 //  @return SubaccountCreateSubAccountTransferSubToSubV1Resp
-func (a *AssetManagementAPIService) SubaccountCreateSubAccountTransferSubToSubV1Execute(r AssetManagementAPISubaccountCreateSubAccountTransferSubToSubV1Request) (*SubaccountCreateSubAccountTransferSubToSubV1Resp, *http.Response, error) {
+func (a *AssetManagementAPIService) SubaccountCreateSubAccountTransferSubToSubV1Execute(r ApiSubaccountCreateSubAccountTransferSubToSubV1Request) (*SubaccountCreateSubAccountTransferSubToSubV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1076,7 +1076,7 @@ func (a *AssetManagementAPIService) SubaccountCreateSubAccountTransferSubToSubV1
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request struct {
+type ApiSubaccountCreateSubAccountUniversalTransferV1Request struct {
 	ctx context.Context
 	ApiService *AssetManagementAPIService
 	amount *string
@@ -1091,57 +1091,57 @@ type AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request stru
 	toEmail *string
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request) Amount(amount string) AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request {
+func (r ApiSubaccountCreateSubAccountUniversalTransferV1Request) Amount(amount string) ApiSubaccountCreateSubAccountUniversalTransferV1Request {
 	r.amount = &amount
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request) Asset(asset string) AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request {
+func (r ApiSubaccountCreateSubAccountUniversalTransferV1Request) Asset(asset string) ApiSubaccountCreateSubAccountUniversalTransferV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request) FromAccountType(fromAccountType string) AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request {
+func (r ApiSubaccountCreateSubAccountUniversalTransferV1Request) FromAccountType(fromAccountType string) ApiSubaccountCreateSubAccountUniversalTransferV1Request {
 	r.fromAccountType = &fromAccountType
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request) Timestamp(timestamp int64) AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request {
+func (r ApiSubaccountCreateSubAccountUniversalTransferV1Request) Timestamp(timestamp int64) ApiSubaccountCreateSubAccountUniversalTransferV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request) ToAccountType(toAccountType string) AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request {
+func (r ApiSubaccountCreateSubAccountUniversalTransferV1Request) ToAccountType(toAccountType string) ApiSubaccountCreateSubAccountUniversalTransferV1Request {
 	r.toAccountType = &toAccountType
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request) ClientTranId(clientTranId string) AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request {
+func (r ApiSubaccountCreateSubAccountUniversalTransferV1Request) ClientTranId(clientTranId string) ApiSubaccountCreateSubAccountUniversalTransferV1Request {
 	r.clientTranId = &clientTranId
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request) FromEmail(fromEmail string) AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request {
+func (r ApiSubaccountCreateSubAccountUniversalTransferV1Request) FromEmail(fromEmail string) ApiSubaccountCreateSubAccountUniversalTransferV1Request {
 	r.fromEmail = &fromEmail
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request) RecvWindow(recvWindow int64) AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request {
+func (r ApiSubaccountCreateSubAccountUniversalTransferV1Request) RecvWindow(recvWindow int64) ApiSubaccountCreateSubAccountUniversalTransferV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request) Symbol(symbol string) AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request {
+func (r ApiSubaccountCreateSubAccountUniversalTransferV1Request) Symbol(symbol string) ApiSubaccountCreateSubAccountUniversalTransferV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request) ToEmail(toEmail string) AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request {
+func (r ApiSubaccountCreateSubAccountUniversalTransferV1Request) ToEmail(toEmail string) ApiSubaccountCreateSubAccountUniversalTransferV1Request {
 	r.toEmail = &toEmail
 	return r
 }
 
-func (r AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request) Execute() (*SubaccountCreateSubAccountUniversalTransferV1Resp, *http.Response, error) {
+func (r ApiSubaccountCreateSubAccountUniversalTransferV1Request) Execute() (*SubaccountCreateSubAccountUniversalTransferV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountCreateSubAccountUniversalTransferV1Execute(r)
 }
 
@@ -1151,10 +1151,10 @@ SubaccountCreateSubAccountUniversalTransferV1 Universal Transfer(For Master Acco
 Universal Transfer
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request
+ @return ApiSubaccountCreateSubAccountUniversalTransferV1Request
 */
-func (a *AssetManagementAPIService) SubaccountCreateSubAccountUniversalTransferV1(ctx context.Context) AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request {
-	return AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request{
+func (a *AssetManagementAPIService) SubaccountCreateSubAccountUniversalTransferV1(ctx context.Context) ApiSubaccountCreateSubAccountUniversalTransferV1Request {
+	return ApiSubaccountCreateSubAccountUniversalTransferV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1162,7 +1162,7 @@ func (a *AssetManagementAPIService) SubaccountCreateSubAccountUniversalTransferV
 
 // Execute executes the request
 //  @return SubaccountCreateSubAccountUniversalTransferV1Resp
-func (a *AssetManagementAPIService) SubaccountCreateSubAccountUniversalTransferV1Execute(r AssetManagementAPISubaccountCreateSubAccountUniversalTransferV1Request) (*SubaccountCreateSubAccountUniversalTransferV1Resp, *http.Response, error) {
+func (a *AssetManagementAPIService) SubaccountCreateSubAccountUniversalTransferV1Execute(r ApiSubaccountCreateSubAccountUniversalTransferV1Request) (*SubaccountCreateSubAccountUniversalTransferV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1291,7 +1291,7 @@ func (a *AssetManagementAPIService) SubaccountCreateSubAccountUniversalTransferV
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetManagementAPISubaccountGetCapitalDepositSubAddressV1Request struct {
+type ApiSubaccountGetCapitalDepositSubAddressV1Request struct {
 	ctx context.Context
 	ApiService *AssetManagementAPIService
 	email *string
@@ -1303,37 +1303,37 @@ type AssetManagementAPISubaccountGetCapitalDepositSubAddressV1Request struct {
 }
 
 // Sub account email
-func (r AssetManagementAPISubaccountGetCapitalDepositSubAddressV1Request) Email(email string) AssetManagementAPISubaccountGetCapitalDepositSubAddressV1Request {
+func (r ApiSubaccountGetCapitalDepositSubAddressV1Request) Email(email string) ApiSubaccountGetCapitalDepositSubAddressV1Request {
 	r.email = &email
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetCapitalDepositSubAddressV1Request) Coin(coin string) AssetManagementAPISubaccountGetCapitalDepositSubAddressV1Request {
+func (r ApiSubaccountGetCapitalDepositSubAddressV1Request) Coin(coin string) ApiSubaccountGetCapitalDepositSubAddressV1Request {
 	r.coin = &coin
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetCapitalDepositSubAddressV1Request) Timestamp(timestamp int64) AssetManagementAPISubaccountGetCapitalDepositSubAddressV1Request {
+func (r ApiSubaccountGetCapitalDepositSubAddressV1Request) Timestamp(timestamp int64) ApiSubaccountGetCapitalDepositSubAddressV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetCapitalDepositSubAddressV1Request) Network(network string) AssetManagementAPISubaccountGetCapitalDepositSubAddressV1Request {
+func (r ApiSubaccountGetCapitalDepositSubAddressV1Request) Network(network string) ApiSubaccountGetCapitalDepositSubAddressV1Request {
 	r.network = &network
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetCapitalDepositSubAddressV1Request) Amount(amount string) AssetManagementAPISubaccountGetCapitalDepositSubAddressV1Request {
+func (r ApiSubaccountGetCapitalDepositSubAddressV1Request) Amount(amount string) ApiSubaccountGetCapitalDepositSubAddressV1Request {
 	r.amount = &amount
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetCapitalDepositSubAddressV1Request) RecvWindow(recvWindow int64) AssetManagementAPISubaccountGetCapitalDepositSubAddressV1Request {
+func (r ApiSubaccountGetCapitalDepositSubAddressV1Request) RecvWindow(recvWindow int64) ApiSubaccountGetCapitalDepositSubAddressV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetCapitalDepositSubAddressV1Request) Execute() (*SubaccountGetCapitalDepositSubAddressV1Resp, *http.Response, error) {
+func (r ApiSubaccountGetCapitalDepositSubAddressV1Request) Execute() (*SubaccountGetCapitalDepositSubAddressV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetCapitalDepositSubAddressV1Execute(r)
 }
 
@@ -1343,10 +1343,10 @@ SubaccountGetCapitalDepositSubAddressV1 Get Sub-account Deposit Address(For Mast
 Fetch sub-account deposit address
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetManagementAPISubaccountGetCapitalDepositSubAddressV1Request
+ @return ApiSubaccountGetCapitalDepositSubAddressV1Request
 */
-func (a *AssetManagementAPIService) SubaccountGetCapitalDepositSubAddressV1(ctx context.Context) AssetManagementAPISubaccountGetCapitalDepositSubAddressV1Request {
-	return AssetManagementAPISubaccountGetCapitalDepositSubAddressV1Request{
+func (a *AssetManagementAPIService) SubaccountGetCapitalDepositSubAddressV1(ctx context.Context) ApiSubaccountGetCapitalDepositSubAddressV1Request {
+	return ApiSubaccountGetCapitalDepositSubAddressV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1354,7 +1354,7 @@ func (a *AssetManagementAPIService) SubaccountGetCapitalDepositSubAddressV1(ctx 
 
 // Execute executes the request
 //  @return SubaccountGetCapitalDepositSubAddressV1Resp
-func (a *AssetManagementAPIService) SubaccountGetCapitalDepositSubAddressV1Execute(r AssetManagementAPISubaccountGetCapitalDepositSubAddressV1Request) (*SubaccountGetCapitalDepositSubAddressV1Resp, *http.Response, error) {
+func (a *AssetManagementAPIService) SubaccountGetCapitalDepositSubAddressV1Execute(r ApiSubaccountGetCapitalDepositSubAddressV1Request) (*SubaccountGetCapitalDepositSubAddressV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1475,7 +1475,7 @@ func (a *AssetManagementAPIService) SubaccountGetCapitalDepositSubAddressV1Execu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request struct {
+type ApiSubaccountGetCapitalDepositSubHisrecV1Request struct {
 	ctx context.Context
 	ApiService *AssetManagementAPIService
 	email *string
@@ -1491,59 +1491,59 @@ type AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request struct {
 }
 
 // Sub account email
-func (r AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request) Email(email string) AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request {
+func (r ApiSubaccountGetCapitalDepositSubHisrecV1Request) Email(email string) ApiSubaccountGetCapitalDepositSubHisrecV1Request {
 	r.email = &email
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request) Timestamp(timestamp int64) AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request {
+func (r ApiSubaccountGetCapitalDepositSubHisrecV1Request) Timestamp(timestamp int64) ApiSubaccountGetCapitalDepositSubHisrecV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request) Coin(coin string) AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request {
+func (r ApiSubaccountGetCapitalDepositSubHisrecV1Request) Coin(coin string) ApiSubaccountGetCapitalDepositSubHisrecV1Request {
 	r.coin = &coin
 	return r
 }
 
 // 0(0:pending,6: credited but cannot withdraw,7:Wrong Deposit,8:Waiting User confirm,1:success)
-func (r AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request) Status(status int32) AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request {
+func (r ApiSubaccountGetCapitalDepositSubHisrecV1Request) Status(status int32) ApiSubaccountGetCapitalDepositSubHisrecV1Request {
 	r.status = &status
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request) StartTime(startTime int64) AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request {
+func (r ApiSubaccountGetCapitalDepositSubHisrecV1Request) StartTime(startTime int64) ApiSubaccountGetCapitalDepositSubHisrecV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request) EndTime(endTime int64) AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request {
+func (r ApiSubaccountGetCapitalDepositSubHisrecV1Request) EndTime(endTime int64) ApiSubaccountGetCapitalDepositSubHisrecV1Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request) Limit(limit int32) AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request {
+func (r ApiSubaccountGetCapitalDepositSubHisrecV1Request) Limit(limit int32) ApiSubaccountGetCapitalDepositSubHisrecV1Request {
 	r.limit = &limit
 	return r
 }
 
 // default:0
-func (r AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request) Offset(offset int32) AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request {
+func (r ApiSubaccountGetCapitalDepositSubHisrecV1Request) Offset(offset int32) ApiSubaccountGetCapitalDepositSubHisrecV1Request {
 	r.offset = &offset
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request) RecvWindow(recvWindow int64) AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request {
+func (r ApiSubaccountGetCapitalDepositSubHisrecV1Request) RecvWindow(recvWindow int64) ApiSubaccountGetCapitalDepositSubHisrecV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request) TxId(txId string) AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request {
+func (r ApiSubaccountGetCapitalDepositSubHisrecV1Request) TxId(txId string) ApiSubaccountGetCapitalDepositSubHisrecV1Request {
 	r.txId = &txId
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request) Execute() ([]SubaccountGetCapitalDepositSubHisrecV1RespItem, *http.Response, error) {
+func (r ApiSubaccountGetCapitalDepositSubHisrecV1Request) Execute() ([]SubaccountGetCapitalDepositSubHisrecV1RespItem, *http.Response, error) {
 	return r.ApiService.SubaccountGetCapitalDepositSubHisrecV1Execute(r)
 }
 
@@ -1553,10 +1553,10 @@ SubaccountGetCapitalDepositSubHisrecV1 Get Sub-account Deposit History(For Maste
 Fetch sub-account deposit history
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request
+ @return ApiSubaccountGetCapitalDepositSubHisrecV1Request
 */
-func (a *AssetManagementAPIService) SubaccountGetCapitalDepositSubHisrecV1(ctx context.Context) AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request {
-	return AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request{
+func (a *AssetManagementAPIService) SubaccountGetCapitalDepositSubHisrecV1(ctx context.Context) ApiSubaccountGetCapitalDepositSubHisrecV1Request {
+	return ApiSubaccountGetCapitalDepositSubHisrecV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1564,7 +1564,7 @@ func (a *AssetManagementAPIService) SubaccountGetCapitalDepositSubHisrecV1(ctx c
 
 // Execute executes the request
 //  @return []SubaccountGetCapitalDepositSubHisrecV1RespItem
-func (a *AssetManagementAPIService) SubaccountGetCapitalDepositSubHisrecV1Execute(r AssetManagementAPISubaccountGetCapitalDepositSubHisrecV1Request) ([]SubaccountGetCapitalDepositSubHisrecV1RespItem, *http.Response, error) {
+func (a *AssetManagementAPIService) SubaccountGetCapitalDepositSubHisrecV1Execute(r ApiSubaccountGetCapitalDepositSubHisrecV1Request) ([]SubaccountGetCapitalDepositSubHisrecV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1696,7 +1696,7 @@ func (a *AssetManagementAPIService) SubaccountGetCapitalDepositSubHisrecV1Execut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetManagementAPISubaccountGetSubAccountAssetsV3Request struct {
+type ApiSubaccountGetSubAccountAssetsV3Request struct {
 	ctx context.Context
 	ApiService *AssetManagementAPIService
 	email *string
@@ -1705,22 +1705,22 @@ type AssetManagementAPISubaccountGetSubAccountAssetsV3Request struct {
 }
 
 // Sub account email
-func (r AssetManagementAPISubaccountGetSubAccountAssetsV3Request) Email(email string) AssetManagementAPISubaccountGetSubAccountAssetsV3Request {
+func (r ApiSubaccountGetSubAccountAssetsV3Request) Email(email string) ApiSubaccountGetSubAccountAssetsV3Request {
 	r.email = &email
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountAssetsV3Request) Timestamp(timestamp int64) AssetManagementAPISubaccountGetSubAccountAssetsV3Request {
+func (r ApiSubaccountGetSubAccountAssetsV3Request) Timestamp(timestamp int64) ApiSubaccountGetSubAccountAssetsV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountAssetsV3Request) RecvWindow(recvWindow int64) AssetManagementAPISubaccountGetSubAccountAssetsV3Request {
+func (r ApiSubaccountGetSubAccountAssetsV3Request) RecvWindow(recvWindow int64) ApiSubaccountGetSubAccountAssetsV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountAssetsV3Request) Execute() (*SubaccountGetSubAccountAssetsV3Resp, *http.Response, error) {
+func (r ApiSubaccountGetSubAccountAssetsV3Request) Execute() (*SubaccountGetSubAccountAssetsV3Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetSubAccountAssetsV3Execute(r)
 }
 
@@ -1730,10 +1730,10 @@ SubaccountGetSubAccountAssetsV3 Query Sub-account Assets(For Master Account)
 Fetch sub-account assets
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetManagementAPISubaccountGetSubAccountAssetsV3Request
+ @return ApiSubaccountGetSubAccountAssetsV3Request
 */
-func (a *AssetManagementAPIService) SubaccountGetSubAccountAssetsV3(ctx context.Context) AssetManagementAPISubaccountGetSubAccountAssetsV3Request {
-	return AssetManagementAPISubaccountGetSubAccountAssetsV3Request{
+func (a *AssetManagementAPIService) SubaccountGetSubAccountAssetsV3(ctx context.Context) ApiSubaccountGetSubAccountAssetsV3Request {
+	return ApiSubaccountGetSubAccountAssetsV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1741,7 +1741,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountAssetsV3(ctx context.
 
 // Execute executes the request
 //  @return SubaccountGetSubAccountAssetsV3Resp
-func (a *AssetManagementAPIService) SubaccountGetSubAccountAssetsV3Execute(r AssetManagementAPISubaccountGetSubAccountAssetsV3Request) (*SubaccountGetSubAccountAssetsV3Resp, *http.Response, error) {
+func (a *AssetManagementAPIService) SubaccountGetSubAccountAssetsV3Execute(r ApiSubaccountGetSubAccountAssetsV3Request) (*SubaccountGetSubAccountAssetsV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1846,7 +1846,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountAssetsV3Execute(r Ass
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetManagementAPISubaccountGetSubAccountAssetsV4Request struct {
+type ApiSubaccountGetSubAccountAssetsV4Request struct {
 	ctx context.Context
 	ApiService *AssetManagementAPIService
 	email *string
@@ -1855,22 +1855,22 @@ type AssetManagementAPISubaccountGetSubAccountAssetsV4Request struct {
 }
 
 // Sub Account Email
-func (r AssetManagementAPISubaccountGetSubAccountAssetsV4Request) Email(email string) AssetManagementAPISubaccountGetSubAccountAssetsV4Request {
+func (r ApiSubaccountGetSubAccountAssetsV4Request) Email(email string) ApiSubaccountGetSubAccountAssetsV4Request {
 	r.email = &email
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountAssetsV4Request) Timestamp(timestamp int64) AssetManagementAPISubaccountGetSubAccountAssetsV4Request {
+func (r ApiSubaccountGetSubAccountAssetsV4Request) Timestamp(timestamp int64) ApiSubaccountGetSubAccountAssetsV4Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountAssetsV4Request) RecvWindow(recvWindow int64) AssetManagementAPISubaccountGetSubAccountAssetsV4Request {
+func (r ApiSubaccountGetSubAccountAssetsV4Request) RecvWindow(recvWindow int64) ApiSubaccountGetSubAccountAssetsV4Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountAssetsV4Request) Execute() (*SubaccountGetSubAccountAssetsV4Resp, *http.Response, error) {
+func (r ApiSubaccountGetSubAccountAssetsV4Request) Execute() (*SubaccountGetSubAccountAssetsV4Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetSubAccountAssetsV4Execute(r)
 }
 
@@ -1880,10 +1880,10 @@ SubaccountGetSubAccountAssetsV4 Query Sub-account Assets (For Master Account)(US
 Fetch sub-account assets
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetManagementAPISubaccountGetSubAccountAssetsV4Request
+ @return ApiSubaccountGetSubAccountAssetsV4Request
 */
-func (a *AssetManagementAPIService) SubaccountGetSubAccountAssetsV4(ctx context.Context) AssetManagementAPISubaccountGetSubAccountAssetsV4Request {
-	return AssetManagementAPISubaccountGetSubAccountAssetsV4Request{
+func (a *AssetManagementAPIService) SubaccountGetSubAccountAssetsV4(ctx context.Context) ApiSubaccountGetSubAccountAssetsV4Request {
+	return ApiSubaccountGetSubAccountAssetsV4Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1891,7 +1891,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountAssetsV4(ctx context.
 
 // Execute executes the request
 //  @return SubaccountGetSubAccountAssetsV4Resp
-func (a *AssetManagementAPIService) SubaccountGetSubAccountAssetsV4Execute(r AssetManagementAPISubaccountGetSubAccountAssetsV4Request) (*SubaccountGetSubAccountAssetsV4Resp, *http.Response, error) {
+func (a *AssetManagementAPIService) SubaccountGetSubAccountAssetsV4Execute(r ApiSubaccountGetSubAccountAssetsV4Request) (*SubaccountGetSubAccountAssetsV4Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2002,24 +2002,24 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountAssetsV4Execute(r Ass
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV1Request struct {
+type ApiSubaccountGetSubAccountFuturesAccountSummaryV1Request struct {
 	ctx context.Context
 	ApiService *AssetManagementAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV1Request) Timestamp(timestamp int64) AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV1Request {
+func (r ApiSubaccountGetSubAccountFuturesAccountSummaryV1Request) Timestamp(timestamp int64) ApiSubaccountGetSubAccountFuturesAccountSummaryV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV1Request) RecvWindow(recvWindow int64) AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV1Request {
+func (r ApiSubaccountGetSubAccountFuturesAccountSummaryV1Request) RecvWindow(recvWindow int64) ApiSubaccountGetSubAccountFuturesAccountSummaryV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV1Request) Execute() (*SubaccountGetSubAccountFuturesAccountSummaryV1Resp, *http.Response, error) {
+func (r ApiSubaccountGetSubAccountFuturesAccountSummaryV1Request) Execute() (*SubaccountGetSubAccountFuturesAccountSummaryV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetSubAccountFuturesAccountSummaryV1Execute(r)
 }
 
@@ -2029,10 +2029,10 @@ SubaccountGetSubAccountFuturesAccountSummaryV1 Get Summary of Sub-account's Futu
 Get Summary of Sub-account's Futures Account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV1Request
+ @return ApiSubaccountGetSubAccountFuturesAccountSummaryV1Request
 */
-func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesAccountSummaryV1(ctx context.Context) AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV1Request {
-	return AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV1Request{
+func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesAccountSummaryV1(ctx context.Context) ApiSubaccountGetSubAccountFuturesAccountSummaryV1Request {
+	return ApiSubaccountGetSubAccountFuturesAccountSummaryV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2040,7 +2040,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesAccountSummary
 
 // Execute executes the request
 //  @return SubaccountGetSubAccountFuturesAccountSummaryV1Resp
-func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesAccountSummaryV1Execute(r AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV1Request) (*SubaccountGetSubAccountFuturesAccountSummaryV1Resp, *http.Response, error) {
+func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesAccountSummaryV1Execute(r ApiSubaccountGetSubAccountFuturesAccountSummaryV1Request) (*SubaccountGetSubAccountFuturesAccountSummaryV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2141,7 +2141,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesAccountSummary
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV2Request struct {
+type ApiSubaccountGetSubAccountFuturesAccountSummaryV2Request struct {
 	ctx context.Context
 	ApiService *AssetManagementAPIService
 	futuresType *int32
@@ -2152,34 +2152,34 @@ type AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV2Request str
 }
 
 // 1:USDT Margined Futures, 2:COIN Margined Futures
-func (r AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV2Request) FuturesType(futuresType int32) AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV2Request {
+func (r ApiSubaccountGetSubAccountFuturesAccountSummaryV2Request) FuturesType(futuresType int32) ApiSubaccountGetSubAccountFuturesAccountSummaryV2Request {
 	r.futuresType = &futuresType
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV2Request) Timestamp(timestamp int64) AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV2Request {
+func (r ApiSubaccountGetSubAccountFuturesAccountSummaryV2Request) Timestamp(timestamp int64) ApiSubaccountGetSubAccountFuturesAccountSummaryV2Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // default:1
-func (r AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV2Request) Page(page int32) AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV2Request {
+func (r ApiSubaccountGetSubAccountFuturesAccountSummaryV2Request) Page(page int32) ApiSubaccountGetSubAccountFuturesAccountSummaryV2Request {
 	r.page = &page
 	return r
 }
 
 // default:10, max:20
-func (r AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV2Request) Limit(limit int32) AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV2Request {
+func (r ApiSubaccountGetSubAccountFuturesAccountSummaryV2Request) Limit(limit int32) ApiSubaccountGetSubAccountFuturesAccountSummaryV2Request {
 	r.limit = &limit
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV2Request) RecvWindow(recvWindow int64) AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV2Request {
+func (r ApiSubaccountGetSubAccountFuturesAccountSummaryV2Request) RecvWindow(recvWindow int64) ApiSubaccountGetSubAccountFuturesAccountSummaryV2Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV2Request) Execute() (*SubaccountGetSubAccountFuturesAccountSummaryV2Resp, *http.Response, error) {
+func (r ApiSubaccountGetSubAccountFuturesAccountSummaryV2Request) Execute() (*SubaccountGetSubAccountFuturesAccountSummaryV2Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetSubAccountFuturesAccountSummaryV2Execute(r)
 }
 
@@ -2189,10 +2189,10 @@ SubaccountGetSubAccountFuturesAccountSummaryV2 Get Summary of Sub-account's Futu
 Get Summary of Sub-account's Futures Account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV2Request
+ @return ApiSubaccountGetSubAccountFuturesAccountSummaryV2Request
 */
-func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesAccountSummaryV2(ctx context.Context) AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV2Request {
-	return AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV2Request{
+func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesAccountSummaryV2(ctx context.Context) ApiSubaccountGetSubAccountFuturesAccountSummaryV2Request {
+	return ApiSubaccountGetSubAccountFuturesAccountSummaryV2Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2200,7 +2200,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesAccountSummary
 
 // Execute executes the request
 //  @return SubaccountGetSubAccountFuturesAccountSummaryV2Resp
-func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesAccountSummaryV2Execute(r AssetManagementAPISubaccountGetSubAccountFuturesAccountSummaryV2Request) (*SubaccountGetSubAccountFuturesAccountSummaryV2Resp, *http.Response, error) {
+func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesAccountSummaryV2Execute(r ApiSubaccountGetSubAccountFuturesAccountSummaryV2Request) (*SubaccountGetSubAccountFuturesAccountSummaryV2Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2311,7 +2311,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesAccountSummary
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetManagementAPISubaccountGetSubAccountFuturesAccountV1Request struct {
+type ApiSubaccountGetSubAccountFuturesAccountV1Request struct {
 	ctx context.Context
 	ApiService *AssetManagementAPIService
 	email *string
@@ -2320,22 +2320,22 @@ type AssetManagementAPISubaccountGetSubAccountFuturesAccountV1Request struct {
 }
 
 // &lt;a href&#x3D;\&quot;/docs/sub_account/asset-management/Get-Detail-on-Sub-accounts-Futures-Account#email-address\&quot;&gt;Sub-account email&lt;/a&gt;
-func (r AssetManagementAPISubaccountGetSubAccountFuturesAccountV1Request) Email(email string) AssetManagementAPISubaccountGetSubAccountFuturesAccountV1Request {
+func (r ApiSubaccountGetSubAccountFuturesAccountV1Request) Email(email string) ApiSubaccountGetSubAccountFuturesAccountV1Request {
 	r.email = &email
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountFuturesAccountV1Request) Timestamp(timestamp int64) AssetManagementAPISubaccountGetSubAccountFuturesAccountV1Request {
+func (r ApiSubaccountGetSubAccountFuturesAccountV1Request) Timestamp(timestamp int64) ApiSubaccountGetSubAccountFuturesAccountV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountFuturesAccountV1Request) RecvWindow(recvWindow int64) AssetManagementAPISubaccountGetSubAccountFuturesAccountV1Request {
+func (r ApiSubaccountGetSubAccountFuturesAccountV1Request) RecvWindow(recvWindow int64) ApiSubaccountGetSubAccountFuturesAccountV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountFuturesAccountV1Request) Execute() (*SubaccountGetSubAccountFuturesAccountV1Resp, *http.Response, error) {
+func (r ApiSubaccountGetSubAccountFuturesAccountV1Request) Execute() (*SubaccountGetSubAccountFuturesAccountV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetSubAccountFuturesAccountV1Execute(r)
 }
 
@@ -2345,10 +2345,10 @@ SubaccountGetSubAccountFuturesAccountV1 Get Detail on Sub-account's Futures Acco
 Get Detail on Sub-account's Futures Account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetManagementAPISubaccountGetSubAccountFuturesAccountV1Request
+ @return ApiSubaccountGetSubAccountFuturesAccountV1Request
 */
-func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesAccountV1(ctx context.Context) AssetManagementAPISubaccountGetSubAccountFuturesAccountV1Request {
-	return AssetManagementAPISubaccountGetSubAccountFuturesAccountV1Request{
+func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesAccountV1(ctx context.Context) ApiSubaccountGetSubAccountFuturesAccountV1Request {
+	return ApiSubaccountGetSubAccountFuturesAccountV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2356,7 +2356,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesAccountV1(ctx 
 
 // Execute executes the request
 //  @return SubaccountGetSubAccountFuturesAccountV1Resp
-func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesAccountV1Execute(r AssetManagementAPISubaccountGetSubAccountFuturesAccountV1Request) (*SubaccountGetSubAccountFuturesAccountV1Resp, *http.Response, error) {
+func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesAccountV1Execute(r ApiSubaccountGetSubAccountFuturesAccountV1Request) (*SubaccountGetSubAccountFuturesAccountV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2461,7 +2461,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesAccountV1Execu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetManagementAPISubaccountGetSubAccountFuturesAccountV2Request struct {
+type ApiSubaccountGetSubAccountFuturesAccountV2Request struct {
 	ctx context.Context
 	ApiService *AssetManagementAPIService
 	email *string
@@ -2471,28 +2471,28 @@ type AssetManagementAPISubaccountGetSubAccountFuturesAccountV2Request struct {
 }
 
 // &lt;a href&#x3D;\&quot;/docs/sub_account/asset-management/Get-Detail-on-Sub-accounts-Futures-Account-V2#email-address\&quot;&gt;Sub-account email&lt;/a&gt;
-func (r AssetManagementAPISubaccountGetSubAccountFuturesAccountV2Request) Email(email string) AssetManagementAPISubaccountGetSubAccountFuturesAccountV2Request {
+func (r ApiSubaccountGetSubAccountFuturesAccountV2Request) Email(email string) ApiSubaccountGetSubAccountFuturesAccountV2Request {
 	r.email = &email
 	return r
 }
 
 // 1:USDT Margined Futures, 2:COIN Margined Futures
-func (r AssetManagementAPISubaccountGetSubAccountFuturesAccountV2Request) FuturesType(futuresType int32) AssetManagementAPISubaccountGetSubAccountFuturesAccountV2Request {
+func (r ApiSubaccountGetSubAccountFuturesAccountV2Request) FuturesType(futuresType int32) ApiSubaccountGetSubAccountFuturesAccountV2Request {
 	r.futuresType = &futuresType
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountFuturesAccountV2Request) Timestamp(timestamp int64) AssetManagementAPISubaccountGetSubAccountFuturesAccountV2Request {
+func (r ApiSubaccountGetSubAccountFuturesAccountV2Request) Timestamp(timestamp int64) ApiSubaccountGetSubAccountFuturesAccountV2Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountFuturesAccountV2Request) RecvWindow(recvWindow int64) AssetManagementAPISubaccountGetSubAccountFuturesAccountV2Request {
+func (r ApiSubaccountGetSubAccountFuturesAccountV2Request) RecvWindow(recvWindow int64) ApiSubaccountGetSubAccountFuturesAccountV2Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountFuturesAccountV2Request) Execute() (*SubaccountGetSubAccountFuturesAccountV2Resp, *http.Response, error) {
+func (r ApiSubaccountGetSubAccountFuturesAccountV2Request) Execute() (*SubaccountGetSubAccountFuturesAccountV2Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetSubAccountFuturesAccountV2Execute(r)
 }
 
@@ -2502,10 +2502,10 @@ SubaccountGetSubAccountFuturesAccountV2 Get Detail on Sub-account's Futures Acco
 Get Detail on Sub-account's Futures Account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetManagementAPISubaccountGetSubAccountFuturesAccountV2Request
+ @return ApiSubaccountGetSubAccountFuturesAccountV2Request
 */
-func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesAccountV2(ctx context.Context) AssetManagementAPISubaccountGetSubAccountFuturesAccountV2Request {
-	return AssetManagementAPISubaccountGetSubAccountFuturesAccountV2Request{
+func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesAccountV2(ctx context.Context) ApiSubaccountGetSubAccountFuturesAccountV2Request {
+	return ApiSubaccountGetSubAccountFuturesAccountV2Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2513,7 +2513,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesAccountV2(ctx 
 
 // Execute executes the request
 //  @return SubaccountGetSubAccountFuturesAccountV2Resp
-func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesAccountV2Execute(r AssetManagementAPISubaccountGetSubAccountFuturesAccountV2Request) (*SubaccountGetSubAccountFuturesAccountV2Resp, *http.Response, error) {
+func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesAccountV2Execute(r ApiSubaccountGetSubAccountFuturesAccountV2Request) (*SubaccountGetSubAccountFuturesAccountV2Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2622,7 +2622,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesAccountV2Execu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetManagementAPISubaccountGetSubAccountFuturesInternalTransferV1Request struct {
+type ApiSubaccountGetSubAccountFuturesInternalTransferV1Request struct {
 	ctx context.Context
 	ApiService *AssetManagementAPIService
 	email *string
@@ -2636,51 +2636,51 @@ type AssetManagementAPISubaccountGetSubAccountFuturesInternalTransferV1Request s
 }
 
 // &lt;a href&#x3D;\&quot;/docs/sub_account/asset-management/Query-Sub-account-Futures-Asset-Transfer-History#email-address\&quot;&gt;Sub-account email&lt;/a&gt;
-func (r AssetManagementAPISubaccountGetSubAccountFuturesInternalTransferV1Request) Email(email string) AssetManagementAPISubaccountGetSubAccountFuturesInternalTransferV1Request {
+func (r ApiSubaccountGetSubAccountFuturesInternalTransferV1Request) Email(email string) ApiSubaccountGetSubAccountFuturesInternalTransferV1Request {
 	r.email = &email
 	return r
 }
 
 // 1:USDT-margined Futures，2: Coin-margined Futures
-func (r AssetManagementAPISubaccountGetSubAccountFuturesInternalTransferV1Request) FuturesType(futuresType int64) AssetManagementAPISubaccountGetSubAccountFuturesInternalTransferV1Request {
+func (r ApiSubaccountGetSubAccountFuturesInternalTransferV1Request) FuturesType(futuresType int64) ApiSubaccountGetSubAccountFuturesInternalTransferV1Request {
 	r.futuresType = &futuresType
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountFuturesInternalTransferV1Request) Timestamp(timestamp int64) AssetManagementAPISubaccountGetSubAccountFuturesInternalTransferV1Request {
+func (r ApiSubaccountGetSubAccountFuturesInternalTransferV1Request) Timestamp(timestamp int64) ApiSubaccountGetSubAccountFuturesInternalTransferV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Cannot be earlier than 1 month ago
-func (r AssetManagementAPISubaccountGetSubAccountFuturesInternalTransferV1Request) StartTime(startTime int64) AssetManagementAPISubaccountGetSubAccountFuturesInternalTransferV1Request {
+func (r ApiSubaccountGetSubAccountFuturesInternalTransferV1Request) StartTime(startTime int64) ApiSubaccountGetSubAccountFuturesInternalTransferV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountFuturesInternalTransferV1Request) EndTime(endTime int64) AssetManagementAPISubaccountGetSubAccountFuturesInternalTransferV1Request {
+func (r ApiSubaccountGetSubAccountFuturesInternalTransferV1Request) EndTime(endTime int64) ApiSubaccountGetSubAccountFuturesInternalTransferV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default value: 1
-func (r AssetManagementAPISubaccountGetSubAccountFuturesInternalTransferV1Request) Page(page int32) AssetManagementAPISubaccountGetSubAccountFuturesInternalTransferV1Request {
+func (r ApiSubaccountGetSubAccountFuturesInternalTransferV1Request) Page(page int32) ApiSubaccountGetSubAccountFuturesInternalTransferV1Request {
 	r.page = &page
 	return r
 }
 
 // Default value: 50, Max value: 500
-func (r AssetManagementAPISubaccountGetSubAccountFuturesInternalTransferV1Request) Limit(limit int32) AssetManagementAPISubaccountGetSubAccountFuturesInternalTransferV1Request {
+func (r ApiSubaccountGetSubAccountFuturesInternalTransferV1Request) Limit(limit int32) ApiSubaccountGetSubAccountFuturesInternalTransferV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountFuturesInternalTransferV1Request) RecvWindow(recvWindow int64) AssetManagementAPISubaccountGetSubAccountFuturesInternalTransferV1Request {
+func (r ApiSubaccountGetSubAccountFuturesInternalTransferV1Request) RecvWindow(recvWindow int64) ApiSubaccountGetSubAccountFuturesInternalTransferV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountFuturesInternalTransferV1Request) Execute() (*SubaccountGetSubAccountFuturesInternalTransferV1Resp, *http.Response, error) {
+func (r ApiSubaccountGetSubAccountFuturesInternalTransferV1Request) Execute() (*SubaccountGetSubAccountFuturesInternalTransferV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetSubAccountFuturesInternalTransferV1Execute(r)
 }
 
@@ -2690,10 +2690,10 @@ SubaccountGetSubAccountFuturesInternalTransferV1 Query Sub-account Futures Asset
 Query Sub-account Futures Asset Transfer History
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetManagementAPISubaccountGetSubAccountFuturesInternalTransferV1Request
+ @return ApiSubaccountGetSubAccountFuturesInternalTransferV1Request
 */
-func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesInternalTransferV1(ctx context.Context) AssetManagementAPISubaccountGetSubAccountFuturesInternalTransferV1Request {
-	return AssetManagementAPISubaccountGetSubAccountFuturesInternalTransferV1Request{
+func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesInternalTransferV1(ctx context.Context) ApiSubaccountGetSubAccountFuturesInternalTransferV1Request {
+	return ApiSubaccountGetSubAccountFuturesInternalTransferV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2701,7 +2701,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesInternalTransf
 
 // Execute executes the request
 //  @return SubaccountGetSubAccountFuturesInternalTransferV1Resp
-func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesInternalTransferV1Execute(r AssetManagementAPISubaccountGetSubAccountFuturesInternalTransferV1Request) (*SubaccountGetSubAccountFuturesInternalTransferV1Resp, *http.Response, error) {
+func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesInternalTransferV1Execute(r ApiSubaccountGetSubAccountFuturesInternalTransferV1Request) (*SubaccountGetSubAccountFuturesInternalTransferV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2822,7 +2822,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesInternalTransf
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetManagementAPISubaccountGetSubAccountFuturesMovePositionV1Request struct {
+type ApiSubaccountGetSubAccountFuturesMovePositionV1Request struct {
 	ctx context.Context
 	ApiService *AssetManagementAPIService
 	symbol *string
@@ -2834,42 +2834,42 @@ type AssetManagementAPISubaccountGetSubAccountFuturesMovePositionV1Request struc
 	recvWindow *int64
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountFuturesMovePositionV1Request) Symbol(symbol string) AssetManagementAPISubaccountGetSubAccountFuturesMovePositionV1Request {
+func (r ApiSubaccountGetSubAccountFuturesMovePositionV1Request) Symbol(symbol string) ApiSubaccountGetSubAccountFuturesMovePositionV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountFuturesMovePositionV1Request) Page(page int32) AssetManagementAPISubaccountGetSubAccountFuturesMovePositionV1Request {
+func (r ApiSubaccountGetSubAccountFuturesMovePositionV1Request) Page(page int32) ApiSubaccountGetSubAccountFuturesMovePositionV1Request {
 	r.page = &page
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountFuturesMovePositionV1Request) Row(row int32) AssetManagementAPISubaccountGetSubAccountFuturesMovePositionV1Request {
+func (r ApiSubaccountGetSubAccountFuturesMovePositionV1Request) Row(row int32) ApiSubaccountGetSubAccountFuturesMovePositionV1Request {
 	r.row = &row
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountFuturesMovePositionV1Request) Timestamp(timestamp int64) AssetManagementAPISubaccountGetSubAccountFuturesMovePositionV1Request {
+func (r ApiSubaccountGetSubAccountFuturesMovePositionV1Request) Timestamp(timestamp int64) ApiSubaccountGetSubAccountFuturesMovePositionV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountFuturesMovePositionV1Request) StartTime(startTime int64) AssetManagementAPISubaccountGetSubAccountFuturesMovePositionV1Request {
+func (r ApiSubaccountGetSubAccountFuturesMovePositionV1Request) StartTime(startTime int64) ApiSubaccountGetSubAccountFuturesMovePositionV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountFuturesMovePositionV1Request) EndTime(endTime int64) AssetManagementAPISubaccountGetSubAccountFuturesMovePositionV1Request {
+func (r ApiSubaccountGetSubAccountFuturesMovePositionV1Request) EndTime(endTime int64) ApiSubaccountGetSubAccountFuturesMovePositionV1Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountFuturesMovePositionV1Request) RecvWindow(recvWindow int64) AssetManagementAPISubaccountGetSubAccountFuturesMovePositionV1Request {
+func (r ApiSubaccountGetSubAccountFuturesMovePositionV1Request) RecvWindow(recvWindow int64) ApiSubaccountGetSubAccountFuturesMovePositionV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountFuturesMovePositionV1Request) Execute() (*SubaccountGetSubAccountFuturesMovePositionV1Resp, *http.Response, error) {
+func (r ApiSubaccountGetSubAccountFuturesMovePositionV1Request) Execute() (*SubaccountGetSubAccountFuturesMovePositionV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetSubAccountFuturesMovePositionV1Execute(r)
 }
 
@@ -2879,10 +2879,10 @@ SubaccountGetSubAccountFuturesMovePositionV1 Get Move Position History for Sub-a
 Query move position history
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetManagementAPISubaccountGetSubAccountFuturesMovePositionV1Request
+ @return ApiSubaccountGetSubAccountFuturesMovePositionV1Request
 */
-func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesMovePositionV1(ctx context.Context) AssetManagementAPISubaccountGetSubAccountFuturesMovePositionV1Request {
-	return AssetManagementAPISubaccountGetSubAccountFuturesMovePositionV1Request{
+func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesMovePositionV1(ctx context.Context) ApiSubaccountGetSubAccountFuturesMovePositionV1Request {
+	return ApiSubaccountGetSubAccountFuturesMovePositionV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2890,7 +2890,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesMovePositionV1
 
 // Execute executes the request
 //  @return SubaccountGetSubAccountFuturesMovePositionV1Resp
-func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesMovePositionV1Execute(r AssetManagementAPISubaccountGetSubAccountFuturesMovePositionV1Request) (*SubaccountGetSubAccountFuturesMovePositionV1Resp, *http.Response, error) {
+func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesMovePositionV1Execute(r ApiSubaccountGetSubAccountFuturesMovePositionV1Request) (*SubaccountGetSubAccountFuturesMovePositionV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3009,24 +3009,24 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountFuturesMovePositionV1
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetManagementAPISubaccountGetSubAccountMarginAccountSummaryV1Request struct {
+type ApiSubaccountGetSubAccountMarginAccountSummaryV1Request struct {
 	ctx context.Context
 	ApiService *AssetManagementAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountMarginAccountSummaryV1Request) Timestamp(timestamp int64) AssetManagementAPISubaccountGetSubAccountMarginAccountSummaryV1Request {
+func (r ApiSubaccountGetSubAccountMarginAccountSummaryV1Request) Timestamp(timestamp int64) ApiSubaccountGetSubAccountMarginAccountSummaryV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountMarginAccountSummaryV1Request) RecvWindow(recvWindow int64) AssetManagementAPISubaccountGetSubAccountMarginAccountSummaryV1Request {
+func (r ApiSubaccountGetSubAccountMarginAccountSummaryV1Request) RecvWindow(recvWindow int64) ApiSubaccountGetSubAccountMarginAccountSummaryV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountMarginAccountSummaryV1Request) Execute() (*SubaccountGetSubAccountMarginAccountSummaryV1Resp, *http.Response, error) {
+func (r ApiSubaccountGetSubAccountMarginAccountSummaryV1Request) Execute() (*SubaccountGetSubAccountMarginAccountSummaryV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetSubAccountMarginAccountSummaryV1Execute(r)
 }
 
@@ -3036,10 +3036,10 @@ SubaccountGetSubAccountMarginAccountSummaryV1 Get Summary of Sub-account's Margi
 Get Summary of Sub-account's Margin Account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetManagementAPISubaccountGetSubAccountMarginAccountSummaryV1Request
+ @return ApiSubaccountGetSubAccountMarginAccountSummaryV1Request
 */
-func (a *AssetManagementAPIService) SubaccountGetSubAccountMarginAccountSummaryV1(ctx context.Context) AssetManagementAPISubaccountGetSubAccountMarginAccountSummaryV1Request {
-	return AssetManagementAPISubaccountGetSubAccountMarginAccountSummaryV1Request{
+func (a *AssetManagementAPIService) SubaccountGetSubAccountMarginAccountSummaryV1(ctx context.Context) ApiSubaccountGetSubAccountMarginAccountSummaryV1Request {
+	return ApiSubaccountGetSubAccountMarginAccountSummaryV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3047,7 +3047,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountMarginAccountSummaryV
 
 // Execute executes the request
 //  @return SubaccountGetSubAccountMarginAccountSummaryV1Resp
-func (a *AssetManagementAPIService) SubaccountGetSubAccountMarginAccountSummaryV1Execute(r AssetManagementAPISubaccountGetSubAccountMarginAccountSummaryV1Request) (*SubaccountGetSubAccountMarginAccountSummaryV1Resp, *http.Response, error) {
+func (a *AssetManagementAPIService) SubaccountGetSubAccountMarginAccountSummaryV1Execute(r ApiSubaccountGetSubAccountMarginAccountSummaryV1Request) (*SubaccountGetSubAccountMarginAccountSummaryV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3148,7 +3148,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountMarginAccountSummaryV
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetManagementAPISubaccountGetSubAccountMarginAccountV1Request struct {
+type ApiSubaccountGetSubAccountMarginAccountV1Request struct {
 	ctx context.Context
 	ApiService *AssetManagementAPIService
 	email *string
@@ -3157,22 +3157,22 @@ type AssetManagementAPISubaccountGetSubAccountMarginAccountV1Request struct {
 }
 
 // &lt;a href&#x3D;\&quot;/docs/sub_account/asset-management/Get-Detail-on-Sub-accounts-Margin-Account#email-address\&quot;&gt;Sub-account email&lt;/a&gt;
-func (r AssetManagementAPISubaccountGetSubAccountMarginAccountV1Request) Email(email string) AssetManagementAPISubaccountGetSubAccountMarginAccountV1Request {
+func (r ApiSubaccountGetSubAccountMarginAccountV1Request) Email(email string) ApiSubaccountGetSubAccountMarginAccountV1Request {
 	r.email = &email
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountMarginAccountV1Request) Timestamp(timestamp int64) AssetManagementAPISubaccountGetSubAccountMarginAccountV1Request {
+func (r ApiSubaccountGetSubAccountMarginAccountV1Request) Timestamp(timestamp int64) ApiSubaccountGetSubAccountMarginAccountV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountMarginAccountV1Request) RecvWindow(recvWindow int64) AssetManagementAPISubaccountGetSubAccountMarginAccountV1Request {
+func (r ApiSubaccountGetSubAccountMarginAccountV1Request) RecvWindow(recvWindow int64) ApiSubaccountGetSubAccountMarginAccountV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountMarginAccountV1Request) Execute() (*SubaccountGetSubAccountMarginAccountV1Resp, *http.Response, error) {
+func (r ApiSubaccountGetSubAccountMarginAccountV1Request) Execute() (*SubaccountGetSubAccountMarginAccountV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetSubAccountMarginAccountV1Execute(r)
 }
 
@@ -3182,10 +3182,10 @@ SubaccountGetSubAccountMarginAccountV1 Get Detail on Sub-account's Margin Accoun
 Get Detail on Sub-account's Margin Account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetManagementAPISubaccountGetSubAccountMarginAccountV1Request
+ @return ApiSubaccountGetSubAccountMarginAccountV1Request
 */
-func (a *AssetManagementAPIService) SubaccountGetSubAccountMarginAccountV1(ctx context.Context) AssetManagementAPISubaccountGetSubAccountMarginAccountV1Request {
-	return AssetManagementAPISubaccountGetSubAccountMarginAccountV1Request{
+func (a *AssetManagementAPIService) SubaccountGetSubAccountMarginAccountV1(ctx context.Context) ApiSubaccountGetSubAccountMarginAccountV1Request {
+	return ApiSubaccountGetSubAccountMarginAccountV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3193,7 +3193,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountMarginAccountV1(ctx c
 
 // Execute executes the request
 //  @return SubaccountGetSubAccountMarginAccountV1Resp
-func (a *AssetManagementAPIService) SubaccountGetSubAccountMarginAccountV1Execute(r AssetManagementAPISubaccountGetSubAccountMarginAccountV1Request) (*SubaccountGetSubAccountMarginAccountV1Resp, *http.Response, error) {
+func (a *AssetManagementAPIService) SubaccountGetSubAccountMarginAccountV1Execute(r ApiSubaccountGetSubAccountMarginAccountV1Request) (*SubaccountGetSubAccountMarginAccountV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3298,7 +3298,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountMarginAccountV1Execut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetManagementAPISubaccountGetSubAccountSpotSummaryV1Request struct {
+type ApiSubaccountGetSubAccountSpotSummaryV1Request struct {
 	ctx context.Context
 	ApiService *AssetManagementAPIService
 	timestamp *int64
@@ -3308,35 +3308,35 @@ type AssetManagementAPISubaccountGetSubAccountSpotSummaryV1Request struct {
 	recvWindow *int64
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountSpotSummaryV1Request) Timestamp(timestamp int64) AssetManagementAPISubaccountGetSubAccountSpotSummaryV1Request {
+func (r ApiSubaccountGetSubAccountSpotSummaryV1Request) Timestamp(timestamp int64) ApiSubaccountGetSubAccountSpotSummaryV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Sub account email
-func (r AssetManagementAPISubaccountGetSubAccountSpotSummaryV1Request) Email(email string) AssetManagementAPISubaccountGetSubAccountSpotSummaryV1Request {
+func (r ApiSubaccountGetSubAccountSpotSummaryV1Request) Email(email string) ApiSubaccountGetSubAccountSpotSummaryV1Request {
 	r.email = &email
 	return r
 }
 
 // default 1
-func (r AssetManagementAPISubaccountGetSubAccountSpotSummaryV1Request) Page(page int64) AssetManagementAPISubaccountGetSubAccountSpotSummaryV1Request {
+func (r ApiSubaccountGetSubAccountSpotSummaryV1Request) Page(page int64) ApiSubaccountGetSubAccountSpotSummaryV1Request {
 	r.page = &page
 	return r
 }
 
 // default 10, max 20
-func (r AssetManagementAPISubaccountGetSubAccountSpotSummaryV1Request) Size(size int64) AssetManagementAPISubaccountGetSubAccountSpotSummaryV1Request {
+func (r ApiSubaccountGetSubAccountSpotSummaryV1Request) Size(size int64) ApiSubaccountGetSubAccountSpotSummaryV1Request {
 	r.size = &size
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountSpotSummaryV1Request) RecvWindow(recvWindow int64) AssetManagementAPISubaccountGetSubAccountSpotSummaryV1Request {
+func (r ApiSubaccountGetSubAccountSpotSummaryV1Request) RecvWindow(recvWindow int64) ApiSubaccountGetSubAccountSpotSummaryV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountSpotSummaryV1Request) Execute() (*SubaccountGetSubAccountSpotSummaryV1Resp, *http.Response, error) {
+func (r ApiSubaccountGetSubAccountSpotSummaryV1Request) Execute() (*SubaccountGetSubAccountSpotSummaryV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetSubAccountSpotSummaryV1Execute(r)
 }
 
@@ -3346,10 +3346,10 @@ SubaccountGetSubAccountSpotSummaryV1 Query Sub-account Spot Assets Summary(For M
 Get BTC valued asset summary of subaccounts.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetManagementAPISubaccountGetSubAccountSpotSummaryV1Request
+ @return ApiSubaccountGetSubAccountSpotSummaryV1Request
 */
-func (a *AssetManagementAPIService) SubaccountGetSubAccountSpotSummaryV1(ctx context.Context) AssetManagementAPISubaccountGetSubAccountSpotSummaryV1Request {
-	return AssetManagementAPISubaccountGetSubAccountSpotSummaryV1Request{
+func (a *AssetManagementAPIService) SubaccountGetSubAccountSpotSummaryV1(ctx context.Context) ApiSubaccountGetSubAccountSpotSummaryV1Request {
+	return ApiSubaccountGetSubAccountSpotSummaryV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3357,7 +3357,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountSpotSummaryV1(ctx con
 
 // Execute executes the request
 //  @return SubaccountGetSubAccountSpotSummaryV1Resp
-func (a *AssetManagementAPIService) SubaccountGetSubAccountSpotSummaryV1Execute(r AssetManagementAPISubaccountGetSubAccountSpotSummaryV1Request) (*SubaccountGetSubAccountSpotSummaryV1Resp, *http.Response, error) {
+func (a *AssetManagementAPIService) SubaccountGetSubAccountSpotSummaryV1Execute(r ApiSubaccountGetSubAccountSpotSummaryV1Request) (*SubaccountGetSubAccountSpotSummaryV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3476,7 +3476,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountSpotSummaryV1Execute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetManagementAPISubaccountGetSubAccountSubTransferHistoryV1Request struct {
+type ApiSubaccountGetSubAccountSubTransferHistoryV1Request struct {
 	ctx context.Context
 	ApiService *AssetManagementAPIService
 	timestamp *int64
@@ -3489,49 +3489,49 @@ type AssetManagementAPISubaccountGetSubAccountSubTransferHistoryV1Request struct
 	recvWindow *int64
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountSubTransferHistoryV1Request) Timestamp(timestamp int64) AssetManagementAPISubaccountGetSubAccountSubTransferHistoryV1Request {
+func (r ApiSubaccountGetSubAccountSubTransferHistoryV1Request) Timestamp(timestamp int64) ApiSubaccountGetSubAccountSubTransferHistoryV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountSubTransferHistoryV1Request) FromEmail(fromEmail string) AssetManagementAPISubaccountGetSubAccountSubTransferHistoryV1Request {
+func (r ApiSubaccountGetSubAccountSubTransferHistoryV1Request) FromEmail(fromEmail string) ApiSubaccountGetSubAccountSubTransferHistoryV1Request {
 	r.fromEmail = &fromEmail
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountSubTransferHistoryV1Request) ToEmail(toEmail string) AssetManagementAPISubaccountGetSubAccountSubTransferHistoryV1Request {
+func (r ApiSubaccountGetSubAccountSubTransferHistoryV1Request) ToEmail(toEmail string) ApiSubaccountGetSubAccountSubTransferHistoryV1Request {
 	r.toEmail = &toEmail
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountSubTransferHistoryV1Request) StartTime(startTime int64) AssetManagementAPISubaccountGetSubAccountSubTransferHistoryV1Request {
+func (r ApiSubaccountGetSubAccountSubTransferHistoryV1Request) StartTime(startTime int64) ApiSubaccountGetSubAccountSubTransferHistoryV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountSubTransferHistoryV1Request) EndTime(endTime int64) AssetManagementAPISubaccountGetSubAccountSubTransferHistoryV1Request {
+func (r ApiSubaccountGetSubAccountSubTransferHistoryV1Request) EndTime(endTime int64) ApiSubaccountGetSubAccountSubTransferHistoryV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default value: 1
-func (r AssetManagementAPISubaccountGetSubAccountSubTransferHistoryV1Request) Page(page int32) AssetManagementAPISubaccountGetSubAccountSubTransferHistoryV1Request {
+func (r ApiSubaccountGetSubAccountSubTransferHistoryV1Request) Page(page int32) ApiSubaccountGetSubAccountSubTransferHistoryV1Request {
 	r.page = &page
 	return r
 }
 
 // Default value: 500
-func (r AssetManagementAPISubaccountGetSubAccountSubTransferHistoryV1Request) Limit(limit int32) AssetManagementAPISubaccountGetSubAccountSubTransferHistoryV1Request {
+func (r ApiSubaccountGetSubAccountSubTransferHistoryV1Request) Limit(limit int32) ApiSubaccountGetSubAccountSubTransferHistoryV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountSubTransferHistoryV1Request) RecvWindow(recvWindow int64) AssetManagementAPISubaccountGetSubAccountSubTransferHistoryV1Request {
+func (r ApiSubaccountGetSubAccountSubTransferHistoryV1Request) RecvWindow(recvWindow int64) ApiSubaccountGetSubAccountSubTransferHistoryV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountSubTransferHistoryV1Request) Execute() ([]SubaccountGetSubAccountSubTransferHistoryV1RespItem, *http.Response, error) {
+func (r ApiSubaccountGetSubAccountSubTransferHistoryV1Request) Execute() ([]SubaccountGetSubAccountSubTransferHistoryV1RespItem, *http.Response, error) {
 	return r.ApiService.SubaccountGetSubAccountSubTransferHistoryV1Execute(r)
 }
 
@@ -3541,10 +3541,10 @@ SubaccountGetSubAccountSubTransferHistoryV1 Query Sub-account Spot Asset Transfe
 Query Sub-account Spot Asset Transfer History
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetManagementAPISubaccountGetSubAccountSubTransferHistoryV1Request
+ @return ApiSubaccountGetSubAccountSubTransferHistoryV1Request
 */
-func (a *AssetManagementAPIService) SubaccountGetSubAccountSubTransferHistoryV1(ctx context.Context) AssetManagementAPISubaccountGetSubAccountSubTransferHistoryV1Request {
-	return AssetManagementAPISubaccountGetSubAccountSubTransferHistoryV1Request{
+func (a *AssetManagementAPIService) SubaccountGetSubAccountSubTransferHistoryV1(ctx context.Context) ApiSubaccountGetSubAccountSubTransferHistoryV1Request {
+	return ApiSubaccountGetSubAccountSubTransferHistoryV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3552,7 +3552,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountSubTransferHistoryV1(
 
 // Execute executes the request
 //  @return []SubaccountGetSubAccountSubTransferHistoryV1RespItem
-func (a *AssetManagementAPIService) SubaccountGetSubAccountSubTransferHistoryV1Execute(r AssetManagementAPISubaccountGetSubAccountSubTransferHistoryV1Request) ([]SubaccountGetSubAccountSubTransferHistoryV1RespItem, *http.Response, error) {
+func (a *AssetManagementAPIService) SubaccountGetSubAccountSubTransferHistoryV1Execute(r ApiSubaccountGetSubAccountSubTransferHistoryV1Request) ([]SubaccountGetSubAccountSubTransferHistoryV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3677,7 +3677,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountSubTransferHistoryV1E
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetManagementAPISubaccountGetSubAccountTransferSubUserHistoryV1Request struct {
+type ApiSubaccountGetSubAccountTransferSubUserHistoryV1Request struct {
 	ctx context.Context
 	ApiService *AssetManagementAPIService
 	timestamp *int64
@@ -3690,51 +3690,51 @@ type AssetManagementAPISubaccountGetSubAccountTransferSubUserHistoryV1Request st
 	recvWindow *int64
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountTransferSubUserHistoryV1Request) Timestamp(timestamp int64) AssetManagementAPISubaccountGetSubAccountTransferSubUserHistoryV1Request {
+func (r ApiSubaccountGetSubAccountTransferSubUserHistoryV1Request) Timestamp(timestamp int64) ApiSubaccountGetSubAccountTransferSubUserHistoryV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // If not sent, result of all assets will be returned
-func (r AssetManagementAPISubaccountGetSubAccountTransferSubUserHistoryV1Request) Asset(asset string) AssetManagementAPISubaccountGetSubAccountTransferSubUserHistoryV1Request {
+func (r ApiSubaccountGetSubAccountTransferSubUserHistoryV1Request) Asset(asset string) ApiSubaccountGetSubAccountTransferSubUserHistoryV1Request {
 	r.asset = &asset
 	return r
 }
 
 // 1: transfer in, 2: transfer out
-func (r AssetManagementAPISubaccountGetSubAccountTransferSubUserHistoryV1Request) Type_(type_ int32) AssetManagementAPISubaccountGetSubAccountTransferSubUserHistoryV1Request {
+func (r ApiSubaccountGetSubAccountTransferSubUserHistoryV1Request) Type_(type_ int32) ApiSubaccountGetSubAccountTransferSubUserHistoryV1Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountTransferSubUserHistoryV1Request) StartTime(startTime int64) AssetManagementAPISubaccountGetSubAccountTransferSubUserHistoryV1Request {
+func (r ApiSubaccountGetSubAccountTransferSubUserHistoryV1Request) StartTime(startTime int64) ApiSubaccountGetSubAccountTransferSubUserHistoryV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountTransferSubUserHistoryV1Request) EndTime(endTime int64) AssetManagementAPISubaccountGetSubAccountTransferSubUserHistoryV1Request {
+func (r ApiSubaccountGetSubAccountTransferSubUserHistoryV1Request) EndTime(endTime int64) ApiSubaccountGetSubAccountTransferSubUserHistoryV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 500
-func (r AssetManagementAPISubaccountGetSubAccountTransferSubUserHistoryV1Request) Limit(limit int32) AssetManagementAPISubaccountGetSubAccountTransferSubUserHistoryV1Request {
+func (r ApiSubaccountGetSubAccountTransferSubUserHistoryV1Request) Limit(limit int32) ApiSubaccountGetSubAccountTransferSubUserHistoryV1Request {
 	r.limit = &limit
 	return r
 }
 
 // Default &#x60;False&#x60;, return PROCESS and SUCCESS status history; If &#x60;True&#x60;,return PROCESS and SUCCESS and FAILURE status history
-func (r AssetManagementAPISubaccountGetSubAccountTransferSubUserHistoryV1Request) ReturnFailHistory(returnFailHistory bool) AssetManagementAPISubaccountGetSubAccountTransferSubUserHistoryV1Request {
+func (r ApiSubaccountGetSubAccountTransferSubUserHistoryV1Request) ReturnFailHistory(returnFailHistory bool) ApiSubaccountGetSubAccountTransferSubUserHistoryV1Request {
 	r.returnFailHistory = &returnFailHistory
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountTransferSubUserHistoryV1Request) RecvWindow(recvWindow int64) AssetManagementAPISubaccountGetSubAccountTransferSubUserHistoryV1Request {
+func (r ApiSubaccountGetSubAccountTransferSubUserHistoryV1Request) RecvWindow(recvWindow int64) ApiSubaccountGetSubAccountTransferSubUserHistoryV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountTransferSubUserHistoryV1Request) Execute() ([]SubaccountGetSubAccountTransferSubUserHistoryV1RespItem, *http.Response, error) {
+func (r ApiSubaccountGetSubAccountTransferSubUserHistoryV1Request) Execute() ([]SubaccountGetSubAccountTransferSubUserHistoryV1RespItem, *http.Response, error) {
 	return r.ApiService.SubaccountGetSubAccountTransferSubUserHistoryV1Execute(r)
 }
 
@@ -3744,10 +3744,10 @@ SubaccountGetSubAccountTransferSubUserHistoryV1 Sub-account Transfer History(For
 Sub-account Transfer History
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetManagementAPISubaccountGetSubAccountTransferSubUserHistoryV1Request
+ @return ApiSubaccountGetSubAccountTransferSubUserHistoryV1Request
 */
-func (a *AssetManagementAPIService) SubaccountGetSubAccountTransferSubUserHistoryV1(ctx context.Context) AssetManagementAPISubaccountGetSubAccountTransferSubUserHistoryV1Request {
-	return AssetManagementAPISubaccountGetSubAccountTransferSubUserHistoryV1Request{
+func (a *AssetManagementAPIService) SubaccountGetSubAccountTransferSubUserHistoryV1(ctx context.Context) ApiSubaccountGetSubAccountTransferSubUserHistoryV1Request {
+	return ApiSubaccountGetSubAccountTransferSubUserHistoryV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3755,7 +3755,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountTransferSubUserHistor
 
 // Execute executes the request
 //  @return []SubaccountGetSubAccountTransferSubUserHistoryV1RespItem
-func (a *AssetManagementAPIService) SubaccountGetSubAccountTransferSubUserHistoryV1Execute(r AssetManagementAPISubaccountGetSubAccountTransferSubUserHistoryV1Request) ([]SubaccountGetSubAccountTransferSubUserHistoryV1RespItem, *http.Response, error) {
+func (a *AssetManagementAPIService) SubaccountGetSubAccountTransferSubUserHistoryV1Execute(r ApiSubaccountGetSubAccountTransferSubUserHistoryV1Request) ([]SubaccountGetSubAccountTransferSubUserHistoryV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3880,7 +3880,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountTransferSubUserHistor
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request struct {
+type ApiSubaccountGetSubAccountUniversalTransferV1Request struct {
 	ctx context.Context
 	ApiService *AssetManagementAPIService
 	timestamp *int64
@@ -3894,54 +3894,54 @@ type AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request struct 
 	recvWindow *int64
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request) Timestamp(timestamp int64) AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request {
+func (r ApiSubaccountGetSubAccountUniversalTransferV1Request) Timestamp(timestamp int64) ApiSubaccountGetSubAccountUniversalTransferV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request) FromEmail(fromEmail string) AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request {
+func (r ApiSubaccountGetSubAccountUniversalTransferV1Request) FromEmail(fromEmail string) ApiSubaccountGetSubAccountUniversalTransferV1Request {
 	r.fromEmail = &fromEmail
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request) ToEmail(toEmail string) AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request {
+func (r ApiSubaccountGetSubAccountUniversalTransferV1Request) ToEmail(toEmail string) ApiSubaccountGetSubAccountUniversalTransferV1Request {
 	r.toEmail = &toEmail
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request) ClientTranId(clientTranId string) AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request {
+func (r ApiSubaccountGetSubAccountUniversalTransferV1Request) ClientTranId(clientTranId string) ApiSubaccountGetSubAccountUniversalTransferV1Request {
 	r.clientTranId = &clientTranId
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request) StartTime(startTime int64) AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request {
+func (r ApiSubaccountGetSubAccountUniversalTransferV1Request) StartTime(startTime int64) ApiSubaccountGetSubAccountUniversalTransferV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request) EndTime(endTime int64) AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request {
+func (r ApiSubaccountGetSubAccountUniversalTransferV1Request) EndTime(endTime int64) ApiSubaccountGetSubAccountUniversalTransferV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 1
-func (r AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request) Page(page int32) AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request {
+func (r ApiSubaccountGetSubAccountUniversalTransferV1Request) Page(page int32) ApiSubaccountGetSubAccountUniversalTransferV1Request {
 	r.page = &page
 	return r
 }
 
 // Default 500, Max 500
-func (r AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request) Limit(limit int32) AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request {
+func (r ApiSubaccountGetSubAccountUniversalTransferV1Request) Limit(limit int32) ApiSubaccountGetSubAccountUniversalTransferV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request) RecvWindow(recvWindow int64) AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request {
+func (r ApiSubaccountGetSubAccountUniversalTransferV1Request) RecvWindow(recvWindow int64) ApiSubaccountGetSubAccountUniversalTransferV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request) Execute() (*SubaccountGetSubAccountUniversalTransferV1Resp, *http.Response, error) {
+func (r ApiSubaccountGetSubAccountUniversalTransferV1Request) Execute() (*SubaccountGetSubAccountUniversalTransferV1Resp, *http.Response, error) {
 	return r.ApiService.SubaccountGetSubAccountUniversalTransferV1Execute(r)
 }
 
@@ -3951,10 +3951,10 @@ SubaccountGetSubAccountUniversalTransferV1 Query Universal Transfer History(For 
 Query Universal Transfer History
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request
+ @return ApiSubaccountGetSubAccountUniversalTransferV1Request
 */
-func (a *AssetManagementAPIService) SubaccountGetSubAccountUniversalTransferV1(ctx context.Context) AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request {
-	return AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request{
+func (a *AssetManagementAPIService) SubaccountGetSubAccountUniversalTransferV1(ctx context.Context) ApiSubaccountGetSubAccountUniversalTransferV1Request {
+	return ApiSubaccountGetSubAccountUniversalTransferV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3962,7 +3962,7 @@ func (a *AssetManagementAPIService) SubaccountGetSubAccountUniversalTransferV1(c
 
 // Execute executes the request
 //  @return SubaccountGetSubAccountUniversalTransferV1Resp
-func (a *AssetManagementAPIService) SubaccountGetSubAccountUniversalTransferV1Execute(r AssetManagementAPISubaccountGetSubAccountUniversalTransferV1Request) (*SubaccountGetSubAccountUniversalTransferV1Resp, *http.Response, error) {
+func (a *AssetManagementAPIService) SubaccountGetSubAccountUniversalTransferV1Execute(r ApiSubaccountGetSubAccountUniversalTransferV1Request) (*SubaccountGetSubAccountUniversalTransferV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

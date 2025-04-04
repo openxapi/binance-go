@@ -1,7 +1,7 @@
 /*
-Binance Cmfutures API
+Binance COIN-M Futures API
 
-OpenAPI specification for Binance cryptocurrency exchange - Cmfutures API
+OpenAPI specification for Binance exchange - Cmfutures API
 
 API version: 0.1.0
 */
@@ -41,7 +41,7 @@ var (
 	queryDescape    = strings.NewReplacer("%5B", "[", "%5D", "]")
 )
 
-// APIClient manages communication with the Binance Cmfutures API API v0.1.0
+// APIClient manages communication with the Binance COIN-M Futures API API v0.1.0
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration
@@ -58,10 +58,6 @@ type APIClient struct {
 	TradeAPI *TradeAPIService
 
 	UserDataStreamsAPI *UserDataStreamsAPIService
-
-	V1API *V1APIService
-
-	V2API *V2APIService
 }
 
 type service struct {
@@ -85,8 +81,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.PortfolioMarginEndpointsAPI = (*PortfolioMarginEndpointsAPIService)(&c.common)
 	c.TradeAPI = (*TradeAPIService)(&c.common)
 	c.UserDataStreamsAPI = (*UserDataStreamsAPIService)(&c.common)
-	c.V1API = (*V1APIService)(&c.common)
-	c.V2API = (*V2APIService)(&c.common)
 
 	return c
 }

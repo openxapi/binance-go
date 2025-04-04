@@ -1,7 +1,7 @@
 /*
-Binance Algo API
+Binance Algorithmic Trading API
 
-OpenAPI specification for Binance cryptocurrency exchange - Algo API
+OpenAPI specification for Binance exchange - Algo API
 
 API version: 0.1.0
 */

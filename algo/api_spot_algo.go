@@ -1,7 +1,7 @@
 /*
-Binance Algo API
+Binance Algorithmic Trading API
 
-OpenAPI specification for Binance cryptocurrency exchange - Algo API
+OpenAPI specification for Binance exchange - Algo API
 
 API version: 0.1.0
 */
@@ -22,7 +22,7 @@ import (
 // SpotAlgoAPIService SpotAlgoAPI service
 type SpotAlgoAPIService service
 
-type SpotAlgoAPIAlgoCreateAlgoSpotNewOrderTwapV1Request struct {
+type ApiAlgoCreateAlgoSpotNewOrderTwapV1Request struct {
 	ctx context.Context
 	ApiService *SpotAlgoAPIService
 	duration *int64
@@ -34,42 +34,42 @@ type SpotAlgoAPIAlgoCreateAlgoSpotNewOrderTwapV1Request struct {
 	limitPrice *string
 }
 
-func (r SpotAlgoAPIAlgoCreateAlgoSpotNewOrderTwapV1Request) Duration(duration int64) SpotAlgoAPIAlgoCreateAlgoSpotNewOrderTwapV1Request {
+func (r ApiAlgoCreateAlgoSpotNewOrderTwapV1Request) Duration(duration int64) ApiAlgoCreateAlgoSpotNewOrderTwapV1Request {
 	r.duration = &duration
 	return r
 }
 
-func (r SpotAlgoAPIAlgoCreateAlgoSpotNewOrderTwapV1Request) Quantity(quantity string) SpotAlgoAPIAlgoCreateAlgoSpotNewOrderTwapV1Request {
+func (r ApiAlgoCreateAlgoSpotNewOrderTwapV1Request) Quantity(quantity string) ApiAlgoCreateAlgoSpotNewOrderTwapV1Request {
 	r.quantity = &quantity
 	return r
 }
 
-func (r SpotAlgoAPIAlgoCreateAlgoSpotNewOrderTwapV1Request) Side(side string) SpotAlgoAPIAlgoCreateAlgoSpotNewOrderTwapV1Request {
+func (r ApiAlgoCreateAlgoSpotNewOrderTwapV1Request) Side(side string) ApiAlgoCreateAlgoSpotNewOrderTwapV1Request {
 	r.side = &side
 	return r
 }
 
-func (r SpotAlgoAPIAlgoCreateAlgoSpotNewOrderTwapV1Request) Symbol(symbol string) SpotAlgoAPIAlgoCreateAlgoSpotNewOrderTwapV1Request {
+func (r ApiAlgoCreateAlgoSpotNewOrderTwapV1Request) Symbol(symbol string) ApiAlgoCreateAlgoSpotNewOrderTwapV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r SpotAlgoAPIAlgoCreateAlgoSpotNewOrderTwapV1Request) Timestamp(timestamp int64) SpotAlgoAPIAlgoCreateAlgoSpotNewOrderTwapV1Request {
+func (r ApiAlgoCreateAlgoSpotNewOrderTwapV1Request) Timestamp(timestamp int64) ApiAlgoCreateAlgoSpotNewOrderTwapV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r SpotAlgoAPIAlgoCreateAlgoSpotNewOrderTwapV1Request) ClientAlgoId(clientAlgoId string) SpotAlgoAPIAlgoCreateAlgoSpotNewOrderTwapV1Request {
+func (r ApiAlgoCreateAlgoSpotNewOrderTwapV1Request) ClientAlgoId(clientAlgoId string) ApiAlgoCreateAlgoSpotNewOrderTwapV1Request {
 	r.clientAlgoId = &clientAlgoId
 	return r
 }
 
-func (r SpotAlgoAPIAlgoCreateAlgoSpotNewOrderTwapV1Request) LimitPrice(limitPrice string) SpotAlgoAPIAlgoCreateAlgoSpotNewOrderTwapV1Request {
+func (r ApiAlgoCreateAlgoSpotNewOrderTwapV1Request) LimitPrice(limitPrice string) ApiAlgoCreateAlgoSpotNewOrderTwapV1Request {
 	r.limitPrice = &limitPrice
 	return r
 }
 
-func (r SpotAlgoAPIAlgoCreateAlgoSpotNewOrderTwapV1Request) Execute() (*AlgoCreateAlgoSpotNewOrderTwapV1Resp, *http.Response, error) {
+func (r ApiAlgoCreateAlgoSpotNewOrderTwapV1Request) Execute() (*AlgoCreateAlgoSpotNewOrderTwapV1Resp, *http.Response, error) {
 	return r.ApiService.AlgoCreateAlgoSpotNewOrderTwapV1Execute(r)
 }
 
@@ -79,10 +79,10 @@ AlgoCreateAlgoSpotNewOrderTwapV1 Time-Weighted Average Price(Twap) New Order(TRA
 Place a new spot TWAP order with Algo service.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return SpotAlgoAPIAlgoCreateAlgoSpotNewOrderTwapV1Request
+ @return ApiAlgoCreateAlgoSpotNewOrderTwapV1Request
 */
-func (a *SpotAlgoAPIService) AlgoCreateAlgoSpotNewOrderTwapV1(ctx context.Context) SpotAlgoAPIAlgoCreateAlgoSpotNewOrderTwapV1Request {
-	return SpotAlgoAPIAlgoCreateAlgoSpotNewOrderTwapV1Request{
+func (a *SpotAlgoAPIService) AlgoCreateAlgoSpotNewOrderTwapV1(ctx context.Context) ApiAlgoCreateAlgoSpotNewOrderTwapV1Request {
+	return ApiAlgoCreateAlgoSpotNewOrderTwapV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -90,7 +90,7 @@ func (a *SpotAlgoAPIService) AlgoCreateAlgoSpotNewOrderTwapV1(ctx context.Contex
 
 // Execute executes the request
 //  @return AlgoCreateAlgoSpotNewOrderTwapV1Resp
-func (a *SpotAlgoAPIService) AlgoCreateAlgoSpotNewOrderTwapV1Execute(r SpotAlgoAPIAlgoCreateAlgoSpotNewOrderTwapV1Request) (*AlgoCreateAlgoSpotNewOrderTwapV1Resp, *http.Response, error) {
+func (a *SpotAlgoAPIService) AlgoCreateAlgoSpotNewOrderTwapV1Execute(r ApiAlgoCreateAlgoSpotNewOrderTwapV1Request) (*AlgoCreateAlgoSpotNewOrderTwapV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -216,7 +216,7 @@ func (a *SpotAlgoAPIService) AlgoCreateAlgoSpotNewOrderTwapV1Execute(r SpotAlgoA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type SpotAlgoAPIAlgoDeleteAlgoSpotOrderV1Request struct {
+type ApiAlgoDeleteAlgoSpotOrderV1Request struct {
 	ctx context.Context
 	ApiService *SpotAlgoAPIService
 	algoId *int64
@@ -225,22 +225,22 @@ type SpotAlgoAPIAlgoDeleteAlgoSpotOrderV1Request struct {
 }
 
 // eg. 14511
-func (r SpotAlgoAPIAlgoDeleteAlgoSpotOrderV1Request) AlgoId(algoId int64) SpotAlgoAPIAlgoDeleteAlgoSpotOrderV1Request {
+func (r ApiAlgoDeleteAlgoSpotOrderV1Request) AlgoId(algoId int64) ApiAlgoDeleteAlgoSpotOrderV1Request {
 	r.algoId = &algoId
 	return r
 }
 
-func (r SpotAlgoAPIAlgoDeleteAlgoSpotOrderV1Request) Timestamp(timestamp int64) SpotAlgoAPIAlgoDeleteAlgoSpotOrderV1Request {
+func (r ApiAlgoDeleteAlgoSpotOrderV1Request) Timestamp(timestamp int64) ApiAlgoDeleteAlgoSpotOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r SpotAlgoAPIAlgoDeleteAlgoSpotOrderV1Request) RecvWindow(recvWindow int64) SpotAlgoAPIAlgoDeleteAlgoSpotOrderV1Request {
+func (r ApiAlgoDeleteAlgoSpotOrderV1Request) RecvWindow(recvWindow int64) ApiAlgoDeleteAlgoSpotOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r SpotAlgoAPIAlgoDeleteAlgoSpotOrderV1Request) Execute() (*AlgoDeleteAlgoSpotOrderV1Resp, *http.Response, error) {
+func (r ApiAlgoDeleteAlgoSpotOrderV1Request) Execute() (*AlgoDeleteAlgoSpotOrderV1Resp, *http.Response, error) {
 	return r.ApiService.AlgoDeleteAlgoSpotOrderV1Execute(r)
 }
 
@@ -250,10 +250,10 @@ AlgoDeleteAlgoSpotOrderV1 Cancel Algo Order(TRADE)
 Cancel an open TWAP order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return SpotAlgoAPIAlgoDeleteAlgoSpotOrderV1Request
+ @return ApiAlgoDeleteAlgoSpotOrderV1Request
 */
-func (a *SpotAlgoAPIService) AlgoDeleteAlgoSpotOrderV1(ctx context.Context) SpotAlgoAPIAlgoDeleteAlgoSpotOrderV1Request {
-	return SpotAlgoAPIAlgoDeleteAlgoSpotOrderV1Request{
+func (a *SpotAlgoAPIService) AlgoDeleteAlgoSpotOrderV1(ctx context.Context) ApiAlgoDeleteAlgoSpotOrderV1Request {
+	return ApiAlgoDeleteAlgoSpotOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -261,7 +261,7 @@ func (a *SpotAlgoAPIService) AlgoDeleteAlgoSpotOrderV1(ctx context.Context) Spot
 
 // Execute executes the request
 //  @return AlgoDeleteAlgoSpotOrderV1Resp
-func (a *SpotAlgoAPIService) AlgoDeleteAlgoSpotOrderV1Execute(r SpotAlgoAPIAlgoDeleteAlgoSpotOrderV1Request) (*AlgoDeleteAlgoSpotOrderV1Resp, *http.Response, error) {
+func (a *SpotAlgoAPIService) AlgoDeleteAlgoSpotOrderV1Execute(r ApiAlgoDeleteAlgoSpotOrderV1Request) (*AlgoDeleteAlgoSpotOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -372,7 +372,7 @@ func (a *SpotAlgoAPIService) AlgoDeleteAlgoSpotOrderV1Execute(r SpotAlgoAPIAlgoD
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type SpotAlgoAPIAlgoGetAlgoSpotHistoricalOrdersV1Request struct {
+type ApiAlgoGetAlgoSpotHistoricalOrdersV1Request struct {
 	ctx context.Context
 	ApiService *SpotAlgoAPIService
 	timestamp *int64
@@ -385,53 +385,53 @@ type SpotAlgoAPIAlgoGetAlgoSpotHistoricalOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r SpotAlgoAPIAlgoGetAlgoSpotHistoricalOrdersV1Request) Timestamp(timestamp int64) SpotAlgoAPIAlgoGetAlgoSpotHistoricalOrdersV1Request {
+func (r ApiAlgoGetAlgoSpotHistoricalOrdersV1Request) Timestamp(timestamp int64) ApiAlgoGetAlgoSpotHistoricalOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Trading symbol eg. BTCUSDT
-func (r SpotAlgoAPIAlgoGetAlgoSpotHistoricalOrdersV1Request) Symbol(symbol string) SpotAlgoAPIAlgoGetAlgoSpotHistoricalOrdersV1Request {
+func (r ApiAlgoGetAlgoSpotHistoricalOrdersV1Request) Symbol(symbol string) ApiAlgoGetAlgoSpotHistoricalOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // BUY or SELL
-func (r SpotAlgoAPIAlgoGetAlgoSpotHistoricalOrdersV1Request) Side(side string) SpotAlgoAPIAlgoGetAlgoSpotHistoricalOrdersV1Request {
+func (r ApiAlgoGetAlgoSpotHistoricalOrdersV1Request) Side(side string) ApiAlgoGetAlgoSpotHistoricalOrdersV1Request {
 	r.side = &side
 	return r
 }
 
 // in milliseconds  eg.1641522717552
-func (r SpotAlgoAPIAlgoGetAlgoSpotHistoricalOrdersV1Request) StartTime(startTime int64) SpotAlgoAPIAlgoGetAlgoSpotHistoricalOrdersV1Request {
+func (r ApiAlgoGetAlgoSpotHistoricalOrdersV1Request) StartTime(startTime int64) ApiAlgoGetAlgoSpotHistoricalOrdersV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // in milliseconds  eg.1641522526562
-func (r SpotAlgoAPIAlgoGetAlgoSpotHistoricalOrdersV1Request) EndTime(endTime int64) SpotAlgoAPIAlgoGetAlgoSpotHistoricalOrdersV1Request {
+func (r ApiAlgoGetAlgoSpotHistoricalOrdersV1Request) EndTime(endTime int64) ApiAlgoGetAlgoSpotHistoricalOrdersV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default is 1
-func (r SpotAlgoAPIAlgoGetAlgoSpotHistoricalOrdersV1Request) Page(page int32) SpotAlgoAPIAlgoGetAlgoSpotHistoricalOrdersV1Request {
+func (r ApiAlgoGetAlgoSpotHistoricalOrdersV1Request) Page(page int32) ApiAlgoGetAlgoSpotHistoricalOrdersV1Request {
 	r.page = &page
 	return r
 }
 
 // MIN 1, MAX 100; Default 100
-func (r SpotAlgoAPIAlgoGetAlgoSpotHistoricalOrdersV1Request) PageSize(pageSize int32) SpotAlgoAPIAlgoGetAlgoSpotHistoricalOrdersV1Request {
+func (r ApiAlgoGetAlgoSpotHistoricalOrdersV1Request) PageSize(pageSize int32) ApiAlgoGetAlgoSpotHistoricalOrdersV1Request {
 	r.pageSize = &pageSize
 	return r
 }
 
-func (r SpotAlgoAPIAlgoGetAlgoSpotHistoricalOrdersV1Request) RecvWindow(recvWindow int64) SpotAlgoAPIAlgoGetAlgoSpotHistoricalOrdersV1Request {
+func (r ApiAlgoGetAlgoSpotHistoricalOrdersV1Request) RecvWindow(recvWindow int64) ApiAlgoGetAlgoSpotHistoricalOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r SpotAlgoAPIAlgoGetAlgoSpotHistoricalOrdersV1Request) Execute() (*AlgoGetAlgoSpotHistoricalOrdersV1Resp, *http.Response, error) {
+func (r ApiAlgoGetAlgoSpotHistoricalOrdersV1Request) Execute() (*AlgoGetAlgoSpotHistoricalOrdersV1Resp, *http.Response, error) {
 	return r.ApiService.AlgoGetAlgoSpotHistoricalOrdersV1Execute(r)
 }
 
@@ -441,10 +441,10 @@ AlgoGetAlgoSpotHistoricalOrdersV1 Query Historical Algo Orders(USER_DATA)
 Get all historical SPOT TWAP orders
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return SpotAlgoAPIAlgoGetAlgoSpotHistoricalOrdersV1Request
+ @return ApiAlgoGetAlgoSpotHistoricalOrdersV1Request
 */
-func (a *SpotAlgoAPIService) AlgoGetAlgoSpotHistoricalOrdersV1(ctx context.Context) SpotAlgoAPIAlgoGetAlgoSpotHistoricalOrdersV1Request {
-	return SpotAlgoAPIAlgoGetAlgoSpotHistoricalOrdersV1Request{
+func (a *SpotAlgoAPIService) AlgoGetAlgoSpotHistoricalOrdersV1(ctx context.Context) ApiAlgoGetAlgoSpotHistoricalOrdersV1Request {
+	return ApiAlgoGetAlgoSpotHistoricalOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -452,7 +452,7 @@ func (a *SpotAlgoAPIService) AlgoGetAlgoSpotHistoricalOrdersV1(ctx context.Conte
 
 // Execute executes the request
 //  @return AlgoGetAlgoSpotHistoricalOrdersV1Resp
-func (a *SpotAlgoAPIService) AlgoGetAlgoSpotHistoricalOrdersV1Execute(r SpotAlgoAPIAlgoGetAlgoSpotHistoricalOrdersV1Request) (*AlgoGetAlgoSpotHistoricalOrdersV1Resp, *http.Response, error) {
+func (a *SpotAlgoAPIService) AlgoGetAlgoSpotHistoricalOrdersV1Execute(r ApiAlgoGetAlgoSpotHistoricalOrdersV1Request) (*AlgoGetAlgoSpotHistoricalOrdersV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -586,24 +586,24 @@ func (a *SpotAlgoAPIService) AlgoGetAlgoSpotHistoricalOrdersV1Execute(r SpotAlgo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type SpotAlgoAPIAlgoGetAlgoSpotOpenOrdersV1Request struct {
+type ApiAlgoGetAlgoSpotOpenOrdersV1Request struct {
 	ctx context.Context
 	ApiService *SpotAlgoAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r SpotAlgoAPIAlgoGetAlgoSpotOpenOrdersV1Request) Timestamp(timestamp int64) SpotAlgoAPIAlgoGetAlgoSpotOpenOrdersV1Request {
+func (r ApiAlgoGetAlgoSpotOpenOrdersV1Request) Timestamp(timestamp int64) ApiAlgoGetAlgoSpotOpenOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r SpotAlgoAPIAlgoGetAlgoSpotOpenOrdersV1Request) RecvWindow(recvWindow int64) SpotAlgoAPIAlgoGetAlgoSpotOpenOrdersV1Request {
+func (r ApiAlgoGetAlgoSpotOpenOrdersV1Request) RecvWindow(recvWindow int64) ApiAlgoGetAlgoSpotOpenOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r SpotAlgoAPIAlgoGetAlgoSpotOpenOrdersV1Request) Execute() (*AlgoGetAlgoSpotOpenOrdersV1Resp, *http.Response, error) {
+func (r ApiAlgoGetAlgoSpotOpenOrdersV1Request) Execute() (*AlgoGetAlgoSpotOpenOrdersV1Resp, *http.Response, error) {
 	return r.ApiService.AlgoGetAlgoSpotOpenOrdersV1Execute(r)
 }
 
@@ -613,10 +613,10 @@ AlgoGetAlgoSpotOpenOrdersV1 Query Current Algo Open Orders(USER_DATA)
 Get all open SPOT TWAP orders
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return SpotAlgoAPIAlgoGetAlgoSpotOpenOrdersV1Request
+ @return ApiAlgoGetAlgoSpotOpenOrdersV1Request
 */
-func (a *SpotAlgoAPIService) AlgoGetAlgoSpotOpenOrdersV1(ctx context.Context) SpotAlgoAPIAlgoGetAlgoSpotOpenOrdersV1Request {
-	return SpotAlgoAPIAlgoGetAlgoSpotOpenOrdersV1Request{
+func (a *SpotAlgoAPIService) AlgoGetAlgoSpotOpenOrdersV1(ctx context.Context) ApiAlgoGetAlgoSpotOpenOrdersV1Request {
+	return ApiAlgoGetAlgoSpotOpenOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -624,7 +624,7 @@ func (a *SpotAlgoAPIService) AlgoGetAlgoSpotOpenOrdersV1(ctx context.Context) Sp
 
 // Execute executes the request
 //  @return AlgoGetAlgoSpotOpenOrdersV1Resp
-func (a *SpotAlgoAPIService) AlgoGetAlgoSpotOpenOrdersV1Execute(r SpotAlgoAPIAlgoGetAlgoSpotOpenOrdersV1Request) (*AlgoGetAlgoSpotOpenOrdersV1Resp, *http.Response, error) {
+func (a *SpotAlgoAPIService) AlgoGetAlgoSpotOpenOrdersV1Execute(r ApiAlgoGetAlgoSpotOpenOrdersV1Request) (*AlgoGetAlgoSpotOpenOrdersV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -731,7 +731,7 @@ func (a *SpotAlgoAPIService) AlgoGetAlgoSpotOpenOrdersV1Execute(r SpotAlgoAPIAlg
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type SpotAlgoAPIAlgoGetAlgoSpotSubOrdersV1Request struct {
+type ApiAlgoGetAlgoSpotSubOrdersV1Request struct {
 	ctx context.Context
 	ApiService *SpotAlgoAPIService
 	algoId *int64
@@ -741,34 +741,34 @@ type SpotAlgoAPIAlgoGetAlgoSpotSubOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r SpotAlgoAPIAlgoGetAlgoSpotSubOrdersV1Request) AlgoId(algoId int64) SpotAlgoAPIAlgoGetAlgoSpotSubOrdersV1Request {
+func (r ApiAlgoGetAlgoSpotSubOrdersV1Request) AlgoId(algoId int64) ApiAlgoGetAlgoSpotSubOrdersV1Request {
 	r.algoId = &algoId
 	return r
 }
 
-func (r SpotAlgoAPIAlgoGetAlgoSpotSubOrdersV1Request) Timestamp(timestamp int64) SpotAlgoAPIAlgoGetAlgoSpotSubOrdersV1Request {
+func (r ApiAlgoGetAlgoSpotSubOrdersV1Request) Timestamp(timestamp int64) ApiAlgoGetAlgoSpotSubOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Default is 1
-func (r SpotAlgoAPIAlgoGetAlgoSpotSubOrdersV1Request) Page(page int32) SpotAlgoAPIAlgoGetAlgoSpotSubOrdersV1Request {
+func (r ApiAlgoGetAlgoSpotSubOrdersV1Request) Page(page int32) ApiAlgoGetAlgoSpotSubOrdersV1Request {
 	r.page = &page
 	return r
 }
 
 // MIN 1, MAX 100; Default 100
-func (r SpotAlgoAPIAlgoGetAlgoSpotSubOrdersV1Request) PageSize(pageSize int32) SpotAlgoAPIAlgoGetAlgoSpotSubOrdersV1Request {
+func (r ApiAlgoGetAlgoSpotSubOrdersV1Request) PageSize(pageSize int32) ApiAlgoGetAlgoSpotSubOrdersV1Request {
 	r.pageSize = &pageSize
 	return r
 }
 
-func (r SpotAlgoAPIAlgoGetAlgoSpotSubOrdersV1Request) RecvWindow(recvWindow int64) SpotAlgoAPIAlgoGetAlgoSpotSubOrdersV1Request {
+func (r ApiAlgoGetAlgoSpotSubOrdersV1Request) RecvWindow(recvWindow int64) ApiAlgoGetAlgoSpotSubOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r SpotAlgoAPIAlgoGetAlgoSpotSubOrdersV1Request) Execute() (*AlgoGetAlgoSpotSubOrdersV1Resp, *http.Response, error) {
+func (r ApiAlgoGetAlgoSpotSubOrdersV1Request) Execute() (*AlgoGetAlgoSpotSubOrdersV1Resp, *http.Response, error) {
 	return r.ApiService.AlgoGetAlgoSpotSubOrdersV1Execute(r)
 }
 
@@ -778,10 +778,10 @@ AlgoGetAlgoSpotSubOrdersV1 Query Sub Orders(USER_DATA)
 Get respective sub orders for a specified algoId
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return SpotAlgoAPIAlgoGetAlgoSpotSubOrdersV1Request
+ @return ApiAlgoGetAlgoSpotSubOrdersV1Request
 */
-func (a *SpotAlgoAPIService) AlgoGetAlgoSpotSubOrdersV1(ctx context.Context) SpotAlgoAPIAlgoGetAlgoSpotSubOrdersV1Request {
-	return SpotAlgoAPIAlgoGetAlgoSpotSubOrdersV1Request{
+func (a *SpotAlgoAPIService) AlgoGetAlgoSpotSubOrdersV1(ctx context.Context) ApiAlgoGetAlgoSpotSubOrdersV1Request {
+	return ApiAlgoGetAlgoSpotSubOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -789,7 +789,7 @@ func (a *SpotAlgoAPIService) AlgoGetAlgoSpotSubOrdersV1(ctx context.Context) Spo
 
 // Execute executes the request
 //  @return AlgoGetAlgoSpotSubOrdersV1Resp
-func (a *SpotAlgoAPIService) AlgoGetAlgoSpotSubOrdersV1Execute(r SpotAlgoAPIAlgoGetAlgoSpotSubOrdersV1Request) (*AlgoGetAlgoSpotSubOrdersV1Resp, *http.Response, error) {
+func (a *SpotAlgoAPIService) AlgoGetAlgoSpotSubOrdersV1Execute(r ApiAlgoGetAlgoSpotSubOrdersV1Request) (*AlgoGetAlgoSpotSubOrdersV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

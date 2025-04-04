@@ -1,7 +1,7 @@
 /*
 Binance Options API
 
-OpenAPI specification for Binance cryptocurrency exchange - Options API
+OpenAPI specification for Binance exchange - Options API
 
 API version: 0.1.0
 */
@@ -22,12 +22,12 @@ import (
 // UserDataStreamsAPIService UserDataStreamsAPI service
 type UserDataStreamsAPIService service
 
-type UserDataStreamsAPIOptionsCreateListenKeyV1Request struct {
+type ApiOptionsCreateListenKeyV1Request struct {
 	ctx context.Context
 	ApiService *UserDataStreamsAPIService
 }
 
-func (r UserDataStreamsAPIOptionsCreateListenKeyV1Request) Execute() (*OptionsCreateListenKeyV1Resp, *http.Response, error) {
+func (r ApiOptionsCreateListenKeyV1Request) Execute() (*OptionsCreateListenKeyV1Resp, *http.Response, error) {
 	return r.ApiService.OptionsCreateListenKeyV1Execute(r)
 }
 
@@ -37,10 +37,10 @@ OptionsCreateListenKeyV1 Start User Data Stream (USER_STREAM)
 Start a new user data stream. The stream will close after 60 minutes unless a keepalive is sent. If the account has an active listenKey, that listenKey will be returned and its validity will be extended for 60 minutes.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return UserDataStreamsAPIOptionsCreateListenKeyV1Request
+ @return ApiOptionsCreateListenKeyV1Request
 */
-func (a *UserDataStreamsAPIService) OptionsCreateListenKeyV1(ctx context.Context) UserDataStreamsAPIOptionsCreateListenKeyV1Request {
-	return UserDataStreamsAPIOptionsCreateListenKeyV1Request{
+func (a *UserDataStreamsAPIService) OptionsCreateListenKeyV1(ctx context.Context) ApiOptionsCreateListenKeyV1Request {
+	return ApiOptionsCreateListenKeyV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -48,7 +48,7 @@ func (a *UserDataStreamsAPIService) OptionsCreateListenKeyV1(ctx context.Context
 
 // Execute executes the request
 //  @return OptionsCreateListenKeyV1Resp
-func (a *UserDataStreamsAPIService) OptionsCreateListenKeyV1Execute(r UserDataStreamsAPIOptionsCreateListenKeyV1Request) (*OptionsCreateListenKeyV1Resp, *http.Response, error) {
+func (a *UserDataStreamsAPIService) OptionsCreateListenKeyV1Execute(r ApiOptionsCreateListenKeyV1Request) (*OptionsCreateListenKeyV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -148,12 +148,12 @@ func (a *UserDataStreamsAPIService) OptionsCreateListenKeyV1Execute(r UserDataSt
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UserDataStreamsAPIOptionsDeleteListenKeyV1Request struct {
+type ApiOptionsDeleteListenKeyV1Request struct {
 	ctx context.Context
 	ApiService *UserDataStreamsAPIService
 }
 
-func (r UserDataStreamsAPIOptionsDeleteListenKeyV1Request) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiOptionsDeleteListenKeyV1Request) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.OptionsDeleteListenKeyV1Execute(r)
 }
 
@@ -163,10 +163,10 @@ OptionsDeleteListenKeyV1 Close User Data Stream (USER_STREAM)
 Close out a user data stream.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return UserDataStreamsAPIOptionsDeleteListenKeyV1Request
+ @return ApiOptionsDeleteListenKeyV1Request
 */
-func (a *UserDataStreamsAPIService) OptionsDeleteListenKeyV1(ctx context.Context) UserDataStreamsAPIOptionsDeleteListenKeyV1Request {
-	return UserDataStreamsAPIOptionsDeleteListenKeyV1Request{
+func (a *UserDataStreamsAPIService) OptionsDeleteListenKeyV1(ctx context.Context) ApiOptionsDeleteListenKeyV1Request {
+	return ApiOptionsDeleteListenKeyV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -174,7 +174,7 @@ func (a *UserDataStreamsAPIService) OptionsDeleteListenKeyV1(ctx context.Context
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *UserDataStreamsAPIService) OptionsDeleteListenKeyV1Execute(r UserDataStreamsAPIOptionsDeleteListenKeyV1Request) (map[string]interface{}, *http.Response, error) {
+func (a *UserDataStreamsAPIService) OptionsDeleteListenKeyV1Execute(r ApiOptionsDeleteListenKeyV1Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -274,12 +274,12 @@ func (a *UserDataStreamsAPIService) OptionsDeleteListenKeyV1Execute(r UserDataSt
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type UserDataStreamsAPIOptionsUpdateListenKeyV1Request struct {
+type ApiOptionsUpdateListenKeyV1Request struct {
 	ctx context.Context
 	ApiService *UserDataStreamsAPIService
 }
 
-func (r UserDataStreamsAPIOptionsUpdateListenKeyV1Request) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiOptionsUpdateListenKeyV1Request) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.OptionsUpdateListenKeyV1Execute(r)
 }
 
@@ -289,10 +289,10 @@ OptionsUpdateListenKeyV1 Keepalive User Data Stream (USER_STREAM)
 Keepalive a user data stream to prevent a time out. User data streams will close after 60 minutes. It's recommended to send a ping about every 60 minutes.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return UserDataStreamsAPIOptionsUpdateListenKeyV1Request
+ @return ApiOptionsUpdateListenKeyV1Request
 */
-func (a *UserDataStreamsAPIService) OptionsUpdateListenKeyV1(ctx context.Context) UserDataStreamsAPIOptionsUpdateListenKeyV1Request {
-	return UserDataStreamsAPIOptionsUpdateListenKeyV1Request{
+func (a *UserDataStreamsAPIService) OptionsUpdateListenKeyV1(ctx context.Context) ApiOptionsUpdateListenKeyV1Request {
+	return ApiOptionsUpdateListenKeyV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -300,7 +300,7 @@ func (a *UserDataStreamsAPIService) OptionsUpdateListenKeyV1(ctx context.Context
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *UserDataStreamsAPIService) OptionsUpdateListenKeyV1Execute(r UserDataStreamsAPIOptionsUpdateListenKeyV1Request) (map[string]interface{}, *http.Response, error) {
+func (a *UserDataStreamsAPIService) OptionsUpdateListenKeyV1Execute(r ApiOptionsUpdateListenKeyV1Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}

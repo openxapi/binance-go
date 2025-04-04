@@ -52,8 +52,6 @@ type APIClient struct {
 	MarketDataAPI *MarketDataAPIService
 
 	TradeAPI *TradeAPIService
-
-	V1API *V1APIService
 }
 
 type service struct {
@@ -74,7 +72,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	// API Services
 	c.MarketDataAPI = (*MarketDataAPIService)(&c.common)
 	c.TradeAPI = (*TradeAPIService)(&c.common)
-	c.V1API = (*V1APIService)(&c.common)
 
 	return c
 }

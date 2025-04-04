@@ -1,7 +1,7 @@
 /*
 Binance Spot API
 
-OpenAPI specification for Binance cryptocurrency exchange - Spot API
+OpenAPI specification for Binance exchange - Spot API
 
 API version: 0.1.0
 */
@@ -22,18 +22,18 @@ import (
 // AccountAPIService AccountAPI service
 type AccountAPIService service
 
-type AccountAPISpotGetAccountCommissionV3Request struct {
+type ApiSpotGetAccountCommissionV3Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	symbol *string
 }
 
-func (r AccountAPISpotGetAccountCommissionV3Request) Symbol(symbol string) AccountAPISpotGetAccountCommissionV3Request {
+func (r ApiSpotGetAccountCommissionV3Request) Symbol(symbol string) ApiSpotGetAccountCommissionV3Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r AccountAPISpotGetAccountCommissionV3Request) Execute() (*SpotGetAccountCommissionV3Resp, *http.Response, error) {
+func (r ApiSpotGetAccountCommissionV3Request) Execute() (*SpotGetAccountCommissionV3Resp, *http.Response, error) {
 	return r.ApiService.SpotGetAccountCommissionV3Execute(r)
 }
 
@@ -43,10 +43,10 @@ SpotGetAccountCommissionV3 Query Commission Rates (USER_DATA)
 Get current account commission rates.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPISpotGetAccountCommissionV3Request
+ @return ApiSpotGetAccountCommissionV3Request
 */
-func (a *AccountAPIService) SpotGetAccountCommissionV3(ctx context.Context) AccountAPISpotGetAccountCommissionV3Request {
-	return AccountAPISpotGetAccountCommissionV3Request{
+func (a *AccountAPIService) SpotGetAccountCommissionV3(ctx context.Context) ApiSpotGetAccountCommissionV3Request {
+	return ApiSpotGetAccountCommissionV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -54,7 +54,7 @@ func (a *AccountAPIService) SpotGetAccountCommissionV3(ctx context.Context) Acco
 
 // Execute executes the request
 //  @return SpotGetAccountCommissionV3Resp
-func (a *AccountAPIService) SpotGetAccountCommissionV3Execute(r AccountAPISpotGetAccountCommissionV3Request) (*SpotGetAccountCommissionV3Resp, *http.Response, error) {
+func (a *AccountAPIService) SpotGetAccountCommissionV3Execute(r ApiSpotGetAccountCommissionV3Request) (*SpotGetAccountCommissionV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -158,7 +158,7 @@ func (a *AccountAPIService) SpotGetAccountCommissionV3Execute(r AccountAPISpotGe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPISpotGetAccountV3Request struct {
+type ApiSpotGetAccountV3Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
@@ -166,24 +166,24 @@ type AccountAPISpotGetAccountV3Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPISpotGetAccountV3Request) Timestamp(timestamp int64) AccountAPISpotGetAccountV3Request {
+func (r ApiSpotGetAccountV3Request) Timestamp(timestamp int64) ApiSpotGetAccountV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // When set to &#x60;true&#x60;, emits only the non-zero balances of an account. &lt;br/&gt;Default value: &#x60;false&#x60;
-func (r AccountAPISpotGetAccountV3Request) OmitZeroBalances(omitZeroBalances bool) AccountAPISpotGetAccountV3Request {
+func (r ApiSpotGetAccountV3Request) OmitZeroBalances(omitZeroBalances bool) ApiSpotGetAccountV3Request {
 	r.omitZeroBalances = &omitZeroBalances
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r AccountAPISpotGetAccountV3Request) RecvWindow(recvWindow int64) AccountAPISpotGetAccountV3Request {
+func (r ApiSpotGetAccountV3Request) RecvWindow(recvWindow int64) ApiSpotGetAccountV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPISpotGetAccountV3Request) Execute() (*SpotGetAccountV3Resp, *http.Response, error) {
+func (r ApiSpotGetAccountV3Request) Execute() (*SpotGetAccountV3Resp, *http.Response, error) {
 	return r.ApiService.SpotGetAccountV3Execute(r)
 }
 
@@ -193,10 +193,10 @@ SpotGetAccountV3 Account information (USER_DATA)
 Get current account information.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPISpotGetAccountV3Request
+ @return ApiSpotGetAccountV3Request
 */
-func (a *AccountAPIService) SpotGetAccountV3(ctx context.Context) AccountAPISpotGetAccountV3Request {
-	return AccountAPISpotGetAccountV3Request{
+func (a *AccountAPIService) SpotGetAccountV3(ctx context.Context) ApiSpotGetAccountV3Request {
+	return ApiSpotGetAccountV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -204,7 +204,7 @@ func (a *AccountAPIService) SpotGetAccountV3(ctx context.Context) AccountAPISpot
 
 // Execute executes the request
 //  @return SpotGetAccountV3Resp
-func (a *AccountAPIService) SpotGetAccountV3Execute(r AccountAPISpotGetAccountV3Request) (*SpotGetAccountV3Resp, *http.Response, error) {
+func (a *AccountAPIService) SpotGetAccountV3Execute(r ApiSpotGetAccountV3Request) (*SpotGetAccountV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -314,7 +314,7 @@ func (a *AccountAPIService) SpotGetAccountV3Execute(r AccountAPISpotGetAccountV3
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPISpotGetMyAllocationsV3Request struct {
+type ApiSpotGetMyAllocationsV3Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	symbol *string
@@ -327,49 +327,49 @@ type AccountAPISpotGetMyAllocationsV3Request struct {
 	timestamp *int64
 }
 
-func (r AccountAPISpotGetMyAllocationsV3Request) Symbol(symbol string) AccountAPISpotGetMyAllocationsV3Request {
+func (r ApiSpotGetMyAllocationsV3Request) Symbol(symbol string) ApiSpotGetMyAllocationsV3Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r AccountAPISpotGetMyAllocationsV3Request) StartTime(startTime int64) AccountAPISpotGetMyAllocationsV3Request {
+func (r ApiSpotGetMyAllocationsV3Request) StartTime(startTime int64) ApiSpotGetMyAllocationsV3Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r AccountAPISpotGetMyAllocationsV3Request) EndTime(endTime int64) AccountAPISpotGetMyAllocationsV3Request {
+func (r ApiSpotGetMyAllocationsV3Request) EndTime(endTime int64) ApiSpotGetMyAllocationsV3Request {
 	r.endTime = &endTime
 	return r
 }
 
-func (r AccountAPISpotGetMyAllocationsV3Request) FromAllocationId(fromAllocationId int32) AccountAPISpotGetMyAllocationsV3Request {
+func (r ApiSpotGetMyAllocationsV3Request) FromAllocationId(fromAllocationId int32) ApiSpotGetMyAllocationsV3Request {
 	r.fromAllocationId = &fromAllocationId
 	return r
 }
 
 // Default 500;Max 1000
-func (r AccountAPISpotGetMyAllocationsV3Request) Limit(limit int32) AccountAPISpotGetMyAllocationsV3Request {
+func (r ApiSpotGetMyAllocationsV3Request) Limit(limit int32) ApiSpotGetMyAllocationsV3Request {
 	r.limit = &limit
 	return r
 }
 
-func (r AccountAPISpotGetMyAllocationsV3Request) OrderId(orderId int64) AccountAPISpotGetMyAllocationsV3Request {
+func (r ApiSpotGetMyAllocationsV3Request) OrderId(orderId int64) ApiSpotGetMyAllocationsV3Request {
 	r.orderId = &orderId
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;.
-func (r AccountAPISpotGetMyAllocationsV3Request) RecvWindow(recvWindow int64) AccountAPISpotGetMyAllocationsV3Request {
+func (r ApiSpotGetMyAllocationsV3Request) RecvWindow(recvWindow int64) ApiSpotGetMyAllocationsV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPISpotGetMyAllocationsV3Request) Timestamp(timestamp int64) AccountAPISpotGetMyAllocationsV3Request {
+func (r ApiSpotGetMyAllocationsV3Request) Timestamp(timestamp int64) ApiSpotGetMyAllocationsV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPISpotGetMyAllocationsV3Request) Execute() ([]SpotGetMyAllocationsV3RespItem, *http.Response, error) {
+func (r ApiSpotGetMyAllocationsV3Request) Execute() ([]SpotGetMyAllocationsV3RespItem, *http.Response, error) {
 	return r.ApiService.SpotGetMyAllocationsV3Execute(r)
 }
 
@@ -379,10 +379,10 @@ SpotGetMyAllocationsV3 Query Allocations (USER_DATA)
 Retrieves allocations resulting from SOR order placement.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPISpotGetMyAllocationsV3Request
+ @return ApiSpotGetMyAllocationsV3Request
 */
-func (a *AccountAPIService) SpotGetMyAllocationsV3(ctx context.Context) AccountAPISpotGetMyAllocationsV3Request {
-	return AccountAPISpotGetMyAllocationsV3Request{
+func (a *AccountAPIService) SpotGetMyAllocationsV3(ctx context.Context) ApiSpotGetMyAllocationsV3Request {
+	return ApiSpotGetMyAllocationsV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -390,7 +390,7 @@ func (a *AccountAPIService) SpotGetMyAllocationsV3(ctx context.Context) AccountA
 
 // Execute executes the request
 //  @return []SpotGetMyAllocationsV3RespItem
-func (a *AccountAPIService) SpotGetMyAllocationsV3Execute(r AccountAPISpotGetMyAllocationsV3Request) ([]SpotGetMyAllocationsV3RespItem, *http.Response, error) {
+func (a *AccountAPIService) SpotGetMyAllocationsV3Execute(r ApiSpotGetMyAllocationsV3Request) ([]SpotGetMyAllocationsV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -518,7 +518,7 @@ func (a *AccountAPIService) SpotGetMyAllocationsV3Execute(r AccountAPISpotGetMyA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPISpotGetMyPreventedMatchesV3Request struct {
+type ApiSpotGetMyPreventedMatchesV3Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	symbol *string
@@ -530,44 +530,44 @@ type AccountAPISpotGetMyPreventedMatchesV3Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPISpotGetMyPreventedMatchesV3Request) Symbol(symbol string) AccountAPISpotGetMyPreventedMatchesV3Request {
+func (r ApiSpotGetMyPreventedMatchesV3Request) Symbol(symbol string) ApiSpotGetMyPreventedMatchesV3Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r AccountAPISpotGetMyPreventedMatchesV3Request) Timestamp(timestamp int64) AccountAPISpotGetMyPreventedMatchesV3Request {
+func (r ApiSpotGetMyPreventedMatchesV3Request) Timestamp(timestamp int64) ApiSpotGetMyPreventedMatchesV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r AccountAPISpotGetMyPreventedMatchesV3Request) PreventedMatchId(preventedMatchId int64) AccountAPISpotGetMyPreventedMatchesV3Request {
+func (r ApiSpotGetMyPreventedMatchesV3Request) PreventedMatchId(preventedMatchId int64) ApiSpotGetMyPreventedMatchesV3Request {
 	r.preventedMatchId = &preventedMatchId
 	return r
 }
 
-func (r AccountAPISpotGetMyPreventedMatchesV3Request) OrderId(orderId int64) AccountAPISpotGetMyPreventedMatchesV3Request {
+func (r ApiSpotGetMyPreventedMatchesV3Request) OrderId(orderId int64) ApiSpotGetMyPreventedMatchesV3Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r AccountAPISpotGetMyPreventedMatchesV3Request) FromPreventedMatchId(fromPreventedMatchId int64) AccountAPISpotGetMyPreventedMatchesV3Request {
+func (r ApiSpotGetMyPreventedMatchesV3Request) FromPreventedMatchId(fromPreventedMatchId int64) ApiSpotGetMyPreventedMatchesV3Request {
 	r.fromPreventedMatchId = &fromPreventedMatchId
 	return r
 }
 
 // Default: &#x60;500&#x60;; Max: &#x60;1000&#x60;
-func (r AccountAPISpotGetMyPreventedMatchesV3Request) Limit(limit int32) AccountAPISpotGetMyPreventedMatchesV3Request {
+func (r ApiSpotGetMyPreventedMatchesV3Request) Limit(limit int32) ApiSpotGetMyPreventedMatchesV3Request {
 	r.limit = &limit
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r AccountAPISpotGetMyPreventedMatchesV3Request) RecvWindow(recvWindow int64) AccountAPISpotGetMyPreventedMatchesV3Request {
+func (r ApiSpotGetMyPreventedMatchesV3Request) RecvWindow(recvWindow int64) ApiSpotGetMyPreventedMatchesV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPISpotGetMyPreventedMatchesV3Request) Execute() ([]SpotGetMyPreventedMatchesV3RespItem, *http.Response, error) {
+func (r ApiSpotGetMyPreventedMatchesV3Request) Execute() ([]SpotGetMyPreventedMatchesV3RespItem, *http.Response, error) {
 	return r.ApiService.SpotGetMyPreventedMatchesV3Execute(r)
 }
 
@@ -582,10 +582,10 @@ These are the combinations supported:
 - symbol + orderId + fromPreventedMatchId + limit
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPISpotGetMyPreventedMatchesV3Request
+ @return ApiSpotGetMyPreventedMatchesV3Request
 */
-func (a *AccountAPIService) SpotGetMyPreventedMatchesV3(ctx context.Context) AccountAPISpotGetMyPreventedMatchesV3Request {
-	return AccountAPISpotGetMyPreventedMatchesV3Request{
+func (a *AccountAPIService) SpotGetMyPreventedMatchesV3(ctx context.Context) ApiSpotGetMyPreventedMatchesV3Request {
+	return ApiSpotGetMyPreventedMatchesV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -593,7 +593,7 @@ func (a *AccountAPIService) SpotGetMyPreventedMatchesV3(ctx context.Context) Acc
 
 // Execute executes the request
 //  @return []SpotGetMyPreventedMatchesV3RespItem
-func (a *AccountAPIService) SpotGetMyPreventedMatchesV3Execute(r AccountAPISpotGetMyPreventedMatchesV3Request) ([]SpotGetMyPreventedMatchesV3RespItem, *http.Response, error) {
+func (a *AccountAPIService) SpotGetMyPreventedMatchesV3Execute(r ApiSpotGetMyPreventedMatchesV3Request) ([]SpotGetMyPreventedMatchesV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -719,7 +719,7 @@ func (a *AccountAPIService) SpotGetMyPreventedMatchesV3Execute(r AccountAPISpotG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPISpotGetMyTradesV3Request struct {
+type ApiSpotGetMyTradesV3Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	symbol *string
@@ -732,51 +732,51 @@ type AccountAPISpotGetMyTradesV3Request struct {
 	recvWindow *int64
 }
 
-func (r AccountAPISpotGetMyTradesV3Request) Symbol(symbol string) AccountAPISpotGetMyTradesV3Request {
+func (r ApiSpotGetMyTradesV3Request) Symbol(symbol string) ApiSpotGetMyTradesV3Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r AccountAPISpotGetMyTradesV3Request) Timestamp(timestamp int64) AccountAPISpotGetMyTradesV3Request {
+func (r ApiSpotGetMyTradesV3Request) Timestamp(timestamp int64) ApiSpotGetMyTradesV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // This can only be used in combination with &#x60;symbol&#x60;.
-func (r AccountAPISpotGetMyTradesV3Request) OrderId(orderId int64) AccountAPISpotGetMyTradesV3Request {
+func (r ApiSpotGetMyTradesV3Request) OrderId(orderId int64) ApiSpotGetMyTradesV3Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r AccountAPISpotGetMyTradesV3Request) StartTime(startTime int64) AccountAPISpotGetMyTradesV3Request {
+func (r ApiSpotGetMyTradesV3Request) StartTime(startTime int64) ApiSpotGetMyTradesV3Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r AccountAPISpotGetMyTradesV3Request) EndTime(endTime int64) AccountAPISpotGetMyTradesV3Request {
+func (r ApiSpotGetMyTradesV3Request) EndTime(endTime int64) ApiSpotGetMyTradesV3Request {
 	r.endTime = &endTime
 	return r
 }
 
 // TradeId to fetch from. Default gets most recent trades.
-func (r AccountAPISpotGetMyTradesV3Request) FromId(fromId int64) AccountAPISpotGetMyTradesV3Request {
+func (r ApiSpotGetMyTradesV3Request) FromId(fromId int64) ApiSpotGetMyTradesV3Request {
 	r.fromId = &fromId
 	return r
 }
 
 // Default 500; max 1000.
-func (r AccountAPISpotGetMyTradesV3Request) Limit(limit int32) AccountAPISpotGetMyTradesV3Request {
+func (r ApiSpotGetMyTradesV3Request) Limit(limit int32) ApiSpotGetMyTradesV3Request {
 	r.limit = &limit
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r AccountAPISpotGetMyTradesV3Request) RecvWindow(recvWindow int64) AccountAPISpotGetMyTradesV3Request {
+func (r ApiSpotGetMyTradesV3Request) RecvWindow(recvWindow int64) ApiSpotGetMyTradesV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPISpotGetMyTradesV3Request) Execute() ([]SpotGetMyTradesV3RespItem, *http.Response, error) {
+func (r ApiSpotGetMyTradesV3Request) Execute() ([]SpotGetMyTradesV3RespItem, *http.Response, error) {
 	return r.ApiService.SpotGetMyTradesV3Execute(r)
 }
 
@@ -786,10 +786,10 @@ SpotGetMyTradesV3 Account trade list (USER_DATA)
 Get trades for a specific account and symbol.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPISpotGetMyTradesV3Request
+ @return ApiSpotGetMyTradesV3Request
 */
-func (a *AccountAPIService) SpotGetMyTradesV3(ctx context.Context) AccountAPISpotGetMyTradesV3Request {
-	return AccountAPISpotGetMyTradesV3Request{
+func (a *AccountAPIService) SpotGetMyTradesV3(ctx context.Context) ApiSpotGetMyTradesV3Request {
+	return ApiSpotGetMyTradesV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -797,7 +797,7 @@ func (a *AccountAPIService) SpotGetMyTradesV3(ctx context.Context) AccountAPISpo
 
 // Execute executes the request
 //  @return []SpotGetMyTradesV3RespItem
-func (a *AccountAPIService) SpotGetMyTradesV3Execute(r AccountAPISpotGetMyTradesV3Request) ([]SpotGetMyTradesV3RespItem, *http.Response, error) {
+func (a *AccountAPIService) SpotGetMyTradesV3Execute(r ApiSpotGetMyTradesV3Request) ([]SpotGetMyTradesV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -926,25 +926,25 @@ func (a *AccountAPIService) SpotGetMyTradesV3Execute(r AccountAPISpotGetMyTrades
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type AccountAPISpotGetRateLimitOrderV3Request struct {
+type ApiSpotGetRateLimitOrderV3Request struct {
 	ctx context.Context
 	ApiService *AccountAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r AccountAPISpotGetRateLimitOrderV3Request) Timestamp(timestamp int64) AccountAPISpotGetRateLimitOrderV3Request {
+func (r ApiSpotGetRateLimitOrderV3Request) Timestamp(timestamp int64) ApiSpotGetRateLimitOrderV3Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r AccountAPISpotGetRateLimitOrderV3Request) RecvWindow(recvWindow int64) AccountAPISpotGetRateLimitOrderV3Request {
+func (r ApiSpotGetRateLimitOrderV3Request) RecvWindow(recvWindow int64) ApiSpotGetRateLimitOrderV3Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r AccountAPISpotGetRateLimitOrderV3Request) Execute() ([]SpotGetRateLimitOrderV3RespItem, *http.Response, error) {
+func (r ApiSpotGetRateLimitOrderV3Request) Execute() ([]SpotGetRateLimitOrderV3RespItem, *http.Response, error) {
 	return r.ApiService.SpotGetRateLimitOrderV3Execute(r)
 }
 
@@ -954,10 +954,10 @@ SpotGetRateLimitOrderV3 Query Unfilled Order Count (USER_DATA)
 Displays the user's unfilled order count for all intervals.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return AccountAPISpotGetRateLimitOrderV3Request
+ @return ApiSpotGetRateLimitOrderV3Request
 */
-func (a *AccountAPIService) SpotGetRateLimitOrderV3(ctx context.Context) AccountAPISpotGetRateLimitOrderV3Request {
-	return AccountAPISpotGetRateLimitOrderV3Request{
+func (a *AccountAPIService) SpotGetRateLimitOrderV3(ctx context.Context) ApiSpotGetRateLimitOrderV3Request {
+	return ApiSpotGetRateLimitOrderV3Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -965,7 +965,7 @@ func (a *AccountAPIService) SpotGetRateLimitOrderV3(ctx context.Context) Account
 
 // Execute executes the request
 //  @return []SpotGetRateLimitOrderV3RespItem
-func (a *AccountAPIService) SpotGetRateLimitOrderV3Execute(r AccountAPISpotGetRateLimitOrderV3Request) ([]SpotGetRateLimitOrderV3RespItem, *http.Response, error) {
+func (a *AccountAPIService) SpotGetRateLimitOrderV3Execute(r ApiSpotGetRateLimitOrderV3Request) ([]SpotGetRateLimitOrderV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

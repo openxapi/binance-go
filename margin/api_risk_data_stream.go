@@ -1,7 +1,7 @@
 /*
-Binance Margin API
+Binance Margin Trading API
 
-OpenAPI specification for Binance cryptocurrency exchange - Margin API
+OpenAPI specification for Binance exchange - Margin API
 
 API version: 0.1.0
 */
@@ -22,12 +22,12 @@ import (
 // RiskDataStreamAPIService RiskDataStreamAPI service
 type RiskDataStreamAPIService service
 
-type RiskDataStreamAPIMarginCreateMarginListenKeyV1Request struct {
+type ApiMarginCreateMarginListenKeyV1Request struct {
 	ctx context.Context
 	ApiService *RiskDataStreamAPIService
 }
 
-func (r RiskDataStreamAPIMarginCreateMarginListenKeyV1Request) Execute() (*MarginCreateMarginListenKeyV1Resp, *http.Response, error) {
+func (r ApiMarginCreateMarginListenKeyV1Request) Execute() (*MarginCreateMarginListenKeyV1Resp, *http.Response, error) {
 	return r.ApiService.MarginCreateMarginListenKeyV1Execute(r)
 }
 
@@ -37,10 +37,10 @@ MarginCreateMarginListenKeyV1 Start User Data Stream (USER_STREAM)
 Start a new user data stream.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RiskDataStreamAPIMarginCreateMarginListenKeyV1Request
+ @return ApiMarginCreateMarginListenKeyV1Request
 */
-func (a *RiskDataStreamAPIService) MarginCreateMarginListenKeyV1(ctx context.Context) RiskDataStreamAPIMarginCreateMarginListenKeyV1Request {
-	return RiskDataStreamAPIMarginCreateMarginListenKeyV1Request{
+func (a *RiskDataStreamAPIService) MarginCreateMarginListenKeyV1(ctx context.Context) ApiMarginCreateMarginListenKeyV1Request {
+	return ApiMarginCreateMarginListenKeyV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -48,7 +48,7 @@ func (a *RiskDataStreamAPIService) MarginCreateMarginListenKeyV1(ctx context.Con
 
 // Execute executes the request
 //  @return MarginCreateMarginListenKeyV1Resp
-func (a *RiskDataStreamAPIService) MarginCreateMarginListenKeyV1Execute(r RiskDataStreamAPIMarginCreateMarginListenKeyV1Request) (*MarginCreateMarginListenKeyV1Resp, *http.Response, error) {
+func (a *RiskDataStreamAPIService) MarginCreateMarginListenKeyV1Execute(r ApiMarginCreateMarginListenKeyV1Request) (*MarginCreateMarginListenKeyV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -148,12 +148,12 @@ func (a *RiskDataStreamAPIService) MarginCreateMarginListenKeyV1Execute(r RiskDa
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RiskDataStreamAPIMarginDeleteMarginListenKeyV1Request struct {
+type ApiMarginDeleteMarginListenKeyV1Request struct {
 	ctx context.Context
 	ApiService *RiskDataStreamAPIService
 }
 
-func (r RiskDataStreamAPIMarginDeleteMarginListenKeyV1Request) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiMarginDeleteMarginListenKeyV1Request) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.MarginDeleteMarginListenKeyV1Execute(r)
 }
 
@@ -163,10 +163,10 @@ MarginDeleteMarginListenKeyV1 Close User Data Stream (USER_STREAM)
 Close out a user data stream.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RiskDataStreamAPIMarginDeleteMarginListenKeyV1Request
+ @return ApiMarginDeleteMarginListenKeyV1Request
 */
-func (a *RiskDataStreamAPIService) MarginDeleteMarginListenKeyV1(ctx context.Context) RiskDataStreamAPIMarginDeleteMarginListenKeyV1Request {
-	return RiskDataStreamAPIMarginDeleteMarginListenKeyV1Request{
+func (a *RiskDataStreamAPIService) MarginDeleteMarginListenKeyV1(ctx context.Context) ApiMarginDeleteMarginListenKeyV1Request {
+	return ApiMarginDeleteMarginListenKeyV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -174,7 +174,7 @@ func (a *RiskDataStreamAPIService) MarginDeleteMarginListenKeyV1(ctx context.Con
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *RiskDataStreamAPIService) MarginDeleteMarginListenKeyV1Execute(r RiskDataStreamAPIMarginDeleteMarginListenKeyV1Request) (map[string]interface{}, *http.Response, error) {
+func (a *RiskDataStreamAPIService) MarginDeleteMarginListenKeyV1Execute(r ApiMarginDeleteMarginListenKeyV1Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -274,18 +274,18 @@ func (a *RiskDataStreamAPIService) MarginDeleteMarginListenKeyV1Execute(r RiskDa
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type RiskDataStreamAPIMarginUpdateMarginListenKeyV1Request struct {
+type ApiMarginUpdateMarginListenKeyV1Request struct {
 	ctx context.Context
 	ApiService *RiskDataStreamAPIService
 	listenKey *string
 }
 
-func (r RiskDataStreamAPIMarginUpdateMarginListenKeyV1Request) ListenKey(listenKey string) RiskDataStreamAPIMarginUpdateMarginListenKeyV1Request {
+func (r ApiMarginUpdateMarginListenKeyV1Request) ListenKey(listenKey string) ApiMarginUpdateMarginListenKeyV1Request {
 	r.listenKey = &listenKey
 	return r
 }
 
-func (r RiskDataStreamAPIMarginUpdateMarginListenKeyV1Request) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiMarginUpdateMarginListenKeyV1Request) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.MarginUpdateMarginListenKeyV1Execute(r)
 }
 
@@ -295,10 +295,10 @@ MarginUpdateMarginListenKeyV1 Keepalive User Data Stream (USER_STREAM)
 Keepalive a user data stream to prevent a time out.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return RiskDataStreamAPIMarginUpdateMarginListenKeyV1Request
+ @return ApiMarginUpdateMarginListenKeyV1Request
 */
-func (a *RiskDataStreamAPIService) MarginUpdateMarginListenKeyV1(ctx context.Context) RiskDataStreamAPIMarginUpdateMarginListenKeyV1Request {
-	return RiskDataStreamAPIMarginUpdateMarginListenKeyV1Request{
+func (a *RiskDataStreamAPIService) MarginUpdateMarginListenKeyV1(ctx context.Context) ApiMarginUpdateMarginListenKeyV1Request {
+	return ApiMarginUpdateMarginListenKeyV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -306,7 +306,7 @@ func (a *RiskDataStreamAPIService) MarginUpdateMarginListenKeyV1(ctx context.Con
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *RiskDataStreamAPIService) MarginUpdateMarginListenKeyV1Execute(r RiskDataStreamAPIMarginUpdateMarginListenKeyV1Request) (map[string]interface{}, *http.Response, error) {
+func (a *RiskDataStreamAPIService) MarginUpdateMarginListenKeyV1Execute(r ApiMarginUpdateMarginListenKeyV1Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}

@@ -1,7 +1,7 @@
 /*
-Binance Pmargin API
+Binance Portfolio Margin API
 
-OpenAPI specification for Binance cryptocurrency exchange - Pmargin API
+OpenAPI specification for Binance exchange - Pmargin API
 
 API version: 0.1.0
 */
@@ -22,7 +22,7 @@ import (
 // TradeAPIService TradeAPI service
 type TradeAPIService service
 
-type TradeAPIPmarginCreateCmConditionalOrderV1Request struct {
+type ApiPmarginCreateCmConditionalOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	side *string
@@ -43,87 +43,87 @@ type TradeAPIPmarginCreateCmConditionalOrderV1Request struct {
 	workingType *string
 }
 
-func (r TradeAPIPmarginCreateCmConditionalOrderV1Request) Side(side string) TradeAPIPmarginCreateCmConditionalOrderV1Request {
+func (r ApiPmarginCreateCmConditionalOrderV1Request) Side(side string) ApiPmarginCreateCmConditionalOrderV1Request {
 	r.side = &side
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmConditionalOrderV1Request) StrategyType(strategyType string) TradeAPIPmarginCreateCmConditionalOrderV1Request {
+func (r ApiPmarginCreateCmConditionalOrderV1Request) StrategyType(strategyType string) ApiPmarginCreateCmConditionalOrderV1Request {
 	r.strategyType = &strategyType
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmConditionalOrderV1Request) Symbol(symbol string) TradeAPIPmarginCreateCmConditionalOrderV1Request {
+func (r ApiPmarginCreateCmConditionalOrderV1Request) Symbol(symbol string) ApiPmarginCreateCmConditionalOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmConditionalOrderV1Request) Timestamp(timestamp int64) TradeAPIPmarginCreateCmConditionalOrderV1Request {
+func (r ApiPmarginCreateCmConditionalOrderV1Request) Timestamp(timestamp int64) ApiPmarginCreateCmConditionalOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmConditionalOrderV1Request) ActivationPrice(activationPrice string) TradeAPIPmarginCreateCmConditionalOrderV1Request {
+func (r ApiPmarginCreateCmConditionalOrderV1Request) ActivationPrice(activationPrice string) ApiPmarginCreateCmConditionalOrderV1Request {
 	r.activationPrice = &activationPrice
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmConditionalOrderV1Request) CallbackRate(callbackRate string) TradeAPIPmarginCreateCmConditionalOrderV1Request {
+func (r ApiPmarginCreateCmConditionalOrderV1Request) CallbackRate(callbackRate string) ApiPmarginCreateCmConditionalOrderV1Request {
 	r.callbackRate = &callbackRate
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmConditionalOrderV1Request) NewClientStrategyId(newClientStrategyId string) TradeAPIPmarginCreateCmConditionalOrderV1Request {
+func (r ApiPmarginCreateCmConditionalOrderV1Request) NewClientStrategyId(newClientStrategyId string) ApiPmarginCreateCmConditionalOrderV1Request {
 	r.newClientStrategyId = &newClientStrategyId
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmConditionalOrderV1Request) PositionSide(positionSide string) TradeAPIPmarginCreateCmConditionalOrderV1Request {
+func (r ApiPmarginCreateCmConditionalOrderV1Request) PositionSide(positionSide string) ApiPmarginCreateCmConditionalOrderV1Request {
 	r.positionSide = &positionSide
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmConditionalOrderV1Request) Price(price string) TradeAPIPmarginCreateCmConditionalOrderV1Request {
+func (r ApiPmarginCreateCmConditionalOrderV1Request) Price(price string) ApiPmarginCreateCmConditionalOrderV1Request {
 	r.price = &price
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmConditionalOrderV1Request) PriceProtect(priceProtect string) TradeAPIPmarginCreateCmConditionalOrderV1Request {
+func (r ApiPmarginCreateCmConditionalOrderV1Request) PriceProtect(priceProtect string) ApiPmarginCreateCmConditionalOrderV1Request {
 	r.priceProtect = &priceProtect
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmConditionalOrderV1Request) Quantity(quantity string) TradeAPIPmarginCreateCmConditionalOrderV1Request {
+func (r ApiPmarginCreateCmConditionalOrderV1Request) Quantity(quantity string) ApiPmarginCreateCmConditionalOrderV1Request {
 	r.quantity = &quantity
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmConditionalOrderV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginCreateCmConditionalOrderV1Request {
+func (r ApiPmarginCreateCmConditionalOrderV1Request) RecvWindow(recvWindow int64) ApiPmarginCreateCmConditionalOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmConditionalOrderV1Request) ReduceOnly(reduceOnly string) TradeAPIPmarginCreateCmConditionalOrderV1Request {
+func (r ApiPmarginCreateCmConditionalOrderV1Request) ReduceOnly(reduceOnly string) ApiPmarginCreateCmConditionalOrderV1Request {
 	r.reduceOnly = &reduceOnly
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmConditionalOrderV1Request) StopPrice(stopPrice string) TradeAPIPmarginCreateCmConditionalOrderV1Request {
+func (r ApiPmarginCreateCmConditionalOrderV1Request) StopPrice(stopPrice string) ApiPmarginCreateCmConditionalOrderV1Request {
 	r.stopPrice = &stopPrice
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmConditionalOrderV1Request) TimeInForce(timeInForce string) TradeAPIPmarginCreateCmConditionalOrderV1Request {
+func (r ApiPmarginCreateCmConditionalOrderV1Request) TimeInForce(timeInForce string) ApiPmarginCreateCmConditionalOrderV1Request {
 	r.timeInForce = &timeInForce
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmConditionalOrderV1Request) WorkingType(workingType string) TradeAPIPmarginCreateCmConditionalOrderV1Request {
+func (r ApiPmarginCreateCmConditionalOrderV1Request) WorkingType(workingType string) ApiPmarginCreateCmConditionalOrderV1Request {
 	r.workingType = &workingType
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmConditionalOrderV1Request) Execute() (*PmarginCreateCmConditionalOrderV1Resp, *http.Response, error) {
+func (r ApiPmarginCreateCmConditionalOrderV1Request) Execute() (*PmarginCreateCmConditionalOrderV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginCreateCmConditionalOrderV1Execute(r)
 }
 
@@ -133,10 +133,10 @@ PmarginCreateCmConditionalOrderV1 New CM Conditional Order(TRADE)
 New CM Conditional Order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginCreateCmConditionalOrderV1Request
+ @return ApiPmarginCreateCmConditionalOrderV1Request
 */
-func (a *TradeAPIService) PmarginCreateCmConditionalOrderV1(ctx context.Context) TradeAPIPmarginCreateCmConditionalOrderV1Request {
-	return TradeAPIPmarginCreateCmConditionalOrderV1Request{
+func (a *TradeAPIService) PmarginCreateCmConditionalOrderV1(ctx context.Context) ApiPmarginCreateCmConditionalOrderV1Request {
+	return ApiPmarginCreateCmConditionalOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -144,7 +144,7 @@ func (a *TradeAPIService) PmarginCreateCmConditionalOrderV1(ctx context.Context)
 
 // Execute executes the request
 //  @return PmarginCreateCmConditionalOrderV1Resp
-func (a *TradeAPIService) PmarginCreateCmConditionalOrderV1Execute(r TradeAPIPmarginCreateCmConditionalOrderV1Request) (*PmarginCreateCmConditionalOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginCreateCmConditionalOrderV1Execute(r ApiPmarginCreateCmConditionalOrderV1Request) (*PmarginCreateCmConditionalOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -296,7 +296,7 @@ func (a *TradeAPIService) PmarginCreateCmConditionalOrderV1Execute(r TradeAPIPma
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginCreateCmOrderV1Request struct {
+type ApiPmarginCreateCmOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	side *string
@@ -314,72 +314,72 @@ type TradeAPIPmarginCreateCmOrderV1Request struct {
 	timeInForce *string
 }
 
-func (r TradeAPIPmarginCreateCmOrderV1Request) Side(side string) TradeAPIPmarginCreateCmOrderV1Request {
+func (r ApiPmarginCreateCmOrderV1Request) Side(side string) ApiPmarginCreateCmOrderV1Request {
 	r.side = &side
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmOrderV1Request) Symbol(symbol string) TradeAPIPmarginCreateCmOrderV1Request {
+func (r ApiPmarginCreateCmOrderV1Request) Symbol(symbol string) ApiPmarginCreateCmOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmOrderV1Request) Timestamp(timestamp int64) TradeAPIPmarginCreateCmOrderV1Request {
+func (r ApiPmarginCreateCmOrderV1Request) Timestamp(timestamp int64) ApiPmarginCreateCmOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmOrderV1Request) Type_(type_ string) TradeAPIPmarginCreateCmOrderV1Request {
+func (r ApiPmarginCreateCmOrderV1Request) Type_(type_ string) ApiPmarginCreateCmOrderV1Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmOrderV1Request) NewClientOrderId(newClientOrderId string) TradeAPIPmarginCreateCmOrderV1Request {
+func (r ApiPmarginCreateCmOrderV1Request) NewClientOrderId(newClientOrderId string) ApiPmarginCreateCmOrderV1Request {
 	r.newClientOrderId = &newClientOrderId
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmOrderV1Request) NewOrderRespType(newOrderRespType string) TradeAPIPmarginCreateCmOrderV1Request {
+func (r ApiPmarginCreateCmOrderV1Request) NewOrderRespType(newOrderRespType string) ApiPmarginCreateCmOrderV1Request {
 	r.newOrderRespType = &newOrderRespType
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmOrderV1Request) PositionSide(positionSide string) TradeAPIPmarginCreateCmOrderV1Request {
+func (r ApiPmarginCreateCmOrderV1Request) PositionSide(positionSide string) ApiPmarginCreateCmOrderV1Request {
 	r.positionSide = &positionSide
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmOrderV1Request) Price(price string) TradeAPIPmarginCreateCmOrderV1Request {
+func (r ApiPmarginCreateCmOrderV1Request) Price(price string) ApiPmarginCreateCmOrderV1Request {
 	r.price = &price
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmOrderV1Request) PriceMatch(priceMatch string) TradeAPIPmarginCreateCmOrderV1Request {
+func (r ApiPmarginCreateCmOrderV1Request) PriceMatch(priceMatch string) ApiPmarginCreateCmOrderV1Request {
 	r.priceMatch = &priceMatch
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmOrderV1Request) Quantity(quantity string) TradeAPIPmarginCreateCmOrderV1Request {
+func (r ApiPmarginCreateCmOrderV1Request) Quantity(quantity string) ApiPmarginCreateCmOrderV1Request {
 	r.quantity = &quantity
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmOrderV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginCreateCmOrderV1Request {
+func (r ApiPmarginCreateCmOrderV1Request) RecvWindow(recvWindow int64) ApiPmarginCreateCmOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmOrderV1Request) ReduceOnly(reduceOnly string) TradeAPIPmarginCreateCmOrderV1Request {
+func (r ApiPmarginCreateCmOrderV1Request) ReduceOnly(reduceOnly string) ApiPmarginCreateCmOrderV1Request {
 	r.reduceOnly = &reduceOnly
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmOrderV1Request) TimeInForce(timeInForce string) TradeAPIPmarginCreateCmOrderV1Request {
+func (r ApiPmarginCreateCmOrderV1Request) TimeInForce(timeInForce string) ApiPmarginCreateCmOrderV1Request {
 	r.timeInForce = &timeInForce
 	return r
 }
 
-func (r TradeAPIPmarginCreateCmOrderV1Request) Execute() (*PmarginCreateCmOrderV1Resp, *http.Response, error) {
+func (r ApiPmarginCreateCmOrderV1Request) Execute() (*PmarginCreateCmOrderV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginCreateCmOrderV1Execute(r)
 }
 
@@ -389,10 +389,10 @@ PmarginCreateCmOrderV1 New CM Order(TRADE)
 Place new CM order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginCreateCmOrderV1Request
+ @return ApiPmarginCreateCmOrderV1Request
 */
-func (a *TradeAPIService) PmarginCreateCmOrderV1(ctx context.Context) TradeAPIPmarginCreateCmOrderV1Request {
-	return TradeAPIPmarginCreateCmOrderV1Request{
+func (a *TradeAPIService) PmarginCreateCmOrderV1(ctx context.Context) ApiPmarginCreateCmOrderV1Request {
+	return ApiPmarginCreateCmOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -400,7 +400,7 @@ func (a *TradeAPIService) PmarginCreateCmOrderV1(ctx context.Context) TradeAPIPm
 
 // Execute executes the request
 //  @return PmarginCreateCmOrderV1Resp
-func (a *TradeAPIService) PmarginCreateCmOrderV1Execute(r TradeAPIPmarginCreateCmOrderV1Request) (*PmarginCreateCmOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginCreateCmOrderV1Execute(r ApiPmarginCreateCmOrderV1Request) (*PmarginCreateCmOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -543,7 +543,7 @@ func (a *TradeAPIService) PmarginCreateCmOrderV1Execute(r TradeAPIPmarginCreateC
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginCreateMarginLoanV1Request struct {
+type ApiPmarginCreateMarginLoanV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	amount *string
@@ -552,27 +552,27 @@ type TradeAPIPmarginCreateMarginLoanV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginCreateMarginLoanV1Request) Amount(amount string) TradeAPIPmarginCreateMarginLoanV1Request {
+func (r ApiPmarginCreateMarginLoanV1Request) Amount(amount string) ApiPmarginCreateMarginLoanV1Request {
 	r.amount = &amount
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginLoanV1Request) Asset(asset string) TradeAPIPmarginCreateMarginLoanV1Request {
+func (r ApiPmarginCreateMarginLoanV1Request) Asset(asset string) ApiPmarginCreateMarginLoanV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginLoanV1Request) Timestamp(timestamp int64) TradeAPIPmarginCreateMarginLoanV1Request {
+func (r ApiPmarginCreateMarginLoanV1Request) Timestamp(timestamp int64) ApiPmarginCreateMarginLoanV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginLoanV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginCreateMarginLoanV1Request {
+func (r ApiPmarginCreateMarginLoanV1Request) RecvWindow(recvWindow int64) ApiPmarginCreateMarginLoanV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginLoanV1Request) Execute() (*PmarginCreateMarginLoanV1Resp, *http.Response, error) {
+func (r ApiPmarginCreateMarginLoanV1Request) Execute() (*PmarginCreateMarginLoanV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginCreateMarginLoanV1Execute(r)
 }
 
@@ -582,10 +582,10 @@ PmarginCreateMarginLoanV1 Margin Account Borrow(MARGIN)
 Apply for a margin loan.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginCreateMarginLoanV1Request
+ @return ApiPmarginCreateMarginLoanV1Request
 */
-func (a *TradeAPIService) PmarginCreateMarginLoanV1(ctx context.Context) TradeAPIPmarginCreateMarginLoanV1Request {
-	return TradeAPIPmarginCreateMarginLoanV1Request{
+func (a *TradeAPIService) PmarginCreateMarginLoanV1(ctx context.Context) ApiPmarginCreateMarginLoanV1Request {
+	return ApiPmarginCreateMarginLoanV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -593,7 +593,7 @@ func (a *TradeAPIService) PmarginCreateMarginLoanV1(ctx context.Context) TradeAP
 
 // Execute executes the request
 //  @return PmarginCreateMarginLoanV1Resp
-func (a *TradeAPIService) PmarginCreateMarginLoanV1Execute(r TradeAPIPmarginCreateMarginLoanV1Request) (*PmarginCreateMarginLoanV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginCreateMarginLoanV1Execute(r ApiPmarginCreateMarginLoanV1Request) (*PmarginCreateMarginLoanV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -702,7 +702,7 @@ func (a *TradeAPIService) PmarginCreateMarginLoanV1Execute(r TradeAPIPmarginCrea
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginCreateMarginOrderOcoV1Request struct {
+type ApiPmarginCreateMarginOrderOcoV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	price *string
@@ -723,87 +723,87 @@ type TradeAPIPmarginCreateMarginOrderOcoV1Request struct {
 	stopLimitTimeInForce *string
 }
 
-func (r TradeAPIPmarginCreateMarginOrderOcoV1Request) Price(price string) TradeAPIPmarginCreateMarginOrderOcoV1Request {
+func (r ApiPmarginCreateMarginOrderOcoV1Request) Price(price string) ApiPmarginCreateMarginOrderOcoV1Request {
 	r.price = &price
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderOcoV1Request) Quantity(quantity string) TradeAPIPmarginCreateMarginOrderOcoV1Request {
+func (r ApiPmarginCreateMarginOrderOcoV1Request) Quantity(quantity string) ApiPmarginCreateMarginOrderOcoV1Request {
 	r.quantity = &quantity
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderOcoV1Request) Side(side string) TradeAPIPmarginCreateMarginOrderOcoV1Request {
+func (r ApiPmarginCreateMarginOrderOcoV1Request) Side(side string) ApiPmarginCreateMarginOrderOcoV1Request {
 	r.side = &side
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderOcoV1Request) StopPrice(stopPrice string) TradeAPIPmarginCreateMarginOrderOcoV1Request {
+func (r ApiPmarginCreateMarginOrderOcoV1Request) StopPrice(stopPrice string) ApiPmarginCreateMarginOrderOcoV1Request {
 	r.stopPrice = &stopPrice
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderOcoV1Request) Symbol(symbol string) TradeAPIPmarginCreateMarginOrderOcoV1Request {
+func (r ApiPmarginCreateMarginOrderOcoV1Request) Symbol(symbol string) ApiPmarginCreateMarginOrderOcoV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderOcoV1Request) Timestamp(timestamp int64) TradeAPIPmarginCreateMarginOrderOcoV1Request {
+func (r ApiPmarginCreateMarginOrderOcoV1Request) Timestamp(timestamp int64) ApiPmarginCreateMarginOrderOcoV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderOcoV1Request) LimitClientOrderId(limitClientOrderId string) TradeAPIPmarginCreateMarginOrderOcoV1Request {
+func (r ApiPmarginCreateMarginOrderOcoV1Request) LimitClientOrderId(limitClientOrderId string) ApiPmarginCreateMarginOrderOcoV1Request {
 	r.limitClientOrderId = &limitClientOrderId
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderOcoV1Request) LimitIcebergQty(limitIcebergQty string) TradeAPIPmarginCreateMarginOrderOcoV1Request {
+func (r ApiPmarginCreateMarginOrderOcoV1Request) LimitIcebergQty(limitIcebergQty string) ApiPmarginCreateMarginOrderOcoV1Request {
 	r.limitIcebergQty = &limitIcebergQty
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderOcoV1Request) ListClientOrderId(listClientOrderId string) TradeAPIPmarginCreateMarginOrderOcoV1Request {
+func (r ApiPmarginCreateMarginOrderOcoV1Request) ListClientOrderId(listClientOrderId string) ApiPmarginCreateMarginOrderOcoV1Request {
 	r.listClientOrderId = &listClientOrderId
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderOcoV1Request) NewOrderRespType(newOrderRespType string) TradeAPIPmarginCreateMarginOrderOcoV1Request {
+func (r ApiPmarginCreateMarginOrderOcoV1Request) NewOrderRespType(newOrderRespType string) ApiPmarginCreateMarginOrderOcoV1Request {
 	r.newOrderRespType = &newOrderRespType
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderOcoV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginCreateMarginOrderOcoV1Request {
+func (r ApiPmarginCreateMarginOrderOcoV1Request) RecvWindow(recvWindow int64) ApiPmarginCreateMarginOrderOcoV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderOcoV1Request) SideEffectType(sideEffectType string) TradeAPIPmarginCreateMarginOrderOcoV1Request {
+func (r ApiPmarginCreateMarginOrderOcoV1Request) SideEffectType(sideEffectType string) ApiPmarginCreateMarginOrderOcoV1Request {
 	r.sideEffectType = &sideEffectType
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderOcoV1Request) StopClientOrderId(stopClientOrderId string) TradeAPIPmarginCreateMarginOrderOcoV1Request {
+func (r ApiPmarginCreateMarginOrderOcoV1Request) StopClientOrderId(stopClientOrderId string) ApiPmarginCreateMarginOrderOcoV1Request {
 	r.stopClientOrderId = &stopClientOrderId
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderOcoV1Request) StopIcebergQty(stopIcebergQty string) TradeAPIPmarginCreateMarginOrderOcoV1Request {
+func (r ApiPmarginCreateMarginOrderOcoV1Request) StopIcebergQty(stopIcebergQty string) ApiPmarginCreateMarginOrderOcoV1Request {
 	r.stopIcebergQty = &stopIcebergQty
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderOcoV1Request) StopLimitPrice(stopLimitPrice string) TradeAPIPmarginCreateMarginOrderOcoV1Request {
+func (r ApiPmarginCreateMarginOrderOcoV1Request) StopLimitPrice(stopLimitPrice string) ApiPmarginCreateMarginOrderOcoV1Request {
 	r.stopLimitPrice = &stopLimitPrice
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderOcoV1Request) StopLimitTimeInForce(stopLimitTimeInForce string) TradeAPIPmarginCreateMarginOrderOcoV1Request {
+func (r ApiPmarginCreateMarginOrderOcoV1Request) StopLimitTimeInForce(stopLimitTimeInForce string) ApiPmarginCreateMarginOrderOcoV1Request {
 	r.stopLimitTimeInForce = &stopLimitTimeInForce
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderOcoV1Request) Execute() (*PmarginCreateMarginOrderOcoV1Resp, *http.Response, error) {
+func (r ApiPmarginCreateMarginOrderOcoV1Request) Execute() (*PmarginCreateMarginOrderOcoV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginCreateMarginOrderOcoV1Execute(r)
 }
 
@@ -813,10 +813,10 @@ PmarginCreateMarginOrderOcoV1 Margin Account New OCO(TRADE)
 Send in a new OCO for a margin account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginCreateMarginOrderOcoV1Request
+ @return ApiPmarginCreateMarginOrderOcoV1Request
 */
-func (a *TradeAPIService) PmarginCreateMarginOrderOcoV1(ctx context.Context) TradeAPIPmarginCreateMarginOrderOcoV1Request {
-	return TradeAPIPmarginCreateMarginOrderOcoV1Request{
+func (a *TradeAPIService) PmarginCreateMarginOrderOcoV1(ctx context.Context) ApiPmarginCreateMarginOrderOcoV1Request {
+	return ApiPmarginCreateMarginOrderOcoV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -824,7 +824,7 @@ func (a *TradeAPIService) PmarginCreateMarginOrderOcoV1(ctx context.Context) Tra
 
 // Execute executes the request
 //  @return PmarginCreateMarginOrderOcoV1Resp
-func (a *TradeAPIService) PmarginCreateMarginOrderOcoV1Execute(r TradeAPIPmarginCreateMarginOrderOcoV1Request) (*PmarginCreateMarginOrderOcoV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginCreateMarginOrderOcoV1Execute(r ApiPmarginCreateMarginOrderOcoV1Request) (*PmarginCreateMarginOrderOcoV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -978,7 +978,7 @@ func (a *TradeAPIService) PmarginCreateMarginOrderOcoV1Execute(r TradeAPIPmargin
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginCreateMarginOrderV1Request struct {
+type ApiPmarginCreateMarginOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	side *string
@@ -999,87 +999,87 @@ type TradeAPIPmarginCreateMarginOrderV1Request struct {
 	timeInForce *string
 }
 
-func (r TradeAPIPmarginCreateMarginOrderV1Request) Side(side string) TradeAPIPmarginCreateMarginOrderV1Request {
+func (r ApiPmarginCreateMarginOrderV1Request) Side(side string) ApiPmarginCreateMarginOrderV1Request {
 	r.side = &side
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderV1Request) Symbol(symbol string) TradeAPIPmarginCreateMarginOrderV1Request {
+func (r ApiPmarginCreateMarginOrderV1Request) Symbol(symbol string) ApiPmarginCreateMarginOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderV1Request) Timestamp(timestamp int64) TradeAPIPmarginCreateMarginOrderV1Request {
+func (r ApiPmarginCreateMarginOrderV1Request) Timestamp(timestamp int64) ApiPmarginCreateMarginOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderV1Request) Type_(type_ string) TradeAPIPmarginCreateMarginOrderV1Request {
+func (r ApiPmarginCreateMarginOrderV1Request) Type_(type_ string) ApiPmarginCreateMarginOrderV1Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderV1Request) AutoRepayAtCancel(autoRepayAtCancel bool) TradeAPIPmarginCreateMarginOrderV1Request {
+func (r ApiPmarginCreateMarginOrderV1Request) AutoRepayAtCancel(autoRepayAtCancel bool) ApiPmarginCreateMarginOrderV1Request {
 	r.autoRepayAtCancel = &autoRepayAtCancel
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderV1Request) IcebergQty(icebergQty string) TradeAPIPmarginCreateMarginOrderV1Request {
+func (r ApiPmarginCreateMarginOrderV1Request) IcebergQty(icebergQty string) ApiPmarginCreateMarginOrderV1Request {
 	r.icebergQty = &icebergQty
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderV1Request) NewClientOrderId(newClientOrderId string) TradeAPIPmarginCreateMarginOrderV1Request {
+func (r ApiPmarginCreateMarginOrderV1Request) NewClientOrderId(newClientOrderId string) ApiPmarginCreateMarginOrderV1Request {
 	r.newClientOrderId = &newClientOrderId
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderV1Request) NewOrderRespType(newOrderRespType string) TradeAPIPmarginCreateMarginOrderV1Request {
+func (r ApiPmarginCreateMarginOrderV1Request) NewOrderRespType(newOrderRespType string) ApiPmarginCreateMarginOrderV1Request {
 	r.newOrderRespType = &newOrderRespType
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderV1Request) Price(price string) TradeAPIPmarginCreateMarginOrderV1Request {
+func (r ApiPmarginCreateMarginOrderV1Request) Price(price string) ApiPmarginCreateMarginOrderV1Request {
 	r.price = &price
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderV1Request) Quantity(quantity string) TradeAPIPmarginCreateMarginOrderV1Request {
+func (r ApiPmarginCreateMarginOrderV1Request) Quantity(quantity string) ApiPmarginCreateMarginOrderV1Request {
 	r.quantity = &quantity
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderV1Request) QuoteOrderQty(quoteOrderQty string) TradeAPIPmarginCreateMarginOrderV1Request {
+func (r ApiPmarginCreateMarginOrderV1Request) QuoteOrderQty(quoteOrderQty string) ApiPmarginCreateMarginOrderV1Request {
 	r.quoteOrderQty = &quoteOrderQty
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginCreateMarginOrderV1Request {
+func (r ApiPmarginCreateMarginOrderV1Request) RecvWindow(recvWindow int64) ApiPmarginCreateMarginOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderV1Request) SelfTradePreventionMode(selfTradePreventionMode string) TradeAPIPmarginCreateMarginOrderV1Request {
+func (r ApiPmarginCreateMarginOrderV1Request) SelfTradePreventionMode(selfTradePreventionMode string) ApiPmarginCreateMarginOrderV1Request {
 	r.selfTradePreventionMode = &selfTradePreventionMode
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderV1Request) SideEffectType(sideEffectType string) TradeAPIPmarginCreateMarginOrderV1Request {
+func (r ApiPmarginCreateMarginOrderV1Request) SideEffectType(sideEffectType string) ApiPmarginCreateMarginOrderV1Request {
 	r.sideEffectType = &sideEffectType
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderV1Request) StopPrice(stopPrice string) TradeAPIPmarginCreateMarginOrderV1Request {
+func (r ApiPmarginCreateMarginOrderV1Request) StopPrice(stopPrice string) ApiPmarginCreateMarginOrderV1Request {
 	r.stopPrice = &stopPrice
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderV1Request) TimeInForce(timeInForce string) TradeAPIPmarginCreateMarginOrderV1Request {
+func (r ApiPmarginCreateMarginOrderV1Request) TimeInForce(timeInForce string) ApiPmarginCreateMarginOrderV1Request {
 	r.timeInForce = &timeInForce
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginOrderV1Request) Execute() (*PmarginCreateMarginOrderV1Resp, *http.Response, error) {
+func (r ApiPmarginCreateMarginOrderV1Request) Execute() (*PmarginCreateMarginOrderV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginCreateMarginOrderV1Execute(r)
 }
 
@@ -1089,10 +1089,10 @@ PmarginCreateMarginOrderV1 New Margin Order(TRADE)
 New Margin Order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginCreateMarginOrderV1Request
+ @return ApiPmarginCreateMarginOrderV1Request
 */
-func (a *TradeAPIService) PmarginCreateMarginOrderV1(ctx context.Context) TradeAPIPmarginCreateMarginOrderV1Request {
-	return TradeAPIPmarginCreateMarginOrderV1Request{
+func (a *TradeAPIService) PmarginCreateMarginOrderV1(ctx context.Context) ApiPmarginCreateMarginOrderV1Request {
+	return ApiPmarginCreateMarginOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1100,7 +1100,7 @@ func (a *TradeAPIService) PmarginCreateMarginOrderV1(ctx context.Context) TradeA
 
 // Execute executes the request
 //  @return PmarginCreateMarginOrderV1Resp
-func (a *TradeAPIService) PmarginCreateMarginOrderV1Execute(r TradeAPIPmarginCreateMarginOrderV1Request) (*PmarginCreateMarginOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginCreateMarginOrderV1Execute(r ApiPmarginCreateMarginOrderV1Request) (*PmarginCreateMarginOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1252,7 +1252,7 @@ func (a *TradeAPIService) PmarginCreateMarginOrderV1Execute(r TradeAPIPmarginCre
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginCreateMarginRepayDebtV1Request struct {
+type ApiPmarginCreateMarginRepayDebtV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	asset *string
@@ -1262,32 +1262,32 @@ type TradeAPIPmarginCreateMarginRepayDebtV1Request struct {
 	specifyRepayAssets *string
 }
 
-func (r TradeAPIPmarginCreateMarginRepayDebtV1Request) Asset(asset string) TradeAPIPmarginCreateMarginRepayDebtV1Request {
+func (r ApiPmarginCreateMarginRepayDebtV1Request) Asset(asset string) ApiPmarginCreateMarginRepayDebtV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginRepayDebtV1Request) Timestamp(timestamp int64) TradeAPIPmarginCreateMarginRepayDebtV1Request {
+func (r ApiPmarginCreateMarginRepayDebtV1Request) Timestamp(timestamp int64) ApiPmarginCreateMarginRepayDebtV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginRepayDebtV1Request) Amount(amount string) TradeAPIPmarginCreateMarginRepayDebtV1Request {
+func (r ApiPmarginCreateMarginRepayDebtV1Request) Amount(amount string) ApiPmarginCreateMarginRepayDebtV1Request {
 	r.amount = &amount
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginRepayDebtV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginCreateMarginRepayDebtV1Request {
+func (r ApiPmarginCreateMarginRepayDebtV1Request) RecvWindow(recvWindow int64) ApiPmarginCreateMarginRepayDebtV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginRepayDebtV1Request) SpecifyRepayAssets(specifyRepayAssets string) TradeAPIPmarginCreateMarginRepayDebtV1Request {
+func (r ApiPmarginCreateMarginRepayDebtV1Request) SpecifyRepayAssets(specifyRepayAssets string) ApiPmarginCreateMarginRepayDebtV1Request {
 	r.specifyRepayAssets = &specifyRepayAssets
 	return r
 }
 
-func (r TradeAPIPmarginCreateMarginRepayDebtV1Request) Execute() (*PmarginCreateMarginRepayDebtV1Resp, *http.Response, error) {
+func (r ApiPmarginCreateMarginRepayDebtV1Request) Execute() (*PmarginCreateMarginRepayDebtV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginCreateMarginRepayDebtV1Execute(r)
 }
 
@@ -1297,10 +1297,10 @@ PmarginCreateMarginRepayDebtV1 Margin Account Repay Debt(TRADE)
 Repay debt for a margin loan.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginCreateMarginRepayDebtV1Request
+ @return ApiPmarginCreateMarginRepayDebtV1Request
 */
-func (a *TradeAPIService) PmarginCreateMarginRepayDebtV1(ctx context.Context) TradeAPIPmarginCreateMarginRepayDebtV1Request {
-	return TradeAPIPmarginCreateMarginRepayDebtV1Request{
+func (a *TradeAPIService) PmarginCreateMarginRepayDebtV1(ctx context.Context) ApiPmarginCreateMarginRepayDebtV1Request {
+	return ApiPmarginCreateMarginRepayDebtV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1308,7 +1308,7 @@ func (a *TradeAPIService) PmarginCreateMarginRepayDebtV1(ctx context.Context) Tr
 
 // Execute executes the request
 //  @return PmarginCreateMarginRepayDebtV1Resp
-func (a *TradeAPIService) PmarginCreateMarginRepayDebtV1Execute(r TradeAPIPmarginCreateMarginRepayDebtV1Request) (*PmarginCreateMarginRepayDebtV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginCreateMarginRepayDebtV1Execute(r ApiPmarginCreateMarginRepayDebtV1Request) (*PmarginCreateMarginRepayDebtV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1425,7 +1425,7 @@ func (a *TradeAPIService) PmarginCreateMarginRepayDebtV1Execute(r TradeAPIPmargi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginCreateRepayLoanV1Request struct {
+type ApiPmarginCreateRepayLoanV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	amount *string
@@ -1434,27 +1434,27 @@ type TradeAPIPmarginCreateRepayLoanV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginCreateRepayLoanV1Request) Amount(amount string) TradeAPIPmarginCreateRepayLoanV1Request {
+func (r ApiPmarginCreateRepayLoanV1Request) Amount(amount string) ApiPmarginCreateRepayLoanV1Request {
 	r.amount = &amount
 	return r
 }
 
-func (r TradeAPIPmarginCreateRepayLoanV1Request) Asset(asset string) TradeAPIPmarginCreateRepayLoanV1Request {
+func (r ApiPmarginCreateRepayLoanV1Request) Asset(asset string) ApiPmarginCreateRepayLoanV1Request {
 	r.asset = &asset
 	return r
 }
 
-func (r TradeAPIPmarginCreateRepayLoanV1Request) Timestamp(timestamp int64) TradeAPIPmarginCreateRepayLoanV1Request {
+func (r ApiPmarginCreateRepayLoanV1Request) Timestamp(timestamp int64) ApiPmarginCreateRepayLoanV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginCreateRepayLoanV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginCreateRepayLoanV1Request {
+func (r ApiPmarginCreateRepayLoanV1Request) RecvWindow(recvWindow int64) ApiPmarginCreateRepayLoanV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginCreateRepayLoanV1Request) Execute() (*PmarginCreateRepayLoanV1Resp, *http.Response, error) {
+func (r ApiPmarginCreateRepayLoanV1Request) Execute() (*PmarginCreateRepayLoanV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginCreateRepayLoanV1Execute(r)
 }
 
@@ -1464,10 +1464,10 @@ PmarginCreateRepayLoanV1 Margin Account Repay(MARGIN)
 Repay for a margin loan.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginCreateRepayLoanV1Request
+ @return ApiPmarginCreateRepayLoanV1Request
 */
-func (a *TradeAPIService) PmarginCreateRepayLoanV1(ctx context.Context) TradeAPIPmarginCreateRepayLoanV1Request {
-	return TradeAPIPmarginCreateRepayLoanV1Request{
+func (a *TradeAPIService) PmarginCreateRepayLoanV1(ctx context.Context) ApiPmarginCreateRepayLoanV1Request {
+	return ApiPmarginCreateRepayLoanV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1475,7 +1475,7 @@ func (a *TradeAPIService) PmarginCreateRepayLoanV1(ctx context.Context) TradeAPI
 
 // Execute executes the request
 //  @return PmarginCreateRepayLoanV1Resp
-func (a *TradeAPIService) PmarginCreateRepayLoanV1Execute(r TradeAPIPmarginCreateRepayLoanV1Request) (*PmarginCreateRepayLoanV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginCreateRepayLoanV1Execute(r ApiPmarginCreateRepayLoanV1Request) (*PmarginCreateRepayLoanV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1584,7 +1584,7 @@ func (a *TradeAPIService) PmarginCreateRepayLoanV1Execute(r TradeAPIPmarginCreat
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginCreateUmConditionalOrderV1Request struct {
+type ApiPmarginCreateUmConditionalOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	side *string
@@ -1608,102 +1608,102 @@ type TradeAPIPmarginCreateUmConditionalOrderV1Request struct {
 	workingType *string
 }
 
-func (r TradeAPIPmarginCreateUmConditionalOrderV1Request) Side(side string) TradeAPIPmarginCreateUmConditionalOrderV1Request {
+func (r ApiPmarginCreateUmConditionalOrderV1Request) Side(side string) ApiPmarginCreateUmConditionalOrderV1Request {
 	r.side = &side
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmConditionalOrderV1Request) StrategyType(strategyType string) TradeAPIPmarginCreateUmConditionalOrderV1Request {
+func (r ApiPmarginCreateUmConditionalOrderV1Request) StrategyType(strategyType string) ApiPmarginCreateUmConditionalOrderV1Request {
 	r.strategyType = &strategyType
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmConditionalOrderV1Request) Symbol(symbol string) TradeAPIPmarginCreateUmConditionalOrderV1Request {
+func (r ApiPmarginCreateUmConditionalOrderV1Request) Symbol(symbol string) ApiPmarginCreateUmConditionalOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmConditionalOrderV1Request) Timestamp(timestamp int64) TradeAPIPmarginCreateUmConditionalOrderV1Request {
+func (r ApiPmarginCreateUmConditionalOrderV1Request) Timestamp(timestamp int64) ApiPmarginCreateUmConditionalOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmConditionalOrderV1Request) ActivationPrice(activationPrice string) TradeAPIPmarginCreateUmConditionalOrderV1Request {
+func (r ApiPmarginCreateUmConditionalOrderV1Request) ActivationPrice(activationPrice string) ApiPmarginCreateUmConditionalOrderV1Request {
 	r.activationPrice = &activationPrice
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmConditionalOrderV1Request) CallbackRate(callbackRate string) TradeAPIPmarginCreateUmConditionalOrderV1Request {
+func (r ApiPmarginCreateUmConditionalOrderV1Request) CallbackRate(callbackRate string) ApiPmarginCreateUmConditionalOrderV1Request {
 	r.callbackRate = &callbackRate
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmConditionalOrderV1Request) GoodTillDate(goodTillDate int64) TradeAPIPmarginCreateUmConditionalOrderV1Request {
+func (r ApiPmarginCreateUmConditionalOrderV1Request) GoodTillDate(goodTillDate int64) ApiPmarginCreateUmConditionalOrderV1Request {
 	r.goodTillDate = &goodTillDate
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmConditionalOrderV1Request) NewClientStrategyId(newClientStrategyId string) TradeAPIPmarginCreateUmConditionalOrderV1Request {
+func (r ApiPmarginCreateUmConditionalOrderV1Request) NewClientStrategyId(newClientStrategyId string) ApiPmarginCreateUmConditionalOrderV1Request {
 	r.newClientStrategyId = &newClientStrategyId
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmConditionalOrderV1Request) PositionSide(positionSide string) TradeAPIPmarginCreateUmConditionalOrderV1Request {
+func (r ApiPmarginCreateUmConditionalOrderV1Request) PositionSide(positionSide string) ApiPmarginCreateUmConditionalOrderV1Request {
 	r.positionSide = &positionSide
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmConditionalOrderV1Request) Price(price string) TradeAPIPmarginCreateUmConditionalOrderV1Request {
+func (r ApiPmarginCreateUmConditionalOrderV1Request) Price(price string) ApiPmarginCreateUmConditionalOrderV1Request {
 	r.price = &price
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmConditionalOrderV1Request) PriceMatch(priceMatch string) TradeAPIPmarginCreateUmConditionalOrderV1Request {
+func (r ApiPmarginCreateUmConditionalOrderV1Request) PriceMatch(priceMatch string) ApiPmarginCreateUmConditionalOrderV1Request {
 	r.priceMatch = &priceMatch
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmConditionalOrderV1Request) PriceProtect(priceProtect string) TradeAPIPmarginCreateUmConditionalOrderV1Request {
+func (r ApiPmarginCreateUmConditionalOrderV1Request) PriceProtect(priceProtect string) ApiPmarginCreateUmConditionalOrderV1Request {
 	r.priceProtect = &priceProtect
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmConditionalOrderV1Request) Quantity(quantity string) TradeAPIPmarginCreateUmConditionalOrderV1Request {
+func (r ApiPmarginCreateUmConditionalOrderV1Request) Quantity(quantity string) ApiPmarginCreateUmConditionalOrderV1Request {
 	r.quantity = &quantity
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmConditionalOrderV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginCreateUmConditionalOrderV1Request {
+func (r ApiPmarginCreateUmConditionalOrderV1Request) RecvWindow(recvWindow int64) ApiPmarginCreateUmConditionalOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmConditionalOrderV1Request) ReduceOnly(reduceOnly string) TradeAPIPmarginCreateUmConditionalOrderV1Request {
+func (r ApiPmarginCreateUmConditionalOrderV1Request) ReduceOnly(reduceOnly string) ApiPmarginCreateUmConditionalOrderV1Request {
 	r.reduceOnly = &reduceOnly
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmConditionalOrderV1Request) SelfTradePreventionMode(selfTradePreventionMode string) TradeAPIPmarginCreateUmConditionalOrderV1Request {
+func (r ApiPmarginCreateUmConditionalOrderV1Request) SelfTradePreventionMode(selfTradePreventionMode string) ApiPmarginCreateUmConditionalOrderV1Request {
 	r.selfTradePreventionMode = &selfTradePreventionMode
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmConditionalOrderV1Request) StopPrice(stopPrice string) TradeAPIPmarginCreateUmConditionalOrderV1Request {
+func (r ApiPmarginCreateUmConditionalOrderV1Request) StopPrice(stopPrice string) ApiPmarginCreateUmConditionalOrderV1Request {
 	r.stopPrice = &stopPrice
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmConditionalOrderV1Request) TimeInForce(timeInForce string) TradeAPIPmarginCreateUmConditionalOrderV1Request {
+func (r ApiPmarginCreateUmConditionalOrderV1Request) TimeInForce(timeInForce string) ApiPmarginCreateUmConditionalOrderV1Request {
 	r.timeInForce = &timeInForce
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmConditionalOrderV1Request) WorkingType(workingType string) TradeAPIPmarginCreateUmConditionalOrderV1Request {
+func (r ApiPmarginCreateUmConditionalOrderV1Request) WorkingType(workingType string) ApiPmarginCreateUmConditionalOrderV1Request {
 	r.workingType = &workingType
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmConditionalOrderV1Request) Execute() (*PmarginCreateUmConditionalOrderV1Resp, *http.Response, error) {
+func (r ApiPmarginCreateUmConditionalOrderV1Request) Execute() (*PmarginCreateUmConditionalOrderV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginCreateUmConditionalOrderV1Execute(r)
 }
 
@@ -1713,10 +1713,10 @@ PmarginCreateUmConditionalOrderV1 New UM Conditional Order (TRADE)
 Place new UM conditional order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginCreateUmConditionalOrderV1Request
+ @return ApiPmarginCreateUmConditionalOrderV1Request
 */
-func (a *TradeAPIService) PmarginCreateUmConditionalOrderV1(ctx context.Context) TradeAPIPmarginCreateUmConditionalOrderV1Request {
-	return TradeAPIPmarginCreateUmConditionalOrderV1Request{
+func (a *TradeAPIService) PmarginCreateUmConditionalOrderV1(ctx context.Context) ApiPmarginCreateUmConditionalOrderV1Request {
+	return ApiPmarginCreateUmConditionalOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1724,7 +1724,7 @@ func (a *TradeAPIService) PmarginCreateUmConditionalOrderV1(ctx context.Context)
 
 // Execute executes the request
 //  @return PmarginCreateUmConditionalOrderV1Resp
-func (a *TradeAPIService) PmarginCreateUmConditionalOrderV1Execute(r TradeAPIPmarginCreateUmConditionalOrderV1Request) (*PmarginCreateUmConditionalOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginCreateUmConditionalOrderV1Execute(r ApiPmarginCreateUmConditionalOrderV1Request) (*PmarginCreateUmConditionalOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1885,7 +1885,7 @@ func (a *TradeAPIService) PmarginCreateUmConditionalOrderV1Execute(r TradeAPIPma
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginCreateUmFeeBurnV1Request struct {
+type ApiPmarginCreateUmFeeBurnV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	feeBurn *string
@@ -1893,22 +1893,22 @@ type TradeAPIPmarginCreateUmFeeBurnV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginCreateUmFeeBurnV1Request) FeeBurn(feeBurn string) TradeAPIPmarginCreateUmFeeBurnV1Request {
+func (r ApiPmarginCreateUmFeeBurnV1Request) FeeBurn(feeBurn string) ApiPmarginCreateUmFeeBurnV1Request {
 	r.feeBurn = &feeBurn
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmFeeBurnV1Request) Timestamp(timestamp int64) TradeAPIPmarginCreateUmFeeBurnV1Request {
+func (r ApiPmarginCreateUmFeeBurnV1Request) Timestamp(timestamp int64) ApiPmarginCreateUmFeeBurnV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmFeeBurnV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginCreateUmFeeBurnV1Request {
+func (r ApiPmarginCreateUmFeeBurnV1Request) RecvWindow(recvWindow int64) ApiPmarginCreateUmFeeBurnV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmFeeBurnV1Request) Execute() (*PmarginCreateUmFeeBurnV1Resp, *http.Response, error) {
+func (r ApiPmarginCreateUmFeeBurnV1Request) Execute() (*PmarginCreateUmFeeBurnV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginCreateUmFeeBurnV1Execute(r)
 }
 
@@ -1918,10 +1918,10 @@ PmarginCreateUmFeeBurnV1 Toggle BNB Burn On UM Futures Trade (TRADE)
 Change user's BNB Fee Discount for UM Futures (Fee Discount On or Fee Discount Off ) on EVERY symbol
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginCreateUmFeeBurnV1Request
+ @return ApiPmarginCreateUmFeeBurnV1Request
 */
-func (a *TradeAPIService) PmarginCreateUmFeeBurnV1(ctx context.Context) TradeAPIPmarginCreateUmFeeBurnV1Request {
-	return TradeAPIPmarginCreateUmFeeBurnV1Request{
+func (a *TradeAPIService) PmarginCreateUmFeeBurnV1(ctx context.Context) ApiPmarginCreateUmFeeBurnV1Request {
+	return ApiPmarginCreateUmFeeBurnV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1929,7 +1929,7 @@ func (a *TradeAPIService) PmarginCreateUmFeeBurnV1(ctx context.Context) TradeAPI
 
 // Execute executes the request
 //  @return PmarginCreateUmFeeBurnV1Resp
-func (a *TradeAPIService) PmarginCreateUmFeeBurnV1Execute(r TradeAPIPmarginCreateUmFeeBurnV1Request) (*PmarginCreateUmFeeBurnV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginCreateUmFeeBurnV1Execute(r ApiPmarginCreateUmFeeBurnV1Request) (*PmarginCreateUmFeeBurnV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2040,7 +2040,7 @@ func (a *TradeAPIService) PmarginCreateUmFeeBurnV1Execute(r TradeAPIPmarginCreat
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginCreateUmOrderV1Request struct {
+type ApiPmarginCreateUmOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	side *string
@@ -2060,82 +2060,82 @@ type TradeAPIPmarginCreateUmOrderV1Request struct {
 	timeInForce *string
 }
 
-func (r TradeAPIPmarginCreateUmOrderV1Request) Side(side string) TradeAPIPmarginCreateUmOrderV1Request {
+func (r ApiPmarginCreateUmOrderV1Request) Side(side string) ApiPmarginCreateUmOrderV1Request {
 	r.side = &side
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmOrderV1Request) Symbol(symbol string) TradeAPIPmarginCreateUmOrderV1Request {
+func (r ApiPmarginCreateUmOrderV1Request) Symbol(symbol string) ApiPmarginCreateUmOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmOrderV1Request) Timestamp(timestamp int64) TradeAPIPmarginCreateUmOrderV1Request {
+func (r ApiPmarginCreateUmOrderV1Request) Timestamp(timestamp int64) ApiPmarginCreateUmOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmOrderV1Request) Type_(type_ string) TradeAPIPmarginCreateUmOrderV1Request {
+func (r ApiPmarginCreateUmOrderV1Request) Type_(type_ string) ApiPmarginCreateUmOrderV1Request {
 	r.type_ = &type_
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmOrderV1Request) GoodTillDate(goodTillDate int64) TradeAPIPmarginCreateUmOrderV1Request {
+func (r ApiPmarginCreateUmOrderV1Request) GoodTillDate(goodTillDate int64) ApiPmarginCreateUmOrderV1Request {
 	r.goodTillDate = &goodTillDate
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmOrderV1Request) NewClientOrderId(newClientOrderId string) TradeAPIPmarginCreateUmOrderV1Request {
+func (r ApiPmarginCreateUmOrderV1Request) NewClientOrderId(newClientOrderId string) ApiPmarginCreateUmOrderV1Request {
 	r.newClientOrderId = &newClientOrderId
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmOrderV1Request) NewOrderRespType(newOrderRespType string) TradeAPIPmarginCreateUmOrderV1Request {
+func (r ApiPmarginCreateUmOrderV1Request) NewOrderRespType(newOrderRespType string) ApiPmarginCreateUmOrderV1Request {
 	r.newOrderRespType = &newOrderRespType
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmOrderV1Request) PositionSide(positionSide string) TradeAPIPmarginCreateUmOrderV1Request {
+func (r ApiPmarginCreateUmOrderV1Request) PositionSide(positionSide string) ApiPmarginCreateUmOrderV1Request {
 	r.positionSide = &positionSide
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmOrderV1Request) Price(price string) TradeAPIPmarginCreateUmOrderV1Request {
+func (r ApiPmarginCreateUmOrderV1Request) Price(price string) ApiPmarginCreateUmOrderV1Request {
 	r.price = &price
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmOrderV1Request) PriceMatch(priceMatch string) TradeAPIPmarginCreateUmOrderV1Request {
+func (r ApiPmarginCreateUmOrderV1Request) PriceMatch(priceMatch string) ApiPmarginCreateUmOrderV1Request {
 	r.priceMatch = &priceMatch
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmOrderV1Request) Quantity(quantity string) TradeAPIPmarginCreateUmOrderV1Request {
+func (r ApiPmarginCreateUmOrderV1Request) Quantity(quantity string) ApiPmarginCreateUmOrderV1Request {
 	r.quantity = &quantity
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmOrderV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginCreateUmOrderV1Request {
+func (r ApiPmarginCreateUmOrderV1Request) RecvWindow(recvWindow int64) ApiPmarginCreateUmOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmOrderV1Request) ReduceOnly(reduceOnly string) TradeAPIPmarginCreateUmOrderV1Request {
+func (r ApiPmarginCreateUmOrderV1Request) ReduceOnly(reduceOnly string) ApiPmarginCreateUmOrderV1Request {
 	r.reduceOnly = &reduceOnly
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmOrderV1Request) SelfTradePreventionMode(selfTradePreventionMode string) TradeAPIPmarginCreateUmOrderV1Request {
+func (r ApiPmarginCreateUmOrderV1Request) SelfTradePreventionMode(selfTradePreventionMode string) ApiPmarginCreateUmOrderV1Request {
 	r.selfTradePreventionMode = &selfTradePreventionMode
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmOrderV1Request) TimeInForce(timeInForce string) TradeAPIPmarginCreateUmOrderV1Request {
+func (r ApiPmarginCreateUmOrderV1Request) TimeInForce(timeInForce string) ApiPmarginCreateUmOrderV1Request {
 	r.timeInForce = &timeInForce
 	return r
 }
 
-func (r TradeAPIPmarginCreateUmOrderV1Request) Execute() (*PmarginCreateUmOrderV1Resp, *http.Response, error) {
+func (r ApiPmarginCreateUmOrderV1Request) Execute() (*PmarginCreateUmOrderV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginCreateUmOrderV1Execute(r)
 }
 
@@ -2145,10 +2145,10 @@ PmarginCreateUmOrderV1 New UM Order (TRADE)
 Place new UM order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginCreateUmOrderV1Request
+ @return ApiPmarginCreateUmOrderV1Request
 */
-func (a *TradeAPIService) PmarginCreateUmOrderV1(ctx context.Context) TradeAPIPmarginCreateUmOrderV1Request {
-	return TradeAPIPmarginCreateUmOrderV1Request{
+func (a *TradeAPIService) PmarginCreateUmOrderV1(ctx context.Context) ApiPmarginCreateUmOrderV1Request {
+	return ApiPmarginCreateUmOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2156,7 +2156,7 @@ func (a *TradeAPIService) PmarginCreateUmOrderV1(ctx context.Context) TradeAPIPm
 
 // Execute executes the request
 //  @return PmarginCreateUmOrderV1Resp
-func (a *TradeAPIService) PmarginCreateUmOrderV1Execute(r TradeAPIPmarginCreateUmOrderV1Request) (*PmarginCreateUmOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginCreateUmOrderV1Execute(r ApiPmarginCreateUmOrderV1Request) (*PmarginCreateUmOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2305,7 +2305,7 @@ func (a *TradeAPIService) PmarginCreateUmOrderV1Execute(r TradeAPIPmarginCreateU
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginDeleteCmAllOpenOrdersV1Request struct {
+type ApiPmarginDeleteCmAllOpenOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -2313,22 +2313,22 @@ type TradeAPIPmarginDeleteCmAllOpenOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginDeleteCmAllOpenOrdersV1Request) Symbol(symbol string) TradeAPIPmarginDeleteCmAllOpenOrdersV1Request {
+func (r ApiPmarginDeleteCmAllOpenOrdersV1Request) Symbol(symbol string) ApiPmarginDeleteCmAllOpenOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginDeleteCmAllOpenOrdersV1Request) Timestamp(timestamp int64) TradeAPIPmarginDeleteCmAllOpenOrdersV1Request {
+func (r ApiPmarginDeleteCmAllOpenOrdersV1Request) Timestamp(timestamp int64) ApiPmarginDeleteCmAllOpenOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginDeleteCmAllOpenOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginDeleteCmAllOpenOrdersV1Request {
+func (r ApiPmarginDeleteCmAllOpenOrdersV1Request) RecvWindow(recvWindow int64) ApiPmarginDeleteCmAllOpenOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginDeleteCmAllOpenOrdersV1Request) Execute() (*PmarginDeleteCmAllOpenOrdersV1Resp, *http.Response, error) {
+func (r ApiPmarginDeleteCmAllOpenOrdersV1Request) Execute() (*PmarginDeleteCmAllOpenOrdersV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginDeleteCmAllOpenOrdersV1Execute(r)
 }
 
@@ -2338,10 +2338,10 @@ PmarginDeleteCmAllOpenOrdersV1 Cancel All CM Open Orders(TRADE)
 Cancel all active LIMIT orders on specific symbol
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginDeleteCmAllOpenOrdersV1Request
+ @return ApiPmarginDeleteCmAllOpenOrdersV1Request
 */
-func (a *TradeAPIService) PmarginDeleteCmAllOpenOrdersV1(ctx context.Context) TradeAPIPmarginDeleteCmAllOpenOrdersV1Request {
-	return TradeAPIPmarginDeleteCmAllOpenOrdersV1Request{
+func (a *TradeAPIService) PmarginDeleteCmAllOpenOrdersV1(ctx context.Context) ApiPmarginDeleteCmAllOpenOrdersV1Request {
+	return ApiPmarginDeleteCmAllOpenOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2349,7 +2349,7 @@ func (a *TradeAPIService) PmarginDeleteCmAllOpenOrdersV1(ctx context.Context) Tr
 
 // Execute executes the request
 //  @return PmarginDeleteCmAllOpenOrdersV1Resp
-func (a *TradeAPIService) PmarginDeleteCmAllOpenOrdersV1Execute(r TradeAPIPmarginDeleteCmAllOpenOrdersV1Request) (*PmarginDeleteCmAllOpenOrdersV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginDeleteCmAllOpenOrdersV1Execute(r ApiPmarginDeleteCmAllOpenOrdersV1Request) (*PmarginDeleteCmAllOpenOrdersV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -2460,7 +2460,7 @@ func (a *TradeAPIService) PmarginDeleteCmAllOpenOrdersV1Execute(r TradeAPIPmargi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginDeleteCmConditionalAllOpenOrdersV1Request struct {
+type ApiPmarginDeleteCmConditionalAllOpenOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -2468,22 +2468,22 @@ type TradeAPIPmarginDeleteCmConditionalAllOpenOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginDeleteCmConditionalAllOpenOrdersV1Request) Symbol(symbol string) TradeAPIPmarginDeleteCmConditionalAllOpenOrdersV1Request {
+func (r ApiPmarginDeleteCmConditionalAllOpenOrdersV1Request) Symbol(symbol string) ApiPmarginDeleteCmConditionalAllOpenOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginDeleteCmConditionalAllOpenOrdersV1Request) Timestamp(timestamp int64) TradeAPIPmarginDeleteCmConditionalAllOpenOrdersV1Request {
+func (r ApiPmarginDeleteCmConditionalAllOpenOrdersV1Request) Timestamp(timestamp int64) ApiPmarginDeleteCmConditionalAllOpenOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginDeleteCmConditionalAllOpenOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginDeleteCmConditionalAllOpenOrdersV1Request {
+func (r ApiPmarginDeleteCmConditionalAllOpenOrdersV1Request) RecvWindow(recvWindow int64) ApiPmarginDeleteCmConditionalAllOpenOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginDeleteCmConditionalAllOpenOrdersV1Request) Execute() (*PmarginDeleteCmConditionalAllOpenOrdersV1Resp, *http.Response, error) {
+func (r ApiPmarginDeleteCmConditionalAllOpenOrdersV1Request) Execute() (*PmarginDeleteCmConditionalAllOpenOrdersV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginDeleteCmConditionalAllOpenOrdersV1Execute(r)
 }
 
@@ -2493,10 +2493,10 @@ PmarginDeleteCmConditionalAllOpenOrdersV1 Cancel All CM Open Conditional Orders(
 Cancel All CM Open Conditional Orders
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginDeleteCmConditionalAllOpenOrdersV1Request
+ @return ApiPmarginDeleteCmConditionalAllOpenOrdersV1Request
 */
-func (a *TradeAPIService) PmarginDeleteCmConditionalAllOpenOrdersV1(ctx context.Context) TradeAPIPmarginDeleteCmConditionalAllOpenOrdersV1Request {
-	return TradeAPIPmarginDeleteCmConditionalAllOpenOrdersV1Request{
+func (a *TradeAPIService) PmarginDeleteCmConditionalAllOpenOrdersV1(ctx context.Context) ApiPmarginDeleteCmConditionalAllOpenOrdersV1Request {
+	return ApiPmarginDeleteCmConditionalAllOpenOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2504,7 +2504,7 @@ func (a *TradeAPIService) PmarginDeleteCmConditionalAllOpenOrdersV1(ctx context.
 
 // Execute executes the request
 //  @return PmarginDeleteCmConditionalAllOpenOrdersV1Resp
-func (a *TradeAPIService) PmarginDeleteCmConditionalAllOpenOrdersV1Execute(r TradeAPIPmarginDeleteCmConditionalAllOpenOrdersV1Request) (*PmarginDeleteCmConditionalAllOpenOrdersV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginDeleteCmConditionalAllOpenOrdersV1Execute(r ApiPmarginDeleteCmConditionalAllOpenOrdersV1Request) (*PmarginDeleteCmConditionalAllOpenOrdersV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -2615,7 +2615,7 @@ func (a *TradeAPIService) PmarginDeleteCmConditionalAllOpenOrdersV1Execute(r Tra
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginDeleteCmConditionalOrderV1Request struct {
+type ApiPmarginDeleteCmConditionalOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -2625,32 +2625,32 @@ type TradeAPIPmarginDeleteCmConditionalOrderV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginDeleteCmConditionalOrderV1Request) Symbol(symbol string) TradeAPIPmarginDeleteCmConditionalOrderV1Request {
+func (r ApiPmarginDeleteCmConditionalOrderV1Request) Symbol(symbol string) ApiPmarginDeleteCmConditionalOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginDeleteCmConditionalOrderV1Request) Timestamp(timestamp int64) TradeAPIPmarginDeleteCmConditionalOrderV1Request {
+func (r ApiPmarginDeleteCmConditionalOrderV1Request) Timestamp(timestamp int64) ApiPmarginDeleteCmConditionalOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginDeleteCmConditionalOrderV1Request) StrategyId(strategyId int64) TradeAPIPmarginDeleteCmConditionalOrderV1Request {
+func (r ApiPmarginDeleteCmConditionalOrderV1Request) StrategyId(strategyId int64) ApiPmarginDeleteCmConditionalOrderV1Request {
 	r.strategyId = &strategyId
 	return r
 }
 
-func (r TradeAPIPmarginDeleteCmConditionalOrderV1Request) NewClientStrategyId(newClientStrategyId string) TradeAPIPmarginDeleteCmConditionalOrderV1Request {
+func (r ApiPmarginDeleteCmConditionalOrderV1Request) NewClientStrategyId(newClientStrategyId string) ApiPmarginDeleteCmConditionalOrderV1Request {
 	r.newClientStrategyId = &newClientStrategyId
 	return r
 }
 
-func (r TradeAPIPmarginDeleteCmConditionalOrderV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginDeleteCmConditionalOrderV1Request {
+func (r ApiPmarginDeleteCmConditionalOrderV1Request) RecvWindow(recvWindow int64) ApiPmarginDeleteCmConditionalOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginDeleteCmConditionalOrderV1Request) Execute() (*PmarginDeleteCmConditionalOrderV1Resp, *http.Response, error) {
+func (r ApiPmarginDeleteCmConditionalOrderV1Request) Execute() (*PmarginDeleteCmConditionalOrderV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginDeleteCmConditionalOrderV1Execute(r)
 }
 
@@ -2660,10 +2660,10 @@ PmarginDeleteCmConditionalOrderV1 Cancel CM Conditional Order(TRADE)
 Cancel CM Conditional Order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginDeleteCmConditionalOrderV1Request
+ @return ApiPmarginDeleteCmConditionalOrderV1Request
 */
-func (a *TradeAPIService) PmarginDeleteCmConditionalOrderV1(ctx context.Context) TradeAPIPmarginDeleteCmConditionalOrderV1Request {
-	return TradeAPIPmarginDeleteCmConditionalOrderV1Request{
+func (a *TradeAPIService) PmarginDeleteCmConditionalOrderV1(ctx context.Context) ApiPmarginDeleteCmConditionalOrderV1Request {
+	return ApiPmarginDeleteCmConditionalOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2671,7 +2671,7 @@ func (a *TradeAPIService) PmarginDeleteCmConditionalOrderV1(ctx context.Context)
 
 // Execute executes the request
 //  @return PmarginDeleteCmConditionalOrderV1Resp
-func (a *TradeAPIService) PmarginDeleteCmConditionalOrderV1Execute(r TradeAPIPmarginDeleteCmConditionalOrderV1Request) (*PmarginDeleteCmConditionalOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginDeleteCmConditionalOrderV1Execute(r ApiPmarginDeleteCmConditionalOrderV1Request) (*PmarginDeleteCmConditionalOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -2791,7 +2791,7 @@ func (a *TradeAPIService) PmarginDeleteCmConditionalOrderV1Execute(r TradeAPIPma
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginDeleteCmOrderV1Request struct {
+type ApiPmarginDeleteCmOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -2801,32 +2801,32 @@ type TradeAPIPmarginDeleteCmOrderV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginDeleteCmOrderV1Request) Symbol(symbol string) TradeAPIPmarginDeleteCmOrderV1Request {
+func (r ApiPmarginDeleteCmOrderV1Request) Symbol(symbol string) ApiPmarginDeleteCmOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginDeleteCmOrderV1Request) Timestamp(timestamp int64) TradeAPIPmarginDeleteCmOrderV1Request {
+func (r ApiPmarginDeleteCmOrderV1Request) Timestamp(timestamp int64) ApiPmarginDeleteCmOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginDeleteCmOrderV1Request) OrderId(orderId int64) TradeAPIPmarginDeleteCmOrderV1Request {
+func (r ApiPmarginDeleteCmOrderV1Request) OrderId(orderId int64) ApiPmarginDeleteCmOrderV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPIPmarginDeleteCmOrderV1Request) OrigClientOrderId(origClientOrderId string) TradeAPIPmarginDeleteCmOrderV1Request {
+func (r ApiPmarginDeleteCmOrderV1Request) OrigClientOrderId(origClientOrderId string) ApiPmarginDeleteCmOrderV1Request {
 	r.origClientOrderId = &origClientOrderId
 	return r
 }
 
-func (r TradeAPIPmarginDeleteCmOrderV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginDeleteCmOrderV1Request {
+func (r ApiPmarginDeleteCmOrderV1Request) RecvWindow(recvWindow int64) ApiPmarginDeleteCmOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginDeleteCmOrderV1Request) Execute() (*PmarginDeleteCmOrderV1Resp, *http.Response, error) {
+func (r ApiPmarginDeleteCmOrderV1Request) Execute() (*PmarginDeleteCmOrderV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginDeleteCmOrderV1Execute(r)
 }
 
@@ -2836,10 +2836,10 @@ PmarginDeleteCmOrderV1 Cancel CM Order(TRADE)
 Cancel an active LIMIT order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginDeleteCmOrderV1Request
+ @return ApiPmarginDeleteCmOrderV1Request
 */
-func (a *TradeAPIService) PmarginDeleteCmOrderV1(ctx context.Context) TradeAPIPmarginDeleteCmOrderV1Request {
-	return TradeAPIPmarginDeleteCmOrderV1Request{
+func (a *TradeAPIService) PmarginDeleteCmOrderV1(ctx context.Context) ApiPmarginDeleteCmOrderV1Request {
+	return ApiPmarginDeleteCmOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2847,7 +2847,7 @@ func (a *TradeAPIService) PmarginDeleteCmOrderV1(ctx context.Context) TradeAPIPm
 
 // Execute executes the request
 //  @return PmarginDeleteCmOrderV1Resp
-func (a *TradeAPIService) PmarginDeleteCmOrderV1Execute(r TradeAPIPmarginDeleteCmOrderV1Request) (*PmarginDeleteCmOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginDeleteCmOrderV1Execute(r ApiPmarginDeleteCmOrderV1Request) (*PmarginDeleteCmOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -2967,7 +2967,7 @@ func (a *TradeAPIService) PmarginDeleteCmOrderV1Execute(r TradeAPIPmarginDeleteC
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginDeleteMarginAllOpenOrdersV1Request struct {
+type ApiPmarginDeleteMarginAllOpenOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -2975,23 +2975,23 @@ type TradeAPIPmarginDeleteMarginAllOpenOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginDeleteMarginAllOpenOrdersV1Request) Symbol(symbol string) TradeAPIPmarginDeleteMarginAllOpenOrdersV1Request {
+func (r ApiPmarginDeleteMarginAllOpenOrdersV1Request) Symbol(symbol string) ApiPmarginDeleteMarginAllOpenOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginDeleteMarginAllOpenOrdersV1Request) Timestamp(timestamp int64) TradeAPIPmarginDeleteMarginAllOpenOrdersV1Request {
+func (r ApiPmarginDeleteMarginAllOpenOrdersV1Request) Timestamp(timestamp int64) ApiPmarginDeleteMarginAllOpenOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // The value cannot be greater than 60000
-func (r TradeAPIPmarginDeleteMarginAllOpenOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginDeleteMarginAllOpenOrdersV1Request {
+func (r ApiPmarginDeleteMarginAllOpenOrdersV1Request) RecvWindow(recvWindow int64) ApiPmarginDeleteMarginAllOpenOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginDeleteMarginAllOpenOrdersV1Request) Execute() ([]PmarginDeleteMarginAllOpenOrdersV1RespInner, *http.Response, error) {
+func (r ApiPmarginDeleteMarginAllOpenOrdersV1Request) Execute() ([]PmarginDeleteMarginAllOpenOrdersV1RespInner, *http.Response, error) {
 	return r.ApiService.PmarginDeleteMarginAllOpenOrdersV1Execute(r)
 }
 
@@ -3001,10 +3001,10 @@ PmarginDeleteMarginAllOpenOrdersV1 Cancel Margin Account All Open Orders on a Sy
 Cancel Margin Account All Open Orders on a Symbol
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginDeleteMarginAllOpenOrdersV1Request
+ @return ApiPmarginDeleteMarginAllOpenOrdersV1Request
 */
-func (a *TradeAPIService) PmarginDeleteMarginAllOpenOrdersV1(ctx context.Context) TradeAPIPmarginDeleteMarginAllOpenOrdersV1Request {
-	return TradeAPIPmarginDeleteMarginAllOpenOrdersV1Request{
+func (a *TradeAPIService) PmarginDeleteMarginAllOpenOrdersV1(ctx context.Context) ApiPmarginDeleteMarginAllOpenOrdersV1Request {
+	return ApiPmarginDeleteMarginAllOpenOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3012,7 +3012,7 @@ func (a *TradeAPIService) PmarginDeleteMarginAllOpenOrdersV1(ctx context.Context
 
 // Execute executes the request
 //  @return []PmarginDeleteMarginAllOpenOrdersV1RespInner
-func (a *TradeAPIService) PmarginDeleteMarginAllOpenOrdersV1Execute(r TradeAPIPmarginDeleteMarginAllOpenOrdersV1Request) ([]PmarginDeleteMarginAllOpenOrdersV1RespInner, *http.Response, error) {
+func (a *TradeAPIService) PmarginDeleteMarginAllOpenOrdersV1Execute(r ApiPmarginDeleteMarginAllOpenOrdersV1Request) ([]PmarginDeleteMarginAllOpenOrdersV1RespInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -3123,7 +3123,7 @@ func (a *TradeAPIService) PmarginDeleteMarginAllOpenOrdersV1Execute(r TradeAPIPm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginDeleteMarginOrderListV1Request struct {
+type ApiPmarginDeleteMarginOrderListV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -3134,41 +3134,41 @@ type TradeAPIPmarginDeleteMarginOrderListV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginDeleteMarginOrderListV1Request) Symbol(symbol string) TradeAPIPmarginDeleteMarginOrderListV1Request {
+func (r ApiPmarginDeleteMarginOrderListV1Request) Symbol(symbol string) ApiPmarginDeleteMarginOrderListV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginDeleteMarginOrderListV1Request) Timestamp(timestamp int64) TradeAPIPmarginDeleteMarginOrderListV1Request {
+func (r ApiPmarginDeleteMarginOrderListV1Request) Timestamp(timestamp int64) ApiPmarginDeleteMarginOrderListV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Either &#x60;orderListId&#x60; or &#x60;listClientOrderId&#x60; must be provided
-func (r TradeAPIPmarginDeleteMarginOrderListV1Request) OrderListId(orderListId int64) TradeAPIPmarginDeleteMarginOrderListV1Request {
+func (r ApiPmarginDeleteMarginOrderListV1Request) OrderListId(orderListId int64) ApiPmarginDeleteMarginOrderListV1Request {
 	r.orderListId = &orderListId
 	return r
 }
 
 // Either &#x60;orderListId&#x60; or &#x60;listClientOrderId&#x60; must be provided
-func (r TradeAPIPmarginDeleteMarginOrderListV1Request) ListClientOrderId(listClientOrderId string) TradeAPIPmarginDeleteMarginOrderListV1Request {
+func (r ApiPmarginDeleteMarginOrderListV1Request) ListClientOrderId(listClientOrderId string) ApiPmarginDeleteMarginOrderListV1Request {
 	r.listClientOrderId = &listClientOrderId
 	return r
 }
 
 // Used to uniquely identify this cancel. Automatically generated by default
-func (r TradeAPIPmarginDeleteMarginOrderListV1Request) NewClientOrderId(newClientOrderId string) TradeAPIPmarginDeleteMarginOrderListV1Request {
+func (r ApiPmarginDeleteMarginOrderListV1Request) NewClientOrderId(newClientOrderId string) ApiPmarginDeleteMarginOrderListV1Request {
 	r.newClientOrderId = &newClientOrderId
 	return r
 }
 
 // The value cannot be greater than 60000
-func (r TradeAPIPmarginDeleteMarginOrderListV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginDeleteMarginOrderListV1Request {
+func (r ApiPmarginDeleteMarginOrderListV1Request) RecvWindow(recvWindow int64) ApiPmarginDeleteMarginOrderListV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginDeleteMarginOrderListV1Request) Execute() (*PmarginDeleteMarginOrderListV1Resp, *http.Response, error) {
+func (r ApiPmarginDeleteMarginOrderListV1Request) Execute() (*PmarginDeleteMarginOrderListV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginDeleteMarginOrderListV1Execute(r)
 }
 
@@ -3178,10 +3178,10 @@ PmarginDeleteMarginOrderListV1 Cancel Margin Account OCO Orders(TRADE)
 Cancel Margin Account OCO Orders
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginDeleteMarginOrderListV1Request
+ @return ApiPmarginDeleteMarginOrderListV1Request
 */
-func (a *TradeAPIService) PmarginDeleteMarginOrderListV1(ctx context.Context) TradeAPIPmarginDeleteMarginOrderListV1Request {
-	return TradeAPIPmarginDeleteMarginOrderListV1Request{
+func (a *TradeAPIService) PmarginDeleteMarginOrderListV1(ctx context.Context) ApiPmarginDeleteMarginOrderListV1Request {
+	return ApiPmarginDeleteMarginOrderListV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3189,7 +3189,7 @@ func (a *TradeAPIService) PmarginDeleteMarginOrderListV1(ctx context.Context) Tr
 
 // Execute executes the request
 //  @return PmarginDeleteMarginOrderListV1Resp
-func (a *TradeAPIService) PmarginDeleteMarginOrderListV1Execute(r TradeAPIPmarginDeleteMarginOrderListV1Request) (*PmarginDeleteMarginOrderListV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginDeleteMarginOrderListV1Execute(r ApiPmarginDeleteMarginOrderListV1Request) (*PmarginDeleteMarginOrderListV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -3315,7 +3315,7 @@ func (a *TradeAPIService) PmarginDeleteMarginOrderListV1Execute(r TradeAPIPmargi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginDeleteMarginOrderV1Request struct {
+type ApiPmarginDeleteMarginOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -3326,39 +3326,39 @@ type TradeAPIPmarginDeleteMarginOrderV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginDeleteMarginOrderV1Request) Symbol(symbol string) TradeAPIPmarginDeleteMarginOrderV1Request {
+func (r ApiPmarginDeleteMarginOrderV1Request) Symbol(symbol string) ApiPmarginDeleteMarginOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginDeleteMarginOrderV1Request) Timestamp(timestamp int64) TradeAPIPmarginDeleteMarginOrderV1Request {
+func (r ApiPmarginDeleteMarginOrderV1Request) Timestamp(timestamp int64) ApiPmarginDeleteMarginOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginDeleteMarginOrderV1Request) OrderId(orderId int64) TradeAPIPmarginDeleteMarginOrderV1Request {
+func (r ApiPmarginDeleteMarginOrderV1Request) OrderId(orderId int64) ApiPmarginDeleteMarginOrderV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPIPmarginDeleteMarginOrderV1Request) OrigClientOrderId(origClientOrderId string) TradeAPIPmarginDeleteMarginOrderV1Request {
+func (r ApiPmarginDeleteMarginOrderV1Request) OrigClientOrderId(origClientOrderId string) ApiPmarginDeleteMarginOrderV1Request {
 	r.origClientOrderId = &origClientOrderId
 	return r
 }
 
 // Used to uniquely identify this cancel. Automatically generated by default.
-func (r TradeAPIPmarginDeleteMarginOrderV1Request) NewClientOrderId(newClientOrderId string) TradeAPIPmarginDeleteMarginOrderV1Request {
+func (r ApiPmarginDeleteMarginOrderV1Request) NewClientOrderId(newClientOrderId string) ApiPmarginDeleteMarginOrderV1Request {
 	r.newClientOrderId = &newClientOrderId
 	return r
 }
 
 // The value cannot be greater than &#x60;60000&#x60;
-func (r TradeAPIPmarginDeleteMarginOrderV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginDeleteMarginOrderV1Request {
+func (r ApiPmarginDeleteMarginOrderV1Request) RecvWindow(recvWindow int64) ApiPmarginDeleteMarginOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginDeleteMarginOrderV1Request) Execute() (*PmarginDeleteMarginOrderV1Resp, *http.Response, error) {
+func (r ApiPmarginDeleteMarginOrderV1Request) Execute() (*PmarginDeleteMarginOrderV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginDeleteMarginOrderV1Execute(r)
 }
 
@@ -3368,10 +3368,10 @@ PmarginDeleteMarginOrderV1 Cancel Margin Account Order(TRADE)
 Cancel Margin Account Order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginDeleteMarginOrderV1Request
+ @return ApiPmarginDeleteMarginOrderV1Request
 */
-func (a *TradeAPIService) PmarginDeleteMarginOrderV1(ctx context.Context) TradeAPIPmarginDeleteMarginOrderV1Request {
-	return TradeAPIPmarginDeleteMarginOrderV1Request{
+func (a *TradeAPIService) PmarginDeleteMarginOrderV1(ctx context.Context) ApiPmarginDeleteMarginOrderV1Request {
+	return ApiPmarginDeleteMarginOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3379,7 +3379,7 @@ func (a *TradeAPIService) PmarginDeleteMarginOrderV1(ctx context.Context) TradeA
 
 // Execute executes the request
 //  @return PmarginDeleteMarginOrderV1Resp
-func (a *TradeAPIService) PmarginDeleteMarginOrderV1Execute(r TradeAPIPmarginDeleteMarginOrderV1Request) (*PmarginDeleteMarginOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginDeleteMarginOrderV1Execute(r ApiPmarginDeleteMarginOrderV1Request) (*PmarginDeleteMarginOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -3505,7 +3505,7 @@ func (a *TradeAPIService) PmarginDeleteMarginOrderV1Execute(r TradeAPIPmarginDel
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginDeleteUmAllOpenOrdersV1Request struct {
+type ApiPmarginDeleteUmAllOpenOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -3513,22 +3513,22 @@ type TradeAPIPmarginDeleteUmAllOpenOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginDeleteUmAllOpenOrdersV1Request) Symbol(symbol string) TradeAPIPmarginDeleteUmAllOpenOrdersV1Request {
+func (r ApiPmarginDeleteUmAllOpenOrdersV1Request) Symbol(symbol string) ApiPmarginDeleteUmAllOpenOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginDeleteUmAllOpenOrdersV1Request) Timestamp(timestamp int64) TradeAPIPmarginDeleteUmAllOpenOrdersV1Request {
+func (r ApiPmarginDeleteUmAllOpenOrdersV1Request) Timestamp(timestamp int64) ApiPmarginDeleteUmAllOpenOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginDeleteUmAllOpenOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginDeleteUmAllOpenOrdersV1Request {
+func (r ApiPmarginDeleteUmAllOpenOrdersV1Request) RecvWindow(recvWindow int64) ApiPmarginDeleteUmAllOpenOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginDeleteUmAllOpenOrdersV1Request) Execute() (*PmarginDeleteUmAllOpenOrdersV1Resp, *http.Response, error) {
+func (r ApiPmarginDeleteUmAllOpenOrdersV1Request) Execute() (*PmarginDeleteUmAllOpenOrdersV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginDeleteUmAllOpenOrdersV1Execute(r)
 }
 
@@ -3538,10 +3538,10 @@ PmarginDeleteUmAllOpenOrdersV1 Cancel All UM Open Orders(TRADE)
 Cancel all active LIMIT orders on specific symbol
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginDeleteUmAllOpenOrdersV1Request
+ @return ApiPmarginDeleteUmAllOpenOrdersV1Request
 */
-func (a *TradeAPIService) PmarginDeleteUmAllOpenOrdersV1(ctx context.Context) TradeAPIPmarginDeleteUmAllOpenOrdersV1Request {
-	return TradeAPIPmarginDeleteUmAllOpenOrdersV1Request{
+func (a *TradeAPIService) PmarginDeleteUmAllOpenOrdersV1(ctx context.Context) ApiPmarginDeleteUmAllOpenOrdersV1Request {
+	return ApiPmarginDeleteUmAllOpenOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3549,7 +3549,7 @@ func (a *TradeAPIService) PmarginDeleteUmAllOpenOrdersV1(ctx context.Context) Tr
 
 // Execute executes the request
 //  @return PmarginDeleteUmAllOpenOrdersV1Resp
-func (a *TradeAPIService) PmarginDeleteUmAllOpenOrdersV1Execute(r TradeAPIPmarginDeleteUmAllOpenOrdersV1Request) (*PmarginDeleteUmAllOpenOrdersV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginDeleteUmAllOpenOrdersV1Execute(r ApiPmarginDeleteUmAllOpenOrdersV1Request) (*PmarginDeleteUmAllOpenOrdersV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -3660,7 +3660,7 @@ func (a *TradeAPIService) PmarginDeleteUmAllOpenOrdersV1Execute(r TradeAPIPmargi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginDeleteUmConditionalAllOpenOrdersV1Request struct {
+type ApiPmarginDeleteUmConditionalAllOpenOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -3668,22 +3668,22 @@ type TradeAPIPmarginDeleteUmConditionalAllOpenOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginDeleteUmConditionalAllOpenOrdersV1Request) Symbol(symbol string) TradeAPIPmarginDeleteUmConditionalAllOpenOrdersV1Request {
+func (r ApiPmarginDeleteUmConditionalAllOpenOrdersV1Request) Symbol(symbol string) ApiPmarginDeleteUmConditionalAllOpenOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginDeleteUmConditionalAllOpenOrdersV1Request) Timestamp(timestamp int64) TradeAPIPmarginDeleteUmConditionalAllOpenOrdersV1Request {
+func (r ApiPmarginDeleteUmConditionalAllOpenOrdersV1Request) Timestamp(timestamp int64) ApiPmarginDeleteUmConditionalAllOpenOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginDeleteUmConditionalAllOpenOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginDeleteUmConditionalAllOpenOrdersV1Request {
+func (r ApiPmarginDeleteUmConditionalAllOpenOrdersV1Request) RecvWindow(recvWindow int64) ApiPmarginDeleteUmConditionalAllOpenOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginDeleteUmConditionalAllOpenOrdersV1Request) Execute() (*PmarginDeleteUmConditionalAllOpenOrdersV1Resp, *http.Response, error) {
+func (r ApiPmarginDeleteUmConditionalAllOpenOrdersV1Request) Execute() (*PmarginDeleteUmConditionalAllOpenOrdersV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginDeleteUmConditionalAllOpenOrdersV1Execute(r)
 }
 
@@ -3693,10 +3693,10 @@ PmarginDeleteUmConditionalAllOpenOrdersV1 Cancel All UM Open Conditional Orders 
 Cancel All UM Open Conditional Orders
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginDeleteUmConditionalAllOpenOrdersV1Request
+ @return ApiPmarginDeleteUmConditionalAllOpenOrdersV1Request
 */
-func (a *TradeAPIService) PmarginDeleteUmConditionalAllOpenOrdersV1(ctx context.Context) TradeAPIPmarginDeleteUmConditionalAllOpenOrdersV1Request {
-	return TradeAPIPmarginDeleteUmConditionalAllOpenOrdersV1Request{
+func (a *TradeAPIService) PmarginDeleteUmConditionalAllOpenOrdersV1(ctx context.Context) ApiPmarginDeleteUmConditionalAllOpenOrdersV1Request {
+	return ApiPmarginDeleteUmConditionalAllOpenOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3704,7 +3704,7 @@ func (a *TradeAPIService) PmarginDeleteUmConditionalAllOpenOrdersV1(ctx context.
 
 // Execute executes the request
 //  @return PmarginDeleteUmConditionalAllOpenOrdersV1Resp
-func (a *TradeAPIService) PmarginDeleteUmConditionalAllOpenOrdersV1Execute(r TradeAPIPmarginDeleteUmConditionalAllOpenOrdersV1Request) (*PmarginDeleteUmConditionalAllOpenOrdersV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginDeleteUmConditionalAllOpenOrdersV1Execute(r ApiPmarginDeleteUmConditionalAllOpenOrdersV1Request) (*PmarginDeleteUmConditionalAllOpenOrdersV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -3815,7 +3815,7 @@ func (a *TradeAPIService) PmarginDeleteUmConditionalAllOpenOrdersV1Execute(r Tra
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginDeleteUmConditionalOrderV1Request struct {
+type ApiPmarginDeleteUmConditionalOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -3825,32 +3825,32 @@ type TradeAPIPmarginDeleteUmConditionalOrderV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginDeleteUmConditionalOrderV1Request) Symbol(symbol string) TradeAPIPmarginDeleteUmConditionalOrderV1Request {
+func (r ApiPmarginDeleteUmConditionalOrderV1Request) Symbol(symbol string) ApiPmarginDeleteUmConditionalOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginDeleteUmConditionalOrderV1Request) Timestamp(timestamp int64) TradeAPIPmarginDeleteUmConditionalOrderV1Request {
+func (r ApiPmarginDeleteUmConditionalOrderV1Request) Timestamp(timestamp int64) ApiPmarginDeleteUmConditionalOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginDeleteUmConditionalOrderV1Request) StrategyId(strategyId int64) TradeAPIPmarginDeleteUmConditionalOrderV1Request {
+func (r ApiPmarginDeleteUmConditionalOrderV1Request) StrategyId(strategyId int64) ApiPmarginDeleteUmConditionalOrderV1Request {
 	r.strategyId = &strategyId
 	return r
 }
 
-func (r TradeAPIPmarginDeleteUmConditionalOrderV1Request) NewClientStrategyId(newClientStrategyId string) TradeAPIPmarginDeleteUmConditionalOrderV1Request {
+func (r ApiPmarginDeleteUmConditionalOrderV1Request) NewClientStrategyId(newClientStrategyId string) ApiPmarginDeleteUmConditionalOrderV1Request {
 	r.newClientStrategyId = &newClientStrategyId
 	return r
 }
 
-func (r TradeAPIPmarginDeleteUmConditionalOrderV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginDeleteUmConditionalOrderV1Request {
+func (r ApiPmarginDeleteUmConditionalOrderV1Request) RecvWindow(recvWindow int64) ApiPmarginDeleteUmConditionalOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginDeleteUmConditionalOrderV1Request) Execute() (*PmarginDeleteUmConditionalOrderV1Resp, *http.Response, error) {
+func (r ApiPmarginDeleteUmConditionalOrderV1Request) Execute() (*PmarginDeleteUmConditionalOrderV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginDeleteUmConditionalOrderV1Execute(r)
 }
 
@@ -3860,10 +3860,10 @@ PmarginDeleteUmConditionalOrderV1 Cancel UM Conditional Order(TRADE)
 Cancel UM Conditional Order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginDeleteUmConditionalOrderV1Request
+ @return ApiPmarginDeleteUmConditionalOrderV1Request
 */
-func (a *TradeAPIService) PmarginDeleteUmConditionalOrderV1(ctx context.Context) TradeAPIPmarginDeleteUmConditionalOrderV1Request {
-	return TradeAPIPmarginDeleteUmConditionalOrderV1Request{
+func (a *TradeAPIService) PmarginDeleteUmConditionalOrderV1(ctx context.Context) ApiPmarginDeleteUmConditionalOrderV1Request {
+	return ApiPmarginDeleteUmConditionalOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3871,7 +3871,7 @@ func (a *TradeAPIService) PmarginDeleteUmConditionalOrderV1(ctx context.Context)
 
 // Execute executes the request
 //  @return PmarginDeleteUmConditionalOrderV1Resp
-func (a *TradeAPIService) PmarginDeleteUmConditionalOrderV1Execute(r TradeAPIPmarginDeleteUmConditionalOrderV1Request) (*PmarginDeleteUmConditionalOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginDeleteUmConditionalOrderV1Execute(r ApiPmarginDeleteUmConditionalOrderV1Request) (*PmarginDeleteUmConditionalOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -3991,7 +3991,7 @@ func (a *TradeAPIService) PmarginDeleteUmConditionalOrderV1Execute(r TradeAPIPma
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginDeleteUmOrderV1Request struct {
+type ApiPmarginDeleteUmOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -4001,32 +4001,32 @@ type TradeAPIPmarginDeleteUmOrderV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginDeleteUmOrderV1Request) Symbol(symbol string) TradeAPIPmarginDeleteUmOrderV1Request {
+func (r ApiPmarginDeleteUmOrderV1Request) Symbol(symbol string) ApiPmarginDeleteUmOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginDeleteUmOrderV1Request) Timestamp(timestamp int64) TradeAPIPmarginDeleteUmOrderV1Request {
+func (r ApiPmarginDeleteUmOrderV1Request) Timestamp(timestamp int64) ApiPmarginDeleteUmOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginDeleteUmOrderV1Request) OrderId(orderId int64) TradeAPIPmarginDeleteUmOrderV1Request {
+func (r ApiPmarginDeleteUmOrderV1Request) OrderId(orderId int64) ApiPmarginDeleteUmOrderV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPIPmarginDeleteUmOrderV1Request) OrigClientOrderId(origClientOrderId string) TradeAPIPmarginDeleteUmOrderV1Request {
+func (r ApiPmarginDeleteUmOrderV1Request) OrigClientOrderId(origClientOrderId string) ApiPmarginDeleteUmOrderV1Request {
 	r.origClientOrderId = &origClientOrderId
 	return r
 }
 
-func (r TradeAPIPmarginDeleteUmOrderV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginDeleteUmOrderV1Request {
+func (r ApiPmarginDeleteUmOrderV1Request) RecvWindow(recvWindow int64) ApiPmarginDeleteUmOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginDeleteUmOrderV1Request) Execute() (*PmarginDeleteUmOrderV1Resp, *http.Response, error) {
+func (r ApiPmarginDeleteUmOrderV1Request) Execute() (*PmarginDeleteUmOrderV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginDeleteUmOrderV1Execute(r)
 }
 
@@ -4036,10 +4036,10 @@ PmarginDeleteUmOrderV1 Cancel UM Order(TRADE)
 Cancel an active UM LIMIT order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginDeleteUmOrderV1Request
+ @return ApiPmarginDeleteUmOrderV1Request
 */
-func (a *TradeAPIService) PmarginDeleteUmOrderV1(ctx context.Context) TradeAPIPmarginDeleteUmOrderV1Request {
-	return TradeAPIPmarginDeleteUmOrderV1Request{
+func (a *TradeAPIService) PmarginDeleteUmOrderV1(ctx context.Context) ApiPmarginDeleteUmOrderV1Request {
+	return ApiPmarginDeleteUmOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4047,7 +4047,7 @@ func (a *TradeAPIService) PmarginDeleteUmOrderV1(ctx context.Context) TradeAPIPm
 
 // Execute executes the request
 //  @return PmarginDeleteUmOrderV1Resp
-func (a *TradeAPIService) PmarginDeleteUmOrderV1Execute(r TradeAPIPmarginDeleteUmOrderV1Request) (*PmarginDeleteUmOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginDeleteUmOrderV1Execute(r ApiPmarginDeleteUmOrderV1Request) (*PmarginDeleteUmOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -4167,12 +4167,12 @@ func (a *TradeAPIService) PmarginDeleteUmOrderV1Execute(r TradeAPIPmarginDeleteU
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetCmAdlQuantileV1Request struct {
+type ApiPmarginGetCmAdlQuantileV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 }
 
-func (r TradeAPIPmarginGetCmAdlQuantileV1Request) Execute() ([]PmarginGetCmAdlQuantileV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetCmAdlQuantileV1Request) Execute() ([]PmarginGetCmAdlQuantileV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetCmAdlQuantileV1Execute(r)
 }
 
@@ -4182,10 +4182,10 @@ PmarginGetCmAdlQuantileV1 CM Position ADL Quantile Estimation(USER_DATA)
 Query CM Position ADL Quantile Estimation
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetCmAdlQuantileV1Request
+ @return ApiPmarginGetCmAdlQuantileV1Request
 */
-func (a *TradeAPIService) PmarginGetCmAdlQuantileV1(ctx context.Context) TradeAPIPmarginGetCmAdlQuantileV1Request {
-	return TradeAPIPmarginGetCmAdlQuantileV1Request{
+func (a *TradeAPIService) PmarginGetCmAdlQuantileV1(ctx context.Context) ApiPmarginGetCmAdlQuantileV1Request {
+	return ApiPmarginGetCmAdlQuantileV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4193,7 +4193,7 @@ func (a *TradeAPIService) PmarginGetCmAdlQuantileV1(ctx context.Context) TradeAP
 
 // Execute executes the request
 //  @return []PmarginGetCmAdlQuantileV1RespItem
-func (a *TradeAPIService) PmarginGetCmAdlQuantileV1Execute(r TradeAPIPmarginGetCmAdlQuantileV1Request) ([]PmarginGetCmAdlQuantileV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetCmAdlQuantileV1Execute(r ApiPmarginGetCmAdlQuantileV1Request) ([]PmarginGetCmAdlQuantileV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4293,7 +4293,7 @@ func (a *TradeAPIService) PmarginGetCmAdlQuantileV1Execute(r TradeAPIPmarginGetC
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetCmAllOrdersV1Request struct {
+type ApiPmarginGetCmAllOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -4306,48 +4306,48 @@ type TradeAPIPmarginGetCmAllOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetCmAllOrdersV1Request) Symbol(symbol string) TradeAPIPmarginGetCmAllOrdersV1Request {
+func (r ApiPmarginGetCmAllOrdersV1Request) Symbol(symbol string) ApiPmarginGetCmAllOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginGetCmAllOrdersV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetCmAllOrdersV1Request {
+func (r ApiPmarginGetCmAllOrdersV1Request) Timestamp(timestamp int64) ApiPmarginGetCmAllOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetCmAllOrdersV1Request) Pair(pair string) TradeAPIPmarginGetCmAllOrdersV1Request {
+func (r ApiPmarginGetCmAllOrdersV1Request) Pair(pair string) ApiPmarginGetCmAllOrdersV1Request {
 	r.pair = &pair
 	return r
 }
 
-func (r TradeAPIPmarginGetCmAllOrdersV1Request) OrderId(orderId int64) TradeAPIPmarginGetCmAllOrdersV1Request {
+func (r ApiPmarginGetCmAllOrdersV1Request) OrderId(orderId int64) ApiPmarginGetCmAllOrdersV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPIPmarginGetCmAllOrdersV1Request) StartTime(startTime int64) TradeAPIPmarginGetCmAllOrdersV1Request {
+func (r ApiPmarginGetCmAllOrdersV1Request) StartTime(startTime int64) ApiPmarginGetCmAllOrdersV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r TradeAPIPmarginGetCmAllOrdersV1Request) EndTime(endTime int64) TradeAPIPmarginGetCmAllOrdersV1Request {
+func (r ApiPmarginGetCmAllOrdersV1Request) EndTime(endTime int64) ApiPmarginGetCmAllOrdersV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 50; max 100.
-func (r TradeAPIPmarginGetCmAllOrdersV1Request) Limit(limit int32) TradeAPIPmarginGetCmAllOrdersV1Request {
+func (r ApiPmarginGetCmAllOrdersV1Request) Limit(limit int32) ApiPmarginGetCmAllOrdersV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r TradeAPIPmarginGetCmAllOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetCmAllOrdersV1Request {
+func (r ApiPmarginGetCmAllOrdersV1Request) RecvWindow(recvWindow int64) ApiPmarginGetCmAllOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetCmAllOrdersV1Request) Execute() ([]PmarginGetCmAllOrdersV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetCmAllOrdersV1Request) Execute() ([]PmarginGetCmAllOrdersV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetCmAllOrdersV1Execute(r)
 }
 
@@ -4357,10 +4357,10 @@ PmarginGetCmAllOrdersV1 Query All CM Orders (USER_DATA)
 Get all account CM orders; active, canceled, or filled.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetCmAllOrdersV1Request
+ @return ApiPmarginGetCmAllOrdersV1Request
 */
-func (a *TradeAPIService) PmarginGetCmAllOrdersV1(ctx context.Context) TradeAPIPmarginGetCmAllOrdersV1Request {
-	return TradeAPIPmarginGetCmAllOrdersV1Request{
+func (a *TradeAPIService) PmarginGetCmAllOrdersV1(ctx context.Context) ApiPmarginGetCmAllOrdersV1Request {
+	return ApiPmarginGetCmAllOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4368,7 +4368,7 @@ func (a *TradeAPIService) PmarginGetCmAllOrdersV1(ctx context.Context) TradeAPIP
 
 // Execute executes the request
 //  @return []PmarginGetCmAllOrdersV1RespItem
-func (a *TradeAPIService) PmarginGetCmAllOrdersV1Execute(r TradeAPIPmarginGetCmAllOrdersV1Request) ([]PmarginGetCmAllOrdersV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetCmAllOrdersV1Execute(r ApiPmarginGetCmAllOrdersV1Request) ([]PmarginGetCmAllOrdersV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4500,7 +4500,7 @@ func (a *TradeAPIService) PmarginGetCmAllOrdersV1Execute(r TradeAPIPmarginGetCmA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetCmConditionalAllOrdersV1Request struct {
+type ApiPmarginGetCmConditionalAllOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -4512,43 +4512,43 @@ type TradeAPIPmarginGetCmConditionalAllOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetCmConditionalAllOrdersV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetCmConditionalAllOrdersV1Request {
+func (r ApiPmarginGetCmConditionalAllOrdersV1Request) Timestamp(timestamp int64) ApiPmarginGetCmConditionalAllOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetCmConditionalAllOrdersV1Request) Symbol(symbol string) TradeAPIPmarginGetCmConditionalAllOrdersV1Request {
+func (r ApiPmarginGetCmConditionalAllOrdersV1Request) Symbol(symbol string) ApiPmarginGetCmConditionalAllOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginGetCmConditionalAllOrdersV1Request) StrategyId(strategyId int64) TradeAPIPmarginGetCmConditionalAllOrdersV1Request {
+func (r ApiPmarginGetCmConditionalAllOrdersV1Request) StrategyId(strategyId int64) ApiPmarginGetCmConditionalAllOrdersV1Request {
 	r.strategyId = &strategyId
 	return r
 }
 
-func (r TradeAPIPmarginGetCmConditionalAllOrdersV1Request) StartTime(startTime int64) TradeAPIPmarginGetCmConditionalAllOrdersV1Request {
+func (r ApiPmarginGetCmConditionalAllOrdersV1Request) StartTime(startTime int64) ApiPmarginGetCmConditionalAllOrdersV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r TradeAPIPmarginGetCmConditionalAllOrdersV1Request) EndTime(endTime int64) TradeAPIPmarginGetCmConditionalAllOrdersV1Request {
+func (r ApiPmarginGetCmConditionalAllOrdersV1Request) EndTime(endTime int64) ApiPmarginGetCmConditionalAllOrdersV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 500; max 1000.
-func (r TradeAPIPmarginGetCmConditionalAllOrdersV1Request) Limit(limit int32) TradeAPIPmarginGetCmConditionalAllOrdersV1Request {
+func (r ApiPmarginGetCmConditionalAllOrdersV1Request) Limit(limit int32) ApiPmarginGetCmConditionalAllOrdersV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r TradeAPIPmarginGetCmConditionalAllOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetCmConditionalAllOrdersV1Request {
+func (r ApiPmarginGetCmConditionalAllOrdersV1Request) RecvWindow(recvWindow int64) ApiPmarginGetCmConditionalAllOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetCmConditionalAllOrdersV1Request) Execute() ([]PmarginGetCmConditionalAllOrdersV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetCmConditionalAllOrdersV1Request) Execute() ([]PmarginGetCmConditionalAllOrdersV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetCmConditionalAllOrdersV1Execute(r)
 }
 
@@ -4558,10 +4558,10 @@ PmarginGetCmConditionalAllOrdersV1 Query All CM Conditional Orders(USER_DATA)
 Query All CM Conditional Orders
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetCmConditionalAllOrdersV1Request
+ @return ApiPmarginGetCmConditionalAllOrdersV1Request
 */
-func (a *TradeAPIService) PmarginGetCmConditionalAllOrdersV1(ctx context.Context) TradeAPIPmarginGetCmConditionalAllOrdersV1Request {
-	return TradeAPIPmarginGetCmConditionalAllOrdersV1Request{
+func (a *TradeAPIService) PmarginGetCmConditionalAllOrdersV1(ctx context.Context) ApiPmarginGetCmConditionalAllOrdersV1Request {
+	return ApiPmarginGetCmConditionalAllOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4569,7 +4569,7 @@ func (a *TradeAPIService) PmarginGetCmConditionalAllOrdersV1(ctx context.Context
 
 // Execute executes the request
 //  @return []PmarginGetCmConditionalAllOrdersV1RespItem
-func (a *TradeAPIService) PmarginGetCmConditionalAllOrdersV1Execute(r TradeAPIPmarginGetCmConditionalAllOrdersV1Request) ([]PmarginGetCmConditionalAllOrdersV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetCmConditionalAllOrdersV1Execute(r ApiPmarginGetCmConditionalAllOrdersV1Request) ([]PmarginGetCmConditionalAllOrdersV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4697,7 +4697,7 @@ func (a *TradeAPIService) PmarginGetCmConditionalAllOrdersV1Execute(r TradeAPIPm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetCmConditionalOpenOrderV1Request struct {
+type ApiPmarginGetCmConditionalOpenOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -4707,32 +4707,32 @@ type TradeAPIPmarginGetCmConditionalOpenOrderV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetCmConditionalOpenOrderV1Request) Symbol(symbol string) TradeAPIPmarginGetCmConditionalOpenOrderV1Request {
+func (r ApiPmarginGetCmConditionalOpenOrderV1Request) Symbol(symbol string) ApiPmarginGetCmConditionalOpenOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginGetCmConditionalOpenOrderV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetCmConditionalOpenOrderV1Request {
+func (r ApiPmarginGetCmConditionalOpenOrderV1Request) Timestamp(timestamp int64) ApiPmarginGetCmConditionalOpenOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetCmConditionalOpenOrderV1Request) StrategyId(strategyId int64) TradeAPIPmarginGetCmConditionalOpenOrderV1Request {
+func (r ApiPmarginGetCmConditionalOpenOrderV1Request) StrategyId(strategyId int64) ApiPmarginGetCmConditionalOpenOrderV1Request {
 	r.strategyId = &strategyId
 	return r
 }
 
-func (r TradeAPIPmarginGetCmConditionalOpenOrderV1Request) NewClientStrategyId(newClientStrategyId string) TradeAPIPmarginGetCmConditionalOpenOrderV1Request {
+func (r ApiPmarginGetCmConditionalOpenOrderV1Request) NewClientStrategyId(newClientStrategyId string) ApiPmarginGetCmConditionalOpenOrderV1Request {
 	r.newClientStrategyId = &newClientStrategyId
 	return r
 }
 
-func (r TradeAPIPmarginGetCmConditionalOpenOrderV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetCmConditionalOpenOrderV1Request {
+func (r ApiPmarginGetCmConditionalOpenOrderV1Request) RecvWindow(recvWindow int64) ApiPmarginGetCmConditionalOpenOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetCmConditionalOpenOrderV1Request) Execute() (*PmarginGetCmConditionalOpenOrderV1Resp, *http.Response, error) {
+func (r ApiPmarginGetCmConditionalOpenOrderV1Request) Execute() (*PmarginGetCmConditionalOpenOrderV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetCmConditionalOpenOrderV1Execute(r)
 }
 
@@ -4742,10 +4742,10 @@ PmarginGetCmConditionalOpenOrderV1 Query Current CM Open Conditional Order(USER_
 Query Current CM Open Conditional Order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetCmConditionalOpenOrderV1Request
+ @return ApiPmarginGetCmConditionalOpenOrderV1Request
 */
-func (a *TradeAPIService) PmarginGetCmConditionalOpenOrderV1(ctx context.Context) TradeAPIPmarginGetCmConditionalOpenOrderV1Request {
-	return TradeAPIPmarginGetCmConditionalOpenOrderV1Request{
+func (a *TradeAPIService) PmarginGetCmConditionalOpenOrderV1(ctx context.Context) ApiPmarginGetCmConditionalOpenOrderV1Request {
+	return ApiPmarginGetCmConditionalOpenOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4753,7 +4753,7 @@ func (a *TradeAPIService) PmarginGetCmConditionalOpenOrderV1(ctx context.Context
 
 // Execute executes the request
 //  @return PmarginGetCmConditionalOpenOrderV1Resp
-func (a *TradeAPIService) PmarginGetCmConditionalOpenOrderV1Execute(r TradeAPIPmarginGetCmConditionalOpenOrderV1Request) (*PmarginGetCmConditionalOpenOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetCmConditionalOpenOrderV1Execute(r ApiPmarginGetCmConditionalOpenOrderV1Request) (*PmarginGetCmConditionalOpenOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4873,7 +4873,7 @@ func (a *TradeAPIService) PmarginGetCmConditionalOpenOrderV1Execute(r TradeAPIPm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetCmConditionalOpenOrdersV1Request struct {
+type ApiPmarginGetCmConditionalOpenOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -4881,22 +4881,22 @@ type TradeAPIPmarginGetCmConditionalOpenOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetCmConditionalOpenOrdersV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetCmConditionalOpenOrdersV1Request {
+func (r ApiPmarginGetCmConditionalOpenOrdersV1Request) Timestamp(timestamp int64) ApiPmarginGetCmConditionalOpenOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetCmConditionalOpenOrdersV1Request) Symbol(symbol string) TradeAPIPmarginGetCmConditionalOpenOrdersV1Request {
+func (r ApiPmarginGetCmConditionalOpenOrdersV1Request) Symbol(symbol string) ApiPmarginGetCmConditionalOpenOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginGetCmConditionalOpenOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetCmConditionalOpenOrdersV1Request {
+func (r ApiPmarginGetCmConditionalOpenOrdersV1Request) RecvWindow(recvWindow int64) ApiPmarginGetCmConditionalOpenOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetCmConditionalOpenOrdersV1Request) Execute() ([]PmarginGetCmConditionalOpenOrdersV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetCmConditionalOpenOrdersV1Request) Execute() ([]PmarginGetCmConditionalOpenOrdersV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetCmConditionalOpenOrdersV1Execute(r)
 }
 
@@ -4906,10 +4906,10 @@ PmarginGetCmConditionalOpenOrdersV1 Query All Current CM Open Conditional Orders
 Get all open conditional orders on a symbol. Careful when accessing this with no symbol.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetCmConditionalOpenOrdersV1Request
+ @return ApiPmarginGetCmConditionalOpenOrdersV1Request
 */
-func (a *TradeAPIService) PmarginGetCmConditionalOpenOrdersV1(ctx context.Context) TradeAPIPmarginGetCmConditionalOpenOrdersV1Request {
-	return TradeAPIPmarginGetCmConditionalOpenOrdersV1Request{
+func (a *TradeAPIService) PmarginGetCmConditionalOpenOrdersV1(ctx context.Context) ApiPmarginGetCmConditionalOpenOrdersV1Request {
+	return ApiPmarginGetCmConditionalOpenOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4917,7 +4917,7 @@ func (a *TradeAPIService) PmarginGetCmConditionalOpenOrdersV1(ctx context.Contex
 
 // Execute executes the request
 //  @return []PmarginGetCmConditionalOpenOrdersV1RespItem
-func (a *TradeAPIService) PmarginGetCmConditionalOpenOrdersV1Execute(r TradeAPIPmarginGetCmConditionalOpenOrdersV1Request) ([]PmarginGetCmConditionalOpenOrdersV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetCmConditionalOpenOrdersV1Execute(r ApiPmarginGetCmConditionalOpenOrdersV1Request) ([]PmarginGetCmConditionalOpenOrdersV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5030,7 +5030,7 @@ func (a *TradeAPIService) PmarginGetCmConditionalOpenOrdersV1Execute(r TradeAPIP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetCmConditionalOrderHistoryV1Request struct {
+type ApiPmarginGetCmConditionalOrderHistoryV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -5040,32 +5040,32 @@ type TradeAPIPmarginGetCmConditionalOrderHistoryV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetCmConditionalOrderHistoryV1Request) Symbol(symbol string) TradeAPIPmarginGetCmConditionalOrderHistoryV1Request {
+func (r ApiPmarginGetCmConditionalOrderHistoryV1Request) Symbol(symbol string) ApiPmarginGetCmConditionalOrderHistoryV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginGetCmConditionalOrderHistoryV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetCmConditionalOrderHistoryV1Request {
+func (r ApiPmarginGetCmConditionalOrderHistoryV1Request) Timestamp(timestamp int64) ApiPmarginGetCmConditionalOrderHistoryV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetCmConditionalOrderHistoryV1Request) StrategyId(strategyId int64) TradeAPIPmarginGetCmConditionalOrderHistoryV1Request {
+func (r ApiPmarginGetCmConditionalOrderHistoryV1Request) StrategyId(strategyId int64) ApiPmarginGetCmConditionalOrderHistoryV1Request {
 	r.strategyId = &strategyId
 	return r
 }
 
-func (r TradeAPIPmarginGetCmConditionalOrderHistoryV1Request) NewClientStrategyId(newClientStrategyId string) TradeAPIPmarginGetCmConditionalOrderHistoryV1Request {
+func (r ApiPmarginGetCmConditionalOrderHistoryV1Request) NewClientStrategyId(newClientStrategyId string) ApiPmarginGetCmConditionalOrderHistoryV1Request {
 	r.newClientStrategyId = &newClientStrategyId
 	return r
 }
 
-func (r TradeAPIPmarginGetCmConditionalOrderHistoryV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetCmConditionalOrderHistoryV1Request {
+func (r ApiPmarginGetCmConditionalOrderHistoryV1Request) RecvWindow(recvWindow int64) ApiPmarginGetCmConditionalOrderHistoryV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetCmConditionalOrderHistoryV1Request) Execute() (*PmarginGetCmConditionalOrderHistoryV1Resp, *http.Response, error) {
+func (r ApiPmarginGetCmConditionalOrderHistoryV1Request) Execute() (*PmarginGetCmConditionalOrderHistoryV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetCmConditionalOrderHistoryV1Execute(r)
 }
 
@@ -5075,10 +5075,10 @@ PmarginGetCmConditionalOrderHistoryV1 Query CM Conditional Order History(USER_DA
 Query CM Conditional Order History
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetCmConditionalOrderHistoryV1Request
+ @return ApiPmarginGetCmConditionalOrderHistoryV1Request
 */
-func (a *TradeAPIService) PmarginGetCmConditionalOrderHistoryV1(ctx context.Context) TradeAPIPmarginGetCmConditionalOrderHistoryV1Request {
-	return TradeAPIPmarginGetCmConditionalOrderHistoryV1Request{
+func (a *TradeAPIService) PmarginGetCmConditionalOrderHistoryV1(ctx context.Context) ApiPmarginGetCmConditionalOrderHistoryV1Request {
+	return ApiPmarginGetCmConditionalOrderHistoryV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -5086,7 +5086,7 @@ func (a *TradeAPIService) PmarginGetCmConditionalOrderHistoryV1(ctx context.Cont
 
 // Execute executes the request
 //  @return PmarginGetCmConditionalOrderHistoryV1Resp
-func (a *TradeAPIService) PmarginGetCmConditionalOrderHistoryV1Execute(r TradeAPIPmarginGetCmConditionalOrderHistoryV1Request) (*PmarginGetCmConditionalOrderHistoryV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetCmConditionalOrderHistoryV1Execute(r ApiPmarginGetCmConditionalOrderHistoryV1Request) (*PmarginGetCmConditionalOrderHistoryV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5206,7 +5206,7 @@ func (a *TradeAPIService) PmarginGetCmConditionalOrderHistoryV1Execute(r TradeAP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetCmForceOrdersV1Request struct {
+type ApiPmarginGetCmForceOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -5218,45 +5218,45 @@ type TradeAPIPmarginGetCmForceOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetCmForceOrdersV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetCmForceOrdersV1Request {
+func (r ApiPmarginGetCmForceOrdersV1Request) Timestamp(timestamp int64) ApiPmarginGetCmForceOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetCmForceOrdersV1Request) Symbol(symbol string) TradeAPIPmarginGetCmForceOrdersV1Request {
+func (r ApiPmarginGetCmForceOrdersV1Request) Symbol(symbol string) ApiPmarginGetCmForceOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // &amp;#34;LIQUIDATION&amp;#34; for liquidation orders, &amp;#34;ADL&amp;#34; for ADL orders.
-func (r TradeAPIPmarginGetCmForceOrdersV1Request) AutoCloseType(autoCloseType string) TradeAPIPmarginGetCmForceOrdersV1Request {
+func (r ApiPmarginGetCmForceOrdersV1Request) AutoCloseType(autoCloseType string) ApiPmarginGetCmForceOrdersV1Request {
 	r.autoCloseType = &autoCloseType
 	return r
 }
 
-func (r TradeAPIPmarginGetCmForceOrdersV1Request) StartTime(startTime int64) TradeAPIPmarginGetCmForceOrdersV1Request {
+func (r ApiPmarginGetCmForceOrdersV1Request) StartTime(startTime int64) ApiPmarginGetCmForceOrdersV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r TradeAPIPmarginGetCmForceOrdersV1Request) EndTime(endTime int64) TradeAPIPmarginGetCmForceOrdersV1Request {
+func (r ApiPmarginGetCmForceOrdersV1Request) EndTime(endTime int64) ApiPmarginGetCmForceOrdersV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 50; max 100.
-func (r TradeAPIPmarginGetCmForceOrdersV1Request) Limit(limit int32) TradeAPIPmarginGetCmForceOrdersV1Request {
+func (r ApiPmarginGetCmForceOrdersV1Request) Limit(limit int32) ApiPmarginGetCmForceOrdersV1Request {
 	r.limit = &limit
 	return r
 }
 
 // The value cannot be greater than 60000
-func (r TradeAPIPmarginGetCmForceOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetCmForceOrdersV1Request {
+func (r ApiPmarginGetCmForceOrdersV1Request) RecvWindow(recvWindow int64) ApiPmarginGetCmForceOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetCmForceOrdersV1Request) Execute() ([]PmarginGetCmForceOrdersV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetCmForceOrdersV1Request) Execute() ([]PmarginGetCmForceOrdersV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetCmForceOrdersV1Execute(r)
 }
 
@@ -5266,10 +5266,10 @@ PmarginGetCmForceOrdersV1 Query User's CM Force Orders(USER_DATA)
 Query User's CM Force Orders
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetCmForceOrdersV1Request
+ @return ApiPmarginGetCmForceOrdersV1Request
 */
-func (a *TradeAPIService) PmarginGetCmForceOrdersV1(ctx context.Context) TradeAPIPmarginGetCmForceOrdersV1Request {
-	return TradeAPIPmarginGetCmForceOrdersV1Request{
+func (a *TradeAPIService) PmarginGetCmForceOrdersV1(ctx context.Context) ApiPmarginGetCmForceOrdersV1Request {
+	return ApiPmarginGetCmForceOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -5277,7 +5277,7 @@ func (a *TradeAPIService) PmarginGetCmForceOrdersV1(ctx context.Context) TradeAP
 
 // Execute executes the request
 //  @return []PmarginGetCmForceOrdersV1RespItem
-func (a *TradeAPIService) PmarginGetCmForceOrdersV1Execute(r TradeAPIPmarginGetCmForceOrdersV1Request) ([]PmarginGetCmForceOrdersV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetCmForceOrdersV1Execute(r ApiPmarginGetCmForceOrdersV1Request) ([]PmarginGetCmForceOrdersV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5408,7 +5408,7 @@ func (a *TradeAPIService) PmarginGetCmForceOrdersV1Execute(r TradeAPIPmarginGetC
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetCmOpenOrderV1Request struct {
+type ApiPmarginGetCmOpenOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -5418,32 +5418,32 @@ type TradeAPIPmarginGetCmOpenOrderV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetCmOpenOrderV1Request) Symbol(symbol string) TradeAPIPmarginGetCmOpenOrderV1Request {
+func (r ApiPmarginGetCmOpenOrderV1Request) Symbol(symbol string) ApiPmarginGetCmOpenOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginGetCmOpenOrderV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetCmOpenOrderV1Request {
+func (r ApiPmarginGetCmOpenOrderV1Request) Timestamp(timestamp int64) ApiPmarginGetCmOpenOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetCmOpenOrderV1Request) OrderId(orderId int64) TradeAPIPmarginGetCmOpenOrderV1Request {
+func (r ApiPmarginGetCmOpenOrderV1Request) OrderId(orderId int64) ApiPmarginGetCmOpenOrderV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPIPmarginGetCmOpenOrderV1Request) OrigClientOrderId(origClientOrderId string) TradeAPIPmarginGetCmOpenOrderV1Request {
+func (r ApiPmarginGetCmOpenOrderV1Request) OrigClientOrderId(origClientOrderId string) ApiPmarginGetCmOpenOrderV1Request {
 	r.origClientOrderId = &origClientOrderId
 	return r
 }
 
-func (r TradeAPIPmarginGetCmOpenOrderV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetCmOpenOrderV1Request {
+func (r ApiPmarginGetCmOpenOrderV1Request) RecvWindow(recvWindow int64) ApiPmarginGetCmOpenOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetCmOpenOrderV1Request) Execute() (*PmarginGetCmOpenOrderV1Resp, *http.Response, error) {
+func (r ApiPmarginGetCmOpenOrderV1Request) Execute() (*PmarginGetCmOpenOrderV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetCmOpenOrderV1Execute(r)
 }
 
@@ -5453,10 +5453,10 @@ PmarginGetCmOpenOrderV1 Query Current CM Open Order (USER_DATA)
 Query current CM open order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetCmOpenOrderV1Request
+ @return ApiPmarginGetCmOpenOrderV1Request
 */
-func (a *TradeAPIService) PmarginGetCmOpenOrderV1(ctx context.Context) TradeAPIPmarginGetCmOpenOrderV1Request {
-	return TradeAPIPmarginGetCmOpenOrderV1Request{
+func (a *TradeAPIService) PmarginGetCmOpenOrderV1(ctx context.Context) ApiPmarginGetCmOpenOrderV1Request {
+	return ApiPmarginGetCmOpenOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -5464,7 +5464,7 @@ func (a *TradeAPIService) PmarginGetCmOpenOrderV1(ctx context.Context) TradeAPIP
 
 // Execute executes the request
 //  @return PmarginGetCmOpenOrderV1Resp
-func (a *TradeAPIService) PmarginGetCmOpenOrderV1Execute(r TradeAPIPmarginGetCmOpenOrderV1Request) (*PmarginGetCmOpenOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetCmOpenOrderV1Execute(r ApiPmarginGetCmOpenOrderV1Request) (*PmarginGetCmOpenOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5584,7 +5584,7 @@ func (a *TradeAPIService) PmarginGetCmOpenOrderV1Execute(r TradeAPIPmarginGetCmO
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetCmOpenOrdersV1Request struct {
+type ApiPmarginGetCmOpenOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -5593,27 +5593,27 @@ type TradeAPIPmarginGetCmOpenOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetCmOpenOrdersV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetCmOpenOrdersV1Request {
+func (r ApiPmarginGetCmOpenOrdersV1Request) Timestamp(timestamp int64) ApiPmarginGetCmOpenOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetCmOpenOrdersV1Request) Symbol(symbol string) TradeAPIPmarginGetCmOpenOrdersV1Request {
+func (r ApiPmarginGetCmOpenOrdersV1Request) Symbol(symbol string) ApiPmarginGetCmOpenOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginGetCmOpenOrdersV1Request) Pair(pair string) TradeAPIPmarginGetCmOpenOrdersV1Request {
+func (r ApiPmarginGetCmOpenOrdersV1Request) Pair(pair string) ApiPmarginGetCmOpenOrdersV1Request {
 	r.pair = &pair
 	return r
 }
 
-func (r TradeAPIPmarginGetCmOpenOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetCmOpenOrdersV1Request {
+func (r ApiPmarginGetCmOpenOrdersV1Request) RecvWindow(recvWindow int64) ApiPmarginGetCmOpenOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetCmOpenOrdersV1Request) Execute() ([]PmarginGetCmOpenOrdersV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetCmOpenOrdersV1Request) Execute() ([]PmarginGetCmOpenOrdersV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetCmOpenOrdersV1Execute(r)
 }
 
@@ -5623,10 +5623,10 @@ PmarginGetCmOpenOrdersV1 Query All Current CM Open Orders(USER_DATA)
 Get all open orders on a symbol.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetCmOpenOrdersV1Request
+ @return ApiPmarginGetCmOpenOrdersV1Request
 */
-func (a *TradeAPIService) PmarginGetCmOpenOrdersV1(ctx context.Context) TradeAPIPmarginGetCmOpenOrdersV1Request {
-	return TradeAPIPmarginGetCmOpenOrdersV1Request{
+func (a *TradeAPIService) PmarginGetCmOpenOrdersV1(ctx context.Context) ApiPmarginGetCmOpenOrdersV1Request {
+	return ApiPmarginGetCmOpenOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -5634,7 +5634,7 @@ func (a *TradeAPIService) PmarginGetCmOpenOrdersV1(ctx context.Context) TradeAPI
 
 // Execute executes the request
 //  @return []PmarginGetCmOpenOrdersV1RespItem
-func (a *TradeAPIService) PmarginGetCmOpenOrdersV1Execute(r TradeAPIPmarginGetCmOpenOrdersV1Request) ([]PmarginGetCmOpenOrdersV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetCmOpenOrdersV1Execute(r ApiPmarginGetCmOpenOrdersV1Request) ([]PmarginGetCmOpenOrdersV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5753,7 +5753,7 @@ func (a *TradeAPIService) PmarginGetCmOpenOrdersV1Execute(r TradeAPIPmarginGetCm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetCmOrderAmendmentV1Request struct {
+type ApiPmarginGetCmOrderAmendmentV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -5766,50 +5766,50 @@ type TradeAPIPmarginGetCmOrderAmendmentV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetCmOrderAmendmentV1Request) Symbol(symbol string) TradeAPIPmarginGetCmOrderAmendmentV1Request {
+func (r ApiPmarginGetCmOrderAmendmentV1Request) Symbol(symbol string) ApiPmarginGetCmOrderAmendmentV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginGetCmOrderAmendmentV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetCmOrderAmendmentV1Request {
+func (r ApiPmarginGetCmOrderAmendmentV1Request) Timestamp(timestamp int64) ApiPmarginGetCmOrderAmendmentV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetCmOrderAmendmentV1Request) OrderId(orderId int64) TradeAPIPmarginGetCmOrderAmendmentV1Request {
+func (r ApiPmarginGetCmOrderAmendmentV1Request) OrderId(orderId int64) ApiPmarginGetCmOrderAmendmentV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPIPmarginGetCmOrderAmendmentV1Request) OrigClientOrderId(origClientOrderId string) TradeAPIPmarginGetCmOrderAmendmentV1Request {
+func (r ApiPmarginGetCmOrderAmendmentV1Request) OrigClientOrderId(origClientOrderId string) ApiPmarginGetCmOrderAmendmentV1Request {
 	r.origClientOrderId = &origClientOrderId
 	return r
 }
 
 // Timestamp in ms to get modification history from INCLUSIVE
-func (r TradeAPIPmarginGetCmOrderAmendmentV1Request) StartTime(startTime int64) TradeAPIPmarginGetCmOrderAmendmentV1Request {
+func (r ApiPmarginGetCmOrderAmendmentV1Request) StartTime(startTime int64) ApiPmarginGetCmOrderAmendmentV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // Timestamp in ms to get modification history until INCLUSIVE
-func (r TradeAPIPmarginGetCmOrderAmendmentV1Request) EndTime(endTime int64) TradeAPIPmarginGetCmOrderAmendmentV1Request {
+func (r ApiPmarginGetCmOrderAmendmentV1Request) EndTime(endTime int64) ApiPmarginGetCmOrderAmendmentV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 50, max 100
-func (r TradeAPIPmarginGetCmOrderAmendmentV1Request) Limit(limit int32) TradeAPIPmarginGetCmOrderAmendmentV1Request {
+func (r ApiPmarginGetCmOrderAmendmentV1Request) Limit(limit int32) ApiPmarginGetCmOrderAmendmentV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r TradeAPIPmarginGetCmOrderAmendmentV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetCmOrderAmendmentV1Request {
+func (r ApiPmarginGetCmOrderAmendmentV1Request) RecvWindow(recvWindow int64) ApiPmarginGetCmOrderAmendmentV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetCmOrderAmendmentV1Request) Execute() ([]PmarginGetCmOrderAmendmentV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetCmOrderAmendmentV1Request) Execute() ([]PmarginGetCmOrderAmendmentV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetCmOrderAmendmentV1Execute(r)
 }
 
@@ -5819,10 +5819,10 @@ PmarginGetCmOrderAmendmentV1 Query CM Modify Order History(TRADE)
 Get order modification history
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetCmOrderAmendmentV1Request
+ @return ApiPmarginGetCmOrderAmendmentV1Request
 */
-func (a *TradeAPIService) PmarginGetCmOrderAmendmentV1(ctx context.Context) TradeAPIPmarginGetCmOrderAmendmentV1Request {
-	return TradeAPIPmarginGetCmOrderAmendmentV1Request{
+func (a *TradeAPIService) PmarginGetCmOrderAmendmentV1(ctx context.Context) ApiPmarginGetCmOrderAmendmentV1Request {
+	return ApiPmarginGetCmOrderAmendmentV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -5830,7 +5830,7 @@ func (a *TradeAPIService) PmarginGetCmOrderAmendmentV1(ctx context.Context) Trad
 
 // Execute executes the request
 //  @return []PmarginGetCmOrderAmendmentV1RespItem
-func (a *TradeAPIService) PmarginGetCmOrderAmendmentV1Execute(r TradeAPIPmarginGetCmOrderAmendmentV1Request) ([]PmarginGetCmOrderAmendmentV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetCmOrderAmendmentV1Execute(r ApiPmarginGetCmOrderAmendmentV1Request) ([]PmarginGetCmOrderAmendmentV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5962,7 +5962,7 @@ func (a *TradeAPIService) PmarginGetCmOrderAmendmentV1Execute(r TradeAPIPmarginG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetCmOrderV1Request struct {
+type ApiPmarginGetCmOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -5972,32 +5972,32 @@ type TradeAPIPmarginGetCmOrderV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetCmOrderV1Request) Symbol(symbol string) TradeAPIPmarginGetCmOrderV1Request {
+func (r ApiPmarginGetCmOrderV1Request) Symbol(symbol string) ApiPmarginGetCmOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginGetCmOrderV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetCmOrderV1Request {
+func (r ApiPmarginGetCmOrderV1Request) Timestamp(timestamp int64) ApiPmarginGetCmOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetCmOrderV1Request) OrderId(orderId int64) TradeAPIPmarginGetCmOrderV1Request {
+func (r ApiPmarginGetCmOrderV1Request) OrderId(orderId int64) ApiPmarginGetCmOrderV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPIPmarginGetCmOrderV1Request) OrigClientOrderId(origClientOrderId string) TradeAPIPmarginGetCmOrderV1Request {
+func (r ApiPmarginGetCmOrderV1Request) OrigClientOrderId(origClientOrderId string) ApiPmarginGetCmOrderV1Request {
 	r.origClientOrderId = &origClientOrderId
 	return r
 }
 
-func (r TradeAPIPmarginGetCmOrderV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetCmOrderV1Request {
+func (r ApiPmarginGetCmOrderV1Request) RecvWindow(recvWindow int64) ApiPmarginGetCmOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetCmOrderV1Request) Execute() (*PmarginGetCmOrderV1Resp, *http.Response, error) {
+func (r ApiPmarginGetCmOrderV1Request) Execute() (*PmarginGetCmOrderV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetCmOrderV1Execute(r)
 }
 
@@ -6007,10 +6007,10 @@ PmarginGetCmOrderV1 Query CM Order(USER_DATA)
 Check an CM order's status.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetCmOrderV1Request
+ @return ApiPmarginGetCmOrderV1Request
 */
-func (a *TradeAPIService) PmarginGetCmOrderV1(ctx context.Context) TradeAPIPmarginGetCmOrderV1Request {
-	return TradeAPIPmarginGetCmOrderV1Request{
+func (a *TradeAPIService) PmarginGetCmOrderV1(ctx context.Context) ApiPmarginGetCmOrderV1Request {
+	return ApiPmarginGetCmOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -6018,7 +6018,7 @@ func (a *TradeAPIService) PmarginGetCmOrderV1(ctx context.Context) TradeAPIPmarg
 
 // Execute executes the request
 //  @return PmarginGetCmOrderV1Resp
-func (a *TradeAPIService) PmarginGetCmOrderV1Execute(r TradeAPIPmarginGetCmOrderV1Request) (*PmarginGetCmOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetCmOrderV1Execute(r ApiPmarginGetCmOrderV1Request) (*PmarginGetCmOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -6138,7 +6138,7 @@ func (a *TradeAPIService) PmarginGetCmOrderV1Execute(r TradeAPIPmarginGetCmOrder
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetCmUserTradesV1Request struct {
+type ApiPmarginGetCmUserTradesV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -6151,49 +6151,49 @@ type TradeAPIPmarginGetCmUserTradesV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetCmUserTradesV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetCmUserTradesV1Request {
+func (r ApiPmarginGetCmUserTradesV1Request) Timestamp(timestamp int64) ApiPmarginGetCmUserTradesV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetCmUserTradesV1Request) Symbol(symbol string) TradeAPIPmarginGetCmUserTradesV1Request {
+func (r ApiPmarginGetCmUserTradesV1Request) Symbol(symbol string) ApiPmarginGetCmUserTradesV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginGetCmUserTradesV1Request) Pair(pair string) TradeAPIPmarginGetCmUserTradesV1Request {
+func (r ApiPmarginGetCmUserTradesV1Request) Pair(pair string) ApiPmarginGetCmUserTradesV1Request {
 	r.pair = &pair
 	return r
 }
 
-func (r TradeAPIPmarginGetCmUserTradesV1Request) StartTime(startTime int64) TradeAPIPmarginGetCmUserTradesV1Request {
+func (r ApiPmarginGetCmUserTradesV1Request) StartTime(startTime int64) ApiPmarginGetCmUserTradesV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r TradeAPIPmarginGetCmUserTradesV1Request) EndTime(endTime int64) TradeAPIPmarginGetCmUserTradesV1Request {
+func (r ApiPmarginGetCmUserTradesV1Request) EndTime(endTime int64) ApiPmarginGetCmUserTradesV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Trade id to fetch from. Default gets most recent trades.
-func (r TradeAPIPmarginGetCmUserTradesV1Request) FromId(fromId int64) TradeAPIPmarginGetCmUserTradesV1Request {
+func (r ApiPmarginGetCmUserTradesV1Request) FromId(fromId int64) ApiPmarginGetCmUserTradesV1Request {
 	r.fromId = &fromId
 	return r
 }
 
 // Default 50; max 1000.
-func (r TradeAPIPmarginGetCmUserTradesV1Request) Limit(limit int32) TradeAPIPmarginGetCmUserTradesV1Request {
+func (r ApiPmarginGetCmUserTradesV1Request) Limit(limit int32) ApiPmarginGetCmUserTradesV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r TradeAPIPmarginGetCmUserTradesV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetCmUserTradesV1Request {
+func (r ApiPmarginGetCmUserTradesV1Request) RecvWindow(recvWindow int64) ApiPmarginGetCmUserTradesV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetCmUserTradesV1Request) Execute() ([]PmarginGetCmUserTradesV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetCmUserTradesV1Request) Execute() ([]PmarginGetCmUserTradesV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetCmUserTradesV1Execute(r)
 }
 
@@ -6203,10 +6203,10 @@ PmarginGetCmUserTradesV1 CM Account Trade List(USER_DATA)
 Get trades for a specific account and CM symbol.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetCmUserTradesV1Request
+ @return ApiPmarginGetCmUserTradesV1Request
 */
-func (a *TradeAPIService) PmarginGetCmUserTradesV1(ctx context.Context) TradeAPIPmarginGetCmUserTradesV1Request {
-	return TradeAPIPmarginGetCmUserTradesV1Request{
+func (a *TradeAPIService) PmarginGetCmUserTradesV1(ctx context.Context) ApiPmarginGetCmUserTradesV1Request {
+	return ApiPmarginGetCmUserTradesV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -6214,7 +6214,7 @@ func (a *TradeAPIService) PmarginGetCmUserTradesV1(ctx context.Context) TradeAPI
 
 // Execute executes the request
 //  @return []PmarginGetCmUserTradesV1RespItem
-func (a *TradeAPIService) PmarginGetCmUserTradesV1Execute(r TradeAPIPmarginGetCmUserTradesV1Request) ([]PmarginGetCmUserTradesV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetCmUserTradesV1Execute(r ApiPmarginGetCmUserTradesV1Request) ([]PmarginGetCmUserTradesV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -6348,7 +6348,7 @@ func (a *TradeAPIService) PmarginGetCmUserTradesV1Execute(r TradeAPIPmarginGetCm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetMarginAllOrderListV1Request struct {
+type ApiPmarginGetMarginAllOrderListV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -6359,40 +6359,40 @@ type TradeAPIPmarginGetMarginAllOrderListV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetMarginAllOrderListV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetMarginAllOrderListV1Request {
+func (r ApiPmarginGetMarginAllOrderListV1Request) Timestamp(timestamp int64) ApiPmarginGetMarginAllOrderListV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // If supplied, neither startTime or endTime can be provided
-func (r TradeAPIPmarginGetMarginAllOrderListV1Request) FromId(fromId int64) TradeAPIPmarginGetMarginAllOrderListV1Request {
+func (r ApiPmarginGetMarginAllOrderListV1Request) FromId(fromId int64) ApiPmarginGetMarginAllOrderListV1Request {
 	r.fromId = &fromId
 	return r
 }
 
-func (r TradeAPIPmarginGetMarginAllOrderListV1Request) StartTime(startTime int64) TradeAPIPmarginGetMarginAllOrderListV1Request {
+func (r ApiPmarginGetMarginAllOrderListV1Request) StartTime(startTime int64) ApiPmarginGetMarginAllOrderListV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r TradeAPIPmarginGetMarginAllOrderListV1Request) EndTime(endTime int64) TradeAPIPmarginGetMarginAllOrderListV1Request {
+func (r ApiPmarginGetMarginAllOrderListV1Request) EndTime(endTime int64) ApiPmarginGetMarginAllOrderListV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 500; max 500.
-func (r TradeAPIPmarginGetMarginAllOrderListV1Request) Limit(limit int32) TradeAPIPmarginGetMarginAllOrderListV1Request {
+func (r ApiPmarginGetMarginAllOrderListV1Request) Limit(limit int32) ApiPmarginGetMarginAllOrderListV1Request {
 	r.limit = &limit
 	return r
 }
 
 // The value cannot be greater than 60000
-func (r TradeAPIPmarginGetMarginAllOrderListV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetMarginAllOrderListV1Request {
+func (r ApiPmarginGetMarginAllOrderListV1Request) RecvWindow(recvWindow int64) ApiPmarginGetMarginAllOrderListV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetMarginAllOrderListV1Request) Execute() ([]PmarginGetMarginAllOrderListV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetMarginAllOrderListV1Request) Execute() ([]PmarginGetMarginAllOrderListV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetMarginAllOrderListV1Execute(r)
 }
 
@@ -6402,10 +6402,10 @@ PmarginGetMarginAllOrderListV1 Query Margin Account's all OCO (USER_DATA)
 Query all OCO for a specific margin account based on provided optional parameters
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetMarginAllOrderListV1Request
+ @return ApiPmarginGetMarginAllOrderListV1Request
 */
-func (a *TradeAPIService) PmarginGetMarginAllOrderListV1(ctx context.Context) TradeAPIPmarginGetMarginAllOrderListV1Request {
-	return TradeAPIPmarginGetMarginAllOrderListV1Request{
+func (a *TradeAPIService) PmarginGetMarginAllOrderListV1(ctx context.Context) ApiPmarginGetMarginAllOrderListV1Request {
+	return ApiPmarginGetMarginAllOrderListV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -6413,7 +6413,7 @@ func (a *TradeAPIService) PmarginGetMarginAllOrderListV1(ctx context.Context) Tr
 
 // Execute executes the request
 //  @return []PmarginGetMarginAllOrderListV1RespItem
-func (a *TradeAPIService) PmarginGetMarginAllOrderListV1Execute(r TradeAPIPmarginGetMarginAllOrderListV1Request) ([]PmarginGetMarginAllOrderListV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetMarginAllOrderListV1Execute(r ApiPmarginGetMarginAllOrderListV1Request) ([]PmarginGetMarginAllOrderListV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -6535,7 +6535,7 @@ func (a *TradeAPIService) PmarginGetMarginAllOrderListV1Execute(r TradeAPIPmargi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetMarginAllOrdersV1Request struct {
+type ApiPmarginGetMarginAllOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -6547,44 +6547,44 @@ type TradeAPIPmarginGetMarginAllOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetMarginAllOrdersV1Request) Symbol(symbol string) TradeAPIPmarginGetMarginAllOrdersV1Request {
+func (r ApiPmarginGetMarginAllOrdersV1Request) Symbol(symbol string) ApiPmarginGetMarginAllOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginGetMarginAllOrdersV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetMarginAllOrdersV1Request {
+func (r ApiPmarginGetMarginAllOrdersV1Request) Timestamp(timestamp int64) ApiPmarginGetMarginAllOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetMarginAllOrdersV1Request) OrderId(orderId int64) TradeAPIPmarginGetMarginAllOrdersV1Request {
+func (r ApiPmarginGetMarginAllOrdersV1Request) OrderId(orderId int64) ApiPmarginGetMarginAllOrdersV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPIPmarginGetMarginAllOrdersV1Request) StartTime(startTime int64) TradeAPIPmarginGetMarginAllOrdersV1Request {
+func (r ApiPmarginGetMarginAllOrdersV1Request) StartTime(startTime int64) ApiPmarginGetMarginAllOrdersV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r TradeAPIPmarginGetMarginAllOrdersV1Request) EndTime(endTime int64) TradeAPIPmarginGetMarginAllOrdersV1Request {
+func (r ApiPmarginGetMarginAllOrdersV1Request) EndTime(endTime int64) ApiPmarginGetMarginAllOrdersV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 500; max 500.
-func (r TradeAPIPmarginGetMarginAllOrdersV1Request) Limit(limit int32) TradeAPIPmarginGetMarginAllOrdersV1Request {
+func (r ApiPmarginGetMarginAllOrdersV1Request) Limit(limit int32) ApiPmarginGetMarginAllOrdersV1Request {
 	r.limit = &limit
 	return r
 }
 
 // The value cannot be greater than 60000
-func (r TradeAPIPmarginGetMarginAllOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetMarginAllOrdersV1Request {
+func (r ApiPmarginGetMarginAllOrdersV1Request) RecvWindow(recvWindow int64) ApiPmarginGetMarginAllOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetMarginAllOrdersV1Request) Execute() ([]PmarginGetMarginAllOrdersV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetMarginAllOrdersV1Request) Execute() ([]PmarginGetMarginAllOrdersV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetMarginAllOrdersV1Execute(r)
 }
 
@@ -6594,10 +6594,10 @@ PmarginGetMarginAllOrdersV1 Query All Margin Account Orders (USER_DATA)
 Query All Margin Account Orders
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetMarginAllOrdersV1Request
+ @return ApiPmarginGetMarginAllOrdersV1Request
 */
-func (a *TradeAPIService) PmarginGetMarginAllOrdersV1(ctx context.Context) TradeAPIPmarginGetMarginAllOrdersV1Request {
-	return TradeAPIPmarginGetMarginAllOrdersV1Request{
+func (a *TradeAPIService) PmarginGetMarginAllOrdersV1(ctx context.Context) ApiPmarginGetMarginAllOrdersV1Request {
+	return ApiPmarginGetMarginAllOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -6605,7 +6605,7 @@ func (a *TradeAPIService) PmarginGetMarginAllOrdersV1(ctx context.Context) Trade
 
 // Execute executes the request
 //  @return []PmarginGetMarginAllOrdersV1RespItem
-func (a *TradeAPIService) PmarginGetMarginAllOrdersV1Execute(r TradeAPIPmarginGetMarginAllOrdersV1Request) ([]PmarginGetMarginAllOrdersV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetMarginAllOrdersV1Execute(r ApiPmarginGetMarginAllOrdersV1Request) ([]PmarginGetMarginAllOrdersV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -6731,7 +6731,7 @@ func (a *TradeAPIService) PmarginGetMarginAllOrdersV1Execute(r TradeAPIPmarginGe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetMarginForceOrdersV1Request struct {
+type ApiPmarginGetMarginForceOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -6742,40 +6742,40 @@ type TradeAPIPmarginGetMarginForceOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetMarginForceOrdersV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetMarginForceOrdersV1Request {
+func (r ApiPmarginGetMarginForceOrdersV1Request) Timestamp(timestamp int64) ApiPmarginGetMarginForceOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetMarginForceOrdersV1Request) StartTime(startTime int64) TradeAPIPmarginGetMarginForceOrdersV1Request {
+func (r ApiPmarginGetMarginForceOrdersV1Request) StartTime(startTime int64) ApiPmarginGetMarginForceOrdersV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r TradeAPIPmarginGetMarginForceOrdersV1Request) EndTime(endTime int64) TradeAPIPmarginGetMarginForceOrdersV1Request {
+func (r ApiPmarginGetMarginForceOrdersV1Request) EndTime(endTime int64) ApiPmarginGetMarginForceOrdersV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Currently querying page. Start from 1. Default:1
-func (r TradeAPIPmarginGetMarginForceOrdersV1Request) Current(current int64) TradeAPIPmarginGetMarginForceOrdersV1Request {
+func (r ApiPmarginGetMarginForceOrdersV1Request) Current(current int64) ApiPmarginGetMarginForceOrdersV1Request {
 	r.current = &current
 	return r
 }
 
 // Default:10 Max:100
-func (r TradeAPIPmarginGetMarginForceOrdersV1Request) Size(size int64) TradeAPIPmarginGetMarginForceOrdersV1Request {
+func (r ApiPmarginGetMarginForceOrdersV1Request) Size(size int64) ApiPmarginGetMarginForceOrdersV1Request {
 	r.size = &size
 	return r
 }
 
 // The value cannot be greater than 60000
-func (r TradeAPIPmarginGetMarginForceOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetMarginForceOrdersV1Request {
+func (r ApiPmarginGetMarginForceOrdersV1Request) RecvWindow(recvWindow int64) ApiPmarginGetMarginForceOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetMarginForceOrdersV1Request) Execute() (*PmarginGetMarginForceOrdersV1Resp, *http.Response, error) {
+func (r ApiPmarginGetMarginForceOrdersV1Request) Execute() (*PmarginGetMarginForceOrdersV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetMarginForceOrdersV1Execute(r)
 }
 
@@ -6785,10 +6785,10 @@ PmarginGetMarginForceOrdersV1 Query User's Margin Force Orders(USER_DATA)
 Query user's margin force orders
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetMarginForceOrdersV1Request
+ @return ApiPmarginGetMarginForceOrdersV1Request
 */
-func (a *TradeAPIService) PmarginGetMarginForceOrdersV1(ctx context.Context) TradeAPIPmarginGetMarginForceOrdersV1Request {
-	return TradeAPIPmarginGetMarginForceOrdersV1Request{
+func (a *TradeAPIService) PmarginGetMarginForceOrdersV1(ctx context.Context) ApiPmarginGetMarginForceOrdersV1Request {
+	return ApiPmarginGetMarginForceOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -6796,7 +6796,7 @@ func (a *TradeAPIService) PmarginGetMarginForceOrdersV1(ctx context.Context) Tra
 
 // Execute executes the request
 //  @return PmarginGetMarginForceOrdersV1Resp
-func (a *TradeAPIService) PmarginGetMarginForceOrdersV1Execute(r TradeAPIPmarginGetMarginForceOrdersV1Request) (*PmarginGetMarginForceOrdersV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetMarginForceOrdersV1Execute(r ApiPmarginGetMarginForceOrdersV1Request) (*PmarginGetMarginForceOrdersV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -6915,7 +6915,7 @@ func (a *TradeAPIService) PmarginGetMarginForceOrdersV1Execute(r TradeAPIPmargin
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetMarginMyTradesV1Request struct {
+type ApiPmarginGetMarginMyTradesV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -6928,50 +6928,50 @@ type TradeAPIPmarginGetMarginMyTradesV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetMarginMyTradesV1Request) Symbol(symbol string) TradeAPIPmarginGetMarginMyTradesV1Request {
+func (r ApiPmarginGetMarginMyTradesV1Request) Symbol(symbol string) ApiPmarginGetMarginMyTradesV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginGetMarginMyTradesV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetMarginMyTradesV1Request {
+func (r ApiPmarginGetMarginMyTradesV1Request) Timestamp(timestamp int64) ApiPmarginGetMarginMyTradesV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetMarginMyTradesV1Request) OrderId(orderId int64) TradeAPIPmarginGetMarginMyTradesV1Request {
+func (r ApiPmarginGetMarginMyTradesV1Request) OrderId(orderId int64) ApiPmarginGetMarginMyTradesV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPIPmarginGetMarginMyTradesV1Request) StartTime(startTime int64) TradeAPIPmarginGetMarginMyTradesV1Request {
+func (r ApiPmarginGetMarginMyTradesV1Request) StartTime(startTime int64) ApiPmarginGetMarginMyTradesV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r TradeAPIPmarginGetMarginMyTradesV1Request) EndTime(endTime int64) TradeAPIPmarginGetMarginMyTradesV1Request {
+func (r ApiPmarginGetMarginMyTradesV1Request) EndTime(endTime int64) ApiPmarginGetMarginMyTradesV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // TradeId to fetch from. Default gets most recent trades.
-func (r TradeAPIPmarginGetMarginMyTradesV1Request) FromId(fromId int64) TradeAPIPmarginGetMarginMyTradesV1Request {
+func (r ApiPmarginGetMarginMyTradesV1Request) FromId(fromId int64) ApiPmarginGetMarginMyTradesV1Request {
 	r.fromId = &fromId
 	return r
 }
 
 // Default 500; max 1000.
-func (r TradeAPIPmarginGetMarginMyTradesV1Request) Limit(limit int32) TradeAPIPmarginGetMarginMyTradesV1Request {
+func (r ApiPmarginGetMarginMyTradesV1Request) Limit(limit int32) ApiPmarginGetMarginMyTradesV1Request {
 	r.limit = &limit
 	return r
 }
 
 // The value cannot be greater than 60000
-func (r TradeAPIPmarginGetMarginMyTradesV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetMarginMyTradesV1Request {
+func (r ApiPmarginGetMarginMyTradesV1Request) RecvWindow(recvWindow int64) ApiPmarginGetMarginMyTradesV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetMarginMyTradesV1Request) Execute() ([]PmarginGetMarginMyTradesV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetMarginMyTradesV1Request) Execute() ([]PmarginGetMarginMyTradesV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetMarginMyTradesV1Execute(r)
 }
 
@@ -6981,10 +6981,10 @@ PmarginGetMarginMyTradesV1 Margin Account Trade List (USER_DATA)
 Margin Account Trade List
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetMarginMyTradesV1Request
+ @return ApiPmarginGetMarginMyTradesV1Request
 */
-func (a *TradeAPIService) PmarginGetMarginMyTradesV1(ctx context.Context) TradeAPIPmarginGetMarginMyTradesV1Request {
-	return TradeAPIPmarginGetMarginMyTradesV1Request{
+func (a *TradeAPIService) PmarginGetMarginMyTradesV1(ctx context.Context) ApiPmarginGetMarginMyTradesV1Request {
+	return ApiPmarginGetMarginMyTradesV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -6992,7 +6992,7 @@ func (a *TradeAPIService) PmarginGetMarginMyTradesV1(ctx context.Context) TradeA
 
 // Execute executes the request
 //  @return []PmarginGetMarginMyTradesV1RespItem
-func (a *TradeAPIService) PmarginGetMarginMyTradesV1Execute(r TradeAPIPmarginGetMarginMyTradesV1Request) ([]PmarginGetMarginMyTradesV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetMarginMyTradesV1Execute(r ApiPmarginGetMarginMyTradesV1Request) ([]PmarginGetMarginMyTradesV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -7121,25 +7121,25 @@ func (a *TradeAPIService) PmarginGetMarginMyTradesV1Execute(r TradeAPIPmarginGet
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetMarginOpenOrderListV1Request struct {
+type ApiPmarginGetMarginOpenOrderListV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetMarginOpenOrderListV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetMarginOpenOrderListV1Request {
+func (r ApiPmarginGetMarginOpenOrderListV1Request) Timestamp(timestamp int64) ApiPmarginGetMarginOpenOrderListV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // The value cannot be greater than 60000
-func (r TradeAPIPmarginGetMarginOpenOrderListV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetMarginOpenOrderListV1Request {
+func (r ApiPmarginGetMarginOpenOrderListV1Request) RecvWindow(recvWindow int64) ApiPmarginGetMarginOpenOrderListV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetMarginOpenOrderListV1Request) Execute() ([]PmarginGetMarginOpenOrderListV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetMarginOpenOrderListV1Request) Execute() ([]PmarginGetMarginOpenOrderListV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetMarginOpenOrderListV1Execute(r)
 }
 
@@ -7149,10 +7149,10 @@ PmarginGetMarginOpenOrderListV1 Query Margin Account's Open OCO (USER_DATA)
 Query Margin Account's Open OCO
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetMarginOpenOrderListV1Request
+ @return ApiPmarginGetMarginOpenOrderListV1Request
 */
-func (a *TradeAPIService) PmarginGetMarginOpenOrderListV1(ctx context.Context) TradeAPIPmarginGetMarginOpenOrderListV1Request {
-	return TradeAPIPmarginGetMarginOpenOrderListV1Request{
+func (a *TradeAPIService) PmarginGetMarginOpenOrderListV1(ctx context.Context) ApiPmarginGetMarginOpenOrderListV1Request {
+	return ApiPmarginGetMarginOpenOrderListV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -7160,7 +7160,7 @@ func (a *TradeAPIService) PmarginGetMarginOpenOrderListV1(ctx context.Context) T
 
 // Execute executes the request
 //  @return []PmarginGetMarginOpenOrderListV1RespItem
-func (a *TradeAPIService) PmarginGetMarginOpenOrderListV1Execute(r TradeAPIPmarginGetMarginOpenOrderListV1Request) ([]PmarginGetMarginOpenOrderListV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetMarginOpenOrderListV1Execute(r ApiPmarginGetMarginOpenOrderListV1Request) ([]PmarginGetMarginOpenOrderListV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -7267,7 +7267,7 @@ func (a *TradeAPIService) PmarginGetMarginOpenOrderListV1Execute(r TradeAPIPmarg
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetMarginOpenOrdersV1Request struct {
+type ApiPmarginGetMarginOpenOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -7275,23 +7275,23 @@ type TradeAPIPmarginGetMarginOpenOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetMarginOpenOrdersV1Request) Symbol(symbol string) TradeAPIPmarginGetMarginOpenOrdersV1Request {
+func (r ApiPmarginGetMarginOpenOrdersV1Request) Symbol(symbol string) ApiPmarginGetMarginOpenOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginGetMarginOpenOrdersV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetMarginOpenOrdersV1Request {
+func (r ApiPmarginGetMarginOpenOrdersV1Request) Timestamp(timestamp int64) ApiPmarginGetMarginOpenOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // The value cannot be greater than 60000
-func (r TradeAPIPmarginGetMarginOpenOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetMarginOpenOrdersV1Request {
+func (r ApiPmarginGetMarginOpenOrdersV1Request) RecvWindow(recvWindow int64) ApiPmarginGetMarginOpenOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetMarginOpenOrdersV1Request) Execute() ([]PmarginGetMarginOpenOrdersV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetMarginOpenOrdersV1Request) Execute() ([]PmarginGetMarginOpenOrdersV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetMarginOpenOrdersV1Execute(r)
 }
 
@@ -7301,10 +7301,10 @@ PmarginGetMarginOpenOrdersV1 Query Current Margin Open Order (USER_DATA)
 Query Current Margin Open Order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetMarginOpenOrdersV1Request
+ @return ApiPmarginGetMarginOpenOrdersV1Request
 */
-func (a *TradeAPIService) PmarginGetMarginOpenOrdersV1(ctx context.Context) TradeAPIPmarginGetMarginOpenOrdersV1Request {
-	return TradeAPIPmarginGetMarginOpenOrdersV1Request{
+func (a *TradeAPIService) PmarginGetMarginOpenOrdersV1(ctx context.Context) ApiPmarginGetMarginOpenOrdersV1Request {
+	return ApiPmarginGetMarginOpenOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -7312,7 +7312,7 @@ func (a *TradeAPIService) PmarginGetMarginOpenOrdersV1(ctx context.Context) Trad
 
 // Execute executes the request
 //  @return []PmarginGetMarginOpenOrdersV1RespItem
-func (a *TradeAPIService) PmarginGetMarginOpenOrdersV1Execute(r TradeAPIPmarginGetMarginOpenOrdersV1Request) ([]PmarginGetMarginOpenOrdersV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetMarginOpenOrdersV1Execute(r ApiPmarginGetMarginOpenOrdersV1Request) ([]PmarginGetMarginOpenOrdersV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -7423,7 +7423,7 @@ func (a *TradeAPIService) PmarginGetMarginOpenOrdersV1Execute(r TradeAPIPmarginG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetMarginOrderListV1Request struct {
+type ApiPmarginGetMarginOrderListV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -7432,30 +7432,30 @@ type TradeAPIPmarginGetMarginOrderListV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetMarginOrderListV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetMarginOrderListV1Request {
+func (r ApiPmarginGetMarginOrderListV1Request) Timestamp(timestamp int64) ApiPmarginGetMarginOrderListV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
 // Either orderListId or origClientOrderId must be provided
-func (r TradeAPIPmarginGetMarginOrderListV1Request) OrderListId(orderListId int64) TradeAPIPmarginGetMarginOrderListV1Request {
+func (r ApiPmarginGetMarginOrderListV1Request) OrderListId(orderListId int64) ApiPmarginGetMarginOrderListV1Request {
 	r.orderListId = &orderListId
 	return r
 }
 
 // Either orderListId or origClientOrderId must be provided
-func (r TradeAPIPmarginGetMarginOrderListV1Request) OrigClientOrderId(origClientOrderId string) TradeAPIPmarginGetMarginOrderListV1Request {
+func (r ApiPmarginGetMarginOrderListV1Request) OrigClientOrderId(origClientOrderId string) ApiPmarginGetMarginOrderListV1Request {
 	r.origClientOrderId = &origClientOrderId
 	return r
 }
 
 // The value cannot be greater than 60000
-func (r TradeAPIPmarginGetMarginOrderListV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetMarginOrderListV1Request {
+func (r ApiPmarginGetMarginOrderListV1Request) RecvWindow(recvWindow int64) ApiPmarginGetMarginOrderListV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetMarginOrderListV1Request) Execute() (*PmarginGetMarginOrderListV1Resp, *http.Response, error) {
+func (r ApiPmarginGetMarginOrderListV1Request) Execute() (*PmarginGetMarginOrderListV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetMarginOrderListV1Execute(r)
 }
 
@@ -7465,10 +7465,10 @@ PmarginGetMarginOrderListV1 Query Margin Account's OCO (USER_DATA)
 Retrieves a specific OCO based on provided optional parameters
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetMarginOrderListV1Request
+ @return ApiPmarginGetMarginOrderListV1Request
 */
-func (a *TradeAPIService) PmarginGetMarginOrderListV1(ctx context.Context) TradeAPIPmarginGetMarginOrderListV1Request {
-	return TradeAPIPmarginGetMarginOrderListV1Request{
+func (a *TradeAPIService) PmarginGetMarginOrderListV1(ctx context.Context) ApiPmarginGetMarginOrderListV1Request {
+	return ApiPmarginGetMarginOrderListV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -7476,7 +7476,7 @@ func (a *TradeAPIService) PmarginGetMarginOrderListV1(ctx context.Context) Trade
 
 // Execute executes the request
 //  @return PmarginGetMarginOrderListV1Resp
-func (a *TradeAPIService) PmarginGetMarginOrderListV1Execute(r TradeAPIPmarginGetMarginOrderListV1Request) (*PmarginGetMarginOrderListV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetMarginOrderListV1Execute(r ApiPmarginGetMarginOrderListV1Request) (*PmarginGetMarginOrderListV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -7592,7 +7592,7 @@ func (a *TradeAPIService) PmarginGetMarginOrderListV1Execute(r TradeAPIPmarginGe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetMarginOrderV1Request struct {
+type ApiPmarginGetMarginOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -7602,33 +7602,33 @@ type TradeAPIPmarginGetMarginOrderV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetMarginOrderV1Request) Symbol(symbol string) TradeAPIPmarginGetMarginOrderV1Request {
+func (r ApiPmarginGetMarginOrderV1Request) Symbol(symbol string) ApiPmarginGetMarginOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginGetMarginOrderV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetMarginOrderV1Request {
+func (r ApiPmarginGetMarginOrderV1Request) Timestamp(timestamp int64) ApiPmarginGetMarginOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetMarginOrderV1Request) OrderId(orderId int64) TradeAPIPmarginGetMarginOrderV1Request {
+func (r ApiPmarginGetMarginOrderV1Request) OrderId(orderId int64) ApiPmarginGetMarginOrderV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPIPmarginGetMarginOrderV1Request) OrigClientOrderId(origClientOrderId string) TradeAPIPmarginGetMarginOrderV1Request {
+func (r ApiPmarginGetMarginOrderV1Request) OrigClientOrderId(origClientOrderId string) ApiPmarginGetMarginOrderV1Request {
 	r.origClientOrderId = &origClientOrderId
 	return r
 }
 
 // The value cannot be greater than 60000
-func (r TradeAPIPmarginGetMarginOrderV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetMarginOrderV1Request {
+func (r ApiPmarginGetMarginOrderV1Request) RecvWindow(recvWindow int64) ApiPmarginGetMarginOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetMarginOrderV1Request) Execute() (*PmarginGetMarginOrderV1Resp, *http.Response, error) {
+func (r ApiPmarginGetMarginOrderV1Request) Execute() (*PmarginGetMarginOrderV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetMarginOrderV1Execute(r)
 }
 
@@ -7638,10 +7638,10 @@ PmarginGetMarginOrderV1 Query Margin Account Order (USER_DATA)
 Query Margin Account Order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetMarginOrderV1Request
+ @return ApiPmarginGetMarginOrderV1Request
 */
-func (a *TradeAPIService) PmarginGetMarginOrderV1(ctx context.Context) TradeAPIPmarginGetMarginOrderV1Request {
-	return TradeAPIPmarginGetMarginOrderV1Request{
+func (a *TradeAPIService) PmarginGetMarginOrderV1(ctx context.Context) ApiPmarginGetMarginOrderV1Request {
+	return ApiPmarginGetMarginOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -7649,7 +7649,7 @@ func (a *TradeAPIService) PmarginGetMarginOrderV1(ctx context.Context) TradeAPIP
 
 // Execute executes the request
 //  @return PmarginGetMarginOrderV1Resp
-func (a *TradeAPIService) PmarginGetMarginOrderV1Execute(r TradeAPIPmarginGetMarginOrderV1Request) (*PmarginGetMarginOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetMarginOrderV1Execute(r ApiPmarginGetMarginOrderV1Request) (*PmarginGetMarginOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -7769,7 +7769,7 @@ func (a *TradeAPIService) PmarginGetMarginOrderV1Execute(r TradeAPIPmarginGetMar
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetUmAdlQuantileV1Request struct {
+type ApiPmarginGetUmAdlQuantileV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -7777,22 +7777,22 @@ type TradeAPIPmarginGetUmAdlQuantileV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetUmAdlQuantileV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetUmAdlQuantileV1Request {
+func (r ApiPmarginGetUmAdlQuantileV1Request) Timestamp(timestamp int64) ApiPmarginGetUmAdlQuantileV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetUmAdlQuantileV1Request) Symbol(symbol string) TradeAPIPmarginGetUmAdlQuantileV1Request {
+func (r ApiPmarginGetUmAdlQuantileV1Request) Symbol(symbol string) ApiPmarginGetUmAdlQuantileV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginGetUmAdlQuantileV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetUmAdlQuantileV1Request {
+func (r ApiPmarginGetUmAdlQuantileV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmAdlQuantileV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetUmAdlQuantileV1Request) Execute() ([]PmarginGetUmAdlQuantileV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetUmAdlQuantileV1Request) Execute() ([]PmarginGetUmAdlQuantileV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetUmAdlQuantileV1Execute(r)
 }
 
@@ -7802,10 +7802,10 @@ PmarginGetUmAdlQuantileV1 UM Position ADL Quantile Estimation(USER_DATA)
 Query UM Position ADL Quantile Estimation
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetUmAdlQuantileV1Request
+ @return ApiPmarginGetUmAdlQuantileV1Request
 */
-func (a *TradeAPIService) PmarginGetUmAdlQuantileV1(ctx context.Context) TradeAPIPmarginGetUmAdlQuantileV1Request {
-	return TradeAPIPmarginGetUmAdlQuantileV1Request{
+func (a *TradeAPIService) PmarginGetUmAdlQuantileV1(ctx context.Context) ApiPmarginGetUmAdlQuantileV1Request {
+	return ApiPmarginGetUmAdlQuantileV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -7813,7 +7813,7 @@ func (a *TradeAPIService) PmarginGetUmAdlQuantileV1(ctx context.Context) TradeAP
 
 // Execute executes the request
 //  @return []PmarginGetUmAdlQuantileV1RespItem
-func (a *TradeAPIService) PmarginGetUmAdlQuantileV1Execute(r TradeAPIPmarginGetUmAdlQuantileV1Request) ([]PmarginGetUmAdlQuantileV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetUmAdlQuantileV1Execute(r ApiPmarginGetUmAdlQuantileV1Request) ([]PmarginGetUmAdlQuantileV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -7926,7 +7926,7 @@ func (a *TradeAPIService) PmarginGetUmAdlQuantileV1Execute(r TradeAPIPmarginGetU
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetUmAllOrdersV1Request struct {
+type ApiPmarginGetUmAllOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -7938,43 +7938,43 @@ type TradeAPIPmarginGetUmAllOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetUmAllOrdersV1Request) Symbol(symbol string) TradeAPIPmarginGetUmAllOrdersV1Request {
+func (r ApiPmarginGetUmAllOrdersV1Request) Symbol(symbol string) ApiPmarginGetUmAllOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginGetUmAllOrdersV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetUmAllOrdersV1Request {
+func (r ApiPmarginGetUmAllOrdersV1Request) Timestamp(timestamp int64) ApiPmarginGetUmAllOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetUmAllOrdersV1Request) OrderId(orderId int64) TradeAPIPmarginGetUmAllOrdersV1Request {
+func (r ApiPmarginGetUmAllOrdersV1Request) OrderId(orderId int64) ApiPmarginGetUmAllOrdersV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPIPmarginGetUmAllOrdersV1Request) StartTime(startTime int64) TradeAPIPmarginGetUmAllOrdersV1Request {
+func (r ApiPmarginGetUmAllOrdersV1Request) StartTime(startTime int64) ApiPmarginGetUmAllOrdersV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r TradeAPIPmarginGetUmAllOrdersV1Request) EndTime(endTime int64) TradeAPIPmarginGetUmAllOrdersV1Request {
+func (r ApiPmarginGetUmAllOrdersV1Request) EndTime(endTime int64) ApiPmarginGetUmAllOrdersV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 500; max 1000.
-func (r TradeAPIPmarginGetUmAllOrdersV1Request) Limit(limit int32) TradeAPIPmarginGetUmAllOrdersV1Request {
+func (r ApiPmarginGetUmAllOrdersV1Request) Limit(limit int32) ApiPmarginGetUmAllOrdersV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r TradeAPIPmarginGetUmAllOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetUmAllOrdersV1Request {
+func (r ApiPmarginGetUmAllOrdersV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmAllOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetUmAllOrdersV1Request) Execute() ([]PmarginGetUmAllOrdersV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetUmAllOrdersV1Request) Execute() ([]PmarginGetUmAllOrdersV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetUmAllOrdersV1Execute(r)
 }
 
@@ -7984,10 +7984,10 @@ PmarginGetUmAllOrdersV1 Query All UM Orders(USER_DATA)
 Get all account UM orders; active, canceled, or filled.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetUmAllOrdersV1Request
+ @return ApiPmarginGetUmAllOrdersV1Request
 */
-func (a *TradeAPIService) PmarginGetUmAllOrdersV1(ctx context.Context) TradeAPIPmarginGetUmAllOrdersV1Request {
-	return TradeAPIPmarginGetUmAllOrdersV1Request{
+func (a *TradeAPIService) PmarginGetUmAllOrdersV1(ctx context.Context) ApiPmarginGetUmAllOrdersV1Request {
+	return ApiPmarginGetUmAllOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -7995,7 +7995,7 @@ func (a *TradeAPIService) PmarginGetUmAllOrdersV1(ctx context.Context) TradeAPIP
 
 // Execute executes the request
 //  @return []PmarginGetUmAllOrdersV1RespItem
-func (a *TradeAPIService) PmarginGetUmAllOrdersV1Execute(r TradeAPIPmarginGetUmAllOrdersV1Request) ([]PmarginGetUmAllOrdersV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetUmAllOrdersV1Execute(r ApiPmarginGetUmAllOrdersV1Request) ([]PmarginGetUmAllOrdersV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -8121,7 +8121,7 @@ func (a *TradeAPIService) PmarginGetUmAllOrdersV1Execute(r TradeAPIPmarginGetUmA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetUmConditionalAllOrdersV1Request struct {
+type ApiPmarginGetUmConditionalAllOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -8133,43 +8133,43 @@ type TradeAPIPmarginGetUmConditionalAllOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetUmConditionalAllOrdersV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetUmConditionalAllOrdersV1Request {
+func (r ApiPmarginGetUmConditionalAllOrdersV1Request) Timestamp(timestamp int64) ApiPmarginGetUmConditionalAllOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetUmConditionalAllOrdersV1Request) Symbol(symbol string) TradeAPIPmarginGetUmConditionalAllOrdersV1Request {
+func (r ApiPmarginGetUmConditionalAllOrdersV1Request) Symbol(symbol string) ApiPmarginGetUmConditionalAllOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginGetUmConditionalAllOrdersV1Request) StrategyId(strategyId int64) TradeAPIPmarginGetUmConditionalAllOrdersV1Request {
+func (r ApiPmarginGetUmConditionalAllOrdersV1Request) StrategyId(strategyId int64) ApiPmarginGetUmConditionalAllOrdersV1Request {
 	r.strategyId = &strategyId
 	return r
 }
 
-func (r TradeAPIPmarginGetUmConditionalAllOrdersV1Request) StartTime(startTime int64) TradeAPIPmarginGetUmConditionalAllOrdersV1Request {
+func (r ApiPmarginGetUmConditionalAllOrdersV1Request) StartTime(startTime int64) ApiPmarginGetUmConditionalAllOrdersV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r TradeAPIPmarginGetUmConditionalAllOrdersV1Request) EndTime(endTime int64) TradeAPIPmarginGetUmConditionalAllOrdersV1Request {
+func (r ApiPmarginGetUmConditionalAllOrdersV1Request) EndTime(endTime int64) ApiPmarginGetUmConditionalAllOrdersV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 500; max 1000.
-func (r TradeAPIPmarginGetUmConditionalAllOrdersV1Request) Limit(limit int32) TradeAPIPmarginGetUmConditionalAllOrdersV1Request {
+func (r ApiPmarginGetUmConditionalAllOrdersV1Request) Limit(limit int32) ApiPmarginGetUmConditionalAllOrdersV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r TradeAPIPmarginGetUmConditionalAllOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetUmConditionalAllOrdersV1Request {
+func (r ApiPmarginGetUmConditionalAllOrdersV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmConditionalAllOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetUmConditionalAllOrdersV1Request) Execute() ([]PmarginGetUmConditionalAllOrdersV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetUmConditionalAllOrdersV1Request) Execute() ([]PmarginGetUmConditionalAllOrdersV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetUmConditionalAllOrdersV1Execute(r)
 }
 
@@ -8179,10 +8179,10 @@ PmarginGetUmConditionalAllOrdersV1 Query All UM Conditional Orders(USER_DATA)
 Query All UM Conditional Orders
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetUmConditionalAllOrdersV1Request
+ @return ApiPmarginGetUmConditionalAllOrdersV1Request
 */
-func (a *TradeAPIService) PmarginGetUmConditionalAllOrdersV1(ctx context.Context) TradeAPIPmarginGetUmConditionalAllOrdersV1Request {
-	return TradeAPIPmarginGetUmConditionalAllOrdersV1Request{
+func (a *TradeAPIService) PmarginGetUmConditionalAllOrdersV1(ctx context.Context) ApiPmarginGetUmConditionalAllOrdersV1Request {
+	return ApiPmarginGetUmConditionalAllOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -8190,7 +8190,7 @@ func (a *TradeAPIService) PmarginGetUmConditionalAllOrdersV1(ctx context.Context
 
 // Execute executes the request
 //  @return []PmarginGetUmConditionalAllOrdersV1RespItem
-func (a *TradeAPIService) PmarginGetUmConditionalAllOrdersV1Execute(r TradeAPIPmarginGetUmConditionalAllOrdersV1Request) ([]PmarginGetUmConditionalAllOrdersV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetUmConditionalAllOrdersV1Execute(r ApiPmarginGetUmConditionalAllOrdersV1Request) ([]PmarginGetUmConditionalAllOrdersV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -8318,7 +8318,7 @@ func (a *TradeAPIService) PmarginGetUmConditionalAllOrdersV1Execute(r TradeAPIPm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetUmConditionalOpenOrderV1Request struct {
+type ApiPmarginGetUmConditionalOpenOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -8328,32 +8328,32 @@ type TradeAPIPmarginGetUmConditionalOpenOrderV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetUmConditionalOpenOrderV1Request) Symbol(symbol string) TradeAPIPmarginGetUmConditionalOpenOrderV1Request {
+func (r ApiPmarginGetUmConditionalOpenOrderV1Request) Symbol(symbol string) ApiPmarginGetUmConditionalOpenOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginGetUmConditionalOpenOrderV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetUmConditionalOpenOrderV1Request {
+func (r ApiPmarginGetUmConditionalOpenOrderV1Request) Timestamp(timestamp int64) ApiPmarginGetUmConditionalOpenOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetUmConditionalOpenOrderV1Request) StrategyId(strategyId int64) TradeAPIPmarginGetUmConditionalOpenOrderV1Request {
+func (r ApiPmarginGetUmConditionalOpenOrderV1Request) StrategyId(strategyId int64) ApiPmarginGetUmConditionalOpenOrderV1Request {
 	r.strategyId = &strategyId
 	return r
 }
 
-func (r TradeAPIPmarginGetUmConditionalOpenOrderV1Request) NewClientStrategyId(newClientStrategyId string) TradeAPIPmarginGetUmConditionalOpenOrderV1Request {
+func (r ApiPmarginGetUmConditionalOpenOrderV1Request) NewClientStrategyId(newClientStrategyId string) ApiPmarginGetUmConditionalOpenOrderV1Request {
 	r.newClientStrategyId = &newClientStrategyId
 	return r
 }
 
-func (r TradeAPIPmarginGetUmConditionalOpenOrderV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetUmConditionalOpenOrderV1Request {
+func (r ApiPmarginGetUmConditionalOpenOrderV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmConditionalOpenOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetUmConditionalOpenOrderV1Request) Execute() (*PmarginGetUmConditionalOpenOrderV1Resp, *http.Response, error) {
+func (r ApiPmarginGetUmConditionalOpenOrderV1Request) Execute() (*PmarginGetUmConditionalOpenOrderV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetUmConditionalOpenOrderV1Execute(r)
 }
 
@@ -8363,10 +8363,10 @@ PmarginGetUmConditionalOpenOrderV1 Query Current UM Open Conditional Order(USER_
 Query Current UM Open Conditional Order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetUmConditionalOpenOrderV1Request
+ @return ApiPmarginGetUmConditionalOpenOrderV1Request
 */
-func (a *TradeAPIService) PmarginGetUmConditionalOpenOrderV1(ctx context.Context) TradeAPIPmarginGetUmConditionalOpenOrderV1Request {
-	return TradeAPIPmarginGetUmConditionalOpenOrderV1Request{
+func (a *TradeAPIService) PmarginGetUmConditionalOpenOrderV1(ctx context.Context) ApiPmarginGetUmConditionalOpenOrderV1Request {
+	return ApiPmarginGetUmConditionalOpenOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -8374,7 +8374,7 @@ func (a *TradeAPIService) PmarginGetUmConditionalOpenOrderV1(ctx context.Context
 
 // Execute executes the request
 //  @return PmarginGetUmConditionalOpenOrderV1Resp
-func (a *TradeAPIService) PmarginGetUmConditionalOpenOrderV1Execute(r TradeAPIPmarginGetUmConditionalOpenOrderV1Request) (*PmarginGetUmConditionalOpenOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetUmConditionalOpenOrderV1Execute(r ApiPmarginGetUmConditionalOpenOrderV1Request) (*PmarginGetUmConditionalOpenOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -8494,12 +8494,12 @@ func (a *TradeAPIService) PmarginGetUmConditionalOpenOrderV1Execute(r TradeAPIPm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetUmConditionalOpenOrdersV1Request struct {
+type ApiPmarginGetUmConditionalOpenOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 }
 
-func (r TradeAPIPmarginGetUmConditionalOpenOrdersV1Request) Execute() ([]PmarginGetUmConditionalOpenOrdersV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetUmConditionalOpenOrdersV1Request) Execute() ([]PmarginGetUmConditionalOpenOrdersV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetUmConditionalOpenOrdersV1Execute(r)
 }
 
@@ -8509,10 +8509,10 @@ PmarginGetUmConditionalOpenOrdersV1 Query All Current UM Open Conditional Orders
 Get all open conditional orders on a symbol.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetUmConditionalOpenOrdersV1Request
+ @return ApiPmarginGetUmConditionalOpenOrdersV1Request
 */
-func (a *TradeAPIService) PmarginGetUmConditionalOpenOrdersV1(ctx context.Context) TradeAPIPmarginGetUmConditionalOpenOrdersV1Request {
-	return TradeAPIPmarginGetUmConditionalOpenOrdersV1Request{
+func (a *TradeAPIService) PmarginGetUmConditionalOpenOrdersV1(ctx context.Context) ApiPmarginGetUmConditionalOpenOrdersV1Request {
+	return ApiPmarginGetUmConditionalOpenOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -8520,7 +8520,7 @@ func (a *TradeAPIService) PmarginGetUmConditionalOpenOrdersV1(ctx context.Contex
 
 // Execute executes the request
 //  @return []PmarginGetUmConditionalOpenOrdersV1RespItem
-func (a *TradeAPIService) PmarginGetUmConditionalOpenOrdersV1Execute(r TradeAPIPmarginGetUmConditionalOpenOrdersV1Request) ([]PmarginGetUmConditionalOpenOrdersV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetUmConditionalOpenOrdersV1Execute(r ApiPmarginGetUmConditionalOpenOrdersV1Request) ([]PmarginGetUmConditionalOpenOrdersV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -8620,7 +8620,7 @@ func (a *TradeAPIService) PmarginGetUmConditionalOpenOrdersV1Execute(r TradeAPIP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetUmConditionalOrderHistoryV1Request struct {
+type ApiPmarginGetUmConditionalOrderHistoryV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -8630,32 +8630,32 @@ type TradeAPIPmarginGetUmConditionalOrderHistoryV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetUmConditionalOrderHistoryV1Request) Symbol(symbol string) TradeAPIPmarginGetUmConditionalOrderHistoryV1Request {
+func (r ApiPmarginGetUmConditionalOrderHistoryV1Request) Symbol(symbol string) ApiPmarginGetUmConditionalOrderHistoryV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginGetUmConditionalOrderHistoryV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetUmConditionalOrderHistoryV1Request {
+func (r ApiPmarginGetUmConditionalOrderHistoryV1Request) Timestamp(timestamp int64) ApiPmarginGetUmConditionalOrderHistoryV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetUmConditionalOrderHistoryV1Request) StrategyId(strategyId int64) TradeAPIPmarginGetUmConditionalOrderHistoryV1Request {
+func (r ApiPmarginGetUmConditionalOrderHistoryV1Request) StrategyId(strategyId int64) ApiPmarginGetUmConditionalOrderHistoryV1Request {
 	r.strategyId = &strategyId
 	return r
 }
 
-func (r TradeAPIPmarginGetUmConditionalOrderHistoryV1Request) NewClientStrategyId(newClientStrategyId string) TradeAPIPmarginGetUmConditionalOrderHistoryV1Request {
+func (r ApiPmarginGetUmConditionalOrderHistoryV1Request) NewClientStrategyId(newClientStrategyId string) ApiPmarginGetUmConditionalOrderHistoryV1Request {
 	r.newClientStrategyId = &newClientStrategyId
 	return r
 }
 
-func (r TradeAPIPmarginGetUmConditionalOrderHistoryV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetUmConditionalOrderHistoryV1Request {
+func (r ApiPmarginGetUmConditionalOrderHistoryV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmConditionalOrderHistoryV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetUmConditionalOrderHistoryV1Request) Execute() (*PmarginGetUmConditionalOrderHistoryV1Resp, *http.Response, error) {
+func (r ApiPmarginGetUmConditionalOrderHistoryV1Request) Execute() (*PmarginGetUmConditionalOrderHistoryV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetUmConditionalOrderHistoryV1Execute(r)
 }
 
@@ -8665,10 +8665,10 @@ PmarginGetUmConditionalOrderHistoryV1 Query UM Conditional Order History(USER_DA
 Query UM Conditional Order History
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetUmConditionalOrderHistoryV1Request
+ @return ApiPmarginGetUmConditionalOrderHistoryV1Request
 */
-func (a *TradeAPIService) PmarginGetUmConditionalOrderHistoryV1(ctx context.Context) TradeAPIPmarginGetUmConditionalOrderHistoryV1Request {
-	return TradeAPIPmarginGetUmConditionalOrderHistoryV1Request{
+func (a *TradeAPIService) PmarginGetUmConditionalOrderHistoryV1(ctx context.Context) ApiPmarginGetUmConditionalOrderHistoryV1Request {
+	return ApiPmarginGetUmConditionalOrderHistoryV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -8676,7 +8676,7 @@ func (a *TradeAPIService) PmarginGetUmConditionalOrderHistoryV1(ctx context.Cont
 
 // Execute executes the request
 //  @return PmarginGetUmConditionalOrderHistoryV1Resp
-func (a *TradeAPIService) PmarginGetUmConditionalOrderHistoryV1Execute(r TradeAPIPmarginGetUmConditionalOrderHistoryV1Request) (*PmarginGetUmConditionalOrderHistoryV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetUmConditionalOrderHistoryV1Execute(r ApiPmarginGetUmConditionalOrderHistoryV1Request) (*PmarginGetUmConditionalOrderHistoryV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -8796,24 +8796,24 @@ func (a *TradeAPIService) PmarginGetUmConditionalOrderHistoryV1Execute(r TradeAP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetUmFeeBurnV1Request struct {
+type ApiPmarginGetUmFeeBurnV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetUmFeeBurnV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetUmFeeBurnV1Request {
+func (r ApiPmarginGetUmFeeBurnV1Request) Timestamp(timestamp int64) ApiPmarginGetUmFeeBurnV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetUmFeeBurnV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetUmFeeBurnV1Request {
+func (r ApiPmarginGetUmFeeBurnV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmFeeBurnV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetUmFeeBurnV1Request) Execute() (*PmarginGetUmFeeBurnV1Resp, *http.Response, error) {
+func (r ApiPmarginGetUmFeeBurnV1Request) Execute() (*PmarginGetUmFeeBurnV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetUmFeeBurnV1Execute(r)
 }
 
@@ -8823,10 +8823,10 @@ PmarginGetUmFeeBurnV1 Get UM Futures BNB Burn Status (USER_DATA)
 Get user's BNB Fee Discount for UM Futures (Fee Discount On or Fee Discount Off )
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetUmFeeBurnV1Request
+ @return ApiPmarginGetUmFeeBurnV1Request
 */
-func (a *TradeAPIService) PmarginGetUmFeeBurnV1(ctx context.Context) TradeAPIPmarginGetUmFeeBurnV1Request {
-	return TradeAPIPmarginGetUmFeeBurnV1Request{
+func (a *TradeAPIService) PmarginGetUmFeeBurnV1(ctx context.Context) ApiPmarginGetUmFeeBurnV1Request {
+	return ApiPmarginGetUmFeeBurnV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -8834,7 +8834,7 @@ func (a *TradeAPIService) PmarginGetUmFeeBurnV1(ctx context.Context) TradeAPIPma
 
 // Execute executes the request
 //  @return PmarginGetUmFeeBurnV1Resp
-func (a *TradeAPIService) PmarginGetUmFeeBurnV1Execute(r TradeAPIPmarginGetUmFeeBurnV1Request) (*PmarginGetUmFeeBurnV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetUmFeeBurnV1Execute(r ApiPmarginGetUmFeeBurnV1Request) (*PmarginGetUmFeeBurnV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -8941,7 +8941,7 @@ func (a *TradeAPIService) PmarginGetUmFeeBurnV1Execute(r TradeAPIPmarginGetUmFee
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetUmForceOrdersV1Request struct {
+type ApiPmarginGetUmForceOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -8953,45 +8953,45 @@ type TradeAPIPmarginGetUmForceOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetUmForceOrdersV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetUmForceOrdersV1Request {
+func (r ApiPmarginGetUmForceOrdersV1Request) Timestamp(timestamp int64) ApiPmarginGetUmForceOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetUmForceOrdersV1Request) Symbol(symbol string) TradeAPIPmarginGetUmForceOrdersV1Request {
+func (r ApiPmarginGetUmForceOrdersV1Request) Symbol(symbol string) ApiPmarginGetUmForceOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // &#x60;LIQUIDATION&#x60; for liquidation orders, &#x60;ADL&#x60; for ADL orders.
-func (r TradeAPIPmarginGetUmForceOrdersV1Request) AutoCloseType(autoCloseType string) TradeAPIPmarginGetUmForceOrdersV1Request {
+func (r ApiPmarginGetUmForceOrdersV1Request) AutoCloseType(autoCloseType string) ApiPmarginGetUmForceOrdersV1Request {
 	r.autoCloseType = &autoCloseType
 	return r
 }
 
-func (r TradeAPIPmarginGetUmForceOrdersV1Request) StartTime(startTime int64) TradeAPIPmarginGetUmForceOrdersV1Request {
+func (r ApiPmarginGetUmForceOrdersV1Request) StartTime(startTime int64) ApiPmarginGetUmForceOrdersV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r TradeAPIPmarginGetUmForceOrdersV1Request) EndTime(endTime int64) TradeAPIPmarginGetUmForceOrdersV1Request {
+func (r ApiPmarginGetUmForceOrdersV1Request) EndTime(endTime int64) ApiPmarginGetUmForceOrdersV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 50; max 100.
-func (r TradeAPIPmarginGetUmForceOrdersV1Request) Limit(limit int32) TradeAPIPmarginGetUmForceOrdersV1Request {
+func (r ApiPmarginGetUmForceOrdersV1Request) Limit(limit int32) ApiPmarginGetUmForceOrdersV1Request {
 	r.limit = &limit
 	return r
 }
 
 // The value cannot be greater than 60000
-func (r TradeAPIPmarginGetUmForceOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetUmForceOrdersV1Request {
+func (r ApiPmarginGetUmForceOrdersV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmForceOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetUmForceOrdersV1Request) Execute() ([]PmarginGetUmForceOrdersV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetUmForceOrdersV1Request) Execute() ([]PmarginGetUmForceOrdersV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetUmForceOrdersV1Execute(r)
 }
 
@@ -9001,10 +9001,10 @@ PmarginGetUmForceOrdersV1 Query User's UM Force Orders (USER_DATA)
 Query User's UM Force Orders
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetUmForceOrdersV1Request
+ @return ApiPmarginGetUmForceOrdersV1Request
 */
-func (a *TradeAPIService) PmarginGetUmForceOrdersV1(ctx context.Context) TradeAPIPmarginGetUmForceOrdersV1Request {
-	return TradeAPIPmarginGetUmForceOrdersV1Request{
+func (a *TradeAPIService) PmarginGetUmForceOrdersV1(ctx context.Context) ApiPmarginGetUmForceOrdersV1Request {
+	return ApiPmarginGetUmForceOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -9012,7 +9012,7 @@ func (a *TradeAPIService) PmarginGetUmForceOrdersV1(ctx context.Context) TradeAP
 
 // Execute executes the request
 //  @return []PmarginGetUmForceOrdersV1RespItem
-func (a *TradeAPIService) PmarginGetUmForceOrdersV1Execute(r TradeAPIPmarginGetUmForceOrdersV1Request) ([]PmarginGetUmForceOrdersV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetUmForceOrdersV1Execute(r ApiPmarginGetUmForceOrdersV1Request) ([]PmarginGetUmForceOrdersV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -9143,7 +9143,7 @@ func (a *TradeAPIService) PmarginGetUmForceOrdersV1Execute(r TradeAPIPmarginGetU
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetUmOpenOrderV1Request struct {
+type ApiPmarginGetUmOpenOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -9153,32 +9153,32 @@ type TradeAPIPmarginGetUmOpenOrderV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetUmOpenOrderV1Request) Symbol(symbol string) TradeAPIPmarginGetUmOpenOrderV1Request {
+func (r ApiPmarginGetUmOpenOrderV1Request) Symbol(symbol string) ApiPmarginGetUmOpenOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginGetUmOpenOrderV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetUmOpenOrderV1Request {
+func (r ApiPmarginGetUmOpenOrderV1Request) Timestamp(timestamp int64) ApiPmarginGetUmOpenOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetUmOpenOrderV1Request) OrderId(orderId int64) TradeAPIPmarginGetUmOpenOrderV1Request {
+func (r ApiPmarginGetUmOpenOrderV1Request) OrderId(orderId int64) ApiPmarginGetUmOpenOrderV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPIPmarginGetUmOpenOrderV1Request) OrigClientOrderId(origClientOrderId string) TradeAPIPmarginGetUmOpenOrderV1Request {
+func (r ApiPmarginGetUmOpenOrderV1Request) OrigClientOrderId(origClientOrderId string) ApiPmarginGetUmOpenOrderV1Request {
 	r.origClientOrderId = &origClientOrderId
 	return r
 }
 
-func (r TradeAPIPmarginGetUmOpenOrderV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetUmOpenOrderV1Request {
+func (r ApiPmarginGetUmOpenOrderV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmOpenOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetUmOpenOrderV1Request) Execute() (*PmarginGetUmOpenOrderV1Resp, *http.Response, error) {
+func (r ApiPmarginGetUmOpenOrderV1Request) Execute() (*PmarginGetUmOpenOrderV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetUmOpenOrderV1Execute(r)
 }
 
@@ -9188,10 +9188,10 @@ PmarginGetUmOpenOrderV1 Query Current UM Open Order(USER_DATA)
 Query current UM open order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetUmOpenOrderV1Request
+ @return ApiPmarginGetUmOpenOrderV1Request
 */
-func (a *TradeAPIService) PmarginGetUmOpenOrderV1(ctx context.Context) TradeAPIPmarginGetUmOpenOrderV1Request {
-	return TradeAPIPmarginGetUmOpenOrderV1Request{
+func (a *TradeAPIService) PmarginGetUmOpenOrderV1(ctx context.Context) ApiPmarginGetUmOpenOrderV1Request {
+	return ApiPmarginGetUmOpenOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -9199,7 +9199,7 @@ func (a *TradeAPIService) PmarginGetUmOpenOrderV1(ctx context.Context) TradeAPIP
 
 // Execute executes the request
 //  @return PmarginGetUmOpenOrderV1Resp
-func (a *TradeAPIService) PmarginGetUmOpenOrderV1Execute(r TradeAPIPmarginGetUmOpenOrderV1Request) (*PmarginGetUmOpenOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetUmOpenOrderV1Execute(r ApiPmarginGetUmOpenOrderV1Request) (*PmarginGetUmOpenOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -9319,7 +9319,7 @@ func (a *TradeAPIService) PmarginGetUmOpenOrderV1Execute(r TradeAPIPmarginGetUmO
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetUmOpenOrdersV1Request struct {
+type ApiPmarginGetUmOpenOrdersV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	timestamp *int64
@@ -9327,22 +9327,22 @@ type TradeAPIPmarginGetUmOpenOrdersV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetUmOpenOrdersV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetUmOpenOrdersV1Request {
+func (r ApiPmarginGetUmOpenOrdersV1Request) Timestamp(timestamp int64) ApiPmarginGetUmOpenOrdersV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetUmOpenOrdersV1Request) Symbol(symbol string) TradeAPIPmarginGetUmOpenOrdersV1Request {
+func (r ApiPmarginGetUmOpenOrdersV1Request) Symbol(symbol string) ApiPmarginGetUmOpenOrdersV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginGetUmOpenOrdersV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetUmOpenOrdersV1Request {
+func (r ApiPmarginGetUmOpenOrdersV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmOpenOrdersV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetUmOpenOrdersV1Request) Execute() ([]PmarginGetUmOpenOrdersV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetUmOpenOrdersV1Request) Execute() ([]PmarginGetUmOpenOrdersV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetUmOpenOrdersV1Execute(r)
 }
 
@@ -9352,10 +9352,10 @@ PmarginGetUmOpenOrdersV1 Query All Current UM Open Orders(USER_DATA)
 Get all open orders on a symbol.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetUmOpenOrdersV1Request
+ @return ApiPmarginGetUmOpenOrdersV1Request
 */
-func (a *TradeAPIService) PmarginGetUmOpenOrdersV1(ctx context.Context) TradeAPIPmarginGetUmOpenOrdersV1Request {
-	return TradeAPIPmarginGetUmOpenOrdersV1Request{
+func (a *TradeAPIService) PmarginGetUmOpenOrdersV1(ctx context.Context) ApiPmarginGetUmOpenOrdersV1Request {
+	return ApiPmarginGetUmOpenOrdersV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -9363,7 +9363,7 @@ func (a *TradeAPIService) PmarginGetUmOpenOrdersV1(ctx context.Context) TradeAPI
 
 // Execute executes the request
 //  @return []PmarginGetUmOpenOrdersV1RespItem
-func (a *TradeAPIService) PmarginGetUmOpenOrdersV1Execute(r TradeAPIPmarginGetUmOpenOrdersV1Request) ([]PmarginGetUmOpenOrdersV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetUmOpenOrdersV1Execute(r ApiPmarginGetUmOpenOrdersV1Request) ([]PmarginGetUmOpenOrdersV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -9476,7 +9476,7 @@ func (a *TradeAPIService) PmarginGetUmOpenOrdersV1Execute(r TradeAPIPmarginGetUm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetUmOrderAmendmentV1Request struct {
+type ApiPmarginGetUmOrderAmendmentV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -9489,50 +9489,50 @@ type TradeAPIPmarginGetUmOrderAmendmentV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetUmOrderAmendmentV1Request) Symbol(symbol string) TradeAPIPmarginGetUmOrderAmendmentV1Request {
+func (r ApiPmarginGetUmOrderAmendmentV1Request) Symbol(symbol string) ApiPmarginGetUmOrderAmendmentV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginGetUmOrderAmendmentV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetUmOrderAmendmentV1Request {
+func (r ApiPmarginGetUmOrderAmendmentV1Request) Timestamp(timestamp int64) ApiPmarginGetUmOrderAmendmentV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetUmOrderAmendmentV1Request) OrderId(orderId int64) TradeAPIPmarginGetUmOrderAmendmentV1Request {
+func (r ApiPmarginGetUmOrderAmendmentV1Request) OrderId(orderId int64) ApiPmarginGetUmOrderAmendmentV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPIPmarginGetUmOrderAmendmentV1Request) OrigClientOrderId(origClientOrderId string) TradeAPIPmarginGetUmOrderAmendmentV1Request {
+func (r ApiPmarginGetUmOrderAmendmentV1Request) OrigClientOrderId(origClientOrderId string) ApiPmarginGetUmOrderAmendmentV1Request {
 	r.origClientOrderId = &origClientOrderId
 	return r
 }
 
 // Timestamp in ms to get modification history from INCLUSIVE
-func (r TradeAPIPmarginGetUmOrderAmendmentV1Request) StartTime(startTime int64) TradeAPIPmarginGetUmOrderAmendmentV1Request {
+func (r ApiPmarginGetUmOrderAmendmentV1Request) StartTime(startTime int64) ApiPmarginGetUmOrderAmendmentV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // Timestamp in ms to get modification history until INCLUSIVE
-func (r TradeAPIPmarginGetUmOrderAmendmentV1Request) EndTime(endTime int64) TradeAPIPmarginGetUmOrderAmendmentV1Request {
+func (r ApiPmarginGetUmOrderAmendmentV1Request) EndTime(endTime int64) ApiPmarginGetUmOrderAmendmentV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Default 500, max 1000
-func (r TradeAPIPmarginGetUmOrderAmendmentV1Request) Limit(limit int32) TradeAPIPmarginGetUmOrderAmendmentV1Request {
+func (r ApiPmarginGetUmOrderAmendmentV1Request) Limit(limit int32) ApiPmarginGetUmOrderAmendmentV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r TradeAPIPmarginGetUmOrderAmendmentV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetUmOrderAmendmentV1Request {
+func (r ApiPmarginGetUmOrderAmendmentV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmOrderAmendmentV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetUmOrderAmendmentV1Request) Execute() ([]PmarginGetUmOrderAmendmentV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetUmOrderAmendmentV1Request) Execute() ([]PmarginGetUmOrderAmendmentV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetUmOrderAmendmentV1Execute(r)
 }
 
@@ -9542,10 +9542,10 @@ PmarginGetUmOrderAmendmentV1 Query UM Modify Order History(TRADE)
 Get order modification history
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetUmOrderAmendmentV1Request
+ @return ApiPmarginGetUmOrderAmendmentV1Request
 */
-func (a *TradeAPIService) PmarginGetUmOrderAmendmentV1(ctx context.Context) TradeAPIPmarginGetUmOrderAmendmentV1Request {
-	return TradeAPIPmarginGetUmOrderAmendmentV1Request{
+func (a *TradeAPIService) PmarginGetUmOrderAmendmentV1(ctx context.Context) ApiPmarginGetUmOrderAmendmentV1Request {
+	return ApiPmarginGetUmOrderAmendmentV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -9553,7 +9553,7 @@ func (a *TradeAPIService) PmarginGetUmOrderAmendmentV1(ctx context.Context) Trad
 
 // Execute executes the request
 //  @return []PmarginGetUmOrderAmendmentV1RespItem
-func (a *TradeAPIService) PmarginGetUmOrderAmendmentV1Execute(r TradeAPIPmarginGetUmOrderAmendmentV1Request) ([]PmarginGetUmOrderAmendmentV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetUmOrderAmendmentV1Execute(r ApiPmarginGetUmOrderAmendmentV1Request) ([]PmarginGetUmOrderAmendmentV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -9685,7 +9685,7 @@ func (a *TradeAPIService) PmarginGetUmOrderAmendmentV1Execute(r TradeAPIPmarginG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetUmOrderV1Request struct {
+type ApiPmarginGetUmOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -9695,32 +9695,32 @@ type TradeAPIPmarginGetUmOrderV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetUmOrderV1Request) Symbol(symbol string) TradeAPIPmarginGetUmOrderV1Request {
+func (r ApiPmarginGetUmOrderV1Request) Symbol(symbol string) ApiPmarginGetUmOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginGetUmOrderV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetUmOrderV1Request {
+func (r ApiPmarginGetUmOrderV1Request) Timestamp(timestamp int64) ApiPmarginGetUmOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetUmOrderV1Request) OrderId(orderId int64) TradeAPIPmarginGetUmOrderV1Request {
+func (r ApiPmarginGetUmOrderV1Request) OrderId(orderId int64) ApiPmarginGetUmOrderV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPIPmarginGetUmOrderV1Request) OrigClientOrderId(origClientOrderId string) TradeAPIPmarginGetUmOrderV1Request {
+func (r ApiPmarginGetUmOrderV1Request) OrigClientOrderId(origClientOrderId string) ApiPmarginGetUmOrderV1Request {
 	r.origClientOrderId = &origClientOrderId
 	return r
 }
 
-func (r TradeAPIPmarginGetUmOrderV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetUmOrderV1Request {
+func (r ApiPmarginGetUmOrderV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetUmOrderV1Request) Execute() (*PmarginGetUmOrderV1Resp, *http.Response, error) {
+func (r ApiPmarginGetUmOrderV1Request) Execute() (*PmarginGetUmOrderV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginGetUmOrderV1Execute(r)
 }
 
@@ -9730,10 +9730,10 @@ PmarginGetUmOrderV1 Query UM Order (USER_DATA)
 Check an UM order's status.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetUmOrderV1Request
+ @return ApiPmarginGetUmOrderV1Request
 */
-func (a *TradeAPIService) PmarginGetUmOrderV1(ctx context.Context) TradeAPIPmarginGetUmOrderV1Request {
-	return TradeAPIPmarginGetUmOrderV1Request{
+func (a *TradeAPIService) PmarginGetUmOrderV1(ctx context.Context) ApiPmarginGetUmOrderV1Request {
+	return ApiPmarginGetUmOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -9741,7 +9741,7 @@ func (a *TradeAPIService) PmarginGetUmOrderV1(ctx context.Context) TradeAPIPmarg
 
 // Execute executes the request
 //  @return PmarginGetUmOrderV1Resp
-func (a *TradeAPIService) PmarginGetUmOrderV1Execute(r TradeAPIPmarginGetUmOrderV1Request) (*PmarginGetUmOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetUmOrderV1Execute(r ApiPmarginGetUmOrderV1Request) (*PmarginGetUmOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -9861,7 +9861,7 @@ func (a *TradeAPIService) PmarginGetUmOrderV1Execute(r TradeAPIPmarginGetUmOrder
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginGetUmUserTradesV1Request struct {
+type ApiPmarginGetUmUserTradesV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	symbol *string
@@ -9873,44 +9873,44 @@ type TradeAPIPmarginGetUmUserTradesV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginGetUmUserTradesV1Request) Symbol(symbol string) TradeAPIPmarginGetUmUserTradesV1Request {
+func (r ApiPmarginGetUmUserTradesV1Request) Symbol(symbol string) ApiPmarginGetUmUserTradesV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginGetUmUserTradesV1Request) Timestamp(timestamp int64) TradeAPIPmarginGetUmUserTradesV1Request {
+func (r ApiPmarginGetUmUserTradesV1Request) Timestamp(timestamp int64) ApiPmarginGetUmUserTradesV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginGetUmUserTradesV1Request) StartTime(startTime int64) TradeAPIPmarginGetUmUserTradesV1Request {
+func (r ApiPmarginGetUmUserTradesV1Request) StartTime(startTime int64) ApiPmarginGetUmUserTradesV1Request {
 	r.startTime = &startTime
 	return r
 }
 
-func (r TradeAPIPmarginGetUmUserTradesV1Request) EndTime(endTime int64) TradeAPIPmarginGetUmUserTradesV1Request {
+func (r ApiPmarginGetUmUserTradesV1Request) EndTime(endTime int64) ApiPmarginGetUmUserTradesV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Trade id to fetch from. Default gets most recent trades.
-func (r TradeAPIPmarginGetUmUserTradesV1Request) FromId(fromId int64) TradeAPIPmarginGetUmUserTradesV1Request {
+func (r ApiPmarginGetUmUserTradesV1Request) FromId(fromId int64) ApiPmarginGetUmUserTradesV1Request {
 	r.fromId = &fromId
 	return r
 }
 
 // Default 500; max 1000.
-func (r TradeAPIPmarginGetUmUserTradesV1Request) Limit(limit int32) TradeAPIPmarginGetUmUserTradesV1Request {
+func (r ApiPmarginGetUmUserTradesV1Request) Limit(limit int32) ApiPmarginGetUmUserTradesV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r TradeAPIPmarginGetUmUserTradesV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginGetUmUserTradesV1Request {
+func (r ApiPmarginGetUmUserTradesV1Request) RecvWindow(recvWindow int64) ApiPmarginGetUmUserTradesV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginGetUmUserTradesV1Request) Execute() ([]PmarginGetUmUserTradesV1RespItem, *http.Response, error) {
+func (r ApiPmarginGetUmUserTradesV1Request) Execute() ([]PmarginGetUmUserTradesV1RespItem, *http.Response, error) {
 	return r.ApiService.PmarginGetUmUserTradesV1Execute(r)
 }
 
@@ -9920,10 +9920,10 @@ PmarginGetUmUserTradesV1 UM Account Trade List(USER_DATA)
 Get trades for a specific account and UM symbol.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginGetUmUserTradesV1Request
+ @return ApiPmarginGetUmUserTradesV1Request
 */
-func (a *TradeAPIService) PmarginGetUmUserTradesV1(ctx context.Context) TradeAPIPmarginGetUmUserTradesV1Request {
-	return TradeAPIPmarginGetUmUserTradesV1Request{
+func (a *TradeAPIService) PmarginGetUmUserTradesV1(ctx context.Context) ApiPmarginGetUmUserTradesV1Request {
+	return ApiPmarginGetUmUserTradesV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -9931,7 +9931,7 @@ func (a *TradeAPIService) PmarginGetUmUserTradesV1(ctx context.Context) TradeAPI
 
 // Execute executes the request
 //  @return []PmarginGetUmUserTradesV1RespItem
-func (a *TradeAPIService) PmarginGetUmUserTradesV1Execute(r TradeAPIPmarginGetUmUserTradesV1Request) ([]PmarginGetUmUserTradesV1RespItem, *http.Response, error) {
+func (a *TradeAPIService) PmarginGetUmUserTradesV1Execute(r ApiPmarginGetUmUserTradesV1Request) ([]PmarginGetUmUserTradesV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -10057,7 +10057,7 @@ func (a *TradeAPIService) PmarginGetUmUserTradesV1Execute(r TradeAPIPmarginGetUm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginUpdateCmOrderV1Request struct {
+type ApiPmarginUpdateCmOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	price *string
@@ -10071,52 +10071,52 @@ type TradeAPIPmarginUpdateCmOrderV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginUpdateCmOrderV1Request) Price(price string) TradeAPIPmarginUpdateCmOrderV1Request {
+func (r ApiPmarginUpdateCmOrderV1Request) Price(price string) ApiPmarginUpdateCmOrderV1Request {
 	r.price = &price
 	return r
 }
 
-func (r TradeAPIPmarginUpdateCmOrderV1Request) Quantity(quantity string) TradeAPIPmarginUpdateCmOrderV1Request {
+func (r ApiPmarginUpdateCmOrderV1Request) Quantity(quantity string) ApiPmarginUpdateCmOrderV1Request {
 	r.quantity = &quantity
 	return r
 }
 
-func (r TradeAPIPmarginUpdateCmOrderV1Request) Side(side string) TradeAPIPmarginUpdateCmOrderV1Request {
+func (r ApiPmarginUpdateCmOrderV1Request) Side(side string) ApiPmarginUpdateCmOrderV1Request {
 	r.side = &side
 	return r
 }
 
-func (r TradeAPIPmarginUpdateCmOrderV1Request) Symbol(symbol string) TradeAPIPmarginUpdateCmOrderV1Request {
+func (r ApiPmarginUpdateCmOrderV1Request) Symbol(symbol string) ApiPmarginUpdateCmOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginUpdateCmOrderV1Request) Timestamp(timestamp int64) TradeAPIPmarginUpdateCmOrderV1Request {
+func (r ApiPmarginUpdateCmOrderV1Request) Timestamp(timestamp int64) ApiPmarginUpdateCmOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginUpdateCmOrderV1Request) OrderId(orderId int64) TradeAPIPmarginUpdateCmOrderV1Request {
+func (r ApiPmarginUpdateCmOrderV1Request) OrderId(orderId int64) ApiPmarginUpdateCmOrderV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPIPmarginUpdateCmOrderV1Request) OrigClientOrderId(origClientOrderId string) TradeAPIPmarginUpdateCmOrderV1Request {
+func (r ApiPmarginUpdateCmOrderV1Request) OrigClientOrderId(origClientOrderId string) ApiPmarginUpdateCmOrderV1Request {
 	r.origClientOrderId = &origClientOrderId
 	return r
 }
 
-func (r TradeAPIPmarginUpdateCmOrderV1Request) PriceMatch(priceMatch string) TradeAPIPmarginUpdateCmOrderV1Request {
+func (r ApiPmarginUpdateCmOrderV1Request) PriceMatch(priceMatch string) ApiPmarginUpdateCmOrderV1Request {
 	r.priceMatch = &priceMatch
 	return r
 }
 
-func (r TradeAPIPmarginUpdateCmOrderV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginUpdateCmOrderV1Request {
+func (r ApiPmarginUpdateCmOrderV1Request) RecvWindow(recvWindow int64) ApiPmarginUpdateCmOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginUpdateCmOrderV1Request) Execute() (*PmarginUpdateCmOrderV1Resp, *http.Response, error) {
+func (r ApiPmarginUpdateCmOrderV1Request) Execute() (*PmarginUpdateCmOrderV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginUpdateCmOrderV1Execute(r)
 }
 
@@ -10126,10 +10126,10 @@ PmarginUpdateCmOrderV1 Modify CM Order(TRADE)
 Order modify function, currently only LIMIT order modification is supported, modified orders will be reordered in the match queue
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginUpdateCmOrderV1Request
+ @return ApiPmarginUpdateCmOrderV1Request
 */
-func (a *TradeAPIService) PmarginUpdateCmOrderV1(ctx context.Context) TradeAPIPmarginUpdateCmOrderV1Request {
-	return TradeAPIPmarginUpdateCmOrderV1Request{
+func (a *TradeAPIService) PmarginUpdateCmOrderV1(ctx context.Context) ApiPmarginUpdateCmOrderV1Request {
+	return ApiPmarginUpdateCmOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -10137,7 +10137,7 @@ func (a *TradeAPIService) PmarginUpdateCmOrderV1(ctx context.Context) TradeAPIPm
 
 // Execute executes the request
 //  @return PmarginUpdateCmOrderV1Resp
-func (a *TradeAPIService) PmarginUpdateCmOrderV1Execute(r TradeAPIPmarginUpdateCmOrderV1Request) (*PmarginUpdateCmOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginUpdateCmOrderV1Execute(r ApiPmarginUpdateCmOrderV1Request) (*PmarginUpdateCmOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -10269,7 +10269,7 @@ func (a *TradeAPIService) PmarginUpdateCmOrderV1Execute(r TradeAPIPmarginUpdateC
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type TradeAPIPmarginUpdateUmOrderV1Request struct {
+type ApiPmarginUpdateUmOrderV1Request struct {
 	ctx context.Context
 	ApiService *TradeAPIService
 	price *string
@@ -10283,52 +10283,52 @@ type TradeAPIPmarginUpdateUmOrderV1Request struct {
 	recvWindow *int64
 }
 
-func (r TradeAPIPmarginUpdateUmOrderV1Request) Price(price string) TradeAPIPmarginUpdateUmOrderV1Request {
+func (r ApiPmarginUpdateUmOrderV1Request) Price(price string) ApiPmarginUpdateUmOrderV1Request {
 	r.price = &price
 	return r
 }
 
-func (r TradeAPIPmarginUpdateUmOrderV1Request) Quantity(quantity string) TradeAPIPmarginUpdateUmOrderV1Request {
+func (r ApiPmarginUpdateUmOrderV1Request) Quantity(quantity string) ApiPmarginUpdateUmOrderV1Request {
 	r.quantity = &quantity
 	return r
 }
 
-func (r TradeAPIPmarginUpdateUmOrderV1Request) Side(side string) TradeAPIPmarginUpdateUmOrderV1Request {
+func (r ApiPmarginUpdateUmOrderV1Request) Side(side string) ApiPmarginUpdateUmOrderV1Request {
 	r.side = &side
 	return r
 }
 
-func (r TradeAPIPmarginUpdateUmOrderV1Request) Symbol(symbol string) TradeAPIPmarginUpdateUmOrderV1Request {
+func (r ApiPmarginUpdateUmOrderV1Request) Symbol(symbol string) ApiPmarginUpdateUmOrderV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r TradeAPIPmarginUpdateUmOrderV1Request) Timestamp(timestamp int64) TradeAPIPmarginUpdateUmOrderV1Request {
+func (r ApiPmarginUpdateUmOrderV1Request) Timestamp(timestamp int64) ApiPmarginUpdateUmOrderV1Request {
 	r.timestamp = &timestamp
 	return r
 }
 
-func (r TradeAPIPmarginUpdateUmOrderV1Request) OrderId(orderId int64) TradeAPIPmarginUpdateUmOrderV1Request {
+func (r ApiPmarginUpdateUmOrderV1Request) OrderId(orderId int64) ApiPmarginUpdateUmOrderV1Request {
 	r.orderId = &orderId
 	return r
 }
 
-func (r TradeAPIPmarginUpdateUmOrderV1Request) OrigClientOrderId(origClientOrderId string) TradeAPIPmarginUpdateUmOrderV1Request {
+func (r ApiPmarginUpdateUmOrderV1Request) OrigClientOrderId(origClientOrderId string) ApiPmarginUpdateUmOrderV1Request {
 	r.origClientOrderId = &origClientOrderId
 	return r
 }
 
-func (r TradeAPIPmarginUpdateUmOrderV1Request) PriceMatch(priceMatch string) TradeAPIPmarginUpdateUmOrderV1Request {
+func (r ApiPmarginUpdateUmOrderV1Request) PriceMatch(priceMatch string) ApiPmarginUpdateUmOrderV1Request {
 	r.priceMatch = &priceMatch
 	return r
 }
 
-func (r TradeAPIPmarginUpdateUmOrderV1Request) RecvWindow(recvWindow int64) TradeAPIPmarginUpdateUmOrderV1Request {
+func (r ApiPmarginUpdateUmOrderV1Request) RecvWindow(recvWindow int64) ApiPmarginUpdateUmOrderV1Request {
 	r.recvWindow = &recvWindow
 	return r
 }
 
-func (r TradeAPIPmarginUpdateUmOrderV1Request) Execute() (*PmarginUpdateUmOrderV1Resp, *http.Response, error) {
+func (r ApiPmarginUpdateUmOrderV1Request) Execute() (*PmarginUpdateUmOrderV1Resp, *http.Response, error) {
 	return r.ApiService.PmarginUpdateUmOrderV1Execute(r)
 }
 
@@ -10338,10 +10338,10 @@ PmarginUpdateUmOrderV1 Modify UM Order(TRADE)
 Order modify function, currently only LIMIT order modification is supported, modified orders will be reordered in the match queue
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TradeAPIPmarginUpdateUmOrderV1Request
+ @return ApiPmarginUpdateUmOrderV1Request
 */
-func (a *TradeAPIService) PmarginUpdateUmOrderV1(ctx context.Context) TradeAPIPmarginUpdateUmOrderV1Request {
-	return TradeAPIPmarginUpdateUmOrderV1Request{
+func (a *TradeAPIService) PmarginUpdateUmOrderV1(ctx context.Context) ApiPmarginUpdateUmOrderV1Request {
+	return ApiPmarginUpdateUmOrderV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -10349,7 +10349,7 @@ func (a *TradeAPIService) PmarginUpdateUmOrderV1(ctx context.Context) TradeAPIPm
 
 // Execute executes the request
 //  @return PmarginUpdateUmOrderV1Resp
-func (a *TradeAPIService) PmarginUpdateUmOrderV1Execute(r TradeAPIPmarginUpdateUmOrderV1Request) (*PmarginUpdateUmOrderV1Resp, *http.Response, error) {
+func (a *TradeAPIService) PmarginUpdateUmOrderV1Execute(r ApiPmarginUpdateUmOrderV1Request) (*PmarginUpdateUmOrderV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}

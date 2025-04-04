@@ -50,8 +50,6 @@ type APIClient struct {
 	// API Services
 
 	FutureCopyTradingAPI *FutureCopyTradingAPIService
-
-	V1API *V1APIService
 }
 
 type service struct {
@@ -71,7 +69,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 
 	// API Services
 	c.FutureCopyTradingAPI = (*FutureCopyTradingAPIService)(&c.common)
-	c.V1API = (*V1APIService)(&c.common)
 
 	return c
 }

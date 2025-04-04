@@ -1,7 +1,7 @@
 /*
 Binance Options API
 
-OpenAPI specification for Binance cryptocurrency exchange - Options API
+OpenAPI specification for Binance exchange - Options API
 
 API version: 0.1.0
 */
@@ -22,7 +22,7 @@ import (
 // MarketDataAPIService MarketDataAPI service
 type MarketDataAPIService service
 
-type MarketDataAPIOptionsGetBlockTradesV1Request struct {
+type ApiOptionsGetBlockTradesV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
@@ -30,18 +30,18 @@ type MarketDataAPIOptionsGetBlockTradesV1Request struct {
 }
 
 // Option trading pair, e.g. BTC-200730-9000-C
-func (r MarketDataAPIOptionsGetBlockTradesV1Request) Symbol(symbol string) MarketDataAPIOptionsGetBlockTradesV1Request {
+func (r ApiOptionsGetBlockTradesV1Request) Symbol(symbol string) ApiOptionsGetBlockTradesV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // Number of records; Default: 100 and Max: 500
-func (r MarketDataAPIOptionsGetBlockTradesV1Request) Limit(limit int32) MarketDataAPIOptionsGetBlockTradesV1Request {
+func (r ApiOptionsGetBlockTradesV1Request) Limit(limit int32) ApiOptionsGetBlockTradesV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPIOptionsGetBlockTradesV1Request) Execute() ([]OptionsGetBlockTradesV1RespItem, *http.Response, error) {
+func (r ApiOptionsGetBlockTradesV1Request) Execute() ([]OptionsGetBlockTradesV1RespItem, *http.Response, error) {
 	return r.ApiService.OptionsGetBlockTradesV1Execute(r)
 }
 
@@ -51,10 +51,10 @@ OptionsGetBlockTradesV1 Recent Block Trades List
 Get recent block trades
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIOptionsGetBlockTradesV1Request
+ @return ApiOptionsGetBlockTradesV1Request
 */
-func (a *MarketDataAPIService) OptionsGetBlockTradesV1(ctx context.Context) MarketDataAPIOptionsGetBlockTradesV1Request {
-	return MarketDataAPIOptionsGetBlockTradesV1Request{
+func (a *MarketDataAPIService) OptionsGetBlockTradesV1(ctx context.Context) ApiOptionsGetBlockTradesV1Request {
+	return ApiOptionsGetBlockTradesV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -62,7 +62,7 @@ func (a *MarketDataAPIService) OptionsGetBlockTradesV1(ctx context.Context) Mark
 
 // Execute executes the request
 //  @return []OptionsGetBlockTradesV1RespItem
-func (a *MarketDataAPIService) OptionsGetBlockTradesV1Execute(r MarketDataAPIOptionsGetBlockTradesV1Request) ([]OptionsGetBlockTradesV1RespItem, *http.Response, error) {
+func (a *MarketDataAPIService) OptionsGetBlockTradesV1Execute(r ApiOptionsGetBlockTradesV1Request) ([]OptionsGetBlockTradesV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -168,7 +168,7 @@ func (a *MarketDataAPIService) OptionsGetBlockTradesV1Execute(r MarketDataAPIOpt
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPIOptionsGetDepthV1Request struct {
+type ApiOptionsGetDepthV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
@@ -176,18 +176,18 @@ type MarketDataAPIOptionsGetDepthV1Request struct {
 }
 
 // Option trading pair, e.g BTC-200730-9000-C
-func (r MarketDataAPIOptionsGetDepthV1Request) Symbol(symbol string) MarketDataAPIOptionsGetDepthV1Request {
+func (r ApiOptionsGetDepthV1Request) Symbol(symbol string) ApiOptionsGetDepthV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // Default:100 Max:1000.Optional value:[10, 20, 50, 100, 500, 1000]
-func (r MarketDataAPIOptionsGetDepthV1Request) Limit(limit int32) MarketDataAPIOptionsGetDepthV1Request {
+func (r ApiOptionsGetDepthV1Request) Limit(limit int32) ApiOptionsGetDepthV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPIOptionsGetDepthV1Request) Execute() (*OptionsGetDepthV1Resp, *http.Response, error) {
+func (r ApiOptionsGetDepthV1Request) Execute() (*OptionsGetDepthV1Resp, *http.Response, error) {
 	return r.ApiService.OptionsGetDepthV1Execute(r)
 }
 
@@ -197,10 +197,10 @@ OptionsGetDepthV1 Order Book
 Check orderbook depth on specific symbol
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIOptionsGetDepthV1Request
+ @return ApiOptionsGetDepthV1Request
 */
-func (a *MarketDataAPIService) OptionsGetDepthV1(ctx context.Context) MarketDataAPIOptionsGetDepthV1Request {
-	return MarketDataAPIOptionsGetDepthV1Request{
+func (a *MarketDataAPIService) OptionsGetDepthV1(ctx context.Context) ApiOptionsGetDepthV1Request {
+	return ApiOptionsGetDepthV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -208,7 +208,7 @@ func (a *MarketDataAPIService) OptionsGetDepthV1(ctx context.Context) MarketData
 
 // Execute executes the request
 //  @return OptionsGetDepthV1Resp
-func (a *MarketDataAPIService) OptionsGetDepthV1Execute(r MarketDataAPIOptionsGetDepthV1Request) (*OptionsGetDepthV1Resp, *http.Response, error) {
+func (a *MarketDataAPIService) OptionsGetDepthV1Execute(r ApiOptionsGetDepthV1Request) (*OptionsGetDepthV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -309,12 +309,12 @@ func (a *MarketDataAPIService) OptionsGetDepthV1Execute(r MarketDataAPIOptionsGe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPIOptionsGetExchangeInfoV1Request struct {
+type ApiOptionsGetExchangeInfoV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 }
 
-func (r MarketDataAPIOptionsGetExchangeInfoV1Request) Execute() (*OptionsGetExchangeInfoV1Resp, *http.Response, error) {
+func (r ApiOptionsGetExchangeInfoV1Request) Execute() (*OptionsGetExchangeInfoV1Resp, *http.Response, error) {
 	return r.ApiService.OptionsGetExchangeInfoV1Execute(r)
 }
 
@@ -324,10 +324,10 @@ OptionsGetExchangeInfoV1 Exchange Information
 Current exchange trading rules and symbol information
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIOptionsGetExchangeInfoV1Request
+ @return ApiOptionsGetExchangeInfoV1Request
 */
-func (a *MarketDataAPIService) OptionsGetExchangeInfoV1(ctx context.Context) MarketDataAPIOptionsGetExchangeInfoV1Request {
-	return MarketDataAPIOptionsGetExchangeInfoV1Request{
+func (a *MarketDataAPIService) OptionsGetExchangeInfoV1(ctx context.Context) ApiOptionsGetExchangeInfoV1Request {
+	return ApiOptionsGetExchangeInfoV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -335,7 +335,7 @@ func (a *MarketDataAPIService) OptionsGetExchangeInfoV1(ctx context.Context) Mar
 
 // Execute executes the request
 //  @return OptionsGetExchangeInfoV1Resp
-func (a *MarketDataAPIService) OptionsGetExchangeInfoV1Execute(r MarketDataAPIOptionsGetExchangeInfoV1Request) (*OptionsGetExchangeInfoV1Resp, *http.Response, error) {
+func (a *MarketDataAPIService) OptionsGetExchangeInfoV1Execute(r ApiOptionsGetExchangeInfoV1Request) (*OptionsGetExchangeInfoV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -429,7 +429,7 @@ func (a *MarketDataAPIService) OptionsGetExchangeInfoV1Execute(r MarketDataAPIOp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPIOptionsGetExerciseHistoryV1Request struct {
+type ApiOptionsGetExerciseHistoryV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	underlying *string
@@ -439,30 +439,30 @@ type MarketDataAPIOptionsGetExerciseHistoryV1Request struct {
 }
 
 // Underlying index like BTCUSDT
-func (r MarketDataAPIOptionsGetExerciseHistoryV1Request) Underlying(underlying string) MarketDataAPIOptionsGetExerciseHistoryV1Request {
+func (r ApiOptionsGetExerciseHistoryV1Request) Underlying(underlying string) ApiOptionsGetExerciseHistoryV1Request {
 	r.underlying = &underlying
 	return r
 }
 
 // Start Time
-func (r MarketDataAPIOptionsGetExerciseHistoryV1Request) StartTime(startTime int64) MarketDataAPIOptionsGetExerciseHistoryV1Request {
+func (r ApiOptionsGetExerciseHistoryV1Request) StartTime(startTime int64) ApiOptionsGetExerciseHistoryV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // End Time
-func (r MarketDataAPIOptionsGetExerciseHistoryV1Request) EndTime(endTime int64) MarketDataAPIOptionsGetExerciseHistoryV1Request {
+func (r ApiOptionsGetExerciseHistoryV1Request) EndTime(endTime int64) ApiOptionsGetExerciseHistoryV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Number of records Default:100 Max:100
-func (r MarketDataAPIOptionsGetExerciseHistoryV1Request) Limit(limit int32) MarketDataAPIOptionsGetExerciseHistoryV1Request {
+func (r ApiOptionsGetExerciseHistoryV1Request) Limit(limit int32) ApiOptionsGetExerciseHistoryV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPIOptionsGetExerciseHistoryV1Request) Execute() ([]OptionsGetExerciseHistoryV1RespItem, *http.Response, error) {
+func (r ApiOptionsGetExerciseHistoryV1Request) Execute() ([]OptionsGetExerciseHistoryV1RespItem, *http.Response, error) {
 	return r.ApiService.OptionsGetExerciseHistoryV1Execute(r)
 }
 
@@ -472,10 +472,10 @@ OptionsGetExerciseHistoryV1 Historical Exercise Records
 Get historical exercise records.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIOptionsGetExerciseHistoryV1Request
+ @return ApiOptionsGetExerciseHistoryV1Request
 */
-func (a *MarketDataAPIService) OptionsGetExerciseHistoryV1(ctx context.Context) MarketDataAPIOptionsGetExerciseHistoryV1Request {
-	return MarketDataAPIOptionsGetExerciseHistoryV1Request{
+func (a *MarketDataAPIService) OptionsGetExerciseHistoryV1(ctx context.Context) ApiOptionsGetExerciseHistoryV1Request {
+	return ApiOptionsGetExerciseHistoryV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -483,7 +483,7 @@ func (a *MarketDataAPIService) OptionsGetExerciseHistoryV1(ctx context.Context) 
 
 // Execute executes the request
 //  @return []OptionsGetExerciseHistoryV1RespItem
-func (a *MarketDataAPIService) OptionsGetExerciseHistoryV1Execute(r MarketDataAPIOptionsGetExerciseHistoryV1Request) ([]OptionsGetExerciseHistoryV1RespItem, *http.Response, error) {
+func (a *MarketDataAPIService) OptionsGetExerciseHistoryV1Execute(r ApiOptionsGetExerciseHistoryV1Request) ([]OptionsGetExerciseHistoryV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -592,7 +592,7 @@ func (a *MarketDataAPIService) OptionsGetExerciseHistoryV1Execute(r MarketDataAP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPIOptionsGetHistoricalTradesV1Request struct {
+type ApiOptionsGetHistoricalTradesV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
@@ -601,24 +601,24 @@ type MarketDataAPIOptionsGetHistoricalTradesV1Request struct {
 }
 
 // Option trading pair, e.g BTC-200730-9000-C
-func (r MarketDataAPIOptionsGetHistoricalTradesV1Request) Symbol(symbol string) MarketDataAPIOptionsGetHistoricalTradesV1Request {
+func (r ApiOptionsGetHistoricalTradesV1Request) Symbol(symbol string) ApiOptionsGetHistoricalTradesV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // The UniqueId ID from which to return. The latest deal record is returned by default
-func (r MarketDataAPIOptionsGetHistoricalTradesV1Request) FromId(fromId int64) MarketDataAPIOptionsGetHistoricalTradesV1Request {
+func (r ApiOptionsGetHistoricalTradesV1Request) FromId(fromId int64) ApiOptionsGetHistoricalTradesV1Request {
 	r.fromId = &fromId
 	return r
 }
 
 // Number of records Default:100 Max:500
-func (r MarketDataAPIOptionsGetHistoricalTradesV1Request) Limit(limit int32) MarketDataAPIOptionsGetHistoricalTradesV1Request {
+func (r ApiOptionsGetHistoricalTradesV1Request) Limit(limit int32) ApiOptionsGetHistoricalTradesV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPIOptionsGetHistoricalTradesV1Request) Execute() ([]OptionsGetHistoricalTradesV1RespItem, *http.Response, error) {
+func (r ApiOptionsGetHistoricalTradesV1Request) Execute() ([]OptionsGetHistoricalTradesV1RespItem, *http.Response, error) {
 	return r.ApiService.OptionsGetHistoricalTradesV1Execute(r)
 }
 
@@ -628,10 +628,10 @@ OptionsGetHistoricalTradesV1 Old Trades Lookup (MARKET_DATA)
 Get older market historical trades.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIOptionsGetHistoricalTradesV1Request
+ @return ApiOptionsGetHistoricalTradesV1Request
 */
-func (a *MarketDataAPIService) OptionsGetHistoricalTradesV1(ctx context.Context) MarketDataAPIOptionsGetHistoricalTradesV1Request {
-	return MarketDataAPIOptionsGetHistoricalTradesV1Request{
+func (a *MarketDataAPIService) OptionsGetHistoricalTradesV1(ctx context.Context) ApiOptionsGetHistoricalTradesV1Request {
+	return ApiOptionsGetHistoricalTradesV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -639,7 +639,7 @@ func (a *MarketDataAPIService) OptionsGetHistoricalTradesV1(ctx context.Context)
 
 // Execute executes the request
 //  @return []OptionsGetHistoricalTradesV1RespItem
-func (a *MarketDataAPIService) OptionsGetHistoricalTradesV1Execute(r MarketDataAPIOptionsGetHistoricalTradesV1Request) ([]OptionsGetHistoricalTradesV1RespItem, *http.Response, error) {
+func (a *MarketDataAPIService) OptionsGetHistoricalTradesV1Execute(r ApiOptionsGetHistoricalTradesV1Request) ([]OptionsGetHistoricalTradesV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -743,19 +743,19 @@ func (a *MarketDataAPIService) OptionsGetHistoricalTradesV1Execute(r MarketDataA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPIOptionsGetIndexV1Request struct {
+type ApiOptionsGetIndexV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	underlying *string
 }
 
 // Spot pair（Option contract underlying asset, e.g BTCUSDT)
-func (r MarketDataAPIOptionsGetIndexV1Request) Underlying(underlying string) MarketDataAPIOptionsGetIndexV1Request {
+func (r ApiOptionsGetIndexV1Request) Underlying(underlying string) ApiOptionsGetIndexV1Request {
 	r.underlying = &underlying
 	return r
 }
 
-func (r MarketDataAPIOptionsGetIndexV1Request) Execute() (*OptionsGetIndexV1Resp, *http.Response, error) {
+func (r ApiOptionsGetIndexV1Request) Execute() (*OptionsGetIndexV1Resp, *http.Response, error) {
 	return r.ApiService.OptionsGetIndexV1Execute(r)
 }
 
@@ -765,10 +765,10 @@ OptionsGetIndexV1 Symbol Price Ticker
 Get spot index price for option underlying.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIOptionsGetIndexV1Request
+ @return ApiOptionsGetIndexV1Request
 */
-func (a *MarketDataAPIService) OptionsGetIndexV1(ctx context.Context) MarketDataAPIOptionsGetIndexV1Request {
-	return MarketDataAPIOptionsGetIndexV1Request{
+func (a *MarketDataAPIService) OptionsGetIndexV1(ctx context.Context) ApiOptionsGetIndexV1Request {
+	return ApiOptionsGetIndexV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -776,7 +776,7 @@ func (a *MarketDataAPIService) OptionsGetIndexV1(ctx context.Context) MarketData
 
 // Execute executes the request
 //  @return OptionsGetIndexV1Resp
-func (a *MarketDataAPIService) OptionsGetIndexV1Execute(r MarketDataAPIOptionsGetIndexV1Request) (*OptionsGetIndexV1Resp, *http.Response, error) {
+func (a *MarketDataAPIService) OptionsGetIndexV1Execute(r ApiOptionsGetIndexV1Request) (*OptionsGetIndexV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -874,7 +874,7 @@ func (a *MarketDataAPIService) OptionsGetIndexV1Execute(r MarketDataAPIOptionsGe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPIOptionsGetKlinesV1Request struct {
+type ApiOptionsGetKlinesV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
@@ -885,36 +885,36 @@ type MarketDataAPIOptionsGetKlinesV1Request struct {
 }
 
 // Option trading pair, e.g BTC-200730-9000-C
-func (r MarketDataAPIOptionsGetKlinesV1Request) Symbol(symbol string) MarketDataAPIOptionsGetKlinesV1Request {
+func (r ApiOptionsGetKlinesV1Request) Symbol(symbol string) ApiOptionsGetKlinesV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // Time interval
-func (r MarketDataAPIOptionsGetKlinesV1Request) Interval(interval string) MarketDataAPIOptionsGetKlinesV1Request {
+func (r ApiOptionsGetKlinesV1Request) Interval(interval string) ApiOptionsGetKlinesV1Request {
 	r.interval = &interval
 	return r
 }
 
 // Start Time  1592317127349
-func (r MarketDataAPIOptionsGetKlinesV1Request) StartTime(startTime int64) MarketDataAPIOptionsGetKlinesV1Request {
+func (r ApiOptionsGetKlinesV1Request) StartTime(startTime int64) ApiOptionsGetKlinesV1Request {
 	r.startTime = &startTime
 	return r
 }
 
 // End Time
-func (r MarketDataAPIOptionsGetKlinesV1Request) EndTime(endTime int64) MarketDataAPIOptionsGetKlinesV1Request {
+func (r ApiOptionsGetKlinesV1Request) EndTime(endTime int64) ApiOptionsGetKlinesV1Request {
 	r.endTime = &endTime
 	return r
 }
 
 // Number of records Default:500 Max:1500
-func (r MarketDataAPIOptionsGetKlinesV1Request) Limit(limit int32) MarketDataAPIOptionsGetKlinesV1Request {
+func (r ApiOptionsGetKlinesV1Request) Limit(limit int32) ApiOptionsGetKlinesV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPIOptionsGetKlinesV1Request) Execute() ([]OptionsGetKlinesV1RespItem, *http.Response, error) {
+func (r ApiOptionsGetKlinesV1Request) Execute() ([]OptionsGetKlinesV1RespItem, *http.Response, error) {
 	return r.ApiService.OptionsGetKlinesV1Execute(r)
 }
 
@@ -925,10 +925,10 @@ Kline/candlestick bars for an option symbol.
 Klines are uniquely identified by their open time.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIOptionsGetKlinesV1Request
+ @return ApiOptionsGetKlinesV1Request
 */
-func (a *MarketDataAPIService) OptionsGetKlinesV1(ctx context.Context) MarketDataAPIOptionsGetKlinesV1Request {
-	return MarketDataAPIOptionsGetKlinesV1Request{
+func (a *MarketDataAPIService) OptionsGetKlinesV1(ctx context.Context) ApiOptionsGetKlinesV1Request {
+	return ApiOptionsGetKlinesV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -936,7 +936,7 @@ func (a *MarketDataAPIService) OptionsGetKlinesV1(ctx context.Context) MarketDat
 
 // Execute executes the request
 //  @return []OptionsGetKlinesV1RespItem
-func (a *MarketDataAPIService) OptionsGetKlinesV1Execute(r MarketDataAPIOptionsGetKlinesV1Request) ([]OptionsGetKlinesV1RespItem, *http.Response, error) {
+func (a *MarketDataAPIService) OptionsGetKlinesV1Execute(r ApiOptionsGetKlinesV1Request) ([]OptionsGetKlinesV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1047,19 +1047,19 @@ func (a *MarketDataAPIService) OptionsGetKlinesV1Execute(r MarketDataAPIOptionsG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPIOptionsGetMarkV1Request struct {
+type ApiOptionsGetMarkV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
 }
 
 // Option trading pair, e.g BTC-200730-9000-C
-func (r MarketDataAPIOptionsGetMarkV1Request) Symbol(symbol string) MarketDataAPIOptionsGetMarkV1Request {
+func (r ApiOptionsGetMarkV1Request) Symbol(symbol string) ApiOptionsGetMarkV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r MarketDataAPIOptionsGetMarkV1Request) Execute() ([]OptionsGetMarkV1RespItem, *http.Response, error) {
+func (r ApiOptionsGetMarkV1Request) Execute() ([]OptionsGetMarkV1RespItem, *http.Response, error) {
 	return r.ApiService.OptionsGetMarkV1Execute(r)
 }
 
@@ -1069,10 +1069,10 @@ OptionsGetMarkV1 Option Mark Price
 Option mark price and greek info.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIOptionsGetMarkV1Request
+ @return ApiOptionsGetMarkV1Request
 */
-func (a *MarketDataAPIService) OptionsGetMarkV1(ctx context.Context) MarketDataAPIOptionsGetMarkV1Request {
-	return MarketDataAPIOptionsGetMarkV1Request{
+func (a *MarketDataAPIService) OptionsGetMarkV1(ctx context.Context) ApiOptionsGetMarkV1Request {
+	return ApiOptionsGetMarkV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1080,7 +1080,7 @@ func (a *MarketDataAPIService) OptionsGetMarkV1(ctx context.Context) MarketDataA
 
 // Execute executes the request
 //  @return []OptionsGetMarkV1RespItem
-func (a *MarketDataAPIService) OptionsGetMarkV1Execute(r MarketDataAPIOptionsGetMarkV1Request) ([]OptionsGetMarkV1RespItem, *http.Response, error) {
+func (a *MarketDataAPIService) OptionsGetMarkV1Execute(r ApiOptionsGetMarkV1Request) ([]OptionsGetMarkV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1180,7 +1180,7 @@ func (a *MarketDataAPIService) OptionsGetMarkV1Execute(r MarketDataAPIOptionsGet
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPIOptionsGetOpenInterestV1Request struct {
+type ApiOptionsGetOpenInterestV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	underlyingAsset *string
@@ -1188,18 +1188,18 @@ type MarketDataAPIOptionsGetOpenInterestV1Request struct {
 }
 
 // underlying asset, e.g ETH/BTC
-func (r MarketDataAPIOptionsGetOpenInterestV1Request) UnderlyingAsset(underlyingAsset string) MarketDataAPIOptionsGetOpenInterestV1Request {
+func (r ApiOptionsGetOpenInterestV1Request) UnderlyingAsset(underlyingAsset string) ApiOptionsGetOpenInterestV1Request {
 	r.underlyingAsset = &underlyingAsset
 	return r
 }
 
 // expiration date, e.g 221225
-func (r MarketDataAPIOptionsGetOpenInterestV1Request) Expiration(expiration string) MarketDataAPIOptionsGetOpenInterestV1Request {
+func (r ApiOptionsGetOpenInterestV1Request) Expiration(expiration string) ApiOptionsGetOpenInterestV1Request {
 	r.expiration = &expiration
 	return r
 }
 
-func (r MarketDataAPIOptionsGetOpenInterestV1Request) Execute() ([]OptionsGetOpenInterestV1RespItem, *http.Response, error) {
+func (r ApiOptionsGetOpenInterestV1Request) Execute() ([]OptionsGetOpenInterestV1RespItem, *http.Response, error) {
 	return r.ApiService.OptionsGetOpenInterestV1Execute(r)
 }
 
@@ -1209,10 +1209,10 @@ OptionsGetOpenInterestV1 Open Interest
 Get open interest for specific underlying asset on specific expiration date.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIOptionsGetOpenInterestV1Request
+ @return ApiOptionsGetOpenInterestV1Request
 */
-func (a *MarketDataAPIService) OptionsGetOpenInterestV1(ctx context.Context) MarketDataAPIOptionsGetOpenInterestV1Request {
-	return MarketDataAPIOptionsGetOpenInterestV1Request{
+func (a *MarketDataAPIService) OptionsGetOpenInterestV1(ctx context.Context) ApiOptionsGetOpenInterestV1Request {
+	return ApiOptionsGetOpenInterestV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1220,7 +1220,7 @@ func (a *MarketDataAPIService) OptionsGetOpenInterestV1(ctx context.Context) Mar
 
 // Execute executes the request
 //  @return []OptionsGetOpenInterestV1RespItem
-func (a *MarketDataAPIService) OptionsGetOpenInterestV1Execute(r MarketDataAPIOptionsGetOpenInterestV1Request) ([]OptionsGetOpenInterestV1RespItem, *http.Response, error) {
+func (a *MarketDataAPIService) OptionsGetOpenInterestV1Execute(r ApiOptionsGetOpenInterestV1Request) ([]OptionsGetOpenInterestV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1322,12 +1322,12 @@ func (a *MarketDataAPIService) OptionsGetOpenInterestV1Execute(r MarketDataAPIOp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPIOptionsGetPingV1Request struct {
+type ApiOptionsGetPingV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 }
 
-func (r MarketDataAPIOptionsGetPingV1Request) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiOptionsGetPingV1Request) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.OptionsGetPingV1Execute(r)
 }
 
@@ -1337,10 +1337,10 @@ OptionsGetPingV1 Test Connectivity
 Test connectivity to the Rest API.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIOptionsGetPingV1Request
+ @return ApiOptionsGetPingV1Request
 */
-func (a *MarketDataAPIService) OptionsGetPingV1(ctx context.Context) MarketDataAPIOptionsGetPingV1Request {
-	return MarketDataAPIOptionsGetPingV1Request{
+func (a *MarketDataAPIService) OptionsGetPingV1(ctx context.Context) ApiOptionsGetPingV1Request {
+	return ApiOptionsGetPingV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1348,7 +1348,7 @@ func (a *MarketDataAPIService) OptionsGetPingV1(ctx context.Context) MarketDataA
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *MarketDataAPIService) OptionsGetPingV1Execute(r MarketDataAPIOptionsGetPingV1Request) (map[string]interface{}, *http.Response, error) {
+func (a *MarketDataAPIService) OptionsGetPingV1Execute(r ApiOptionsGetPingV1Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1442,19 +1442,19 @@ func (a *MarketDataAPIService) OptionsGetPingV1Execute(r MarketDataAPIOptionsGet
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPIOptionsGetTickerV1Request struct {
+type ApiOptionsGetTickerV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
 }
 
 // Option trading pair, e.g BTC-200730-9000-C
-func (r MarketDataAPIOptionsGetTickerV1Request) Symbol(symbol string) MarketDataAPIOptionsGetTickerV1Request {
+func (r ApiOptionsGetTickerV1Request) Symbol(symbol string) ApiOptionsGetTickerV1Request {
 	r.symbol = &symbol
 	return r
 }
 
-func (r MarketDataAPIOptionsGetTickerV1Request) Execute() ([]OptionsGetTickerV1RespItem, *http.Response, error) {
+func (r ApiOptionsGetTickerV1Request) Execute() ([]OptionsGetTickerV1RespItem, *http.Response, error) {
 	return r.ApiService.OptionsGetTickerV1Execute(r)
 }
 
@@ -1464,10 +1464,10 @@ OptionsGetTickerV1 24hr Ticker Price Change Statistics
 24 hour rolling window price change statistics.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIOptionsGetTickerV1Request
+ @return ApiOptionsGetTickerV1Request
 */
-func (a *MarketDataAPIService) OptionsGetTickerV1(ctx context.Context) MarketDataAPIOptionsGetTickerV1Request {
-	return MarketDataAPIOptionsGetTickerV1Request{
+func (a *MarketDataAPIService) OptionsGetTickerV1(ctx context.Context) ApiOptionsGetTickerV1Request {
+	return ApiOptionsGetTickerV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1475,7 +1475,7 @@ func (a *MarketDataAPIService) OptionsGetTickerV1(ctx context.Context) MarketDat
 
 // Execute executes the request
 //  @return []OptionsGetTickerV1RespItem
-func (a *MarketDataAPIService) OptionsGetTickerV1Execute(r MarketDataAPIOptionsGetTickerV1Request) ([]OptionsGetTickerV1RespItem, *http.Response, error) {
+func (a *MarketDataAPIService) OptionsGetTickerV1Execute(r ApiOptionsGetTickerV1Request) ([]OptionsGetTickerV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1575,12 +1575,12 @@ func (a *MarketDataAPIService) OptionsGetTickerV1Execute(r MarketDataAPIOptionsG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPIOptionsGetTimeV1Request struct {
+type ApiOptionsGetTimeV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 }
 
-func (r MarketDataAPIOptionsGetTimeV1Request) Execute() (*OptionsGetTimeV1Resp, *http.Response, error) {
+func (r ApiOptionsGetTimeV1Request) Execute() (*OptionsGetTimeV1Resp, *http.Response, error) {
 	return r.ApiService.OptionsGetTimeV1Execute(r)
 }
 
@@ -1590,10 +1590,10 @@ OptionsGetTimeV1 Check Server Time
 Test connectivity to the Rest API and get the current server time.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIOptionsGetTimeV1Request
+ @return ApiOptionsGetTimeV1Request
 */
-func (a *MarketDataAPIService) OptionsGetTimeV1(ctx context.Context) MarketDataAPIOptionsGetTimeV1Request {
-	return MarketDataAPIOptionsGetTimeV1Request{
+func (a *MarketDataAPIService) OptionsGetTimeV1(ctx context.Context) ApiOptionsGetTimeV1Request {
+	return ApiOptionsGetTimeV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1601,7 +1601,7 @@ func (a *MarketDataAPIService) OptionsGetTimeV1(ctx context.Context) MarketDataA
 
 // Execute executes the request
 //  @return OptionsGetTimeV1Resp
-func (a *MarketDataAPIService) OptionsGetTimeV1Execute(r MarketDataAPIOptionsGetTimeV1Request) (*OptionsGetTimeV1Resp, *http.Response, error) {
+func (a *MarketDataAPIService) OptionsGetTimeV1Execute(r ApiOptionsGetTimeV1Request) (*OptionsGetTimeV1Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1695,7 +1695,7 @@ func (a *MarketDataAPIService) OptionsGetTimeV1Execute(r MarketDataAPIOptionsGet
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MarketDataAPIOptionsGetTradesV1Request struct {
+type ApiOptionsGetTradesV1Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
 	symbol *string
@@ -1703,18 +1703,18 @@ type MarketDataAPIOptionsGetTradesV1Request struct {
 }
 
 // Option trading pair, e.g BTC-200730-9000-C
-func (r MarketDataAPIOptionsGetTradesV1Request) Symbol(symbol string) MarketDataAPIOptionsGetTradesV1Request {
+func (r ApiOptionsGetTradesV1Request) Symbol(symbol string) ApiOptionsGetTradesV1Request {
 	r.symbol = &symbol
 	return r
 }
 
 // Number of records Default:100 Max:500
-func (r MarketDataAPIOptionsGetTradesV1Request) Limit(limit int32) MarketDataAPIOptionsGetTradesV1Request {
+func (r ApiOptionsGetTradesV1Request) Limit(limit int32) ApiOptionsGetTradesV1Request {
 	r.limit = &limit
 	return r
 }
 
-func (r MarketDataAPIOptionsGetTradesV1Request) Execute() ([]OptionsGetTradesV1RespItem, *http.Response, error) {
+func (r ApiOptionsGetTradesV1Request) Execute() ([]OptionsGetTradesV1RespItem, *http.Response, error) {
 	return r.ApiService.OptionsGetTradesV1Execute(r)
 }
 
@@ -1724,10 +1724,10 @@ OptionsGetTradesV1 Recent Trades List
 Get recent market trades
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return MarketDataAPIOptionsGetTradesV1Request
+ @return ApiOptionsGetTradesV1Request
 */
-func (a *MarketDataAPIService) OptionsGetTradesV1(ctx context.Context) MarketDataAPIOptionsGetTradesV1Request {
-	return MarketDataAPIOptionsGetTradesV1Request{
+func (a *MarketDataAPIService) OptionsGetTradesV1(ctx context.Context) ApiOptionsGetTradesV1Request {
+	return ApiOptionsGetTradesV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1735,7 +1735,7 @@ func (a *MarketDataAPIService) OptionsGetTradesV1(ctx context.Context) MarketDat
 
 // Execute executes the request
 //  @return []OptionsGetTradesV1RespItem
-func (a *MarketDataAPIService) OptionsGetTradesV1Execute(r MarketDataAPIOptionsGetTradesV1Request) ([]OptionsGetTradesV1RespItem, *http.Response, error) {
+func (a *MarketDataAPIService) OptionsGetTradesV1Execute(r ApiOptionsGetTradesV1Request) ([]OptionsGetTradesV1RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
