@@ -1,5 +1,7 @@
 # Go API client for Binance
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/openxapi/binance-go.svg)](https://pkg.go.dev/github.com/openxapi/binance-go)
+
 OpenAPI specification for Binance cryptocurrency exchange.
 
 ## Overview
