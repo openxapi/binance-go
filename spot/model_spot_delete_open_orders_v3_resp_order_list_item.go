@@ -25,7 +25,7 @@ type SpotDeleteOpenOrdersV3RespOrderListItem struct {
 	ListStatusType *string `json:"listStatusType,omitempty"`
 	OrderListId *int64 `json:"orderListId,omitempty"`
 	OrderReports []SpotDeleteOpenOrdersV3RespOrderItem `json:"orderReports,omitempty"`
-	Orders []SpotCreateOrderListOcoV3RespOrdersInner `json:"orders,omitempty"`
+	Orders []CreateMarginOrderOcoV1RespOrdersInner `json:"orders,omitempty"`
 	Symbol *string `json:"symbol,omitempty"`
 	TransactionTime *int64 `json:"transactionTime,omitempty"`
 }
@@ -240,9 +240,9 @@ func (o *SpotDeleteOpenOrdersV3RespOrderListItem) SetOrderReports(v []SpotDelete
 }
 
 // GetOrders returns the Orders field value if set, zero value otherwise.
-func (o *SpotDeleteOpenOrdersV3RespOrderListItem) GetOrders() []SpotCreateOrderListOcoV3RespOrdersInner {
+func (o *SpotDeleteOpenOrdersV3RespOrderListItem) GetOrders() []CreateMarginOrderOcoV1RespOrdersInner {
 	if o == nil || IsNil(o.Orders) {
-		var ret []SpotCreateOrderListOcoV3RespOrdersInner
+		var ret []CreateMarginOrderOcoV1RespOrdersInner
 		return ret
 	}
 	return o.Orders
@@ -250,7 +250,7 @@ func (o *SpotDeleteOpenOrdersV3RespOrderListItem) GetOrders() []SpotCreateOrderL
 
 // GetOrdersOk returns a tuple with the Orders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SpotDeleteOpenOrdersV3RespOrderListItem) GetOrdersOk() ([]SpotCreateOrderListOcoV3RespOrdersInner, bool) {
+func (o *SpotDeleteOpenOrdersV3RespOrderListItem) GetOrdersOk() ([]CreateMarginOrderOcoV1RespOrdersInner, bool) {
 	if o == nil || IsNil(o.Orders) {
 		return nil, false
 	}
@@ -266,8 +266,8 @@ func (o *SpotDeleteOpenOrdersV3RespOrderListItem) HasOrders() bool {
 	return false
 }
 
-// SetOrders gets a reference to the given []SpotCreateOrderListOcoV3RespOrdersInner and assigns it to the Orders field.
-func (o *SpotDeleteOpenOrdersV3RespOrderListItem) SetOrders(v []SpotCreateOrderListOcoV3RespOrdersInner) {
+// SetOrders gets a reference to the given []CreateMarginOrderOcoV1RespOrdersInner and assigns it to the Orders field.
+func (o *SpotDeleteOpenOrdersV3RespOrderListItem) SetOrders(v []CreateMarginOrderOcoV1RespOrdersInner) {
 	o.Orders = v
 }
 

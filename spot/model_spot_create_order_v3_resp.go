@@ -22,7 +22,7 @@ type SpotCreateOrderV3Resp struct {
 	ClientOrderId *string `json:"clientOrderId,omitempty"`
 	CummulativeQuoteQty *string `json:"cummulativeQuoteQty,omitempty"`
 	ExecutedQty *string `json:"executedQty,omitempty"`
-	Fills []SpotCreateOrderV3RespFillsInner `json:"fills,omitempty"`
+	Fills []MarginCreateMarginOrderV1RespFillsInner `json:"fills,omitempty"`
 	OrderId *int64 `json:"orderId,omitempty"`
 	OrderListId *int64 `json:"orderListId,omitempty"`
 	OrigQty *string `json:"origQty,omitempty"`
@@ -152,9 +152,9 @@ func (o *SpotCreateOrderV3Resp) SetExecutedQty(v string) {
 }
 
 // GetFills returns the Fills field value if set, zero value otherwise.
-func (o *SpotCreateOrderV3Resp) GetFills() []SpotCreateOrderV3RespFillsInner {
+func (o *SpotCreateOrderV3Resp) GetFills() []MarginCreateMarginOrderV1RespFillsInner {
 	if o == nil || IsNil(o.Fills) {
-		var ret []SpotCreateOrderV3RespFillsInner
+		var ret []MarginCreateMarginOrderV1RespFillsInner
 		return ret
 	}
 	return o.Fills
@@ -162,7 +162,7 @@ func (o *SpotCreateOrderV3Resp) GetFills() []SpotCreateOrderV3RespFillsInner {
 
 // GetFillsOk returns a tuple with the Fills field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SpotCreateOrderV3Resp) GetFillsOk() ([]SpotCreateOrderV3RespFillsInner, bool) {
+func (o *SpotCreateOrderV3Resp) GetFillsOk() ([]MarginCreateMarginOrderV1RespFillsInner, bool) {
 	if o == nil || IsNil(o.Fills) {
 		return nil, false
 	}
@@ -178,8 +178,8 @@ func (o *SpotCreateOrderV3Resp) HasFills() bool {
 	return false
 }
 
-// SetFills gets a reference to the given []SpotCreateOrderV3RespFillsInner and assigns it to the Fills field.
-func (o *SpotCreateOrderV3Resp) SetFills(v []SpotCreateOrderV3RespFillsInner) {
+// SetFills gets a reference to the given []MarginCreateMarginOrderV1RespFillsInner and assigns it to the Fills field.
+func (o *SpotCreateOrderV3Resp) SetFills(v []MarginCreateMarginOrderV1RespFillsInner) {
 	o.Fills = v
 }
 

@@ -19,7 +19,7 @@ var _ MappedNullable = &SpotCreateOrderTestV3Resp{}
 
 // SpotCreateOrderTestV3Resp struct for SpotCreateOrderTestV3Resp
 type SpotCreateOrderTestV3Resp struct {
-	Discount *SpotCreateOrderTestV3RespDiscount `json:"discount,omitempty"`
+	Discount *GetAccountCommissionV3RespDiscount `json:"discount,omitempty"`
 	StandardCommissionForOrder *SpotCreateOrderTestV3RespStandardCommissionForOrder `json:"standardCommissionForOrder,omitempty"`
 	TaxCommissionForOrder *SpotCreateOrderTestV3RespStandardCommissionForOrder `json:"taxCommissionForOrder,omitempty"`
 }
@@ -42,9 +42,9 @@ func NewSpotCreateOrderTestV3RespWithDefaults() *SpotCreateOrderTestV3Resp {
 }
 
 // GetDiscount returns the Discount field value if set, zero value otherwise.
-func (o *SpotCreateOrderTestV3Resp) GetDiscount() SpotCreateOrderTestV3RespDiscount {
+func (o *SpotCreateOrderTestV3Resp) GetDiscount() GetAccountCommissionV3RespDiscount {
 	if o == nil || IsNil(o.Discount) {
-		var ret SpotCreateOrderTestV3RespDiscount
+		var ret GetAccountCommissionV3RespDiscount
 		return ret
 	}
 	return *o.Discount
@@ -52,7 +52,7 @@ func (o *SpotCreateOrderTestV3Resp) GetDiscount() SpotCreateOrderTestV3RespDisco
 
 // GetDiscountOk returns a tuple with the Discount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SpotCreateOrderTestV3Resp) GetDiscountOk() (*SpotCreateOrderTestV3RespDiscount, bool) {
+func (o *SpotCreateOrderTestV3Resp) GetDiscountOk() (*GetAccountCommissionV3RespDiscount, bool) {
 	if o == nil || IsNil(o.Discount) {
 		return nil, false
 	}
@@ -68,8 +68,8 @@ func (o *SpotCreateOrderTestV3Resp) HasDiscount() bool {
 	return false
 }
 
-// SetDiscount gets a reference to the given SpotCreateOrderTestV3RespDiscount and assigns it to the Discount field.
-func (o *SpotCreateOrderTestV3Resp) SetDiscount(v SpotCreateOrderTestV3RespDiscount) {
+// SetDiscount gets a reference to the given GetAccountCommissionV3RespDiscount and assigns it to the Discount field.
+func (o *SpotCreateOrderTestV3Resp) SetDiscount(v GetAccountCommissionV3RespDiscount) {
 	o.Discount = &v
 }
 

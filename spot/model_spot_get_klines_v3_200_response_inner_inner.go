@@ -18,16 +18,8 @@ import (
 
 // SpotGetKlinesV3200ResponseInnerInner - struct for SpotGetKlinesV3200ResponseInnerInner
 type SpotGetKlinesV3200ResponseInnerInner struct {
-	Int32 *int32
 	Int64 *int64
 	String *string
-}
-
-// int32AsSpotGetKlinesV3200ResponseInnerInner is a convenience function that returns int32 wrapped in SpotGetKlinesV3200ResponseInnerInner
-func Int32AsSpotGetKlinesV3200ResponseInnerInner(v *int32) SpotGetKlinesV3200ResponseInnerInner {
-	return SpotGetKlinesV3200ResponseInnerInner{
-		Int32: v,
-	}
 }
 
 // int64AsSpotGetKlinesV3200ResponseInnerInner is a convenience function that returns int64 wrapped in SpotGetKlinesV3200ResponseInnerInner
@@ -49,23 +41,6 @@ func StringAsSpotGetKlinesV3200ResponseInnerInner(v *string) SpotGetKlinesV3200R
 func (dst *SpotGetKlinesV3200ResponseInnerInner) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
-	// try to unmarshal data into Int32
-	err = newStrictDecoder(data).Decode(&dst.Int32)
-	if err == nil {
-		jsonInt32, _ := json.Marshal(dst.Int32)
-		if string(jsonInt32) == "{}" { // empty struct
-			dst.Int32 = nil
-		} else {
-			if err = validator.Validate(dst.Int32); err != nil {
-				dst.Int32 = nil
-			} else {
-				match++
-			}
-		}
-	} else {
-		dst.Int32 = nil
-	}
-
 	// try to unmarshal data into Int64
 	err = newStrictDecoder(data).Decode(&dst.Int64)
 	if err == nil {
@@ -102,7 +77,6 @@ func (dst *SpotGetKlinesV3200ResponseInnerInner) UnmarshalJSON(data []byte) erro
 
 	if match > 1 { // more than 1 match
 		// reset to nil
-		dst.Int32 = nil
 		dst.Int64 = nil
 		dst.String = nil
 
@@ -116,10 +90,6 @@ func (dst *SpotGetKlinesV3200ResponseInnerInner) UnmarshalJSON(data []byte) erro
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src SpotGetKlinesV3200ResponseInnerInner) MarshalJSON() ([]byte, error) {
-	if src.Int32 != nil {
-		return json.Marshal(&src.Int32)
-	}
-
 	if src.Int64 != nil {
 		return json.Marshal(&src.Int64)
 	}
@@ -136,10 +106,6 @@ func (obj *SpotGetKlinesV3200ResponseInnerInner) GetActualInstance() (interface{
 	if obj == nil {
 		return nil
 	}
-	if obj.Int32 != nil {
-		return obj.Int32
-	}
-
 	if obj.Int64 != nil {
 		return obj.Int64
 	}
@@ -154,10 +120,6 @@ func (obj *SpotGetKlinesV3200ResponseInnerInner) GetActualInstance() (interface{
 
 // Get the actual instance value
 func (obj SpotGetKlinesV3200ResponseInnerInner) GetActualInstanceValue() (interface{}) {
-	if obj.Int32 != nil {
-		return *obj.Int32
-	}
-
 	if obj.Int64 != nil {
 		return *obj.Int64
 	}

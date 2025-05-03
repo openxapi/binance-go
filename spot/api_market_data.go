@@ -22,6 +22,143 @@ import (
 // MarketDataAPIService MarketDataAPI service
 type MarketDataAPIService service
 
+type ApiMarginGetMarginAvailableInventoryV1Request struct {
+	ctx context.Context
+	ApiService *MarketDataAPIService
+	type_ *string
+}
+
+// MARGIN,ISOLATED
+func (r ApiMarginGetMarginAvailableInventoryV1Request) Type_(type_ string) ApiMarginGetMarginAvailableInventoryV1Request {
+	r.type_ = &type_
+	return r
+}
+
+func (r ApiMarginGetMarginAvailableInventoryV1Request) Execute() (*MarginGetMarginAvailableInventoryV1Resp, *http.Response, error) {
+	return r.ApiService.MarginGetMarginAvailableInventoryV1Execute(r)
+}
+
+/*
+MarginGetMarginAvailableInventoryV1 Query Margin Available Inventory(USER_DATA)
+
+Margin available Inventory query
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiMarginGetMarginAvailableInventoryV1Request
+*/
+func (a *MarketDataAPIService) MarginGetMarginAvailableInventoryV1(ctx context.Context) ApiMarginGetMarginAvailableInventoryV1Request {
+	return ApiMarginGetMarginAvailableInventoryV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return MarginGetMarginAvailableInventoryV1Resp
+func (a *MarketDataAPIService) MarginGetMarginAvailableInventoryV1Execute(r ApiMarginGetMarginAvailableInventoryV1Request) (*MarginGetMarginAvailableInventoryV1Resp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *MarginGetMarginAvailableInventoryV1Resp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.MarginGetMarginAvailableInventoryV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/sapi/v1/margin/available-inventory"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.type_ == nil {
+		return localVarReturnValue, nil, reportError("type_ is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "type", r.type_, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
+			localVarHeaderParams["X-MBX-APIKEY"] = auth.APIKey
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiSpotGetAggTradesV3Request struct {
 	ctx context.Context
 	ApiService *MarketDataAPIService
@@ -119,430 +256,6 @@ func (a *MarketDataAPIService) SpotGetAggTradesV3Execute(r ApiSpotGetAggTradesV3
 	} else {
 		var defaultValue int32 = 500
 		r.limit = &defaultValue
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode >= 500 {
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiSpotGetAvgPriceV3Request struct {
-	ctx context.Context
-	ApiService *MarketDataAPIService
-	symbol *string
-}
-
-func (r ApiSpotGetAvgPriceV3Request) Symbol(symbol string) ApiSpotGetAvgPriceV3Request {
-	r.symbol = &symbol
-	return r
-}
-
-func (r ApiSpotGetAvgPriceV3Request) Execute() (*SpotGetAvgPriceV3Resp, *http.Response, error) {
-	return r.ApiService.SpotGetAvgPriceV3Execute(r)
-}
-
-/*
-SpotGetAvgPriceV3 Current average price
-
-Current average price for a symbol.
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSpotGetAvgPriceV3Request
-*/
-func (a *MarketDataAPIService) SpotGetAvgPriceV3(ctx context.Context) ApiSpotGetAvgPriceV3Request {
-	return ApiSpotGetAvgPriceV3Request{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return SpotGetAvgPriceV3Resp
-func (a *MarketDataAPIService) SpotGetAvgPriceV3Execute(r ApiSpotGetAvgPriceV3Request) (*SpotGetAvgPriceV3Resp, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SpotGetAvgPriceV3Resp
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.SpotGetAvgPriceV3")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v3/avgPrice"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.symbol == nil {
-		return localVarReturnValue, nil, reportError("symbol is required and must be specified")
-	}
-
-	parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode >= 500 {
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiSpotGetDepthV3Request struct {
-	ctx context.Context
-	ApiService *MarketDataAPIService
-	symbol *string
-	limit *int32
-}
-
-func (r ApiSpotGetDepthV3Request) Symbol(symbol string) ApiSpotGetDepthV3Request {
-	r.symbol = &symbol
-	return r
-}
-
-// Default 100; max 5000. &lt;br/&gt; If limit &amp;gt; 5000. then the response will truncate to 5000.
-func (r ApiSpotGetDepthV3Request) Limit(limit int32) ApiSpotGetDepthV3Request {
-	r.limit = &limit
-	return r
-}
-
-func (r ApiSpotGetDepthV3Request) Execute() (*SpotGetDepthV3Resp, *http.Response, error) {
-	return r.ApiService.SpotGetDepthV3Execute(r)
-}
-
-/*
-SpotGetDepthV3 Order book
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSpotGetDepthV3Request
-*/
-func (a *MarketDataAPIService) SpotGetDepthV3(ctx context.Context) ApiSpotGetDepthV3Request {
-	return ApiSpotGetDepthV3Request{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return SpotGetDepthV3Resp
-func (a *MarketDataAPIService) SpotGetDepthV3Execute(r ApiSpotGetDepthV3Request) (*SpotGetDepthV3Resp, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SpotGetDepthV3Resp
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.SpotGetDepthV3")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v3/depth"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.symbol == nil {
-		return localVarReturnValue, nil, reportError("symbol is required and must be specified")
-	}
-
-	parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
-	if r.limit != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
-	} else {
-		var defaultValue int32 = 100
-		r.limit = &defaultValue
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode >= 500 {
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiSpotGetHistoricalTradesV3Request struct {
-	ctx context.Context
-	ApiService *MarketDataAPIService
-	symbol *string
-	limit *int32
-	fromId *int64
-}
-
-func (r ApiSpotGetHistoricalTradesV3Request) Symbol(symbol string) ApiSpotGetHistoricalTradesV3Request {
-	r.symbol = &symbol
-	return r
-}
-
-// Default 500; max 1000.
-func (r ApiSpotGetHistoricalTradesV3Request) Limit(limit int32) ApiSpotGetHistoricalTradesV3Request {
-	r.limit = &limit
-	return r
-}
-
-// TradeId to fetch from. Default gets most recent trades.
-func (r ApiSpotGetHistoricalTradesV3Request) FromId(fromId int64) ApiSpotGetHistoricalTradesV3Request {
-	r.fromId = &fromId
-	return r
-}
-
-func (r ApiSpotGetHistoricalTradesV3Request) Execute() ([]SpotGetHistoricalTradesV3RespItem, *http.Response, error) {
-	return r.ApiService.SpotGetHistoricalTradesV3Execute(r)
-}
-
-/*
-SpotGetHistoricalTradesV3 Old trade lookup
-
-Get older trades.
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSpotGetHistoricalTradesV3Request
-*/
-func (a *MarketDataAPIService) SpotGetHistoricalTradesV3(ctx context.Context) ApiSpotGetHistoricalTradesV3Request {
-	return ApiSpotGetHistoricalTradesV3Request{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return []SpotGetHistoricalTradesV3RespItem
-func (a *MarketDataAPIService) SpotGetHistoricalTradesV3Execute(r ApiSpotGetHistoricalTradesV3Request) ([]SpotGetHistoricalTradesV3RespItem, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []SpotGetHistoricalTradesV3RespItem
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.SpotGetHistoricalTradesV3")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v3/historicalTrades"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.symbol == nil {
-		return localVarReturnValue, nil, reportError("symbol is required and must be specified")
-	}
-
-	parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
-	if r.limit != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
-	} else {
-		var defaultValue int32 = 500
-		r.limit = &defaultValue
-	}
-	if r.fromId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "fromId", r.fromId, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1521,149 +1234,6 @@ func (a *MarketDataAPIService) SpotGetTickerV3Execute(r ApiSpotGetTickerV3Reques
 	} else {
 		var defaultValue string = ""
 		r.type_ = &defaultValue
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode >= 500 {
-			var v APIError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiSpotGetTradesV3Request struct {
-	ctx context.Context
-	ApiService *MarketDataAPIService
-	symbol *string
-	limit *int32
-}
-
-func (r ApiSpotGetTradesV3Request) Symbol(symbol string) ApiSpotGetTradesV3Request {
-	r.symbol = &symbol
-	return r
-}
-
-// Default 500; max 1000.
-func (r ApiSpotGetTradesV3Request) Limit(limit int32) ApiSpotGetTradesV3Request {
-	r.limit = &limit
-	return r
-}
-
-func (r ApiSpotGetTradesV3Request) Execute() ([]SpotGetTradesV3RespItem, *http.Response, error) {
-	return r.ApiService.SpotGetTradesV3Execute(r)
-}
-
-/*
-SpotGetTradesV3 Recent trades list
-
-Get recent trades.
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSpotGetTradesV3Request
-*/
-func (a *MarketDataAPIService) SpotGetTradesV3(ctx context.Context) ApiSpotGetTradesV3Request {
-	return ApiSpotGetTradesV3Request{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return []SpotGetTradesV3RespItem
-func (a *MarketDataAPIService) SpotGetTradesV3Execute(r ApiSpotGetTradesV3Request) ([]SpotGetTradesV3RespItem, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []SpotGetTradesV3RespItem
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarketDataAPIService.SpotGetTradesV3")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v3/trades"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.symbol == nil {
-		return localVarReturnValue, nil, reportError("symbol is required and must be specified")
-	}
-
-	parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
-	if r.limit != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
-	} else {
-		var defaultValue int32 = 500
-		r.limit = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

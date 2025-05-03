@@ -19,7 +19,7 @@ var _ MappedNullable = &SpotCreateSorOrderTestV3Resp{}
 
 // SpotCreateSorOrderTestV3Resp struct for SpotCreateSorOrderTestV3Resp
 type SpotCreateSorOrderTestV3Resp struct {
-	Discount *SpotCreateOrderTestV3RespDiscount `json:"discount,omitempty"`
+	Discount *GetAccountCommissionV3RespDiscount `json:"discount,omitempty"`
 	StandardCommissionForOrder *SpotCreateOrderTestV3RespStandardCommissionForOrder `json:"standardCommissionForOrder,omitempty"`
 	TaxCommissionForOrder *SpotCreateOrderTestV3RespStandardCommissionForOrder `json:"taxCommissionForOrder,omitempty"`
 }
@@ -42,9 +42,9 @@ func NewSpotCreateSorOrderTestV3RespWithDefaults() *SpotCreateSorOrderTestV3Resp
 }
 
 // GetDiscount returns the Discount field value if set, zero value otherwise.
-func (o *SpotCreateSorOrderTestV3Resp) GetDiscount() SpotCreateOrderTestV3RespDiscount {
+func (o *SpotCreateSorOrderTestV3Resp) GetDiscount() GetAccountCommissionV3RespDiscount {
 	if o == nil || IsNil(o.Discount) {
-		var ret SpotCreateOrderTestV3RespDiscount
+		var ret GetAccountCommissionV3RespDiscount
 		return ret
 	}
 	return *o.Discount
@@ -52,7 +52,7 @@ func (o *SpotCreateSorOrderTestV3Resp) GetDiscount() SpotCreateOrderTestV3RespDi
 
 // GetDiscountOk returns a tuple with the Discount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SpotCreateSorOrderTestV3Resp) GetDiscountOk() (*SpotCreateOrderTestV3RespDiscount, bool) {
+func (o *SpotCreateSorOrderTestV3Resp) GetDiscountOk() (*GetAccountCommissionV3RespDiscount, bool) {
 	if o == nil || IsNil(o.Discount) {
 		return nil, false
 	}
@@ -68,8 +68,8 @@ func (o *SpotCreateSorOrderTestV3Resp) HasDiscount() bool {
 	return false
 }
 
-// SetDiscount gets a reference to the given SpotCreateOrderTestV3RespDiscount and assigns it to the Discount field.
-func (o *SpotCreateSorOrderTestV3Resp) SetDiscount(v SpotCreateOrderTestV3RespDiscount) {
+// SetDiscount gets a reference to the given GetAccountCommissionV3RespDiscount and assigns it to the Discount field.
+func (o *SpotCreateSorOrderTestV3Resp) SetDiscount(v GetAccountCommissionV3RespDiscount) {
 	o.Discount = &v
 }
 

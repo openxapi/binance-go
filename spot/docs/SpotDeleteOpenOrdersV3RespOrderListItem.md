@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **ListStatusType** | Pointer to **string** |  | [optional] 
 **OrderListId** | Pointer to **int64** |  | [optional] 
 **OrderReports** | Pointer to [**[]SpotDeleteOpenOrdersV3RespOrderItem**](SpotDeleteOpenOrdersV3RespOrderItem.md) |  | [optional] 
-**Orders** | Pointer to [**[]SpotCreateOrderListOcoV3RespOrdersInner**](SpotCreateOrderListOcoV3RespOrdersInner.md) |  | [optional] 
+**Orders** | Pointer to [**[]CreateMarginOrderOcoV1RespOrdersInner**](CreateMarginOrderOcoV1RespOrdersInner.md) |  | [optional] 
 **Symbol** | Pointer to **string** |  | [optional] 
 **TransactionTime** | Pointer to **int64** |  | [optional] 
 
@@ -185,20 +185,20 @@ HasOrderReports returns a boolean if a field has been set.
 
 ### GetOrders
 
-`func (o *SpotDeleteOpenOrdersV3RespOrderListItem) GetOrders() []SpotCreateOrderListOcoV3RespOrdersInner`
+`func (o *SpotDeleteOpenOrdersV3RespOrderListItem) GetOrders() []CreateMarginOrderOcoV1RespOrdersInner`
 
 GetOrders returns the Orders field if non-nil, zero value otherwise.
 
 ### GetOrdersOk
 
-`func (o *SpotDeleteOpenOrdersV3RespOrderListItem) GetOrdersOk() (*[]SpotCreateOrderListOcoV3RespOrdersInner, bool)`
+`func (o *SpotDeleteOpenOrdersV3RespOrderListItem) GetOrdersOk() (*[]CreateMarginOrderOcoV1RespOrdersInner, bool)`
 
 GetOrdersOk returns a tuple with the Orders field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOrders
 
-`func (o *SpotDeleteOpenOrdersV3RespOrderListItem) SetOrders(v []SpotCreateOrderListOcoV3RespOrdersInner)`
+`func (o *SpotDeleteOpenOrdersV3RespOrderListItem) SetOrders(v []CreateMarginOrderOcoV1RespOrdersInner)`
 
 SetOrders sets Orders field to given value.
 

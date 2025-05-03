@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **ClientOrderId** | Pointer to **string** |  | [optional] 
 **CummulativeQuoteQty** | Pointer to **string** |  | [optional] 
 **ExecutedQty** | Pointer to **string** |  | [optional] 
-**Fills** | Pointer to [**[]SpotCreateOrderV3RespFillsInner**](SpotCreateOrderV3RespFillsInner.md) |  | [optional] 
+**Fills** | Pointer to [**[]MarginCreateMarginOrderV1RespFillsInner**](MarginCreateMarginOrderV1RespFillsInner.md) |  | [optional] 
 **OrderId** | Pointer to **int64** |  | [optional] 
 **OrderListId** | Pointer to **int64** |  | [optional] 
 **OrigQty** | Pointer to **string** |  | [optional] 
@@ -118,20 +118,20 @@ HasExecutedQty returns a boolean if a field has been set.
 
 ### GetFills
 
-`func (o *SpotCreateOrderV3Resp) GetFills() []SpotCreateOrderV3RespFillsInner`
+`func (o *SpotCreateOrderV3Resp) GetFills() []MarginCreateMarginOrderV1RespFillsInner`
 
 GetFills returns the Fills field if non-nil, zero value otherwise.
 
 ### GetFillsOk
 
-`func (o *SpotCreateOrderV3Resp) GetFillsOk() (*[]SpotCreateOrderV3RespFillsInner, bool)`
+`func (o *SpotCreateOrderV3Resp) GetFillsOk() (*[]MarginCreateMarginOrderV1RespFillsInner, bool)`
 
 GetFillsOk returns a tuple with the Fills field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFills
 
-`func (o *SpotCreateOrderV3Resp) SetFills(v []SpotCreateOrderV3RespFillsInner)`
+`func (o *SpotCreateOrderV3Resp) SetFills(v []MarginCreateMarginOrderV1RespFillsInner)`
 
 SetFills sets Fills field to given value.
 

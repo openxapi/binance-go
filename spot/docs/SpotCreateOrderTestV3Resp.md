@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Discount** | Pointer to [**SpotCreateOrderTestV3RespDiscount**](SpotCreateOrderTestV3RespDiscount.md) |  | [optional] 
+**Discount** | Pointer to [**GetAccountCommissionV3RespDiscount**](GetAccountCommissionV3RespDiscount.md) |  | [optional] 
 **StandardCommissionForOrder** | Pointer to [**SpotCreateOrderTestV3RespStandardCommissionForOrder**](SpotCreateOrderTestV3RespStandardCommissionForOrder.md) |  | [optional] 
 **TaxCommissionForOrder** | Pointer to [**SpotCreateOrderTestV3RespStandardCommissionForOrder**](SpotCreateOrderTestV3RespStandardCommissionForOrder.md) |  | [optional] 
 
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDiscount
 
-`func (o *SpotCreateOrderTestV3Resp) GetDiscount() SpotCreateOrderTestV3RespDiscount`
+`func (o *SpotCreateOrderTestV3Resp) GetDiscount() GetAccountCommissionV3RespDiscount`
 
 GetDiscount returns the Discount field if non-nil, zero value otherwise.
 
 ### GetDiscountOk
 
-`func (o *SpotCreateOrderTestV3Resp) GetDiscountOk() (*SpotCreateOrderTestV3RespDiscount, bool)`
+`func (o *SpotCreateOrderTestV3Resp) GetDiscountOk() (*GetAccountCommissionV3RespDiscount, bool)`
 
 GetDiscountOk returns a tuple with the Discount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDiscount
 
-`func (o *SpotCreateOrderTestV3Resp) SetDiscount(v SpotCreateOrderTestV3RespDiscount)`
+`func (o *SpotCreateOrderTestV3Resp) SetDiscount(v GetAccountCommissionV3RespDiscount)`
 
 SetDiscount sets Discount field to given value.
 

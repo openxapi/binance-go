@@ -1,0 +1,238 @@
+# GetMarginOpenOrderListV1RespItem
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**ContingencyType** | Pointer to **string** |  | [optional] 
+**ListClientOrderId** | Pointer to **string** |  | [optional] 
+**ListOrderStatus** | Pointer to **string** |  | [optional] 
+**ListStatusType** | Pointer to **string** |  | [optional] 
+**OrderListId** | Pointer to **int64** |  | [optional] 
+**Orders** | Pointer to [**[]CreateMarginOrderOcoV1RespOrdersInner**](CreateMarginOrderOcoV1RespOrdersInner.md) |  | [optional] 
+**Symbol** | Pointer to **string** |  | [optional] 
+**TransactionTime** | Pointer to **int64** |  | [optional] 
+
+## Methods
+
+### NewGetMarginOpenOrderListV1RespItem
+
+`func NewGetMarginOpenOrderListV1RespItem() *GetMarginOpenOrderListV1RespItem`
+
+NewGetMarginOpenOrderListV1RespItem instantiates a new GetMarginOpenOrderListV1RespItem object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewGetMarginOpenOrderListV1RespItemWithDefaults
+
+`func NewGetMarginOpenOrderListV1RespItemWithDefaults() *GetMarginOpenOrderListV1RespItem`
+
+NewGetMarginOpenOrderListV1RespItemWithDefaults instantiates a new GetMarginOpenOrderListV1RespItem object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetContingencyType
+
+`func (o *GetMarginOpenOrderListV1RespItem) GetContingencyType() string`
+
+GetContingencyType returns the ContingencyType field if non-nil, zero value otherwise.
+
+### GetContingencyTypeOk
+
+`func (o *GetMarginOpenOrderListV1RespItem) GetContingencyTypeOk() (*string, bool)`
+
+GetContingencyTypeOk returns a tuple with the ContingencyType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContingencyType
+
+`func (o *GetMarginOpenOrderListV1RespItem) SetContingencyType(v string)`
+
+SetContingencyType sets ContingencyType field to given value.
+
+### HasContingencyType
+
+`func (o *GetMarginOpenOrderListV1RespItem) HasContingencyType() bool`
+
+HasContingencyType returns a boolean if a field has been set.
+
+### GetListClientOrderId
+
+`func (o *GetMarginOpenOrderListV1RespItem) GetListClientOrderId() string`
+
+GetListClientOrderId returns the ListClientOrderId field if non-nil, zero value otherwise.
+
+### GetListClientOrderIdOk
+
+`func (o *GetMarginOpenOrderListV1RespItem) GetListClientOrderIdOk() (*string, bool)`
+
+GetListClientOrderIdOk returns a tuple with the ListClientOrderId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetListClientOrderId
+
+`func (o *GetMarginOpenOrderListV1RespItem) SetListClientOrderId(v string)`
+
+SetListClientOrderId sets ListClientOrderId field to given value.
+
+### HasListClientOrderId
+
+`func (o *GetMarginOpenOrderListV1RespItem) HasListClientOrderId() bool`
+
+HasListClientOrderId returns a boolean if a field has been set.
+
+### GetListOrderStatus
+
+`func (o *GetMarginOpenOrderListV1RespItem) GetListOrderStatus() string`
+
+GetListOrderStatus returns the ListOrderStatus field if non-nil, zero value otherwise.
+
+### GetListOrderStatusOk
+
+`func (o *GetMarginOpenOrderListV1RespItem) GetListOrderStatusOk() (*string, bool)`
+
+GetListOrderStatusOk returns a tuple with the ListOrderStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetListOrderStatus
+
+`func (o *GetMarginOpenOrderListV1RespItem) SetListOrderStatus(v string)`
+
+SetListOrderStatus sets ListOrderStatus field to given value.
+
+### HasListOrderStatus
+
+`func (o *GetMarginOpenOrderListV1RespItem) HasListOrderStatus() bool`
+
+HasListOrderStatus returns a boolean if a field has been set.
+
+### GetListStatusType
+
+`func (o *GetMarginOpenOrderListV1RespItem) GetListStatusType() string`
+
+GetListStatusType returns the ListStatusType field if non-nil, zero value otherwise.
+
+### GetListStatusTypeOk
+
+`func (o *GetMarginOpenOrderListV1RespItem) GetListStatusTypeOk() (*string, bool)`
+
+GetListStatusTypeOk returns a tuple with the ListStatusType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetListStatusType
+
+`func (o *GetMarginOpenOrderListV1RespItem) SetListStatusType(v string)`
+
+SetListStatusType sets ListStatusType field to given value.
+
+### HasListStatusType
+
+`func (o *GetMarginOpenOrderListV1RespItem) HasListStatusType() bool`
+
+HasListStatusType returns a boolean if a field has been set.
+
+### GetOrderListId
+
+`func (o *GetMarginOpenOrderListV1RespItem) GetOrderListId() int64`
+
+GetOrderListId returns the OrderListId field if non-nil, zero value otherwise.
+
+### GetOrderListIdOk
+
+`func (o *GetMarginOpenOrderListV1RespItem) GetOrderListIdOk() (*int64, bool)`
+
+GetOrderListIdOk returns a tuple with the OrderListId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrderListId
+
+`func (o *GetMarginOpenOrderListV1RespItem) SetOrderListId(v int64)`
+
+SetOrderListId sets OrderListId field to given value.
+
+### HasOrderListId
+
+`func (o *GetMarginOpenOrderListV1RespItem) HasOrderListId() bool`
+
+HasOrderListId returns a boolean if a field has been set.
+
+### GetOrders
+
+`func (o *GetMarginOpenOrderListV1RespItem) GetOrders() []CreateMarginOrderOcoV1RespOrdersInner`
+
+GetOrders returns the Orders field if non-nil, zero value otherwise.
+
+### GetOrdersOk
+
+`func (o *GetMarginOpenOrderListV1RespItem) GetOrdersOk() (*[]CreateMarginOrderOcoV1RespOrdersInner, bool)`
+
+GetOrdersOk returns a tuple with the Orders field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrders
+
+`func (o *GetMarginOpenOrderListV1RespItem) SetOrders(v []CreateMarginOrderOcoV1RespOrdersInner)`
+
+SetOrders sets Orders field to given value.
+
+### HasOrders
+
+`func (o *GetMarginOpenOrderListV1RespItem) HasOrders() bool`
+
+HasOrders returns a boolean if a field has been set.
+
+### GetSymbol
+
+`func (o *GetMarginOpenOrderListV1RespItem) GetSymbol() string`
+
+GetSymbol returns the Symbol field if non-nil, zero value otherwise.
+
+### GetSymbolOk
+
+`func (o *GetMarginOpenOrderListV1RespItem) GetSymbolOk() (*string, bool)`
+
+GetSymbolOk returns a tuple with the Symbol field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSymbol
+
+`func (o *GetMarginOpenOrderListV1RespItem) SetSymbol(v string)`
+
+SetSymbol sets Symbol field to given value.
+
+### HasSymbol
+
+`func (o *GetMarginOpenOrderListV1RespItem) HasSymbol() bool`
+
+HasSymbol returns a boolean if a field has been set.
+
+### GetTransactionTime
+
+`func (o *GetMarginOpenOrderListV1RespItem) GetTransactionTime() int64`
+
+GetTransactionTime returns the TransactionTime field if non-nil, zero value otherwise.
+
+### GetTransactionTimeOk
+
+`func (o *GetMarginOpenOrderListV1RespItem) GetTransactionTimeOk() (*int64, bool)`
+
+GetTransactionTimeOk returns a tuple with the TransactionTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTransactionTime
+
+`func (o *GetMarginOpenOrderListV1RespItem) SetTransactionTime(v int64)`
+
+SetTransactionTime sets TransactionTime field to given value.
+
+### HasTransactionTime
+
+`func (o *GetMarginOpenOrderListV1RespItem) HasTransactionTime() bool`
+
+HasTransactionTime returns a boolean if a field has been set.
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

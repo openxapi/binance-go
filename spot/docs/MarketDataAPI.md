@@ -4,19 +4,82 @@ All URIs are relative to *https://api.binance.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**MarginGetMarginAvailableInventoryV1**](MarketDataAPI.md#MarginGetMarginAvailableInventoryV1) | **Get** /sapi/v1/margin/available-inventory | Query Margin Available Inventory(USER_DATA)
 [**SpotGetAggTradesV3**](MarketDataAPI.md#SpotGetAggTradesV3) | **Get** /api/v3/aggTrades | Compressed/Aggregate trades list
-[**SpotGetAvgPriceV3**](MarketDataAPI.md#SpotGetAvgPriceV3) | **Get** /api/v3/avgPrice | Current average price
-[**SpotGetDepthV3**](MarketDataAPI.md#SpotGetDepthV3) | **Get** /api/v3/depth | Order book
-[**SpotGetHistoricalTradesV3**](MarketDataAPI.md#SpotGetHistoricalTradesV3) | **Get** /api/v3/historicalTrades | Old trade lookup
 [**SpotGetKlinesV3**](MarketDataAPI.md#SpotGetKlinesV3) | **Get** /api/v3/klines | Kline/Candlestick data
 [**SpotGetTicker24hrV3**](MarketDataAPI.md#SpotGetTicker24hrV3) | **Get** /api/v3/ticker/24hr | 24hr ticker price change statistics
 [**SpotGetTickerBookTickerV3**](MarketDataAPI.md#SpotGetTickerBookTickerV3) | **Get** /api/v3/ticker/bookTicker | Symbol order book ticker
 [**SpotGetTickerPriceV3**](MarketDataAPI.md#SpotGetTickerPriceV3) | **Get** /api/v3/ticker/price | Symbol price ticker
 [**SpotGetTickerTradingDayV3**](MarketDataAPI.md#SpotGetTickerTradingDayV3) | **Get** /api/v3/ticker/tradingDay | Trading Day Ticker
 [**SpotGetTickerV3**](MarketDataAPI.md#SpotGetTickerV3) | **Get** /api/v3/ticker | Rolling window price change statistics
-[**SpotGetTradesV3**](MarketDataAPI.md#SpotGetTradesV3) | **Get** /api/v3/trades | Recent trades list
 [**SpotGetUiKlinesV3**](MarketDataAPI.md#SpotGetUiKlinesV3) | **Get** /api/v3/uiKlines | UIKlines
 
+
+
+## MarginGetMarginAvailableInventoryV1
+
+> MarginGetMarginAvailableInventoryV1Resp MarginGetMarginAvailableInventoryV1(ctx).Type_(type_).Execute()
+
+Query Margin Available Inventory(USER_DATA)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/spot"
+)
+
+func main() {
+	type_ := "type__example" // string | MARGIN,ISOLATED (default to "")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MarketDataAPI.MarginGetMarginAvailableInventoryV1(context.Background()).Type_(type_).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.MarginGetMarginAvailableInventoryV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `MarginGetMarginAvailableInventoryV1`: MarginGetMarginAvailableInventoryV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.MarginGetMarginAvailableInventoryV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiMarginGetMarginAvailableInventoryV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type_** | **string** | MARGIN,ISOLATED | [default to &quot;&quot;]
+
+### Return type
+
+[**MarginGetMarginAvailableInventoryV1Resp**](MarginGetMarginAvailableInventoryV1Resp.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## SpotGetAggTradesV3
@@ -78,208 +141,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]SpotGetAggTradesV3RespItem**](SpotGetAggTradesV3RespItem.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## SpotGetAvgPriceV3
-
-> SpotGetAvgPriceV3Resp SpotGetAvgPriceV3(ctx).Symbol(symbol).Execute()
-
-Current average price
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/openxapi/binance-go/spot"
-)
-
-func main() {
-	symbol := "symbol_example" // string |  (default to "")
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.SpotGetAvgPriceV3(context.Background()).Symbol(symbol).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.SpotGetAvgPriceV3``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SpotGetAvgPriceV3`: SpotGetAvgPriceV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.SpotGetAvgPriceV3`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiSpotGetAvgPriceV3Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **symbol** | **string** |  | [default to &quot;&quot;]
-
-### Return type
-
-[**SpotGetAvgPriceV3Resp**](SpotGetAvgPriceV3Resp.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## SpotGetDepthV3
-
-> SpotGetDepthV3Resp SpotGetDepthV3(ctx).Symbol(symbol).Limit(limit).Execute()
-
-Order book
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/openxapi/binance-go/spot"
-)
-
-func main() {
-	symbol := "symbol_example" // string |  (default to "")
-	limit := int32(56) // int32 | Default 100; max 5000. <br/> If limit &gt; 5000. then the response will truncate to 5000. (optional) (default to 100)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.SpotGetDepthV3(context.Background()).Symbol(symbol).Limit(limit).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.SpotGetDepthV3``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SpotGetDepthV3`: SpotGetDepthV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.SpotGetDepthV3`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiSpotGetDepthV3Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **symbol** | **string** |  | [default to &quot;&quot;]
- **limit** | **int32** | Default 100; max 5000. &lt;br/&gt; If limit &amp;gt; 5000. then the response will truncate to 5000. | [default to 100]
-
-### Return type
-
-[**SpotGetDepthV3Resp**](SpotGetDepthV3Resp.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## SpotGetHistoricalTradesV3
-
-> []SpotGetHistoricalTradesV3RespItem SpotGetHistoricalTradesV3(ctx).Symbol(symbol).Limit(limit).FromId(fromId).Execute()
-
-Old trade lookup
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/openxapi/binance-go/spot"
-)
-
-func main() {
-	symbol := "symbol_example" // string |  (default to "")
-	limit := int32(56) // int32 | Default 500; max 1000. (optional) (default to 500)
-	fromId := int64(789) // int64 | TradeId to fetch from. Default gets most recent trades. (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.SpotGetHistoricalTradesV3(context.Background()).Symbol(symbol).Limit(limit).FromId(fromId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.SpotGetHistoricalTradesV3``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SpotGetHistoricalTradesV3`: []SpotGetHistoricalTradesV3RespItem
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.SpotGetHistoricalTradesV3`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiSpotGetHistoricalTradesV3Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **symbol** | **string** |  | [default to &quot;&quot;]
- **limit** | **int32** | Default 500; max 1000. | [default to 500]
- **fromId** | **int64** | TradeId to fetch from. Default gets most recent trades. | 
-
-### Return type
-
-[**[]SpotGetHistoricalTradesV3RespItem**](SpotGetHistoricalTradesV3RespItem.md)
 
 ### Authorization
 
@@ -706,74 +567,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SpotGetTickerV3Resp**](SpotGetTickerV3Resp.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## SpotGetTradesV3
-
-> []SpotGetTradesV3RespItem SpotGetTradesV3(ctx).Symbol(symbol).Limit(limit).Execute()
-
-Recent trades list
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/openxapi/binance-go/spot"
-)
-
-func main() {
-	symbol := "symbol_example" // string |  (default to "")
-	limit := int32(56) // int32 | Default 500; max 1000. (optional) (default to 500)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketDataAPI.SpotGetTradesV3(context.Background()).Symbol(symbol).Limit(limit).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketDataAPI.SpotGetTradesV3``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SpotGetTradesV3`: []SpotGetTradesV3RespItem
-	fmt.Fprintf(os.Stdout, "Response from `MarketDataAPI.SpotGetTradesV3`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiSpotGetTradesV3Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **symbol** | **string** |  | [default to &quot;&quot;]
- **limit** | **int32** | Default 500; max 1000. | [default to 500]
-
-### Return type
-
-[**[]SpotGetTradesV3RespItem**](SpotGetTradesV3RespItem.md)
 
 ### Authorization
 
