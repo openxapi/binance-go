@@ -267,48 +267,48 @@ Class | Method | HTTP request | Description
 *PortfolioMarginProAPI* | [**GetPortfolioPmLoanHistoryV1**](docs/PortfolioMarginProAPI.md#getportfoliopmloanhistoryv1) | **Get** /sapi/v1/portfolio/pmLoan-history | Query Portfolio Margin Pro Bankruptcy Loan Repay History(USER_DATA)
 *PortfolioMarginProAPI* | [**GetPortfolioPmLoanV1**](docs/PortfolioMarginProAPI.md#getportfoliopmloanv1) | **Get** /sapi/v1/portfolio/pmLoan | Query Portfolio Margin Pro Bankruptcy Loan Amount(USER_DATA)
 *PortfolioMarginProAPI* | [**GetPortfolioRepayFuturesSwitchV1**](docs/PortfolioMarginProAPI.md#getportfoliorepayfuturesswitchv1) | **Get** /sapi/v1/portfolio/repay-futures-switch | Get Auto-repay-futures Status(USER_DATA)
-*SpotAPI* | [**CreateOrderCancelReplaceV3**](docs/SpotAPI.md#createordercancelreplacev3) | **Post** /api/v3/order/cancelReplace | Cancel an Existing Order and Send a New Order (TRADE)
-*SpotAPI* | [**CreateOrderListOcoV3**](docs/SpotAPI.md#createorderlistocov3) | **Post** /api/v3/orderList/oco | New Order list - OCO (TRADE)
-*SpotAPI* | [**CreateOrderListOtoV3**](docs/SpotAPI.md#createorderlistotov3) | **Post** /api/v3/orderList/oto | New Order list - OTO (TRADE)
-*SpotAPI* | [**CreateOrderListOtocoV3**](docs/SpotAPI.md#createorderlistotocov3) | **Post** /api/v3/orderList/otoco | New Order list - OTOCO (TRADE)
-*SpotAPI* | [**CreateOrderOcoV3**](docs/SpotAPI.md#createorderocov3) | **Post** /api/v3/order/oco | New OCO - Deprecated (TRADE)
-*SpotAPI* | [**CreateOrderTestV3**](docs/SpotAPI.md#createordertestv3) | **Post** /api/v3/order/test | Test new order (TRADE)
-*SpotAPI* | [**CreateOrderV3**](docs/SpotAPI.md#createorderv3) | **Post** /api/v3/order | New order (TRADE)
-*SpotAPI* | [**CreateSorOrderTestV3**](docs/SpotAPI.md#createsorordertestv3) | **Post** /api/v3/sor/order/test | Test new order using SOR (TRADE)
-*SpotAPI* | [**CreateSorOrderV3**](docs/SpotAPI.md#createsororderv3) | **Post** /api/v3/sor/order | New order using SOR (TRADE)
-*SpotAPI* | [**CreateUserDataStreamV3**](docs/SpotAPI.md#createuserdatastreamv3) | **Post** /api/v3/userDataStream | Start user data stream (USER_STREAM)
-*SpotAPI* | [**DeleteOpenOrdersV3**](docs/SpotAPI.md#deleteopenordersv3) | **Delete** /api/v3/openOrders | Cancel All Open Orders on a Symbol (TRADE)
-*SpotAPI* | [**DeleteOrderListV3**](docs/SpotAPI.md#deleteorderlistv3) | **Delete** /api/v3/orderList | Cancel Order list (TRADE)
-*SpotAPI* | [**DeleteOrderV3**](docs/SpotAPI.md#deleteorderv3) | **Delete** /api/v3/order | Cancel order (TRADE)
-*SpotAPI* | [**DeleteUserDataStreamV3**](docs/SpotAPI.md#deleteuserdatastreamv3) | **Delete** /api/v3/userDataStream | Close user data stream (USER_STREAM)
-*SpotAPI* | [**GetAccountCommissionV3**](docs/SpotAPI.md#getaccountcommissionv3) | **Get** /api/v3/account/commission | Query Commission Rates (USER_DATA)
-*SpotAPI* | [**GetAccountV3**](docs/SpotAPI.md#getaccountv3) | **Get** /api/v3/account | Account information (USER_DATA)
-*SpotAPI* | [**GetAggTradesV3**](docs/SpotAPI.md#getaggtradesv3) | **Get** /api/v3/aggTrades | Compressed/Aggregate trades list
-*SpotAPI* | [**GetAllOrderListV3**](docs/SpotAPI.md#getallorderlistv3) | **Get** /api/v3/allOrderList | Query all Order lists (USER_DATA)
-*SpotAPI* | [**GetAllOrdersV3**](docs/SpotAPI.md#getallordersv3) | **Get** /api/v3/allOrders | All orders (USER_DATA)
-*SpotAPI* | [**GetAvgPriceV3**](docs/SpotAPI.md#getavgpricev3) | **Get** /api/v3/avgPrice | Current average price
-*SpotAPI* | [**GetDepthV3**](docs/SpotAPI.md#getdepthv3) | **Get** /api/v3/depth | Order book
-*SpotAPI* | [**GetExchangeInfoV3**](docs/SpotAPI.md#getexchangeinfov3) | **Get** /api/v3/exchangeInfo | Exchange information
-*SpotAPI* | [**GetHistoricalTradesV3**](docs/SpotAPI.md#gethistoricaltradesv3) | **Get** /api/v3/historicalTrades | Old trade lookup
-*SpotAPI* | [**GetKlinesV3**](docs/SpotAPI.md#getklinesv3) | **Get** /api/v3/klines | Kline/Candlestick data
-*SpotAPI* | [**GetMyAllocationsV3**](docs/SpotAPI.md#getmyallocationsv3) | **Get** /api/v3/myAllocations | Query Allocations (USER_DATA)
-*SpotAPI* | [**GetMyPreventedMatchesV3**](docs/SpotAPI.md#getmypreventedmatchesv3) | **Get** /api/v3/myPreventedMatches | Query Prevented Matches (USER_DATA)
-*SpotAPI* | [**GetMyTradesV3**](docs/SpotAPI.md#getmytradesv3) | **Get** /api/v3/myTrades | Account trade list (USER_DATA)
-*SpotAPI* | [**GetOpenOrderListV3**](docs/SpotAPI.md#getopenorderlistv3) | **Get** /api/v3/openOrderList | Query Open Order lists (USER_DATA)
-*SpotAPI* | [**GetOpenOrdersV3**](docs/SpotAPI.md#getopenordersv3) | **Get** /api/v3/openOrders | Current open orders (USER_DATA)
-*SpotAPI* | [**GetOrderListV3**](docs/SpotAPI.md#getorderlistv3) | **Get** /api/v3/orderList | Query Order list (USER_DATA)
-*SpotAPI* | [**GetOrderV3**](docs/SpotAPI.md#getorderv3) | **Get** /api/v3/order | Query order (USER_DATA)
-*SpotAPI* | [**GetPingV3**](docs/SpotAPI.md#getpingv3) | **Get** /api/v3/ping | Test connectivity
-*SpotAPI* | [**GetRateLimitOrderV3**](docs/SpotAPI.md#getratelimitorderv3) | **Get** /api/v3/rateLimit/order | Query Unfilled Order Count (USER_DATA)
-*SpotAPI* | [**GetTicker24hrV3**](docs/SpotAPI.md#getticker24hrv3) | **Get** /api/v3/ticker/24hr | 24hr ticker price change statistics
-*SpotAPI* | [**GetTickerBookTickerV3**](docs/SpotAPI.md#gettickerbooktickerv3) | **Get** /api/v3/ticker/bookTicker | Symbol order book ticker
-*SpotAPI* | [**GetTickerPriceV3**](docs/SpotAPI.md#gettickerpricev3) | **Get** /api/v3/ticker/price | Symbol price ticker
-*SpotAPI* | [**GetTickerTradingDayV3**](docs/SpotAPI.md#gettickertradingdayv3) | **Get** /api/v3/ticker/tradingDay | Trading Day Ticker
-*SpotAPI* | [**GetTickerV3**](docs/SpotAPI.md#gettickerv3) | **Get** /api/v3/ticker | Rolling window price change statistics
-*SpotAPI* | [**GetTimeV3**](docs/SpotAPI.md#gettimev3) | **Get** /api/v3/time | Check server time
-*SpotAPI* | [**GetTradesV3**](docs/SpotAPI.md#gettradesv3) | **Get** /api/v3/trades | Recent trades list
-*SpotAPI* | [**GetUiKlinesV3**](docs/SpotAPI.md#getuiklinesv3) | **Get** /api/v3/uiKlines | UIKlines
-*SpotAPI* | [**UpdateUserDataStreamV3**](docs/SpotAPI.md#updateuserdatastreamv3) | **Put** /api/v3/userDataStream | Keepalive user data stream (USER_STREAM)
+*SpotTradingAPI* | [**CreateOrderCancelReplaceV3**](docs/SpotTradingAPI.md#createordercancelreplacev3) | **Post** /api/v3/order/cancelReplace | Cancel an Existing Order and Send a New Order (TRADE)
+*SpotTradingAPI* | [**CreateOrderListOcoV3**](docs/SpotTradingAPI.md#createorderlistocov3) | **Post** /api/v3/orderList/oco | New Order list - OCO (TRADE)
+*SpotTradingAPI* | [**CreateOrderListOtoV3**](docs/SpotTradingAPI.md#createorderlistotov3) | **Post** /api/v3/orderList/oto | New Order list - OTO (TRADE)
+*SpotTradingAPI* | [**CreateOrderListOtocoV3**](docs/SpotTradingAPI.md#createorderlistotocov3) | **Post** /api/v3/orderList/otoco | New Order list - OTOCO (TRADE)
+*SpotTradingAPI* | [**CreateOrderOcoV3**](docs/SpotTradingAPI.md#createorderocov3) | **Post** /api/v3/order/oco | New OCO - Deprecated (TRADE)
+*SpotTradingAPI* | [**CreateOrderTestV3**](docs/SpotTradingAPI.md#createordertestv3) | **Post** /api/v3/order/test | Test new order (TRADE)
+*SpotTradingAPI* | [**CreateOrderV3**](docs/SpotTradingAPI.md#createorderv3) | **Post** /api/v3/order | New order (TRADE)
+*SpotTradingAPI* | [**CreateSorOrderTestV3**](docs/SpotTradingAPI.md#createsorordertestv3) | **Post** /api/v3/sor/order/test | Test new order using SOR (TRADE)
+*SpotTradingAPI* | [**CreateSorOrderV3**](docs/SpotTradingAPI.md#createsororderv3) | **Post** /api/v3/sor/order | New order using SOR (TRADE)
+*SpotTradingAPI* | [**CreateUserDataStreamV3**](docs/SpotTradingAPI.md#createuserdatastreamv3) | **Post** /api/v3/userDataStream | Start user data stream (USER_STREAM)
+*SpotTradingAPI* | [**DeleteOpenOrdersV3**](docs/SpotTradingAPI.md#deleteopenordersv3) | **Delete** /api/v3/openOrders | Cancel All Open Orders on a Symbol (TRADE)
+*SpotTradingAPI* | [**DeleteOrderListV3**](docs/SpotTradingAPI.md#deleteorderlistv3) | **Delete** /api/v3/orderList | Cancel Order list (TRADE)
+*SpotTradingAPI* | [**DeleteOrderV3**](docs/SpotTradingAPI.md#deleteorderv3) | **Delete** /api/v3/order | Cancel order (TRADE)
+*SpotTradingAPI* | [**DeleteUserDataStreamV3**](docs/SpotTradingAPI.md#deleteuserdatastreamv3) | **Delete** /api/v3/userDataStream | Close user data stream (USER_STREAM)
+*SpotTradingAPI* | [**GetAccountCommissionV3**](docs/SpotTradingAPI.md#getaccountcommissionv3) | **Get** /api/v3/account/commission | Query Commission Rates (USER_DATA)
+*SpotTradingAPI* | [**GetAccountV3**](docs/SpotTradingAPI.md#getaccountv3) | **Get** /api/v3/account | Account information (USER_DATA)
+*SpotTradingAPI* | [**GetAggTradesV3**](docs/SpotTradingAPI.md#getaggtradesv3) | **Get** /api/v3/aggTrades | Compressed/Aggregate trades list
+*SpotTradingAPI* | [**GetAllOrderListV3**](docs/SpotTradingAPI.md#getallorderlistv3) | **Get** /api/v3/allOrderList | Query all Order lists (USER_DATA)
+*SpotTradingAPI* | [**GetAllOrdersV3**](docs/SpotTradingAPI.md#getallordersv3) | **Get** /api/v3/allOrders | All orders (USER_DATA)
+*SpotTradingAPI* | [**GetAvgPriceV3**](docs/SpotTradingAPI.md#getavgpricev3) | **Get** /api/v3/avgPrice | Current average price
+*SpotTradingAPI* | [**GetDepthV3**](docs/SpotTradingAPI.md#getdepthv3) | **Get** /api/v3/depth | Order book
+*SpotTradingAPI* | [**GetExchangeInfoV3**](docs/SpotTradingAPI.md#getexchangeinfov3) | **Get** /api/v3/exchangeInfo | Exchange information
+*SpotTradingAPI* | [**GetHistoricalTradesV3**](docs/SpotTradingAPI.md#gethistoricaltradesv3) | **Get** /api/v3/historicalTrades | Old trade lookup
+*SpotTradingAPI* | [**GetKlinesV3**](docs/SpotTradingAPI.md#getklinesv3) | **Get** /api/v3/klines | Kline/Candlestick data
+*SpotTradingAPI* | [**GetMyAllocationsV3**](docs/SpotTradingAPI.md#getmyallocationsv3) | **Get** /api/v3/myAllocations | Query Allocations (USER_DATA)
+*SpotTradingAPI* | [**GetMyPreventedMatchesV3**](docs/SpotTradingAPI.md#getmypreventedmatchesv3) | **Get** /api/v3/myPreventedMatches | Query Prevented Matches (USER_DATA)
+*SpotTradingAPI* | [**GetMyTradesV3**](docs/SpotTradingAPI.md#getmytradesv3) | **Get** /api/v3/myTrades | Account trade list (USER_DATA)
+*SpotTradingAPI* | [**GetOpenOrderListV3**](docs/SpotTradingAPI.md#getopenorderlistv3) | **Get** /api/v3/openOrderList | Query Open Order lists (USER_DATA)
+*SpotTradingAPI* | [**GetOpenOrdersV3**](docs/SpotTradingAPI.md#getopenordersv3) | **Get** /api/v3/openOrders | Current open orders (USER_DATA)
+*SpotTradingAPI* | [**GetOrderListV3**](docs/SpotTradingAPI.md#getorderlistv3) | **Get** /api/v3/orderList | Query Order list (USER_DATA)
+*SpotTradingAPI* | [**GetOrderV3**](docs/SpotTradingAPI.md#getorderv3) | **Get** /api/v3/order | Query order (USER_DATA)
+*SpotTradingAPI* | [**GetPingV3**](docs/SpotTradingAPI.md#getpingv3) | **Get** /api/v3/ping | Test connectivity
+*SpotTradingAPI* | [**GetRateLimitOrderV3**](docs/SpotTradingAPI.md#getratelimitorderv3) | **Get** /api/v3/rateLimit/order | Query Unfilled Order Count (USER_DATA)
+*SpotTradingAPI* | [**GetTicker24hrV3**](docs/SpotTradingAPI.md#getticker24hrv3) | **Get** /api/v3/ticker/24hr | 24hr ticker price change statistics
+*SpotTradingAPI* | [**GetTickerBookTickerV3**](docs/SpotTradingAPI.md#gettickerbooktickerv3) | **Get** /api/v3/ticker/bookTicker | Symbol order book ticker
+*SpotTradingAPI* | [**GetTickerPriceV3**](docs/SpotTradingAPI.md#gettickerpricev3) | **Get** /api/v3/ticker/price | Symbol price ticker
+*SpotTradingAPI* | [**GetTickerTradingDayV3**](docs/SpotTradingAPI.md#gettickertradingdayv3) | **Get** /api/v3/ticker/tradingDay | Trading Day Ticker
+*SpotTradingAPI* | [**GetTickerV3**](docs/SpotTradingAPI.md#gettickerv3) | **Get** /api/v3/ticker | Rolling window price change statistics
+*SpotTradingAPI* | [**GetTimeV3**](docs/SpotTradingAPI.md#gettimev3) | **Get** /api/v3/time | Check server time
+*SpotTradingAPI* | [**GetTradesV3**](docs/SpotTradingAPI.md#gettradesv3) | **Get** /api/v3/trades | Recent trades list
+*SpotTradingAPI* | [**GetUiKlinesV3**](docs/SpotTradingAPI.md#getuiklinesv3) | **Get** /api/v3/uiKlines | UIKlines
+*SpotTradingAPI* | [**UpdateUserDataStreamV3**](docs/SpotTradingAPI.md#updateuserdatastreamv3) | **Put** /api/v3/userDataStream | Keepalive user data stream (USER_STREAM)
 *SubAccountAPI* | [**CreateManagedSubaccountDepositV1**](docs/SubAccountAPI.md#createmanagedsubaccountdepositv1) | **Post** /sapi/v1/managed-subaccount/deposit | Deposit Assets Into The Managed Sub-account(For Investor Master Account)
 *SubAccountAPI* | [**CreateManagedSubaccountWithdrawV1**](docs/SubAccountAPI.md#createmanagedsubaccountwithdrawv1) | **Post** /sapi/v1/managed-subaccount/withdraw | Withdrawl Assets From The Managed Sub-account(For Investor Master Account)
 *SubAccountAPI* | [**CreateSubAccountBlvtEnableV1**](docs/SubAccountAPI.md#createsubaccountblvtenablev1) | **Post** /sapi/v1/sub-account/blvt/enable | Enable Leverage Token for Sub-account(For Master Account)

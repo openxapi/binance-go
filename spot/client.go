@@ -63,7 +63,7 @@ type APIClient struct {
 
 	PortfolioMarginProAPI *PortfolioMarginProAPIService
 
-	SpotAPI *SpotAPIService
+	SpotTradingAPI *SpotTradingAPIService
 
 	SubAccountAPI *SubAccountAPIService
 
@@ -93,7 +93,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.FuturesDataAPI = (*FuturesDataAPIService)(&c.common)
 	c.MarginTradingAPI = (*MarginTradingAPIService)(&c.common)
 	c.PortfolioMarginProAPI = (*PortfolioMarginProAPIService)(&c.common)
-	c.SpotAPI = (*SpotAPIService)(&c.common)
+	c.SpotTradingAPI = (*SpotTradingAPIService)(&c.common)
 	c.SubAccountAPI = (*SubAccountAPIService)(&c.common)
 	c.WalletAPI = (*WalletAPIService)(&c.common)
 

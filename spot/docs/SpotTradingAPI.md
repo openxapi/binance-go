@@ -1,51 +1,51 @@
-# \SpotAPI
+# \SpotTradingAPI
 
 All URIs are relative to *https://api.binance.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateOrderCancelReplaceV3**](SpotAPI.md#CreateOrderCancelReplaceV3) | **Post** /api/v3/order/cancelReplace | Cancel an Existing Order and Send a New Order (TRADE)
-[**CreateOrderListOcoV3**](SpotAPI.md#CreateOrderListOcoV3) | **Post** /api/v3/orderList/oco | New Order list - OCO (TRADE)
-[**CreateOrderListOtoV3**](SpotAPI.md#CreateOrderListOtoV3) | **Post** /api/v3/orderList/oto | New Order list - OTO (TRADE)
-[**CreateOrderListOtocoV3**](SpotAPI.md#CreateOrderListOtocoV3) | **Post** /api/v3/orderList/otoco | New Order list - OTOCO (TRADE)
-[**CreateOrderOcoV3**](SpotAPI.md#CreateOrderOcoV3) | **Post** /api/v3/order/oco | New OCO - Deprecated (TRADE)
-[**CreateOrderTestV3**](SpotAPI.md#CreateOrderTestV3) | **Post** /api/v3/order/test | Test new order (TRADE)
-[**CreateOrderV3**](SpotAPI.md#CreateOrderV3) | **Post** /api/v3/order | New order (TRADE)
-[**CreateSorOrderTestV3**](SpotAPI.md#CreateSorOrderTestV3) | **Post** /api/v3/sor/order/test | Test new order using SOR (TRADE)
-[**CreateSorOrderV3**](SpotAPI.md#CreateSorOrderV3) | **Post** /api/v3/sor/order | New order using SOR (TRADE)
-[**CreateUserDataStreamV3**](SpotAPI.md#CreateUserDataStreamV3) | **Post** /api/v3/userDataStream | Start user data stream (USER_STREAM)
-[**DeleteOpenOrdersV3**](SpotAPI.md#DeleteOpenOrdersV3) | **Delete** /api/v3/openOrders | Cancel All Open Orders on a Symbol (TRADE)
-[**DeleteOrderListV3**](SpotAPI.md#DeleteOrderListV3) | **Delete** /api/v3/orderList | Cancel Order list (TRADE)
-[**DeleteOrderV3**](SpotAPI.md#DeleteOrderV3) | **Delete** /api/v3/order | Cancel order (TRADE)
-[**DeleteUserDataStreamV3**](SpotAPI.md#DeleteUserDataStreamV3) | **Delete** /api/v3/userDataStream | Close user data stream (USER_STREAM)
-[**GetAccountCommissionV3**](SpotAPI.md#GetAccountCommissionV3) | **Get** /api/v3/account/commission | Query Commission Rates (USER_DATA)
-[**GetAccountV3**](SpotAPI.md#GetAccountV3) | **Get** /api/v3/account | Account information (USER_DATA)
-[**GetAggTradesV3**](SpotAPI.md#GetAggTradesV3) | **Get** /api/v3/aggTrades | Compressed/Aggregate trades list
-[**GetAllOrderListV3**](SpotAPI.md#GetAllOrderListV3) | **Get** /api/v3/allOrderList | Query all Order lists (USER_DATA)
-[**GetAllOrdersV3**](SpotAPI.md#GetAllOrdersV3) | **Get** /api/v3/allOrders | All orders (USER_DATA)
-[**GetAvgPriceV3**](SpotAPI.md#GetAvgPriceV3) | **Get** /api/v3/avgPrice | Current average price
-[**GetDepthV3**](SpotAPI.md#GetDepthV3) | **Get** /api/v3/depth | Order book
-[**GetExchangeInfoV3**](SpotAPI.md#GetExchangeInfoV3) | **Get** /api/v3/exchangeInfo | Exchange information
-[**GetHistoricalTradesV3**](SpotAPI.md#GetHistoricalTradesV3) | **Get** /api/v3/historicalTrades | Old trade lookup
-[**GetKlinesV3**](SpotAPI.md#GetKlinesV3) | **Get** /api/v3/klines | Kline/Candlestick data
-[**GetMyAllocationsV3**](SpotAPI.md#GetMyAllocationsV3) | **Get** /api/v3/myAllocations | Query Allocations (USER_DATA)
-[**GetMyPreventedMatchesV3**](SpotAPI.md#GetMyPreventedMatchesV3) | **Get** /api/v3/myPreventedMatches | Query Prevented Matches (USER_DATA)
-[**GetMyTradesV3**](SpotAPI.md#GetMyTradesV3) | **Get** /api/v3/myTrades | Account trade list (USER_DATA)
-[**GetOpenOrderListV3**](SpotAPI.md#GetOpenOrderListV3) | **Get** /api/v3/openOrderList | Query Open Order lists (USER_DATA)
-[**GetOpenOrdersV3**](SpotAPI.md#GetOpenOrdersV3) | **Get** /api/v3/openOrders | Current open orders (USER_DATA)
-[**GetOrderListV3**](SpotAPI.md#GetOrderListV3) | **Get** /api/v3/orderList | Query Order list (USER_DATA)
-[**GetOrderV3**](SpotAPI.md#GetOrderV3) | **Get** /api/v3/order | Query order (USER_DATA)
-[**GetPingV3**](SpotAPI.md#GetPingV3) | **Get** /api/v3/ping | Test connectivity
-[**GetRateLimitOrderV3**](SpotAPI.md#GetRateLimitOrderV3) | **Get** /api/v3/rateLimit/order | Query Unfilled Order Count (USER_DATA)
-[**GetTicker24hrV3**](SpotAPI.md#GetTicker24hrV3) | **Get** /api/v3/ticker/24hr | 24hr ticker price change statistics
-[**GetTickerBookTickerV3**](SpotAPI.md#GetTickerBookTickerV3) | **Get** /api/v3/ticker/bookTicker | Symbol order book ticker
-[**GetTickerPriceV3**](SpotAPI.md#GetTickerPriceV3) | **Get** /api/v3/ticker/price | Symbol price ticker
-[**GetTickerTradingDayV3**](SpotAPI.md#GetTickerTradingDayV3) | **Get** /api/v3/ticker/tradingDay | Trading Day Ticker
-[**GetTickerV3**](SpotAPI.md#GetTickerV3) | **Get** /api/v3/ticker | Rolling window price change statistics
-[**GetTimeV3**](SpotAPI.md#GetTimeV3) | **Get** /api/v3/time | Check server time
-[**GetTradesV3**](SpotAPI.md#GetTradesV3) | **Get** /api/v3/trades | Recent trades list
-[**GetUiKlinesV3**](SpotAPI.md#GetUiKlinesV3) | **Get** /api/v3/uiKlines | UIKlines
-[**UpdateUserDataStreamV3**](SpotAPI.md#UpdateUserDataStreamV3) | **Put** /api/v3/userDataStream | Keepalive user data stream (USER_STREAM)
+[**CreateOrderCancelReplaceV3**](SpotTradingAPI.md#CreateOrderCancelReplaceV3) | **Post** /api/v3/order/cancelReplace | Cancel an Existing Order and Send a New Order (TRADE)
+[**CreateOrderListOcoV3**](SpotTradingAPI.md#CreateOrderListOcoV3) | **Post** /api/v3/orderList/oco | New Order list - OCO (TRADE)
+[**CreateOrderListOtoV3**](SpotTradingAPI.md#CreateOrderListOtoV3) | **Post** /api/v3/orderList/oto | New Order list - OTO (TRADE)
+[**CreateOrderListOtocoV3**](SpotTradingAPI.md#CreateOrderListOtocoV3) | **Post** /api/v3/orderList/otoco | New Order list - OTOCO (TRADE)
+[**CreateOrderOcoV3**](SpotTradingAPI.md#CreateOrderOcoV3) | **Post** /api/v3/order/oco | New OCO - Deprecated (TRADE)
+[**CreateOrderTestV3**](SpotTradingAPI.md#CreateOrderTestV3) | **Post** /api/v3/order/test | Test new order (TRADE)
+[**CreateOrderV3**](SpotTradingAPI.md#CreateOrderV3) | **Post** /api/v3/order | New order (TRADE)
+[**CreateSorOrderTestV3**](SpotTradingAPI.md#CreateSorOrderTestV3) | **Post** /api/v3/sor/order/test | Test new order using SOR (TRADE)
+[**CreateSorOrderV3**](SpotTradingAPI.md#CreateSorOrderV3) | **Post** /api/v3/sor/order | New order using SOR (TRADE)
+[**CreateUserDataStreamV3**](SpotTradingAPI.md#CreateUserDataStreamV3) | **Post** /api/v3/userDataStream | Start user data stream (USER_STREAM)
+[**DeleteOpenOrdersV3**](SpotTradingAPI.md#DeleteOpenOrdersV3) | **Delete** /api/v3/openOrders | Cancel All Open Orders on a Symbol (TRADE)
+[**DeleteOrderListV3**](SpotTradingAPI.md#DeleteOrderListV3) | **Delete** /api/v3/orderList | Cancel Order list (TRADE)
+[**DeleteOrderV3**](SpotTradingAPI.md#DeleteOrderV3) | **Delete** /api/v3/order | Cancel order (TRADE)
+[**DeleteUserDataStreamV3**](SpotTradingAPI.md#DeleteUserDataStreamV3) | **Delete** /api/v3/userDataStream | Close user data stream (USER_STREAM)
+[**GetAccountCommissionV3**](SpotTradingAPI.md#GetAccountCommissionV3) | **Get** /api/v3/account/commission | Query Commission Rates (USER_DATA)
+[**GetAccountV3**](SpotTradingAPI.md#GetAccountV3) | **Get** /api/v3/account | Account information (USER_DATA)
+[**GetAggTradesV3**](SpotTradingAPI.md#GetAggTradesV3) | **Get** /api/v3/aggTrades | Compressed/Aggregate trades list
+[**GetAllOrderListV3**](SpotTradingAPI.md#GetAllOrderListV3) | **Get** /api/v3/allOrderList | Query all Order lists (USER_DATA)
+[**GetAllOrdersV3**](SpotTradingAPI.md#GetAllOrdersV3) | **Get** /api/v3/allOrders | All orders (USER_DATA)
+[**GetAvgPriceV3**](SpotTradingAPI.md#GetAvgPriceV3) | **Get** /api/v3/avgPrice | Current average price
+[**GetDepthV3**](SpotTradingAPI.md#GetDepthV3) | **Get** /api/v3/depth | Order book
+[**GetExchangeInfoV3**](SpotTradingAPI.md#GetExchangeInfoV3) | **Get** /api/v3/exchangeInfo | Exchange information
+[**GetHistoricalTradesV3**](SpotTradingAPI.md#GetHistoricalTradesV3) | **Get** /api/v3/historicalTrades | Old trade lookup
+[**GetKlinesV3**](SpotTradingAPI.md#GetKlinesV3) | **Get** /api/v3/klines | Kline/Candlestick data
+[**GetMyAllocationsV3**](SpotTradingAPI.md#GetMyAllocationsV3) | **Get** /api/v3/myAllocations | Query Allocations (USER_DATA)
+[**GetMyPreventedMatchesV3**](SpotTradingAPI.md#GetMyPreventedMatchesV3) | **Get** /api/v3/myPreventedMatches | Query Prevented Matches (USER_DATA)
+[**GetMyTradesV3**](SpotTradingAPI.md#GetMyTradesV3) | **Get** /api/v3/myTrades | Account trade list (USER_DATA)
+[**GetOpenOrderListV3**](SpotTradingAPI.md#GetOpenOrderListV3) | **Get** /api/v3/openOrderList | Query Open Order lists (USER_DATA)
+[**GetOpenOrdersV3**](SpotTradingAPI.md#GetOpenOrdersV3) | **Get** /api/v3/openOrders | Current open orders (USER_DATA)
+[**GetOrderListV3**](SpotTradingAPI.md#GetOrderListV3) | **Get** /api/v3/orderList | Query Order list (USER_DATA)
+[**GetOrderV3**](SpotTradingAPI.md#GetOrderV3) | **Get** /api/v3/order | Query order (USER_DATA)
+[**GetPingV3**](SpotTradingAPI.md#GetPingV3) | **Get** /api/v3/ping | Test connectivity
+[**GetRateLimitOrderV3**](SpotTradingAPI.md#GetRateLimitOrderV3) | **Get** /api/v3/rateLimit/order | Query Unfilled Order Count (USER_DATA)
+[**GetTicker24hrV3**](SpotTradingAPI.md#GetTicker24hrV3) | **Get** /api/v3/ticker/24hr | 24hr ticker price change statistics
+[**GetTickerBookTickerV3**](SpotTradingAPI.md#GetTickerBookTickerV3) | **Get** /api/v3/ticker/bookTicker | Symbol order book ticker
+[**GetTickerPriceV3**](SpotTradingAPI.md#GetTickerPriceV3) | **Get** /api/v3/ticker/price | Symbol price ticker
+[**GetTickerTradingDayV3**](SpotTradingAPI.md#GetTickerTradingDayV3) | **Get** /api/v3/ticker/tradingDay | Trading Day Ticker
+[**GetTickerV3**](SpotTradingAPI.md#GetTickerV3) | **Get** /api/v3/ticker | Rolling window price change statistics
+[**GetTimeV3**](SpotTradingAPI.md#GetTimeV3) | **Get** /api/v3/time | Check server time
+[**GetTradesV3**](SpotTradingAPI.md#GetTradesV3) | **Get** /api/v3/trades | Recent trades list
+[**GetUiKlinesV3**](SpotTradingAPI.md#GetUiKlinesV3) | **Get** /api/v3/uiKlines | UIKlines
+[**UpdateUserDataStreamV3**](SpotTradingAPI.md#UpdateUserDataStreamV3) | **Put** /api/v3/userDataStream | Keepalive user data stream (USER_STREAM)
 
 
 
@@ -96,13 +96,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.CreateOrderCancelReplaceV3(context.Background()).CancelReplaceMode(cancelReplaceMode).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).CancelNewClientOrderId(cancelNewClientOrderId).CancelOrderId(cancelOrderId).CancelOrigClientOrderId(cancelOrigClientOrderId).CancelRestrictions(cancelRestrictions).IcebergQty(icebergQty).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).OrderRateLimitExceededMode(orderRateLimitExceededMode).Price(price).Quantity(quantity).QuoteOrderQty(quoteOrderQty).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).StopPrice(stopPrice).StrategyId(strategyId).StrategyType(strategyType).TimeInForce(timeInForce).TrailingDelta(trailingDelta).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.CreateOrderCancelReplaceV3(context.Background()).CancelReplaceMode(cancelReplaceMode).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).CancelNewClientOrderId(cancelNewClientOrderId).CancelOrderId(cancelOrderId).CancelOrigClientOrderId(cancelOrigClientOrderId).CancelRestrictions(cancelRestrictions).IcebergQty(icebergQty).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).OrderRateLimitExceededMode(orderRateLimitExceededMode).Price(price).Quantity(quantity).QuoteOrderQty(quoteOrderQty).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).StopPrice(stopPrice).StrategyId(strategyId).StrategyType(strategyType).TimeInForce(timeInForce).TrailingDelta(trailingDelta).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.CreateOrderCancelReplaceV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.CreateOrderCancelReplaceV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `CreateOrderCancelReplaceV3`: SpotCreateOrderCancelReplaceV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.CreateOrderCancelReplaceV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.CreateOrderCancelReplaceV3`: %v\n", resp)
 }
 ```
 
@@ -209,13 +209,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.CreateOrderListOcoV3(context.Background()).AboveType(aboveType).BelowType(belowType).Quantity(quantity).Side(side).Symbol(symbol).Timestamp(timestamp).AboveClientOrderId(aboveClientOrderId).AboveIcebergQty(aboveIcebergQty).AbovePrice(abovePrice).AboveStopPrice(aboveStopPrice).AboveStrategyId(aboveStrategyId).AboveStrategyType(aboveStrategyType).AboveTimeInForce(aboveTimeInForce).AboveTrailingDelta(aboveTrailingDelta).BelowClientOrderId(belowClientOrderId).BelowIcebergQty(belowIcebergQty).BelowPrice(belowPrice).BelowStopPrice(belowStopPrice).BelowStrategyId(belowStrategyId).BelowStrategyType(belowStrategyType).BelowTimeInForce(belowTimeInForce).BelowTrailingDelta(belowTrailingDelta).ListClientOrderId(listClientOrderId).NewOrderRespType(newOrderRespType).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.CreateOrderListOcoV3(context.Background()).AboveType(aboveType).BelowType(belowType).Quantity(quantity).Side(side).Symbol(symbol).Timestamp(timestamp).AboveClientOrderId(aboveClientOrderId).AboveIcebergQty(aboveIcebergQty).AbovePrice(abovePrice).AboveStopPrice(aboveStopPrice).AboveStrategyId(aboveStrategyId).AboveStrategyType(aboveStrategyType).AboveTimeInForce(aboveTimeInForce).AboveTrailingDelta(aboveTrailingDelta).BelowClientOrderId(belowClientOrderId).BelowIcebergQty(belowIcebergQty).BelowPrice(belowPrice).BelowStopPrice(belowStopPrice).BelowStrategyId(belowStrategyId).BelowStrategyType(belowStrategyType).BelowTimeInForce(belowTimeInForce).BelowTrailingDelta(belowTrailingDelta).ListClientOrderId(listClientOrderId).NewOrderRespType(newOrderRespType).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.CreateOrderListOcoV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.CreateOrderListOcoV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `CreateOrderListOcoV3`: CreateOrderListOcoV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.CreateOrderListOcoV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.CreateOrderListOcoV3`: %v\n", resp)
 }
 ```
 
@@ -325,13 +325,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.CreateOrderListOtoV3(context.Background()).PendingQuantity(pendingQuantity).PendingSide(pendingSide).PendingType(pendingType).Symbol(symbol).Timestamp(timestamp).WorkingPrice(workingPrice).WorkingQuantity(workingQuantity).WorkingSide(workingSide).WorkingType(workingType).ListClientOrderId(listClientOrderId).NewOrderRespType(newOrderRespType).PendingClientOrderId(pendingClientOrderId).PendingIcebergQty(pendingIcebergQty).PendingPrice(pendingPrice).PendingStopPrice(pendingStopPrice).PendingStrategyId(pendingStrategyId).PendingStrategyType(pendingStrategyType).PendingTimeInForce(pendingTimeInForce).PendingTrailingDelta(pendingTrailingDelta).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).WorkingClientOrderId(workingClientOrderId).WorkingIcebergQty(workingIcebergQty).WorkingStrategyId(workingStrategyId).WorkingStrategyType(workingStrategyType).WorkingTimeInForce(workingTimeInForce).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.CreateOrderListOtoV3(context.Background()).PendingQuantity(pendingQuantity).PendingSide(pendingSide).PendingType(pendingType).Symbol(symbol).Timestamp(timestamp).WorkingPrice(workingPrice).WorkingQuantity(workingQuantity).WorkingSide(workingSide).WorkingType(workingType).ListClientOrderId(listClientOrderId).NewOrderRespType(newOrderRespType).PendingClientOrderId(pendingClientOrderId).PendingIcebergQty(pendingIcebergQty).PendingPrice(pendingPrice).PendingStopPrice(pendingStopPrice).PendingStrategyId(pendingStrategyId).PendingStrategyType(pendingStrategyType).PendingTimeInForce(pendingTimeInForce).PendingTrailingDelta(pendingTrailingDelta).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).WorkingClientOrderId(workingClientOrderId).WorkingIcebergQty(workingIcebergQty).WorkingStrategyId(workingStrategyId).WorkingStrategyType(workingStrategyType).WorkingTimeInForce(workingTimeInForce).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.CreateOrderListOtoV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.CreateOrderListOtoV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `CreateOrderListOtoV3`: CreateOrderListOtoV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.CreateOrderListOtoV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.CreateOrderListOtoV3`: %v\n", resp)
 }
 ```
 
@@ -450,13 +450,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.CreateOrderListOtocoV3(context.Background()).PendingAboveType(pendingAboveType).PendingQuantity(pendingQuantity).PendingSide(pendingSide).Symbol(symbol).Timestamp(timestamp).WorkingPrice(workingPrice).WorkingQuantity(workingQuantity).WorkingSide(workingSide).WorkingType(workingType).ListClientOrderId(listClientOrderId).NewOrderRespType(newOrderRespType).PendingAboveClientOrderId(pendingAboveClientOrderId).PendingAboveIcebergQty(pendingAboveIcebergQty).PendingAbovePrice(pendingAbovePrice).PendingAboveStopPrice(pendingAboveStopPrice).PendingAboveStrategyId(pendingAboveStrategyId).PendingAboveStrategyType(pendingAboveStrategyType).PendingAboveTimeInForce(pendingAboveTimeInForce).PendingAboveTrailingDelta(pendingAboveTrailingDelta).PendingBelowClientOrderId(pendingBelowClientOrderId).PendingBelowIcebergQty(pendingBelowIcebergQty).PendingBelowPrice(pendingBelowPrice).PendingBelowStopPrice(pendingBelowStopPrice).PendingBelowStrategyId(pendingBelowStrategyId).PendingBelowStrategyType(pendingBelowStrategyType).PendingBelowTimeInForce(pendingBelowTimeInForce).PendingBelowTrailingDelta(pendingBelowTrailingDelta).PendingBelowType(pendingBelowType).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).WorkingClientOrderId(workingClientOrderId).WorkingIcebergQty(workingIcebergQty).WorkingStrategyId(workingStrategyId).WorkingStrategyType(workingStrategyType).WorkingTimeInForce(workingTimeInForce).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.CreateOrderListOtocoV3(context.Background()).PendingAboveType(pendingAboveType).PendingQuantity(pendingQuantity).PendingSide(pendingSide).Symbol(symbol).Timestamp(timestamp).WorkingPrice(workingPrice).WorkingQuantity(workingQuantity).WorkingSide(workingSide).WorkingType(workingType).ListClientOrderId(listClientOrderId).NewOrderRespType(newOrderRespType).PendingAboveClientOrderId(pendingAboveClientOrderId).PendingAboveIcebergQty(pendingAboveIcebergQty).PendingAbovePrice(pendingAbovePrice).PendingAboveStopPrice(pendingAboveStopPrice).PendingAboveStrategyId(pendingAboveStrategyId).PendingAboveStrategyType(pendingAboveStrategyType).PendingAboveTimeInForce(pendingAboveTimeInForce).PendingAboveTrailingDelta(pendingAboveTrailingDelta).PendingBelowClientOrderId(pendingBelowClientOrderId).PendingBelowIcebergQty(pendingBelowIcebergQty).PendingBelowPrice(pendingBelowPrice).PendingBelowStopPrice(pendingBelowStopPrice).PendingBelowStrategyId(pendingBelowStrategyId).PendingBelowStrategyType(pendingBelowStrategyType).PendingBelowTimeInForce(pendingBelowTimeInForce).PendingBelowTrailingDelta(pendingBelowTrailingDelta).PendingBelowType(pendingBelowType).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).WorkingClientOrderId(workingClientOrderId).WorkingIcebergQty(workingIcebergQty).WorkingStrategyId(workingStrategyId).WorkingStrategyType(workingStrategyType).WorkingTimeInForce(workingTimeInForce).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.CreateOrderListOtocoV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.CreateOrderListOtocoV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `CreateOrderListOtocoV3`: CreateOrderListOtocoV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.CreateOrderListOtocoV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.CreateOrderListOtocoV3`: %v\n", resp)
 }
 ```
 
@@ -570,13 +570,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.CreateOrderOcoV3(context.Background()).Price(price).Quantity(quantity).Side(side).StopPrice(stopPrice).Symbol(symbol).Timestamp(timestamp).LimitClientOrderId(limitClientOrderId).LimitIcebergQty(limitIcebergQty).LimitStrategyId(limitStrategyId).LimitStrategyType(limitStrategyType).ListClientOrderId(listClientOrderId).NewOrderRespType(newOrderRespType).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).StopClientOrderId(stopClientOrderId).StopIcebergQty(stopIcebergQty).StopLimitPrice(stopLimitPrice).StopLimitTimeInForce(stopLimitTimeInForce).StopStrategyId(stopStrategyId).StopStrategyType(stopStrategyType).TrailingDelta(trailingDelta).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.CreateOrderOcoV3(context.Background()).Price(price).Quantity(quantity).Side(side).StopPrice(stopPrice).Symbol(symbol).Timestamp(timestamp).LimitClientOrderId(limitClientOrderId).LimitIcebergQty(limitIcebergQty).LimitStrategyId(limitStrategyId).LimitStrategyType(limitStrategyType).ListClientOrderId(listClientOrderId).NewOrderRespType(newOrderRespType).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).StopClientOrderId(stopClientOrderId).StopIcebergQty(stopIcebergQty).StopLimitPrice(stopLimitPrice).StopLimitTimeInForce(stopLimitTimeInForce).StopStrategyId(stopStrategyId).StopStrategyType(stopStrategyType).TrailingDelta(trailingDelta).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.CreateOrderOcoV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.CreateOrderOcoV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `CreateOrderOcoV3`: CreateOrderOcoV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.CreateOrderOcoV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.CreateOrderOcoV3`: %v\n", resp)
 }
 ```
 
@@ -673,13 +673,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.CreateOrderTestV3(context.Background()).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).ComputeCommissionRates(computeCommissionRates).IcebergQty(icebergQty).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).Price(price).Quantity(quantity).QuoteOrderQty(quoteOrderQty).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).StopPrice(stopPrice).StrategyId(strategyId).StrategyType(strategyType).TimeInForce(timeInForce).TrailingDelta(trailingDelta).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.CreateOrderTestV3(context.Background()).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).ComputeCommissionRates(computeCommissionRates).IcebergQty(icebergQty).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).Price(price).Quantity(quantity).QuoteOrderQty(quoteOrderQty).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).StopPrice(stopPrice).StrategyId(strategyId).StrategyType(strategyType).TimeInForce(timeInForce).TrailingDelta(trailingDelta).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.CreateOrderTestV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.CreateOrderTestV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `CreateOrderTestV3`: SpotCreateOrderTestV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.CreateOrderTestV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.CreateOrderTestV3`: %v\n", resp)
 }
 ```
 
@@ -772,13 +772,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.CreateOrderV3(context.Background()).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).IcebergQty(icebergQty).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).Price(price).Quantity(quantity).QuoteOrderQty(quoteOrderQty).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).StopPrice(stopPrice).StrategyId(strategyId).StrategyType(strategyType).TimeInForce(timeInForce).TrailingDelta(trailingDelta).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.CreateOrderV3(context.Background()).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).IcebergQty(icebergQty).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).Price(price).Quantity(quantity).QuoteOrderQty(quoteOrderQty).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).StopPrice(stopPrice).StrategyId(strategyId).StrategyType(strategyType).TimeInForce(timeInForce).TrailingDelta(trailingDelta).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.CreateOrderV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.CreateOrderV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `CreateOrderV3`: SpotCreateOrderV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.CreateOrderV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.CreateOrderV3`: %v\n", resp)
 }
 ```
 
@@ -868,13 +868,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.CreateSorOrderTestV3(context.Background()).Quantity(quantity).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).ComputeCommissionRates(computeCommissionRates).IcebergQty(icebergQty).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).Price(price).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).StrategyId(strategyId).StrategyType(strategyType).TimeInForce(timeInForce).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.CreateSorOrderTestV3(context.Background()).Quantity(quantity).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).ComputeCommissionRates(computeCommissionRates).IcebergQty(icebergQty).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).Price(price).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).StrategyId(strategyId).StrategyType(strategyType).TimeInForce(timeInForce).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.CreateSorOrderTestV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.CreateSorOrderTestV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `CreateSorOrderTestV3`: SpotCreateSorOrderTestV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.CreateSorOrderTestV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.CreateSorOrderTestV3`: %v\n", resp)
 }
 ```
 
@@ -961,13 +961,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.CreateSorOrderV3(context.Background()).Quantity(quantity).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).IcebergQty(icebergQty).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).Price(price).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).StrategyId(strategyId).StrategyType(strategyType).TimeInForce(timeInForce).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.CreateSorOrderV3(context.Background()).Quantity(quantity).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).IcebergQty(icebergQty).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).Price(price).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).StrategyId(strategyId).StrategyType(strategyType).TimeInForce(timeInForce).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.CreateSorOrderV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.CreateSorOrderV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `CreateSorOrderV3`: CreateSorOrderV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.CreateSorOrderV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.CreateSorOrderV3`: %v\n", resp)
 }
 ```
 
@@ -1039,13 +1039,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.CreateUserDataStreamV3(context.Background()).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.CreateUserDataStreamV3(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.CreateUserDataStreamV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.CreateUserDataStreamV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `CreateUserDataStreamV3`: CreateUserDataStreamV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.CreateUserDataStreamV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.CreateUserDataStreamV3`: %v\n", resp)
 }
 ```
 
@@ -1103,13 +1103,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.DeleteOpenOrdersV3(context.Background()).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.DeleteOpenOrdersV3(context.Background()).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.DeleteOpenOrdersV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.DeleteOpenOrdersV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `DeleteOpenOrdersV3`: [][]SpotDeleteOpenOrdersV3RespInner
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.DeleteOpenOrdersV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.DeleteOpenOrdersV3`: %v\n", resp)
 }
 ```
 
@@ -1176,13 +1176,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.DeleteOrderListV3(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderListId(orderListId).ListClientOrderId(listClientOrderId).NewClientOrderId(newClientOrderId).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.DeleteOrderListV3(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderListId(orderListId).ListClientOrderId(listClientOrderId).NewClientOrderId(newClientOrderId).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.DeleteOrderListV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.DeleteOrderListV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `DeleteOrderListV3`: DeleteOrderListV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.DeleteOrderListV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.DeleteOrderListV3`: %v\n", resp)
 }
 ```
 
@@ -1253,13 +1253,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.DeleteOrderV3(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).NewClientOrderId(newClientOrderId).CancelRestrictions(cancelRestrictions).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.DeleteOrderV3(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).NewClientOrderId(newClientOrderId).CancelRestrictions(cancelRestrictions).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.DeleteOrderV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.DeleteOrderV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `DeleteOrderV3`: DeleteOrderV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.DeleteOrderV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.DeleteOrderV3`: %v\n", resp)
 }
 ```
 
@@ -1325,13 +1325,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.DeleteUserDataStreamV3(context.Background()).ListenKey(listenKey).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.DeleteUserDataStreamV3(context.Background()).ListenKey(listenKey).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.DeleteUserDataStreamV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.DeleteUserDataStreamV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `DeleteUserDataStreamV3`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.DeleteUserDataStreamV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.DeleteUserDataStreamV3`: %v\n", resp)
 }
 ```
 
@@ -1391,13 +1391,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetAccountCommissionV3(context.Background()).Symbol(symbol).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetAccountCommissionV3(context.Background()).Symbol(symbol).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetAccountCommissionV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetAccountCommissionV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetAccountCommissionV3`: GetAccountCommissionV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetAccountCommissionV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetAccountCommissionV3`: %v\n", resp)
 }
 ```
 
@@ -1459,13 +1459,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetAccountV3(context.Background()).Timestamp(timestamp).OmitZeroBalances(omitZeroBalances).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetAccountV3(context.Background()).Timestamp(timestamp).OmitZeroBalances(omitZeroBalances).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetAccountV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetAccountV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetAccountV3`: GetAccountV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetAccountV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetAccountV3`: %v\n", resp)
 }
 ```
 
@@ -1531,13 +1531,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetAggTradesV3(context.Background()).Symbol(symbol).FromId(fromId).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetAggTradesV3(context.Background()).Symbol(symbol).FromId(fromId).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetAggTradesV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetAggTradesV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetAggTradesV3`: []SpotGetAggTradesV3RespItem
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetAggTradesV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetAggTradesV3`: %v\n", resp)
 }
 ```
 
@@ -1606,13 +1606,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetAllOrderListV3(context.Background()).Timestamp(timestamp).FromId(fromId).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetAllOrderListV3(context.Background()).Timestamp(timestamp).FromId(fromId).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetAllOrderListV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetAllOrderListV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetAllOrderListV3`: []GetAllOrderListV3RespItem
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetAllOrderListV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetAllOrderListV3`: %v\n", resp)
 }
 ```
 
@@ -1683,13 +1683,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetAllOrdersV3(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetAllOrdersV3(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetAllOrdersV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetAllOrdersV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetAllOrdersV3`: []GetAllOrdersV3RespItem
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetAllOrdersV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetAllOrdersV3`: %v\n", resp)
 }
 ```
 
@@ -1755,13 +1755,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetAvgPriceV3(context.Background()).Symbol(symbol).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetAvgPriceV3(context.Background()).Symbol(symbol).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetAvgPriceV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetAvgPriceV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetAvgPriceV3`: GetAvgPriceV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetAvgPriceV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetAvgPriceV3`: %v\n", resp)
 }
 ```
 
@@ -1820,13 +1820,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetDepthV3(context.Background()).Symbol(symbol).Limit(limit).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetDepthV3(context.Background()).Symbol(symbol).Limit(limit).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetDepthV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetDepthV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetDepthV3`: GetDepthV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetDepthV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetDepthV3`: %v\n", resp)
 }
 ```
 
@@ -1891,13 +1891,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetExchangeInfoV3(context.Background()).Symbol(symbol).Symbols(symbols).Permissions(permissions).ShowPermissionSets(showPermissionSets).SymbolStatus(symbolStatus).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetExchangeInfoV3(context.Background()).Symbol(symbol).Symbols(symbols).Permissions(permissions).ShowPermissionSets(showPermissionSets).SymbolStatus(symbolStatus).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetExchangeInfoV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetExchangeInfoV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetExchangeInfoV3`: SpotGetExchangeInfoV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetExchangeInfoV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetExchangeInfoV3`: %v\n", resp)
 }
 ```
 
@@ -1963,13 +1963,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetHistoricalTradesV3(context.Background()).Symbol(symbol).Limit(limit).FromId(fromId).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetHistoricalTradesV3(context.Background()).Symbol(symbol).Limit(limit).FromId(fromId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetHistoricalTradesV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetHistoricalTradesV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetHistoricalTradesV3`: []GetHistoricalTradesV3RespItem
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetHistoricalTradesV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetHistoricalTradesV3`: %v\n", resp)
 }
 ```
 
@@ -2036,13 +2036,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetKlinesV3(context.Background()).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).TimeZone(timeZone).Limit(limit).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetKlinesV3(context.Background()).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).TimeZone(timeZone).Limit(limit).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetKlinesV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetKlinesV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetKlinesV3`: [][]GetKlinesV3200ResponseInnerInner
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetKlinesV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetKlinesV3`: %v\n", resp)
 }
 ```
 
@@ -2114,13 +2114,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetMyAllocationsV3(context.Background()).Symbol(symbol).StartTime(startTime).EndTime(endTime).FromAllocationId(fromAllocationId).Limit(limit).OrderId(orderId).RecvWindow(recvWindow).Timestamp(timestamp).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetMyAllocationsV3(context.Background()).Symbol(symbol).StartTime(startTime).EndTime(endTime).FromAllocationId(fromAllocationId).Limit(limit).OrderId(orderId).RecvWindow(recvWindow).Timestamp(timestamp).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetMyAllocationsV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetMyAllocationsV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetMyAllocationsV3`: []GetMyAllocationsV3RespItem
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetMyAllocationsV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetMyAllocationsV3`: %v\n", resp)
 }
 ```
 
@@ -2193,13 +2193,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetMyPreventedMatchesV3(context.Background()).Symbol(symbol).Timestamp(timestamp).PreventedMatchId(preventedMatchId).OrderId(orderId).FromPreventedMatchId(fromPreventedMatchId).Limit(limit).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetMyPreventedMatchesV3(context.Background()).Symbol(symbol).Timestamp(timestamp).PreventedMatchId(preventedMatchId).OrderId(orderId).FromPreventedMatchId(fromPreventedMatchId).Limit(limit).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetMyPreventedMatchesV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetMyPreventedMatchesV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetMyPreventedMatchesV3`: []GetMyPreventedMatchesV3RespItem
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetMyPreventedMatchesV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetMyPreventedMatchesV3`: %v\n", resp)
 }
 ```
 
@@ -2272,13 +2272,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetMyTradesV3(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).StartTime(startTime).EndTime(endTime).FromId(fromId).Limit(limit).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetMyTradesV3(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).StartTime(startTime).EndTime(endTime).FromId(fromId).Limit(limit).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetMyTradesV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetMyTradesV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetMyTradesV3`: []GetMyTradesV3RespItem
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetMyTradesV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetMyTradesV3`: %v\n", resp)
 }
 ```
 
@@ -2344,13 +2344,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetOpenOrderListV3(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetOpenOrderListV3(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetOpenOrderListV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetOpenOrderListV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetOpenOrderListV3`: []GetOpenOrderListV3RespItem
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetOpenOrderListV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetOpenOrderListV3`: %v\n", resp)
 }
 ```
 
@@ -2413,13 +2413,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetOpenOrdersV3(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetOpenOrdersV3(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetOpenOrdersV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetOpenOrdersV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetOpenOrdersV3`: []GetOpenOrdersV3RespItem
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetOpenOrdersV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetOpenOrdersV3`: %v\n", resp)
 }
 ```
 
@@ -2484,13 +2484,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetOrderListV3(context.Background()).Timestamp(timestamp).OrderListId(orderListId).OrigClientOrderId(origClientOrderId).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetOrderListV3(context.Background()).Timestamp(timestamp).OrderListId(orderListId).OrigClientOrderId(origClientOrderId).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetOrderListV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetOrderListV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetOrderListV3`: GetOrderListV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetOrderListV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetOrderListV3`: %v\n", resp)
 }
 ```
 
@@ -2557,13 +2557,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetOrderV3(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetOrderV3(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetOrderV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetOrderV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetOrderV3`: GetOrderV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetOrderV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetOrderV3`: %v\n", resp)
 }
 ```
 
@@ -2626,13 +2626,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetPingV3(context.Background()).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetPingV3(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetPingV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetPingV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetPingV3`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetPingV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetPingV3`: %v\n", resp)
 }
 ```
 
@@ -2689,13 +2689,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetRateLimitOrderV3(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetRateLimitOrderV3(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetRateLimitOrderV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetRateLimitOrderV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetRateLimitOrderV3`: []GetRateLimitOrderV3RespItem
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetRateLimitOrderV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetRateLimitOrderV3`: %v\n", resp)
 }
 ```
 
@@ -2758,13 +2758,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetTicker24hrV3(context.Background()).Symbol(symbol).Symbols(symbols).Type_(type_).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetTicker24hrV3(context.Background()).Symbol(symbol).Symbols(symbols).Type_(type_).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetTicker24hrV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetTicker24hrV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetTicker24hrV3`: SpotGetTicker24hrV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetTicker24hrV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetTicker24hrV3`: %v\n", resp)
 }
 ```
 
@@ -2827,13 +2827,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetTickerBookTickerV3(context.Background()).Symbol(symbol).Symbols(symbols).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetTickerBookTickerV3(context.Background()).Symbol(symbol).Symbols(symbols).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetTickerBookTickerV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetTickerBookTickerV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetTickerBookTickerV3`: SpotGetTickerBookTickerV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetTickerBookTickerV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetTickerBookTickerV3`: %v\n", resp)
 }
 ```
 
@@ -2895,13 +2895,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetTickerPriceV3(context.Background()).Symbol(symbol).Symbols(symbols).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetTickerPriceV3(context.Background()).Symbol(symbol).Symbols(symbols).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetTickerPriceV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetTickerPriceV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetTickerPriceV3`: SpotGetTickerPriceV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetTickerPriceV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetTickerPriceV3`: %v\n", resp)
 }
 ```
 
@@ -2965,13 +2965,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetTickerTradingDayV3(context.Background()).Symbol(symbol).Symbols(symbols).TimeZone(timeZone).Type_(type_).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetTickerTradingDayV3(context.Background()).Symbol(symbol).Symbols(symbols).TimeZone(timeZone).Type_(type_).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetTickerTradingDayV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetTickerTradingDayV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetTickerTradingDayV3`: SpotGetTickerTradingDayV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetTickerTradingDayV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetTickerTradingDayV3`: %v\n", resp)
 }
 ```
 
@@ -3037,13 +3037,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetTickerV3(context.Background()).Symbol(symbol).Symbols(symbols).WindowSize(windowSize).Type_(type_).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetTickerV3(context.Background()).Symbol(symbol).Symbols(symbols).WindowSize(windowSize).Type_(type_).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetTickerV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetTickerV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetTickerV3`: SpotGetTickerV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetTickerV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetTickerV3`: %v\n", resp)
 }
 ```
 
@@ -3105,13 +3105,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetTimeV3(context.Background()).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetTimeV3(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetTimeV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetTimeV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetTimeV3`: GetTimeV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetTimeV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetTimeV3`: %v\n", resp)
 }
 ```
 
@@ -3168,13 +3168,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetTradesV3(context.Background()).Symbol(symbol).Limit(limit).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetTradesV3(context.Background()).Symbol(symbol).Limit(limit).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetTradesV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetTradesV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetTradesV3`: []GetTradesV3RespItem
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetTradesV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetTradesV3`: %v\n", resp)
 }
 ```
 
@@ -3240,13 +3240,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.GetUiKlinesV3(context.Background()).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).TimeZone(timeZone).Limit(limit).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetUiKlinesV3(context.Background()).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).TimeZone(timeZone).Limit(limit).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetUiKlinesV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetUiKlinesV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetUiKlinesV3`: [][]GetKlinesV3200ResponseInnerInner
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetUiKlinesV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.GetUiKlinesV3`: %v\n", resp)
 }
 ```
 
@@ -3311,13 +3311,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotAPI.UpdateUserDataStreamV3(context.Background()).ListenKey(listenKey).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.UpdateUserDataStreamV3(context.Background()).ListenKey(listenKey).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.UpdateUserDataStreamV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.UpdateUserDataStreamV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `UpdateUserDataStreamV3`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.UpdateUserDataStreamV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.UpdateUserDataStreamV3`: %v\n", resp)
 }
 ```
 

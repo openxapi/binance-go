@@ -14,21 +14,13 @@ If you need to update the API client, please submit an issue or a PR to [OpenXAP
 
 ## Supported Products
 
-- [x] [Spot Trading](./spot)
-- [x] Derivatives Trading
-  - [x] [USDS-M Futures](./derivatives/umfutures)
-  - [x] [COIN-M Futures](./derivatives/cmfutures)
-  - [x] [Options](./derivatives/options)
-  - [x] [Portfolio Margin](./derivatives/pmargin)
-  - [x] [Portfolio Margin Pro](./derivatives/pmarginpro)
-  - [x] [Futures Data](./derivatives/futuresdata)
-- [x] [Margin Trading](./margin)
-- [x] Algo Trading
-- [x] Wallet
-- [x] Copy Trading
-- [x] Convert
-- [x] Sub Account
-- [ ] More to come...
+| Product | Package | Modules |
+|---------|---------|---------|
+| Spot | [github.com/openxapi/binance-go/spot](./spot) | ✅ Spot Trading <br> ✅ Margin Trading <br> ✅ Algo Trading <br> ✅ Wallet <br> ✅ Copy Trading <br> ✅ Convert <br> ✅ Sub Account <br>✅ Binance Link <br>✅ Futures Data <br> ✅ Portfolio Margin Pro |
+| USDS-M Futures | [github.com/openxapi/binance-go/umfutures](./umfutures) | ✅ USDS-M Futures Trading |
+| COIN-M Futures | [github.com/openxapi/binance-go/cmfutures](./cmfutures) | ✅ COIN-M Futures Trading |
+| Options | [github.com/openxapi/binance-go/options](./options) | ✅ Options Trading |
+| Portfolio Margin | [github.com/openxapi/binance-go/pmargin](./pmargin) | ✅ Portfolio Margin Trading |
 
 Feel free to contribute to this project by adding support for other products.
 
@@ -55,16 +47,16 @@ os.Setenv("HTTP_PROXY", "http://proxy_name:proxy_port")
 Example
 
 ```go
-conf := spot.NewConfiguration()
-client := spot.NewAPIClient(conf)
-ctx := context.Background()
+    conf := spot.NewConfiguration()
+    client := spot.NewAPIClient(conf)
+    ctx := context.Background()
 
-info, res, err := client.GeneralAPI.SpotGetExchangeInfoV3(ctx).Symbol("BTCUSDT").Execute()
-if err != nil {
-    fmt.Println(err)
-}
-fmt.Printf("%+v\n", info)
-fmt.Printf("%+v\n", res)
+    info, res, err := client.SpotAPI.GetExchangeInfoV3(ctx).Symbol("BTCUSDT").Execute()
+    if err != nil {
+        fmt.Println(err)
+    }
+    fmt.Printf("%+v\n", info)
+    fmt.Printf("%+v\n", res)
 ```
 
 ## Authentication
@@ -91,7 +83,7 @@ Example
         fmt.Println(err)
     }
     // Get current time in millisecond
-    user, res, err := client.AccountAPI.SpotGetAccountV3(ctx).Timestamp(time.Now().UnixMilli()).Execute()
+    user, res, err := client.SpotAPI.GetAccountV3(ctx).Timestamp(time.Now().UnixMilli()).Execute()
     if err != nil {
         fmt.Println(err)
     }
@@ -112,13 +104,13 @@ Example
     apiKey := os.Getenv("BINANCE_API_KEY")
     auth := spot.NewAuth(apiKey)
     // Key type will be auto-detected, you can use RSA or Ed25519 key here
-    auth.PrivateKeyPath = "/local/.keys/binance_api_test_private_key.pem"
+    auth.PrivateKeyPath = "/path/to/your/private_key.pem"
     ctx, err = auth.ContextWithValue(ctx)
     if err != nil {
         fmt.Println(err)
     }
     // Get current time in millisecond
-    user, res, err := client.AccountAPI.SpotGetAccountV3(ctx).Timestamp(time.Now().UnixMilli()).Execute()
+    user, res, err := client.SpotAPI.GetAccountV3(ctx).Timestamp(time.Now().UnixMilli()).Execute()
     if err != nil {
         fmt.Println(err)
     }

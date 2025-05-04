@@ -20,12 +20,12 @@ import (
 )
 
 
-// SpotAPIService SpotAPI service
-type SpotAPIService service
+// SpotTradingAPIService SpotTradingAPI service
+type SpotTradingAPIService service
 
 type ApiCreateOrderCancelReplaceV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	cancelReplaceMode *string
 	side *string
 	symbol *string
@@ -180,7 +180,7 @@ A new order that was not attempted (i.e. when newOrderResult: NOT_ATTEMPTED ), w
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateOrderCancelReplaceV3Request
 */
-func (a *SpotAPIService) CreateOrderCancelReplaceV3(ctx context.Context) ApiCreateOrderCancelReplaceV3Request {
+func (a *SpotTradingAPIService) CreateOrderCancelReplaceV3(ctx context.Context) ApiCreateOrderCancelReplaceV3Request {
 	return ApiCreateOrderCancelReplaceV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -189,7 +189,7 @@ func (a *SpotAPIService) CreateOrderCancelReplaceV3(ctx context.Context) ApiCrea
 
 // Execute executes the request
 //  @return SpotCreateOrderCancelReplaceV3Resp
-func (a *SpotAPIService) CreateOrderCancelReplaceV3Execute(r ApiCreateOrderCancelReplaceV3Request) (*SpotCreateOrderCancelReplaceV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) CreateOrderCancelReplaceV3Execute(r ApiCreateOrderCancelReplaceV3Request) (*SpotCreateOrderCancelReplaceV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -197,7 +197,7 @@ func (a *SpotAPIService) CreateOrderCancelReplaceV3Execute(r ApiCreateOrderCance
 		localVarReturnValue  *SpotCreateOrderCancelReplaceV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.CreateOrderCancelReplaceV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.CreateOrderCancelReplaceV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -365,7 +365,7 @@ func (a *SpotAPIService) CreateOrderCancelReplaceV3Execute(r ApiCreateOrderCance
 
 type ApiCreateOrderListOcoV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	aboveType *string
 	belowType *string
 	quantity *string
@@ -551,7 +551,7 @@ TAKE_PROFIT stopPrice < Last Traded Price < STOP_LOSS/STOP_LOSS_LIMIT stopPrice
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateOrderListOcoV3Request
 */
-func (a *SpotAPIService) CreateOrderListOcoV3(ctx context.Context) ApiCreateOrderListOcoV3Request {
+func (a *SpotTradingAPIService) CreateOrderListOcoV3(ctx context.Context) ApiCreateOrderListOcoV3Request {
 	return ApiCreateOrderListOcoV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -560,7 +560,7 @@ func (a *SpotAPIService) CreateOrderListOcoV3(ctx context.Context) ApiCreateOrde
 
 // Execute executes the request
 //  @return CreateOrderListOcoV3Resp
-func (a *SpotAPIService) CreateOrderListOcoV3Execute(r ApiCreateOrderListOcoV3Request) (*CreateOrderListOcoV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) CreateOrderListOcoV3Execute(r ApiCreateOrderListOcoV3Request) (*CreateOrderListOcoV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -568,7 +568,7 @@ func (a *SpotAPIService) CreateOrderListOcoV3Execute(r ApiCreateOrderListOcoV3Re
 		localVarReturnValue  *CreateOrderListOcoV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.CreateOrderListOcoV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.CreateOrderListOcoV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -746,7 +746,7 @@ func (a *SpotAPIService) CreateOrderListOcoV3Execute(r ApiCreateOrderListOcoV3Re
 
 type ApiCreateOrderListOtoV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	pendingQuantity *string
 	pendingSide *string
 	pendingType *string
@@ -923,7 +923,7 @@ Places an OTO.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateOrderListOtoV3Request
 */
-func (a *SpotAPIService) CreateOrderListOtoV3(ctx context.Context) ApiCreateOrderListOtoV3Request {
+func (a *SpotTradingAPIService) CreateOrderListOtoV3(ctx context.Context) ApiCreateOrderListOtoV3Request {
 	return ApiCreateOrderListOtoV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -932,7 +932,7 @@ func (a *SpotAPIService) CreateOrderListOtoV3(ctx context.Context) ApiCreateOrde
 
 // Execute executes the request
 //  @return CreateOrderListOtoV3Resp
-func (a *SpotAPIService) CreateOrderListOtoV3Execute(r ApiCreateOrderListOtoV3Request) (*CreateOrderListOtoV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) CreateOrderListOtoV3Execute(r ApiCreateOrderListOtoV3Request) (*CreateOrderListOtoV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -940,7 +940,7 @@ func (a *SpotAPIService) CreateOrderListOtoV3Execute(r ApiCreateOrderListOtoV3Re
 		localVarReturnValue  *CreateOrderListOtoV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.CreateOrderListOtoV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.CreateOrderListOtoV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1121,7 +1121,7 @@ func (a *SpotAPIService) CreateOrderListOtoV3Execute(r ApiCreateOrderListOtoV3Re
 
 type ApiCreateOrderListOtocoV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	pendingAboveType *string
 	pendingQuantity *string
 	pendingSide *string
@@ -1354,7 +1354,7 @@ The rules of the pending above and pending below follow the same rules as the Or
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateOrderListOtocoV3Request
 */
-func (a *SpotAPIService) CreateOrderListOtocoV3(ctx context.Context) ApiCreateOrderListOtocoV3Request {
+func (a *SpotTradingAPIService) CreateOrderListOtocoV3(ctx context.Context) ApiCreateOrderListOtocoV3Request {
 	return ApiCreateOrderListOtocoV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -1363,7 +1363,7 @@ func (a *SpotAPIService) CreateOrderListOtocoV3(ctx context.Context) ApiCreateOr
 
 // Execute executes the request
 //  @return CreateOrderListOtocoV3Resp
-func (a *SpotAPIService) CreateOrderListOtocoV3Execute(r ApiCreateOrderListOtocoV3Request) (*CreateOrderListOtocoV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) CreateOrderListOtocoV3Execute(r ApiCreateOrderListOtocoV3Request) (*CreateOrderListOtocoV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1371,7 +1371,7 @@ func (a *SpotAPIService) CreateOrderListOtocoV3Execute(r ApiCreateOrderListOtoco
 		localVarReturnValue  *CreateOrderListOtocoV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.CreateOrderListOtocoV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.CreateOrderListOtocoV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1579,7 +1579,7 @@ func (a *SpotAPIService) CreateOrderListOtocoV3Execute(r ApiCreateOrderListOtoco
 
 type ApiCreateOrderOcoV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	price *string
 	quantity *string
 	side *string
@@ -1729,7 +1729,7 @@ ICEBERG quantities however do not have to be the same
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateOrderOcoV3Request
 */
-func (a *SpotAPIService) CreateOrderOcoV3(ctx context.Context) ApiCreateOrderOcoV3Request {
+func (a *SpotTradingAPIService) CreateOrderOcoV3(ctx context.Context) ApiCreateOrderOcoV3Request {
 	return ApiCreateOrderOcoV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -1738,7 +1738,7 @@ func (a *SpotAPIService) CreateOrderOcoV3(ctx context.Context) ApiCreateOrderOco
 
 // Execute executes the request
 //  @return CreateOrderOcoV3Resp
-func (a *SpotAPIService) CreateOrderOcoV3Execute(r ApiCreateOrderOcoV3Request) (*CreateOrderOcoV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) CreateOrderOcoV3Execute(r ApiCreateOrderOcoV3Request) (*CreateOrderOcoV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1746,7 +1746,7 @@ func (a *SpotAPIService) CreateOrderOcoV3Execute(r ApiCreateOrderOcoV3Request) (
 		localVarReturnValue  *CreateOrderOcoV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.CreateOrderOcoV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.CreateOrderOcoV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1909,7 +1909,7 @@ func (a *SpotAPIService) CreateOrderOcoV3Execute(r ApiCreateOrderOcoV3Request) (
 
 type ApiCreateOrderTestV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	side *string
 	symbol *string
 	timestamp *int64
@@ -2033,7 +2033,7 @@ Creates and validates a new order but does not send it into the matching engine.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateOrderTestV3Request
 */
-func (a *SpotAPIService) CreateOrderTestV3(ctx context.Context) ApiCreateOrderTestV3Request {
+func (a *SpotTradingAPIService) CreateOrderTestV3(ctx context.Context) ApiCreateOrderTestV3Request {
 	return ApiCreateOrderTestV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -2042,7 +2042,7 @@ func (a *SpotAPIService) CreateOrderTestV3(ctx context.Context) ApiCreateOrderTe
 
 // Execute executes the request
 //  @return SpotCreateOrderTestV3Resp
-func (a *SpotAPIService) CreateOrderTestV3Execute(r ApiCreateOrderTestV3Request) (*SpotCreateOrderTestV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) CreateOrderTestV3Execute(r ApiCreateOrderTestV3Request) (*SpotCreateOrderTestV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2050,7 +2050,7 @@ func (a *SpotAPIService) CreateOrderTestV3Execute(r ApiCreateOrderTestV3Request)
 		localVarReturnValue  *SpotCreateOrderTestV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.CreateOrderTestV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.CreateOrderTestV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2202,7 +2202,7 @@ func (a *SpotAPIService) CreateOrderTestV3Execute(r ApiCreateOrderTestV3Request)
 
 type ApiCreateOrderV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	side *string
 	symbol *string
 	timestamp *int64
@@ -2319,7 +2319,7 @@ Send in a new order.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateOrderV3Request
 */
-func (a *SpotAPIService) CreateOrderV3(ctx context.Context) ApiCreateOrderV3Request {
+func (a *SpotTradingAPIService) CreateOrderV3(ctx context.Context) ApiCreateOrderV3Request {
 	return ApiCreateOrderV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -2328,7 +2328,7 @@ func (a *SpotAPIService) CreateOrderV3(ctx context.Context) ApiCreateOrderV3Requ
 
 // Execute executes the request
 //  @return SpotCreateOrderV3Resp
-func (a *SpotAPIService) CreateOrderV3Execute(r ApiCreateOrderV3Request) (*SpotCreateOrderV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) CreateOrderV3Execute(r ApiCreateOrderV3Request) (*SpotCreateOrderV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2336,7 +2336,7 @@ func (a *SpotAPIService) CreateOrderV3Execute(r ApiCreateOrderV3Request) (*SpotC
 		localVarReturnValue  *SpotCreateOrderV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.CreateOrderV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.CreateOrderV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2485,7 +2485,7 @@ func (a *SpotAPIService) CreateOrderV3Execute(r ApiCreateOrderV3Request) (*SpotC
 
 type ApiCreateSorOrderTestV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	quantity *string
 	side *string
 	symbol *string
@@ -2591,7 +2591,7 @@ Creates and validates a new order but does not send it into the matching engine.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateSorOrderTestV3Request
 */
-func (a *SpotAPIService) CreateSorOrderTestV3(ctx context.Context) ApiCreateSorOrderTestV3Request {
+func (a *SpotTradingAPIService) CreateSorOrderTestV3(ctx context.Context) ApiCreateSorOrderTestV3Request {
 	return ApiCreateSorOrderTestV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -2600,7 +2600,7 @@ func (a *SpotAPIService) CreateSorOrderTestV3(ctx context.Context) ApiCreateSorO
 
 // Execute executes the request
 //  @return SpotCreateSorOrderTestV3Resp
-func (a *SpotAPIService) CreateSorOrderTestV3Execute(r ApiCreateSorOrderTestV3Request) (*SpotCreateSorOrderTestV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) CreateSorOrderTestV3Execute(r ApiCreateSorOrderTestV3Request) (*SpotCreateSorOrderTestV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2608,7 +2608,7 @@ func (a *SpotAPIService) CreateSorOrderTestV3Execute(r ApiCreateSorOrderTestV3Re
 		localVarReturnValue  *SpotCreateSorOrderTestV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.CreateSorOrderTestV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.CreateSorOrderTestV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2752,7 +2752,7 @@ func (a *SpotAPIService) CreateSorOrderTestV3Execute(r ApiCreateSorOrderTestV3Re
 
 type ApiCreateSorOrderV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	quantity *string
 	side *string
 	symbol *string
@@ -2851,7 +2851,7 @@ Places an order using smart order routing (SOR).
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateSorOrderV3Request
 */
-func (a *SpotAPIService) CreateSorOrderV3(ctx context.Context) ApiCreateSorOrderV3Request {
+func (a *SpotTradingAPIService) CreateSorOrderV3(ctx context.Context) ApiCreateSorOrderV3Request {
 	return ApiCreateSorOrderV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -2860,7 +2860,7 @@ func (a *SpotAPIService) CreateSorOrderV3(ctx context.Context) ApiCreateSorOrder
 
 // Execute executes the request
 //  @return CreateSorOrderV3Resp
-func (a *SpotAPIService) CreateSorOrderV3Execute(r ApiCreateSorOrderV3Request) (*CreateSorOrderV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) CreateSorOrderV3Execute(r ApiCreateSorOrderV3Request) (*CreateSorOrderV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2868,7 +2868,7 @@ func (a *SpotAPIService) CreateSorOrderV3Execute(r ApiCreateSorOrderV3Request) (
 		localVarReturnValue  *CreateSorOrderV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.CreateSorOrderV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.CreateSorOrderV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3009,7 +3009,7 @@ func (a *SpotAPIService) CreateSorOrderV3Execute(r ApiCreateSorOrderV3Request) (
 
 type ApiCreateUserDataStreamV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 }
 
 func (r ApiCreateUserDataStreamV3Request) Execute() (*CreateUserDataStreamV3Resp, *http.Response, error) {
@@ -3024,7 +3024,7 @@ Start a new user data stream. The stream will close after 60 minutes unless a ke
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateUserDataStreamV3Request
 */
-func (a *SpotAPIService) CreateUserDataStreamV3(ctx context.Context) ApiCreateUserDataStreamV3Request {
+func (a *SpotTradingAPIService) CreateUserDataStreamV3(ctx context.Context) ApiCreateUserDataStreamV3Request {
 	return ApiCreateUserDataStreamV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -3033,7 +3033,7 @@ func (a *SpotAPIService) CreateUserDataStreamV3(ctx context.Context) ApiCreateUs
 
 // Execute executes the request
 //  @return CreateUserDataStreamV3Resp
-func (a *SpotAPIService) CreateUserDataStreamV3Execute(r ApiCreateUserDataStreamV3Request) (*CreateUserDataStreamV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) CreateUserDataStreamV3Execute(r ApiCreateUserDataStreamV3Request) (*CreateUserDataStreamV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -3041,7 +3041,7 @@ func (a *SpotAPIService) CreateUserDataStreamV3Execute(r ApiCreateUserDataStream
 		localVarReturnValue  *CreateUserDataStreamV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.CreateUserDataStreamV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.CreateUserDataStreamV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3135,7 +3135,7 @@ func (a *SpotAPIService) CreateUserDataStreamV3Execute(r ApiCreateUserDataStream
 
 type ApiDeleteOpenOrdersV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	symbol *string
 	timestamp *int64
 	recvWindow *int64
@@ -3170,7 +3170,7 @@ This includes orders that are part of an order list.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiDeleteOpenOrdersV3Request
 */
-func (a *SpotAPIService) DeleteOpenOrdersV3(ctx context.Context) ApiDeleteOpenOrdersV3Request {
+func (a *SpotTradingAPIService) DeleteOpenOrdersV3(ctx context.Context) ApiDeleteOpenOrdersV3Request {
 	return ApiDeleteOpenOrdersV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -3179,7 +3179,7 @@ func (a *SpotAPIService) DeleteOpenOrdersV3(ctx context.Context) ApiDeleteOpenOr
 
 // Execute executes the request
 //  @return [][]SpotDeleteOpenOrdersV3RespInner
-func (a *SpotAPIService) DeleteOpenOrdersV3Execute(r ApiDeleteOpenOrdersV3Request) ([][]SpotDeleteOpenOrdersV3RespInner, *http.Response, error) {
+func (a *SpotTradingAPIService) DeleteOpenOrdersV3Execute(r ApiDeleteOpenOrdersV3Request) ([][]SpotDeleteOpenOrdersV3RespInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -3187,7 +3187,7 @@ func (a *SpotAPIService) DeleteOpenOrdersV3Execute(r ApiDeleteOpenOrdersV3Reques
 		localVarReturnValue  [][]SpotDeleteOpenOrdersV3RespInner
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.DeleteOpenOrdersV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.DeleteOpenOrdersV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3292,7 +3292,7 @@ func (a *SpotAPIService) DeleteOpenOrdersV3Execute(r ApiDeleteOpenOrdersV3Reques
 
 type ApiDeleteOrderListV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	symbol *string
 	timestamp *int64
 	orderListId *int64
@@ -3347,7 +3347,7 @@ Cancel an entire Order list
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiDeleteOrderListV3Request
 */
-func (a *SpotAPIService) DeleteOrderListV3(ctx context.Context) ApiDeleteOrderListV3Request {
+func (a *SpotTradingAPIService) DeleteOrderListV3(ctx context.Context) ApiDeleteOrderListV3Request {
 	return ApiDeleteOrderListV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -3356,7 +3356,7 @@ func (a *SpotAPIService) DeleteOrderListV3(ctx context.Context) ApiDeleteOrderLi
 
 // Execute executes the request
 //  @return DeleteOrderListV3Resp
-func (a *SpotAPIService) DeleteOrderListV3Execute(r ApiDeleteOrderListV3Request) (*DeleteOrderListV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) DeleteOrderListV3Execute(r ApiDeleteOrderListV3Request) (*DeleteOrderListV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -3364,7 +3364,7 @@ func (a *SpotAPIService) DeleteOrderListV3Execute(r ApiDeleteOrderListV3Request)
 		localVarReturnValue  *DeleteOrderListV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.DeleteOrderListV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.DeleteOrderListV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3484,7 +3484,7 @@ func (a *SpotAPIService) DeleteOrderListV3Execute(r ApiDeleteOrderListV3Request)
 
 type ApiDeleteOrderV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	symbol *string
 	timestamp *int64
 	orderId *int64
@@ -3544,7 +3544,7 @@ Cancel an active order.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiDeleteOrderV3Request
 */
-func (a *SpotAPIService) DeleteOrderV3(ctx context.Context) ApiDeleteOrderV3Request {
+func (a *SpotTradingAPIService) DeleteOrderV3(ctx context.Context) ApiDeleteOrderV3Request {
 	return ApiDeleteOrderV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -3553,7 +3553,7 @@ func (a *SpotAPIService) DeleteOrderV3(ctx context.Context) ApiDeleteOrderV3Requ
 
 // Execute executes the request
 //  @return DeleteOrderV3Resp
-func (a *SpotAPIService) DeleteOrderV3Execute(r ApiDeleteOrderV3Request) (*DeleteOrderV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) DeleteOrderV3Execute(r ApiDeleteOrderV3Request) (*DeleteOrderV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -3561,7 +3561,7 @@ func (a *SpotAPIService) DeleteOrderV3Execute(r ApiDeleteOrderV3Request) (*Delet
 		localVarReturnValue  *DeleteOrderV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.DeleteOrderV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.DeleteOrderV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3687,7 +3687,7 @@ func (a *SpotAPIService) DeleteOrderV3Execute(r ApiDeleteOrderV3Request) (*Delet
 
 type ApiDeleteUserDataStreamV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	listenKey *string
 }
 
@@ -3708,7 +3708,7 @@ Close out a user data stream.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiDeleteUserDataStreamV3Request
 */
-func (a *SpotAPIService) DeleteUserDataStreamV3(ctx context.Context) ApiDeleteUserDataStreamV3Request {
+func (a *SpotTradingAPIService) DeleteUserDataStreamV3(ctx context.Context) ApiDeleteUserDataStreamV3Request {
 	return ApiDeleteUserDataStreamV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -3717,7 +3717,7 @@ func (a *SpotAPIService) DeleteUserDataStreamV3(ctx context.Context) ApiDeleteUs
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *SpotAPIService) DeleteUserDataStreamV3Execute(r ApiDeleteUserDataStreamV3Request) (map[string]interface{}, *http.Response, error) {
+func (a *SpotTradingAPIService) DeleteUserDataStreamV3Execute(r ApiDeleteUserDataStreamV3Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -3725,7 +3725,7 @@ func (a *SpotAPIService) DeleteUserDataStreamV3Execute(r ApiDeleteUserDataStream
 		localVarReturnValue  map[string]interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.DeleteUserDataStreamV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.DeleteUserDataStreamV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3823,7 +3823,7 @@ func (a *SpotAPIService) DeleteUserDataStreamV3Execute(r ApiDeleteUserDataStream
 
 type ApiGetAccountCommissionV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	symbol *string
 }
 
@@ -3844,7 +3844,7 @@ Get current account commission rates.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetAccountCommissionV3Request
 */
-func (a *SpotAPIService) GetAccountCommissionV3(ctx context.Context) ApiGetAccountCommissionV3Request {
+func (a *SpotTradingAPIService) GetAccountCommissionV3(ctx context.Context) ApiGetAccountCommissionV3Request {
 	return ApiGetAccountCommissionV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -3853,7 +3853,7 @@ func (a *SpotAPIService) GetAccountCommissionV3(ctx context.Context) ApiGetAccou
 
 // Execute executes the request
 //  @return GetAccountCommissionV3Resp
-func (a *SpotAPIService) GetAccountCommissionV3Execute(r ApiGetAccountCommissionV3Request) (*GetAccountCommissionV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) GetAccountCommissionV3Execute(r ApiGetAccountCommissionV3Request) (*GetAccountCommissionV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3861,7 +3861,7 @@ func (a *SpotAPIService) GetAccountCommissionV3Execute(r ApiGetAccountCommission
 		localVarReturnValue  *GetAccountCommissionV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetAccountCommissionV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetAccountCommissionV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3959,7 +3959,7 @@ func (a *SpotAPIService) GetAccountCommissionV3Execute(r ApiGetAccountCommission
 
 type ApiGetAccountV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	timestamp *int64
 	omitZeroBalances *bool
 	recvWindow *int64
@@ -3994,7 +3994,7 @@ Get current account information.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetAccountV3Request
 */
-func (a *SpotAPIService) GetAccountV3(ctx context.Context) ApiGetAccountV3Request {
+func (a *SpotTradingAPIService) GetAccountV3(ctx context.Context) ApiGetAccountV3Request {
 	return ApiGetAccountV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -4003,7 +4003,7 @@ func (a *SpotAPIService) GetAccountV3(ctx context.Context) ApiGetAccountV3Reques
 
 // Execute executes the request
 //  @return GetAccountV3Resp
-func (a *SpotAPIService) GetAccountV3Execute(r ApiGetAccountV3Request) (*GetAccountV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) GetAccountV3Execute(r ApiGetAccountV3Request) (*GetAccountV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4011,7 +4011,7 @@ func (a *SpotAPIService) GetAccountV3Execute(r ApiGetAccountV3Request) (*GetAcco
 		localVarReturnValue  *GetAccountV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetAccountV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetAccountV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4115,7 +4115,7 @@ func (a *SpotAPIService) GetAccountV3Execute(r ApiGetAccountV3Request) (*GetAcco
 
 type ApiGetAggTradesV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	symbol *string
 	fromId *int64
 	startTime *int64
@@ -4164,7 +4164,7 @@ Get compressed, aggregate trades. Trades that fill at the time, from the same ta
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetAggTradesV3Request
 */
-func (a *SpotAPIService) GetAggTradesV3(ctx context.Context) ApiGetAggTradesV3Request {
+func (a *SpotTradingAPIService) GetAggTradesV3(ctx context.Context) ApiGetAggTradesV3Request {
 	return ApiGetAggTradesV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -4173,7 +4173,7 @@ func (a *SpotAPIService) GetAggTradesV3(ctx context.Context) ApiGetAggTradesV3Re
 
 // Execute executes the request
 //  @return []SpotGetAggTradesV3RespItem
-func (a *SpotAPIService) GetAggTradesV3Execute(r ApiGetAggTradesV3Request) ([]SpotGetAggTradesV3RespItem, *http.Response, error) {
+func (a *SpotTradingAPIService) GetAggTradesV3Execute(r ApiGetAggTradesV3Request) ([]SpotGetAggTradesV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4181,7 +4181,7 @@ func (a *SpotAPIService) GetAggTradesV3Execute(r ApiGetAggTradesV3Request) ([]Sp
 		localVarReturnValue  []SpotGetAggTradesV3RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetAggTradesV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetAggTradesV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4288,7 +4288,7 @@ func (a *SpotAPIService) GetAggTradesV3Execute(r ApiGetAggTradesV3Request) ([]Sp
 
 type ApiGetAllOrderListV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	timestamp *int64
 	fromId *int64
 	startTime *int64
@@ -4343,7 +4343,7 @@ Note that the time between startTime and endTime can't be longer than 24 hours.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetAllOrderListV3Request
 */
-func (a *SpotAPIService) GetAllOrderListV3(ctx context.Context) ApiGetAllOrderListV3Request {
+func (a *SpotTradingAPIService) GetAllOrderListV3(ctx context.Context) ApiGetAllOrderListV3Request {
 	return ApiGetAllOrderListV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -4352,7 +4352,7 @@ func (a *SpotAPIService) GetAllOrderListV3(ctx context.Context) ApiGetAllOrderLi
 
 // Execute executes the request
 //  @return []GetAllOrderListV3RespItem
-func (a *SpotAPIService) GetAllOrderListV3Execute(r ApiGetAllOrderListV3Request) ([]GetAllOrderListV3RespItem, *http.Response, error) {
+func (a *SpotTradingAPIService) GetAllOrderListV3Execute(r ApiGetAllOrderListV3Request) ([]GetAllOrderListV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4360,7 +4360,7 @@ func (a *SpotAPIService) GetAllOrderListV3Execute(r ApiGetAllOrderListV3Request)
 		localVarReturnValue  []GetAllOrderListV3RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetAllOrderListV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetAllOrderListV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4473,7 +4473,7 @@ func (a *SpotAPIService) GetAllOrderListV3Execute(r ApiGetAllOrderListV3Request)
 
 type ApiGetAllOrdersV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	symbol *string
 	timestamp *int64
 	orderId *int64
@@ -4532,7 +4532,7 @@ Get all account orders; active, canceled, or filled.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetAllOrdersV3Request
 */
-func (a *SpotAPIService) GetAllOrdersV3(ctx context.Context) ApiGetAllOrdersV3Request {
+func (a *SpotTradingAPIService) GetAllOrdersV3(ctx context.Context) ApiGetAllOrdersV3Request {
 	return ApiGetAllOrdersV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -4541,7 +4541,7 @@ func (a *SpotAPIService) GetAllOrdersV3(ctx context.Context) ApiGetAllOrdersV3Re
 
 // Execute executes the request
 //  @return []GetAllOrdersV3RespItem
-func (a *SpotAPIService) GetAllOrdersV3Execute(r ApiGetAllOrdersV3Request) ([]GetAllOrdersV3RespItem, *http.Response, error) {
+func (a *SpotTradingAPIService) GetAllOrdersV3Execute(r ApiGetAllOrdersV3Request) ([]GetAllOrdersV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4549,7 +4549,7 @@ func (a *SpotAPIService) GetAllOrdersV3Execute(r ApiGetAllOrdersV3Request) ([]Ge
 		localVarReturnValue  []GetAllOrdersV3RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetAllOrdersV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetAllOrdersV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4669,7 +4669,7 @@ func (a *SpotAPIService) GetAllOrdersV3Execute(r ApiGetAllOrdersV3Request) ([]Ge
 
 type ApiGetAvgPriceV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	symbol *string
 }
 
@@ -4690,7 +4690,7 @@ Current average price for a symbol.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetAvgPriceV3Request
 */
-func (a *SpotAPIService) GetAvgPriceV3(ctx context.Context) ApiGetAvgPriceV3Request {
+func (a *SpotTradingAPIService) GetAvgPriceV3(ctx context.Context) ApiGetAvgPriceV3Request {
 	return ApiGetAvgPriceV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -4699,7 +4699,7 @@ func (a *SpotAPIService) GetAvgPriceV3(ctx context.Context) ApiGetAvgPriceV3Requ
 
 // Execute executes the request
 //  @return GetAvgPriceV3Resp
-func (a *SpotAPIService) GetAvgPriceV3Execute(r ApiGetAvgPriceV3Request) (*GetAvgPriceV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) GetAvgPriceV3Execute(r ApiGetAvgPriceV3Request) (*GetAvgPriceV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4707,7 +4707,7 @@ func (a *SpotAPIService) GetAvgPriceV3Execute(r ApiGetAvgPriceV3Request) (*GetAv
 		localVarReturnValue  *GetAvgPriceV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetAvgPriceV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetAvgPriceV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4799,7 +4799,7 @@ func (a *SpotAPIService) GetAvgPriceV3Execute(r ApiGetAvgPriceV3Request) (*GetAv
 
 type ApiGetDepthV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	symbol *string
 	limit *int32
 }
@@ -4825,7 +4825,7 @@ GetDepthV3 Order book
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetDepthV3Request
 */
-func (a *SpotAPIService) GetDepthV3(ctx context.Context) ApiGetDepthV3Request {
+func (a *SpotTradingAPIService) GetDepthV3(ctx context.Context) ApiGetDepthV3Request {
 	return ApiGetDepthV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -4834,7 +4834,7 @@ func (a *SpotAPIService) GetDepthV3(ctx context.Context) ApiGetDepthV3Request {
 
 // Execute executes the request
 //  @return GetDepthV3Resp
-func (a *SpotAPIService) GetDepthV3Execute(r ApiGetDepthV3Request) (*GetDepthV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) GetDepthV3Execute(r ApiGetDepthV3Request) (*GetDepthV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4842,7 +4842,7 @@ func (a *SpotAPIService) GetDepthV3Execute(r ApiGetDepthV3Request) (*GetDepthV3R
 		localVarReturnValue  *GetDepthV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetDepthV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetDepthV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4940,7 +4940,7 @@ func (a *SpotAPIService) GetDepthV3Execute(r ApiGetDepthV3Request) (*GetDepthV3R
 
 type ApiGetExchangeInfoV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	symbol *string
 	symbols *[]string
 	permissions *string
@@ -4990,7 +4990,7 @@ Current exchange trading rules and symbol information
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetExchangeInfoV3Request
 */
-func (a *SpotAPIService) GetExchangeInfoV3(ctx context.Context) ApiGetExchangeInfoV3Request {
+func (a *SpotTradingAPIService) GetExchangeInfoV3(ctx context.Context) ApiGetExchangeInfoV3Request {
 	return ApiGetExchangeInfoV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -4999,7 +4999,7 @@ func (a *SpotAPIService) GetExchangeInfoV3(ctx context.Context) ApiGetExchangeIn
 
 // Execute executes the request
 //  @return SpotGetExchangeInfoV3Resp
-func (a *SpotAPIService) GetExchangeInfoV3Execute(r ApiGetExchangeInfoV3Request) (*SpotGetExchangeInfoV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) GetExchangeInfoV3Execute(r ApiGetExchangeInfoV3Request) (*SpotGetExchangeInfoV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5007,7 +5007,7 @@ func (a *SpotAPIService) GetExchangeInfoV3Execute(r ApiGetExchangeInfoV3Request)
 		localVarReturnValue  *SpotGetExchangeInfoV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetExchangeInfoV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetExchangeInfoV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -5127,7 +5127,7 @@ func (a *SpotAPIService) GetExchangeInfoV3Execute(r ApiGetExchangeInfoV3Request)
 
 type ApiGetHistoricalTradesV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	symbol *string
 	limit *int32
 	fromId *int64
@@ -5162,7 +5162,7 @@ Get older trades.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetHistoricalTradesV3Request
 */
-func (a *SpotAPIService) GetHistoricalTradesV3(ctx context.Context) ApiGetHistoricalTradesV3Request {
+func (a *SpotTradingAPIService) GetHistoricalTradesV3(ctx context.Context) ApiGetHistoricalTradesV3Request {
 	return ApiGetHistoricalTradesV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -5171,7 +5171,7 @@ func (a *SpotAPIService) GetHistoricalTradesV3(ctx context.Context) ApiGetHistor
 
 // Execute executes the request
 //  @return []GetHistoricalTradesV3RespItem
-func (a *SpotAPIService) GetHistoricalTradesV3Execute(r ApiGetHistoricalTradesV3Request) ([]GetHistoricalTradesV3RespItem, *http.Response, error) {
+func (a *SpotTradingAPIService) GetHistoricalTradesV3Execute(r ApiGetHistoricalTradesV3Request) ([]GetHistoricalTradesV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5179,7 +5179,7 @@ func (a *SpotAPIService) GetHistoricalTradesV3Execute(r ApiGetHistoricalTradesV3
 		localVarReturnValue  []GetHistoricalTradesV3RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetHistoricalTradesV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetHistoricalTradesV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -5280,7 +5280,7 @@ func (a *SpotAPIService) GetHistoricalTradesV3Execute(r ApiGetHistoricalTradesV3
 
 type ApiGetKlinesV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	symbol *string
 	interval *string
 	startTime *int64
@@ -5334,7 +5334,7 @@ Klines are uniquely identified by their open time.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetKlinesV3Request
 */
-func (a *SpotAPIService) GetKlinesV3(ctx context.Context) ApiGetKlinesV3Request {
+func (a *SpotTradingAPIService) GetKlinesV3(ctx context.Context) ApiGetKlinesV3Request {
 	return ApiGetKlinesV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -5343,7 +5343,7 @@ func (a *SpotAPIService) GetKlinesV3(ctx context.Context) ApiGetKlinesV3Request 
 
 // Execute executes the request
 //  @return [][]GetKlinesV3200ResponseInnerInner
-func (a *SpotAPIService) GetKlinesV3Execute(r ApiGetKlinesV3Request) ([][]GetKlinesV3200ResponseInnerInner, *http.Response, error) {
+func (a *SpotTradingAPIService) GetKlinesV3Execute(r ApiGetKlinesV3Request) ([][]GetKlinesV3200ResponseInnerInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5351,7 +5351,7 @@ func (a *SpotAPIService) GetKlinesV3Execute(r ApiGetKlinesV3Request) ([][]GetKli
 		localVarReturnValue  [][]GetKlinesV3200ResponseInnerInner
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetKlinesV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetKlinesV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -5465,7 +5465,7 @@ func (a *SpotAPIService) GetKlinesV3Execute(r ApiGetKlinesV3Request) ([][]GetKli
 
 type ApiGetMyAllocationsV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	symbol *string
 	startTime *int64
 	endTime *int64
@@ -5530,7 +5530,7 @@ Retrieves allocations resulting from SOR order placement.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetMyAllocationsV3Request
 */
-func (a *SpotAPIService) GetMyAllocationsV3(ctx context.Context) ApiGetMyAllocationsV3Request {
+func (a *SpotTradingAPIService) GetMyAllocationsV3(ctx context.Context) ApiGetMyAllocationsV3Request {
 	return ApiGetMyAllocationsV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -5539,7 +5539,7 @@ func (a *SpotAPIService) GetMyAllocationsV3(ctx context.Context) ApiGetMyAllocat
 
 // Execute executes the request
 //  @return []GetMyAllocationsV3RespItem
-func (a *SpotAPIService) GetMyAllocationsV3Execute(r ApiGetMyAllocationsV3Request) ([]GetMyAllocationsV3RespItem, *http.Response, error) {
+func (a *SpotTradingAPIService) GetMyAllocationsV3Execute(r ApiGetMyAllocationsV3Request) ([]GetMyAllocationsV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5547,7 +5547,7 @@ func (a *SpotAPIService) GetMyAllocationsV3Execute(r ApiGetMyAllocationsV3Reques
 		localVarReturnValue  []GetMyAllocationsV3RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetMyAllocationsV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetMyAllocationsV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -5669,7 +5669,7 @@ func (a *SpotAPIService) GetMyAllocationsV3Execute(r ApiGetMyAllocationsV3Reques
 
 type ApiGetMyPreventedMatchesV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	symbol *string
 	timestamp *int64
 	preventedMatchId *int64
@@ -5733,7 +5733,7 @@ These are the combinations supported:
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetMyPreventedMatchesV3Request
 */
-func (a *SpotAPIService) GetMyPreventedMatchesV3(ctx context.Context) ApiGetMyPreventedMatchesV3Request {
+func (a *SpotTradingAPIService) GetMyPreventedMatchesV3(ctx context.Context) ApiGetMyPreventedMatchesV3Request {
 	return ApiGetMyPreventedMatchesV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -5742,7 +5742,7 @@ func (a *SpotAPIService) GetMyPreventedMatchesV3(ctx context.Context) ApiGetMyPr
 
 // Execute executes the request
 //  @return []GetMyPreventedMatchesV3RespItem
-func (a *SpotAPIService) GetMyPreventedMatchesV3Execute(r ApiGetMyPreventedMatchesV3Request) ([]GetMyPreventedMatchesV3RespItem, *http.Response, error) {
+func (a *SpotTradingAPIService) GetMyPreventedMatchesV3Execute(r ApiGetMyPreventedMatchesV3Request) ([]GetMyPreventedMatchesV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5750,7 +5750,7 @@ func (a *SpotAPIService) GetMyPreventedMatchesV3Execute(r ApiGetMyPreventedMatch
 		localVarReturnValue  []GetMyPreventedMatchesV3RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetMyPreventedMatchesV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetMyPreventedMatchesV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -5870,7 +5870,7 @@ func (a *SpotAPIService) GetMyPreventedMatchesV3Execute(r ApiGetMyPreventedMatch
 
 type ApiGetMyTradesV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	symbol *string
 	timestamp *int64
 	orderId *int64
@@ -5937,7 +5937,7 @@ Get trades for a specific account and symbol.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetMyTradesV3Request
 */
-func (a *SpotAPIService) GetMyTradesV3(ctx context.Context) ApiGetMyTradesV3Request {
+func (a *SpotTradingAPIService) GetMyTradesV3(ctx context.Context) ApiGetMyTradesV3Request {
 	return ApiGetMyTradesV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -5946,7 +5946,7 @@ func (a *SpotAPIService) GetMyTradesV3(ctx context.Context) ApiGetMyTradesV3Requ
 
 // Execute executes the request
 //  @return []GetMyTradesV3RespItem
-func (a *SpotAPIService) GetMyTradesV3Execute(r ApiGetMyTradesV3Request) ([]GetMyTradesV3RespItem, *http.Response, error) {
+func (a *SpotTradingAPIService) GetMyTradesV3Execute(r ApiGetMyTradesV3Request) ([]GetMyTradesV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -5954,7 +5954,7 @@ func (a *SpotAPIService) GetMyTradesV3Execute(r ApiGetMyTradesV3Request) ([]GetM
 		localVarReturnValue  []GetMyTradesV3RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetMyTradesV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetMyTradesV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -6077,7 +6077,7 @@ func (a *SpotAPIService) GetMyTradesV3Execute(r ApiGetMyTradesV3Request) ([]GetM
 
 type ApiGetOpenOrderListV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	timestamp *int64
 	recvWindow *int64
 }
@@ -6103,7 +6103,7 @@ GetOpenOrderListV3 Query Open Order lists (USER_DATA)
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetOpenOrderListV3Request
 */
-func (a *SpotAPIService) GetOpenOrderListV3(ctx context.Context) ApiGetOpenOrderListV3Request {
+func (a *SpotTradingAPIService) GetOpenOrderListV3(ctx context.Context) ApiGetOpenOrderListV3Request {
 	return ApiGetOpenOrderListV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -6112,7 +6112,7 @@ func (a *SpotAPIService) GetOpenOrderListV3(ctx context.Context) ApiGetOpenOrder
 
 // Execute executes the request
 //  @return []GetOpenOrderListV3RespItem
-func (a *SpotAPIService) GetOpenOrderListV3Execute(r ApiGetOpenOrderListV3Request) ([]GetOpenOrderListV3RespItem, *http.Response, error) {
+func (a *SpotTradingAPIService) GetOpenOrderListV3Execute(r ApiGetOpenOrderListV3Request) ([]GetOpenOrderListV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -6120,7 +6120,7 @@ func (a *SpotAPIService) GetOpenOrderListV3Execute(r ApiGetOpenOrderListV3Reques
 		localVarReturnValue  []GetOpenOrderListV3RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetOpenOrderListV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetOpenOrderListV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -6221,7 +6221,7 @@ func (a *SpotAPIService) GetOpenOrderListV3Execute(r ApiGetOpenOrderListV3Reques
 
 type ApiGetOpenOrdersV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	timestamp *int64
 	symbol *string
 	recvWindow *int64
@@ -6257,7 +6257,7 @@ Weight:
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetOpenOrdersV3Request
 */
-func (a *SpotAPIService) GetOpenOrdersV3(ctx context.Context) ApiGetOpenOrdersV3Request {
+func (a *SpotTradingAPIService) GetOpenOrdersV3(ctx context.Context) ApiGetOpenOrdersV3Request {
 	return ApiGetOpenOrdersV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -6266,7 +6266,7 @@ func (a *SpotAPIService) GetOpenOrdersV3(ctx context.Context) ApiGetOpenOrdersV3
 
 // Execute executes the request
 //  @return []GetOpenOrdersV3RespItem
-func (a *SpotAPIService) GetOpenOrdersV3Execute(r ApiGetOpenOrdersV3Request) ([]GetOpenOrdersV3RespItem, *http.Response, error) {
+func (a *SpotTradingAPIService) GetOpenOrdersV3Execute(r ApiGetOpenOrdersV3Request) ([]GetOpenOrdersV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -6274,7 +6274,7 @@ func (a *SpotAPIService) GetOpenOrdersV3Execute(r ApiGetOpenOrdersV3Request) ([]
 		localVarReturnValue  []GetOpenOrdersV3RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetOpenOrdersV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetOpenOrdersV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -6381,7 +6381,7 @@ func (a *SpotAPIService) GetOpenOrdersV3Execute(r ApiGetOpenOrdersV3Request) ([]
 
 type ApiGetOrderListV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	timestamp *int64
 	orderListId *int64
 	origClientOrderId *string
@@ -6423,7 +6423,7 @@ Retrieves a specific order list based on provided optional parameters.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetOrderListV3Request
 */
-func (a *SpotAPIService) GetOrderListV3(ctx context.Context) ApiGetOrderListV3Request {
+func (a *SpotTradingAPIService) GetOrderListV3(ctx context.Context) ApiGetOrderListV3Request {
 	return ApiGetOrderListV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -6432,7 +6432,7 @@ func (a *SpotAPIService) GetOrderListV3(ctx context.Context) ApiGetOrderListV3Re
 
 // Execute executes the request
 //  @return GetOrderListV3Resp
-func (a *SpotAPIService) GetOrderListV3Execute(r ApiGetOrderListV3Request) (*GetOrderListV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) GetOrderListV3Execute(r ApiGetOrderListV3Request) (*GetOrderListV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -6440,7 +6440,7 @@ func (a *SpotAPIService) GetOrderListV3Execute(r ApiGetOrderListV3Request) (*Get
 		localVarReturnValue  *GetOrderListV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetOrderListV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetOrderListV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -6550,7 +6550,7 @@ func (a *SpotAPIService) GetOrderListV3Execute(r ApiGetOrderListV3Request) (*Get
 
 type ApiGetOrderV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	symbol *string
 	timestamp *int64
 	orderId *int64
@@ -6596,7 +6596,7 @@ Check an order's status.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetOrderV3Request
 */
-func (a *SpotAPIService) GetOrderV3(ctx context.Context) ApiGetOrderV3Request {
+func (a *SpotTradingAPIService) GetOrderV3(ctx context.Context) ApiGetOrderV3Request {
 	return ApiGetOrderV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -6605,7 +6605,7 @@ func (a *SpotAPIService) GetOrderV3(ctx context.Context) ApiGetOrderV3Request {
 
 // Execute executes the request
 //  @return GetOrderV3Resp
-func (a *SpotAPIService) GetOrderV3Execute(r ApiGetOrderV3Request) (*GetOrderV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) GetOrderV3Execute(r ApiGetOrderV3Request) (*GetOrderV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -6613,7 +6613,7 @@ func (a *SpotAPIService) GetOrderV3Execute(r ApiGetOrderV3Request) (*GetOrderV3R
 		localVarReturnValue  *GetOrderV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetOrderV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetOrderV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -6727,7 +6727,7 @@ func (a *SpotAPIService) GetOrderV3Execute(r ApiGetOrderV3Request) (*GetOrderV3R
 
 type ApiGetPingV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 }
 
 func (r ApiGetPingV3Request) Execute() (map[string]interface{}, *http.Response, error) {
@@ -6742,7 +6742,7 @@ Test connectivity to the Rest API.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetPingV3Request
 */
-func (a *SpotAPIService) GetPingV3(ctx context.Context) ApiGetPingV3Request {
+func (a *SpotTradingAPIService) GetPingV3(ctx context.Context) ApiGetPingV3Request {
 	return ApiGetPingV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -6751,7 +6751,7 @@ func (a *SpotAPIService) GetPingV3(ctx context.Context) ApiGetPingV3Request {
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *SpotAPIService) GetPingV3Execute(r ApiGetPingV3Request) (map[string]interface{}, *http.Response, error) {
+func (a *SpotTradingAPIService) GetPingV3Execute(r ApiGetPingV3Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -6759,7 +6759,7 @@ func (a *SpotAPIService) GetPingV3Execute(r ApiGetPingV3Request) (map[string]int
 		localVarReturnValue  map[string]interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetPingV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetPingV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -6847,7 +6847,7 @@ func (a *SpotAPIService) GetPingV3Execute(r ApiGetPingV3Request) (map[string]int
 
 type ApiGetRateLimitOrderV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	timestamp *int64
 	recvWindow *int64
 }
@@ -6875,7 +6875,7 @@ Displays the user's unfilled order count for all intervals.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetRateLimitOrderV3Request
 */
-func (a *SpotAPIService) GetRateLimitOrderV3(ctx context.Context) ApiGetRateLimitOrderV3Request {
+func (a *SpotTradingAPIService) GetRateLimitOrderV3(ctx context.Context) ApiGetRateLimitOrderV3Request {
 	return ApiGetRateLimitOrderV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -6884,7 +6884,7 @@ func (a *SpotAPIService) GetRateLimitOrderV3(ctx context.Context) ApiGetRateLimi
 
 // Execute executes the request
 //  @return []GetRateLimitOrderV3RespItem
-func (a *SpotAPIService) GetRateLimitOrderV3Execute(r ApiGetRateLimitOrderV3Request) ([]GetRateLimitOrderV3RespItem, *http.Response, error) {
+func (a *SpotTradingAPIService) GetRateLimitOrderV3Execute(r ApiGetRateLimitOrderV3Request) ([]GetRateLimitOrderV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -6892,7 +6892,7 @@ func (a *SpotAPIService) GetRateLimitOrderV3Execute(r ApiGetRateLimitOrderV3Requ
 		localVarReturnValue  []GetRateLimitOrderV3RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetRateLimitOrderV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetRateLimitOrderV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -6993,7 +6993,7 @@ func (a *SpotAPIService) GetRateLimitOrderV3Execute(r ApiGetRateLimitOrderV3Requ
 
 type ApiGetTicker24hrV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	symbol *string
 	symbols *string
 	type_ *string
@@ -7029,7 +7029,7 @@ GetTicker24hrV3 24hr ticker price change statistics
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetTicker24hrV3Request
 */
-func (a *SpotAPIService) GetTicker24hrV3(ctx context.Context) ApiGetTicker24hrV3Request {
+func (a *SpotTradingAPIService) GetTicker24hrV3(ctx context.Context) ApiGetTicker24hrV3Request {
 	return ApiGetTicker24hrV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -7038,7 +7038,7 @@ func (a *SpotAPIService) GetTicker24hrV3(ctx context.Context) ApiGetTicker24hrV3
 
 // Execute executes the request
 //  @return SpotGetTicker24hrV3Resp
-func (a *SpotAPIService) GetTicker24hrV3Execute(r ApiGetTicker24hrV3Request) (*SpotGetTicker24hrV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) GetTicker24hrV3Execute(r ApiGetTicker24hrV3Request) (*SpotGetTicker24hrV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -7046,7 +7046,7 @@ func (a *SpotAPIService) GetTicker24hrV3Execute(r ApiGetTicker24hrV3Request) (*S
 		localVarReturnValue  *SpotGetTicker24hrV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetTicker24hrV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetTicker24hrV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -7152,7 +7152,7 @@ func (a *SpotAPIService) GetTicker24hrV3Execute(r ApiGetTicker24hrV3Request) (*S
 
 type ApiGetTickerBookTickerV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	symbol *string
 	symbols *string
 }
@@ -7181,7 +7181,7 @@ Best price/qty on the order book for a symbol or symbols.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetTickerBookTickerV3Request
 */
-func (a *SpotAPIService) GetTickerBookTickerV3(ctx context.Context) ApiGetTickerBookTickerV3Request {
+func (a *SpotTradingAPIService) GetTickerBookTickerV3(ctx context.Context) ApiGetTickerBookTickerV3Request {
 	return ApiGetTickerBookTickerV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -7190,7 +7190,7 @@ func (a *SpotAPIService) GetTickerBookTickerV3(ctx context.Context) ApiGetTicker
 
 // Execute executes the request
 //  @return SpotGetTickerBookTickerV3Resp
-func (a *SpotAPIService) GetTickerBookTickerV3Execute(r ApiGetTickerBookTickerV3Request) (*SpotGetTickerBookTickerV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) GetTickerBookTickerV3Execute(r ApiGetTickerBookTickerV3Request) (*SpotGetTickerBookTickerV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -7198,7 +7198,7 @@ func (a *SpotAPIService) GetTickerBookTickerV3Execute(r ApiGetTickerBookTickerV3
 		localVarReturnValue  *SpotGetTickerBookTickerV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetTickerBookTickerV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetTickerBookTickerV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -7298,7 +7298,7 @@ func (a *SpotAPIService) GetTickerBookTickerV3Execute(r ApiGetTickerBookTickerV3
 
 type ApiGetTickerPriceV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	symbol *string
 	symbols *string
 }
@@ -7327,7 +7327,7 @@ Latest price for a symbol or symbols.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetTickerPriceV3Request
 */
-func (a *SpotAPIService) GetTickerPriceV3(ctx context.Context) ApiGetTickerPriceV3Request {
+func (a *SpotTradingAPIService) GetTickerPriceV3(ctx context.Context) ApiGetTickerPriceV3Request {
 	return ApiGetTickerPriceV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -7336,7 +7336,7 @@ func (a *SpotAPIService) GetTickerPriceV3(ctx context.Context) ApiGetTickerPrice
 
 // Execute executes the request
 //  @return SpotGetTickerPriceV3Resp
-func (a *SpotAPIService) GetTickerPriceV3Execute(r ApiGetTickerPriceV3Request) (*SpotGetTickerPriceV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) GetTickerPriceV3Execute(r ApiGetTickerPriceV3Request) (*SpotGetTickerPriceV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -7344,7 +7344,7 @@ func (a *SpotAPIService) GetTickerPriceV3Execute(r ApiGetTickerPriceV3Request) (
 		localVarReturnValue  *SpotGetTickerPriceV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetTickerPriceV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetTickerPriceV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -7444,7 +7444,7 @@ func (a *SpotAPIService) GetTickerPriceV3Execute(r ApiGetTickerPriceV3Request) (
 
 type ApiGetTickerTradingDayV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	symbol *string
 	symbols *string
 	timeZone *string
@@ -7488,7 +7488,7 @@ Price change statistics for a trading day.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetTickerTradingDayV3Request
 */
-func (a *SpotAPIService) GetTickerTradingDayV3(ctx context.Context) ApiGetTickerTradingDayV3Request {
+func (a *SpotTradingAPIService) GetTickerTradingDayV3(ctx context.Context) ApiGetTickerTradingDayV3Request {
 	return ApiGetTickerTradingDayV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -7497,7 +7497,7 @@ func (a *SpotAPIService) GetTickerTradingDayV3(ctx context.Context) ApiGetTicker
 
 // Execute executes the request
 //  @return SpotGetTickerTradingDayV3Resp
-func (a *SpotAPIService) GetTickerTradingDayV3Execute(r ApiGetTickerTradingDayV3Request) (*SpotGetTickerTradingDayV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) GetTickerTradingDayV3Execute(r ApiGetTickerTradingDayV3Request) (*SpotGetTickerTradingDayV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -7505,7 +7505,7 @@ func (a *SpotAPIService) GetTickerTradingDayV3Execute(r ApiGetTickerTradingDayV3
 		localVarReturnValue  *SpotGetTickerTradingDayV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetTickerTradingDayV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetTickerTradingDayV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -7613,7 +7613,7 @@ func (a *SpotAPIService) GetTickerTradingDayV3Execute(r ApiGetTickerTradingDayV3
 
 type ApiGetTickerV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	symbol *string
 	symbols *string
 	windowSize *string
@@ -7661,7 +7661,7 @@ E.g. If the closeTime is 1641287867099 (January 04, 2022 09:17:47:099 UTC) , and
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetTickerV3Request
 */
-func (a *SpotAPIService) GetTickerV3(ctx context.Context) ApiGetTickerV3Request {
+func (a *SpotTradingAPIService) GetTickerV3(ctx context.Context) ApiGetTickerV3Request {
 	return ApiGetTickerV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -7670,7 +7670,7 @@ func (a *SpotAPIService) GetTickerV3(ctx context.Context) ApiGetTickerV3Request 
 
 // Execute executes the request
 //  @return SpotGetTickerV3Resp
-func (a *SpotAPIService) GetTickerV3Execute(r ApiGetTickerV3Request) (*SpotGetTickerV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) GetTickerV3Execute(r ApiGetTickerV3Request) (*SpotGetTickerV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -7678,7 +7678,7 @@ func (a *SpotAPIService) GetTickerV3Execute(r ApiGetTickerV3Request) (*SpotGetTi
 		localVarReturnValue  *SpotGetTickerV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetTickerV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetTickerV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -7786,7 +7786,7 @@ func (a *SpotAPIService) GetTickerV3Execute(r ApiGetTickerV3Request) (*SpotGetTi
 
 type ApiGetTimeV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 }
 
 func (r ApiGetTimeV3Request) Execute() (*GetTimeV3Resp, *http.Response, error) {
@@ -7801,7 +7801,7 @@ Test connectivity to the Rest API and get the current server time.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetTimeV3Request
 */
-func (a *SpotAPIService) GetTimeV3(ctx context.Context) ApiGetTimeV3Request {
+func (a *SpotTradingAPIService) GetTimeV3(ctx context.Context) ApiGetTimeV3Request {
 	return ApiGetTimeV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -7810,7 +7810,7 @@ func (a *SpotAPIService) GetTimeV3(ctx context.Context) ApiGetTimeV3Request {
 
 // Execute executes the request
 //  @return GetTimeV3Resp
-func (a *SpotAPIService) GetTimeV3Execute(r ApiGetTimeV3Request) (*GetTimeV3Resp, *http.Response, error) {
+func (a *SpotTradingAPIService) GetTimeV3Execute(r ApiGetTimeV3Request) (*GetTimeV3Resp, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -7818,7 +7818,7 @@ func (a *SpotAPIService) GetTimeV3Execute(r ApiGetTimeV3Request) (*GetTimeV3Resp
 		localVarReturnValue  *GetTimeV3Resp
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetTimeV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetTimeV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -7906,7 +7906,7 @@ func (a *SpotAPIService) GetTimeV3Execute(r ApiGetTimeV3Request) (*GetTimeV3Resp
 
 type ApiGetTradesV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	symbol *string
 	limit *int32
 }
@@ -7934,7 +7934,7 @@ Get recent trades.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetTradesV3Request
 */
-func (a *SpotAPIService) GetTradesV3(ctx context.Context) ApiGetTradesV3Request {
+func (a *SpotTradingAPIService) GetTradesV3(ctx context.Context) ApiGetTradesV3Request {
 	return ApiGetTradesV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -7943,7 +7943,7 @@ func (a *SpotAPIService) GetTradesV3(ctx context.Context) ApiGetTradesV3Request 
 
 // Execute executes the request
 //  @return []GetTradesV3RespItem
-func (a *SpotAPIService) GetTradesV3Execute(r ApiGetTradesV3Request) ([]GetTradesV3RespItem, *http.Response, error) {
+func (a *SpotTradingAPIService) GetTradesV3Execute(r ApiGetTradesV3Request) ([]GetTradesV3RespItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -7951,7 +7951,7 @@ func (a *SpotAPIService) GetTradesV3Execute(r ApiGetTradesV3Request) ([]GetTrade
 		localVarReturnValue  []GetTradesV3RespItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetTradesV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetTradesV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -8049,7 +8049,7 @@ func (a *SpotAPIService) GetTradesV3Execute(r ApiGetTradesV3Request) ([]GetTrade
 
 type ApiGetUiKlinesV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	symbol *string
 	interval *string
 	startTime *int64
@@ -8104,7 +8104,7 @@ uiKlines return modified kline data, optimized for presentation of candlestick c
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetUiKlinesV3Request
 */
-func (a *SpotAPIService) GetUiKlinesV3(ctx context.Context) ApiGetUiKlinesV3Request {
+func (a *SpotTradingAPIService) GetUiKlinesV3(ctx context.Context) ApiGetUiKlinesV3Request {
 	return ApiGetUiKlinesV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -8113,7 +8113,7 @@ func (a *SpotAPIService) GetUiKlinesV3(ctx context.Context) ApiGetUiKlinesV3Requ
 
 // Execute executes the request
 //  @return [][]GetKlinesV3200ResponseInnerInner
-func (a *SpotAPIService) GetUiKlinesV3Execute(r ApiGetUiKlinesV3Request) ([][]GetKlinesV3200ResponseInnerInner, *http.Response, error) {
+func (a *SpotTradingAPIService) GetUiKlinesV3Execute(r ApiGetUiKlinesV3Request) ([][]GetKlinesV3200ResponseInnerInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -8121,7 +8121,7 @@ func (a *SpotAPIService) GetUiKlinesV3Execute(r ApiGetUiKlinesV3Request) ([][]Ge
 		localVarReturnValue  [][]GetKlinesV3200ResponseInnerInner
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.GetUiKlinesV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.GetUiKlinesV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -8235,7 +8235,7 @@ func (a *SpotAPIService) GetUiKlinesV3Execute(r ApiGetUiKlinesV3Request) ([][]Ge
 
 type ApiUpdateUserDataStreamV3Request struct {
 	ctx context.Context
-	ApiService *SpotAPIService
+	ApiService *SpotTradingAPIService
 	listenKey *string
 }
 
@@ -8256,7 +8256,7 @@ Keepalive a user data stream to prevent a time out. User data streams will close
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiUpdateUserDataStreamV3Request
 */
-func (a *SpotAPIService) UpdateUserDataStreamV3(ctx context.Context) ApiUpdateUserDataStreamV3Request {
+func (a *SpotTradingAPIService) UpdateUserDataStreamV3(ctx context.Context) ApiUpdateUserDataStreamV3Request {
 	return ApiUpdateUserDataStreamV3Request{
 		ApiService: a,
 		ctx: ctx,
@@ -8265,7 +8265,7 @@ func (a *SpotAPIService) UpdateUserDataStreamV3(ctx context.Context) ApiUpdateUs
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *SpotAPIService) UpdateUserDataStreamV3Execute(r ApiUpdateUserDataStreamV3Request) (map[string]interface{}, *http.Response, error) {
+func (a *SpotTradingAPIService) UpdateUserDataStreamV3Execute(r ApiUpdateUserDataStreamV3Request) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -8273,7 +8273,7 @@ func (a *SpotAPIService) UpdateUserDataStreamV3Execute(r ApiUpdateUserDataStream
 		localVarReturnValue  map[string]interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotAPIService.UpdateUserDataStreamV3")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.UpdateUserDataStreamV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
