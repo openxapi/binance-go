@@ -22,6 +22,18 @@ func Test_cmfutures_CoinMarginedFuturesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test CoinMarginedFuturesAPIService CreateBatchOrdersV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.CoinMarginedFuturesAPI.CreateBatchOrdersV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test CoinMarginedFuturesAPIService CreateCountdownCancelAllV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -111,6 +123,18 @@ func Test_cmfutures_CoinMarginedFuturesAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.CoinMarginedFuturesAPI.DeleteAllOpenOrdersV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test CoinMarginedFuturesAPIService DeleteBatchOrdersV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.CoinMarginedFuturesAPI.DeleteBatchOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -226,11 +250,47 @@ func Test_cmfutures_CoinMarginedFuturesAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test CoinMarginedFuturesAPIService GetContinuousKlinesV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.CoinMarginedFuturesAPI.GetContinuousKlinesV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test CoinMarginedFuturesAPIService GetDepthV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.CoinMarginedFuturesAPI.GetDepthV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test CoinMarginedFuturesAPIService GetExchangeInfoV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.CoinMarginedFuturesAPI.GetExchangeInfoV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test CoinMarginedFuturesAPIService GetForceOrdersV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.CoinMarginedFuturesAPI.GetForceOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -382,6 +442,30 @@ func Test_cmfutures_CoinMarginedFuturesAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test CoinMarginedFuturesAPIService GetIndexPriceKlinesV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.CoinMarginedFuturesAPI.GetIndexPriceKlinesV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test CoinMarginedFuturesAPIService GetKlinesV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.CoinMarginedFuturesAPI.GetKlinesV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test CoinMarginedFuturesAPIService GetLeverageBracketV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -399,6 +483,18 @@ func Test_cmfutures_CoinMarginedFuturesAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.CoinMarginedFuturesAPI.GetLeverageBracketV2(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test CoinMarginedFuturesAPIService GetMarkPriceKlinesV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.CoinMarginedFuturesAPI.GetMarkPriceKlinesV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -550,6 +646,18 @@ func Test_cmfutures_CoinMarginedFuturesAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test CoinMarginedFuturesAPIService GetPremiumIndexKlinesV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.CoinMarginedFuturesAPI.GetPremiumIndexKlinesV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test CoinMarginedFuturesAPIService GetPremiumIndexV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -651,6 +759,18 @@ func Test_cmfutures_CoinMarginedFuturesAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.CoinMarginedFuturesAPI.GetUserTradesV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test CoinMarginedFuturesAPIService UpdateBatchOrdersV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.CoinMarginedFuturesAPI.UpdateBatchOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

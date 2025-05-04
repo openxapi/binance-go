@@ -122,9 +122,6 @@ All URIs are relative to *https://fapi.binance.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AccountAPI* | [**UmfuturesGetApiTradingStatusV1**](docs/AccountAPI.md#umfuturesgetapitradingstatusv1) | **Get** /fapi/v1/apiTradingStatus | Futures Trading Quantitative Rules Indicators (USER_DATA)
-*AccountAPI* | [**UmfuturesGetLeverageBracketV1**](docs/AccountAPI.md#umfuturesgetleveragebracketv1) | **Get** /fapi/v1/leverageBracket | Notional and Leverage Brackets (USER_DATA)
-*AccountAPI* | [**UmfuturesGetOrderAsynV1**](docs/AccountAPI.md#umfuturesgetorderasynv1) | **Get** /fapi/v1/order/asyn | Get Download Id For Futures Order History (USER_DATA)
 *BinanceLinkAPI* | [**CreateApiReferralCustomizationV1**](docs/BinanceLinkAPI.md#createapireferralcustomizationv1) | **Post** /fapi/v1/apiReferral/customization | Customize Id For Client (USER DATA)(For Partner)
 *BinanceLinkAPI* | [**CreateApiReferralUserCustomizationPAPIV1**](docs/BinanceLinkAPI.md#createapireferralusercustomizationpapiv1) | **Post** /papi/v1/apiReferral/userCustomization | Customize Id For Client  (USER DATA)(For client)(PAPI)
 *BinanceLinkAPI* | [**CreateApiReferralUserCustomizationV1**](docs/BinanceLinkAPI.md#createapireferralusercustomizationv1) | **Post** /fapi/v1/apiReferral/userCustomization | Customize Id For Client  (USER DATA)(For client)
@@ -139,26 +136,10 @@ Class | Method | HTTP request | Description
 *BinanceLinkAPI* | [**GetApiReferralUserCustomizationPAPIV1**](docs/BinanceLinkAPI.md#getapireferralusercustomizationpapiv1) | **Get** /papi/v1/apiReferral/userCustomization | Get User’s Customize Id (USER DATA)(PAPI)
 *BinanceLinkAPI* | [**GetApiReferralUserCustomizationV1**](docs/BinanceLinkAPI.md#getapireferralusercustomizationv1) | **Get** /fapi/v1/apiReferral/userCustomization | Get User’s Customize Id (USER DATA)
 *BinanceLinkAPI* | [**GetIncomeV1**](docs/BinanceLinkAPI.md#getincomev1) | **Get** /fapi/v1/income | Get Income History(USER DATA)
-*MarketDataAPI* | [**UmfuturesGetAggTradesV1**](docs/MarketDataAPI.md#umfuturesgetaggtradesv1) | **Get** /fapi/v1/aggTrades | Compressed/Aggregate Trades List
-*MarketDataAPI* | [**UmfuturesGetAssetIndexV1**](docs/MarketDataAPI.md#umfuturesgetassetindexv1) | **Get** /fapi/v1/assetIndex | Multi-Assets Mode Asset Index
-*MarketDataAPI* | [**UmfuturesGetContinuousKlinesV1**](docs/MarketDataAPI.md#umfuturesgetcontinuousklinesv1) | **Get** /fapi/v1/continuousKlines | Continuous Contract Kline/Candlestick Data
-*MarketDataAPI* | [**UmfuturesGetExchangeInfoV1**](docs/MarketDataAPI.md#umfuturesgetexchangeinfov1) | **Get** /fapi/v1/exchangeInfo | Exchange Information
-*MarketDataAPI* | [**UmfuturesGetFuturesDataDeliveryPrice**](docs/MarketDataAPI.md#umfuturesgetfuturesdatadeliveryprice) | **Get** /futures/data/delivery-price | Quarterly Contract Settlement Price
-*MarketDataAPI* | [**UmfuturesGetIndexPriceKlinesV1**](docs/MarketDataAPI.md#umfuturesgetindexpriceklinesv1) | **Get** /fapi/v1/indexPriceKlines | Index Price Kline/Candlestick Data
-*MarketDataAPI* | [**UmfuturesGetKlinesV1**](docs/MarketDataAPI.md#umfuturesgetklinesv1) | **Get** /fapi/v1/klines | Kline/Candlestick Data
-*MarketDataAPI* | [**UmfuturesGetMarkPriceKlinesV1**](docs/MarketDataAPI.md#umfuturesgetmarkpriceklinesv1) | **Get** /fapi/v1/markPriceKlines | Mark Price Kline/Candlestick Data
-*MarketDataAPI* | [**UmfuturesGetPremiumIndexKlinesV1**](docs/MarketDataAPI.md#umfuturesgetpremiumindexklinesv1) | **Get** /fapi/v1/premiumIndexKlines | Premium index Kline Data
-*MarketDataAPI* | [**UmfuturesGetPremiumIndexV1**](docs/MarketDataAPI.md#umfuturesgetpremiumindexv1) | **Get** /fapi/v1/premiumIndex | Mark Price
-*MarketDataAPI* | [**UmfuturesGetTicker24hrV1**](docs/MarketDataAPI.md#umfuturesgetticker24hrv1) | **Get** /fapi/v1/ticker/24hr | 24hr Ticker Price Change Statistics
-*MarketDataAPI* | [**UmfuturesGetTickerBookTickerV1**](docs/MarketDataAPI.md#umfuturesgettickerbooktickerv1) | **Get** /fapi/v1/ticker/bookTicker | Symbol Order Book Ticker
-*MarketDataAPI* | [**UmfuturesGetTickerPriceV1**](docs/MarketDataAPI.md#umfuturesgettickerpricev1) | **Get** /fapi/v1/ticker/price | Symbol Price Ticker
-*MarketDataAPI* | [**UmfuturesGetTickerPriceV2**](docs/MarketDataAPI.md#umfuturesgettickerpricev2) | **Get** /fapi/v2/ticker/price | Symbol Price Ticker V2
-*TradeAPI* | [**UmfuturesCreateBatchOrdersV1**](docs/TradeAPI.md#umfuturescreatebatchordersv1) | **Post** /fapi/v1/batchOrders | Place Multiple Orders(TRADE)
-*TradeAPI* | [**UmfuturesCreateCountdownCancelAllV1**](docs/TradeAPI.md#umfuturescreatecountdowncancelallv1) | **Post** /fapi/v1/countdownCancelAll | Auto-Cancel All Open Orders (TRADE)
-*TradeAPI* | [**UmfuturesDeleteBatchOrdersV1**](docs/TradeAPI.md#umfuturesdeletebatchordersv1) | **Delete** /fapi/v1/batchOrders | Cancel Multiple Orders (TRADE)
-*TradeAPI* | [**UmfuturesUpdateBatchOrdersV1**](docs/TradeAPI.md#umfuturesupdatebatchordersv1) | **Put** /fapi/v1/batchOrders | Modify Multiple Orders(TRADE)
+*UsdsMarginedFuturesAPI* | [**CreateBatchOrdersV1**](docs/UsdsMarginedFuturesAPI.md#createbatchordersv1) | **Post** /fapi/v1/batchOrders | Place Multiple Orders(TRADE)
 *UsdsMarginedFuturesAPI* | [**CreateConvertAcceptQuoteV1**](docs/UsdsMarginedFuturesAPI.md#createconvertacceptquotev1) | **Post** /fapi/v1/convert/acceptQuote | Accept the offered quote (USER_DATA)
 *UsdsMarginedFuturesAPI* | [**CreateConvertGetQuoteV1**](docs/UsdsMarginedFuturesAPI.md#createconvertgetquotev1) | **Post** /fapi/v1/convert/getQuote | Send Quote Request(USER_DATA)
+*UsdsMarginedFuturesAPI* | [**CreateCountdownCancelAllV1**](docs/UsdsMarginedFuturesAPI.md#createcountdowncancelallv1) | **Post** /fapi/v1/countdownCancelAll | Auto-Cancel All Open Orders (TRADE)
 *UsdsMarginedFuturesAPI* | [**CreateFeeBurnV1**](docs/UsdsMarginedFuturesAPI.md#createfeeburnv1) | **Post** /fapi/v1/feeBurn | Toggle BNB Burn On Futures Trade (TRADE)
 *UsdsMarginedFuturesAPI* | [**CreateLeverageV1**](docs/UsdsMarginedFuturesAPI.md#createleveragev1) | **Post** /fapi/v1/leverage | Change Initial Leverage(TRADE)
 *UsdsMarginedFuturesAPI* | [**CreateListenKeyV1**](docs/UsdsMarginedFuturesAPI.md#createlistenkeyv1) | **Post** /fapi/v1/listenKey | Start User Data Stream (USER_STREAM)
@@ -169,25 +150,32 @@ Class | Method | HTTP request | Description
 *UsdsMarginedFuturesAPI* | [**CreatePositionMarginV1**](docs/UsdsMarginedFuturesAPI.md#createpositionmarginv1) | **Post** /fapi/v1/positionMargin | Modify Isolated Position Margin(TRADE)
 *UsdsMarginedFuturesAPI* | [**CreatePositionSideDualV1**](docs/UsdsMarginedFuturesAPI.md#createpositionsidedualv1) | **Post** /fapi/v1/positionSide/dual | Change Position Mode(TRADE)
 *UsdsMarginedFuturesAPI* | [**DeleteAllOpenOrdersV1**](docs/UsdsMarginedFuturesAPI.md#deleteallopenordersv1) | **Delete** /fapi/v1/allOpenOrders | Cancel All Open Orders (TRADE)
+*UsdsMarginedFuturesAPI* | [**DeleteBatchOrdersV1**](docs/UsdsMarginedFuturesAPI.md#deletebatchordersv1) | **Delete** /fapi/v1/batchOrders | Cancel Multiple Orders (TRADE)
 *UsdsMarginedFuturesAPI* | [**DeleteListenKeyV1**](docs/UsdsMarginedFuturesAPI.md#deletelistenkeyv1) | **Delete** /fapi/v1/listenKey | Close User Data Stream (USER_STREAM)
 *UsdsMarginedFuturesAPI* | [**DeleteOrderV1**](docs/UsdsMarginedFuturesAPI.md#deleteorderv1) | **Delete** /fapi/v1/order | Cancel Order (TRADE)
 *UsdsMarginedFuturesAPI* | [**GetAccountConfigV1**](docs/UsdsMarginedFuturesAPI.md#getaccountconfigv1) | **Get** /fapi/v1/accountConfig | Futures Account Configuration(USER_DATA)
 *UsdsMarginedFuturesAPI* | [**GetAccountV2**](docs/UsdsMarginedFuturesAPI.md#getaccountv2) | **Get** /fapi/v2/account | Account Information V2(USER_DATA)
 *UsdsMarginedFuturesAPI* | [**GetAccountV3**](docs/UsdsMarginedFuturesAPI.md#getaccountv3) | **Get** /fapi/v3/account | Account Information V3(USER_DATA)
 *UsdsMarginedFuturesAPI* | [**GetAdlQuantileV1**](docs/UsdsMarginedFuturesAPI.md#getadlquantilev1) | **Get** /fapi/v1/adlQuantile | Position ADL Quantile Estimation(USER_DATA)
+*UsdsMarginedFuturesAPI* | [**GetAggTradesV1**](docs/UsdsMarginedFuturesAPI.md#getaggtradesv1) | **Get** /fapi/v1/aggTrades | Compressed/Aggregate Trades List
 *UsdsMarginedFuturesAPI* | [**GetAllOrdersV1**](docs/UsdsMarginedFuturesAPI.md#getallordersv1) | **Get** /fapi/v1/allOrders | All Orders (USER_DATA)
+*UsdsMarginedFuturesAPI* | [**GetApiTradingStatusV1**](docs/UsdsMarginedFuturesAPI.md#getapitradingstatusv1) | **Get** /fapi/v1/apiTradingStatus | Futures Trading Quantitative Rules Indicators (USER_DATA)
+*UsdsMarginedFuturesAPI* | [**GetAssetIndexV1**](docs/UsdsMarginedFuturesAPI.md#getassetindexv1) | **Get** /fapi/v1/assetIndex | Multi-Assets Mode Asset Index
 *UsdsMarginedFuturesAPI* | [**GetBalanceV2**](docs/UsdsMarginedFuturesAPI.md#getbalancev2) | **Get** /fapi/v2/balance | Futures Account Balance V2 (USER_DATA)
 *UsdsMarginedFuturesAPI* | [**GetBalanceV3**](docs/UsdsMarginedFuturesAPI.md#getbalancev3) | **Get** /fapi/v3/balance | Futures Account Balance V3 (USER_DATA)
 *UsdsMarginedFuturesAPI* | [**GetCommissionRateV1**](docs/UsdsMarginedFuturesAPI.md#getcommissionratev1) | **Get** /fapi/v1/commissionRate | User Commission Rate (USER_DATA)
 *UsdsMarginedFuturesAPI* | [**GetConstituentsV1**](docs/UsdsMarginedFuturesAPI.md#getconstituentsv1) | **Get** /fapi/v1/constituents | Query Index Price Constituents
+*UsdsMarginedFuturesAPI* | [**GetContinuousKlinesV1**](docs/UsdsMarginedFuturesAPI.md#getcontinuousklinesv1) | **Get** /fapi/v1/continuousKlines | Continuous Contract Kline/Candlestick Data
 *UsdsMarginedFuturesAPI* | [**GetConvertExchangeInfoV1**](docs/UsdsMarginedFuturesAPI.md#getconvertexchangeinfov1) | **Get** /fapi/v1/convert/exchangeInfo | List All Convert Pairs
 *UsdsMarginedFuturesAPI* | [**GetConvertOrderStatusV1**](docs/UsdsMarginedFuturesAPI.md#getconvertorderstatusv1) | **Get** /fapi/v1/convert/orderStatus | Order status(USER_DATA)
 *UsdsMarginedFuturesAPI* | [**GetDepthV1**](docs/UsdsMarginedFuturesAPI.md#getdepthv1) | **Get** /fapi/v1/depth | Order Book
+*UsdsMarginedFuturesAPI* | [**GetExchangeInfoV1**](docs/UsdsMarginedFuturesAPI.md#getexchangeinfov1) | **Get** /fapi/v1/exchangeInfo | Exchange Information
 *UsdsMarginedFuturesAPI* | [**GetFeeBurnV1**](docs/UsdsMarginedFuturesAPI.md#getfeeburnv1) | **Get** /fapi/v1/feeBurn | Get BNB Burn Status (USER_DATA)
 *UsdsMarginedFuturesAPI* | [**GetForceOrdersV1**](docs/UsdsMarginedFuturesAPI.md#getforceordersv1) | **Get** /fapi/v1/forceOrders | User&#39;s Force Orders (USER_DATA)
 *UsdsMarginedFuturesAPI* | [**GetFundingInfoV1**](docs/UsdsMarginedFuturesAPI.md#getfundinginfov1) | **Get** /fapi/v1/fundingInfo | Get Funding Rate Info
 *UsdsMarginedFuturesAPI* | [**GetFundingRateV1**](docs/UsdsMarginedFuturesAPI.md#getfundingratev1) | **Get** /fapi/v1/fundingRate | Get Funding Rate History
 *UsdsMarginedFuturesAPI* | [**GetFuturesDataBasis**](docs/UsdsMarginedFuturesAPI.md#getfuturesdatabasis) | **Get** /futures/data/basis | Basis
+*UsdsMarginedFuturesAPI* | [**GetFuturesDataDeliveryPrice**](docs/UsdsMarginedFuturesAPI.md#getfuturesdatadeliveryprice) | **Get** /futures/data/delivery-price | Quarterly Contract Settlement Price
 *UsdsMarginedFuturesAPI* | [**GetFuturesDataGlobalLongShortAccountRatio**](docs/UsdsMarginedFuturesAPI.md#getfuturesdatagloballongshortaccountratio) | **Get** /futures/data/globalLongShortAccountRatio | Long/Short Ratio
 *UsdsMarginedFuturesAPI* | [**GetFuturesDataOpenInterestHist**](docs/UsdsMarginedFuturesAPI.md#getfuturesdataopeninteresthist) | **Get** /futures/data/openInterestHist | Open Interest Statistics
 *UsdsMarginedFuturesAPI* | [**GetFuturesDataTakerlongshortRatio**](docs/UsdsMarginedFuturesAPI.md#getfuturesdatatakerlongshortratio) | **Get** /futures/data/takerlongshortRatio | Taker Buy/Sell Volume
@@ -197,12 +185,17 @@ Class | Method | HTTP request | Description
 *UsdsMarginedFuturesAPI* | [**GetIncomeAsynIdV1**](docs/UsdsMarginedFuturesAPI.md#getincomeasynidv1) | **Get** /fapi/v1/income/asyn/id | Get Futures Transaction History Download Link by Id (USER_DATA)
 *UsdsMarginedFuturesAPI* | [**GetIncomeAsynV1**](docs/UsdsMarginedFuturesAPI.md#getincomeasynv1) | **Get** /fapi/v1/income/asyn | Get Download Id For Futures Transaction History(USER_DATA)
 *UsdsMarginedFuturesAPI* | [**GetIndexInfoV1**](docs/UsdsMarginedFuturesAPI.md#getindexinfov1) | **Get** /fapi/v1/indexInfo | Composite Index Symbol Information
+*UsdsMarginedFuturesAPI* | [**GetIndexPriceKlinesV1**](docs/UsdsMarginedFuturesAPI.md#getindexpriceklinesv1) | **Get** /fapi/v1/indexPriceKlines | Index Price Kline/Candlestick Data
+*UsdsMarginedFuturesAPI* | [**GetKlinesV1**](docs/UsdsMarginedFuturesAPI.md#getklinesv1) | **Get** /fapi/v1/klines | Kline/Candlestick Data
+*UsdsMarginedFuturesAPI* | [**GetLeverageBracketV1**](docs/UsdsMarginedFuturesAPI.md#getleveragebracketv1) | **Get** /fapi/v1/leverageBracket | Notional and Leverage Brackets (USER_DATA)
+*UsdsMarginedFuturesAPI* | [**GetMarkPriceKlinesV1**](docs/UsdsMarginedFuturesAPI.md#getmarkpriceklinesv1) | **Get** /fapi/v1/markPriceKlines | Mark Price Kline/Candlestick Data
 *UsdsMarginedFuturesAPI* | [**GetMultiAssetsMarginV1**](docs/UsdsMarginedFuturesAPI.md#getmultiassetsmarginv1) | **Get** /fapi/v1/multiAssetsMargin | Get Current Multi-Assets Mode (USER_DATA)
 *UsdsMarginedFuturesAPI* | [**GetOpenInterestV1**](docs/UsdsMarginedFuturesAPI.md#getopeninterestv1) | **Get** /fapi/v1/openInterest | Open Interest
 *UsdsMarginedFuturesAPI* | [**GetOpenOrderV1**](docs/UsdsMarginedFuturesAPI.md#getopenorderv1) | **Get** /fapi/v1/openOrder | Query Current Open Order (USER_DATA)
 *UsdsMarginedFuturesAPI* | [**GetOpenOrdersV1**](docs/UsdsMarginedFuturesAPI.md#getopenordersv1) | **Get** /fapi/v1/openOrders | Current All Open Orders (USER_DATA)
 *UsdsMarginedFuturesAPI* | [**GetOrderAmendmentV1**](docs/UsdsMarginedFuturesAPI.md#getorderamendmentv1) | **Get** /fapi/v1/orderAmendment | Get Order Modify History (USER_DATA)
 *UsdsMarginedFuturesAPI* | [**GetOrderAsynIdV1**](docs/UsdsMarginedFuturesAPI.md#getorderasynidv1) | **Get** /fapi/v1/order/asyn/id | Get Futures Order History Download Link by Id (USER_DATA)
+*UsdsMarginedFuturesAPI* | [**GetOrderAsynV1**](docs/UsdsMarginedFuturesAPI.md#getorderasynv1) | **Get** /fapi/v1/order/asyn | Get Download Id For Futures Order History (USER_DATA)
 *UsdsMarginedFuturesAPI* | [**GetOrderV1**](docs/UsdsMarginedFuturesAPI.md#getorderv1) | **Get** /fapi/v1/order | Query Order (USER_DATA)
 *UsdsMarginedFuturesAPI* | [**GetPingV1**](docs/UsdsMarginedFuturesAPI.md#getpingv1) | **Get** /fapi/v1/ping | Test Connectivity
 *UsdsMarginedFuturesAPI* | [**GetPmAccountInfoV1**](docs/UsdsMarginedFuturesAPI.md#getpmaccountinfov1) | **Get** /fapi/v1/pmAccountInfo | Classic Portfolio Margin Account Information (USER_DATA)
@@ -210,13 +203,20 @@ Class | Method | HTTP request | Description
 *UsdsMarginedFuturesAPI* | [**GetPositionRiskV2**](docs/UsdsMarginedFuturesAPI.md#getpositionriskv2) | **Get** /fapi/v2/positionRisk | Position Information V2 (USER_DATA)
 *UsdsMarginedFuturesAPI* | [**GetPositionRiskV3**](docs/UsdsMarginedFuturesAPI.md#getpositionriskv3) | **Get** /fapi/v3/positionRisk | Position Information V3 (USER_DATA)
 *UsdsMarginedFuturesAPI* | [**GetPositionSideDualV1**](docs/UsdsMarginedFuturesAPI.md#getpositionsidedualv1) | **Get** /fapi/v1/positionSide/dual | Get Current Position Mode(USER_DATA)
+*UsdsMarginedFuturesAPI* | [**GetPremiumIndexKlinesV1**](docs/UsdsMarginedFuturesAPI.md#getpremiumindexklinesv1) | **Get** /fapi/v1/premiumIndexKlines | Premium index Kline Data
+*UsdsMarginedFuturesAPI* | [**GetPremiumIndexV1**](docs/UsdsMarginedFuturesAPI.md#getpremiumindexv1) | **Get** /fapi/v1/premiumIndex | Mark Price
 *UsdsMarginedFuturesAPI* | [**GetRateLimitOrderV1**](docs/UsdsMarginedFuturesAPI.md#getratelimitorderv1) | **Get** /fapi/v1/rateLimit/order | Query User Rate Limit (USER_DATA)
 *UsdsMarginedFuturesAPI* | [**GetSymbolConfigV1**](docs/UsdsMarginedFuturesAPI.md#getsymbolconfigv1) | **Get** /fapi/v1/symbolConfig | Symbol Configuration(USER_DATA)
+*UsdsMarginedFuturesAPI* | [**GetTicker24hrV1**](docs/UsdsMarginedFuturesAPI.md#getticker24hrv1) | **Get** /fapi/v1/ticker/24hr | 24hr Ticker Price Change Statistics
+*UsdsMarginedFuturesAPI* | [**GetTickerBookTickerV1**](docs/UsdsMarginedFuturesAPI.md#gettickerbooktickerv1) | **Get** /fapi/v1/ticker/bookTicker | Symbol Order Book Ticker
+*UsdsMarginedFuturesAPI* | [**GetTickerPriceV1**](docs/UsdsMarginedFuturesAPI.md#gettickerpricev1) | **Get** /fapi/v1/ticker/price | Symbol Price Ticker
+*UsdsMarginedFuturesAPI* | [**GetTickerPriceV2**](docs/UsdsMarginedFuturesAPI.md#gettickerpricev2) | **Get** /fapi/v2/ticker/price | Symbol Price Ticker V2
 *UsdsMarginedFuturesAPI* | [**GetTimeV1**](docs/UsdsMarginedFuturesAPI.md#gettimev1) | **Get** /fapi/v1/time | Check Server Time
 *UsdsMarginedFuturesAPI* | [**GetTradeAsynIdV1**](docs/UsdsMarginedFuturesAPI.md#gettradeasynidv1) | **Get** /fapi/v1/trade/asyn/id | Get Futures Trade Download Link by Id(USER_DATA)
 *UsdsMarginedFuturesAPI* | [**GetTradeAsynV1**](docs/UsdsMarginedFuturesAPI.md#gettradeasynv1) | **Get** /fapi/v1/trade/asyn | Get Download Id For Futures Trade History (USER_DATA)
 *UsdsMarginedFuturesAPI* | [**GetTradesV1**](docs/UsdsMarginedFuturesAPI.md#gettradesv1) | **Get** /fapi/v1/trades | Recent Trades List
 *UsdsMarginedFuturesAPI* | [**GetUserTradesV1**](docs/UsdsMarginedFuturesAPI.md#getusertradesv1) | **Get** /fapi/v1/userTrades | Account Trade List (USER_DATA)
+*UsdsMarginedFuturesAPI* | [**UpdateBatchOrdersV1**](docs/UsdsMarginedFuturesAPI.md#updatebatchordersv1) | **Put** /fapi/v1/batchOrders | Modify Multiple Orders(TRADE)
 *UsdsMarginedFuturesAPI* | [**UpdateListenKeyV1**](docs/UsdsMarginedFuturesAPI.md#updatelistenkeyv1) | **Put** /fapi/v1/listenKey | Keepalive User Data Stream (USER_STREAM)
 *UsdsMarginedFuturesAPI* | [**UpdateOrderV1**](docs/UsdsMarginedFuturesAPI.md#updateorderv1) | **Put** /fapi/v1/order | Modify Order (TRADE)
 

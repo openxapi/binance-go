@@ -4,22 +4,30 @@ All URIs are relative to *https://api.binance.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CreateOrderCancelReplaceV3**](SpotAPI.md#CreateOrderCancelReplaceV3) | **Post** /api/v3/order/cancelReplace | Cancel an Existing Order and Send a New Order (TRADE)
 [**CreateOrderListOcoV3**](SpotAPI.md#CreateOrderListOcoV3) | **Post** /api/v3/orderList/oco | New Order list - OCO (TRADE)
 [**CreateOrderListOtoV3**](SpotAPI.md#CreateOrderListOtoV3) | **Post** /api/v3/orderList/oto | New Order list - OTO (TRADE)
 [**CreateOrderListOtocoV3**](SpotAPI.md#CreateOrderListOtocoV3) | **Post** /api/v3/orderList/otoco | New Order list - OTOCO (TRADE)
 [**CreateOrderOcoV3**](SpotAPI.md#CreateOrderOcoV3) | **Post** /api/v3/order/oco | New OCO - Deprecated (TRADE)
+[**CreateOrderTestV3**](SpotAPI.md#CreateOrderTestV3) | **Post** /api/v3/order/test | Test new order (TRADE)
+[**CreateOrderV3**](SpotAPI.md#CreateOrderV3) | **Post** /api/v3/order | New order (TRADE)
+[**CreateSorOrderTestV3**](SpotAPI.md#CreateSorOrderTestV3) | **Post** /api/v3/sor/order/test | Test new order using SOR (TRADE)
 [**CreateSorOrderV3**](SpotAPI.md#CreateSorOrderV3) | **Post** /api/v3/sor/order | New order using SOR (TRADE)
 [**CreateUserDataStreamV3**](SpotAPI.md#CreateUserDataStreamV3) | **Post** /api/v3/userDataStream | Start user data stream (USER_STREAM)
+[**DeleteOpenOrdersV3**](SpotAPI.md#DeleteOpenOrdersV3) | **Delete** /api/v3/openOrders | Cancel All Open Orders on a Symbol (TRADE)
 [**DeleteOrderListV3**](SpotAPI.md#DeleteOrderListV3) | **Delete** /api/v3/orderList | Cancel Order list (TRADE)
 [**DeleteOrderV3**](SpotAPI.md#DeleteOrderV3) | **Delete** /api/v3/order | Cancel order (TRADE)
 [**DeleteUserDataStreamV3**](SpotAPI.md#DeleteUserDataStreamV3) | **Delete** /api/v3/userDataStream | Close user data stream (USER_STREAM)
 [**GetAccountCommissionV3**](SpotAPI.md#GetAccountCommissionV3) | **Get** /api/v3/account/commission | Query Commission Rates (USER_DATA)
 [**GetAccountV3**](SpotAPI.md#GetAccountV3) | **Get** /api/v3/account | Account information (USER_DATA)
+[**GetAggTradesV3**](SpotAPI.md#GetAggTradesV3) | **Get** /api/v3/aggTrades | Compressed/Aggregate trades list
 [**GetAllOrderListV3**](SpotAPI.md#GetAllOrderListV3) | **Get** /api/v3/allOrderList | Query all Order lists (USER_DATA)
 [**GetAllOrdersV3**](SpotAPI.md#GetAllOrdersV3) | **Get** /api/v3/allOrders | All orders (USER_DATA)
 [**GetAvgPriceV3**](SpotAPI.md#GetAvgPriceV3) | **Get** /api/v3/avgPrice | Current average price
 [**GetDepthV3**](SpotAPI.md#GetDepthV3) | **Get** /api/v3/depth | Order book
+[**GetExchangeInfoV3**](SpotAPI.md#GetExchangeInfoV3) | **Get** /api/v3/exchangeInfo | Exchange information
 [**GetHistoricalTradesV3**](SpotAPI.md#GetHistoricalTradesV3) | **Get** /api/v3/historicalTrades | Old trade lookup
+[**GetKlinesV3**](SpotAPI.md#GetKlinesV3) | **Get** /api/v3/klines | Kline/Candlestick data
 [**GetMyAllocationsV3**](SpotAPI.md#GetMyAllocationsV3) | **Get** /api/v3/myAllocations | Query Allocations (USER_DATA)
 [**GetMyPreventedMatchesV3**](SpotAPI.md#GetMyPreventedMatchesV3) | **Get** /api/v3/myPreventedMatches | Query Prevented Matches (USER_DATA)
 [**GetMyTradesV3**](SpotAPI.md#GetMyTradesV3) | **Get** /api/v3/myTrades | Account trade list (USER_DATA)
@@ -29,10 +37,126 @@ Method | HTTP request | Description
 [**GetOrderV3**](SpotAPI.md#GetOrderV3) | **Get** /api/v3/order | Query order (USER_DATA)
 [**GetPingV3**](SpotAPI.md#GetPingV3) | **Get** /api/v3/ping | Test connectivity
 [**GetRateLimitOrderV3**](SpotAPI.md#GetRateLimitOrderV3) | **Get** /api/v3/rateLimit/order | Query Unfilled Order Count (USER_DATA)
+[**GetTicker24hrV3**](SpotAPI.md#GetTicker24hrV3) | **Get** /api/v3/ticker/24hr | 24hr ticker price change statistics
+[**GetTickerBookTickerV3**](SpotAPI.md#GetTickerBookTickerV3) | **Get** /api/v3/ticker/bookTicker | Symbol order book ticker
+[**GetTickerPriceV3**](SpotAPI.md#GetTickerPriceV3) | **Get** /api/v3/ticker/price | Symbol price ticker
+[**GetTickerTradingDayV3**](SpotAPI.md#GetTickerTradingDayV3) | **Get** /api/v3/ticker/tradingDay | Trading Day Ticker
+[**GetTickerV3**](SpotAPI.md#GetTickerV3) | **Get** /api/v3/ticker | Rolling window price change statistics
 [**GetTimeV3**](SpotAPI.md#GetTimeV3) | **Get** /api/v3/time | Check server time
 [**GetTradesV3**](SpotAPI.md#GetTradesV3) | **Get** /api/v3/trades | Recent trades list
+[**GetUiKlinesV3**](SpotAPI.md#GetUiKlinesV3) | **Get** /api/v3/uiKlines | UIKlines
 [**UpdateUserDataStreamV3**](SpotAPI.md#UpdateUserDataStreamV3) | **Put** /api/v3/userDataStream | Keepalive user data stream (USER_STREAM)
 
+
+
+## CreateOrderCancelReplaceV3
+
+> SpotCreateOrderCancelReplaceV3Resp CreateOrderCancelReplaceV3(ctx).CancelReplaceMode(cancelReplaceMode).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).CancelNewClientOrderId(cancelNewClientOrderId).CancelOrderId(cancelOrderId).CancelOrigClientOrderId(cancelOrigClientOrderId).CancelRestrictions(cancelRestrictions).IcebergQty(icebergQty).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).OrderRateLimitExceededMode(orderRateLimitExceededMode).Price(price).Quantity(quantity).QuoteOrderQty(quoteOrderQty).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).StopPrice(stopPrice).StrategyId(strategyId).StrategyType(strategyType).TimeInForce(timeInForce).TrailingDelta(trailingDelta).Execute()
+
+Cancel an Existing Order and Send a New Order (TRADE)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/spot"
+)
+
+func main() {
+	cancelReplaceMode := "cancelReplaceMode_example" // string |  (default to "")
+	side := "side_example" // string |  (default to "")
+	symbol := "symbol_example" // string |  (default to "")
+	timestamp := int64(789) // int64 | 
+	type_ := "type__example" // string |  (default to "")
+	cancelNewClientOrderId := "cancelNewClientOrderId_example" // string |  (optional) (default to "")
+	cancelOrderId := int64(789) // int64 |  (optional)
+	cancelOrigClientOrderId := "cancelOrigClientOrderId_example" // string |  (optional) (default to "")
+	cancelRestrictions := "cancelRestrictions_example" // string |  (optional) (default to "")
+	icebergQty := "icebergQty_example" // string |  (optional) (default to "")
+	newClientOrderId := "newClientOrderId_example" // string |  (optional) (default to "")
+	newOrderRespType := "newOrderRespType_example" // string |  (optional) (default to "")
+	orderRateLimitExceededMode := "orderRateLimitExceededMode_example" // string |  (optional) (default to "")
+	price := "price_example" // string |  (optional) (default to "")
+	quantity := "quantity_example" // string |  (optional) (default to "")
+	quoteOrderQty := "quoteOrderQty_example" // string |  (optional) (default to "")
+	recvWindow := int64(789) // int64 |  (optional)
+	selfTradePreventionMode := "selfTradePreventionMode_example" // string |  (optional) (default to "")
+	stopPrice := "stopPrice_example" // string |  (optional) (default to "")
+	strategyId := int64(789) // int64 |  (optional)
+	strategyType := int32(56) // int32 |  (optional)
+	timeInForce := "timeInForce_example" // string |  (optional) (default to "")
+	trailingDelta := int64(789) // int64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SpotAPI.CreateOrderCancelReplaceV3(context.Background()).CancelReplaceMode(cancelReplaceMode).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).CancelNewClientOrderId(cancelNewClientOrderId).CancelOrderId(cancelOrderId).CancelOrigClientOrderId(cancelOrigClientOrderId).CancelRestrictions(cancelRestrictions).IcebergQty(icebergQty).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).OrderRateLimitExceededMode(orderRateLimitExceededMode).Price(price).Quantity(quantity).QuoteOrderQty(quoteOrderQty).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).StopPrice(stopPrice).StrategyId(strategyId).StrategyType(strategyType).TimeInForce(timeInForce).TrailingDelta(trailingDelta).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.CreateOrderCancelReplaceV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateOrderCancelReplaceV3`: SpotCreateOrderCancelReplaceV3Resp
+	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.CreateOrderCancelReplaceV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateOrderCancelReplaceV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cancelReplaceMode** | **string** |  | [default to &quot;&quot;]
+ **side** | **string** |  | [default to &quot;&quot;]
+ **symbol** | **string** |  | [default to &quot;&quot;]
+ **timestamp** | **int64** |  | 
+ **type_** | **string** |  | [default to &quot;&quot;]
+ **cancelNewClientOrderId** | **string** |  | [default to &quot;&quot;]
+ **cancelOrderId** | **int64** |  | 
+ **cancelOrigClientOrderId** | **string** |  | [default to &quot;&quot;]
+ **cancelRestrictions** | **string** |  | [default to &quot;&quot;]
+ **icebergQty** | **string** |  | [default to &quot;&quot;]
+ **newClientOrderId** | **string** |  | [default to &quot;&quot;]
+ **newOrderRespType** | **string** |  | [default to &quot;&quot;]
+ **orderRateLimitExceededMode** | **string** |  | [default to &quot;&quot;]
+ **price** | **string** |  | [default to &quot;&quot;]
+ **quantity** | **string** |  | [default to &quot;&quot;]
+ **quoteOrderQty** | **string** |  | [default to &quot;&quot;]
+ **recvWindow** | **int64** |  | 
+ **selfTradePreventionMode** | **string** |  | [default to &quot;&quot;]
+ **stopPrice** | **string** |  | [default to &quot;&quot;]
+ **strategyId** | **int64** |  | 
+ **strategyType** | **int32** |  | 
+ **timeInForce** | **string** |  | [default to &quot;&quot;]
+ **trailingDelta** | **int64** |  | 
+
+### Return type
+
+[**SpotCreateOrderCancelReplaceV3Resp**](SpotCreateOrderCancelReplaceV3Resp.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/x-www-form-urlencoded
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## CreateOrderListOcoV3
@@ -507,6 +631,298 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## CreateOrderTestV3
+
+> SpotCreateOrderTestV3Resp CreateOrderTestV3(ctx).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).ComputeCommissionRates(computeCommissionRates).IcebergQty(icebergQty).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).Price(price).Quantity(quantity).QuoteOrderQty(quoteOrderQty).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).StopPrice(stopPrice).StrategyId(strategyId).StrategyType(strategyType).TimeInForce(timeInForce).TrailingDelta(trailingDelta).Execute()
+
+Test new order (TRADE)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/spot"
+)
+
+func main() {
+	side := "side_example" // string |  (default to "")
+	symbol := "symbol_example" // string |  (default to "")
+	timestamp := int64(789) // int64 | 
+	type_ := "type__example" // string |  (default to "")
+	computeCommissionRates := true // bool |  (optional)
+	icebergQty := "icebergQty_example" // string |  (optional) (default to "")
+	newClientOrderId := "newClientOrderId_example" // string |  (optional) (default to "")
+	newOrderRespType := "newOrderRespType_example" // string |  (optional) (default to "")
+	price := "price_example" // string |  (optional) (default to "")
+	quantity := "quantity_example" // string |  (optional) (default to "")
+	quoteOrderQty := "quoteOrderQty_example" // string |  (optional) (default to "")
+	recvWindow := int64(789) // int64 |  (optional)
+	selfTradePreventionMode := "selfTradePreventionMode_example" // string |  (optional) (default to "")
+	stopPrice := "stopPrice_example" // string |  (optional) (default to "")
+	strategyId := int64(789) // int64 |  (optional)
+	strategyType := int32(56) // int32 |  (optional)
+	timeInForce := "timeInForce_example" // string |  (optional) (default to "")
+	trailingDelta := int64(789) // int64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SpotAPI.CreateOrderTestV3(context.Background()).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).ComputeCommissionRates(computeCommissionRates).IcebergQty(icebergQty).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).Price(price).Quantity(quantity).QuoteOrderQty(quoteOrderQty).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).StopPrice(stopPrice).StrategyId(strategyId).StrategyType(strategyType).TimeInForce(timeInForce).TrailingDelta(trailingDelta).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.CreateOrderTestV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateOrderTestV3`: SpotCreateOrderTestV3Resp
+	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.CreateOrderTestV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateOrderTestV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **side** | **string** |  | [default to &quot;&quot;]
+ **symbol** | **string** |  | [default to &quot;&quot;]
+ **timestamp** | **int64** |  | 
+ **type_** | **string** |  | [default to &quot;&quot;]
+ **computeCommissionRates** | **bool** |  | 
+ **icebergQty** | **string** |  | [default to &quot;&quot;]
+ **newClientOrderId** | **string** |  | [default to &quot;&quot;]
+ **newOrderRespType** | **string** |  | [default to &quot;&quot;]
+ **price** | **string** |  | [default to &quot;&quot;]
+ **quantity** | **string** |  | [default to &quot;&quot;]
+ **quoteOrderQty** | **string** |  | [default to &quot;&quot;]
+ **recvWindow** | **int64** |  | 
+ **selfTradePreventionMode** | **string** |  | [default to &quot;&quot;]
+ **stopPrice** | **string** |  | [default to &quot;&quot;]
+ **strategyId** | **int64** |  | 
+ **strategyType** | **int32** |  | 
+ **timeInForce** | **string** |  | [default to &quot;&quot;]
+ **trailingDelta** | **int64** |  | 
+
+### Return type
+
+[**SpotCreateOrderTestV3Resp**](SpotCreateOrderTestV3Resp.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/x-www-form-urlencoded
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateOrderV3
+
+> SpotCreateOrderV3Resp CreateOrderV3(ctx).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).IcebergQty(icebergQty).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).Price(price).Quantity(quantity).QuoteOrderQty(quoteOrderQty).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).StopPrice(stopPrice).StrategyId(strategyId).StrategyType(strategyType).TimeInForce(timeInForce).TrailingDelta(trailingDelta).Execute()
+
+New order (TRADE)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/spot"
+)
+
+func main() {
+	side := "side_example" // string |  (default to "")
+	symbol := "symbol_example" // string |  (default to "")
+	timestamp := int64(789) // int64 | 
+	type_ := "type__example" // string |  (default to "")
+	icebergQty := "icebergQty_example" // string |  (optional) (default to "")
+	newClientOrderId := "newClientOrderId_example" // string |  (optional) (default to "")
+	newOrderRespType := "newOrderRespType_example" // string |  (optional) (default to "")
+	price := "price_example" // string |  (optional) (default to "")
+	quantity := "quantity_example" // string |  (optional) (default to "")
+	quoteOrderQty := "quoteOrderQty_example" // string |  (optional) (default to "")
+	recvWindow := int64(789) // int64 |  (optional)
+	selfTradePreventionMode := "selfTradePreventionMode_example" // string |  (optional) (default to "")
+	stopPrice := "stopPrice_example" // string |  (optional) (default to "")
+	strategyId := int64(789) // int64 |  (optional)
+	strategyType := int32(56) // int32 |  (optional)
+	timeInForce := "timeInForce_example" // string |  (optional) (default to "")
+	trailingDelta := int64(789) // int64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SpotAPI.CreateOrderV3(context.Background()).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).IcebergQty(icebergQty).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).Price(price).Quantity(quantity).QuoteOrderQty(quoteOrderQty).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).StopPrice(stopPrice).StrategyId(strategyId).StrategyType(strategyType).TimeInForce(timeInForce).TrailingDelta(trailingDelta).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.CreateOrderV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateOrderV3`: SpotCreateOrderV3Resp
+	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.CreateOrderV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateOrderV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **side** | **string** |  | [default to &quot;&quot;]
+ **symbol** | **string** |  | [default to &quot;&quot;]
+ **timestamp** | **int64** |  | 
+ **type_** | **string** |  | [default to &quot;&quot;]
+ **icebergQty** | **string** |  | [default to &quot;&quot;]
+ **newClientOrderId** | **string** |  | [default to &quot;&quot;]
+ **newOrderRespType** | **string** |  | [default to &quot;&quot;]
+ **price** | **string** |  | [default to &quot;&quot;]
+ **quantity** | **string** |  | [default to &quot;&quot;]
+ **quoteOrderQty** | **string** |  | [default to &quot;&quot;]
+ **recvWindow** | **int64** |  | 
+ **selfTradePreventionMode** | **string** |  | [default to &quot;&quot;]
+ **stopPrice** | **string** |  | [default to &quot;&quot;]
+ **strategyId** | **int64** |  | 
+ **strategyType** | **int32** |  | 
+ **timeInForce** | **string** |  | [default to &quot;&quot;]
+ **trailingDelta** | **int64** |  | 
+
+### Return type
+
+[**SpotCreateOrderV3Resp**](SpotCreateOrderV3Resp.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/x-www-form-urlencoded
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateSorOrderTestV3
+
+> SpotCreateSorOrderTestV3Resp CreateSorOrderTestV3(ctx).Quantity(quantity).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).ComputeCommissionRates(computeCommissionRates).IcebergQty(icebergQty).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).Price(price).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).StrategyId(strategyId).StrategyType(strategyType).TimeInForce(timeInForce).Execute()
+
+Test new order using SOR (TRADE)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/spot"
+)
+
+func main() {
+	quantity := "quantity_example" // string |  (default to "")
+	side := "side_example" // string |  (default to "")
+	symbol := "symbol_example" // string |  (default to "")
+	timestamp := int64(789) // int64 | 
+	type_ := "type__example" // string |  (default to "")
+	computeCommissionRates := true // bool |  (optional)
+	icebergQty := "icebergQty_example" // string |  (optional) (default to "")
+	newClientOrderId := "newClientOrderId_example" // string |  (optional) (default to "")
+	newOrderRespType := "newOrderRespType_example" // string |  (optional) (default to "")
+	price := "price_example" // string |  (optional) (default to "")
+	recvWindow := int64(789) // int64 |  (optional)
+	selfTradePreventionMode := "selfTradePreventionMode_example" // string |  (optional) (default to "")
+	strategyId := int64(789) // int64 |  (optional)
+	strategyType := int32(56) // int32 |  (optional)
+	timeInForce := "timeInForce_example" // string |  (optional) (default to "")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SpotAPI.CreateSorOrderTestV3(context.Background()).Quantity(quantity).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).ComputeCommissionRates(computeCommissionRates).IcebergQty(icebergQty).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).Price(price).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).StrategyId(strategyId).StrategyType(strategyType).TimeInForce(timeInForce).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.CreateSorOrderTestV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateSorOrderTestV3`: SpotCreateSorOrderTestV3Resp
+	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.CreateSorOrderTestV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateSorOrderTestV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **quantity** | **string** |  | [default to &quot;&quot;]
+ **side** | **string** |  | [default to &quot;&quot;]
+ **symbol** | **string** |  | [default to &quot;&quot;]
+ **timestamp** | **int64** |  | 
+ **type_** | **string** |  | [default to &quot;&quot;]
+ **computeCommissionRates** | **bool** |  | 
+ **icebergQty** | **string** |  | [default to &quot;&quot;]
+ **newClientOrderId** | **string** |  | [default to &quot;&quot;]
+ **newOrderRespType** | **string** |  | [default to &quot;&quot;]
+ **price** | **string** |  | [default to &quot;&quot;]
+ **recvWindow** | **int64** |  | 
+ **selfTradePreventionMode** | **string** |  | [default to &quot;&quot;]
+ **strategyId** | **int64** |  | 
+ **strategyType** | **int32** |  | 
+ **timeInForce** | **string** |  | [default to &quot;&quot;]
+
+### Return type
+
+[**SpotCreateSorOrderTestV3Resp**](SpotCreateSorOrderTestV3Resp.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/x-www-form-urlencoded
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## CreateSorOrderV3
 
 > CreateSorOrderV3Resp CreateSorOrderV3(ctx).Quantity(quantity).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).IcebergQty(icebergQty).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).Price(price).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).StrategyId(strategyId).StrategyType(strategyType).TimeInForce(timeInForce).Execute()
@@ -645,6 +1061,76 @@ Other parameters are passed through a pointer to a apiCreateUserDataStreamV3Requ
 ### Return type
 
 [**CreateUserDataStreamV3Resp**](CreateUserDataStreamV3Resp.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteOpenOrdersV3
+
+> [][]SpotDeleteOpenOrdersV3RespInner DeleteOpenOrdersV3(ctx).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+
+Cancel All Open Orders on a Symbol (TRADE)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/spot"
+)
+
+func main() {
+	symbol := "symbol_example" // string |  (default to "")
+	timestamp := int64(789) // int64 | 
+	recvWindow := int64(789) // int64 | The value cannot be greater than `60000` (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SpotAPI.DeleteOpenOrdersV3(context.Background()).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.DeleteOpenOrdersV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteOpenOrdersV3`: [][]SpotDeleteOpenOrdersV3RespInner
+	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.DeleteOpenOrdersV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteOpenOrdersV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** |  | [default to &quot;&quot;]
+ **timestamp** | **int64** |  | 
+ **recvWindow** | **int64** | The value cannot be greater than &#x60;60000&#x60; | 
+
+### Return type
+
+[**[][]SpotDeleteOpenOrdersV3RespInner**](array.md)
 
 ### Authorization
 
@@ -1016,6 +1502,80 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetAggTradesV3
+
+> []SpotGetAggTradesV3RespItem GetAggTradesV3(ctx).Symbol(symbol).FromId(fromId).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+
+Compressed/Aggregate trades list
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/spot"
+)
+
+func main() {
+	symbol := "symbol_example" // string |  (default to "")
+	fromId := int64(789) // int64 | ID to get aggregate trades from INCLUSIVE. (optional)
+	startTime := int64(789) // int64 | Timestamp in ms to get aggregate trades from INCLUSIVE. (optional)
+	endTime := int64(789) // int64 | Timestamp in ms to get aggregate trades until INCLUSIVE. (optional)
+	limit := int32(56) // int32 | Default 500; max 1000. (optional) (default to 500)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SpotAPI.GetAggTradesV3(context.Background()).Symbol(symbol).FromId(fromId).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetAggTradesV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAggTradesV3`: []SpotGetAggTradesV3RespItem
+	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetAggTradesV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetAggTradesV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** |  | [default to &quot;&quot;]
+ **fromId** | **int64** | ID to get aggregate trades from INCLUSIVE. | 
+ **startTime** | **int64** | Timestamp in ms to get aggregate trades from INCLUSIVE. | 
+ **endTime** | **int64** | Timestamp in ms to get aggregate trades until INCLUSIVE. | 
+ **limit** | **int32** | Default 500; max 1000. | [default to 500]
+
+### Return type
+
+[**[]SpotGetAggTradesV3RespItem**](SpotGetAggTradesV3RespItem.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetAllOrderListV3
 
 > []GetAllOrderListV3RespItem GetAllOrderListV3(ctx).Timestamp(timestamp).FromId(fromId).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
@@ -1302,6 +1862,80 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## GetExchangeInfoV3
+
+> SpotGetExchangeInfoV3Resp GetExchangeInfoV3(ctx).Symbol(symbol).Symbols(symbols).Permissions(permissions).ShowPermissionSets(showPermissionSets).SymbolStatus(symbolStatus).Execute()
+
+Exchange information
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/spot"
+)
+
+func main() {
+	symbol := "symbol_example" // string | Example: curl -X GET &#34;<a href=\"https://api.binance.com/api/v3/exchangeInfo?symbol=BNBBTC\" target=\"_blank\" rel=\"noopener noreferrer\">https://api.binance.com/api/v3/exchangeInfo?symbol=BNBBTC</a>&#34; (optional) (default to "")
+	symbols := []string{"Inner_example"} // []string | Examples: curl -X GET &#34;<a href=\"https://api.binance.com/api/v3/exchangeInfo?symbols=%5B%22BNBBTC%22,%22BTCUSDT%22%5D\" target=\"_blank\" rel=\"noopener noreferrer\">https://api.binance.com/api/v3/exchangeInfo?symbols=%5B%22BNBBTC%22,%22BTCUSDT%22%5D</a>&#34; <br/> or <br/> curl -g -X  GET &#39;<a href=\"https://api.binance.com/api/v3/exchangeInfo?symbols=%5B%22BTCUSDT%22,%22BNBBTC\" target=\"_blank\" rel=\"noopener noreferrer\">https://api.binance.com/api/v3/exchangeInfo?symbols=[&#34;BTCUSDT&#34;,&#34;BNBBTC</a>&#34;]&#39; (optional)
+	permissions := "permissions_example" // string | Examples: curl -X GET &#34;<a href=\"https://api.binance.com/api/v3/exchangeInfo?permissions=SPOT\" target=\"_blank\" rel=\"noopener noreferrer\">https://api.binance.com/api/v3/exchangeInfo?permissions=SPOT</a>&#34; <br/> or <br/> curl -X GET &#34;<a href=\"https://api.binance.com/api/v3/exchangeInfo?permissions=%5B%22MARGIN%22%2C%22LEVERAGED%22%5D\" target=\"_blank\" rel=\"noopener noreferrer\">https://api.binance.com/api/v3/exchangeInfo?permissions=%5B%22MARGIN%22%2C%22LEVERAGED%22%5D</a>&#34; <br/> or <br/> curl -g -X GET &#39;<a href=\"https://api.binance.com/api/v3/exchangeInfo?permissions=%5B%22MARGIN%22,%22LEVERAGED\" target=\"_blank\" rel=\"noopener noreferrer\">https://api.binance.com/api/v3/exchangeInfo?permissions=[&#34;MARGIN&#34;,&#34;LEVERAGED</a>&#34;]&#39; (optional) (default to "")
+	showPermissionSets := true // bool | Controls whether the content of the `permissionSets` field is populated or not. Defaults to `true` (optional)
+	symbolStatus := "symbolStatus_example" // string | Filters symbols that have this `tradingStatus`. Valid values: `TRADING`, `HALT`, `BREAK` <br/> Cannot be used in combination with `symbols` or `symbol`. (optional) (default to "")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SpotAPI.GetExchangeInfoV3(context.Background()).Symbol(symbol).Symbols(symbols).Permissions(permissions).ShowPermissionSets(showPermissionSets).SymbolStatus(symbolStatus).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetExchangeInfoV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetExchangeInfoV3`: SpotGetExchangeInfoV3Resp
+	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetExchangeInfoV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetExchangeInfoV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** | Example: curl -X GET &amp;#34;&lt;a href&#x3D;\&quot;https://api.binance.com/api/v3/exchangeInfo?symbol&#x3D;BNBBTC\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;https://api.binance.com/api/v3/exchangeInfo?symbol&#x3D;BNBBTC&lt;/a&gt;&amp;#34; | [default to &quot;&quot;]
+ **symbols** | **[]string** | Examples: curl -X GET &amp;#34;&lt;a href&#x3D;\&quot;https://api.binance.com/api/v3/exchangeInfo?symbols&#x3D;%5B%22BNBBTC%22,%22BTCUSDT%22%5D\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;https://api.binance.com/api/v3/exchangeInfo?symbols&#x3D;%5B%22BNBBTC%22,%22BTCUSDT%22%5D&lt;/a&gt;&amp;#34; &lt;br/&gt; or &lt;br/&gt; curl -g -X  GET &amp;#39;&lt;a href&#x3D;\&quot;https://api.binance.com/api/v3/exchangeInfo?symbols&#x3D;%5B%22BTCUSDT%22,%22BNBBTC\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;https://api.binance.com/api/v3/exchangeInfo?symbols&#x3D;[&amp;#34;BTCUSDT&amp;#34;,&amp;#34;BNBBTC&lt;/a&gt;&amp;#34;]&amp;#39; | 
+ **permissions** | **string** | Examples: curl -X GET &amp;#34;&lt;a href&#x3D;\&quot;https://api.binance.com/api/v3/exchangeInfo?permissions&#x3D;SPOT\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;https://api.binance.com/api/v3/exchangeInfo?permissions&#x3D;SPOT&lt;/a&gt;&amp;#34; &lt;br/&gt; or &lt;br/&gt; curl -X GET &amp;#34;&lt;a href&#x3D;\&quot;https://api.binance.com/api/v3/exchangeInfo?permissions&#x3D;%5B%22MARGIN%22%2C%22LEVERAGED%22%5D\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;https://api.binance.com/api/v3/exchangeInfo?permissions&#x3D;%5B%22MARGIN%22%2C%22LEVERAGED%22%5D&lt;/a&gt;&amp;#34; &lt;br/&gt; or &lt;br/&gt; curl -g -X GET &amp;#39;&lt;a href&#x3D;\&quot;https://api.binance.com/api/v3/exchangeInfo?permissions&#x3D;%5B%22MARGIN%22,%22LEVERAGED\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;https://api.binance.com/api/v3/exchangeInfo?permissions&#x3D;[&amp;#34;MARGIN&amp;#34;,&amp;#34;LEVERAGED&lt;/a&gt;&amp;#34;]&amp;#39; | [default to &quot;&quot;]
+ **showPermissionSets** | **bool** | Controls whether the content of the &#x60;permissionSets&#x60; field is populated or not. Defaults to &#x60;true&#x60; | 
+ **symbolStatus** | **string** | Filters symbols that have this &#x60;tradingStatus&#x60;. Valid values: &#x60;TRADING&#x60;, &#x60;HALT&#x60;, &#x60;BREAK&#x60; &lt;br/&gt; Cannot be used in combination with &#x60;symbols&#x60; or &#x60;symbol&#x60;. | [default to &quot;&quot;]
+
+### Return type
+
+[**SpotGetExchangeInfoV3Resp**](SpotGetExchangeInfoV3Resp.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetHistoricalTradesV3
 
 > []GetHistoricalTradesV3RespItem GetHistoricalTradesV3(ctx).Symbol(symbol).Limit(limit).FromId(fromId).Execute()
@@ -1357,6 +1991,82 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]GetHistoricalTradesV3RespItem**](GetHistoricalTradesV3RespItem.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetKlinesV3
+
+> [][]GetKlinesV3200ResponseInnerInner GetKlinesV3(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).TimeZone(timeZone).Limit(limit).Execute()
+
+Kline/Candlestick data
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/spot"
+)
+
+func main() {
+	symbol := "symbol_example" // string |  (default to "")
+	interval := "interval_example" // string |  (default to "")
+	startTime := int64(789) // int64 |  (optional)
+	endTime := int64(789) // int64 |  (optional)
+	timeZone := "timeZone_example" // string | Default: 0 (UTC) (optional) (default to "0")
+	limit := int32(56) // int32 | Default 500; max 1000. (optional) (default to 500)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SpotAPI.GetKlinesV3(context.Background()).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).TimeZone(timeZone).Limit(limit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetKlinesV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetKlinesV3`: [][]GetKlinesV3200ResponseInnerInner
+	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetKlinesV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetKlinesV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** |  | [default to &quot;&quot;]
+ **interval** | **string** |  | [default to &quot;&quot;]
+ **startTime** | **int64** |  | 
+ **endTime** | **int64** |  | 
+ **timeZone** | **string** | Default: 0 (UTC) | [default to &quot;0&quot;]
+ **limit** | **int32** | Default 500; max 1000. | [default to 500]
+
+### Return type
+
+[**[][]GetKlinesV3200ResponseInnerInner**](array.md)
 
 ### Authorization
 
@@ -2021,6 +2731,356 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetTicker24hrV3
+
+> SpotGetTicker24hrV3Resp GetTicker24hrV3(ctx).Symbol(symbol).Symbols(symbols).Type_(type_).Execute()
+
+24hr ticker price change statistics
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/spot"
+)
+
+func main() {
+	symbol := "symbol_example" // string | Parameter symbol and symbols cannot be used in combination. <br/> If neither parameter is sent, tickers for all symbols will be returned in an array. <br/><br/>          Examples of accepted format for the symbols parameter:          [&#34;BTCUSDT&#34;,&#34;BNBUSDT&#34;] <br/>          or <br/>          %5B%22BTCUSDT%22,%22BNBUSDT%22%5D (optional) (default to "")
+	symbols := "symbols_example" // string | Parameter symbol and symbols cannot be used in combination. <br/> If neither parameter is sent, tickers for all symbols will be returned in an array. <br/><br/>          Examples of accepted format for the symbols parameter:          [&#34;BTCUSDT&#34;,&#34;BNBUSDT&#34;] <br/>          or <br/>          %5B%22BTCUSDT%22,%22BNBUSDT%22%5D (optional) (default to "")
+	type_ := "type__example" // string | Supported values: `FULL` or `MINI`. <br/>If none provided, the default is `FULL` (optional) (default to "")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SpotAPI.GetTicker24hrV3(context.Background()).Symbol(symbol).Symbols(symbols).Type_(type_).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetTicker24hrV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTicker24hrV3`: SpotGetTicker24hrV3Resp
+	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetTicker24hrV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetTicker24hrV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** | Parameter symbol and symbols cannot be used in combination. &lt;br/&gt; If neither parameter is sent, tickers for all symbols will be returned in an array. &lt;br/&gt;&lt;br/&gt;          Examples of accepted format for the symbols parameter:          [&amp;#34;BTCUSDT&amp;#34;,&amp;#34;BNBUSDT&amp;#34;] &lt;br/&gt;          or &lt;br/&gt;          %5B%22BTCUSDT%22,%22BNBUSDT%22%5D | [default to &quot;&quot;]
+ **symbols** | **string** | Parameter symbol and symbols cannot be used in combination. &lt;br/&gt; If neither parameter is sent, tickers for all symbols will be returned in an array. &lt;br/&gt;&lt;br/&gt;          Examples of accepted format for the symbols parameter:          [&amp;#34;BTCUSDT&amp;#34;,&amp;#34;BNBUSDT&amp;#34;] &lt;br/&gt;          or &lt;br/&gt;          %5B%22BTCUSDT%22,%22BNBUSDT%22%5D | [default to &quot;&quot;]
+ **type_** | **string** | Supported values: &#x60;FULL&#x60; or &#x60;MINI&#x60;. &lt;br/&gt;If none provided, the default is &#x60;FULL&#x60; | [default to &quot;&quot;]
+
+### Return type
+
+[**SpotGetTicker24hrV3Resp**](SpotGetTicker24hrV3Resp.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetTickerBookTickerV3
+
+> SpotGetTickerBookTickerV3Resp GetTickerBookTickerV3(ctx).Symbol(symbol).Symbols(symbols).Execute()
+
+Symbol order book ticker
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/spot"
+)
+
+func main() {
+	symbol := "symbol_example" // string | Parameter symbol and symbols cannot be used in combination. <br/> If neither parameter is sent, bookTickers for all symbols will be returned in an array.          <br/><br/>         Examples of accepted format for the symbols parameter:          [&#34;BTCUSDT&#34;,&#34;BNBUSDT&#34;] <br/>          or <br/>          %5B%22BTCUSDT%22,%22BNBUSDT%22%5D (optional) (default to "")
+	symbols := "symbols_example" // string | Parameter symbol and symbols cannot be used in combination. <br/> If neither parameter is sent, bookTickers for all symbols will be returned in an array.          <br/><br/>         Examples of accepted format for the symbols parameter:          [&#34;BTCUSDT&#34;,&#34;BNBUSDT&#34;] <br/>          or <br/>          %5B%22BTCUSDT%22,%22BNBUSDT%22%5D (optional) (default to "")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SpotAPI.GetTickerBookTickerV3(context.Background()).Symbol(symbol).Symbols(symbols).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetTickerBookTickerV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTickerBookTickerV3`: SpotGetTickerBookTickerV3Resp
+	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetTickerBookTickerV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetTickerBookTickerV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** | Parameter symbol and symbols cannot be used in combination. &lt;br/&gt; If neither parameter is sent, bookTickers for all symbols will be returned in an array.          &lt;br/&gt;&lt;br/&gt;         Examples of accepted format for the symbols parameter:          [&amp;#34;BTCUSDT&amp;#34;,&amp;#34;BNBUSDT&amp;#34;] &lt;br/&gt;          or &lt;br/&gt;          %5B%22BTCUSDT%22,%22BNBUSDT%22%5D | [default to &quot;&quot;]
+ **symbols** | **string** | Parameter symbol and symbols cannot be used in combination. &lt;br/&gt; If neither parameter is sent, bookTickers for all symbols will be returned in an array.          &lt;br/&gt;&lt;br/&gt;         Examples of accepted format for the symbols parameter:          [&amp;#34;BTCUSDT&amp;#34;,&amp;#34;BNBUSDT&amp;#34;] &lt;br/&gt;          or &lt;br/&gt;          %5B%22BTCUSDT%22,%22BNBUSDT%22%5D | [default to &quot;&quot;]
+
+### Return type
+
+[**SpotGetTickerBookTickerV3Resp**](SpotGetTickerBookTickerV3Resp.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetTickerPriceV3
+
+> SpotGetTickerPriceV3Resp GetTickerPriceV3(ctx).Symbol(symbol).Symbols(symbols).Execute()
+
+Symbol price ticker
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/spot"
+)
+
+func main() {
+	symbol := "symbol_example" // string | Parameter symbol and symbols cannot be used in combination. <br/> If neither parameter is sent, prices for all symbols will be returned in an array. <br/><br/>         Examples of accepted format for the symbols parameter:          [&#34;BTCUSDT&#34;,&#34;BNBUSDT&#34;] <br/>          or <br/>          %5B%22BTCUSDT%22,%22BNBUSDT%22%5D (optional) (default to "")
+	symbols := "symbols_example" // string | Parameter symbol and symbols cannot be used in combination. <br/> If neither parameter is sent, prices for all symbols will be returned in an array. <br/><br/>         Examples of accepted format for the symbols parameter:          [&#34;BTCUSDT&#34;,&#34;BNBUSDT&#34;] <br/>          or <br/>          %5B%22BTCUSDT%22,%22BNBUSDT%22%5D (optional) (default to "")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SpotAPI.GetTickerPriceV3(context.Background()).Symbol(symbol).Symbols(symbols).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetTickerPriceV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTickerPriceV3`: SpotGetTickerPriceV3Resp
+	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetTickerPriceV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetTickerPriceV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** | Parameter symbol and symbols cannot be used in combination. &lt;br/&gt; If neither parameter is sent, prices for all symbols will be returned in an array. &lt;br/&gt;&lt;br/&gt;         Examples of accepted format for the symbols parameter:          [&amp;#34;BTCUSDT&amp;#34;,&amp;#34;BNBUSDT&amp;#34;] &lt;br/&gt;          or &lt;br/&gt;          %5B%22BTCUSDT%22,%22BNBUSDT%22%5D | [default to &quot;&quot;]
+ **symbols** | **string** | Parameter symbol and symbols cannot be used in combination. &lt;br/&gt; If neither parameter is sent, prices for all symbols will be returned in an array. &lt;br/&gt;&lt;br/&gt;         Examples of accepted format for the symbols parameter:          [&amp;#34;BTCUSDT&amp;#34;,&amp;#34;BNBUSDT&amp;#34;] &lt;br/&gt;          or &lt;br/&gt;          %5B%22BTCUSDT%22,%22BNBUSDT%22%5D | [default to &quot;&quot;]
+
+### Return type
+
+[**SpotGetTickerPriceV3Resp**](SpotGetTickerPriceV3Resp.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetTickerTradingDayV3
+
+> SpotGetTickerTradingDayV3Resp GetTickerTradingDayV3(ctx).Symbol(symbol).Symbols(symbols).TimeZone(timeZone).Type_(type_).Execute()
+
+Trading Day Ticker
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/spot"
+)
+
+func main() {
+	symbol := "symbol_example" // string | Either `symbol` or `symbols` must be provided <br/><br/> Examples of accepted format for the `symbols` parameter: <br/> [&#34;BTCUSDT&#34;,&#34;BNBUSDT&#34;] <br/>or <br/>%5B%22BTCUSDT%22,%22BNBUSDT%22%5D <br/><br/> The maximum number of `symbols` allowed in a request is 100. (default to "")
+	symbols := "symbols_example" // string | Either `symbol` or `symbols` must be provided <br/><br/> Examples of accepted format for the `symbols` parameter: <br/> [&#34;BTCUSDT&#34;,&#34;BNBUSDT&#34;] <br/>or <br/>%5B%22BTCUSDT%22,%22BNBUSDT%22%5D <br/><br/> The maximum number of `symbols` allowed in a request is 100. (default to "")
+	timeZone := "timeZone_example" // string | Default: 0 (UTC) (optional) (default to "0")
+	type_ := "type__example" // string | Supported values: `FULL` or `MINI`. <br/>If none provided, the default is `FULL` (optional) (default to "")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SpotAPI.GetTickerTradingDayV3(context.Background()).Symbol(symbol).Symbols(symbols).TimeZone(timeZone).Type_(type_).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetTickerTradingDayV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTickerTradingDayV3`: SpotGetTickerTradingDayV3Resp
+	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetTickerTradingDayV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetTickerTradingDayV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** | Either &#x60;symbol&#x60; or &#x60;symbols&#x60; must be provided &lt;br/&gt;&lt;br/&gt; Examples of accepted format for the &#x60;symbols&#x60; parameter: &lt;br/&gt; [&amp;#34;BTCUSDT&amp;#34;,&amp;#34;BNBUSDT&amp;#34;] &lt;br/&gt;or &lt;br/&gt;%5B%22BTCUSDT%22,%22BNBUSDT%22%5D &lt;br/&gt;&lt;br/&gt; The maximum number of &#x60;symbols&#x60; allowed in a request is 100. | [default to &quot;&quot;]
+ **symbols** | **string** | Either &#x60;symbol&#x60; or &#x60;symbols&#x60; must be provided &lt;br/&gt;&lt;br/&gt; Examples of accepted format for the &#x60;symbols&#x60; parameter: &lt;br/&gt; [&amp;#34;BTCUSDT&amp;#34;,&amp;#34;BNBUSDT&amp;#34;] &lt;br/&gt;or &lt;br/&gt;%5B%22BTCUSDT%22,%22BNBUSDT%22%5D &lt;br/&gt;&lt;br/&gt; The maximum number of &#x60;symbols&#x60; allowed in a request is 100. | [default to &quot;&quot;]
+ **timeZone** | **string** | Default: 0 (UTC) | [default to &quot;0&quot;]
+ **type_** | **string** | Supported values: &#x60;FULL&#x60; or &#x60;MINI&#x60;. &lt;br/&gt;If none provided, the default is &#x60;FULL&#x60; | [default to &quot;&quot;]
+
+### Return type
+
+[**SpotGetTickerTradingDayV3Resp**](SpotGetTickerTradingDayV3Resp.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetTickerV3
+
+> SpotGetTickerV3Resp GetTickerV3(ctx).Symbol(symbol).Symbols(symbols).WindowSize(windowSize).Type_(type_).Execute()
+
+Rolling window price change statistics
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/spot"
+)
+
+func main() {
+	symbol := "symbol_example" // string | Either `symbol` or `symbols` must be provided <br/><br/> Examples of accepted format for the `symbols` parameter: <br/> [&#34;BTCUSDT&#34;,&#34;BNBUSDT&#34;] <br/>or <br/>%5B%22BTCUSDT%22,%22BNBUSDT%22%5D <br/><br/> The maximum number of `symbols` allowed in a request is 100. (default to "")
+	symbols := "symbols_example" // string | Either `symbol` or `symbols` must be provided <br/><br/> Examples of accepted format for the `symbols` parameter: <br/> [&#34;BTCUSDT&#34;,&#34;BNBUSDT&#34;] <br/>or <br/>%5B%22BTCUSDT%22,%22BNBUSDT%22%5D <br/><br/> The maximum number of `symbols` allowed in a request is 100. (default to "")
+	windowSize := "windowSize_example" // string | Defaults to `1d` if no parameter provided <br/> Supported `windowSize` values: <br/> `1m`,`2m`....`59m` for minutes <br/> `1h`, `2h`....`23h` - for hours <br/> `1d`...`7d` - for days <br/><br/> Units cannot be combined (e.g. `1d2h` is not allowed) (optional) (default to "")
+	type_ := "type__example" // string | Supported values: `FULL` or `MINI`. <br/>If none provided, the default is `FULL` (optional) (default to "")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SpotAPI.GetTickerV3(context.Background()).Symbol(symbol).Symbols(symbols).WindowSize(windowSize).Type_(type_).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetTickerV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTickerV3`: SpotGetTickerV3Resp
+	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetTickerV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetTickerV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** | Either &#x60;symbol&#x60; or &#x60;symbols&#x60; must be provided &lt;br/&gt;&lt;br/&gt; Examples of accepted format for the &#x60;symbols&#x60; parameter: &lt;br/&gt; [&amp;#34;BTCUSDT&amp;#34;,&amp;#34;BNBUSDT&amp;#34;] &lt;br/&gt;or &lt;br/&gt;%5B%22BTCUSDT%22,%22BNBUSDT%22%5D &lt;br/&gt;&lt;br/&gt; The maximum number of &#x60;symbols&#x60; allowed in a request is 100. | [default to &quot;&quot;]
+ **symbols** | **string** | Either &#x60;symbol&#x60; or &#x60;symbols&#x60; must be provided &lt;br/&gt;&lt;br/&gt; Examples of accepted format for the &#x60;symbols&#x60; parameter: &lt;br/&gt; [&amp;#34;BTCUSDT&amp;#34;,&amp;#34;BNBUSDT&amp;#34;] &lt;br/&gt;or &lt;br/&gt;%5B%22BTCUSDT%22,%22BNBUSDT%22%5D &lt;br/&gt;&lt;br/&gt; The maximum number of &#x60;symbols&#x60; allowed in a request is 100. | [default to &quot;&quot;]
+ **windowSize** | **string** | Defaults to &#x60;1d&#x60; if no parameter provided &lt;br/&gt; Supported &#x60;windowSize&#x60; values: &lt;br/&gt; &#x60;1m&#x60;,&#x60;2m&#x60;....&#x60;59m&#x60; for minutes &lt;br/&gt; &#x60;1h&#x60;, &#x60;2h&#x60;....&#x60;23h&#x60; - for hours &lt;br/&gt; &#x60;1d&#x60;...&#x60;7d&#x60; - for days &lt;br/&gt;&lt;br/&gt; Units cannot be combined (e.g. &#x60;1d2h&#x60; is not allowed) | [default to &quot;&quot;]
+ **type_** | **string** | Supported values: &#x60;FULL&#x60; or &#x60;MINI&#x60;. &lt;br/&gt;If none provided, the default is &#x60;FULL&#x60; | [default to &quot;&quot;]
+
+### Return type
+
+[**SpotGetTickerV3Resp**](SpotGetTickerV3Resp.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetTimeV3
 
 > GetTimeV3Resp GetTimeV3(ctx).Execute()
@@ -2135,6 +3195,82 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]GetTradesV3RespItem**](GetTradesV3RespItem.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetUiKlinesV3
+
+> [][]GetKlinesV3200ResponseInnerInner GetUiKlinesV3(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).TimeZone(timeZone).Limit(limit).Execute()
+
+UIKlines
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/spot"
+)
+
+func main() {
+	symbol := "symbol_example" // string |  (default to "")
+	interval := "interval_example" // string | See <a href=\"/docs/binance-spot-api-docs/rest-api/market-data-endpoints#kline-intervals\">`klines`</a> (default to "")
+	startTime := int64(789) // int64 |  (optional)
+	endTime := int64(789) // int64 |  (optional)
+	timeZone := "timeZone_example" // string | Default: 0 (UTC) (optional) (default to "0")
+	limit := int32(56) // int32 | Default 500; max 1000. (optional) (default to 500)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SpotAPI.GetUiKlinesV3(context.Background()).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).TimeZone(timeZone).Limit(limit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SpotAPI.GetUiKlinesV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetUiKlinesV3`: [][]GetKlinesV3200ResponseInnerInner
+	fmt.Fprintf(os.Stdout, "Response from `SpotAPI.GetUiKlinesV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetUiKlinesV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** |  | [default to &quot;&quot;]
+ **interval** | **string** | See &lt;a href&#x3D;\&quot;/docs/binance-spot-api-docs/rest-api/market-data-endpoints#kline-intervals\&quot;&gt;&#x60;klines&#x60;&lt;/a&gt; | [default to &quot;&quot;]
+ **startTime** | **int64** |  | 
+ **endTime** | **int64** |  | 
+ **timeZone** | **string** | Default: 0 (UTC) | [default to &quot;0&quot;]
+ **limit** | **int32** | Default 500; max 1000. | [default to 500]
+
+### Return type
+
+[**[][]GetKlinesV3200ResponseInnerInner**](array.md)
 
 ### Authorization
 

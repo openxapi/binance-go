@@ -4,14 +4,17 @@ All URIs are relative to *https://eapi.binance.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CreateBatchOrdersV1**](OptionsAPI.md#CreateBatchOrdersV1) | **Post** /eapi/v1/batchOrders | Place Multiple Orders(TRADE)
 [**CreateBlockOrderExecuteV1**](OptionsAPI.md#CreateBlockOrderExecuteV1) | **Post** /eapi/v1/block/order/execute | Accept Block Trade Order (TRADE)
 [**CreateCountdownCancelAllHeartBeatV1**](OptionsAPI.md#CreateCountdownCancelAllHeartBeatV1) | **Post** /eapi/v1/countdownCancelAllHeartBeat | Auto-Cancel All Open Orders (Kill-Switch) Heartbeat (TRADE)
 [**CreateCountdownCancelAllV1**](OptionsAPI.md#CreateCountdownCancelAllV1) | **Post** /eapi/v1/countdownCancelAll | Set Auto-Cancel All Open Orders (Kill-Switch) Config (TRADE)
 [**CreateListenKeyV1**](OptionsAPI.md#CreateListenKeyV1) | **Post** /eapi/v1/listenKey | Start User Data Stream (USER_STREAM)
 [**CreateMmpResetV1**](OptionsAPI.md#CreateMmpResetV1) | **Post** /eapi/v1/mmpReset | Reset Market Maker Protection Config (TRADE)
 [**CreateMmpSetV1**](OptionsAPI.md#CreateMmpSetV1) | **Post** /eapi/v1/mmpSet | Set Market Maker Protection Config (TRADE)
+[**CreateOrderV1**](OptionsAPI.md#CreateOrderV1) | **Post** /eapi/v1/order | New Order (TRADE)
 [**DeleteAllOpenOrdersByUnderlyingV1**](OptionsAPI.md#DeleteAllOpenOrdersByUnderlyingV1) | **Delete** /eapi/v1/allOpenOrdersByUnderlying | Cancel All Option Orders By Underlying (TRADE)
 [**DeleteAllOpenOrdersV1**](OptionsAPI.md#DeleteAllOpenOrdersV1) | **Delete** /eapi/v1/allOpenOrders | Cancel all Option orders on specific symbol (TRADE)
+[**DeleteBatchOrdersV1**](OptionsAPI.md#DeleteBatchOrdersV1) | **Delete** /eapi/v1/batchOrders | Cancel Multiple Option Orders (TRADE)
 [**DeleteListenKeyV1**](OptionsAPI.md#DeleteListenKeyV1) | **Delete** /eapi/v1/listenKey | Close User Data Stream (USER_STREAM)
 [**DeleteOrderV1**](OptionsAPI.md#DeleteOrderV1) | **Delete** /eapi/v1/order | Cancel Option Order (TRADE)
 [**GetAccountV1**](OptionsAPI.md#GetAccountV1) | **Get** /eapi/v1/account | Option Account Information(TRADE)
@@ -22,6 +25,7 @@ Method | HTTP request | Description
 [**GetBlockUserTradesV1**](OptionsAPI.md#GetBlockUserTradesV1) | **Get** /eapi/v1/block/user-trades | Account Block Trade List (USER_DATA)
 [**GetCountdownCancelAllV1**](OptionsAPI.md#GetCountdownCancelAllV1) | **Get** /eapi/v1/countdownCancelAll | Get Auto-Cancel All Open Orders (Kill-Switch) Config (TRADE)
 [**GetDepthV1**](OptionsAPI.md#GetDepthV1) | **Get** /eapi/v1/depth | Order Book
+[**GetExchangeInfoV1**](OptionsAPI.md#GetExchangeInfoV1) | **Get** /eapi/v1/exchangeInfo | Exchange Information
 [**GetExerciseHistoryV1**](OptionsAPI.md#GetExerciseHistoryV1) | **Get** /eapi/v1/exerciseHistory | Historical Exercise Records
 [**GetExerciseRecordV1**](OptionsAPI.md#GetExerciseRecordV1) | **Get** /eapi/v1/exerciseRecord | User Exercise Record (USER_DATA)
 [**GetHistoricalTradesV1**](OptionsAPI.md#GetHistoricalTradesV1) | **Get** /eapi/v1/historicalTrades | Old Trades Lookup (MARKET_DATA)
@@ -45,6 +49,76 @@ Method | HTTP request | Description
 [**UpdateBlockOrderCreateV1**](OptionsAPI.md#UpdateBlockOrderCreateV1) | **Put** /eapi/v1/block/order/create | Extend Block Trade Order (TRADE)
 [**UpdateListenKeyV1**](OptionsAPI.md#UpdateListenKeyV1) | **Put** /eapi/v1/listenKey | Keepalive User Data Stream (USER_STREAM)
 
+
+
+## CreateBatchOrdersV1
+
+> []OptionsCreateBatchOrdersV1RespInner CreateBatchOrdersV1(ctx).Orders(orders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+
+Place Multiple Orders(TRADE)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/options"
+)
+
+func main() {
+	orders := []openapiclient.OptionsCreateBatchOrdersV1ReqOrdersItem{*openapiclient.NewOptionsCreateBatchOrdersV1ReqOrdersItem("Quantity_example", "Side_example", "Symbol_example", "Type_example")} // []OptionsCreateBatchOrdersV1ReqOrdersItem | 
+	timestamp := int64(789) // int64 | 
+	recvWindow := int64(789) // int64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OptionsAPI.CreateBatchOrdersV1(context.Background()).Orders(orders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OptionsAPI.CreateBatchOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateBatchOrdersV1`: []OptionsCreateBatchOrdersV1RespInner
+	fmt.Fprintf(os.Stdout, "Response from `OptionsAPI.CreateBatchOrdersV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateBatchOrdersV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orders** | [**[]OptionsCreateBatchOrdersV1ReqOrdersItem**](OptionsCreateBatchOrdersV1ReqOrdersItem.md) |  | 
+ **timestamp** | **int64** |  | 
+ **recvWindow** | **int64** |  | 
+
+### Return type
+
+[**[]OptionsCreateBatchOrdersV1RespInner**](OptionsCreateBatchOrdersV1RespInner.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/x-www-form-urlencoded
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## CreateBlockOrderExecuteV1
@@ -468,6 +542,96 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## CreateOrderV1
+
+> OptionsCreateOrderV1Resp CreateOrderV1(ctx).Quantity(quantity).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).ClientOrderId(clientOrderId).IsMmp(isMmp).NewOrderRespType(newOrderRespType).PostOnly(postOnly).Price(price).RecvWindow(recvWindow).ReduceOnly(reduceOnly).TimeInForce(timeInForce).Execute()
+
+New Order (TRADE)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/options"
+)
+
+func main() {
+	quantity := "quantity_example" // string |  (default to "")
+	side := "side_example" // string |  (default to "")
+	symbol := "symbol_example" // string |  (default to "")
+	timestamp := int64(789) // int64 | 
+	type_ := "type__example" // string |  (default to "")
+	clientOrderId := "clientOrderId_example" // string |  (optional) (default to "")
+	isMmp := true // bool |  (optional)
+	newOrderRespType := "newOrderRespType_example" // string |  (optional) (default to "")
+	postOnly := true // bool |  (optional) (default to false)
+	price := "price_example" // string |  (optional) (default to "")
+	recvWindow := int64(789) // int64 |  (optional)
+	reduceOnly := true // bool |  (optional) (default to false)
+	timeInForce := "timeInForce_example" // string |  (optional) (default to "")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OptionsAPI.CreateOrderV1(context.Background()).Quantity(quantity).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).ClientOrderId(clientOrderId).IsMmp(isMmp).NewOrderRespType(newOrderRespType).PostOnly(postOnly).Price(price).RecvWindow(recvWindow).ReduceOnly(reduceOnly).TimeInForce(timeInForce).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OptionsAPI.CreateOrderV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateOrderV1`: OptionsCreateOrderV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `OptionsAPI.CreateOrderV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateOrderV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **quantity** | **string** |  | [default to &quot;&quot;]
+ **side** | **string** |  | [default to &quot;&quot;]
+ **symbol** | **string** |  | [default to &quot;&quot;]
+ **timestamp** | **int64** |  | 
+ **type_** | **string** |  | [default to &quot;&quot;]
+ **clientOrderId** | **string** |  | [default to &quot;&quot;]
+ **isMmp** | **bool** |  | 
+ **newOrderRespType** | **string** |  | [default to &quot;&quot;]
+ **postOnly** | **bool** |  | [default to false]
+ **price** | **string** |  | [default to &quot;&quot;]
+ **recvWindow** | **int64** |  | 
+ **reduceOnly** | **bool** |  | [default to false]
+ **timeInForce** | **string** |  | [default to &quot;&quot;]
+
+### Return type
+
+[**OptionsCreateOrderV1Resp**](OptionsCreateOrderV1Resp.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/x-www-form-urlencoded
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DeleteAllOpenOrdersByUnderlyingV1
 
 > DeleteAllOpenOrdersByUnderlyingV1Resp DeleteAllOpenOrdersByUnderlyingV1(ctx).Underlying(underlying).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
@@ -593,6 +757,80 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DeleteAllOpenOrdersV1Resp**](DeleteAllOpenOrdersV1Resp.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteBatchOrdersV1
+
+> []OptionsDeleteBatchOrdersV1RespInner DeleteBatchOrdersV1(ctx).Symbol(symbol).Timestamp(timestamp).OrderIds(orderIds).ClientOrderIds(clientOrderIds).RecvWindow(recvWindow).Execute()
+
+Cancel Multiple Option Orders (TRADE)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/options"
+)
+
+func main() {
+	symbol := "symbol_example" // string | Option trading pair, e.g BTC-200730-9000-C (default to "")
+	timestamp := int64(789) // int64 | 
+	orderIds := []int64{int64(123)} // []int64 | Order ID, e.g [4611875134427365377,4611875134427365378] (optional)
+	clientOrderIds := []string{"Inner_example"} // []string | User-defined order ID, e.g [&#34;my_id_1&#34;,&#34;my_id_2&#34;] (optional)
+	recvWindow := int64(789) // int64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OptionsAPI.DeleteBatchOrdersV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderIds(orderIds).ClientOrderIds(clientOrderIds).RecvWindow(recvWindow).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OptionsAPI.DeleteBatchOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteBatchOrdersV1`: []OptionsDeleteBatchOrdersV1RespInner
+	fmt.Fprintf(os.Stdout, "Response from `OptionsAPI.DeleteBatchOrdersV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteBatchOrdersV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** | Option trading pair, e.g BTC-200730-9000-C | [default to &quot;&quot;]
+ **timestamp** | **int64** |  | 
+ **orderIds** | **[]int64** | Order ID, e.g [4611875134427365377,4611875134427365378] | 
+ **clientOrderIds** | **[]string** | User-defined order ID, e.g [&amp;#34;my_id_1&amp;#34;,&amp;#34;my_id_2&amp;#34;] | 
+ **recvWindow** | **int64** |  | 
+
+### Return type
+
+[**[]OptionsDeleteBatchOrdersV1RespInner**](OptionsDeleteBatchOrdersV1RespInner.md)
 
 ### Authorization
 
@@ -1300,6 +1538,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetDepthV1Resp**](GetDepthV1Resp.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetExchangeInfoV1
+
+> OptionsGetExchangeInfoV1Resp GetExchangeInfoV1(ctx).Execute()
+
+Exchange Information
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/options"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OptionsAPI.GetExchangeInfoV1(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OptionsAPI.GetExchangeInfoV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetExchangeInfoV1`: OptionsGetExchangeInfoV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `OptionsAPI.GetExchangeInfoV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetExchangeInfoV1Request struct via the builder pattern
+
+
+### Return type
+
+[**OptionsGetExchangeInfoV1Resp**](OptionsGetExchangeInfoV1Resp.md)
 
 ### Authorization
 

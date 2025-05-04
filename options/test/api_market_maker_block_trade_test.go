@@ -22,11 +22,11 @@ func Test_options_MarketMakerBlockTradeAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test MarketMakerBlockTradeAPIService OptionsCreateBlockOrderCreateV1", func(t *testing.T) {
+	t.Run("Test MarketMakerBlockTradeAPIService CreateBlockOrderCreateV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketMakerBlockTradeAPI.OptionsCreateBlockOrderCreateV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketMakerBlockTradeAPI.CreateBlockOrderCreateV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_options_MarketMakerBlockTradeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MarketMakerBlockTradeAPIService OptionsDeleteBlockOrderCreateV1", func(t *testing.T) {
+	t.Run("Test MarketMakerBlockTradeAPIService DeleteBlockOrderCreateV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MarketMakerBlockTradeAPI.OptionsDeleteBlockOrderCreateV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MarketMakerBlockTradeAPI.DeleteBlockOrderCreateV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

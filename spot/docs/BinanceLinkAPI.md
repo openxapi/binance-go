@@ -28,6 +28,7 @@ Method | HTTP request | Description
 [**GetApiReferralKickbackRecentRecordV1**](BinanceLinkAPI.md#GetApiReferralKickbackRecentRecordV1) | **Get** /sapi/v1/apiReferral/kickback/recentRecord | Query Rebate Recent Record(For Client)
 [**GetApiReferralRebateRecentRecordV1**](BinanceLinkAPI.md#GetApiReferralRebateRecentRecordV1) | **Get** /sapi/v1/apiReferral/rebate/recentRecord | Query Rebate Recent Record （USER DATA）(For Partner)
 [**GetApiReferralUserCustomizationV1**](BinanceLinkAPI.md#GetApiReferralUserCustomizationV1) | **Get** /sapi/v1/apiReferral/userCustomization | Get User’s Customize Id (USER DATA)
+[**GetBrokerInfoV1**](BinanceLinkAPI.md#GetBrokerInfoV1) | **Get** /sapi/v1/broker/info | Link Account Information
 [**GetBrokerRebateFuturesRecentRecordV1**](BinanceLinkAPI.md#GetBrokerRebateFuturesRecentRecordV1) | **Get** /sapi/v1/broker/rebate/futures/recentRecord | Query Broker Futures Commission Rebate Record
 [**GetBrokerRebateRecentRecordV1**](BinanceLinkAPI.md#GetBrokerRebateRecentRecordV1) | **Get** /sapi/v1/broker/rebate/recentRecord | Query Broker Commission Rebate Recent Record（Spot）
 [**GetBrokerSubAccountApiCommissionCoinFuturesV1**](BinanceLinkAPI.md#GetBrokerSubAccountApiCommissionCoinFuturesV1) | **Get** /sapi/v1/broker/subAccountApi/commission/coinFutures | Query Sub Account COIN-Ⓜ Futures Commission Adjustment
@@ -37,6 +38,7 @@ Method | HTTP request | Description
 [**GetBrokerSubAccountBnbBurnStatusV1**](BinanceLinkAPI.md#GetBrokerSubAccountBnbBurnStatusV1) | **Get** /sapi/v1/broker/subAccount/bnbBurn/status | Get BNB Burn Status for Sub Account
 [**GetBrokerSubAccountDepositHistV1**](BinanceLinkAPI.md#GetBrokerSubAccountDepositHistV1) | **Get** /sapi/v1/broker/subAccount/depositHist | Get Sub Account Deposit History
 [**GetBrokerSubAccountDepositHistV2**](BinanceLinkAPI.md#GetBrokerSubAccountDepositHistV2) | **Get** /sapi/v2/broker/subAccount/depositHist | Get Sub Account Deposit History V2
+[**GetBrokerSubAccountFuturesSummaryV3**](BinanceLinkAPI.md#GetBrokerSubAccountFuturesSummaryV3) | **Get** /sapi/v3/broker/subAccount/futuresSummary | Query Sub Account Futures Asset info (V3)
 [**GetBrokerSubAccountMarginSummaryV1**](BinanceLinkAPI.md#GetBrokerSubAccountMarginSummaryV1) | **Get** /sapi/v1/broker/subAccount/marginSummary | Query Sub Account Margin Asset info
 [**GetBrokerSubAccountSpotSummaryV1**](BinanceLinkAPI.md#GetBrokerSubAccountSpotSummaryV1) | **Get** /sapi/v1/broker/subAccount/spotSummary | Query Sub Account Spot Asset info
 [**GetBrokerSubAccountV1**](BinanceLinkAPI.md#GetBrokerSubAccountV1) | **Get** /sapi/v1/broker/subAccount | Query Sub Account
@@ -1818,6 +1820,72 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetBrokerInfoV1
+
+> GetBrokerInfoV1Resp GetBrokerInfoV1(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+
+Link Account Information
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/spot"
+)
+
+func main() {
+	timestamp := int64(789) // int64 | 
+	recvWindow := int64(789) // int64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BinanceLinkAPI.GetBrokerInfoV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BinanceLinkAPI.GetBrokerInfoV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetBrokerInfoV1`: GetBrokerInfoV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `BinanceLinkAPI.GetBrokerInfoV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetBrokerInfoV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **timestamp** | **int64** |  | 
+ **recvWindow** | **int64** |  | 
+
+### Return type
+
+[**GetBrokerInfoV1Resp**](GetBrokerInfoV1Resp.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetBrokerRebateFuturesRecentRecordV1
 
 > []GetBrokerRebateFuturesRecentRecordV1RespItem GetBrokerRebateFuturesRecentRecordV1(ctx).FuturesType(futuresType).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).Page(page).Size(size).FilterResult(filterResult).RecvWindow(recvWindow).Execute()
@@ -2475,6 +2543,80 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]GetBrokerSubAccountDepositHistV2RespItem**](GetBrokerSubAccountDepositHistV2RespItem.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetBrokerSubAccountFuturesSummaryV3
+
+> ExchangelinkGetBrokerSubAccountFuturesSummaryV3Resp GetBrokerSubAccountFuturesSummaryV3(ctx).FuturesType(futuresType).Timestamp(timestamp).SubAccountId(subAccountId).Page(page).Size(size).RecvWindow(recvWindow).Execute()
+
+Query Sub Account Futures Asset info (V3)
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/spot"
+)
+
+func main() {
+	futuresType := int32(56) // int32 | 1:USD Margined Futures, 2:COIN Margined Futures
+	timestamp := int64(789) // int64 | 
+	subAccountId := "subAccountId_example" // string |  (optional) (default to "")
+	page := int64(789) // int64 | default 1 (optional) (default to 1)
+	size := int64(789) // int64 | default 10, max 20 (optional) (default to 10)
+	recvWindow := int64(789) // int64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BinanceLinkAPI.GetBrokerSubAccountFuturesSummaryV3(context.Background()).FuturesType(futuresType).Timestamp(timestamp).SubAccountId(subAccountId).Page(page).Size(size).RecvWindow(recvWindow).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BinanceLinkAPI.GetBrokerSubAccountFuturesSummaryV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetBrokerSubAccountFuturesSummaryV3`: ExchangelinkGetBrokerSubAccountFuturesSummaryV3Resp
+	fmt.Fprintf(os.Stdout, "Response from `BinanceLinkAPI.GetBrokerSubAccountFuturesSummaryV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetBrokerSubAccountFuturesSummaryV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **futuresType** | **int32** | 1:USD Margined Futures, 2:COIN Margined Futures | 
+ **timestamp** | **int64** |  | 
+ **subAccountId** | **string** |  | [default to &quot;&quot;]
+ **page** | **int64** | default 1 | [default to 1]
+ **size** | **int64** | default 10, max 20 | [default to 10]
+ **recvWindow** | **int64** |  | 
+
+### Return type
+
+[**ExchangelinkGetBrokerSubAccountFuturesSummaryV3Resp**](ExchangelinkGetBrokerSubAccountFuturesSummaryV3Resp.md)
 
 ### Authorization
 

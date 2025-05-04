@@ -4,8 +4,10 @@ All URIs are relative to *https://fapi.binance.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CreateBatchOrdersV1**](UsdsMarginedFuturesAPI.md#CreateBatchOrdersV1) | **Post** /fapi/v1/batchOrders | Place Multiple Orders(TRADE)
 [**CreateConvertAcceptQuoteV1**](UsdsMarginedFuturesAPI.md#CreateConvertAcceptQuoteV1) | **Post** /fapi/v1/convert/acceptQuote | Accept the offered quote (USER_DATA)
 [**CreateConvertGetQuoteV1**](UsdsMarginedFuturesAPI.md#CreateConvertGetQuoteV1) | **Post** /fapi/v1/convert/getQuote | Send Quote Request(USER_DATA)
+[**CreateCountdownCancelAllV1**](UsdsMarginedFuturesAPI.md#CreateCountdownCancelAllV1) | **Post** /fapi/v1/countdownCancelAll | Auto-Cancel All Open Orders (TRADE)
 [**CreateFeeBurnV1**](UsdsMarginedFuturesAPI.md#CreateFeeBurnV1) | **Post** /fapi/v1/feeBurn | Toggle BNB Burn On Futures Trade (TRADE)
 [**CreateLeverageV1**](UsdsMarginedFuturesAPI.md#CreateLeverageV1) | **Post** /fapi/v1/leverage | Change Initial Leverage(TRADE)
 [**CreateListenKeyV1**](UsdsMarginedFuturesAPI.md#CreateListenKeyV1) | **Post** /fapi/v1/listenKey | Start User Data Stream (USER_STREAM)
@@ -16,25 +18,32 @@ Method | HTTP request | Description
 [**CreatePositionMarginV1**](UsdsMarginedFuturesAPI.md#CreatePositionMarginV1) | **Post** /fapi/v1/positionMargin | Modify Isolated Position Margin(TRADE)
 [**CreatePositionSideDualV1**](UsdsMarginedFuturesAPI.md#CreatePositionSideDualV1) | **Post** /fapi/v1/positionSide/dual | Change Position Mode(TRADE)
 [**DeleteAllOpenOrdersV1**](UsdsMarginedFuturesAPI.md#DeleteAllOpenOrdersV1) | **Delete** /fapi/v1/allOpenOrders | Cancel All Open Orders (TRADE)
+[**DeleteBatchOrdersV1**](UsdsMarginedFuturesAPI.md#DeleteBatchOrdersV1) | **Delete** /fapi/v1/batchOrders | Cancel Multiple Orders (TRADE)
 [**DeleteListenKeyV1**](UsdsMarginedFuturesAPI.md#DeleteListenKeyV1) | **Delete** /fapi/v1/listenKey | Close User Data Stream (USER_STREAM)
 [**DeleteOrderV1**](UsdsMarginedFuturesAPI.md#DeleteOrderV1) | **Delete** /fapi/v1/order | Cancel Order (TRADE)
 [**GetAccountConfigV1**](UsdsMarginedFuturesAPI.md#GetAccountConfigV1) | **Get** /fapi/v1/accountConfig | Futures Account Configuration(USER_DATA)
 [**GetAccountV2**](UsdsMarginedFuturesAPI.md#GetAccountV2) | **Get** /fapi/v2/account | Account Information V2(USER_DATA)
 [**GetAccountV3**](UsdsMarginedFuturesAPI.md#GetAccountV3) | **Get** /fapi/v3/account | Account Information V3(USER_DATA)
 [**GetAdlQuantileV1**](UsdsMarginedFuturesAPI.md#GetAdlQuantileV1) | **Get** /fapi/v1/adlQuantile | Position ADL Quantile Estimation(USER_DATA)
+[**GetAggTradesV1**](UsdsMarginedFuturesAPI.md#GetAggTradesV1) | **Get** /fapi/v1/aggTrades | Compressed/Aggregate Trades List
 [**GetAllOrdersV1**](UsdsMarginedFuturesAPI.md#GetAllOrdersV1) | **Get** /fapi/v1/allOrders | All Orders (USER_DATA)
+[**GetApiTradingStatusV1**](UsdsMarginedFuturesAPI.md#GetApiTradingStatusV1) | **Get** /fapi/v1/apiTradingStatus | Futures Trading Quantitative Rules Indicators (USER_DATA)
+[**GetAssetIndexV1**](UsdsMarginedFuturesAPI.md#GetAssetIndexV1) | **Get** /fapi/v1/assetIndex | Multi-Assets Mode Asset Index
 [**GetBalanceV2**](UsdsMarginedFuturesAPI.md#GetBalanceV2) | **Get** /fapi/v2/balance | Futures Account Balance V2 (USER_DATA)
 [**GetBalanceV3**](UsdsMarginedFuturesAPI.md#GetBalanceV3) | **Get** /fapi/v3/balance | Futures Account Balance V3 (USER_DATA)
 [**GetCommissionRateV1**](UsdsMarginedFuturesAPI.md#GetCommissionRateV1) | **Get** /fapi/v1/commissionRate | User Commission Rate (USER_DATA)
 [**GetConstituentsV1**](UsdsMarginedFuturesAPI.md#GetConstituentsV1) | **Get** /fapi/v1/constituents | Query Index Price Constituents
+[**GetContinuousKlinesV1**](UsdsMarginedFuturesAPI.md#GetContinuousKlinesV1) | **Get** /fapi/v1/continuousKlines | Continuous Contract Kline/Candlestick Data
 [**GetConvertExchangeInfoV1**](UsdsMarginedFuturesAPI.md#GetConvertExchangeInfoV1) | **Get** /fapi/v1/convert/exchangeInfo | List All Convert Pairs
 [**GetConvertOrderStatusV1**](UsdsMarginedFuturesAPI.md#GetConvertOrderStatusV1) | **Get** /fapi/v1/convert/orderStatus | Order status(USER_DATA)
 [**GetDepthV1**](UsdsMarginedFuturesAPI.md#GetDepthV1) | **Get** /fapi/v1/depth | Order Book
+[**GetExchangeInfoV1**](UsdsMarginedFuturesAPI.md#GetExchangeInfoV1) | **Get** /fapi/v1/exchangeInfo | Exchange Information
 [**GetFeeBurnV1**](UsdsMarginedFuturesAPI.md#GetFeeBurnV1) | **Get** /fapi/v1/feeBurn | Get BNB Burn Status (USER_DATA)
 [**GetForceOrdersV1**](UsdsMarginedFuturesAPI.md#GetForceOrdersV1) | **Get** /fapi/v1/forceOrders | User&#39;s Force Orders (USER_DATA)
 [**GetFundingInfoV1**](UsdsMarginedFuturesAPI.md#GetFundingInfoV1) | **Get** /fapi/v1/fundingInfo | Get Funding Rate Info
 [**GetFundingRateV1**](UsdsMarginedFuturesAPI.md#GetFundingRateV1) | **Get** /fapi/v1/fundingRate | Get Funding Rate History
 [**GetFuturesDataBasis**](UsdsMarginedFuturesAPI.md#GetFuturesDataBasis) | **Get** /futures/data/basis | Basis
+[**GetFuturesDataDeliveryPrice**](UsdsMarginedFuturesAPI.md#GetFuturesDataDeliveryPrice) | **Get** /futures/data/delivery-price | Quarterly Contract Settlement Price
 [**GetFuturesDataGlobalLongShortAccountRatio**](UsdsMarginedFuturesAPI.md#GetFuturesDataGlobalLongShortAccountRatio) | **Get** /futures/data/globalLongShortAccountRatio | Long/Short Ratio
 [**GetFuturesDataOpenInterestHist**](UsdsMarginedFuturesAPI.md#GetFuturesDataOpenInterestHist) | **Get** /futures/data/openInterestHist | Open Interest Statistics
 [**GetFuturesDataTakerlongshortRatio**](UsdsMarginedFuturesAPI.md#GetFuturesDataTakerlongshortRatio) | **Get** /futures/data/takerlongshortRatio | Taker Buy/Sell Volume
@@ -44,12 +53,17 @@ Method | HTTP request | Description
 [**GetIncomeAsynIdV1**](UsdsMarginedFuturesAPI.md#GetIncomeAsynIdV1) | **Get** /fapi/v1/income/asyn/id | Get Futures Transaction History Download Link by Id (USER_DATA)
 [**GetIncomeAsynV1**](UsdsMarginedFuturesAPI.md#GetIncomeAsynV1) | **Get** /fapi/v1/income/asyn | Get Download Id For Futures Transaction History(USER_DATA)
 [**GetIndexInfoV1**](UsdsMarginedFuturesAPI.md#GetIndexInfoV1) | **Get** /fapi/v1/indexInfo | Composite Index Symbol Information
+[**GetIndexPriceKlinesV1**](UsdsMarginedFuturesAPI.md#GetIndexPriceKlinesV1) | **Get** /fapi/v1/indexPriceKlines | Index Price Kline/Candlestick Data
+[**GetKlinesV1**](UsdsMarginedFuturesAPI.md#GetKlinesV1) | **Get** /fapi/v1/klines | Kline/Candlestick Data
+[**GetLeverageBracketV1**](UsdsMarginedFuturesAPI.md#GetLeverageBracketV1) | **Get** /fapi/v1/leverageBracket | Notional and Leverage Brackets (USER_DATA)
+[**GetMarkPriceKlinesV1**](UsdsMarginedFuturesAPI.md#GetMarkPriceKlinesV1) | **Get** /fapi/v1/markPriceKlines | Mark Price Kline/Candlestick Data
 [**GetMultiAssetsMarginV1**](UsdsMarginedFuturesAPI.md#GetMultiAssetsMarginV1) | **Get** /fapi/v1/multiAssetsMargin | Get Current Multi-Assets Mode (USER_DATA)
 [**GetOpenInterestV1**](UsdsMarginedFuturesAPI.md#GetOpenInterestV1) | **Get** /fapi/v1/openInterest | Open Interest
 [**GetOpenOrderV1**](UsdsMarginedFuturesAPI.md#GetOpenOrderV1) | **Get** /fapi/v1/openOrder | Query Current Open Order (USER_DATA)
 [**GetOpenOrdersV1**](UsdsMarginedFuturesAPI.md#GetOpenOrdersV1) | **Get** /fapi/v1/openOrders | Current All Open Orders (USER_DATA)
 [**GetOrderAmendmentV1**](UsdsMarginedFuturesAPI.md#GetOrderAmendmentV1) | **Get** /fapi/v1/orderAmendment | Get Order Modify History (USER_DATA)
 [**GetOrderAsynIdV1**](UsdsMarginedFuturesAPI.md#GetOrderAsynIdV1) | **Get** /fapi/v1/order/asyn/id | Get Futures Order History Download Link by Id (USER_DATA)
+[**GetOrderAsynV1**](UsdsMarginedFuturesAPI.md#GetOrderAsynV1) | **Get** /fapi/v1/order/asyn | Get Download Id For Futures Order History (USER_DATA)
 [**GetOrderV1**](UsdsMarginedFuturesAPI.md#GetOrderV1) | **Get** /fapi/v1/order | Query Order (USER_DATA)
 [**GetPingV1**](UsdsMarginedFuturesAPI.md#GetPingV1) | **Get** /fapi/v1/ping | Test Connectivity
 [**GetPmAccountInfoV1**](UsdsMarginedFuturesAPI.md#GetPmAccountInfoV1) | **Get** /fapi/v1/pmAccountInfo | Classic Portfolio Margin Account Information (USER_DATA)
@@ -57,16 +71,93 @@ Method | HTTP request | Description
 [**GetPositionRiskV2**](UsdsMarginedFuturesAPI.md#GetPositionRiskV2) | **Get** /fapi/v2/positionRisk | Position Information V2 (USER_DATA)
 [**GetPositionRiskV3**](UsdsMarginedFuturesAPI.md#GetPositionRiskV3) | **Get** /fapi/v3/positionRisk | Position Information V3 (USER_DATA)
 [**GetPositionSideDualV1**](UsdsMarginedFuturesAPI.md#GetPositionSideDualV1) | **Get** /fapi/v1/positionSide/dual | Get Current Position Mode(USER_DATA)
+[**GetPremiumIndexKlinesV1**](UsdsMarginedFuturesAPI.md#GetPremiumIndexKlinesV1) | **Get** /fapi/v1/premiumIndexKlines | Premium index Kline Data
+[**GetPremiumIndexV1**](UsdsMarginedFuturesAPI.md#GetPremiumIndexV1) | **Get** /fapi/v1/premiumIndex | Mark Price
 [**GetRateLimitOrderV1**](UsdsMarginedFuturesAPI.md#GetRateLimitOrderV1) | **Get** /fapi/v1/rateLimit/order | Query User Rate Limit (USER_DATA)
 [**GetSymbolConfigV1**](UsdsMarginedFuturesAPI.md#GetSymbolConfigV1) | **Get** /fapi/v1/symbolConfig | Symbol Configuration(USER_DATA)
+[**GetTicker24hrV1**](UsdsMarginedFuturesAPI.md#GetTicker24hrV1) | **Get** /fapi/v1/ticker/24hr | 24hr Ticker Price Change Statistics
+[**GetTickerBookTickerV1**](UsdsMarginedFuturesAPI.md#GetTickerBookTickerV1) | **Get** /fapi/v1/ticker/bookTicker | Symbol Order Book Ticker
+[**GetTickerPriceV1**](UsdsMarginedFuturesAPI.md#GetTickerPriceV1) | **Get** /fapi/v1/ticker/price | Symbol Price Ticker
+[**GetTickerPriceV2**](UsdsMarginedFuturesAPI.md#GetTickerPriceV2) | **Get** /fapi/v2/ticker/price | Symbol Price Ticker V2
 [**GetTimeV1**](UsdsMarginedFuturesAPI.md#GetTimeV1) | **Get** /fapi/v1/time | Check Server Time
 [**GetTradeAsynIdV1**](UsdsMarginedFuturesAPI.md#GetTradeAsynIdV1) | **Get** /fapi/v1/trade/asyn/id | Get Futures Trade Download Link by Id(USER_DATA)
 [**GetTradeAsynV1**](UsdsMarginedFuturesAPI.md#GetTradeAsynV1) | **Get** /fapi/v1/trade/asyn | Get Download Id For Futures Trade History (USER_DATA)
 [**GetTradesV1**](UsdsMarginedFuturesAPI.md#GetTradesV1) | **Get** /fapi/v1/trades | Recent Trades List
 [**GetUserTradesV1**](UsdsMarginedFuturesAPI.md#GetUserTradesV1) | **Get** /fapi/v1/userTrades | Account Trade List (USER_DATA)
+[**UpdateBatchOrdersV1**](UsdsMarginedFuturesAPI.md#UpdateBatchOrdersV1) | **Put** /fapi/v1/batchOrders | Modify Multiple Orders(TRADE)
 [**UpdateListenKeyV1**](UsdsMarginedFuturesAPI.md#UpdateListenKeyV1) | **Put** /fapi/v1/listenKey | Keepalive User Data Stream (USER_STREAM)
 [**UpdateOrderV1**](UsdsMarginedFuturesAPI.md#UpdateOrderV1) | **Put** /fapi/v1/order | Modify Order (TRADE)
 
+
+
+## CreateBatchOrdersV1
+
+> []UmfuturesCreateBatchOrdersV1RespInner CreateBatchOrdersV1(ctx).BatchOrders(batchOrders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+
+Place Multiple Orders(TRADE)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/umfutures"
+)
+
+func main() {
+	batchOrders := []openapiclient.UmfuturesCreateBatchOrdersV1ReqBatchOrdersItem{*openapiclient.NewUmfuturesCreateBatchOrdersV1ReqBatchOrdersItem("Quantity_example", "Side_example", "Symbol_example", "Type_example")} // []UmfuturesCreateBatchOrdersV1ReqBatchOrdersItem | 
+	timestamp := int64(789) // int64 | 
+	recvWindow := int64(789) // int64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsdsMarginedFuturesAPI.CreateBatchOrdersV1(context.Background()).BatchOrders(batchOrders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.CreateBatchOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateBatchOrdersV1`: []UmfuturesCreateBatchOrdersV1RespInner
+	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.CreateBatchOrdersV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateBatchOrdersV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **batchOrders** | [**[]UmfuturesCreateBatchOrdersV1ReqBatchOrdersItem**](UmfuturesCreateBatchOrdersV1ReqBatchOrdersItem.md) |  | 
+ **timestamp** | **int64** |  | 
+ **recvWindow** | **int64** |  | 
+
+### Return type
+
+[**[]UmfuturesCreateBatchOrdersV1RespInner**](UmfuturesCreateBatchOrdersV1RespInner.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/x-www-form-urlencoded
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## CreateConvertAcceptQuoteV1
@@ -210,6 +301,72 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/x-www-form-urlencoded
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateCountdownCancelAllV1
+
+> UmfuturesCreateCountdownCancelAllV1Resp CreateCountdownCancelAllV1(ctx).UmfuturesCreateCountdownCancelAllV1Req(umfuturesCreateCountdownCancelAllV1Req).Execute()
+
+Auto-Cancel All Open Orders (TRADE)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/umfutures"
+)
+
+func main() {
+	umfuturesCreateCountdownCancelAllV1Req := *openapiclient.NewUmfuturesCreateCountdownCancelAllV1Req(int64(123), "Symbol_example", int64(123)) // UmfuturesCreateCountdownCancelAllV1Req |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsdsMarginedFuturesAPI.CreateCountdownCancelAllV1(context.Background()).UmfuturesCreateCountdownCancelAllV1Req(umfuturesCreateCountdownCancelAllV1Req).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.CreateCountdownCancelAllV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateCountdownCancelAllV1`: UmfuturesCreateCountdownCancelAllV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.CreateCountdownCancelAllV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateCountdownCancelAllV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **umfuturesCreateCountdownCancelAllV1Req** | [**UmfuturesCreateCountdownCancelAllV1Req**](UmfuturesCreateCountdownCancelAllV1Req.md) |  | 
+
+### Return type
+
+[**UmfuturesCreateCountdownCancelAllV1Resp**](UmfuturesCreateCountdownCancelAllV1Resp.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -990,6 +1147,80 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## DeleteBatchOrdersV1
+
+> []UmfuturesDeleteBatchOrdersV1RespInner DeleteBatchOrdersV1(ctx).Symbol(symbol).Timestamp(timestamp).OrderIdList(orderIdList).OrigClientOrderIdList(origClientOrderIdList).RecvWindow(recvWindow).Execute()
+
+Cancel Multiple Orders (TRADE)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/umfutures"
+)
+
+func main() {
+	symbol := "symbol_example" // string |  (default to "")
+	timestamp := int64(789) // int64 | 
+	orderIdList := []int64{int64(123)} // []int64 | max length 10 <br/> e.g. [1234567,2345678] (optional)
+	origClientOrderIdList := []string{"Inner_example"} // []string | max length 10<br/> e.g. [&#34;my_id_1&#34;,&#34;my_id_2&#34;], encode the double quotes. No space after comma. (optional)
+	recvWindow := int64(789) // int64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsdsMarginedFuturesAPI.DeleteBatchOrdersV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderIdList(orderIdList).OrigClientOrderIdList(origClientOrderIdList).RecvWindow(recvWindow).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.DeleteBatchOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteBatchOrdersV1`: []UmfuturesDeleteBatchOrdersV1RespInner
+	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.DeleteBatchOrdersV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteBatchOrdersV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** |  | [default to &quot;&quot;]
+ **timestamp** | **int64** |  | 
+ **orderIdList** | **[]int64** | max length 10 &lt;br/&gt; e.g. [1234567,2345678] | 
+ **origClientOrderIdList** | **[]string** | max length 10&lt;br/&gt; e.g. [&amp;#34;my_id_1&amp;#34;,&amp;#34;my_id_2&amp;#34;], encode the double quotes. No space after comma. | 
+ **recvWindow** | **int64** |  | 
+
+### Return type
+
+[**[]UmfuturesDeleteBatchOrdersV1RespInner**](UmfuturesDeleteBatchOrdersV1RespInner.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DeleteListenKeyV1
 
 > map[string]interface{} DeleteListenKeyV1(ctx).Execute()
@@ -1399,6 +1630,80 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetAggTradesV1
+
+> []UmfuturesGetAggTradesV1RespItem GetAggTradesV1(ctx).Symbol(symbol).FromId(fromId).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+
+Compressed/Aggregate Trades List
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/umfutures"
+)
+
+func main() {
+	symbol := "symbol_example" // string |  (default to "")
+	fromId := int64(789) // int64 | ID to get aggregate trades from INCLUSIVE. (optional)
+	startTime := int64(789) // int64 | Timestamp in ms to get aggregate trades from INCLUSIVE. (optional)
+	endTime := int64(789) // int64 | Timestamp in ms to get aggregate trades until INCLUSIVE. (optional)
+	limit := int32(56) // int32 | Default 500; max 1000. (optional) (default to 500)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetAggTradesV1(context.Background()).Symbol(symbol).FromId(fromId).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetAggTradesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAggTradesV1`: []UmfuturesGetAggTradesV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetAggTradesV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetAggTradesV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** |  | [default to &quot;&quot;]
+ **fromId** | **int64** | ID to get aggregate trades from INCLUSIVE. | 
+ **startTime** | **int64** | Timestamp in ms to get aggregate trades from INCLUSIVE. | 
+ **endTime** | **int64** | Timestamp in ms to get aggregate trades until INCLUSIVE. | 
+ **limit** | **int32** | Default 500; max 1000. | [default to 500]
+
+### Return type
+
+[**[]UmfuturesGetAggTradesV1RespItem**](UmfuturesGetAggTradesV1RespItem.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetAllOrdersV1
 
 > []GetAllOrdersV1RespItem GetAllOrdersV1(ctx).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
@@ -1466,6 +1771,142 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetApiTradingStatusV1
+
+> UmfuturesGetApiTradingStatusV1Resp GetApiTradingStatusV1(ctx).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+
+Futures Trading Quantitative Rules Indicators (USER_DATA)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/umfutures"
+)
+
+func main() {
+	timestamp := int64(789) // int64 | 
+	symbol := "symbol_example" // string |  (optional) (default to "")
+	recvWindow := int64(789) // int64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetApiTradingStatusV1(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetApiTradingStatusV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetApiTradingStatusV1`: UmfuturesGetApiTradingStatusV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetApiTradingStatusV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetApiTradingStatusV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **timestamp** | **int64** |  | 
+ **symbol** | **string** |  | [default to &quot;&quot;]
+ **recvWindow** | **int64** |  | 
+
+### Return type
+
+[**UmfuturesGetApiTradingStatusV1Resp**](UmfuturesGetApiTradingStatusV1Resp.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetAssetIndexV1
+
+> UmfuturesGetAssetIndexV1Resp GetAssetIndexV1(ctx).Symbol(symbol).Execute()
+
+Multi-Assets Mode Asset Index
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/umfutures"
+)
+
+func main() {
+	symbol := "symbol_example" // string | Asset pair (optional) (default to "")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetAssetIndexV1(context.Background()).Symbol(symbol).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetAssetIndexV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAssetIndexV1`: UmfuturesGetAssetIndexV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetAssetIndexV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetAssetIndexV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** | Asset pair | [default to &quot;&quot;]
+
+### Return type
+
+[**UmfuturesGetAssetIndexV1Resp**](UmfuturesGetAssetIndexV1Resp.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -1749,6 +2190,82 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## GetContinuousKlinesV1
+
+> [][]UmfuturesGetContinuousKlinesV1RespInnerInner GetContinuousKlinesV1(ctx).Pair(pair).ContractType(contractType).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+
+Continuous Contract Kline/Candlestick Data
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/umfutures"
+)
+
+func main() {
+	pair := "pair_example" // string |  (default to "")
+	contractType := "contractType_example" // string |  (default to "")
+	interval := "interval_example" // string |  (default to "")
+	startTime := int64(789) // int64 |  (optional)
+	endTime := int64(789) // int64 |  (optional)
+	limit := int32(56) // int32 | Default 500; max 1500. (optional) (default to 500)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetContinuousKlinesV1(context.Background()).Pair(pair).ContractType(contractType).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetContinuousKlinesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetContinuousKlinesV1`: [][]UmfuturesGetContinuousKlinesV1RespInnerInner
+	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetContinuousKlinesV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetContinuousKlinesV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pair** | **string** |  | [default to &quot;&quot;]
+ **contractType** | **string** |  | [default to &quot;&quot;]
+ **interval** | **string** |  | [default to &quot;&quot;]
+ **startTime** | **int64** |  | 
+ **endTime** | **int64** |  | 
+ **limit** | **int32** | Default 500; max 1500. | [default to 500]
+
+### Return type
+
+[**[][]UmfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetConvertExchangeInfoV1
 
 > []GetConvertExchangeInfoV1RespItem GetConvertExchangeInfoV1(ctx).FromAsset(fromAsset).ToAsset(toAsset).Execute()
@@ -1938,6 +2455,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetDepthV1Resp**](GetDepthV1Resp.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetExchangeInfoV1
+
+> UmfuturesGetExchangeInfoV1Resp GetExchangeInfoV1(ctx).Execute()
+
+Exchange Information
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/umfutures"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetExchangeInfoV1(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetExchangeInfoV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetExchangeInfoV1`: UmfuturesGetExchangeInfoV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetExchangeInfoV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetExchangeInfoV1Request struct via the builder pattern
+
+
+### Return type
+
+[**UmfuturesGetExchangeInfoV1Resp**](UmfuturesGetExchangeInfoV1Resp.md)
 
 ### Authorization
 
@@ -2293,6 +2871,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]GetFuturesDataBasisRespItem**](GetFuturesDataBasisRespItem.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetFuturesDataDeliveryPrice
+
+> []UmfuturesGetFuturesDataDeliveryPriceRespItem GetFuturesDataDeliveryPrice(ctx).Pair(pair).Execute()
+
+Quarterly Contract Settlement Price
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/umfutures"
+)
+
+func main() {
+	pair := "pair_example" // string | e.g BTCUSDT (default to "")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetFuturesDataDeliveryPrice(context.Background()).Pair(pair).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetFuturesDataDeliveryPrice``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetFuturesDataDeliveryPrice`: []UmfuturesGetFuturesDataDeliveryPriceRespItem
+	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetFuturesDataDeliveryPrice`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetFuturesDataDeliveryPriceRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pair** | **string** | e.g BTCUSDT | [default to &quot;&quot;]
+
+### Return type
+
+[**[]UmfuturesGetFuturesDataDeliveryPriceRespItem**](UmfuturesGetFuturesDataDeliveryPriceRespItem.md)
 
 ### Authorization
 
@@ -2956,6 +3600,298 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## GetIndexPriceKlinesV1
+
+> [][]UmfuturesGetContinuousKlinesV1RespInnerInner GetIndexPriceKlinesV1(ctx).Pair(pair).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+
+Index Price Kline/Candlestick Data
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/umfutures"
+)
+
+func main() {
+	pair := "pair_example" // string |  (default to "")
+	interval := "interval_example" // string |  (default to "")
+	startTime := int64(789) // int64 |  (optional)
+	endTime := int64(789) // int64 |  (optional)
+	limit := int32(56) // int32 | Default 500; max 1500. (optional) (default to 500)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetIndexPriceKlinesV1(context.Background()).Pair(pair).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetIndexPriceKlinesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetIndexPriceKlinesV1`: [][]UmfuturesGetContinuousKlinesV1RespInnerInner
+	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetIndexPriceKlinesV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetIndexPriceKlinesV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pair** | **string** |  | [default to &quot;&quot;]
+ **interval** | **string** |  | [default to &quot;&quot;]
+ **startTime** | **int64** |  | 
+ **endTime** | **int64** |  | 
+ **limit** | **int32** | Default 500; max 1500. | [default to 500]
+
+### Return type
+
+[**[][]UmfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetKlinesV1
+
+> [][]UmfuturesGetContinuousKlinesV1RespInnerInner GetKlinesV1(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+
+Kline/Candlestick Data
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/umfutures"
+)
+
+func main() {
+	symbol := "symbol_example" // string |  (default to "")
+	interval := "interval_example" // string |  (default to "")
+	startTime := int64(789) // int64 |  (optional)
+	endTime := int64(789) // int64 |  (optional)
+	limit := int32(56) // int32 | Default 500; max 1500. (optional) (default to 500)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetKlinesV1(context.Background()).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetKlinesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetKlinesV1`: [][]UmfuturesGetContinuousKlinesV1RespInnerInner
+	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetKlinesV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetKlinesV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** |  | [default to &quot;&quot;]
+ **interval** | **string** |  | [default to &quot;&quot;]
+ **startTime** | **int64** |  | 
+ **endTime** | **int64** |  | 
+ **limit** | **int32** | Default 500; max 1500. | [default to 500]
+
+### Return type
+
+[**[][]UmfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetLeverageBracketV1
+
+> UmfuturesGetLeverageBracketV1Resp GetLeverageBracketV1(ctx).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+
+Notional and Leverage Brackets (USER_DATA)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/umfutures"
+)
+
+func main() {
+	timestamp := int64(789) // int64 | 
+	symbol := "symbol_example" // string |  (optional) (default to "")
+	recvWindow := int64(789) // int64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetLeverageBracketV1(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetLeverageBracketV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetLeverageBracketV1`: UmfuturesGetLeverageBracketV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetLeverageBracketV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetLeverageBracketV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **timestamp** | **int64** |  | 
+ **symbol** | **string** |  | [default to &quot;&quot;]
+ **recvWindow** | **int64** |  | 
+
+### Return type
+
+[**UmfuturesGetLeverageBracketV1Resp**](UmfuturesGetLeverageBracketV1Resp.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetMarkPriceKlinesV1
+
+> [][]UmfuturesGetContinuousKlinesV1RespInnerInner GetMarkPriceKlinesV1(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+
+Mark Price Kline/Candlestick Data
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/umfutures"
+)
+
+func main() {
+	symbol := "symbol_example" // string |  (default to "")
+	interval := "interval_example" // string |  (default to "")
+	startTime := int64(789) // int64 |  (optional)
+	endTime := int64(789) // int64 |  (optional)
+	limit := int32(56) // int32 | Default 500; max 1500. (optional) (default to 500)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetMarkPriceKlinesV1(context.Background()).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetMarkPriceKlinesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMarkPriceKlinesV1`: [][]UmfuturesGetContinuousKlinesV1RespInnerInner
+	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetMarkPriceKlinesV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMarkPriceKlinesV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** |  | [default to &quot;&quot;]
+ **interval** | **string** |  | [default to &quot;&quot;]
+ **startTime** | **int64** |  | 
+ **endTime** | **int64** |  | 
+ **limit** | **int32** | Default 500; max 1500. | [default to 500]
+
+### Return type
+
+[**[][]UmfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetMultiAssetsMarginV1
 
 > GetMultiAssetsMarginV1Resp GetMultiAssetsMarginV1(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
@@ -3369,6 +4305,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetOrderAsynIdV1Resp**](GetOrderAsynIdV1Resp.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetOrderAsynV1
+
+> UmfuturesGetOrderAsynV1Resp GetOrderAsynV1(ctx).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+
+Get Download Id For Futures Order History (USER_DATA)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/umfutures"
+)
+
+func main() {
+	startTime := int64(789) // int64 | Timestamp in ms
+	endTime := int64(789) // int64 | Timestamp in ms
+	timestamp := int64(789) // int64 | 
+	recvWindow := int64(789) // int64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetOrderAsynV1(context.Background()).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetOrderAsynV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetOrderAsynV1`: UmfuturesGetOrderAsynV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetOrderAsynV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetOrderAsynV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startTime** | **int64** | Timestamp in ms | 
+ **endTime** | **int64** | Timestamp in ms | 
+ **timestamp** | **int64** |  | 
+ **recvWindow** | **int64** |  | 
+
+### Return type
+
+[**UmfuturesGetOrderAsynV1Resp**](UmfuturesGetOrderAsynV1Resp.md)
 
 ### Authorization
 
@@ -3875,6 +4883,146 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetPremiumIndexKlinesV1
+
+> [][]UmfuturesGetContinuousKlinesV1RespInnerInner GetPremiumIndexKlinesV1(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+
+Premium index Kline Data
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/umfutures"
+)
+
+func main() {
+	symbol := "symbol_example" // string |  (default to "")
+	interval := "interval_example" // string |  (default to "")
+	startTime := int64(789) // int64 |  (optional)
+	endTime := int64(789) // int64 |  (optional)
+	limit := int32(56) // int32 | Default 500; max 1500. (optional) (default to 500)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetPremiumIndexKlinesV1(context.Background()).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetPremiumIndexKlinesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPremiumIndexKlinesV1`: [][]UmfuturesGetContinuousKlinesV1RespInnerInner
+	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetPremiumIndexKlinesV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetPremiumIndexKlinesV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** |  | [default to &quot;&quot;]
+ **interval** | **string** |  | [default to &quot;&quot;]
+ **startTime** | **int64** |  | 
+ **endTime** | **int64** |  | 
+ **limit** | **int32** | Default 500; max 1500. | [default to 500]
+
+### Return type
+
+[**[][]UmfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetPremiumIndexV1
+
+> UmfuturesGetPremiumIndexV1Resp GetPremiumIndexV1(ctx).Symbol(symbol).Execute()
+
+Mark Price
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/umfutures"
+)
+
+func main() {
+	symbol := "symbol_example" // string |  (optional) (default to "")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetPremiumIndexV1(context.Background()).Symbol(symbol).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetPremiumIndexV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPremiumIndexV1`: UmfuturesGetPremiumIndexV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetPremiumIndexV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetPremiumIndexV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** |  | [default to &quot;&quot;]
+
+### Return type
+
+[**UmfuturesGetPremiumIndexV1Resp**](UmfuturesGetPremiumIndexV1Resp.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetRateLimitOrderV1
 
 > []GetRateLimitOrderV1RespItem GetRateLimitOrderV1(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
@@ -4002,6 +5150,270 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetTicker24hrV1
+
+> UmfuturesGetTicker24hrV1Resp GetTicker24hrV1(ctx).Symbol(symbol).Execute()
+
+24hr Ticker Price Change Statistics
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/umfutures"
+)
+
+func main() {
+	symbol := "symbol_example" // string |  (optional) (default to "")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetTicker24hrV1(context.Background()).Symbol(symbol).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetTicker24hrV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTicker24hrV1`: UmfuturesGetTicker24hrV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetTicker24hrV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetTicker24hrV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** |  | [default to &quot;&quot;]
+
+### Return type
+
+[**UmfuturesGetTicker24hrV1Resp**](UmfuturesGetTicker24hrV1Resp.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetTickerBookTickerV1
+
+> UmfuturesGetTickerBookTickerV1Resp GetTickerBookTickerV1(ctx).Symbol(symbol).Execute()
+
+Symbol Order Book Ticker
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/umfutures"
+)
+
+func main() {
+	symbol := "symbol_example" // string |  (optional) (default to "")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetTickerBookTickerV1(context.Background()).Symbol(symbol).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetTickerBookTickerV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTickerBookTickerV1`: UmfuturesGetTickerBookTickerV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetTickerBookTickerV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetTickerBookTickerV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** |  | [default to &quot;&quot;]
+
+### Return type
+
+[**UmfuturesGetTickerBookTickerV1Resp**](UmfuturesGetTickerBookTickerV1Resp.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetTickerPriceV1
+
+> UmfuturesGetTickerPriceV1Resp GetTickerPriceV1(ctx).Symbol(symbol).Execute()
+
+Symbol Price Ticker
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/umfutures"
+)
+
+func main() {
+	symbol := "symbol_example" // string |  (optional) (default to "")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetTickerPriceV1(context.Background()).Symbol(symbol).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetTickerPriceV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTickerPriceV1`: UmfuturesGetTickerPriceV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetTickerPriceV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetTickerPriceV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** |  | [default to &quot;&quot;]
+
+### Return type
+
+[**UmfuturesGetTickerPriceV1Resp**](UmfuturesGetTickerPriceV1Resp.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetTickerPriceV2
+
+> UmfuturesGetTickerPriceV2Resp GetTickerPriceV2(ctx).Symbol(symbol).Execute()
+
+Symbol Price Ticker V2
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/umfutures"
+)
+
+func main() {
+	symbol := "symbol_example" // string |  (optional) (default to "")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetTickerPriceV2(context.Background()).Symbol(symbol).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetTickerPriceV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTickerPriceV2`: UmfuturesGetTickerPriceV2Resp
+	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetTickerPriceV2`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetTickerPriceV2Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** |  | [default to &quot;&quot;]
+
+### Return type
+
+[**UmfuturesGetTickerPriceV2Resp**](UmfuturesGetTickerPriceV2Resp.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -4357,6 +5769,76 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateBatchOrdersV1
+
+> []UmfuturesUpdateBatchOrdersV1RespItem UpdateBatchOrdersV1(ctx).BatchOrders(batchOrders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+
+Modify Multiple Orders(TRADE)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/umfutures"
+)
+
+func main() {
+	batchOrders := []openapiclient.UmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem{*openapiclient.NewUmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem("Price_example", "Quantity_example", "Side_example", "Symbol_example")} // []UmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem | 
+	timestamp := int64(789) // int64 | 
+	recvWindow := int64(789) // int64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsdsMarginedFuturesAPI.UpdateBatchOrdersV1(context.Background()).BatchOrders(batchOrders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.UpdateBatchOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateBatchOrdersV1`: []UmfuturesUpdateBatchOrdersV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.UpdateBatchOrdersV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateBatchOrdersV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **batchOrders** | [**[]UmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem**](UmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem.md) |  | 
+ **timestamp** | **int64** |  | 
+ **recvWindow** | **int64** |  | 
+
+### Return type
+
+[**[]UmfuturesUpdateBatchOrdersV1RespItem**](UmfuturesUpdateBatchOrdersV1RespItem.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/x-www-form-urlencoded
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -402,6 +402,155 @@ func (a *MarginTradingAPIService) CreateMarginBorrowRepayV1Execute(r ApiCreateMa
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiCreateMarginExchangeSmallLiabilityV1Request struct {
+	ctx context.Context
+	ApiService *MarginTradingAPIService
+	assetNames *[]string
+	timestamp *int64
+	recvWindow *int64
+}
+
+func (r ApiCreateMarginExchangeSmallLiabilityV1Request) AssetNames(assetNames []string) ApiCreateMarginExchangeSmallLiabilityV1Request {
+	r.assetNames = &assetNames
+	return r
+}
+
+func (r ApiCreateMarginExchangeSmallLiabilityV1Request) Timestamp(timestamp int64) ApiCreateMarginExchangeSmallLiabilityV1Request {
+	r.timestamp = &timestamp
+	return r
+}
+
+func (r ApiCreateMarginExchangeSmallLiabilityV1Request) RecvWindow(recvWindow int64) ApiCreateMarginExchangeSmallLiabilityV1Request {
+	r.recvWindow = &recvWindow
+	return r
+}
+
+func (r ApiCreateMarginExchangeSmallLiabilityV1Request) Execute() (*MarginCreateMarginExchangeSmallLiabilityV1Resp, *http.Response, error) {
+	return r.ApiService.CreateMarginExchangeSmallLiabilityV1Execute(r)
+}
+
+/*
+CreateMarginExchangeSmallLiabilityV1 Small Liability Exchange (MARGIN)
+
+Small Liability Exchange
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCreateMarginExchangeSmallLiabilityV1Request
+*/
+func (a *MarginTradingAPIService) CreateMarginExchangeSmallLiabilityV1(ctx context.Context) ApiCreateMarginExchangeSmallLiabilityV1Request {
+	return ApiCreateMarginExchangeSmallLiabilityV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return MarginCreateMarginExchangeSmallLiabilityV1Resp
+func (a *MarginTradingAPIService) CreateMarginExchangeSmallLiabilityV1Execute(r ApiCreateMarginExchangeSmallLiabilityV1Request) (*MarginCreateMarginExchangeSmallLiabilityV1Resp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *MarginCreateMarginExchangeSmallLiabilityV1Resp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarginTradingAPIService.CreateMarginExchangeSmallLiabilityV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/sapi/v1/margin/exchange-small-liability"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.assetNames == nil {
+		return localVarReturnValue, nil, reportError("assetNames is required and must be specified")
+	}
+	if r.timestamp == nil {
+		return localVarReturnValue, nil, reportError("timestamp is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarFormParams, "assetNames", r.assetNames, "", "csv")
+	if r.recvWindow != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
+	}
+	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiCreateMarginIsolatedAccountV1Request struct {
 	ctx context.Context
 	ApiService *MarginTradingAPIService
@@ -1962,6 +2111,289 @@ func (a *MarginTradingAPIService) CreateMarginOrderOtocoV1Execute(r ApiCreateMar
 		parameterAddToHeaderOrQuery(localVarFormParams, "workingTimeInForce", r.workingTimeInForce, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "workingType", r.workingType, "", "")
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
+			localVarHeaderParams["X-MBX-APIKEY"] = auth.APIKey
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiCreateMarginOrderV1Request struct {
+	ctx context.Context
+	ApiService *MarginTradingAPIService
+	side *string
+	symbol *string
+	timestamp *int64
+	type_ *string
+	autoRepayAtCancel *bool
+	icebergQty *string
+	isIsolated *string
+	newClientOrderId *string
+	newOrderRespType *string
+	price *string
+	quantity *string
+	quoteOrderQty *string
+	recvWindow *int64
+	selfTradePreventionMode *string
+	sideEffectType *string
+	stopPrice *string
+	timeInForce *string
+}
+
+func (r ApiCreateMarginOrderV1Request) Side(side string) ApiCreateMarginOrderV1Request {
+	r.side = &side
+	return r
+}
+
+func (r ApiCreateMarginOrderV1Request) Symbol(symbol string) ApiCreateMarginOrderV1Request {
+	r.symbol = &symbol
+	return r
+}
+
+func (r ApiCreateMarginOrderV1Request) Timestamp(timestamp int64) ApiCreateMarginOrderV1Request {
+	r.timestamp = &timestamp
+	return r
+}
+
+func (r ApiCreateMarginOrderV1Request) Type_(type_ string) ApiCreateMarginOrderV1Request {
+	r.type_ = &type_
+	return r
+}
+
+func (r ApiCreateMarginOrderV1Request) AutoRepayAtCancel(autoRepayAtCancel bool) ApiCreateMarginOrderV1Request {
+	r.autoRepayAtCancel = &autoRepayAtCancel
+	return r
+}
+
+func (r ApiCreateMarginOrderV1Request) IcebergQty(icebergQty string) ApiCreateMarginOrderV1Request {
+	r.icebergQty = &icebergQty
+	return r
+}
+
+func (r ApiCreateMarginOrderV1Request) IsIsolated(isIsolated string) ApiCreateMarginOrderV1Request {
+	r.isIsolated = &isIsolated
+	return r
+}
+
+func (r ApiCreateMarginOrderV1Request) NewClientOrderId(newClientOrderId string) ApiCreateMarginOrderV1Request {
+	r.newClientOrderId = &newClientOrderId
+	return r
+}
+
+func (r ApiCreateMarginOrderV1Request) NewOrderRespType(newOrderRespType string) ApiCreateMarginOrderV1Request {
+	r.newOrderRespType = &newOrderRespType
+	return r
+}
+
+func (r ApiCreateMarginOrderV1Request) Price(price string) ApiCreateMarginOrderV1Request {
+	r.price = &price
+	return r
+}
+
+func (r ApiCreateMarginOrderV1Request) Quantity(quantity string) ApiCreateMarginOrderV1Request {
+	r.quantity = &quantity
+	return r
+}
+
+func (r ApiCreateMarginOrderV1Request) QuoteOrderQty(quoteOrderQty string) ApiCreateMarginOrderV1Request {
+	r.quoteOrderQty = &quoteOrderQty
+	return r
+}
+
+func (r ApiCreateMarginOrderV1Request) RecvWindow(recvWindow int64) ApiCreateMarginOrderV1Request {
+	r.recvWindow = &recvWindow
+	return r
+}
+
+func (r ApiCreateMarginOrderV1Request) SelfTradePreventionMode(selfTradePreventionMode string) ApiCreateMarginOrderV1Request {
+	r.selfTradePreventionMode = &selfTradePreventionMode
+	return r
+}
+
+func (r ApiCreateMarginOrderV1Request) SideEffectType(sideEffectType string) ApiCreateMarginOrderV1Request {
+	r.sideEffectType = &sideEffectType
+	return r
+}
+
+func (r ApiCreateMarginOrderV1Request) StopPrice(stopPrice string) ApiCreateMarginOrderV1Request {
+	r.stopPrice = &stopPrice
+	return r
+}
+
+func (r ApiCreateMarginOrderV1Request) TimeInForce(timeInForce string) ApiCreateMarginOrderV1Request {
+	r.timeInForce = &timeInForce
+	return r
+}
+
+func (r ApiCreateMarginOrderV1Request) Execute() (*MarginCreateMarginOrderV1Resp, *http.Response, error) {
+	return r.ApiService.CreateMarginOrderV1Execute(r)
+}
+
+/*
+CreateMarginOrderV1 Margin Account New Order (TRADE)
+
+Post a new order for margin account.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCreateMarginOrderV1Request
+*/
+func (a *MarginTradingAPIService) CreateMarginOrderV1(ctx context.Context) ApiCreateMarginOrderV1Request {
+	return ApiCreateMarginOrderV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return MarginCreateMarginOrderV1Resp
+func (a *MarginTradingAPIService) CreateMarginOrderV1Execute(r ApiCreateMarginOrderV1Request) (*MarginCreateMarginOrderV1Resp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *MarginCreateMarginOrderV1Resp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarginTradingAPIService.CreateMarginOrderV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/sapi/v1/margin/order"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.side == nil {
+		return localVarReturnValue, nil, reportError("side is required and must be specified")
+	}
+	if r.symbol == nil {
+		return localVarReturnValue, nil, reportError("symbol is required and must be specified")
+	}
+	if r.timestamp == nil {
+		return localVarReturnValue, nil, reportError("timestamp is required and must be specified")
+	}
+	if r.type_ == nil {
+		return localVarReturnValue, nil, reportError("type_ is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.autoRepayAtCancel != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "autoRepayAtCancel", r.autoRepayAtCancel, "", "")
+	}
+	if r.icebergQty != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "icebergQty", r.icebergQty, "", "")
+	}
+	if r.isIsolated != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "isIsolated", r.isIsolated, "", "")
+	}
+	if r.newClientOrderId != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "newClientOrderId", r.newClientOrderId, "", "")
+	}
+	if r.newOrderRespType != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "newOrderRespType", r.newOrderRespType, "", "")
+	}
+	if r.price != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "price", r.price, "", "")
+	}
+	if r.quantity != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "quantity", r.quantity, "", "")
+	}
+	if r.quoteOrderQty != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "quoteOrderQty", r.quoteOrderQty, "", "")
+	}
+	if r.recvWindow != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
+	}
+	if r.selfTradePreventionMode != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "selfTradePreventionMode", r.selfTradePreventionMode, "", "")
+	}
+	parameterAddToHeaderOrQuery(localVarFormParams, "side", r.side, "", "")
+	if r.sideEffectType != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "sideEffectType", r.sideEffectType, "", "")
+	}
+	if r.stopPrice != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "stopPrice", r.stopPrice, "", "")
+	}
+	parameterAddToHeaderOrQuery(localVarFormParams, "symbol", r.symbol, "", "")
+	if r.timeInForce != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "timeInForce", r.timeInForce, "", "")
+	}
+	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	parameterAddToHeaderOrQuery(localVarFormParams, "type", r.type_, "", "")
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -4836,6 +5268,143 @@ func (a *MarginTradingAPIService) GetMarginApiKeyV1Execute(r ApiGetMarginApiKeyV
 		parameterAddToHeaderOrQuery(localVarQueryParams, "recvWindow", r.recvWindow, "form", "")
 	}
 	parameterAddToHeaderOrQuery(localVarQueryParams, "timestamp", r.timestamp, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
+			localVarHeaderParams["X-MBX-APIKEY"] = auth.APIKey
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetMarginAvailableInventoryV1Request struct {
+	ctx context.Context
+	ApiService *MarginTradingAPIService
+	type_ *string
+}
+
+// MARGIN,ISOLATED
+func (r ApiGetMarginAvailableInventoryV1Request) Type_(type_ string) ApiGetMarginAvailableInventoryV1Request {
+	r.type_ = &type_
+	return r
+}
+
+func (r ApiGetMarginAvailableInventoryV1Request) Execute() (*MarginGetMarginAvailableInventoryV1Resp, *http.Response, error) {
+	return r.ApiService.GetMarginAvailableInventoryV1Execute(r)
+}
+
+/*
+GetMarginAvailableInventoryV1 Query Margin Available Inventory(USER_DATA)
+
+Margin available Inventory query
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetMarginAvailableInventoryV1Request
+*/
+func (a *MarginTradingAPIService) GetMarginAvailableInventoryV1(ctx context.Context) ApiGetMarginAvailableInventoryV1Request {
+	return ApiGetMarginAvailableInventoryV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return MarginGetMarginAvailableInventoryV1Resp
+func (a *MarginTradingAPIService) GetMarginAvailableInventoryV1Execute(r ApiGetMarginAvailableInventoryV1Request) (*MarginGetMarginAvailableInventoryV1Resp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *MarginGetMarginAvailableInventoryV1Resp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarginTradingAPIService.GetMarginAvailableInventoryV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/sapi/v1/margin/available-inventory"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.type_ == nil {
+		return localVarReturnValue, nil, reportError("type_ is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "type", r.type_, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -8421,6 +8990,177 @@ func (a *MarginTradingAPIService) GetMarginOpenOrderListV1Execute(r ApiGetMargin
 	} else {
 		var defaultValue string = ""
 		r.symbol = &defaultValue
+	}
+	if r.recvWindow != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "recvWindow", r.recvWindow, "form", "")
+	}
+	parameterAddToHeaderOrQuery(localVarQueryParams, "timestamp", r.timestamp, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
+			localVarHeaderParams["X-MBX-APIKEY"] = auth.APIKey
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetMarginOpenOrdersV1Request struct {
+	ctx context.Context
+	ApiService *MarginTradingAPIService
+	timestamp *int64
+	symbol *string
+	isIsolated *string
+	recvWindow *int64
+}
+
+func (r ApiGetMarginOpenOrdersV1Request) Timestamp(timestamp int64) ApiGetMarginOpenOrdersV1Request {
+	r.timestamp = &timestamp
+	return r
+}
+
+func (r ApiGetMarginOpenOrdersV1Request) Symbol(symbol string) ApiGetMarginOpenOrdersV1Request {
+	r.symbol = &symbol
+	return r
+}
+
+// for isolated margin or not, &amp;#34;TRUE&amp;#34;, &amp;#34;FALSE&amp;#34;，default &amp;#34;FALSE&amp;#34;
+func (r ApiGetMarginOpenOrdersV1Request) IsIsolated(isIsolated string) ApiGetMarginOpenOrdersV1Request {
+	r.isIsolated = &isIsolated
+	return r
+}
+
+// The value cannot be greater than &#x60;60000&#x60;
+func (r ApiGetMarginOpenOrdersV1Request) RecvWindow(recvWindow int64) ApiGetMarginOpenOrdersV1Request {
+	r.recvWindow = &recvWindow
+	return r
+}
+
+func (r ApiGetMarginOpenOrdersV1Request) Execute() ([]MarginGetMarginOpenOrdersV1RespItem, *http.Response, error) {
+	return r.ApiService.GetMarginOpenOrdersV1Execute(r)
+}
+
+/*
+GetMarginOpenOrdersV1 Query Margin Account's Open Orders (USER_DATA)
+
+Query Margin Account's Open Orders
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetMarginOpenOrdersV1Request
+*/
+func (a *MarginTradingAPIService) GetMarginOpenOrdersV1(ctx context.Context) ApiGetMarginOpenOrdersV1Request {
+	return ApiGetMarginOpenOrdersV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []MarginGetMarginOpenOrdersV1RespItem
+func (a *MarginTradingAPIService) GetMarginOpenOrdersV1Execute(r ApiGetMarginOpenOrdersV1Request) ([]MarginGetMarginOpenOrdersV1RespItem, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []MarginGetMarginOpenOrdersV1RespItem
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MarginTradingAPIService.GetMarginOpenOrdersV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/sapi/v1/margin/openOrders"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.timestamp == nil {
+		return localVarReturnValue, nil, reportError("timestamp is required and must be specified")
+	}
+
+	if r.symbol != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
+	} else {
+		var defaultValue string = ""
+		r.symbol = &defaultValue
+	}
+	if r.isIsolated != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "isIsolated", r.isIsolated, "form", "")
+	} else {
+		var defaultValue string = ""
+		r.isIsolated = &defaultValue
 	}
 	if r.recvWindow != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "recvWindow", r.recvWindow, "form", "")

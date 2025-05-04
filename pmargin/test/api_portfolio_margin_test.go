@@ -322,6 +322,18 @@ func Test_pmargin_PortfolioMarginAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test PortfolioMarginAPIService DeleteMarginAllOpenOrdersV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.PortfolioMarginAPI.DeleteMarginAllOpenOrdersV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test PortfolioMarginAPIService DeleteMarginOrderListV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -399,6 +411,18 @@ func Test_pmargin_PortfolioMarginAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.PortfolioMarginAPI.GetAccountV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test PortfolioMarginAPIService GetBalanceV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.PortfolioMarginAPI.GetBalanceV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

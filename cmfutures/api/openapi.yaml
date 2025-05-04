@@ -374,7 +374,7 @@ paths:
   /dapi/v1/batchOrders:
     delete:
       description: Cancel Multiple Orders
-      operationId: CmfuturesDeleteBatchOrdersV1
+      operationId: DeleteBatchOrdersV1
       parameters:
       - explode: true
         in: query
@@ -446,10 +446,10 @@ paths:
       - ApiKey: []
       summary: Cancel Multiple Orders(TRADE)
       tags:
-      - Trade
+      - Coin Margined Futures
     post:
       description: Place multiple orders
-      operationId: CmfuturesCreateBatchOrdersV1
+      operationId: CreateBatchOrdersV1
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -480,10 +480,10 @@ paths:
       - ApiKey: []
       summary: Place Multiple Orders(TRADE)
       tags:
-      - Trade
+      - Coin Margined Futures
     put:
       description: Modify Multiple Orders
-      operationId: CmfuturesUpdateBatchOrdersV1
+      operationId: UpdateBatchOrdersV1
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -514,7 +514,7 @@ paths:
       - ApiKey: []
       summary: Modify Multiple Orders(TRADE)
       tags:
-      - Trade
+      - Coin Margined Futures
   /dapi/v1/commissionRate:
     get:
       description: Query user commission rate
@@ -608,7 +608,7 @@ paths:
       description: |-
         Kline/candlestick bars for a specific contract type.
         Klines are uniquely identified by their open time.
-      operationId: CmfuturesGetContinuousKlinesV1
+      operationId: GetContinuousKlinesV1
       parameters:
       - explode: true
         in: query
@@ -681,7 +681,7 @@ paths:
           description: Successful operation
       summary: Continuous Contract Kline/Candlestick Data
       tags:
-      - Market Data
+      - Coin Margined Futures
   /dapi/v1/countdownCancelAll:
     post:
       description: "Cancel all open orders of the specified symbol at the end of the\
@@ -771,7 +771,7 @@ paths:
   /dapi/v1/exchangeInfo:
     get:
       description: Current exchange trading rules and symbol information
-      operationId: CmfuturesGetExchangeInfoV1
+      operationId: GetExchangeInfoV1
       responses:
         "4XX":
           content:
@@ -793,11 +793,11 @@ paths:
           description: Successful operation
       summary: Exchange Information
       tags:
-      - Market Data
+      - Coin Margined Futures
   /dapi/v1/forceOrders:
     get:
       description: User's Force Orders
-      operationId: CmfuturesGetForceOrdersV1
+      operationId: GetForceOrdersV1
       parameters:
       - explode: true
         in: query
@@ -879,7 +879,7 @@ paths:
       - ApiKey: []
       summary: User's Force Orders(USER_DATA)
       tags:
-      - Trade
+      - Coin Margined Futures
   /dapi/v1/fundingInfo:
     get:
       description: Query funding rate info for symbols that had FundingRateCap/ FundingRateFloor
@@ -1244,7 +1244,7 @@ paths:
     get:
       description: Kline/candlestick bars for the index price of a pair. Klines are
         uniquely identified by their open time.
-      operationId: CmfuturesGetIndexPriceKlinesV1
+      operationId: GetIndexPriceKlinesV1
       parameters:
       - explode: true
         in: query
@@ -1309,13 +1309,13 @@ paths:
           description: Successful operation
       summary: Index Price Kline/Candlestick Data
       tags:
-      - Market Data
+      - Coin Margined Futures
   /dapi/v1/klines:
     get:
       description: |-
         Kline/candlestick bars for a symbol.
         Klines are uniquely identified by their open time.
-      operationId: CmfuturesGetKlinesV1
+      operationId: GetKlinesV1
       parameters:
       - explode: true
         in: query
@@ -1380,7 +1380,7 @@ paths:
           description: Successful operation
       summary: Kline/Candlestick Data
       tags:
-      - Market Data
+      - Coin Margined Futures
   /dapi/v1/leverage:
     post:
       description: |-
@@ -1598,7 +1598,7 @@ paths:
       description: |-
         Kline/candlestick bars for the mark price of a symbol.
         Klines are uniquely identified by their open time.
-      operationId: CmfuturesGetMarkPriceKlinesV1
+      operationId: GetMarkPriceKlinesV1
       parameters:
       - explode: true
         in: query
@@ -1663,7 +1663,7 @@ paths:
           description: Successful operation
       summary: Mark Price Kline/Candlestick Data
       tags:
-      - Market Data
+      - Coin Margined Futures
   /dapi/v1/openInterest:
     get:
       description: Get present open interest of a specific symbol.
@@ -2631,7 +2631,7 @@ paths:
     get:
       description: Premium index kline bars of a symbol. Klines are uniquely identified
         by their open time.
-      operationId: CmfuturesGetPremiumIndexKlinesV1
+      operationId: GetPremiumIndexKlinesV1
       parameters:
       - explode: true
         in: query
@@ -2696,7 +2696,7 @@ paths:
           description: Successful operation
       summary: Premium index Kline Data
       tags:
-      - Market Data
+      - Coin Margined Futures
   /dapi/v1/ticker/24hr:
     get:
       description: 24 hour rolling window price change statistics.

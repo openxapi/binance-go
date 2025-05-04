@@ -16,11 +16,167 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"reflect"
 )
 
 
 // OptionsAPIService OptionsAPI service
 type OptionsAPIService service
+
+type ApiCreateBatchOrdersV1Request struct {
+	ctx context.Context
+	ApiService *OptionsAPIService
+	orders *[]OptionsCreateBatchOrdersV1ReqOrdersItem
+	timestamp *int64
+	recvWindow *int64
+}
+
+func (r ApiCreateBatchOrdersV1Request) Orders(orders []OptionsCreateBatchOrdersV1ReqOrdersItem) ApiCreateBatchOrdersV1Request {
+	r.orders = &orders
+	return r
+}
+
+func (r ApiCreateBatchOrdersV1Request) Timestamp(timestamp int64) ApiCreateBatchOrdersV1Request {
+	r.timestamp = &timestamp
+	return r
+}
+
+func (r ApiCreateBatchOrdersV1Request) RecvWindow(recvWindow int64) ApiCreateBatchOrdersV1Request {
+	r.recvWindow = &recvWindow
+	return r
+}
+
+func (r ApiCreateBatchOrdersV1Request) Execute() ([]OptionsCreateBatchOrdersV1RespInner, *http.Response, error) {
+	return r.ApiService.CreateBatchOrdersV1Execute(r)
+}
+
+/*
+CreateBatchOrdersV1 Place Multiple Orders(TRADE)
+
+Send multiple option orders.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCreateBatchOrdersV1Request
+*/
+func (a *OptionsAPIService) CreateBatchOrdersV1(ctx context.Context) ApiCreateBatchOrdersV1Request {
+	return ApiCreateBatchOrdersV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []OptionsCreateBatchOrdersV1RespInner
+func (a *OptionsAPIService) CreateBatchOrdersV1Execute(r ApiCreateBatchOrdersV1Request) ([]OptionsCreateBatchOrdersV1RespInner, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []OptionsCreateBatchOrdersV1RespInner
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OptionsAPIService.CreateBatchOrdersV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/eapi/v1/batchOrders"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.orders == nil {
+		return localVarReturnValue, nil, reportError("orders is required and must be specified")
+	}
+	if r.timestamp == nil {
+		return localVarReturnValue, nil, reportError("timestamp is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarFormParams, "orders", r.orders, "", "csv")
+	if r.recvWindow != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
+	}
+	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
+			localVarHeaderParams["X-MBX-APIKEY"] = auth.APIKey
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
 
 type ApiCreateBlockOrderExecuteV1Request struct {
 	ctx context.Context
@@ -968,6 +1124,254 @@ func (a *OptionsAPIService) CreateMmpSetV1Execute(r ApiCreateMmpSetV1Request) (*
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiCreateOrderV1Request struct {
+	ctx context.Context
+	ApiService *OptionsAPIService
+	quantity *string
+	side *string
+	symbol *string
+	timestamp *int64
+	type_ *string
+	clientOrderId *string
+	isMmp *bool
+	newOrderRespType *string
+	postOnly *bool
+	price *string
+	recvWindow *int64
+	reduceOnly *bool
+	timeInForce *string
+}
+
+func (r ApiCreateOrderV1Request) Quantity(quantity string) ApiCreateOrderV1Request {
+	r.quantity = &quantity
+	return r
+}
+
+func (r ApiCreateOrderV1Request) Side(side string) ApiCreateOrderV1Request {
+	r.side = &side
+	return r
+}
+
+func (r ApiCreateOrderV1Request) Symbol(symbol string) ApiCreateOrderV1Request {
+	r.symbol = &symbol
+	return r
+}
+
+func (r ApiCreateOrderV1Request) Timestamp(timestamp int64) ApiCreateOrderV1Request {
+	r.timestamp = &timestamp
+	return r
+}
+
+func (r ApiCreateOrderV1Request) Type_(type_ string) ApiCreateOrderV1Request {
+	r.type_ = &type_
+	return r
+}
+
+func (r ApiCreateOrderV1Request) ClientOrderId(clientOrderId string) ApiCreateOrderV1Request {
+	r.clientOrderId = &clientOrderId
+	return r
+}
+
+func (r ApiCreateOrderV1Request) IsMmp(isMmp bool) ApiCreateOrderV1Request {
+	r.isMmp = &isMmp
+	return r
+}
+
+func (r ApiCreateOrderV1Request) NewOrderRespType(newOrderRespType string) ApiCreateOrderV1Request {
+	r.newOrderRespType = &newOrderRespType
+	return r
+}
+
+func (r ApiCreateOrderV1Request) PostOnly(postOnly bool) ApiCreateOrderV1Request {
+	r.postOnly = &postOnly
+	return r
+}
+
+func (r ApiCreateOrderV1Request) Price(price string) ApiCreateOrderV1Request {
+	r.price = &price
+	return r
+}
+
+func (r ApiCreateOrderV1Request) RecvWindow(recvWindow int64) ApiCreateOrderV1Request {
+	r.recvWindow = &recvWindow
+	return r
+}
+
+func (r ApiCreateOrderV1Request) ReduceOnly(reduceOnly bool) ApiCreateOrderV1Request {
+	r.reduceOnly = &reduceOnly
+	return r
+}
+
+func (r ApiCreateOrderV1Request) TimeInForce(timeInForce string) ApiCreateOrderV1Request {
+	r.timeInForce = &timeInForce
+	return r
+}
+
+func (r ApiCreateOrderV1Request) Execute() (*OptionsCreateOrderV1Resp, *http.Response, error) {
+	return r.ApiService.CreateOrderV1Execute(r)
+}
+
+/*
+CreateOrderV1 New Order (TRADE)
+
+Send a new order.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCreateOrderV1Request
+*/
+func (a *OptionsAPIService) CreateOrderV1(ctx context.Context) ApiCreateOrderV1Request {
+	return ApiCreateOrderV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return OptionsCreateOrderV1Resp
+func (a *OptionsAPIService) CreateOrderV1Execute(r ApiCreateOrderV1Request) (*OptionsCreateOrderV1Resp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OptionsCreateOrderV1Resp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OptionsAPIService.CreateOrderV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/eapi/v1/order"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.quantity == nil {
+		return localVarReturnValue, nil, reportError("quantity is required and must be specified")
+	}
+	if r.side == nil {
+		return localVarReturnValue, nil, reportError("side is required and must be specified")
+	}
+	if r.symbol == nil {
+		return localVarReturnValue, nil, reportError("symbol is required and must be specified")
+	}
+	if r.timestamp == nil {
+		return localVarReturnValue, nil, reportError("timestamp is required and must be specified")
+	}
+	if r.type_ == nil {
+		return localVarReturnValue, nil, reportError("type_ is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.clientOrderId != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "clientOrderId", r.clientOrderId, "", "")
+	}
+	if r.isMmp != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "isMmp", r.isMmp, "", "")
+	}
+	if r.newOrderRespType != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "newOrderRespType", r.newOrderRespType, "", "")
+	}
+	if r.postOnly != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "postOnly", r.postOnly, "", "")
+	}
+	if r.price != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "price", r.price, "", "")
+	}
+	parameterAddToHeaderOrQuery(localVarFormParams, "quantity", r.quantity, "", "")
+	if r.recvWindow != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
+	}
+	if r.reduceOnly != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "reduceOnly", r.reduceOnly, "", "")
+	}
+	parameterAddToHeaderOrQuery(localVarFormParams, "side", r.side, "", "")
+	parameterAddToHeaderOrQuery(localVarFormParams, "symbol", r.symbol, "", "")
+	if r.timeInForce != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "timeInForce", r.timeInForce, "", "")
+	}
+	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	parameterAddToHeaderOrQuery(localVarFormParams, "type", r.type_, "", "")
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
+			localVarHeaderParams["X-MBX-APIKEY"] = auth.APIKey
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiDeleteAllOpenOrdersByUnderlyingV1Request struct {
 	ctx context.Context
 	ApiService *OptionsAPIService
@@ -1195,6 +1599,198 @@ func (a *OptionsAPIService) DeleteAllOpenOrdersV1Execute(r ApiDeleteAllOpenOrder
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
+	if r.recvWindow != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "recvWindow", r.recvWindow, "form", "")
+	}
+	parameterAddToHeaderOrQuery(localVarQueryParams, "timestamp", r.timestamp, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
+			localVarHeaderParams["X-MBX-APIKEY"] = auth.APIKey
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiDeleteBatchOrdersV1Request struct {
+	ctx context.Context
+	ApiService *OptionsAPIService
+	symbol *string
+	timestamp *int64
+	orderIds *[]int64
+	clientOrderIds *[]string
+	recvWindow *int64
+}
+
+// Option trading pair, e.g BTC-200730-9000-C
+func (r ApiDeleteBatchOrdersV1Request) Symbol(symbol string) ApiDeleteBatchOrdersV1Request {
+	r.symbol = &symbol
+	return r
+}
+
+func (r ApiDeleteBatchOrdersV1Request) Timestamp(timestamp int64) ApiDeleteBatchOrdersV1Request {
+	r.timestamp = &timestamp
+	return r
+}
+
+// Order ID, e.g [4611875134427365377,4611875134427365378]
+func (r ApiDeleteBatchOrdersV1Request) OrderIds(orderIds []int64) ApiDeleteBatchOrdersV1Request {
+	r.orderIds = &orderIds
+	return r
+}
+
+// User-defined order ID, e.g [&amp;#34;my_id_1&amp;#34;,&amp;#34;my_id_2&amp;#34;]
+func (r ApiDeleteBatchOrdersV1Request) ClientOrderIds(clientOrderIds []string) ApiDeleteBatchOrdersV1Request {
+	r.clientOrderIds = &clientOrderIds
+	return r
+}
+
+func (r ApiDeleteBatchOrdersV1Request) RecvWindow(recvWindow int64) ApiDeleteBatchOrdersV1Request {
+	r.recvWindow = &recvWindow
+	return r
+}
+
+func (r ApiDeleteBatchOrdersV1Request) Execute() ([]OptionsDeleteBatchOrdersV1RespInner, *http.Response, error) {
+	return r.ApiService.DeleteBatchOrdersV1Execute(r)
+}
+
+/*
+DeleteBatchOrdersV1 Cancel Multiple Option Orders (TRADE)
+
+Cancel multiple orders.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiDeleteBatchOrdersV1Request
+*/
+func (a *OptionsAPIService) DeleteBatchOrdersV1(ctx context.Context) ApiDeleteBatchOrdersV1Request {
+	return ApiDeleteBatchOrdersV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []OptionsDeleteBatchOrdersV1RespInner
+func (a *OptionsAPIService) DeleteBatchOrdersV1Execute(r ApiDeleteBatchOrdersV1Request) ([]OptionsDeleteBatchOrdersV1RespInner, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []OptionsDeleteBatchOrdersV1RespInner
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OptionsAPIService.DeleteBatchOrdersV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/eapi/v1/batchOrders"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.symbol == nil {
+		return localVarReturnValue, nil, reportError("symbol is required and must be specified")
+	}
+	if r.timestamp == nil {
+		return localVarReturnValue, nil, reportError("timestamp is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
+	if r.orderIds != nil {
+		t := *r.orderIds
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "orderIds", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "orderIds", t, "form", "multi")
+		}
+	}
+	if r.clientOrderIds != nil {
+		t := *r.clientOrderIds
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "clientOrderIds", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "clientOrderIds", t, "form", "multi")
+		}
+	}
 	if r.recvWindow != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "recvWindow", r.recvWindow, "form", "")
 	}
@@ -2817,6 +3413,126 @@ func (a *OptionsAPIService) GetDepthV1Execute(r ApiGetDepthV1Request) (*GetDepth
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetExchangeInfoV1Request struct {
+	ctx context.Context
+	ApiService *OptionsAPIService
+}
+
+func (r ApiGetExchangeInfoV1Request) Execute() (*OptionsGetExchangeInfoV1Resp, *http.Response, error) {
+	return r.ApiService.GetExchangeInfoV1Execute(r)
+}
+
+/*
+GetExchangeInfoV1 Exchange Information
+
+Current exchange trading rules and symbol information
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetExchangeInfoV1Request
+*/
+func (a *OptionsAPIService) GetExchangeInfoV1(ctx context.Context) ApiGetExchangeInfoV1Request {
+	return ApiGetExchangeInfoV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return OptionsGetExchangeInfoV1Resp
+func (a *OptionsAPIService) GetExchangeInfoV1Execute(r ApiGetExchangeInfoV1Request) (*OptionsGetExchangeInfoV1Resp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OptionsGetExchangeInfoV1Resp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OptionsAPIService.GetExchangeInfoV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/eapi/v1/exchangeInfo"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

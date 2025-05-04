@@ -4,14 +4,14 @@ All URIs are relative to *https://eapi.binance.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**OptionsCreateBlockOrderCreateV1**](MarketMakerBlockTradeAPI.md#OptionsCreateBlockOrderCreateV1) | **Post** /eapi/v1/block/order/create | New Block Trade Order (TRADE)
-[**OptionsDeleteBlockOrderCreateV1**](MarketMakerBlockTradeAPI.md#OptionsDeleteBlockOrderCreateV1) | **Delete** /eapi/v1/block/order/create | Cancel Block Trade Order (TRADE)
+[**CreateBlockOrderCreateV1**](MarketMakerBlockTradeAPI.md#CreateBlockOrderCreateV1) | **Post** /eapi/v1/block/order/create | New Block Trade Order (TRADE)
+[**DeleteBlockOrderCreateV1**](MarketMakerBlockTradeAPI.md#DeleteBlockOrderCreateV1) | **Delete** /eapi/v1/block/order/create | Cancel Block Trade Order (TRADE)
 
 
 
-## OptionsCreateBlockOrderCreateV1
+## CreateBlockOrderCreateV1
 
-> OptionsCreateBlockOrderCreateV1Resp OptionsCreateBlockOrderCreateV1(ctx).Legs(legs).Liquidity(liquidity).Price(price).Quantity(quantity).Side(side).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> OptionsCreateBlockOrderCreateV1Resp CreateBlockOrderCreateV1(ctx).Legs(legs).Liquidity(liquidity).Price(price).Quantity(quantity).Side(side).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 New Block Trade Order (TRADE)
 
@@ -41,13 +41,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketMakerBlockTradeAPI.OptionsCreateBlockOrderCreateV1(context.Background()).Legs(legs).Liquidity(liquidity).Price(price).Quantity(quantity).Side(side).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.MarketMakerBlockTradeAPI.CreateBlockOrderCreateV1(context.Background()).Legs(legs).Liquidity(liquidity).Price(price).Quantity(quantity).Side(side).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketMakerBlockTradeAPI.OptionsCreateBlockOrderCreateV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketMakerBlockTradeAPI.CreateBlockOrderCreateV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `OptionsCreateBlockOrderCreateV1`: OptionsCreateBlockOrderCreateV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `MarketMakerBlockTradeAPI.OptionsCreateBlockOrderCreateV1`: %v\n", resp)
+	// response from `CreateBlockOrderCreateV1`: OptionsCreateBlockOrderCreateV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `MarketMakerBlockTradeAPI.CreateBlockOrderCreateV1`: %v\n", resp)
 }
 ```
 
@@ -57,7 +57,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiOptionsCreateBlockOrderCreateV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateBlockOrderCreateV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -89,9 +89,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## OptionsDeleteBlockOrderCreateV1
+## DeleteBlockOrderCreateV1
 
-> map[string]interface{} OptionsDeleteBlockOrderCreateV1(ctx).BlockOrderMatchingKey(blockOrderMatchingKey).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> map[string]interface{} DeleteBlockOrderCreateV1(ctx).BlockOrderMatchingKey(blockOrderMatchingKey).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Cancel Block Trade Order (TRADE)
 
@@ -116,13 +116,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MarketMakerBlockTradeAPI.OptionsDeleteBlockOrderCreateV1(context.Background()).BlockOrderMatchingKey(blockOrderMatchingKey).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.MarketMakerBlockTradeAPI.DeleteBlockOrderCreateV1(context.Background()).BlockOrderMatchingKey(blockOrderMatchingKey).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MarketMakerBlockTradeAPI.OptionsDeleteBlockOrderCreateV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `MarketMakerBlockTradeAPI.DeleteBlockOrderCreateV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `OptionsDeleteBlockOrderCreateV1`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `MarketMakerBlockTradeAPI.OptionsDeleteBlockOrderCreateV1`: %v\n", resp)
+	// response from `DeleteBlockOrderCreateV1`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `MarketMakerBlockTradeAPI.DeleteBlockOrderCreateV1`: %v\n", resp)
 }
 ```
 
@@ -132,7 +132,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiOptionsDeleteBlockOrderCreateV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteBlockOrderCreateV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes

@@ -22,6 +22,18 @@ func Test_spot_SpotAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test SpotAPIService CreateOrderCancelReplaceV3", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SpotAPI.CreateOrderCancelReplaceV3(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test SpotAPIService CreateOrderListOcoV3", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -70,6 +82,42 @@ func Test_spot_SpotAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test SpotAPIService CreateOrderTestV3", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SpotAPI.CreateOrderTestV3(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SpotAPIService CreateOrderV3", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SpotAPI.CreateOrderV3(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SpotAPIService CreateSorOrderTestV3", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SpotAPI.CreateSorOrderTestV3(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test SpotAPIService CreateSorOrderV3", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -87,6 +135,18 @@ func Test_spot_SpotAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.SpotAPI.CreateUserDataStreamV3(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SpotAPIService DeleteOpenOrdersV3", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SpotAPI.DeleteOpenOrdersV3(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -154,6 +214,18 @@ func Test_spot_SpotAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test SpotAPIService GetAggTradesV3", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SpotAPI.GetAggTradesV3(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test SpotAPIService GetAllOrderListV3", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -202,11 +274,35 @@ func Test_spot_SpotAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test SpotAPIService GetExchangeInfoV3", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SpotAPI.GetExchangeInfoV3(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test SpotAPIService GetHistoricalTradesV3", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.SpotAPI.GetHistoricalTradesV3(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SpotAPIService GetKlinesV3", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SpotAPI.GetKlinesV3(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -322,6 +418,66 @@ func Test_spot_SpotAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test SpotAPIService GetTicker24hrV3", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SpotAPI.GetTicker24hrV3(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SpotAPIService GetTickerBookTickerV3", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SpotAPI.GetTickerBookTickerV3(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SpotAPIService GetTickerPriceV3", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SpotAPI.GetTickerPriceV3(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SpotAPIService GetTickerTradingDayV3", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SpotAPI.GetTickerTradingDayV3(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SpotAPIService GetTickerV3", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SpotAPI.GetTickerV3(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test SpotAPIService GetTimeV3", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -339,6 +495,18 @@ func Test_spot_SpotAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.SpotAPI.GetTradesV3(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SpotAPIService GetUiKlinesV3", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SpotAPI.GetUiKlinesV3(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

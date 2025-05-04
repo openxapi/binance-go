@@ -122,7 +122,6 @@ All URIs are relative to *https://api.binance.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AccountManagementAPI* | [**SubaccountGetSubAccountTransactionStatisticsV1**](docs/AccountManagementAPI.md#subaccountgetsubaccounttransactionstatisticsv1) | **Get** /sapi/v1/sub-account/transaction-statistics | Query Sub-account Transaction Statistics(For Master Account)(USER_DATA)
 *AlgoTradingAPI* | [**CreateAlgoFuturesNewOrderTwapV1**](docs/AlgoTradingAPI.md#createalgofuturesnewordertwapv1) | **Post** /sapi/v1/algo/futures/newOrderTwap | Time-Weighted Average Price(Twap) New Order(TRADE)
 *AlgoTradingAPI* | [**CreateAlgoFuturesNewOrderVpV1**](docs/AlgoTradingAPI.md#createalgofuturesnewordervpv1) | **Post** /sapi/v1/algo/futures/newOrderVp | Volume Participation(VP) New Order (TRADE)
 *AlgoTradingAPI* | [**CreateAlgoSpotNewOrderTwapV1**](docs/AlgoTradingAPI.md#createalgospotnewordertwapv1) | **Post** /sapi/v1/algo/spot/newOrderTwap | Time-Weighted Average Price(Twap) New Order(TRADE)
@@ -134,7 +133,6 @@ Class | Method | HTTP request | Description
 *AlgoTradingAPI* | [**GetAlgoSpotHistoricalOrdersV1**](docs/AlgoTradingAPI.md#getalgospothistoricalordersv1) | **Get** /sapi/v1/algo/spot/historicalOrders | Query Historical Algo Orders(USER_DATA)
 *AlgoTradingAPI* | [**GetAlgoSpotOpenOrdersV1**](docs/AlgoTradingAPI.md#getalgospotopenordersv1) | **Get** /sapi/v1/algo/spot/openOrders | Query Current Algo Open Orders(USER_DATA)
 *AlgoTradingAPI* | [**GetAlgoSpotSubOrdersV1**](docs/AlgoTradingAPI.md#getalgospotsubordersv1) | **Get** /sapi/v1/algo/spot/subOrders | Query Sub Orders(USER_DATA)
-*AssetAPI* | [**WalletGetAssetAssetDetailV1**](docs/AssetAPI.md#walletgetassetassetdetailv1) | **Get** /sapi/v1/asset/assetDetail | Asset Detail (USER_DATA)
 *BinanceLinkAPI* | [**CreateApiReferralCustomizationV1**](docs/BinanceLinkAPI.md#createapireferralcustomizationv1) | **Post** /sapi/v1/apiReferral/customization | Customize Id For Client (USER DATA) （For Partner）
 *BinanceLinkAPI* | [**CreateApiReferralUserCustomizationV1**](docs/BinanceLinkAPI.md#createapireferralusercustomizationv1) | **Post** /sapi/v1/apiReferral/userCustomization | Customize Id For Client  (USER DATA)(For client)
 *BinanceLinkAPI* | [**CreateBrokerSubAccountApiCommissionCoinFuturesV1**](docs/BinanceLinkAPI.md#createbrokersubaccountapicommissioncoinfuturesv1) | **Post** /sapi/v1/broker/subAccountApi/commission/coinFutures | Change Sub Account COIN-Ⓜ Futures Commission Adjustment
@@ -159,6 +157,7 @@ Class | Method | HTTP request | Description
 *BinanceLinkAPI* | [**GetApiReferralKickbackRecentRecordV1**](docs/BinanceLinkAPI.md#getapireferralkickbackrecentrecordv1) | **Get** /sapi/v1/apiReferral/kickback/recentRecord | Query Rebate Recent Record(For Client)
 *BinanceLinkAPI* | [**GetApiReferralRebateRecentRecordV1**](docs/BinanceLinkAPI.md#getapireferralrebaterecentrecordv1) | **Get** /sapi/v1/apiReferral/rebate/recentRecord | Query Rebate Recent Record （USER DATA）(For Partner)
 *BinanceLinkAPI* | [**GetApiReferralUserCustomizationV1**](docs/BinanceLinkAPI.md#getapireferralusercustomizationv1) | **Get** /sapi/v1/apiReferral/userCustomization | Get User’s Customize Id (USER DATA)
+*BinanceLinkAPI* | [**GetBrokerInfoV1**](docs/BinanceLinkAPI.md#getbrokerinfov1) | **Get** /sapi/v1/broker/info | Link Account Information
 *BinanceLinkAPI* | [**GetBrokerRebateFuturesRecentRecordV1**](docs/BinanceLinkAPI.md#getbrokerrebatefuturesrecentrecordv1) | **Get** /sapi/v1/broker/rebate/futures/recentRecord | Query Broker Futures Commission Rebate Record
 *BinanceLinkAPI* | [**GetBrokerRebateRecentRecordV1**](docs/BinanceLinkAPI.md#getbrokerrebaterecentrecordv1) | **Get** /sapi/v1/broker/rebate/recentRecord | Query Broker Commission Rebate Recent Record（Spot）
 *BinanceLinkAPI* | [**GetBrokerSubAccountApiCommissionCoinFuturesV1**](docs/BinanceLinkAPI.md#getbrokersubaccountapicommissioncoinfuturesv1) | **Get** /sapi/v1/broker/subAccountApi/commission/coinFutures | Query Sub Account COIN-Ⓜ Futures Commission Adjustment
@@ -168,6 +167,7 @@ Class | Method | HTTP request | Description
 *BinanceLinkAPI* | [**GetBrokerSubAccountBnbBurnStatusV1**](docs/BinanceLinkAPI.md#getbrokersubaccountbnbburnstatusv1) | **Get** /sapi/v1/broker/subAccount/bnbBurn/status | Get BNB Burn Status for Sub Account
 *BinanceLinkAPI* | [**GetBrokerSubAccountDepositHistV1**](docs/BinanceLinkAPI.md#getbrokersubaccountdeposithistv1) | **Get** /sapi/v1/broker/subAccount/depositHist | Get Sub Account Deposit History
 *BinanceLinkAPI* | [**GetBrokerSubAccountDepositHistV2**](docs/BinanceLinkAPI.md#getbrokersubaccountdeposithistv2) | **Get** /sapi/v2/broker/subAccount/depositHist | Get Sub Account Deposit History V2
+*BinanceLinkAPI* | [**GetBrokerSubAccountFuturesSummaryV3**](docs/BinanceLinkAPI.md#getbrokersubaccountfuturessummaryv3) | **Get** /sapi/v3/broker/subAccount/futuresSummary | Query Sub Account Futures Asset info (V3)
 *BinanceLinkAPI* | [**GetBrokerSubAccountMarginSummaryV1**](docs/BinanceLinkAPI.md#getbrokersubaccountmarginsummaryv1) | **Get** /sapi/v1/broker/subAccount/marginSummary | Query Sub Account Margin Asset info
 *BinanceLinkAPI* | [**GetBrokerSubAccountSpotSummaryV1**](docs/BinanceLinkAPI.md#getbrokersubaccountspotsummaryv1) | **Get** /sapi/v1/broker/subAccount/spotSummary | Query Sub Account Spot Asset info
 *BinanceLinkAPI* | [**GetBrokerSubAccountV1**](docs/BinanceLinkAPI.md#getbrokersubaccountv1) | **Get** /sapi/v1/broker/subAccount | Query Sub Account
@@ -185,11 +185,10 @@ Class | Method | HTTP request | Description
 *ConvertAPI* | [**GetConvertTradeFlowV1**](docs/ConvertAPI.md#getconverttradeflowv1) | **Get** /sapi/v1/convert/tradeFlow | Get Convert Trade History(USER_DATA)
 *CopyTradingAPI* | [**GetCopyTradingFuturesLeadSymbolV1**](docs/CopyTradingAPI.md#getcopytradingfuturesleadsymbolv1) | **Get** /sapi/v1/copyTrading/futures/leadSymbol | Get Futures Lead Trading Symbol Whitelist(USER_DATA)
 *CopyTradingAPI* | [**GetCopyTradingFuturesUserStatusV1**](docs/CopyTradingAPI.md#getcopytradingfuturesuserstatusv1) | **Get** /sapi/v1/copyTrading/futures/userStatus | Get Futures Lead Trader Status(TRADE)
-*ExchangeLinkAPI* | [**ExchangelinkGetBrokerSubAccountFuturesSummaryV3**](docs/ExchangeLinkAPI.md#exchangelinkgetbrokersubaccountfuturessummaryv3) | **Get** /sapi/v3/broker/subAccount/futuresSummary | Query Sub Account Futures Asset info (V3)
 *FuturesDataAPI* | [**GetFuturesHistDataLinkV1**](docs/FuturesDataAPI.md#getfutureshistdatalinkv1) | **Get** /sapi/v1/futures/histDataLink | Get Future TickLevel Orderbook Historical Data Download Link(USER_DATA)
-*GeneralAPI* | [**SpotGetExchangeInfoV3**](docs/GeneralAPI.md#spotgetexchangeinfov3) | **Get** /api/v3/exchangeInfo | Exchange information
 *MarginTradingAPI* | [**CreateMarginApiKeyV1**](docs/MarginTradingAPI.md#createmarginapikeyv1) | **Post** /sapi/v1/margin/apiKey | Create Special Key(Low-Latency Trading)(TRADE)
 *MarginTradingAPI* | [**CreateMarginBorrowRepayV1**](docs/MarginTradingAPI.md#createmarginborrowrepayv1) | **Post** /sapi/v1/margin/borrow-repay | Margin account borrow/repay(MARGIN)
+*MarginTradingAPI* | [**CreateMarginExchangeSmallLiabilityV1**](docs/MarginTradingAPI.md#createmarginexchangesmallliabilityv1) | **Post** /sapi/v1/margin/exchange-small-liability | Small Liability Exchange (MARGIN)
 *MarginTradingAPI* | [**CreateMarginIsolatedAccountV1**](docs/MarginTradingAPI.md#createmarginisolatedaccountv1) | **Post** /sapi/v1/margin/isolated/account | Enable Isolated Margin Account (TRADE)
 *MarginTradingAPI* | [**CreateMarginListenKeyV1**](docs/MarginTradingAPI.md#createmarginlistenkeyv1) | **Post** /sapi/v1/margin/listen-key | Start User Data Stream (USER_STREAM)
 *MarginTradingAPI* | [**CreateMarginManualLiquidationV1**](docs/MarginTradingAPI.md#createmarginmanualliquidationv1) | **Post** /sapi/v1/margin/manual-liquidation | Margin Manual Liquidation(MARGIN)
@@ -197,6 +196,7 @@ Class | Method | HTTP request | Description
 *MarginTradingAPI* | [**CreateMarginOrderOcoV1**](docs/MarginTradingAPI.md#createmarginorderocov1) | **Post** /sapi/v1/margin/order/oco | Margin Account New OCO (TRADE)
 *MarginTradingAPI* | [**CreateMarginOrderOtoV1**](docs/MarginTradingAPI.md#createmarginorderotov1) | **Post** /sapi/v1/margin/order/oto | Margin Account New OTO (TRADE)
 *MarginTradingAPI* | [**CreateMarginOrderOtocoV1**](docs/MarginTradingAPI.md#createmarginorderotocov1) | **Post** /sapi/v1/margin/order/otoco | Margin Account New OTOCO (TRADE)
+*MarginTradingAPI* | [**CreateMarginOrderV1**](docs/MarginTradingAPI.md#createmarginorderv1) | **Post** /sapi/v1/margin/order | Margin Account New Order (TRADE)
 *MarginTradingAPI* | [**CreateUserDataStreamIsolatedV1**](docs/MarginTradingAPI.md#createuserdatastreamisolatedv1) | **Post** /sapi/v1/userDataStream/isolated | Start Isolated Margin User Data Stream (USER_STREAM)
 *MarginTradingAPI* | [**CreateUserDataStreamV1**](docs/MarginTradingAPI.md#createuserdatastreamv1) | **Post** /sapi/v1/userDataStream | Start Margin User Data Stream (USER_STREAM)
 *MarginTradingAPI* | [**DeleteMarginApiKeyV1**](docs/MarginTradingAPI.md#deletemarginapikeyv1) | **Delete** /sapi/v1/margin/apiKey | Delete Special Key(Low-Latency Trading)(TRADE)
@@ -215,6 +215,7 @@ Class | Method | HTTP request | Description
 *MarginTradingAPI* | [**GetMarginAllPairsV1**](docs/MarginTradingAPI.md#getmarginallpairsv1) | **Get** /sapi/v1/margin/allPairs | Get All Cross Margin Pairs (MARKET_DATA)
 *MarginTradingAPI* | [**GetMarginApiKeyListV1**](docs/MarginTradingAPI.md#getmarginapikeylistv1) | **Get** /sapi/v1/margin/api-key-list | Query Special key List(Low Latency Trading)(TRADE)
 *MarginTradingAPI* | [**GetMarginApiKeyV1**](docs/MarginTradingAPI.md#getmarginapikeyv1) | **Get** /sapi/v1/margin/apiKey | Query Special key(Low Latency Trading)(TRADE)
+*MarginTradingAPI* | [**GetMarginAvailableInventoryV1**](docs/MarginTradingAPI.md#getmarginavailableinventoryv1) | **Get** /sapi/v1/margin/available-inventory | Query Margin Available Inventory(USER_DATA)
 *MarginTradingAPI* | [**GetMarginBorrowRepayV1**](docs/MarginTradingAPI.md#getmarginborrowrepayv1) | **Get** /sapi/v1/margin/borrow-repay | Query borrow/repay records in Margin account(USER_DATA)
 *MarginTradingAPI* | [**GetMarginCapitalFlowV1**](docs/MarginTradingAPI.md#getmargincapitalflowv1) | **Get** /sapi/v1/margin/capital-flow | Query Cross Isolated Margin Capital Flow (USER_DATA)
 *MarginTradingAPI* | [**GetMarginCrossMarginCollateralRatioV1**](docs/MarginTradingAPI.md#getmargincrossmargincollateralratiov1) | **Get** /sapi/v1/margin/crossMarginCollateralRatio | Cross margin collateral ratio (MARKET_DATA)
@@ -236,6 +237,7 @@ Class | Method | HTTP request | Description
 *MarginTradingAPI* | [**GetMarginMyTradesV1**](docs/MarginTradingAPI.md#getmarginmytradesv1) | **Get** /sapi/v1/margin/myTrades | Query Margin Account&#39;s Trade List (USER_DATA)
 *MarginTradingAPI* | [**GetMarginNextHourlyInterestRateV1**](docs/MarginTradingAPI.md#getmarginnexthourlyinterestratev1) | **Get** /sapi/v1/margin/next-hourly-interest-rate | Get future hourly interest rate (USER_DATA)
 *MarginTradingAPI* | [**GetMarginOpenOrderListV1**](docs/MarginTradingAPI.md#getmarginopenorderlistv1) | **Get** /sapi/v1/margin/openOrderList | Query Margin Account&#39;s Open OCO (USER_DATA)
+*MarginTradingAPI* | [**GetMarginOpenOrdersV1**](docs/MarginTradingAPI.md#getmarginopenordersv1) | **Get** /sapi/v1/margin/openOrders | Query Margin Account&#39;s Open Orders (USER_DATA)
 *MarginTradingAPI* | [**GetMarginOrderListV1**](docs/MarginTradingAPI.md#getmarginorderlistv1) | **Get** /sapi/v1/margin/orderList | Query Margin Account&#39;s OCO (USER_DATA)
 *MarginTradingAPI* | [**GetMarginOrderV1**](docs/MarginTradingAPI.md#getmarginorderv1) | **Get** /sapi/v1/margin/order | Query Margin Account&#39;s Order (USER_DATA)
 *MarginTradingAPI* | [**GetMarginPriceIndexV1**](docs/MarginTradingAPI.md#getmarginpriceindexv1) | **Get** /sapi/v1/margin/priceIndex | Query Margin PriceIndex (MARKET_DATA)
@@ -246,15 +248,6 @@ Class | Method | HTTP request | Description
 *MarginTradingAPI* | [**UpdateMarginListenKeyV1**](docs/MarginTradingAPI.md#updatemarginlistenkeyv1) | **Put** /sapi/v1/margin/listen-key | Keepalive User Data Stream (USER_STREAM)
 *MarginTradingAPI* | [**UpdateUserDataStreamIsolatedV1**](docs/MarginTradingAPI.md#updateuserdatastreamisolatedv1) | **Put** /sapi/v1/userDataStream/isolated | Keepalive Isolated Margin User Data Stream (USER_STREAM)
 *MarginTradingAPI* | [**UpdateUserDataStreamV1**](docs/MarginTradingAPI.md#updateuserdatastreamv1) | **Put** /sapi/v1/userDataStream | Keepalive Margin User Data Stream (USER_STREAM)
-*MarketDataAPI* | [**MarginGetMarginAvailableInventoryV1**](docs/MarketDataAPI.md#margingetmarginavailableinventoryv1) | **Get** /sapi/v1/margin/available-inventory | Query Margin Available Inventory(USER_DATA)
-*MarketDataAPI* | [**SpotGetAggTradesV3**](docs/MarketDataAPI.md#spotgetaggtradesv3) | **Get** /api/v3/aggTrades | Compressed/Aggregate trades list
-*MarketDataAPI* | [**SpotGetKlinesV3**](docs/MarketDataAPI.md#spotgetklinesv3) | **Get** /api/v3/klines | Kline/Candlestick data
-*MarketDataAPI* | [**SpotGetTicker24hrV3**](docs/MarketDataAPI.md#spotgetticker24hrv3) | **Get** /api/v3/ticker/24hr | 24hr ticker price change statistics
-*MarketDataAPI* | [**SpotGetTickerBookTickerV3**](docs/MarketDataAPI.md#spotgettickerbooktickerv3) | **Get** /api/v3/ticker/bookTicker | Symbol order book ticker
-*MarketDataAPI* | [**SpotGetTickerPriceV3**](docs/MarketDataAPI.md#spotgettickerpricev3) | **Get** /api/v3/ticker/price | Symbol price ticker
-*MarketDataAPI* | [**SpotGetTickerTradingDayV3**](docs/MarketDataAPI.md#spotgettickertradingdayv3) | **Get** /api/v3/ticker/tradingDay | Trading Day Ticker
-*MarketDataAPI* | [**SpotGetTickerV3**](docs/MarketDataAPI.md#spotgettickerv3) | **Get** /api/v3/ticker | Rolling window price change statistics
-*MarketDataAPI* | [**SpotGetUiKlinesV3**](docs/MarketDataAPI.md#spotgetuiklinesv3) | **Get** /api/v3/uiKlines | UIKlines
 *PortfolioMarginProAPI* | [**CreatePortfolioAssetCollectionV1**](docs/PortfolioMarginProAPI.md#createportfolioassetcollectionv1) | **Post** /sapi/v1/portfolio/asset-collection | Fund Collection by Asset(USER_DATA)
 *PortfolioMarginProAPI* | [**CreatePortfolioAutoCollectionV1**](docs/PortfolioMarginProAPI.md#createportfolioautocollectionv1) | **Post** /sapi/v1/portfolio/auto-collection | Fund Auto-collection(USER_DATA)
 *PortfolioMarginProAPI* | [**CreatePortfolioBnbTransferV1**](docs/PortfolioMarginProAPI.md#createportfoliobnbtransferv1) | **Post** /sapi/v1/portfolio/bnb-transfer | BNB transfer(USER_DATA)
@@ -274,22 +267,30 @@ Class | Method | HTTP request | Description
 *PortfolioMarginProAPI* | [**GetPortfolioPmLoanHistoryV1**](docs/PortfolioMarginProAPI.md#getportfoliopmloanhistoryv1) | **Get** /sapi/v1/portfolio/pmLoan-history | Query Portfolio Margin Pro Bankruptcy Loan Repay History(USER_DATA)
 *PortfolioMarginProAPI* | [**GetPortfolioPmLoanV1**](docs/PortfolioMarginProAPI.md#getportfoliopmloanv1) | **Get** /sapi/v1/portfolio/pmLoan | Query Portfolio Margin Pro Bankruptcy Loan Amount(USER_DATA)
 *PortfolioMarginProAPI* | [**GetPortfolioRepayFuturesSwitchV1**](docs/PortfolioMarginProAPI.md#getportfoliorepayfuturesswitchv1) | **Get** /sapi/v1/portfolio/repay-futures-switch | Get Auto-repay-futures Status(USER_DATA)
+*SpotAPI* | [**CreateOrderCancelReplaceV3**](docs/SpotAPI.md#createordercancelreplacev3) | **Post** /api/v3/order/cancelReplace | Cancel an Existing Order and Send a New Order (TRADE)
 *SpotAPI* | [**CreateOrderListOcoV3**](docs/SpotAPI.md#createorderlistocov3) | **Post** /api/v3/orderList/oco | New Order list - OCO (TRADE)
 *SpotAPI* | [**CreateOrderListOtoV3**](docs/SpotAPI.md#createorderlistotov3) | **Post** /api/v3/orderList/oto | New Order list - OTO (TRADE)
 *SpotAPI* | [**CreateOrderListOtocoV3**](docs/SpotAPI.md#createorderlistotocov3) | **Post** /api/v3/orderList/otoco | New Order list - OTOCO (TRADE)
 *SpotAPI* | [**CreateOrderOcoV3**](docs/SpotAPI.md#createorderocov3) | **Post** /api/v3/order/oco | New OCO - Deprecated (TRADE)
+*SpotAPI* | [**CreateOrderTestV3**](docs/SpotAPI.md#createordertestv3) | **Post** /api/v3/order/test | Test new order (TRADE)
+*SpotAPI* | [**CreateOrderV3**](docs/SpotAPI.md#createorderv3) | **Post** /api/v3/order | New order (TRADE)
+*SpotAPI* | [**CreateSorOrderTestV3**](docs/SpotAPI.md#createsorordertestv3) | **Post** /api/v3/sor/order/test | Test new order using SOR (TRADE)
 *SpotAPI* | [**CreateSorOrderV3**](docs/SpotAPI.md#createsororderv3) | **Post** /api/v3/sor/order | New order using SOR (TRADE)
 *SpotAPI* | [**CreateUserDataStreamV3**](docs/SpotAPI.md#createuserdatastreamv3) | **Post** /api/v3/userDataStream | Start user data stream (USER_STREAM)
+*SpotAPI* | [**DeleteOpenOrdersV3**](docs/SpotAPI.md#deleteopenordersv3) | **Delete** /api/v3/openOrders | Cancel All Open Orders on a Symbol (TRADE)
 *SpotAPI* | [**DeleteOrderListV3**](docs/SpotAPI.md#deleteorderlistv3) | **Delete** /api/v3/orderList | Cancel Order list (TRADE)
 *SpotAPI* | [**DeleteOrderV3**](docs/SpotAPI.md#deleteorderv3) | **Delete** /api/v3/order | Cancel order (TRADE)
 *SpotAPI* | [**DeleteUserDataStreamV3**](docs/SpotAPI.md#deleteuserdatastreamv3) | **Delete** /api/v3/userDataStream | Close user data stream (USER_STREAM)
 *SpotAPI* | [**GetAccountCommissionV3**](docs/SpotAPI.md#getaccountcommissionv3) | **Get** /api/v3/account/commission | Query Commission Rates (USER_DATA)
 *SpotAPI* | [**GetAccountV3**](docs/SpotAPI.md#getaccountv3) | **Get** /api/v3/account | Account information (USER_DATA)
+*SpotAPI* | [**GetAggTradesV3**](docs/SpotAPI.md#getaggtradesv3) | **Get** /api/v3/aggTrades | Compressed/Aggregate trades list
 *SpotAPI* | [**GetAllOrderListV3**](docs/SpotAPI.md#getallorderlistv3) | **Get** /api/v3/allOrderList | Query all Order lists (USER_DATA)
 *SpotAPI* | [**GetAllOrdersV3**](docs/SpotAPI.md#getallordersv3) | **Get** /api/v3/allOrders | All orders (USER_DATA)
 *SpotAPI* | [**GetAvgPriceV3**](docs/SpotAPI.md#getavgpricev3) | **Get** /api/v3/avgPrice | Current average price
 *SpotAPI* | [**GetDepthV3**](docs/SpotAPI.md#getdepthv3) | **Get** /api/v3/depth | Order book
+*SpotAPI* | [**GetExchangeInfoV3**](docs/SpotAPI.md#getexchangeinfov3) | **Get** /api/v3/exchangeInfo | Exchange information
 *SpotAPI* | [**GetHistoricalTradesV3**](docs/SpotAPI.md#gethistoricaltradesv3) | **Get** /api/v3/historicalTrades | Old trade lookup
+*SpotAPI* | [**GetKlinesV3**](docs/SpotAPI.md#getklinesv3) | **Get** /api/v3/klines | Kline/Candlestick data
 *SpotAPI* | [**GetMyAllocationsV3**](docs/SpotAPI.md#getmyallocationsv3) | **Get** /api/v3/myAllocations | Query Allocations (USER_DATA)
 *SpotAPI* | [**GetMyPreventedMatchesV3**](docs/SpotAPI.md#getmypreventedmatchesv3) | **Get** /api/v3/myPreventedMatches | Query Prevented Matches (USER_DATA)
 *SpotAPI* | [**GetMyTradesV3**](docs/SpotAPI.md#getmytradesv3) | **Get** /api/v3/myTrades | Account trade list (USER_DATA)
@@ -299,8 +300,14 @@ Class | Method | HTTP request | Description
 *SpotAPI* | [**GetOrderV3**](docs/SpotAPI.md#getorderv3) | **Get** /api/v3/order | Query order (USER_DATA)
 *SpotAPI* | [**GetPingV3**](docs/SpotAPI.md#getpingv3) | **Get** /api/v3/ping | Test connectivity
 *SpotAPI* | [**GetRateLimitOrderV3**](docs/SpotAPI.md#getratelimitorderv3) | **Get** /api/v3/rateLimit/order | Query Unfilled Order Count (USER_DATA)
+*SpotAPI* | [**GetTicker24hrV3**](docs/SpotAPI.md#getticker24hrv3) | **Get** /api/v3/ticker/24hr | 24hr ticker price change statistics
+*SpotAPI* | [**GetTickerBookTickerV3**](docs/SpotAPI.md#gettickerbooktickerv3) | **Get** /api/v3/ticker/bookTicker | Symbol order book ticker
+*SpotAPI* | [**GetTickerPriceV3**](docs/SpotAPI.md#gettickerpricev3) | **Get** /api/v3/ticker/price | Symbol price ticker
+*SpotAPI* | [**GetTickerTradingDayV3**](docs/SpotAPI.md#gettickertradingdayv3) | **Get** /api/v3/ticker/tradingDay | Trading Day Ticker
+*SpotAPI* | [**GetTickerV3**](docs/SpotAPI.md#gettickerv3) | **Get** /api/v3/ticker | Rolling window price change statistics
 *SpotAPI* | [**GetTimeV3**](docs/SpotAPI.md#gettimev3) | **Get** /api/v3/time | Check server time
 *SpotAPI* | [**GetTradesV3**](docs/SpotAPI.md#gettradesv3) | **Get** /api/v3/trades | Recent trades list
+*SpotAPI* | [**GetUiKlinesV3**](docs/SpotAPI.md#getuiklinesv3) | **Get** /api/v3/uiKlines | UIKlines
 *SpotAPI* | [**UpdateUserDataStreamV3**](docs/SpotAPI.md#updateuserdatastreamv3) | **Put** /api/v3/userDataStream | Keepalive user data stream (USER_STREAM)
 *SubAccountAPI* | [**CreateManagedSubaccountDepositV1**](docs/SubAccountAPI.md#createmanagedsubaccountdepositv1) | **Post** /sapi/v1/managed-subaccount/deposit | Deposit Assets Into The Managed Sub-account(For Investor Master Account)
 *SubAccountAPI* | [**CreateManagedSubaccountWithdrawV1**](docs/SubAccountAPI.md#createmanagedsubaccountwithdrawv1) | **Post** /sapi/v1/managed-subaccount/withdraw | Withdrawl Assets From The Managed Sub-account(For Investor Master Account)
@@ -346,16 +353,9 @@ Class | Method | HTTP request | Description
 *SubAccountAPI* | [**GetSubAccountStatusV1**](docs/SubAccountAPI.md#getsubaccountstatusv1) | **Get** /sapi/v1/sub-account/status | Get Sub-account&#39;s Status on Margin Or Futures(For Master Account)
 *SubAccountAPI* | [**GetSubAccountSubAccountApiIpRestrictionV1**](docs/SubAccountAPI.md#getsubaccountsubaccountapiiprestrictionv1) | **Get** /sapi/v1/sub-account/subAccountApi/ipRestriction | Get IP Restriction for a Sub-account API Key(For Master Account)
 *SubAccountAPI* | [**GetSubAccountSubTransferHistoryV1**](docs/SubAccountAPI.md#getsubaccountsubtransferhistoryv1) | **Get** /sapi/v1/sub-account/sub/transfer/history | Query Sub-account Spot Asset Transfer History(For Master Account)
+*SubAccountAPI* | [**GetSubAccountTransactionStatisticsV1**](docs/SubAccountAPI.md#getsubaccounttransactionstatisticsv1) | **Get** /sapi/v1/sub-account/transaction-statistics | Query Sub-account Transaction Statistics(For Master Account)(USER_DATA)
 *SubAccountAPI* | [**GetSubAccountTransferSubUserHistoryV1**](docs/SubAccountAPI.md#getsubaccounttransfersubuserhistoryv1) | **Get** /sapi/v1/sub-account/transfer/subUserHistory | Sub-account Transfer History(For Sub-account)
 *SubAccountAPI* | [**GetSubAccountUniversalTransferV1**](docs/SubAccountAPI.md#getsubaccountuniversaltransferv1) | **Get** /sapi/v1/sub-account/universalTransfer | Query Universal Transfer History(For Master Account)
-*TradeAPI* | [**MarginCreateMarginExchangeSmallLiabilityV1**](docs/TradeAPI.md#margincreatemarginexchangesmallliabilityv1) | **Post** /sapi/v1/margin/exchange-small-liability | Small Liability Exchange (MARGIN)
-*TradeAPI* | [**MarginCreateMarginOrderV1**](docs/TradeAPI.md#margincreatemarginorderv1) | **Post** /sapi/v1/margin/order | Margin Account New Order (TRADE)
-*TradeAPI* | [**MarginGetMarginOpenOrdersV1**](docs/TradeAPI.md#margingetmarginopenordersv1) | **Get** /sapi/v1/margin/openOrders | Query Margin Account&#39;s Open Orders (USER_DATA)
-*TradingAPI* | [**SpotCreateOrderCancelReplaceV3**](docs/TradingAPI.md#spotcreateordercancelreplacev3) | **Post** /api/v3/order/cancelReplace | Cancel an Existing Order and Send a New Order (TRADE)
-*TradingAPI* | [**SpotCreateOrderTestV3**](docs/TradingAPI.md#spotcreateordertestv3) | **Post** /api/v3/order/test | Test new order (TRADE)
-*TradingAPI* | [**SpotCreateOrderV3**](docs/TradingAPI.md#spotcreateorderv3) | **Post** /api/v3/order | New order (TRADE)
-*TradingAPI* | [**SpotCreateSorOrderTestV3**](docs/TradingAPI.md#spotcreatesorordertestv3) | **Post** /api/v3/sor/order/test | Test new order using SOR (TRADE)
-*TradingAPI* | [**SpotDeleteOpenOrdersV3**](docs/TradingAPI.md#spotdeleteopenordersv3) | **Delete** /api/v3/openOrders | Cancel All Open Orders on a Symbol (TRADE)
 *WalletAPI* | [**CreateAccountDisableFastWithdrawSwitchV1**](docs/WalletAPI.md#createaccountdisablefastwithdrawswitchv1) | **Post** /sapi/v1/account/disableFastWithdrawSwitch | Disable Fast Withdraw Switch (USER_DATA)
 *WalletAPI* | [**CreateAccountEnableFastWithdrawSwitchV1**](docs/WalletAPI.md#createaccountenablefastwithdrawswitchv1) | **Post** /sapi/v1/account/enableFastWithdrawSwitch | Enable Fast Withdraw Switch (USER_DATA)
 *WalletAPI* | [**CreateAssetDustBtcV1**](docs/WalletAPI.md#createassetdustbtcv1) | **Post** /sapi/v1/asset/dust-btc | Get Assets That Can Be Converted Into BNB (USER_DATA)
@@ -373,6 +373,7 @@ Class | Method | HTTP request | Description
 *WalletAPI* | [**GetAccountInfoV1**](docs/WalletAPI.md#getaccountinfov1) | **Get** /sapi/v1/account/info | Account info (USER_DATA)
 *WalletAPI* | [**GetAccountSnapshotV1**](docs/WalletAPI.md#getaccountsnapshotv1) | **Get** /sapi/v1/accountSnapshot | Daily Account Snapshot (USER_DATA)
 *WalletAPI* | [**GetAccountStatusV1**](docs/WalletAPI.md#getaccountstatusv1) | **Get** /sapi/v1/account/status | Account Status (USER_DATA)
+*WalletAPI* | [**GetAssetAssetDetailV1**](docs/WalletAPI.md#getassetassetdetailv1) | **Get** /sapi/v1/asset/assetDetail | Asset Detail (USER_DATA)
 *WalletAPI* | [**GetAssetAssetDividendV1**](docs/WalletAPI.md#getassetassetdividendv1) | **Get** /sapi/v1/asset/assetDividend | Asset Dividend Record (USER_DATA)
 *WalletAPI* | [**GetAssetCustodyTransferHistoryV1**](docs/WalletAPI.md#getassetcustodytransferhistoryv1) | **Get** /sapi/v1/asset/custody/transfer-history | Query User Delegation History(For Master Account)(USER_DATA)
 *WalletAPI* | [**GetAssetDribbletV1**](docs/WalletAPI.md#getassetdribbletv1) | **Get** /sapi/v1/asset/dribblet | DustLog(USER_DATA)
@@ -544,7 +545,6 @@ Class | Method | HTTP request | Description
  - [GetAssetWalletBalanceV1RespItem](docs/GetAssetWalletBalanceV1RespItem.md)
  - [GetAvgPriceV3Resp](docs/GetAvgPriceV3Resp.md)
  - [GetBnbBurnV1Resp](docs/GetBnbBurnV1Resp.md)
- - [GetBrokerInfoV1Req](docs/GetBrokerInfoV1Req.md)
  - [GetBrokerInfoV1Resp](docs/GetBrokerInfoV1Resp.md)
  - [GetBrokerRebateFuturesRecentRecordV1RespItem](docs/GetBrokerRebateFuturesRecentRecordV1RespItem.md)
  - [GetBrokerRebateRecentRecordV1RespItem](docs/GetBrokerRebateRecentRecordV1RespItem.md)
@@ -586,6 +586,7 @@ Class | Method | HTTP request | Description
  - [GetFuturesHistDataLinkV1Resp](docs/GetFuturesHistDataLinkV1Resp.md)
  - [GetFuturesHistDataLinkV1RespDataInner](docs/GetFuturesHistDataLinkV1RespDataInner.md)
  - [GetHistoricalTradesV3RespItem](docs/GetHistoricalTradesV3RespItem.md)
+ - [GetKlinesV3200ResponseInnerInner](docs/GetKlinesV3200ResponseInnerInner.md)
  - [GetLocalentityDepositHistoryV1RespItem](docs/GetLocalentityDepositHistoryV1RespItem.md)
  - [GetLocalentityVaspV1RespItem](docs/GetLocalentityVaspV1RespItem.md)
  - [GetLocalentityWithdrawHistoryV1RespItem](docs/GetLocalentityWithdrawHistoryV1RespItem.md)
@@ -736,7 +737,6 @@ Class | Method | HTTP request | Description
  - [SpotGetExchangeInfoV3RespExchangeFiltersInner](docs/SpotGetExchangeInfoV3RespExchangeFiltersInner.md)
  - [SpotGetExchangeInfoV3RespSorsInner](docs/SpotGetExchangeInfoV3RespSorsInner.md)
  - [SpotGetExchangeInfoV3RespSymbolsInner](docs/SpotGetExchangeInfoV3RespSymbolsInner.md)
- - [SpotGetKlinesV3200ResponseInnerInner](docs/SpotGetKlinesV3200ResponseInnerInner.md)
  - [SpotGetTicker24hrV3Resp](docs/SpotGetTicker24hrV3Resp.md)
  - [SpotGetTicker24hrV3RespItem](docs/SpotGetTicker24hrV3RespItem.md)
  - [SpotGetTickerBookTickerV3Resp](docs/SpotGetTickerBookTickerV3Resp.md)

@@ -125,7 +125,7 @@ paths:
   /papi/v1/balance:
     get:
       description: Query account balance
-      operationId: PmarginGetBalanceV1
+      operationId: GetBalanceV1
       parameters:
       - explode: true
         in: query
@@ -174,7 +174,7 @@ paths:
       - ApiKey: []
       summary: Account Balance(USER_DATA)
       tags:
-      - Account
+      - Portfolio Margin
   /papi/v1/bnb-transfer:
     post:
       description: Transfer BNB in and out of UM
@@ -1956,7 +1956,7 @@ paths:
   /papi/v1/margin/allOpenOrders:
     delete:
       description: Cancel Margin Account All Open Orders on a Symbol
-      operationId: PmarginDeleteMarginAllOpenOrdersV1
+      operationId: DeleteMarginAllOpenOrdersV1
       parameters:
       - explode: true
         in: query
@@ -2006,7 +2006,7 @@ paths:
       - ApiKey: []
       summary: Cancel Margin Account All Open Orders on a Symbol(TRADE)
       tags:
-      - Trade
+      - Portfolio Margin
   /papi/v1/margin/allOrderList:
     get:
       description: Query all OCO for a specific margin account based on provided optional

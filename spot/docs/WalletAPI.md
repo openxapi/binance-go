@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**GetAccountInfoV1**](WalletAPI.md#GetAccountInfoV1) | **Get** /sapi/v1/account/info | Account info (USER_DATA)
 [**GetAccountSnapshotV1**](WalletAPI.md#GetAccountSnapshotV1) | **Get** /sapi/v1/accountSnapshot | Daily Account Snapshot (USER_DATA)
 [**GetAccountStatusV1**](WalletAPI.md#GetAccountStatusV1) | **Get** /sapi/v1/account/status | Account Status (USER_DATA)
+[**GetAssetAssetDetailV1**](WalletAPI.md#GetAssetAssetDetailV1) | **Get** /sapi/v1/asset/assetDetail | Asset Detail (USER_DATA)
 [**GetAssetAssetDividendV1**](WalletAPI.md#GetAssetAssetDividendV1) | **Get** /sapi/v1/asset/assetDividend | Asset Dividend Record (USER_DATA)
 [**GetAssetCustodyTransferHistoryV1**](WalletAPI.md#GetAssetCustodyTransferHistoryV1) | **Get** /sapi/v1/asset/custody/transfer-history | Query User Delegation History(For Master Account)(USER_DATA)
 [**GetAssetDribbletV1**](WalletAPI.md#GetAssetDribbletV1) | **Get** /sapi/v1/asset/dribblet | DustLog(USER_DATA)
@@ -1287,6 +1288,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetAccountStatusV1Resp**](GetAccountStatusV1Resp.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetAssetAssetDetailV1
+
+> map[string]WalletGetAssetAssetDetailV1RespValue GetAssetAssetDetailV1(ctx).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+
+Asset Detail (USER_DATA)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/spot"
+)
+
+func main() {
+	timestamp := int64(789) // int64 | 
+	recvWindow := int64(789) // int64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WalletAPI.GetAssetAssetDetailV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WalletAPI.GetAssetAssetDetailV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAssetAssetDetailV1`: map[string]WalletGetAssetAssetDetailV1RespValue
+	fmt.Fprintf(os.Stdout, "Response from `WalletAPI.GetAssetAssetDetailV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetAssetAssetDetailV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **timestamp** | **int64** |  | 
+ **recvWindow** | **int64** |  | 
+
+### Return type
+
+[**map[string]WalletGetAssetAssetDetailV1RespValue**](WalletGetAssetAssetDetailV1RespValue.md)
 
 ### Authorization
 

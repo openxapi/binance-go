@@ -122,7 +122,6 @@ All URIs are relative to *https://papi.binance.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AccountAPI* | [**PmarginGetBalanceV1**](docs/AccountAPI.md#pmargingetbalancev1) | **Get** /papi/v1/balance | Account Balance(USER_DATA)
 *PortfolioMarginAPI* | [**CreateAssetCollectionV1**](docs/PortfolioMarginAPI.md#createassetcollectionv1) | **Post** /papi/v1/asset-collection | Fund Collection by Asset(TRADE)
 *PortfolioMarginAPI* | [**CreateAutoCollectionV1**](docs/PortfolioMarginAPI.md#createautocollectionv1) | **Post** /papi/v1/auto-collection | Fund Auto-collection(TRADE)
 *PortfolioMarginAPI* | [**CreateBnbTransferV1**](docs/PortfolioMarginAPI.md#createbnbtransferv1) | **Post** /papi/v1/bnb-transfer | BNB transfer (TRADE)
@@ -148,6 +147,7 @@ Class | Method | HTTP request | Description
 *PortfolioMarginAPI* | [**DeleteCmConditionalOrderV1**](docs/PortfolioMarginAPI.md#deletecmconditionalorderv1) | **Delete** /papi/v1/cm/conditional/order | Cancel CM Conditional Order(TRADE)
 *PortfolioMarginAPI* | [**DeleteCmOrderV1**](docs/PortfolioMarginAPI.md#deletecmorderv1) | **Delete** /papi/v1/cm/order | Cancel CM Order(TRADE)
 *PortfolioMarginAPI* | [**DeleteListenKeyV1**](docs/PortfolioMarginAPI.md#deletelistenkeyv1) | **Delete** /papi/v1/listenKey | Close User Data Stream(USER_STREAM)
+*PortfolioMarginAPI* | [**DeleteMarginAllOpenOrdersV1**](docs/PortfolioMarginAPI.md#deletemarginallopenordersv1) | **Delete** /papi/v1/margin/allOpenOrders | Cancel Margin Account All Open Orders on a Symbol(TRADE)
 *PortfolioMarginAPI* | [**DeleteMarginOrderListV1**](docs/PortfolioMarginAPI.md#deletemarginorderlistv1) | **Delete** /papi/v1/margin/orderList | Cancel Margin Account OCO Orders(TRADE)
 *PortfolioMarginAPI* | [**DeleteMarginOrderV1**](docs/PortfolioMarginAPI.md#deletemarginorderv1) | **Delete** /papi/v1/margin/order | Cancel Margin Account Order(TRADE)
 *PortfolioMarginAPI* | [**DeleteUmAllOpenOrdersV1**](docs/PortfolioMarginAPI.md#deleteumallopenordersv1) | **Delete** /papi/v1/um/allOpenOrders | Cancel All UM Open Orders(TRADE)
@@ -155,6 +155,7 @@ Class | Method | HTTP request | Description
 *PortfolioMarginAPI* | [**DeleteUmConditionalOrderV1**](docs/PortfolioMarginAPI.md#deleteumconditionalorderv1) | **Delete** /papi/v1/um/conditional/order | Cancel UM Conditional Order(TRADE)
 *PortfolioMarginAPI* | [**DeleteUmOrderV1**](docs/PortfolioMarginAPI.md#deleteumorderv1) | **Delete** /papi/v1/um/order | Cancel UM Order(TRADE)
 *PortfolioMarginAPI* | [**GetAccountV1**](docs/PortfolioMarginAPI.md#getaccountv1) | **Get** /papi/v1/account | Account Information(USER_DATA)
+*PortfolioMarginAPI* | [**GetBalanceV1**](docs/PortfolioMarginAPI.md#getbalancev1) | **Get** /papi/v1/balance | Account Balance(USER_DATA)
 *PortfolioMarginAPI* | [**GetCmAccountV1**](docs/PortfolioMarginAPI.md#getcmaccountv1) | **Get** /papi/v1/cm/account | Get CM Account Detail(USER_DATA)
 *PortfolioMarginAPI* | [**GetCmAdlQuantileV1**](docs/PortfolioMarginAPI.md#getcmadlquantilev1) | **Get** /papi/v1/cm/adlQuantile | CM Position ADL Quantile Estimation(USER_DATA)
 *PortfolioMarginAPI* | [**GetCmAllOrdersV1**](docs/PortfolioMarginAPI.md#getcmallordersv1) | **Get** /papi/v1/cm/allOrders | Query All CM Orders (USER_DATA)
@@ -223,7 +224,6 @@ Class | Method | HTTP request | Description
 *PortfolioMarginAPI* | [**UpdateCmOrderV1**](docs/PortfolioMarginAPI.md#updatecmorderv1) | **Put** /papi/v1/cm/order | Modify CM Order(TRADE)
 *PortfolioMarginAPI* | [**UpdateListenKeyV1**](docs/PortfolioMarginAPI.md#updatelistenkeyv1) | **Put** /papi/v1/listenKey | Keepalive User Data Stream (USER_STREAM)
 *PortfolioMarginAPI* | [**UpdateUmOrderV1**](docs/PortfolioMarginAPI.md#updateumorderv1) | **Put** /papi/v1/um/order | Modify UM Order(TRADE)
-*TradeAPI* | [**PmarginDeleteMarginAllOpenOrdersV1**](docs/TradeAPI.md#pmargindeletemarginallopenordersv1) | **Delete** /papi/v1/margin/allOpenOrders | Cancel Margin Account All Open Orders on a Symbol(TRADE)
 
 
 ## Documentation For Models

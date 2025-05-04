@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateMarginApiKeyV1**](MarginTradingAPI.md#CreateMarginApiKeyV1) | **Post** /sapi/v1/margin/apiKey | Create Special Key(Low-Latency Trading)(TRADE)
 [**CreateMarginBorrowRepayV1**](MarginTradingAPI.md#CreateMarginBorrowRepayV1) | **Post** /sapi/v1/margin/borrow-repay | Margin account borrow/repay(MARGIN)
+[**CreateMarginExchangeSmallLiabilityV1**](MarginTradingAPI.md#CreateMarginExchangeSmallLiabilityV1) | **Post** /sapi/v1/margin/exchange-small-liability | Small Liability Exchange (MARGIN)
 [**CreateMarginIsolatedAccountV1**](MarginTradingAPI.md#CreateMarginIsolatedAccountV1) | **Post** /sapi/v1/margin/isolated/account | Enable Isolated Margin Account (TRADE)
 [**CreateMarginListenKeyV1**](MarginTradingAPI.md#CreateMarginListenKeyV1) | **Post** /sapi/v1/margin/listen-key | Start User Data Stream (USER_STREAM)
 [**CreateMarginManualLiquidationV1**](MarginTradingAPI.md#CreateMarginManualLiquidationV1) | **Post** /sapi/v1/margin/manual-liquidation | Margin Manual Liquidation(MARGIN)
@@ -13,6 +14,7 @@ Method | HTTP request | Description
 [**CreateMarginOrderOcoV1**](MarginTradingAPI.md#CreateMarginOrderOcoV1) | **Post** /sapi/v1/margin/order/oco | Margin Account New OCO (TRADE)
 [**CreateMarginOrderOtoV1**](MarginTradingAPI.md#CreateMarginOrderOtoV1) | **Post** /sapi/v1/margin/order/oto | Margin Account New OTO (TRADE)
 [**CreateMarginOrderOtocoV1**](MarginTradingAPI.md#CreateMarginOrderOtocoV1) | **Post** /sapi/v1/margin/order/otoco | Margin Account New OTOCO (TRADE)
+[**CreateMarginOrderV1**](MarginTradingAPI.md#CreateMarginOrderV1) | **Post** /sapi/v1/margin/order | Margin Account New Order (TRADE)
 [**CreateUserDataStreamIsolatedV1**](MarginTradingAPI.md#CreateUserDataStreamIsolatedV1) | **Post** /sapi/v1/userDataStream/isolated | Start Isolated Margin User Data Stream (USER_STREAM)
 [**CreateUserDataStreamV1**](MarginTradingAPI.md#CreateUserDataStreamV1) | **Post** /sapi/v1/userDataStream | Start Margin User Data Stream (USER_STREAM)
 [**DeleteMarginApiKeyV1**](MarginTradingAPI.md#DeleteMarginApiKeyV1) | **Delete** /sapi/v1/margin/apiKey | Delete Special Key(Low-Latency Trading)(TRADE)
@@ -31,6 +33,7 @@ Method | HTTP request | Description
 [**GetMarginAllPairsV1**](MarginTradingAPI.md#GetMarginAllPairsV1) | **Get** /sapi/v1/margin/allPairs | Get All Cross Margin Pairs (MARKET_DATA)
 [**GetMarginApiKeyListV1**](MarginTradingAPI.md#GetMarginApiKeyListV1) | **Get** /sapi/v1/margin/api-key-list | Query Special key List(Low Latency Trading)(TRADE)
 [**GetMarginApiKeyV1**](MarginTradingAPI.md#GetMarginApiKeyV1) | **Get** /sapi/v1/margin/apiKey | Query Special key(Low Latency Trading)(TRADE)
+[**GetMarginAvailableInventoryV1**](MarginTradingAPI.md#GetMarginAvailableInventoryV1) | **Get** /sapi/v1/margin/available-inventory | Query Margin Available Inventory(USER_DATA)
 [**GetMarginBorrowRepayV1**](MarginTradingAPI.md#GetMarginBorrowRepayV1) | **Get** /sapi/v1/margin/borrow-repay | Query borrow/repay records in Margin account(USER_DATA)
 [**GetMarginCapitalFlowV1**](MarginTradingAPI.md#GetMarginCapitalFlowV1) | **Get** /sapi/v1/margin/capital-flow | Query Cross Isolated Margin Capital Flow (USER_DATA)
 [**GetMarginCrossMarginCollateralRatioV1**](MarginTradingAPI.md#GetMarginCrossMarginCollateralRatioV1) | **Get** /sapi/v1/margin/crossMarginCollateralRatio | Cross margin collateral ratio (MARKET_DATA)
@@ -52,6 +55,7 @@ Method | HTTP request | Description
 [**GetMarginMyTradesV1**](MarginTradingAPI.md#GetMarginMyTradesV1) | **Get** /sapi/v1/margin/myTrades | Query Margin Account&#39;s Trade List (USER_DATA)
 [**GetMarginNextHourlyInterestRateV1**](MarginTradingAPI.md#GetMarginNextHourlyInterestRateV1) | **Get** /sapi/v1/margin/next-hourly-interest-rate | Get future hourly interest rate (USER_DATA)
 [**GetMarginOpenOrderListV1**](MarginTradingAPI.md#GetMarginOpenOrderListV1) | **Get** /sapi/v1/margin/openOrderList | Query Margin Account&#39;s Open OCO (USER_DATA)
+[**GetMarginOpenOrdersV1**](MarginTradingAPI.md#GetMarginOpenOrdersV1) | **Get** /sapi/v1/margin/openOrders | Query Margin Account&#39;s Open Orders (USER_DATA)
 [**GetMarginOrderListV1**](MarginTradingAPI.md#GetMarginOrderListV1) | **Get** /sapi/v1/margin/orderList | Query Margin Account&#39;s OCO (USER_DATA)
 [**GetMarginOrderV1**](MarginTradingAPI.md#GetMarginOrderV1) | **Get** /sapi/v1/margin/order | Query Margin Account&#39;s Order (USER_DATA)
 [**GetMarginPriceIndexV1**](MarginTradingAPI.md#GetMarginPriceIndexV1) | **Get** /sapi/v1/margin/priceIndex | Query Margin PriceIndex (MARKET_DATA)
@@ -206,6 +210,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CreateMarginBorrowRepayV1Resp**](CreateMarginBorrowRepayV1Resp.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/x-www-form-urlencoded
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateMarginExchangeSmallLiabilityV1
+
+> MarginCreateMarginExchangeSmallLiabilityV1Resp CreateMarginExchangeSmallLiabilityV1(ctx).AssetNames(assetNames).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+
+Small Liability Exchange (MARGIN)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/spot"
+)
+
+func main() {
+	assetNames := []string{"Inner_example"} // []string | 
+	timestamp := int64(789) // int64 | 
+	recvWindow := int64(789) // int64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MarginTradingAPI.CreateMarginExchangeSmallLiabilityV1(context.Background()).AssetNames(assetNames).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MarginTradingAPI.CreateMarginExchangeSmallLiabilityV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateMarginExchangeSmallLiabilityV1`: MarginCreateMarginExchangeSmallLiabilityV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `MarginTradingAPI.CreateMarginExchangeSmallLiabilityV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateMarginExchangeSmallLiabilityV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **assetNames** | **[]string** |  | 
+ **timestamp** | **int64** |  | 
+ **recvWindow** | **int64** |  | 
+
+### Return type
+
+[**MarginCreateMarginExchangeSmallLiabilityV1Resp**](MarginCreateMarginExchangeSmallLiabilityV1Resp.md)
 
 ### Authorization
 
@@ -811,6 +885,104 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CreateMarginOrderOtocoV1Resp**](CreateMarginOrderOtocoV1Resp.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/x-www-form-urlencoded
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateMarginOrderV1
+
+> MarginCreateMarginOrderV1Resp CreateMarginOrderV1(ctx).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).AutoRepayAtCancel(autoRepayAtCancel).IcebergQty(icebergQty).IsIsolated(isIsolated).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).Price(price).Quantity(quantity).QuoteOrderQty(quoteOrderQty).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).SideEffectType(sideEffectType).StopPrice(stopPrice).TimeInForce(timeInForce).Execute()
+
+Margin Account New Order (TRADE)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/spot"
+)
+
+func main() {
+	side := "side_example" // string |  (default to "")
+	symbol := "symbol_example" // string |  (default to "")
+	timestamp := int64(789) // int64 | 
+	type_ := "type__example" // string |  (default to "")
+	autoRepayAtCancel := true // bool |  (optional)
+	icebergQty := "icebergQty_example" // string |  (optional) (default to "")
+	isIsolated := "isIsolated_example" // string |  (optional) (default to "")
+	newClientOrderId := "newClientOrderId_example" // string |  (optional) (default to "")
+	newOrderRespType := "newOrderRespType_example" // string |  (optional) (default to "")
+	price := "price_example" // string |  (optional) (default to "")
+	quantity := "quantity_example" // string |  (optional) (default to "")
+	quoteOrderQty := "quoteOrderQty_example" // string |  (optional) (default to "")
+	recvWindow := int64(789) // int64 |  (optional)
+	selfTradePreventionMode := "selfTradePreventionMode_example" // string |  (optional) (default to "")
+	sideEffectType := "sideEffectType_example" // string |  (optional) (default to "")
+	stopPrice := "stopPrice_example" // string |  (optional) (default to "")
+	timeInForce := "timeInForce_example" // string |  (optional) (default to "")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MarginTradingAPI.CreateMarginOrderV1(context.Background()).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).AutoRepayAtCancel(autoRepayAtCancel).IcebergQty(icebergQty).IsIsolated(isIsolated).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).Price(price).Quantity(quantity).QuoteOrderQty(quoteOrderQty).RecvWindow(recvWindow).SelfTradePreventionMode(selfTradePreventionMode).SideEffectType(sideEffectType).StopPrice(stopPrice).TimeInForce(timeInForce).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MarginTradingAPI.CreateMarginOrderV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateMarginOrderV1`: MarginCreateMarginOrderV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `MarginTradingAPI.CreateMarginOrderV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateMarginOrderV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **side** | **string** |  | [default to &quot;&quot;]
+ **symbol** | **string** |  | [default to &quot;&quot;]
+ **timestamp** | **int64** |  | 
+ **type_** | **string** |  | [default to &quot;&quot;]
+ **autoRepayAtCancel** | **bool** |  | 
+ **icebergQty** | **string** |  | [default to &quot;&quot;]
+ **isIsolated** | **string** |  | [default to &quot;&quot;]
+ **newClientOrderId** | **string** |  | [default to &quot;&quot;]
+ **newOrderRespType** | **string** |  | [default to &quot;&quot;]
+ **price** | **string** |  | [default to &quot;&quot;]
+ **quantity** | **string** |  | [default to &quot;&quot;]
+ **quoteOrderQty** | **string** |  | [default to &quot;&quot;]
+ **recvWindow** | **int64** |  | 
+ **selfTradePreventionMode** | **string** |  | [default to &quot;&quot;]
+ **sideEffectType** | **string** |  | [default to &quot;&quot;]
+ **stopPrice** | **string** |  | [default to &quot;&quot;]
+ **timeInForce** | **string** |  | [default to &quot;&quot;]
+
+### Return type
+
+[**MarginCreateMarginOrderV1Resp**](MarginCreateMarginOrderV1Resp.md)
 
 ### Authorization
 
@@ -2075,6 +2247,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetMarginApiKeyV1Resp**](GetMarginApiKeyV1Resp.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetMarginAvailableInventoryV1
+
+> MarginGetMarginAvailableInventoryV1Resp GetMarginAvailableInventoryV1(ctx).Type_(type_).Execute()
+
+Query Margin Available Inventory(USER_DATA)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/spot"
+)
+
+func main() {
+	type_ := "type__example" // string | MARGIN,ISOLATED (default to "")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MarginTradingAPI.GetMarginAvailableInventoryV1(context.Background()).Type_(type_).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MarginTradingAPI.GetMarginAvailableInventoryV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMarginAvailableInventoryV1`: MarginGetMarginAvailableInventoryV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `MarginTradingAPI.GetMarginAvailableInventoryV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMarginAvailableInventoryV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type_** | **string** | MARGIN,ISOLATED | [default to &quot;&quot;]
+
+### Return type
+
+[**MarginGetMarginAvailableInventoryV1Resp**](MarginGetMarginAvailableInventoryV1Resp.md)
 
 ### Authorization
 
@@ -3599,6 +3837,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]GetMarginOpenOrderListV1RespItem**](GetMarginOpenOrderListV1RespItem.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetMarginOpenOrdersV1
+
+> []MarginGetMarginOpenOrdersV1RespItem GetMarginOpenOrdersV1(ctx).Timestamp(timestamp).Symbol(symbol).IsIsolated(isIsolated).RecvWindow(recvWindow).Execute()
+
+Query Margin Account's Open Orders (USER_DATA)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/spot"
+)
+
+func main() {
+	timestamp := int64(789) // int64 | 
+	symbol := "symbol_example" // string |  (optional) (default to "")
+	isIsolated := "isIsolated_example" // string | for isolated margin or not, &#34;TRUE&#34;, &#34;FALSE&#34;，default &#34;FALSE&#34; (optional) (default to "")
+	recvWindow := int64(789) // int64 | The value cannot be greater than `60000` (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MarginTradingAPI.GetMarginOpenOrdersV1(context.Background()).Timestamp(timestamp).Symbol(symbol).IsIsolated(isIsolated).RecvWindow(recvWindow).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MarginTradingAPI.GetMarginOpenOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMarginOpenOrdersV1`: []MarginGetMarginOpenOrdersV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `MarginTradingAPI.GetMarginOpenOrdersV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMarginOpenOrdersV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **timestamp** | **int64** |  | 
+ **symbol** | **string** |  | [default to &quot;&quot;]
+ **isIsolated** | **string** | for isolated margin or not, &amp;#34;TRUE&amp;#34;, &amp;#34;FALSE&amp;#34;，default &amp;#34;FALSE&amp;#34; | [default to &quot;&quot;]
+ **recvWindow** | **int64** | The value cannot be greater than &#x60;60000&#x60; | 
+
+### Return type
+
+[**[]MarginGetMarginOpenOrdersV1RespItem**](MarginGetMarginOpenOrdersV1RespItem.md)
 
 ### Authorization
 

@@ -22,6 +22,18 @@ func Test_umfutures_UsdsMarginedFuturesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test UsdsMarginedFuturesAPIService CreateBatchOrdersV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.CreateBatchOrdersV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test UsdsMarginedFuturesAPIService CreateConvertAcceptQuoteV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -39,6 +51,18 @@ func Test_umfutures_UsdsMarginedFuturesAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.CreateConvertGetQuoteV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UsdsMarginedFuturesAPIService CreateCountdownCancelAllV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.CreateCountdownCancelAllV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -166,6 +190,18 @@ func Test_umfutures_UsdsMarginedFuturesAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test UsdsMarginedFuturesAPIService DeleteBatchOrdersV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.DeleteBatchOrdersV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test UsdsMarginedFuturesAPIService DeleteListenKeyV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -238,11 +274,47 @@ func Test_umfutures_UsdsMarginedFuturesAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test UsdsMarginedFuturesAPIService GetAggTradesV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.GetAggTradesV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test UsdsMarginedFuturesAPIService GetAllOrdersV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.GetAllOrdersV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UsdsMarginedFuturesAPIService GetApiTradingStatusV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.GetApiTradingStatusV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UsdsMarginedFuturesAPIService GetAssetIndexV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.GetAssetIndexV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -298,6 +370,18 @@ func Test_umfutures_UsdsMarginedFuturesAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test UsdsMarginedFuturesAPIService GetContinuousKlinesV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.GetContinuousKlinesV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test UsdsMarginedFuturesAPIService GetConvertExchangeInfoV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -327,6 +411,18 @@ func Test_umfutures_UsdsMarginedFuturesAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.GetDepthV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UsdsMarginedFuturesAPIService GetExchangeInfoV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.GetExchangeInfoV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -387,6 +483,18 @@ func Test_umfutures_UsdsMarginedFuturesAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.GetFuturesDataBasis(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UsdsMarginedFuturesAPIService GetFuturesDataDeliveryPrice", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.GetFuturesDataDeliveryPrice(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -502,6 +610,54 @@ func Test_umfutures_UsdsMarginedFuturesAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test UsdsMarginedFuturesAPIService GetIndexPriceKlinesV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.GetIndexPriceKlinesV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UsdsMarginedFuturesAPIService GetKlinesV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.GetKlinesV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UsdsMarginedFuturesAPIService GetLeverageBracketV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.GetLeverageBracketV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UsdsMarginedFuturesAPIService GetMarkPriceKlinesV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.GetMarkPriceKlinesV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test UsdsMarginedFuturesAPIService GetMultiAssetsMarginV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -567,6 +723,18 @@ func Test_umfutures_UsdsMarginedFuturesAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.GetOrderAsynIdV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UsdsMarginedFuturesAPIService GetOrderAsynV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.GetOrderAsynV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -658,6 +826,30 @@ func Test_umfutures_UsdsMarginedFuturesAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test UsdsMarginedFuturesAPIService GetPremiumIndexKlinesV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.GetPremiumIndexKlinesV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UsdsMarginedFuturesAPIService GetPremiumIndexV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.GetPremiumIndexV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test UsdsMarginedFuturesAPIService GetRateLimitOrderV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -675,6 +867,54 @@ func Test_umfutures_UsdsMarginedFuturesAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.GetSymbolConfigV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UsdsMarginedFuturesAPIService GetTicker24hrV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.GetTicker24hrV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UsdsMarginedFuturesAPIService GetTickerBookTickerV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.GetTickerBookTickerV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UsdsMarginedFuturesAPIService GetTickerPriceV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.GetTickerPriceV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UsdsMarginedFuturesAPIService GetTickerPriceV2", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.GetTickerPriceV2(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -735,6 +975,18 @@ func Test_umfutures_UsdsMarginedFuturesAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.GetUserTradesV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test UsdsMarginedFuturesAPIService UpdateBatchOrdersV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.UsdsMarginedFuturesAPI.UpdateBatchOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -49,11 +49,7 @@ type APIClient struct {
 
 	// API Services
 
-	AccountManagementAPI *AccountManagementAPIService
-
 	AlgoTradingAPI *AlgoTradingAPIService
-
-	AssetAPI *AssetAPIService
 
 	BinanceLinkAPI *BinanceLinkAPIService
 
@@ -61,25 +57,15 @@ type APIClient struct {
 
 	CopyTradingAPI *CopyTradingAPIService
 
-	ExchangeLinkAPI *ExchangeLinkAPIService
-
 	FuturesDataAPI *FuturesDataAPIService
 
-	GeneralAPI *GeneralAPIService
-
 	MarginTradingAPI *MarginTradingAPIService
-
-	MarketDataAPI *MarketDataAPIService
 
 	PortfolioMarginProAPI *PortfolioMarginProAPIService
 
 	SpotAPI *SpotAPIService
 
 	SubAccountAPI *SubAccountAPIService
-
-	TradeAPI *TradeAPIService
-
-	TradingAPI *TradingAPIService
 
 	WalletAPI *WalletAPIService
 }
@@ -100,22 +86,15 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
-	c.AccountManagementAPI = (*AccountManagementAPIService)(&c.common)
 	c.AlgoTradingAPI = (*AlgoTradingAPIService)(&c.common)
-	c.AssetAPI = (*AssetAPIService)(&c.common)
 	c.BinanceLinkAPI = (*BinanceLinkAPIService)(&c.common)
 	c.ConvertAPI = (*ConvertAPIService)(&c.common)
 	c.CopyTradingAPI = (*CopyTradingAPIService)(&c.common)
-	c.ExchangeLinkAPI = (*ExchangeLinkAPIService)(&c.common)
 	c.FuturesDataAPI = (*FuturesDataAPIService)(&c.common)
-	c.GeneralAPI = (*GeneralAPIService)(&c.common)
 	c.MarginTradingAPI = (*MarginTradingAPIService)(&c.common)
-	c.MarketDataAPI = (*MarketDataAPIService)(&c.common)
 	c.PortfolioMarginProAPI = (*PortfolioMarginProAPIService)(&c.common)
 	c.SpotAPI = (*SpotAPIService)(&c.common)
 	c.SubAccountAPI = (*SubAccountAPIService)(&c.common)
-	c.TradeAPI = (*TradeAPIService)(&c.common)
-	c.TradingAPI = (*TradingAPIService)(&c.common)
 	c.WalletAPI = (*WalletAPIService)(&c.common)
 
 	return c

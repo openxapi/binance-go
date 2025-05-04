@@ -122,17 +122,19 @@ All URIs are relative to *https://eapi.binance.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*MarketDataAPI* | [**OptionsGetExchangeInfoV1**](docs/MarketDataAPI.md#optionsgetexchangeinfov1) | **Get** /eapi/v1/exchangeInfo | Exchange Information
-*MarketMakerBlockTradeAPI* | [**OptionsCreateBlockOrderCreateV1**](docs/MarketMakerBlockTradeAPI.md#optionscreateblockordercreatev1) | **Post** /eapi/v1/block/order/create | New Block Trade Order (TRADE)
-*MarketMakerBlockTradeAPI* | [**OptionsDeleteBlockOrderCreateV1**](docs/MarketMakerBlockTradeAPI.md#optionsdeleteblockordercreatev1) | **Delete** /eapi/v1/block/order/create | Cancel Block Trade Order (TRADE)
+*MarketMakerBlockTradeAPI* | [**CreateBlockOrderCreateV1**](docs/MarketMakerBlockTradeAPI.md#createblockordercreatev1) | **Post** /eapi/v1/block/order/create | New Block Trade Order (TRADE)
+*MarketMakerBlockTradeAPI* | [**DeleteBlockOrderCreateV1**](docs/MarketMakerBlockTradeAPI.md#deleteblockordercreatev1) | **Delete** /eapi/v1/block/order/create | Cancel Block Trade Order (TRADE)
+*OptionsAPI* | [**CreateBatchOrdersV1**](docs/OptionsAPI.md#createbatchordersv1) | **Post** /eapi/v1/batchOrders | Place Multiple Orders(TRADE)
 *OptionsAPI* | [**CreateBlockOrderExecuteV1**](docs/OptionsAPI.md#createblockorderexecutev1) | **Post** /eapi/v1/block/order/execute | Accept Block Trade Order (TRADE)
 *OptionsAPI* | [**CreateCountdownCancelAllHeartBeatV1**](docs/OptionsAPI.md#createcountdowncancelallheartbeatv1) | **Post** /eapi/v1/countdownCancelAllHeartBeat | Auto-Cancel All Open Orders (Kill-Switch) Heartbeat (TRADE)
 *OptionsAPI* | [**CreateCountdownCancelAllV1**](docs/OptionsAPI.md#createcountdowncancelallv1) | **Post** /eapi/v1/countdownCancelAll | Set Auto-Cancel All Open Orders (Kill-Switch) Config (TRADE)
 *OptionsAPI* | [**CreateListenKeyV1**](docs/OptionsAPI.md#createlistenkeyv1) | **Post** /eapi/v1/listenKey | Start User Data Stream (USER_STREAM)
 *OptionsAPI* | [**CreateMmpResetV1**](docs/OptionsAPI.md#createmmpresetv1) | **Post** /eapi/v1/mmpReset | Reset Market Maker Protection Config (TRADE)
 *OptionsAPI* | [**CreateMmpSetV1**](docs/OptionsAPI.md#createmmpsetv1) | **Post** /eapi/v1/mmpSet | Set Market Maker Protection Config (TRADE)
+*OptionsAPI* | [**CreateOrderV1**](docs/OptionsAPI.md#createorderv1) | **Post** /eapi/v1/order | New Order (TRADE)
 *OptionsAPI* | [**DeleteAllOpenOrdersByUnderlyingV1**](docs/OptionsAPI.md#deleteallopenordersbyunderlyingv1) | **Delete** /eapi/v1/allOpenOrdersByUnderlying | Cancel All Option Orders By Underlying (TRADE)
 *OptionsAPI* | [**DeleteAllOpenOrdersV1**](docs/OptionsAPI.md#deleteallopenordersv1) | **Delete** /eapi/v1/allOpenOrders | Cancel all Option orders on specific symbol (TRADE)
+*OptionsAPI* | [**DeleteBatchOrdersV1**](docs/OptionsAPI.md#deletebatchordersv1) | **Delete** /eapi/v1/batchOrders | Cancel Multiple Option Orders (TRADE)
 *OptionsAPI* | [**DeleteListenKeyV1**](docs/OptionsAPI.md#deletelistenkeyv1) | **Delete** /eapi/v1/listenKey | Close User Data Stream (USER_STREAM)
 *OptionsAPI* | [**DeleteOrderV1**](docs/OptionsAPI.md#deleteorderv1) | **Delete** /eapi/v1/order | Cancel Option Order (TRADE)
 *OptionsAPI* | [**GetAccountV1**](docs/OptionsAPI.md#getaccountv1) | **Get** /eapi/v1/account | Option Account Information(TRADE)
@@ -143,6 +145,7 @@ Class | Method | HTTP request | Description
 *OptionsAPI* | [**GetBlockUserTradesV1**](docs/OptionsAPI.md#getblockusertradesv1) | **Get** /eapi/v1/block/user-trades | Account Block Trade List (USER_DATA)
 *OptionsAPI* | [**GetCountdownCancelAllV1**](docs/OptionsAPI.md#getcountdowncancelallv1) | **Get** /eapi/v1/countdownCancelAll | Get Auto-Cancel All Open Orders (Kill-Switch) Config (TRADE)
 *OptionsAPI* | [**GetDepthV1**](docs/OptionsAPI.md#getdepthv1) | **Get** /eapi/v1/depth | Order Book
+*OptionsAPI* | [**GetExchangeInfoV1**](docs/OptionsAPI.md#getexchangeinfov1) | **Get** /eapi/v1/exchangeInfo | Exchange Information
 *OptionsAPI* | [**GetExerciseHistoryV1**](docs/OptionsAPI.md#getexercisehistoryv1) | **Get** /eapi/v1/exerciseHistory | Historical Exercise Records
 *OptionsAPI* | [**GetExerciseRecordV1**](docs/OptionsAPI.md#getexerciserecordv1) | **Get** /eapi/v1/exerciseRecord | User Exercise Record (USER_DATA)
 *OptionsAPI* | [**GetHistoricalTradesV1**](docs/OptionsAPI.md#gethistoricaltradesv1) | **Get** /eapi/v1/historicalTrades | Old Trades Lookup (MARKET_DATA)
@@ -165,9 +168,6 @@ Class | Method | HTTP request | Description
 *OptionsAPI* | [**GetUserTradesV1**](docs/OptionsAPI.md#getusertradesv1) | **Get** /eapi/v1/userTrades | Account Trade List (USER_DATA)
 *OptionsAPI* | [**UpdateBlockOrderCreateV1**](docs/OptionsAPI.md#updateblockordercreatev1) | **Put** /eapi/v1/block/order/create | Extend Block Trade Order (TRADE)
 *OptionsAPI* | [**UpdateListenKeyV1**](docs/OptionsAPI.md#updatelistenkeyv1) | **Put** /eapi/v1/listenKey | Keepalive User Data Stream (USER_STREAM)
-*TradeAPI* | [**OptionsCreateBatchOrdersV1**](docs/TradeAPI.md#optionscreatebatchordersv1) | **Post** /eapi/v1/batchOrders | Place Multiple Orders(TRADE)
-*TradeAPI* | [**OptionsCreateOrderV1**](docs/TradeAPI.md#optionscreateorderv1) | **Post** /eapi/v1/order | New Order (TRADE)
-*TradeAPI* | [**OptionsDeleteBatchOrdersV1**](docs/TradeAPI.md#optionsdeletebatchordersv1) | **Delete** /eapi/v1/batchOrders | Cancel Multiple Option Orders (TRADE)
 
 
 ## Documentation For Models

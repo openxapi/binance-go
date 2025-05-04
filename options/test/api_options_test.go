@@ -22,6 +22,18 @@ func Test_options_OptionsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test OptionsAPIService CreateBatchOrdersV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.OptionsAPI.CreateBatchOrdersV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test OptionsAPIService CreateBlockOrderExecuteV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -94,6 +106,18 @@ func Test_options_OptionsAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test OptionsAPIService CreateOrderV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.OptionsAPI.CreateOrderV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test OptionsAPIService DeleteAllOpenOrdersByUnderlyingV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -111,6 +135,18 @@ func Test_options_OptionsAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.OptionsAPI.DeleteAllOpenOrdersV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test OptionsAPIService DeleteBatchOrdersV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.OptionsAPI.DeleteBatchOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -231,6 +267,18 @@ func Test_options_OptionsAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.OptionsAPI.GetDepthV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test OptionsAPIService GetExchangeInfoV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.OptionsAPI.GetExchangeInfoV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

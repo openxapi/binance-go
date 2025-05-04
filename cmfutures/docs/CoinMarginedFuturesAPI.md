@@ -4,6 +4,7 @@ All URIs are relative to *https://dapi.binance.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CreateBatchOrdersV1**](CoinMarginedFuturesAPI.md#CreateBatchOrdersV1) | **Post** /dapi/v1/batchOrders | Place Multiple Orders(TRADE)
 [**CreateCountdownCancelAllV1**](CoinMarginedFuturesAPI.md#CreateCountdownCancelAllV1) | **Post** /dapi/v1/countdownCancelAll | Auto-Cancel All Open Orders (TRADE)
 [**CreateLeverageV1**](CoinMarginedFuturesAPI.md#CreateLeverageV1) | **Post** /dapi/v1/leverage | Change Initial Leverage (TRADE)
 [**CreateListenKeyV1**](CoinMarginedFuturesAPI.md#CreateListenKeyV1) | **Post** /dapi/v1/listenKey | Start User Data Stream (USER_STREAM)
@@ -12,6 +13,7 @@ Method | HTTP request | Description
 [**CreatePositionMarginV1**](CoinMarginedFuturesAPI.md#CreatePositionMarginV1) | **Post** /dapi/v1/positionMargin | Modify Isolated Position Margin(TRADE)
 [**CreatePositionSideDualV1**](CoinMarginedFuturesAPI.md#CreatePositionSideDualV1) | **Post** /dapi/v1/positionSide/dual | Change Position Mode(TRADE)
 [**DeleteAllOpenOrdersV1**](CoinMarginedFuturesAPI.md#DeleteAllOpenOrdersV1) | **Delete** /dapi/v1/allOpenOrders | Cancel All Open Orders(TRADE)
+[**DeleteBatchOrdersV1**](CoinMarginedFuturesAPI.md#DeleteBatchOrdersV1) | **Delete** /dapi/v1/batchOrders | Cancel Multiple Orders(TRADE)
 [**DeleteListenKeyV1**](CoinMarginedFuturesAPI.md#DeleteListenKeyV1) | **Delete** /dapi/v1/listenKey | Close User Data Stream(USER_STREAM)
 [**DeleteOrderV1**](CoinMarginedFuturesAPI.md#DeleteOrderV1) | **Delete** /dapi/v1/order | Cancel Order (TRADE)
 [**GetAccountV1**](CoinMarginedFuturesAPI.md#GetAccountV1) | **Get** /dapi/v1/account | Account Information (USER_DATA)
@@ -21,7 +23,10 @@ Method | HTTP request | Description
 [**GetBalanceV1**](CoinMarginedFuturesAPI.md#GetBalanceV1) | **Get** /dapi/v1/balance | Futures Account Balance (USER_DATA)
 [**GetCommissionRateV1**](CoinMarginedFuturesAPI.md#GetCommissionRateV1) | **Get** /dapi/v1/commissionRate | User Commission Rate (USER_DATA)
 [**GetConstituentsV1**](CoinMarginedFuturesAPI.md#GetConstituentsV1) | **Get** /dapi/v1/constituents | Query Index Price Constituents
+[**GetContinuousKlinesV1**](CoinMarginedFuturesAPI.md#GetContinuousKlinesV1) | **Get** /dapi/v1/continuousKlines | Continuous Contract Kline/Candlestick Data
 [**GetDepthV1**](CoinMarginedFuturesAPI.md#GetDepthV1) | **Get** /dapi/v1/depth | Order Book
+[**GetExchangeInfoV1**](CoinMarginedFuturesAPI.md#GetExchangeInfoV1) | **Get** /dapi/v1/exchangeInfo | Exchange Information
+[**GetForceOrdersV1**](CoinMarginedFuturesAPI.md#GetForceOrdersV1) | **Get** /dapi/v1/forceOrders | User&#39;s Force Orders(USER_DATA)
 [**GetFundingInfoV1**](CoinMarginedFuturesAPI.md#GetFundingInfoV1) | **Get** /dapi/v1/fundingInfo | Get Funding Rate Info
 [**GetFundingRateV1**](CoinMarginedFuturesAPI.md#GetFundingRateV1) | **Get** /dapi/v1/fundingRate | Get Funding Rate History of Perpetual Futures
 [**GetFuturesDataBasis**](CoinMarginedFuturesAPI.md#GetFuturesDataBasis) | **Get** /futures/data/basis | Basis
@@ -34,8 +39,11 @@ Method | HTTP request | Description
 [**GetIncomeAsynIdV1**](CoinMarginedFuturesAPI.md#GetIncomeAsynIdV1) | **Get** /dapi/v1/income/asyn/id | Get Futures Transaction History Download Link by Id (USER_DATA)
 [**GetIncomeAsynV1**](CoinMarginedFuturesAPI.md#GetIncomeAsynV1) | **Get** /dapi/v1/income/asyn | Get Download Id For Futures Transaction History(USER_DATA)
 [**GetIncomeV1**](CoinMarginedFuturesAPI.md#GetIncomeV1) | **Get** /dapi/v1/income | Get Income History(USER_DATA)
+[**GetIndexPriceKlinesV1**](CoinMarginedFuturesAPI.md#GetIndexPriceKlinesV1) | **Get** /dapi/v1/indexPriceKlines | Index Price Kline/Candlestick Data
+[**GetKlinesV1**](CoinMarginedFuturesAPI.md#GetKlinesV1) | **Get** /dapi/v1/klines | Kline/Candlestick Data
 [**GetLeverageBracketV1**](CoinMarginedFuturesAPI.md#GetLeverageBracketV1) | **Get** /dapi/v1/leverageBracket | Notional Bracket for Pair(USER_DATA)
 [**GetLeverageBracketV2**](CoinMarginedFuturesAPI.md#GetLeverageBracketV2) | **Get** /dapi/v2/leverageBracket | Notional Bracket for Symbol(USER_DATA)
+[**GetMarkPriceKlinesV1**](CoinMarginedFuturesAPI.md#GetMarkPriceKlinesV1) | **Get** /dapi/v1/markPriceKlines | Mark Price Kline/Candlestick Data
 [**GetOpenInterestV1**](CoinMarginedFuturesAPI.md#GetOpenInterestV1) | **Get** /dapi/v1/openInterest | Open Interest
 [**GetOpenOrderV1**](CoinMarginedFuturesAPI.md#GetOpenOrderV1) | **Get** /dapi/v1/openOrder | Query Current Open Order(USER_DATA)
 [**GetOpenOrdersV1**](CoinMarginedFuturesAPI.md#GetOpenOrdersV1) | **Get** /dapi/v1/openOrders | Current All Open Orders (USER_DATA)
@@ -48,6 +56,7 @@ Method | HTTP request | Description
 [**GetPositionMarginHistoryV1**](CoinMarginedFuturesAPI.md#GetPositionMarginHistoryV1) | **Get** /dapi/v1/positionMargin/history | Get Position Margin Change History(TRADE)
 [**GetPositionRiskV1**](CoinMarginedFuturesAPI.md#GetPositionRiskV1) | **Get** /dapi/v1/positionRisk | Position Information(USER_DATA)
 [**GetPositionSideDualV1**](CoinMarginedFuturesAPI.md#GetPositionSideDualV1) | **Get** /dapi/v1/positionSide/dual | Get Current Position Mode(USER_DATA)
+[**GetPremiumIndexKlinesV1**](CoinMarginedFuturesAPI.md#GetPremiumIndexKlinesV1) | **Get** /dapi/v1/premiumIndexKlines | Premium index Kline Data
 [**GetPremiumIndexV1**](CoinMarginedFuturesAPI.md#GetPremiumIndexV1) | **Get** /dapi/v1/premiumIndex | Index Price and Mark Price
 [**GetTicker24hrV1**](CoinMarginedFuturesAPI.md#GetTicker24hrV1) | **Get** /dapi/v1/ticker/24hr | 24hr Ticker Price Change Statistics
 [**GetTickerBookTickerV1**](CoinMarginedFuturesAPI.md#GetTickerBookTickerV1) | **Get** /dapi/v1/ticker/bookTicker | Symbol Order Book Ticker
@@ -57,9 +66,80 @@ Method | HTTP request | Description
 [**GetTradeAsynV1**](CoinMarginedFuturesAPI.md#GetTradeAsynV1) | **Get** /dapi/v1/trade/asyn | Get Download Id For Futures Trade History (USER_DATA)
 [**GetTradesV1**](CoinMarginedFuturesAPI.md#GetTradesV1) | **Get** /dapi/v1/trades | Recent Trades List
 [**GetUserTradesV1**](CoinMarginedFuturesAPI.md#GetUserTradesV1) | **Get** /dapi/v1/userTrades | Account Trade List (USER_DATA)
+[**UpdateBatchOrdersV1**](CoinMarginedFuturesAPI.md#UpdateBatchOrdersV1) | **Put** /dapi/v1/batchOrders | Modify Multiple Orders(TRADE)
 [**UpdateListenKeyV1**](CoinMarginedFuturesAPI.md#UpdateListenKeyV1) | **Put** /dapi/v1/listenKey | Keepalive User Data Stream (USER_STREAM)
 [**UpdateOrderV1**](CoinMarginedFuturesAPI.md#UpdateOrderV1) | **Put** /dapi/v1/order | Modify Order (TRADE)
 
+
+
+## CreateBatchOrdersV1
+
+> []CmfuturesCreateBatchOrdersV1RespInner CreateBatchOrdersV1(ctx).BatchOrders(batchOrders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+
+Place Multiple Orders(TRADE)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/cmfutures"
+)
+
+func main() {
+	batchOrders := []openapiclient.CmfuturesCreateBatchOrderV1ReqBatchOrdersItem{*openapiclient.NewCmfuturesCreateBatchOrderV1ReqBatchOrdersItem("Side_example", "Symbol_example", "Type_example")} // []CmfuturesCreateBatchOrderV1ReqBatchOrdersItem | 
+	timestamp := int64(789) // int64 | 
+	recvWindow := int64(789) // int64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CoinMarginedFuturesAPI.CreateBatchOrdersV1(context.Background()).BatchOrders(batchOrders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CoinMarginedFuturesAPI.CreateBatchOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateBatchOrdersV1`: []CmfuturesCreateBatchOrdersV1RespInner
+	fmt.Fprintf(os.Stdout, "Response from `CoinMarginedFuturesAPI.CreateBatchOrdersV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateBatchOrdersV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **batchOrders** | [**[]CmfuturesCreateBatchOrderV1ReqBatchOrdersItem**](CmfuturesCreateBatchOrderV1ReqBatchOrdersItem.md) |  | 
+ **timestamp** | **int64** |  | 
+ **recvWindow** | **int64** |  | 
+
+### Return type
+
+[**[]CmfuturesCreateBatchOrdersV1RespInner**](CmfuturesCreateBatchOrdersV1RespInner.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/x-www-form-urlencoded
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## CreateCountdownCancelAllV1
@@ -644,6 +724,80 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DeleteAllOpenOrdersV1Resp**](DeleteAllOpenOrdersV1Resp.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteBatchOrdersV1
+
+> []CmfuturesDeleteBatchOrdersV1RespInner DeleteBatchOrdersV1(ctx).Symbol(symbol).Timestamp(timestamp).OrderIdList(orderIdList).OrigClientOrderIdList(origClientOrderIdList).RecvWindow(recvWindow).Execute()
+
+Cancel Multiple Orders(TRADE)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/cmfutures"
+)
+
+func main() {
+	symbol := "symbol_example" // string |  (default to "")
+	timestamp := int64(789) // int64 | 
+	orderIdList := []int64{int64(123)} // []int64 | max length 10 <br/> e.g. [1234567,2345678] (optional)
+	origClientOrderIdList := []string{"Inner_example"} // []string | max length 10<br/> e.g. [&#34;my_id_1&#34;,&#34;my_id_2&#34;], encode the double quotes. No space after comma. (optional)
+	recvWindow := int64(789) // int64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CoinMarginedFuturesAPI.DeleteBatchOrdersV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderIdList(orderIdList).OrigClientOrderIdList(origClientOrderIdList).RecvWindow(recvWindow).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CoinMarginedFuturesAPI.DeleteBatchOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteBatchOrdersV1`: []CmfuturesDeleteBatchOrdersV1RespInner
+	fmt.Fprintf(os.Stdout, "Response from `CoinMarginedFuturesAPI.DeleteBatchOrdersV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteBatchOrdersV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** |  | [default to &quot;&quot;]
+ **timestamp** | **int64** |  | 
+ **orderIdList** | **[]int64** | max length 10 &lt;br/&gt; e.g. [1234567,2345678] | 
+ **origClientOrderIdList** | **[]string** | max length 10&lt;br/&gt; e.g. [&amp;#34;my_id_1&amp;#34;,&amp;#34;my_id_2&amp;#34;], encode the double quotes. No space after comma. | 
+ **recvWindow** | **int64** |  | 
+
+### Return type
+
+[**[]CmfuturesDeleteBatchOrdersV1RespInner**](CmfuturesDeleteBatchOrdersV1RespInner.md)
 
 ### Authorization
 
@@ -1290,6 +1444,82 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## GetContinuousKlinesV1
+
+> [][]CmfuturesGetContinuousKlinesV1RespInnerInner GetContinuousKlinesV1(ctx).Pair(pair).ContractType(contractType).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+
+Continuous Contract Kline/Candlestick Data
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/cmfutures"
+)
+
+func main() {
+	pair := "pair_example" // string |  (default to "")
+	contractType := "contractType_example" // string |  (default to "")
+	interval := "interval_example" // string |  (default to "")
+	startTime := int64(789) // int64 |  (optional)
+	endTime := int64(789) // int64 |  (optional)
+	limit := int32(56) // int32 | Default 500; max 1500. (optional) (default to 500)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CoinMarginedFuturesAPI.GetContinuousKlinesV1(context.Background()).Pair(pair).ContractType(contractType).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CoinMarginedFuturesAPI.GetContinuousKlinesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetContinuousKlinesV1`: [][]CmfuturesGetContinuousKlinesV1RespInnerInner
+	fmt.Fprintf(os.Stdout, "Response from `CoinMarginedFuturesAPI.GetContinuousKlinesV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetContinuousKlinesV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pair** | **string** |  | [default to &quot;&quot;]
+ **contractType** | **string** |  | [default to &quot;&quot;]
+ **interval** | **string** |  | [default to &quot;&quot;]
+ **startTime** | **int64** |  | 
+ **endTime** | **int64** |  | 
+ **limit** | **int32** | Default 500; max 1500. | [default to 500]
+
+### Return type
+
+[**[][]CmfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetDepthV1
 
 > GetDepthV1Resp GetDepthV1(ctx).Symbol(symbol).Limit(limit).Execute()
@@ -1347,6 +1577,145 @@ Name | Type | Description  | Notes
 ### Authorization
 
 No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetExchangeInfoV1
+
+> CmfuturesGetExchangeInfoV1Resp GetExchangeInfoV1(ctx).Execute()
+
+Exchange Information
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/cmfutures"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CoinMarginedFuturesAPI.GetExchangeInfoV1(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CoinMarginedFuturesAPI.GetExchangeInfoV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetExchangeInfoV1`: CmfuturesGetExchangeInfoV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `CoinMarginedFuturesAPI.GetExchangeInfoV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetExchangeInfoV1Request struct via the builder pattern
+
+
+### Return type
+
+[**CmfuturesGetExchangeInfoV1Resp**](CmfuturesGetExchangeInfoV1Resp.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetForceOrdersV1
+
+> []CmfuturesGetForceOrdersV1RespItem GetForceOrdersV1(ctx).Timestamp(timestamp).Symbol(symbol).AutoCloseType(autoCloseType).RecvWindow(recvWindow).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
+
+User's Force Orders(USER_DATA)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/cmfutures"
+)
+
+func main() {
+	timestamp := int64(789) // int64 | 
+	symbol := "symbol_example" // string |  (optional) (default to "")
+	autoCloseType := "autoCloseType_example" // string |  (optional) (default to "")
+	recvWindow := int64(789) // int64 |  (optional)
+	limit := int32(56) // int32 |  (optional) (default to 50)
+	startTime := int64(789) // int64 |  (optional)
+	endTime := int64(789) // int64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CoinMarginedFuturesAPI.GetForceOrdersV1(context.Background()).Timestamp(timestamp).Symbol(symbol).AutoCloseType(autoCloseType).RecvWindow(recvWindow).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CoinMarginedFuturesAPI.GetForceOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetForceOrdersV1`: []CmfuturesGetForceOrdersV1RespItem
+	fmt.Fprintf(os.Stdout, "Response from `CoinMarginedFuturesAPI.GetForceOrdersV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetForceOrdersV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **timestamp** | **int64** |  | 
+ **symbol** | **string** |  | [default to &quot;&quot;]
+ **autoCloseType** | **string** |  | [default to &quot;&quot;]
+ **recvWindow** | **int64** |  | 
+ **limit** | **int32** |  | [default to 50]
+ **startTime** | **int64** |  | 
+ **endTime** | **int64** |  | 
+
+### Return type
+
+[**[]CmfuturesGetForceOrdersV1RespItem**](CmfuturesGetForceOrdersV1RespItem.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -2233,6 +2602,154 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetIndexPriceKlinesV1
+
+> [][]CmfuturesGetContinuousKlinesV1RespInnerInner GetIndexPriceKlinesV1(ctx).Pair(pair).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+
+Index Price Kline/Candlestick Data
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/cmfutures"
+)
+
+func main() {
+	pair := "pair_example" // string |  (default to "")
+	interval := "interval_example" // string |  (default to "")
+	startTime := int64(789) // int64 |  (optional)
+	endTime := int64(789) // int64 |  (optional)
+	limit := int32(56) // int32 | Default 500; max 1500. (optional) (default to 500)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CoinMarginedFuturesAPI.GetIndexPriceKlinesV1(context.Background()).Pair(pair).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CoinMarginedFuturesAPI.GetIndexPriceKlinesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetIndexPriceKlinesV1`: [][]CmfuturesGetContinuousKlinesV1RespInnerInner
+	fmt.Fprintf(os.Stdout, "Response from `CoinMarginedFuturesAPI.GetIndexPriceKlinesV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetIndexPriceKlinesV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pair** | **string** |  | [default to &quot;&quot;]
+ **interval** | **string** |  | [default to &quot;&quot;]
+ **startTime** | **int64** |  | 
+ **endTime** | **int64** |  | 
+ **limit** | **int32** | Default 500; max 1500. | [default to 500]
+
+### Return type
+
+[**[][]CmfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetKlinesV1
+
+> [][]CmfuturesGetContinuousKlinesV1RespInnerInner GetKlinesV1(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+
+Kline/Candlestick Data
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/cmfutures"
+)
+
+func main() {
+	symbol := "symbol_example" // string |  (default to "")
+	interval := "interval_example" // string |  (default to "")
+	startTime := int64(789) // int64 |  (optional)
+	endTime := int64(789) // int64 |  (optional)
+	limit := int32(56) // int32 | Default 500; max 1500. (optional) (default to 500)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CoinMarginedFuturesAPI.GetKlinesV1(context.Background()).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CoinMarginedFuturesAPI.GetKlinesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetKlinesV1`: [][]CmfuturesGetContinuousKlinesV1RespInnerInner
+	fmt.Fprintf(os.Stdout, "Response from `CoinMarginedFuturesAPI.GetKlinesV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetKlinesV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** |  | [default to &quot;&quot;]
+ **interval** | **string** |  | [default to &quot;&quot;]
+ **startTime** | **int64** |  | 
+ **endTime** | **int64** |  | 
+ **limit** | **int32** | Default 500; max 1500. | [default to 500]
+
+### Return type
+
+[**[][]CmfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetLeverageBracketV1
 
 > []GetLeverageBracketV1RespItem GetLeverageBracketV1(ctx).Timestamp(timestamp).Pair(pair).RecvWindow(recvWindow).Execute()
@@ -2362,6 +2879,80 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetMarkPriceKlinesV1
+
+> [][]CmfuturesGetContinuousKlinesV1RespInnerInner GetMarkPriceKlinesV1(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+
+Mark Price Kline/Candlestick Data
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/cmfutures"
+)
+
+func main() {
+	symbol := "symbol_example" // string |  (default to "")
+	interval := "interval_example" // string |  (default to "")
+	startTime := int64(789) // int64 |  (optional)
+	endTime := int64(789) // int64 |  (optional)
+	limit := int32(56) // int32 | Default 500; max 1500. (optional) (default to 500)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CoinMarginedFuturesAPI.GetMarkPriceKlinesV1(context.Background()).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CoinMarginedFuturesAPI.GetMarkPriceKlinesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMarkPriceKlinesV1`: [][]CmfuturesGetContinuousKlinesV1RespInnerInner
+	fmt.Fprintf(os.Stdout, "Response from `CoinMarginedFuturesAPI.GetMarkPriceKlinesV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMarkPriceKlinesV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** |  | [default to &quot;&quot;]
+ **interval** | **string** |  | [default to &quot;&quot;]
+ **startTime** | **int64** |  | 
+ **endTime** | **int64** |  | 
+ **limit** | **int32** | Default 500; max 1500. | [default to 500]
+
+### Return type
+
+[**[][]CmfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -3228,6 +3819,80 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetPremiumIndexKlinesV1
+
+> [][]CmfuturesGetContinuousKlinesV1RespInnerInner GetPremiumIndexKlinesV1(ctx).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+
+Premium index Kline Data
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/cmfutures"
+)
+
+func main() {
+	symbol := "symbol_example" // string |  (default to "")
+	interval := "interval_example" // string |  (default to "")
+	startTime := int64(789) // int64 |  (optional)
+	endTime := int64(789) // int64 |  (optional)
+	limit := int32(56) // int32 | Default 500; max 1500. (optional) (default to 500)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CoinMarginedFuturesAPI.GetPremiumIndexKlinesV1(context.Background()).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CoinMarginedFuturesAPI.GetPremiumIndexKlinesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetPremiumIndexKlinesV1`: [][]CmfuturesGetContinuousKlinesV1RespInnerInner
+	fmt.Fprintf(os.Stdout, "Response from `CoinMarginedFuturesAPI.GetPremiumIndexKlinesV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetPremiumIndexKlinesV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** |  | [default to &quot;&quot;]
+ **interval** | **string** |  | [default to &quot;&quot;]
+ **startTime** | **int64** |  | 
+ **endTime** | **int64** |  | 
+ **limit** | **int32** | Default 500; max 1500. | [default to 500]
+
+### Return type
+
+[**[][]CmfuturesGetContinuousKlinesV1RespInnerInner**](array.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetPremiumIndexV1
 
 > []GetPremiumIndexV1RespItem GetPremiumIndexV1(ctx).Symbol(symbol).Pair(pair).Execute()
@@ -3846,6 +4511,76 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateBatchOrdersV1
+
+> []CmfuturesUpdateBatchOrdersV1RespInner UpdateBatchOrdersV1(ctx).BatchOrders(batchOrders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+
+Modify Multiple Orders(TRADE)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/cmfutures"
+)
+
+func main() {
+	batchOrders := []openapiclient.CmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem{*openapiclient.NewCmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem("Side_example", "Symbol_example", int64(123))} // []CmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem | 
+	timestamp := int64(789) // int64 | 
+	recvWindow := int64(789) // int64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CoinMarginedFuturesAPI.UpdateBatchOrdersV1(context.Background()).BatchOrders(batchOrders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CoinMarginedFuturesAPI.UpdateBatchOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateBatchOrdersV1`: []CmfuturesUpdateBatchOrdersV1RespInner
+	fmt.Fprintf(os.Stdout, "Response from `CoinMarginedFuturesAPI.UpdateBatchOrdersV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateBatchOrdersV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **batchOrders** | [**[]CmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem**](CmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem.md) |  | 
+ **timestamp** | **int64** |  | 
+ **recvWindow** | **int64** |  | 
+
+### Return type
+
+[**[]CmfuturesUpdateBatchOrdersV1RespInner**](CmfuturesUpdateBatchOrdersV1RespInner.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/x-www-form-urlencoded
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -4162,6 +4162,143 @@ func (a *BinanceLinkAPIService) GetApiReferralUserCustomizationV1Execute(r ApiGe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGetBrokerInfoV1Request struct {
+	ctx context.Context
+	ApiService *BinanceLinkAPIService
+	timestamp *int64
+	recvWindow *int64
+}
+
+func (r ApiGetBrokerInfoV1Request) Timestamp(timestamp int64) ApiGetBrokerInfoV1Request {
+	r.timestamp = &timestamp
+	return r
+}
+
+func (r ApiGetBrokerInfoV1Request) RecvWindow(recvWindow int64) ApiGetBrokerInfoV1Request {
+	r.recvWindow = &recvWindow
+	return r
+}
+
+func (r ApiGetBrokerInfoV1Request) Execute() (*GetBrokerInfoV1Resp, *http.Response, error) {
+	return r.ApiService.GetBrokerInfoV1Execute(r)
+}
+
+/*
+GetBrokerInfoV1 Link Account Information
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetBrokerInfoV1Request
+*/
+func (a *BinanceLinkAPIService) GetBrokerInfoV1(ctx context.Context) ApiGetBrokerInfoV1Request {
+	return ApiGetBrokerInfoV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return GetBrokerInfoV1Resp
+func (a *BinanceLinkAPIService) GetBrokerInfoV1Execute(r ApiGetBrokerInfoV1Request) (*GetBrokerInfoV1Resp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetBrokerInfoV1Resp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BinanceLinkAPIService.GetBrokerInfoV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/sapi/v1/broker/info"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.timestamp == nil {
+		return localVarReturnValue, nil, reportError("timestamp is required and must be specified")
+	}
+
+	if r.recvWindow != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "recvWindow", r.recvWindow, "form", "")
+	}
+	parameterAddToHeaderOrQuery(localVarQueryParams, "timestamp", r.timestamp, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiGetBrokerRebateFuturesRecentRecordV1Request struct {
 	ctx context.Context
 	ApiService *BinanceLinkAPIService
@@ -5693,6 +5830,192 @@ func (a *BinanceLinkAPIService) GetBrokerSubAccountDepositHistV2Execute(r ApiGet
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
+	}
+	if r.recvWindow != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "recvWindow", r.recvWindow, "form", "")
+	}
+	parameterAddToHeaderOrQuery(localVarQueryParams, "timestamp", r.timestamp, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetBrokerSubAccountFuturesSummaryV3Request struct {
+	ctx context.Context
+	ApiService *BinanceLinkAPIService
+	futuresType *int32
+	timestamp *int64
+	subAccountId *string
+	page *int64
+	size *int64
+	recvWindow *int64
+}
+
+// 1:USD Margined Futures, 2:COIN Margined Futures
+func (r ApiGetBrokerSubAccountFuturesSummaryV3Request) FuturesType(futuresType int32) ApiGetBrokerSubAccountFuturesSummaryV3Request {
+	r.futuresType = &futuresType
+	return r
+}
+
+func (r ApiGetBrokerSubAccountFuturesSummaryV3Request) Timestamp(timestamp int64) ApiGetBrokerSubAccountFuturesSummaryV3Request {
+	r.timestamp = &timestamp
+	return r
+}
+
+func (r ApiGetBrokerSubAccountFuturesSummaryV3Request) SubAccountId(subAccountId string) ApiGetBrokerSubAccountFuturesSummaryV3Request {
+	r.subAccountId = &subAccountId
+	return r
+}
+
+// default 1
+func (r ApiGetBrokerSubAccountFuturesSummaryV3Request) Page(page int64) ApiGetBrokerSubAccountFuturesSummaryV3Request {
+	r.page = &page
+	return r
+}
+
+// default 10, max 20
+func (r ApiGetBrokerSubAccountFuturesSummaryV3Request) Size(size int64) ApiGetBrokerSubAccountFuturesSummaryV3Request {
+	r.size = &size
+	return r
+}
+
+func (r ApiGetBrokerSubAccountFuturesSummaryV3Request) RecvWindow(recvWindow int64) ApiGetBrokerSubAccountFuturesSummaryV3Request {
+	r.recvWindow = &recvWindow
+	return r
+}
+
+func (r ApiGetBrokerSubAccountFuturesSummaryV3Request) Execute() (*ExchangelinkGetBrokerSubAccountFuturesSummaryV3Resp, *http.Response, error) {
+	return r.ApiService.GetBrokerSubAccountFuturesSummaryV3Execute(r)
+}
+
+/*
+GetBrokerSubAccountFuturesSummaryV3 Query Sub Account Futures Asset info (V3)
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetBrokerSubAccountFuturesSummaryV3Request
+*/
+func (a *BinanceLinkAPIService) GetBrokerSubAccountFuturesSummaryV3(ctx context.Context) ApiGetBrokerSubAccountFuturesSummaryV3Request {
+	return ApiGetBrokerSubAccountFuturesSummaryV3Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ExchangelinkGetBrokerSubAccountFuturesSummaryV3Resp
+func (a *BinanceLinkAPIService) GetBrokerSubAccountFuturesSummaryV3Execute(r ApiGetBrokerSubAccountFuturesSummaryV3Request) (*ExchangelinkGetBrokerSubAccountFuturesSummaryV3Resp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ExchangelinkGetBrokerSubAccountFuturesSummaryV3Resp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BinanceLinkAPIService.GetBrokerSubAccountFuturesSummaryV3")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/sapi/v3/broker/subAccount/futuresSummary"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.futuresType == nil {
+		return localVarReturnValue, nil, reportError("futuresType is required and must be specified")
+	}
+	if r.timestamp == nil {
+		return localVarReturnValue, nil, reportError("timestamp is required and must be specified")
+	}
+
+	if r.subAccountId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "subAccountId", r.subAccountId, "form", "")
+	} else {
+		var defaultValue string = ""
+		r.subAccountId = &defaultValue
+	}
+	parameterAddToHeaderOrQuery(localVarQueryParams, "futuresType", r.futuresType, "form", "")
+	if r.page != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
+	} else {
+		var defaultValue int64 = 1
+		r.page = &defaultValue
+	}
+	if r.size != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "size", r.size, "form", "")
+	} else {
+		var defaultValue int64 = 10
+		r.size = &defaultValue
 	}
 	if r.recvWindow != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "recvWindow", r.recvWindow, "form", "")

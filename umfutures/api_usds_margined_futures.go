@@ -16,11 +16,167 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"reflect"
 )
 
 
 // UsdsMarginedFuturesAPIService UsdsMarginedFuturesAPI service
 type UsdsMarginedFuturesAPIService service
+
+type ApiCreateBatchOrdersV1Request struct {
+	ctx context.Context
+	ApiService *UsdsMarginedFuturesAPIService
+	batchOrders *[]UmfuturesCreateBatchOrdersV1ReqBatchOrdersItem
+	timestamp *int64
+	recvWindow *int64
+}
+
+func (r ApiCreateBatchOrdersV1Request) BatchOrders(batchOrders []UmfuturesCreateBatchOrdersV1ReqBatchOrdersItem) ApiCreateBatchOrdersV1Request {
+	r.batchOrders = &batchOrders
+	return r
+}
+
+func (r ApiCreateBatchOrdersV1Request) Timestamp(timestamp int64) ApiCreateBatchOrdersV1Request {
+	r.timestamp = &timestamp
+	return r
+}
+
+func (r ApiCreateBatchOrdersV1Request) RecvWindow(recvWindow int64) ApiCreateBatchOrdersV1Request {
+	r.recvWindow = &recvWindow
+	return r
+}
+
+func (r ApiCreateBatchOrdersV1Request) Execute() ([]UmfuturesCreateBatchOrdersV1RespInner, *http.Response, error) {
+	return r.ApiService.CreateBatchOrdersV1Execute(r)
+}
+
+/*
+CreateBatchOrdersV1 Place Multiple Orders(TRADE)
+
+Place Multiple Orders
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCreateBatchOrdersV1Request
+*/
+func (a *UsdsMarginedFuturesAPIService) CreateBatchOrdersV1(ctx context.Context) ApiCreateBatchOrdersV1Request {
+	return ApiCreateBatchOrdersV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []UmfuturesCreateBatchOrdersV1RespInner
+func (a *UsdsMarginedFuturesAPIService) CreateBatchOrdersV1Execute(r ApiCreateBatchOrdersV1Request) ([]UmfuturesCreateBatchOrdersV1RespInner, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []UmfuturesCreateBatchOrdersV1RespInner
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsdsMarginedFuturesAPIService.CreateBatchOrdersV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/fapi/v1/batchOrders"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.batchOrders == nil {
+		return localVarReturnValue, nil, reportError("batchOrders is required and must be specified")
+	}
+	if r.timestamp == nil {
+		return localVarReturnValue, nil, reportError("timestamp is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarFormParams, "batchOrders", r.batchOrders, "", "csv")
+	if r.recvWindow != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
+	}
+	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
+			localVarHeaderParams["X-MBX-APIKEY"] = auth.APIKey
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
 
 type ApiCreateConvertAcceptQuoteV1Request struct {
 	ctx context.Context
@@ -305,6 +461,141 @@ func (a *UsdsMarginedFuturesAPIService) CreateConvertGetQuoteV1Execute(r ApiCrea
 	if r.validTime != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "validTime", r.validTime, "", "")
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
+			localVarHeaderParams["X-MBX-APIKEY"] = auth.APIKey
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiCreateCountdownCancelAllV1Request struct {
+	ctx context.Context
+	ApiService *UsdsMarginedFuturesAPIService
+	umfuturesCreateCountdownCancelAllV1Req *UmfuturesCreateCountdownCancelAllV1Req
+}
+
+func (r ApiCreateCountdownCancelAllV1Request) UmfuturesCreateCountdownCancelAllV1Req(umfuturesCreateCountdownCancelAllV1Req UmfuturesCreateCountdownCancelAllV1Req) ApiCreateCountdownCancelAllV1Request {
+	r.umfuturesCreateCountdownCancelAllV1Req = &umfuturesCreateCountdownCancelAllV1Req
+	return r
+}
+
+func (r ApiCreateCountdownCancelAllV1Request) Execute() (*UmfuturesCreateCountdownCancelAllV1Resp, *http.Response, error) {
+	return r.ApiService.CreateCountdownCancelAllV1Execute(r)
+}
+
+/*
+CreateCountdownCancelAllV1 Auto-Cancel All Open Orders (TRADE)
+
+Cancel all open orders of the specified symbol at the end of the specified countdown.
+The endpoint should be called repeatedly as heartbeats so that the existing countdown time can be canceled and replaced by a new one.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCreateCountdownCancelAllV1Request
+*/
+func (a *UsdsMarginedFuturesAPIService) CreateCountdownCancelAllV1(ctx context.Context) ApiCreateCountdownCancelAllV1Request {
+	return ApiCreateCountdownCancelAllV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return UmfuturesCreateCountdownCancelAllV1Resp
+func (a *UsdsMarginedFuturesAPIService) CreateCountdownCancelAllV1Execute(r ApiCreateCountdownCancelAllV1Request) (*UmfuturesCreateCountdownCancelAllV1Resp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UmfuturesCreateCountdownCancelAllV1Resp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsdsMarginedFuturesAPIService.CreateCountdownCancelAllV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/fapi/v1/countdownCancelAll"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.umfuturesCreateCountdownCancelAllV1Req
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -2267,6 +2558,197 @@ func (a *UsdsMarginedFuturesAPIService) DeleteAllOpenOrdersV1Execute(r ApiDelete
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiDeleteBatchOrdersV1Request struct {
+	ctx context.Context
+	ApiService *UsdsMarginedFuturesAPIService
+	symbol *string
+	timestamp *int64
+	orderIdList *[]int64
+	origClientOrderIdList *[]string
+	recvWindow *int64
+}
+
+func (r ApiDeleteBatchOrdersV1Request) Symbol(symbol string) ApiDeleteBatchOrdersV1Request {
+	r.symbol = &symbol
+	return r
+}
+
+func (r ApiDeleteBatchOrdersV1Request) Timestamp(timestamp int64) ApiDeleteBatchOrdersV1Request {
+	r.timestamp = &timestamp
+	return r
+}
+
+// max length 10 &lt;br/&gt; e.g. [1234567,2345678]
+func (r ApiDeleteBatchOrdersV1Request) OrderIdList(orderIdList []int64) ApiDeleteBatchOrdersV1Request {
+	r.orderIdList = &orderIdList
+	return r
+}
+
+// max length 10&lt;br/&gt; e.g. [&amp;#34;my_id_1&amp;#34;,&amp;#34;my_id_2&amp;#34;], encode the double quotes. No space after comma.
+func (r ApiDeleteBatchOrdersV1Request) OrigClientOrderIdList(origClientOrderIdList []string) ApiDeleteBatchOrdersV1Request {
+	r.origClientOrderIdList = &origClientOrderIdList
+	return r
+}
+
+func (r ApiDeleteBatchOrdersV1Request) RecvWindow(recvWindow int64) ApiDeleteBatchOrdersV1Request {
+	r.recvWindow = &recvWindow
+	return r
+}
+
+func (r ApiDeleteBatchOrdersV1Request) Execute() ([]UmfuturesDeleteBatchOrdersV1RespInner, *http.Response, error) {
+	return r.ApiService.DeleteBatchOrdersV1Execute(r)
+}
+
+/*
+DeleteBatchOrdersV1 Cancel Multiple Orders (TRADE)
+
+Cancel Multiple Orders
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiDeleteBatchOrdersV1Request
+*/
+func (a *UsdsMarginedFuturesAPIService) DeleteBatchOrdersV1(ctx context.Context) ApiDeleteBatchOrdersV1Request {
+	return ApiDeleteBatchOrdersV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []UmfuturesDeleteBatchOrdersV1RespInner
+func (a *UsdsMarginedFuturesAPIService) DeleteBatchOrdersV1Execute(r ApiDeleteBatchOrdersV1Request) ([]UmfuturesDeleteBatchOrdersV1RespInner, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []UmfuturesDeleteBatchOrdersV1RespInner
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsdsMarginedFuturesAPIService.DeleteBatchOrdersV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/fapi/v1/batchOrders"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.symbol == nil {
+		return localVarReturnValue, nil, reportError("symbol is required and must be specified")
+	}
+	if r.timestamp == nil {
+		return localVarReturnValue, nil, reportError("timestamp is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
+	if r.orderIdList != nil {
+		t := *r.orderIdList
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "orderIdList", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "orderIdList", t, "form", "multi")
+		}
+	}
+	if r.origClientOrderIdList != nil {
+		t := *r.origClientOrderIdList
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "origClientOrderIdList", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "origClientOrderIdList", t, "form", "multi")
+		}
+	}
+	if r.recvWindow != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "recvWindow", r.recvWindow, "form", "")
+	}
+	parameterAddToHeaderOrQuery(localVarQueryParams, "timestamp", r.timestamp, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
+			localVarHeaderParams["X-MBX-APIKEY"] = auth.APIKey
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiDeleteListenKeyV1Request struct {
 	ctx context.Context
 	ApiService *UsdsMarginedFuturesAPIService
@@ -3161,6 +3643,179 @@ func (a *UsdsMarginedFuturesAPIService) GetAdlQuantileV1Execute(r ApiGetAdlQuant
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGetAggTradesV1Request struct {
+	ctx context.Context
+	ApiService *UsdsMarginedFuturesAPIService
+	symbol *string
+	fromId *int64
+	startTime *int64
+	endTime *int64
+	limit *int32
+}
+
+func (r ApiGetAggTradesV1Request) Symbol(symbol string) ApiGetAggTradesV1Request {
+	r.symbol = &symbol
+	return r
+}
+
+// ID to get aggregate trades from INCLUSIVE.
+func (r ApiGetAggTradesV1Request) FromId(fromId int64) ApiGetAggTradesV1Request {
+	r.fromId = &fromId
+	return r
+}
+
+// Timestamp in ms to get aggregate trades from INCLUSIVE.
+func (r ApiGetAggTradesV1Request) StartTime(startTime int64) ApiGetAggTradesV1Request {
+	r.startTime = &startTime
+	return r
+}
+
+// Timestamp in ms to get aggregate trades until INCLUSIVE.
+func (r ApiGetAggTradesV1Request) EndTime(endTime int64) ApiGetAggTradesV1Request {
+	r.endTime = &endTime
+	return r
+}
+
+// Default 500; max 1000.
+func (r ApiGetAggTradesV1Request) Limit(limit int32) ApiGetAggTradesV1Request {
+	r.limit = &limit
+	return r
+}
+
+func (r ApiGetAggTradesV1Request) Execute() ([]UmfuturesGetAggTradesV1RespItem, *http.Response, error) {
+	return r.ApiService.GetAggTradesV1Execute(r)
+}
+
+/*
+GetAggTradesV1 Compressed/Aggregate Trades List
+
+Get compressed, aggregate market trades. Market trades that fill in 100ms with the same price and the same taking side will have the quantity aggregated.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetAggTradesV1Request
+*/
+func (a *UsdsMarginedFuturesAPIService) GetAggTradesV1(ctx context.Context) ApiGetAggTradesV1Request {
+	return ApiGetAggTradesV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []UmfuturesGetAggTradesV1RespItem
+func (a *UsdsMarginedFuturesAPIService) GetAggTradesV1Execute(r ApiGetAggTradesV1Request) ([]UmfuturesGetAggTradesV1RespItem, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []UmfuturesGetAggTradesV1RespItem
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsdsMarginedFuturesAPIService.GetAggTradesV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/fapi/v1/aggTrades"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.symbol == nil {
+		return localVarReturnValue, nil, reportError("symbol is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
+	if r.fromId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "fromId", r.fromId, "form", "")
+	}
+	if r.startTime != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "startTime", r.startTime, "form", "")
+	}
+	if r.endTime != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "endTime", r.endTime, "form", "")
+	}
+	if r.limit != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
+	} else {
+		var defaultValue int32 = 500
+		r.limit = &defaultValue
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiGetAllOrdersV1Request struct {
 	ctx context.Context
 	ApiService *UsdsMarginedFuturesAPIService
@@ -3297,6 +3952,296 @@ func (a *UsdsMarginedFuturesAPIService) GetAllOrdersV1Execute(r ApiGetAllOrdersV
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
 			localVarHeaderParams["X-MBX-APIKEY"] = auth.APIKey
 		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetApiTradingStatusV1Request struct {
+	ctx context.Context
+	ApiService *UsdsMarginedFuturesAPIService
+	timestamp *int64
+	symbol *string
+	recvWindow *int64
+}
+
+func (r ApiGetApiTradingStatusV1Request) Timestamp(timestamp int64) ApiGetApiTradingStatusV1Request {
+	r.timestamp = &timestamp
+	return r
+}
+
+func (r ApiGetApiTradingStatusV1Request) Symbol(symbol string) ApiGetApiTradingStatusV1Request {
+	r.symbol = &symbol
+	return r
+}
+
+func (r ApiGetApiTradingStatusV1Request) RecvWindow(recvWindow int64) ApiGetApiTradingStatusV1Request {
+	r.recvWindow = &recvWindow
+	return r
+}
+
+func (r ApiGetApiTradingStatusV1Request) Execute() (*UmfuturesGetApiTradingStatusV1Resp, *http.Response, error) {
+	return r.ApiService.GetApiTradingStatusV1Execute(r)
+}
+
+/*
+GetApiTradingStatusV1 Futures Trading Quantitative Rules Indicators (USER_DATA)
+
+Futures trading quantitative rules indicators, for more information on this, please refer to the Futures Trading Quantitative Rules
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetApiTradingStatusV1Request
+*/
+func (a *UsdsMarginedFuturesAPIService) GetApiTradingStatusV1(ctx context.Context) ApiGetApiTradingStatusV1Request {
+	return ApiGetApiTradingStatusV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return UmfuturesGetApiTradingStatusV1Resp
+func (a *UsdsMarginedFuturesAPIService) GetApiTradingStatusV1Execute(r ApiGetApiTradingStatusV1Request) (*UmfuturesGetApiTradingStatusV1Resp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UmfuturesGetApiTradingStatusV1Resp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsdsMarginedFuturesAPIService.GetApiTradingStatusV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/fapi/v1/apiTradingStatus"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.timestamp == nil {
+		return localVarReturnValue, nil, reportError("timestamp is required and must be specified")
+	}
+
+	if r.symbol != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
+	} else {
+		var defaultValue string = ""
+		r.symbol = &defaultValue
+	}
+	if r.recvWindow != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "recvWindow", r.recvWindow, "form", "")
+	}
+	parameterAddToHeaderOrQuery(localVarQueryParams, "timestamp", r.timestamp, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
+			localVarHeaderParams["X-MBX-APIKEY"] = auth.APIKey
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetAssetIndexV1Request struct {
+	ctx context.Context
+	ApiService *UsdsMarginedFuturesAPIService
+	symbol *string
+}
+
+// Asset pair
+func (r ApiGetAssetIndexV1Request) Symbol(symbol string) ApiGetAssetIndexV1Request {
+	r.symbol = &symbol
+	return r
+}
+
+func (r ApiGetAssetIndexV1Request) Execute() (*UmfuturesGetAssetIndexV1Resp, *http.Response, error) {
+	return r.ApiService.GetAssetIndexV1Execute(r)
+}
+
+/*
+GetAssetIndexV1 Multi-Assets Mode Asset Index
+
+asset index for Multi-Assets mode
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetAssetIndexV1Request
+*/
+func (a *UsdsMarginedFuturesAPIService) GetAssetIndexV1(ctx context.Context) ApiGetAssetIndexV1Request {
+	return ApiGetAssetIndexV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return UmfuturesGetAssetIndexV1Resp
+func (a *UsdsMarginedFuturesAPIService) GetAssetIndexV1Execute(r ApiGetAssetIndexV1Request) (*UmfuturesGetAssetIndexV1Resp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UmfuturesGetAssetIndexV1Resp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsdsMarginedFuturesAPIService.GetAssetIndexV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/fapi/v1/assetIndex"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.symbol != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
+	} else {
+		var defaultValue string = ""
+		r.symbol = &defaultValue
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -3931,6 +4876,188 @@ func (a *UsdsMarginedFuturesAPIService) GetConstituentsV1Execute(r ApiGetConstit
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGetContinuousKlinesV1Request struct {
+	ctx context.Context
+	ApiService *UsdsMarginedFuturesAPIService
+	pair *string
+	contractType *string
+	interval *string
+	startTime *int64
+	endTime *int64
+	limit *int32
+}
+
+func (r ApiGetContinuousKlinesV1Request) Pair(pair string) ApiGetContinuousKlinesV1Request {
+	r.pair = &pair
+	return r
+}
+
+func (r ApiGetContinuousKlinesV1Request) ContractType(contractType string) ApiGetContinuousKlinesV1Request {
+	r.contractType = &contractType
+	return r
+}
+
+func (r ApiGetContinuousKlinesV1Request) Interval(interval string) ApiGetContinuousKlinesV1Request {
+	r.interval = &interval
+	return r
+}
+
+func (r ApiGetContinuousKlinesV1Request) StartTime(startTime int64) ApiGetContinuousKlinesV1Request {
+	r.startTime = &startTime
+	return r
+}
+
+func (r ApiGetContinuousKlinesV1Request) EndTime(endTime int64) ApiGetContinuousKlinesV1Request {
+	r.endTime = &endTime
+	return r
+}
+
+// Default 500; max 1500.
+func (r ApiGetContinuousKlinesV1Request) Limit(limit int32) ApiGetContinuousKlinesV1Request {
+	r.limit = &limit
+	return r
+}
+
+func (r ApiGetContinuousKlinesV1Request) Execute() ([][]UmfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
+	return r.ApiService.GetContinuousKlinesV1Execute(r)
+}
+
+/*
+GetContinuousKlinesV1 Continuous Contract Kline/Candlestick Data
+
+Kline/candlestick bars for a specific contract type.
+Klines are uniquely identified by their open time.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetContinuousKlinesV1Request
+*/
+func (a *UsdsMarginedFuturesAPIService) GetContinuousKlinesV1(ctx context.Context) ApiGetContinuousKlinesV1Request {
+	return ApiGetContinuousKlinesV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return [][]UmfuturesGetContinuousKlinesV1RespInnerInner
+func (a *UsdsMarginedFuturesAPIService) GetContinuousKlinesV1Execute(r ApiGetContinuousKlinesV1Request) ([][]UmfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  [][]UmfuturesGetContinuousKlinesV1RespInnerInner
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsdsMarginedFuturesAPIService.GetContinuousKlinesV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/fapi/v1/continuousKlines"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pair == nil {
+		return localVarReturnValue, nil, reportError("pair is required and must be specified")
+	}
+	if r.contractType == nil {
+		return localVarReturnValue, nil, reportError("contractType is required and must be specified")
+	}
+	if r.interval == nil {
+		return localVarReturnValue, nil, reportError("interval is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "pair", r.pair, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "contractType", r.contractType, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "interval", r.interval, "form", "")
+	if r.startTime != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "startTime", r.startTime, "form", "")
+	}
+	if r.endTime != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "endTime", r.endTime, "form", "")
+	}
+	if r.limit != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
+	} else {
+		var defaultValue int32 = 500
+		r.limit = &defaultValue
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiGetConvertExchangeInfoV1Request struct {
 	ctx context.Context
 	ApiService *UsdsMarginedFuturesAPIService
@@ -4297,6 +5424,126 @@ func (a *UsdsMarginedFuturesAPIService) GetDepthV1Execute(r ApiGetDepthV1Request
 		var defaultValue int32 = 500
 		r.limit = &defaultValue
 	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetExchangeInfoV1Request struct {
+	ctx context.Context
+	ApiService *UsdsMarginedFuturesAPIService
+}
+
+func (r ApiGetExchangeInfoV1Request) Execute() (*UmfuturesGetExchangeInfoV1Resp, *http.Response, error) {
+	return r.ApiService.GetExchangeInfoV1Execute(r)
+}
+
+/*
+GetExchangeInfoV1 Exchange Information
+
+Current exchange trading rules and symbol information
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetExchangeInfoV1Request
+*/
+func (a *UsdsMarginedFuturesAPIService) GetExchangeInfoV1(ctx context.Context) ApiGetExchangeInfoV1Request {
+	return ApiGetExchangeInfoV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return UmfuturesGetExchangeInfoV1Resp
+func (a *UsdsMarginedFuturesAPIService) GetExchangeInfoV1Execute(r ApiGetExchangeInfoV1Request) (*UmfuturesGetExchangeInfoV1Resp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UmfuturesGetExchangeInfoV1Resp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsdsMarginedFuturesAPIService.GetExchangeInfoV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/fapi/v1/exchangeInfo"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -5113,6 +6360,137 @@ func (a *UsdsMarginedFuturesAPIService) GetFuturesDataBasisExecute(r ApiGetFutur
 	if r.endTime != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "endTime", r.endTime, "form", "")
 	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetFuturesDataDeliveryPriceRequest struct {
+	ctx context.Context
+	ApiService *UsdsMarginedFuturesAPIService
+	pair *string
+}
+
+// e.g BTCUSDT
+func (r ApiGetFuturesDataDeliveryPriceRequest) Pair(pair string) ApiGetFuturesDataDeliveryPriceRequest {
+	r.pair = &pair
+	return r
+}
+
+func (r ApiGetFuturesDataDeliveryPriceRequest) Execute() ([]UmfuturesGetFuturesDataDeliveryPriceRespItem, *http.Response, error) {
+	return r.ApiService.GetFuturesDataDeliveryPriceExecute(r)
+}
+
+/*
+GetFuturesDataDeliveryPrice Quarterly Contract Settlement Price
+
+Latest price for a symbol or symbols.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetFuturesDataDeliveryPriceRequest
+*/
+func (a *UsdsMarginedFuturesAPIService) GetFuturesDataDeliveryPrice(ctx context.Context) ApiGetFuturesDataDeliveryPriceRequest {
+	return ApiGetFuturesDataDeliveryPriceRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []UmfuturesGetFuturesDataDeliveryPriceRespItem
+func (a *UsdsMarginedFuturesAPIService) GetFuturesDataDeliveryPriceExecute(r ApiGetFuturesDataDeliveryPriceRequest) ([]UmfuturesGetFuturesDataDeliveryPriceRespItem, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []UmfuturesGetFuturesDataDeliveryPriceRespItem
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsdsMarginedFuturesAPIService.GetFuturesDataDeliveryPrice")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/futures/data/delivery-price"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pair == nil {
+		return localVarReturnValue, nil, reportError("pair is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "pair", r.pair, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -6662,6 +8040,679 @@ func (a *UsdsMarginedFuturesAPIService) GetIndexInfoV1Execute(r ApiGetIndexInfoV
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGetIndexPriceKlinesV1Request struct {
+	ctx context.Context
+	ApiService *UsdsMarginedFuturesAPIService
+	pair *string
+	interval *string
+	startTime *int64
+	endTime *int64
+	limit *int32
+}
+
+func (r ApiGetIndexPriceKlinesV1Request) Pair(pair string) ApiGetIndexPriceKlinesV1Request {
+	r.pair = &pair
+	return r
+}
+
+func (r ApiGetIndexPriceKlinesV1Request) Interval(interval string) ApiGetIndexPriceKlinesV1Request {
+	r.interval = &interval
+	return r
+}
+
+func (r ApiGetIndexPriceKlinesV1Request) StartTime(startTime int64) ApiGetIndexPriceKlinesV1Request {
+	r.startTime = &startTime
+	return r
+}
+
+func (r ApiGetIndexPriceKlinesV1Request) EndTime(endTime int64) ApiGetIndexPriceKlinesV1Request {
+	r.endTime = &endTime
+	return r
+}
+
+// Default 500; max 1500.
+func (r ApiGetIndexPriceKlinesV1Request) Limit(limit int32) ApiGetIndexPriceKlinesV1Request {
+	r.limit = &limit
+	return r
+}
+
+func (r ApiGetIndexPriceKlinesV1Request) Execute() ([][]UmfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
+	return r.ApiService.GetIndexPriceKlinesV1Execute(r)
+}
+
+/*
+GetIndexPriceKlinesV1 Index Price Kline/Candlestick Data
+
+Kline/candlestick bars for the index price of a pair.
+Klines are uniquely identified by their open time.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetIndexPriceKlinesV1Request
+*/
+func (a *UsdsMarginedFuturesAPIService) GetIndexPriceKlinesV1(ctx context.Context) ApiGetIndexPriceKlinesV1Request {
+	return ApiGetIndexPriceKlinesV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return [][]UmfuturesGetContinuousKlinesV1RespInnerInner
+func (a *UsdsMarginedFuturesAPIService) GetIndexPriceKlinesV1Execute(r ApiGetIndexPriceKlinesV1Request) ([][]UmfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  [][]UmfuturesGetContinuousKlinesV1RespInnerInner
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsdsMarginedFuturesAPIService.GetIndexPriceKlinesV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/fapi/v1/indexPriceKlines"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pair == nil {
+		return localVarReturnValue, nil, reportError("pair is required and must be specified")
+	}
+	if r.interval == nil {
+		return localVarReturnValue, nil, reportError("interval is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "pair", r.pair, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "interval", r.interval, "form", "")
+	if r.startTime != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "startTime", r.startTime, "form", "")
+	}
+	if r.endTime != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "endTime", r.endTime, "form", "")
+	}
+	if r.limit != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
+	} else {
+		var defaultValue int32 = 500
+		r.limit = &defaultValue
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetKlinesV1Request struct {
+	ctx context.Context
+	ApiService *UsdsMarginedFuturesAPIService
+	symbol *string
+	interval *string
+	startTime *int64
+	endTime *int64
+	limit *int32
+}
+
+func (r ApiGetKlinesV1Request) Symbol(symbol string) ApiGetKlinesV1Request {
+	r.symbol = &symbol
+	return r
+}
+
+func (r ApiGetKlinesV1Request) Interval(interval string) ApiGetKlinesV1Request {
+	r.interval = &interval
+	return r
+}
+
+func (r ApiGetKlinesV1Request) StartTime(startTime int64) ApiGetKlinesV1Request {
+	r.startTime = &startTime
+	return r
+}
+
+func (r ApiGetKlinesV1Request) EndTime(endTime int64) ApiGetKlinesV1Request {
+	r.endTime = &endTime
+	return r
+}
+
+// Default 500; max 1500.
+func (r ApiGetKlinesV1Request) Limit(limit int32) ApiGetKlinesV1Request {
+	r.limit = &limit
+	return r
+}
+
+func (r ApiGetKlinesV1Request) Execute() ([][]UmfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
+	return r.ApiService.GetKlinesV1Execute(r)
+}
+
+/*
+GetKlinesV1 Kline/Candlestick Data
+
+Kline/candlestick bars for a symbol.
+Klines are uniquely identified by their open time.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetKlinesV1Request
+*/
+func (a *UsdsMarginedFuturesAPIService) GetKlinesV1(ctx context.Context) ApiGetKlinesV1Request {
+	return ApiGetKlinesV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return [][]UmfuturesGetContinuousKlinesV1RespInnerInner
+func (a *UsdsMarginedFuturesAPIService) GetKlinesV1Execute(r ApiGetKlinesV1Request) ([][]UmfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  [][]UmfuturesGetContinuousKlinesV1RespInnerInner
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsdsMarginedFuturesAPIService.GetKlinesV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/fapi/v1/klines"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.symbol == nil {
+		return localVarReturnValue, nil, reportError("symbol is required and must be specified")
+	}
+	if r.interval == nil {
+		return localVarReturnValue, nil, reportError("interval is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "interval", r.interval, "form", "")
+	if r.startTime != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "startTime", r.startTime, "form", "")
+	}
+	if r.endTime != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "endTime", r.endTime, "form", "")
+	}
+	if r.limit != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
+	} else {
+		var defaultValue int32 = 500
+		r.limit = &defaultValue
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetLeverageBracketV1Request struct {
+	ctx context.Context
+	ApiService *UsdsMarginedFuturesAPIService
+	timestamp *int64
+	symbol *string
+	recvWindow *int64
+}
+
+func (r ApiGetLeverageBracketV1Request) Timestamp(timestamp int64) ApiGetLeverageBracketV1Request {
+	r.timestamp = &timestamp
+	return r
+}
+
+func (r ApiGetLeverageBracketV1Request) Symbol(symbol string) ApiGetLeverageBracketV1Request {
+	r.symbol = &symbol
+	return r
+}
+
+func (r ApiGetLeverageBracketV1Request) RecvWindow(recvWindow int64) ApiGetLeverageBracketV1Request {
+	r.recvWindow = &recvWindow
+	return r
+}
+
+func (r ApiGetLeverageBracketV1Request) Execute() (*UmfuturesGetLeverageBracketV1Resp, *http.Response, error) {
+	return r.ApiService.GetLeverageBracketV1Execute(r)
+}
+
+/*
+GetLeverageBracketV1 Notional and Leverage Brackets (USER_DATA)
+
+Query user notional and leverage bracket on speicfic symbol
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetLeverageBracketV1Request
+*/
+func (a *UsdsMarginedFuturesAPIService) GetLeverageBracketV1(ctx context.Context) ApiGetLeverageBracketV1Request {
+	return ApiGetLeverageBracketV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return UmfuturesGetLeverageBracketV1Resp
+func (a *UsdsMarginedFuturesAPIService) GetLeverageBracketV1Execute(r ApiGetLeverageBracketV1Request) (*UmfuturesGetLeverageBracketV1Resp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UmfuturesGetLeverageBracketV1Resp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsdsMarginedFuturesAPIService.GetLeverageBracketV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/fapi/v1/leverageBracket"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.timestamp == nil {
+		return localVarReturnValue, nil, reportError("timestamp is required and must be specified")
+	}
+
+	if r.symbol != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
+	} else {
+		var defaultValue string = ""
+		r.symbol = &defaultValue
+	}
+	if r.recvWindow != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "recvWindow", r.recvWindow, "form", "")
+	}
+	parameterAddToHeaderOrQuery(localVarQueryParams, "timestamp", r.timestamp, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
+			localVarHeaderParams["X-MBX-APIKEY"] = auth.APIKey
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetMarkPriceKlinesV1Request struct {
+	ctx context.Context
+	ApiService *UsdsMarginedFuturesAPIService
+	symbol *string
+	interval *string
+	startTime *int64
+	endTime *int64
+	limit *int32
+}
+
+func (r ApiGetMarkPriceKlinesV1Request) Symbol(symbol string) ApiGetMarkPriceKlinesV1Request {
+	r.symbol = &symbol
+	return r
+}
+
+func (r ApiGetMarkPriceKlinesV1Request) Interval(interval string) ApiGetMarkPriceKlinesV1Request {
+	r.interval = &interval
+	return r
+}
+
+func (r ApiGetMarkPriceKlinesV1Request) StartTime(startTime int64) ApiGetMarkPriceKlinesV1Request {
+	r.startTime = &startTime
+	return r
+}
+
+func (r ApiGetMarkPriceKlinesV1Request) EndTime(endTime int64) ApiGetMarkPriceKlinesV1Request {
+	r.endTime = &endTime
+	return r
+}
+
+// Default 500; max 1500.
+func (r ApiGetMarkPriceKlinesV1Request) Limit(limit int32) ApiGetMarkPriceKlinesV1Request {
+	r.limit = &limit
+	return r
+}
+
+func (r ApiGetMarkPriceKlinesV1Request) Execute() ([][]UmfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
+	return r.ApiService.GetMarkPriceKlinesV1Execute(r)
+}
+
+/*
+GetMarkPriceKlinesV1 Mark Price Kline/Candlestick Data
+
+Kline/candlestick bars for the mark price of a symbol.
+Klines are uniquely identified by their open time.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetMarkPriceKlinesV1Request
+*/
+func (a *UsdsMarginedFuturesAPIService) GetMarkPriceKlinesV1(ctx context.Context) ApiGetMarkPriceKlinesV1Request {
+	return ApiGetMarkPriceKlinesV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return [][]UmfuturesGetContinuousKlinesV1RespInnerInner
+func (a *UsdsMarginedFuturesAPIService) GetMarkPriceKlinesV1Execute(r ApiGetMarkPriceKlinesV1Request) ([][]UmfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  [][]UmfuturesGetContinuousKlinesV1RespInnerInner
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsdsMarginedFuturesAPIService.GetMarkPriceKlinesV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/fapi/v1/markPriceKlines"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.symbol == nil {
+		return localVarReturnValue, nil, reportError("symbol is required and must be specified")
+	}
+	if r.interval == nil {
+		return localVarReturnValue, nil, reportError("interval is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "interval", r.interval, "form", "")
+	if r.startTime != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "startTime", r.startTime, "form", "")
+	}
+	if r.endTime != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "endTime", r.endTime, "form", "")
+	}
+	if r.limit != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
+	} else {
+		var defaultValue int32 = 500
+		r.limit = &defaultValue
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiGetMultiAssetsMarginV1Request struct {
 	ctx context.Context
 	ApiService *UsdsMarginedFuturesAPIService
@@ -7550,6 +9601,173 @@ func (a *UsdsMarginedFuturesAPIService) GetOrderAsynIdV1Execute(r ApiGetOrderAsy
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "downloadId", r.downloadId, "form", "")
+	if r.recvWindow != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "recvWindow", r.recvWindow, "form", "")
+	}
+	parameterAddToHeaderOrQuery(localVarQueryParams, "timestamp", r.timestamp, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
+			localVarHeaderParams["X-MBX-APIKEY"] = auth.APIKey
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetOrderAsynV1Request struct {
+	ctx context.Context
+	ApiService *UsdsMarginedFuturesAPIService
+	startTime *int64
+	endTime *int64
+	timestamp *int64
+	recvWindow *int64
+}
+
+// Timestamp in ms
+func (r ApiGetOrderAsynV1Request) StartTime(startTime int64) ApiGetOrderAsynV1Request {
+	r.startTime = &startTime
+	return r
+}
+
+// Timestamp in ms
+func (r ApiGetOrderAsynV1Request) EndTime(endTime int64) ApiGetOrderAsynV1Request {
+	r.endTime = &endTime
+	return r
+}
+
+func (r ApiGetOrderAsynV1Request) Timestamp(timestamp int64) ApiGetOrderAsynV1Request {
+	r.timestamp = &timestamp
+	return r
+}
+
+func (r ApiGetOrderAsynV1Request) RecvWindow(recvWindow int64) ApiGetOrderAsynV1Request {
+	r.recvWindow = &recvWindow
+	return r
+}
+
+func (r ApiGetOrderAsynV1Request) Execute() (*UmfuturesGetOrderAsynV1Resp, *http.Response, error) {
+	return r.ApiService.GetOrderAsynV1Execute(r)
+}
+
+/*
+GetOrderAsynV1 Get Download Id For Futures Order History (USER_DATA)
+
+Get Download Id For Futures Order History
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetOrderAsynV1Request
+*/
+func (a *UsdsMarginedFuturesAPIService) GetOrderAsynV1(ctx context.Context) ApiGetOrderAsynV1Request {
+	return ApiGetOrderAsynV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return UmfuturesGetOrderAsynV1Resp
+func (a *UsdsMarginedFuturesAPIService) GetOrderAsynV1Execute(r ApiGetOrderAsynV1Request) (*UmfuturesGetOrderAsynV1Resp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UmfuturesGetOrderAsynV1Resp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsdsMarginedFuturesAPIService.GetOrderAsynV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/fapi/v1/order/asyn"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.startTime == nil {
+		return localVarReturnValue, nil, reportError("startTime is required and must be specified")
+	}
+	if r.endTime == nil {
+		return localVarReturnValue, nil, reportError("endTime is required and must be specified")
+	}
+	if r.timestamp == nil {
+		return localVarReturnValue, nil, reportError("timestamp is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "startTime", r.startTime, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "endTime", r.endTime, "form", "")
 	if r.recvWindow != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "recvWindow", r.recvWindow, "form", "")
 	}
@@ -8742,6 +10960,309 @@ func (a *UsdsMarginedFuturesAPIService) GetPositionSideDualV1Execute(r ApiGetPos
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGetPremiumIndexKlinesV1Request struct {
+	ctx context.Context
+	ApiService *UsdsMarginedFuturesAPIService
+	symbol *string
+	interval *string
+	startTime *int64
+	endTime *int64
+	limit *int32
+}
+
+func (r ApiGetPremiumIndexKlinesV1Request) Symbol(symbol string) ApiGetPremiumIndexKlinesV1Request {
+	r.symbol = &symbol
+	return r
+}
+
+func (r ApiGetPremiumIndexKlinesV1Request) Interval(interval string) ApiGetPremiumIndexKlinesV1Request {
+	r.interval = &interval
+	return r
+}
+
+func (r ApiGetPremiumIndexKlinesV1Request) StartTime(startTime int64) ApiGetPremiumIndexKlinesV1Request {
+	r.startTime = &startTime
+	return r
+}
+
+func (r ApiGetPremiumIndexKlinesV1Request) EndTime(endTime int64) ApiGetPremiumIndexKlinesV1Request {
+	r.endTime = &endTime
+	return r
+}
+
+// Default 500; max 1500.
+func (r ApiGetPremiumIndexKlinesV1Request) Limit(limit int32) ApiGetPremiumIndexKlinesV1Request {
+	r.limit = &limit
+	return r
+}
+
+func (r ApiGetPremiumIndexKlinesV1Request) Execute() ([][]UmfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
+	return r.ApiService.GetPremiumIndexKlinesV1Execute(r)
+}
+
+/*
+GetPremiumIndexKlinesV1 Premium index Kline Data
+
+Premium index kline bars of a symbol. Klines are uniquely identified by their open time.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetPremiumIndexKlinesV1Request
+*/
+func (a *UsdsMarginedFuturesAPIService) GetPremiumIndexKlinesV1(ctx context.Context) ApiGetPremiumIndexKlinesV1Request {
+	return ApiGetPremiumIndexKlinesV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return [][]UmfuturesGetContinuousKlinesV1RespInnerInner
+func (a *UsdsMarginedFuturesAPIService) GetPremiumIndexKlinesV1Execute(r ApiGetPremiumIndexKlinesV1Request) ([][]UmfuturesGetContinuousKlinesV1RespInnerInner, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  [][]UmfuturesGetContinuousKlinesV1RespInnerInner
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsdsMarginedFuturesAPIService.GetPremiumIndexKlinesV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/fapi/v1/premiumIndexKlines"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.symbol == nil {
+		return localVarReturnValue, nil, reportError("symbol is required and must be specified")
+	}
+	if r.interval == nil {
+		return localVarReturnValue, nil, reportError("interval is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "interval", r.interval, "form", "")
+	if r.startTime != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "startTime", r.startTime, "form", "")
+	}
+	if r.endTime != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "endTime", r.endTime, "form", "")
+	}
+	if r.limit != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
+	} else {
+		var defaultValue int32 = 500
+		r.limit = &defaultValue
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetPremiumIndexV1Request struct {
+	ctx context.Context
+	ApiService *UsdsMarginedFuturesAPIService
+	symbol *string
+}
+
+func (r ApiGetPremiumIndexV1Request) Symbol(symbol string) ApiGetPremiumIndexV1Request {
+	r.symbol = &symbol
+	return r
+}
+
+func (r ApiGetPremiumIndexV1Request) Execute() (*UmfuturesGetPremiumIndexV1Resp, *http.Response, error) {
+	return r.ApiService.GetPremiumIndexV1Execute(r)
+}
+
+/*
+GetPremiumIndexV1 Mark Price
+
+Mark Price and Funding Rate
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetPremiumIndexV1Request
+*/
+func (a *UsdsMarginedFuturesAPIService) GetPremiumIndexV1(ctx context.Context) ApiGetPremiumIndexV1Request {
+	return ApiGetPremiumIndexV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return UmfuturesGetPremiumIndexV1Resp
+func (a *UsdsMarginedFuturesAPIService) GetPremiumIndexV1Execute(r ApiGetPremiumIndexV1Request) (*UmfuturesGetPremiumIndexV1Resp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UmfuturesGetPremiumIndexV1Resp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsdsMarginedFuturesAPIService.GetPremiumIndexV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/fapi/v1/premiumIndex"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.symbol != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
+	} else {
+		var defaultValue string = ""
+		r.symbol = &defaultValue
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiGetRateLimitOrderV1Request struct {
 	ctx context.Context
 	ApiService *UsdsMarginedFuturesAPIService
@@ -8985,6 +11506,535 @@ func (a *UsdsMarginedFuturesAPIService) GetSymbolConfigV1Execute(r ApiGetSymbolC
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
 			localVarHeaderParams["X-MBX-APIKEY"] = auth.APIKey
 		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetTicker24hrV1Request struct {
+	ctx context.Context
+	ApiService *UsdsMarginedFuturesAPIService
+	symbol *string
+}
+
+func (r ApiGetTicker24hrV1Request) Symbol(symbol string) ApiGetTicker24hrV1Request {
+	r.symbol = &symbol
+	return r
+}
+
+func (r ApiGetTicker24hrV1Request) Execute() (*UmfuturesGetTicker24hrV1Resp, *http.Response, error) {
+	return r.ApiService.GetTicker24hrV1Execute(r)
+}
+
+/*
+GetTicker24hrV1 24hr Ticker Price Change Statistics
+
+24 hour rolling window price change statistics.
+Careful when accessing this with no symbol.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetTicker24hrV1Request
+*/
+func (a *UsdsMarginedFuturesAPIService) GetTicker24hrV1(ctx context.Context) ApiGetTicker24hrV1Request {
+	return ApiGetTicker24hrV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return UmfuturesGetTicker24hrV1Resp
+func (a *UsdsMarginedFuturesAPIService) GetTicker24hrV1Execute(r ApiGetTicker24hrV1Request) (*UmfuturesGetTicker24hrV1Resp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UmfuturesGetTicker24hrV1Resp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsdsMarginedFuturesAPIService.GetTicker24hrV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/fapi/v1/ticker/24hr"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.symbol != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
+	} else {
+		var defaultValue string = ""
+		r.symbol = &defaultValue
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetTickerBookTickerV1Request struct {
+	ctx context.Context
+	ApiService *UsdsMarginedFuturesAPIService
+	symbol *string
+}
+
+func (r ApiGetTickerBookTickerV1Request) Symbol(symbol string) ApiGetTickerBookTickerV1Request {
+	r.symbol = &symbol
+	return r
+}
+
+func (r ApiGetTickerBookTickerV1Request) Execute() (*UmfuturesGetTickerBookTickerV1Resp, *http.Response, error) {
+	return r.ApiService.GetTickerBookTickerV1Execute(r)
+}
+
+/*
+GetTickerBookTickerV1 Symbol Order Book Ticker
+
+Best price/qty on the order book for a symbol or symbols.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetTickerBookTickerV1Request
+*/
+func (a *UsdsMarginedFuturesAPIService) GetTickerBookTickerV1(ctx context.Context) ApiGetTickerBookTickerV1Request {
+	return ApiGetTickerBookTickerV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return UmfuturesGetTickerBookTickerV1Resp
+func (a *UsdsMarginedFuturesAPIService) GetTickerBookTickerV1Execute(r ApiGetTickerBookTickerV1Request) (*UmfuturesGetTickerBookTickerV1Resp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UmfuturesGetTickerBookTickerV1Resp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsdsMarginedFuturesAPIService.GetTickerBookTickerV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/fapi/v1/ticker/bookTicker"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.symbol != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
+	} else {
+		var defaultValue string = ""
+		r.symbol = &defaultValue
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetTickerPriceV1Request struct {
+	ctx context.Context
+	ApiService *UsdsMarginedFuturesAPIService
+	symbol *string
+}
+
+func (r ApiGetTickerPriceV1Request) Symbol(symbol string) ApiGetTickerPriceV1Request {
+	r.symbol = &symbol
+	return r
+}
+
+func (r ApiGetTickerPriceV1Request) Execute() (*UmfuturesGetTickerPriceV1Resp, *http.Response, error) {
+	return r.ApiService.GetTickerPriceV1Execute(r)
+}
+
+/*
+GetTickerPriceV1 Symbol Price Ticker
+
+Latest price for a symbol or symbols.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetTickerPriceV1Request
+*/
+func (a *UsdsMarginedFuturesAPIService) GetTickerPriceV1(ctx context.Context) ApiGetTickerPriceV1Request {
+	return ApiGetTickerPriceV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return UmfuturesGetTickerPriceV1Resp
+func (a *UsdsMarginedFuturesAPIService) GetTickerPriceV1Execute(r ApiGetTickerPriceV1Request) (*UmfuturesGetTickerPriceV1Resp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UmfuturesGetTickerPriceV1Resp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsdsMarginedFuturesAPIService.GetTickerPriceV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/fapi/v1/ticker/price"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.symbol != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
+	} else {
+		var defaultValue string = ""
+		r.symbol = &defaultValue
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetTickerPriceV2Request struct {
+	ctx context.Context
+	ApiService *UsdsMarginedFuturesAPIService
+	symbol *string
+}
+
+func (r ApiGetTickerPriceV2Request) Symbol(symbol string) ApiGetTickerPriceV2Request {
+	r.symbol = &symbol
+	return r
+}
+
+func (r ApiGetTickerPriceV2Request) Execute() (*UmfuturesGetTickerPriceV2Resp, *http.Response, error) {
+	return r.ApiService.GetTickerPriceV2Execute(r)
+}
+
+/*
+GetTickerPriceV2 Symbol Price Ticker V2
+
+Latest price for a symbol or symbols.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetTickerPriceV2Request
+*/
+func (a *UsdsMarginedFuturesAPIService) GetTickerPriceV2(ctx context.Context) ApiGetTickerPriceV2Request {
+	return ApiGetTickerPriceV2Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return UmfuturesGetTickerPriceV2Resp
+func (a *UsdsMarginedFuturesAPIService) GetTickerPriceV2Execute(r ApiGetTickerPriceV2Request) (*UmfuturesGetTickerPriceV2Resp, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UmfuturesGetTickerPriceV2Resp
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsdsMarginedFuturesAPIService.GetTickerPriceV2")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/fapi/v2/ticker/price"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.symbol != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
+	} else {
+		var defaultValue string = ""
+		r.symbol = &defaultValue
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -9772,6 +12822,161 @@ func (a *UsdsMarginedFuturesAPIService) GetUserTradesV1Execute(r ApiGetUserTrade
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
+			localVarHeaderParams["X-MBX-APIKEY"] = auth.APIKey
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode >= 400 && localVarHTTPResponse.StatusCode < 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode >= 500 {
+			var v APIError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiUpdateBatchOrdersV1Request struct {
+	ctx context.Context
+	ApiService *UsdsMarginedFuturesAPIService
+	batchOrders *[]UmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem
+	timestamp *int64
+	recvWindow *int64
+}
+
+func (r ApiUpdateBatchOrdersV1Request) BatchOrders(batchOrders []UmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem) ApiUpdateBatchOrdersV1Request {
+	r.batchOrders = &batchOrders
+	return r
+}
+
+func (r ApiUpdateBatchOrdersV1Request) Timestamp(timestamp int64) ApiUpdateBatchOrdersV1Request {
+	r.timestamp = &timestamp
+	return r
+}
+
+func (r ApiUpdateBatchOrdersV1Request) RecvWindow(recvWindow int64) ApiUpdateBatchOrdersV1Request {
+	r.recvWindow = &recvWindow
+	return r
+}
+
+func (r ApiUpdateBatchOrdersV1Request) Execute() ([]UmfuturesUpdateBatchOrdersV1RespItem, *http.Response, error) {
+	return r.ApiService.UpdateBatchOrdersV1Execute(r)
+}
+
+/*
+UpdateBatchOrdersV1 Modify Multiple Orders(TRADE)
+
+Modify Multiple Orders (TRADE)
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiUpdateBatchOrdersV1Request
+*/
+func (a *UsdsMarginedFuturesAPIService) UpdateBatchOrdersV1(ctx context.Context) ApiUpdateBatchOrdersV1Request {
+	return ApiUpdateBatchOrdersV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []UmfuturesUpdateBatchOrdersV1RespItem
+func (a *UsdsMarginedFuturesAPIService) UpdateBatchOrdersV1Execute(r ApiUpdateBatchOrdersV1Request) ([]UmfuturesUpdateBatchOrdersV1RespItem, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []UmfuturesUpdateBatchOrdersV1RespItem
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsdsMarginedFuturesAPIService.UpdateBatchOrdersV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/fapi/v1/batchOrders"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.batchOrders == nil {
+		return localVarReturnValue, nil, reportError("batchOrders is required and must be specified")
+	}
+	if r.timestamp == nil {
+		return localVarReturnValue, nil, reportError("timestamp is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarFormParams, "batchOrders", r.batchOrders, "", "csv")
+	if r.recvWindow != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
+	}
+	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {

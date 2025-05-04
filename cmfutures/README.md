@@ -122,6 +122,7 @@ All URIs are relative to *https://dapi.binance.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*CoinMarginedFuturesAPI* | [**CreateBatchOrdersV1**](docs/CoinMarginedFuturesAPI.md#createbatchordersv1) | **Post** /dapi/v1/batchOrders | Place Multiple Orders(TRADE)
 *CoinMarginedFuturesAPI* | [**CreateCountdownCancelAllV1**](docs/CoinMarginedFuturesAPI.md#createcountdowncancelallv1) | **Post** /dapi/v1/countdownCancelAll | Auto-Cancel All Open Orders (TRADE)
 *CoinMarginedFuturesAPI* | [**CreateLeverageV1**](docs/CoinMarginedFuturesAPI.md#createleveragev1) | **Post** /dapi/v1/leverage | Change Initial Leverage (TRADE)
 *CoinMarginedFuturesAPI* | [**CreateListenKeyV1**](docs/CoinMarginedFuturesAPI.md#createlistenkeyv1) | **Post** /dapi/v1/listenKey | Start User Data Stream (USER_STREAM)
@@ -130,6 +131,7 @@ Class | Method | HTTP request | Description
 *CoinMarginedFuturesAPI* | [**CreatePositionMarginV1**](docs/CoinMarginedFuturesAPI.md#createpositionmarginv1) | **Post** /dapi/v1/positionMargin | Modify Isolated Position Margin(TRADE)
 *CoinMarginedFuturesAPI* | [**CreatePositionSideDualV1**](docs/CoinMarginedFuturesAPI.md#createpositionsidedualv1) | **Post** /dapi/v1/positionSide/dual | Change Position Mode(TRADE)
 *CoinMarginedFuturesAPI* | [**DeleteAllOpenOrdersV1**](docs/CoinMarginedFuturesAPI.md#deleteallopenordersv1) | **Delete** /dapi/v1/allOpenOrders | Cancel All Open Orders(TRADE)
+*CoinMarginedFuturesAPI* | [**DeleteBatchOrdersV1**](docs/CoinMarginedFuturesAPI.md#deletebatchordersv1) | **Delete** /dapi/v1/batchOrders | Cancel Multiple Orders(TRADE)
 *CoinMarginedFuturesAPI* | [**DeleteListenKeyV1**](docs/CoinMarginedFuturesAPI.md#deletelistenkeyv1) | **Delete** /dapi/v1/listenKey | Close User Data Stream(USER_STREAM)
 *CoinMarginedFuturesAPI* | [**DeleteOrderV1**](docs/CoinMarginedFuturesAPI.md#deleteorderv1) | **Delete** /dapi/v1/order | Cancel Order (TRADE)
 *CoinMarginedFuturesAPI* | [**GetAccountV1**](docs/CoinMarginedFuturesAPI.md#getaccountv1) | **Get** /dapi/v1/account | Account Information (USER_DATA)
@@ -139,7 +141,10 @@ Class | Method | HTTP request | Description
 *CoinMarginedFuturesAPI* | [**GetBalanceV1**](docs/CoinMarginedFuturesAPI.md#getbalancev1) | **Get** /dapi/v1/balance | Futures Account Balance (USER_DATA)
 *CoinMarginedFuturesAPI* | [**GetCommissionRateV1**](docs/CoinMarginedFuturesAPI.md#getcommissionratev1) | **Get** /dapi/v1/commissionRate | User Commission Rate (USER_DATA)
 *CoinMarginedFuturesAPI* | [**GetConstituentsV1**](docs/CoinMarginedFuturesAPI.md#getconstituentsv1) | **Get** /dapi/v1/constituents | Query Index Price Constituents
+*CoinMarginedFuturesAPI* | [**GetContinuousKlinesV1**](docs/CoinMarginedFuturesAPI.md#getcontinuousklinesv1) | **Get** /dapi/v1/continuousKlines | Continuous Contract Kline/Candlestick Data
 *CoinMarginedFuturesAPI* | [**GetDepthV1**](docs/CoinMarginedFuturesAPI.md#getdepthv1) | **Get** /dapi/v1/depth | Order Book
+*CoinMarginedFuturesAPI* | [**GetExchangeInfoV1**](docs/CoinMarginedFuturesAPI.md#getexchangeinfov1) | **Get** /dapi/v1/exchangeInfo | Exchange Information
+*CoinMarginedFuturesAPI* | [**GetForceOrdersV1**](docs/CoinMarginedFuturesAPI.md#getforceordersv1) | **Get** /dapi/v1/forceOrders | User&#39;s Force Orders(USER_DATA)
 *CoinMarginedFuturesAPI* | [**GetFundingInfoV1**](docs/CoinMarginedFuturesAPI.md#getfundinginfov1) | **Get** /dapi/v1/fundingInfo | Get Funding Rate Info
 *CoinMarginedFuturesAPI* | [**GetFundingRateV1**](docs/CoinMarginedFuturesAPI.md#getfundingratev1) | **Get** /dapi/v1/fundingRate | Get Funding Rate History of Perpetual Futures
 *CoinMarginedFuturesAPI* | [**GetFuturesDataBasis**](docs/CoinMarginedFuturesAPI.md#getfuturesdatabasis) | **Get** /futures/data/basis | Basis
@@ -152,8 +157,11 @@ Class | Method | HTTP request | Description
 *CoinMarginedFuturesAPI* | [**GetIncomeAsynIdV1**](docs/CoinMarginedFuturesAPI.md#getincomeasynidv1) | **Get** /dapi/v1/income/asyn/id | Get Futures Transaction History Download Link by Id (USER_DATA)
 *CoinMarginedFuturesAPI* | [**GetIncomeAsynV1**](docs/CoinMarginedFuturesAPI.md#getincomeasynv1) | **Get** /dapi/v1/income/asyn | Get Download Id For Futures Transaction History(USER_DATA)
 *CoinMarginedFuturesAPI* | [**GetIncomeV1**](docs/CoinMarginedFuturesAPI.md#getincomev1) | **Get** /dapi/v1/income | Get Income History(USER_DATA)
+*CoinMarginedFuturesAPI* | [**GetIndexPriceKlinesV1**](docs/CoinMarginedFuturesAPI.md#getindexpriceklinesv1) | **Get** /dapi/v1/indexPriceKlines | Index Price Kline/Candlestick Data
+*CoinMarginedFuturesAPI* | [**GetKlinesV1**](docs/CoinMarginedFuturesAPI.md#getklinesv1) | **Get** /dapi/v1/klines | Kline/Candlestick Data
 *CoinMarginedFuturesAPI* | [**GetLeverageBracketV1**](docs/CoinMarginedFuturesAPI.md#getleveragebracketv1) | **Get** /dapi/v1/leverageBracket | Notional Bracket for Pair(USER_DATA)
 *CoinMarginedFuturesAPI* | [**GetLeverageBracketV2**](docs/CoinMarginedFuturesAPI.md#getleveragebracketv2) | **Get** /dapi/v2/leverageBracket | Notional Bracket for Symbol(USER_DATA)
+*CoinMarginedFuturesAPI* | [**GetMarkPriceKlinesV1**](docs/CoinMarginedFuturesAPI.md#getmarkpriceklinesv1) | **Get** /dapi/v1/markPriceKlines | Mark Price Kline/Candlestick Data
 *CoinMarginedFuturesAPI* | [**GetOpenInterestV1**](docs/CoinMarginedFuturesAPI.md#getopeninterestv1) | **Get** /dapi/v1/openInterest | Open Interest
 *CoinMarginedFuturesAPI* | [**GetOpenOrderV1**](docs/CoinMarginedFuturesAPI.md#getopenorderv1) | **Get** /dapi/v1/openOrder | Query Current Open Order(USER_DATA)
 *CoinMarginedFuturesAPI* | [**GetOpenOrdersV1**](docs/CoinMarginedFuturesAPI.md#getopenordersv1) | **Get** /dapi/v1/openOrders | Current All Open Orders (USER_DATA)
@@ -166,6 +174,7 @@ Class | Method | HTTP request | Description
 *CoinMarginedFuturesAPI* | [**GetPositionMarginHistoryV1**](docs/CoinMarginedFuturesAPI.md#getpositionmarginhistoryv1) | **Get** /dapi/v1/positionMargin/history | Get Position Margin Change History(TRADE)
 *CoinMarginedFuturesAPI* | [**GetPositionRiskV1**](docs/CoinMarginedFuturesAPI.md#getpositionriskv1) | **Get** /dapi/v1/positionRisk | Position Information(USER_DATA)
 *CoinMarginedFuturesAPI* | [**GetPositionSideDualV1**](docs/CoinMarginedFuturesAPI.md#getpositionsidedualv1) | **Get** /dapi/v1/positionSide/dual | Get Current Position Mode(USER_DATA)
+*CoinMarginedFuturesAPI* | [**GetPremiumIndexKlinesV1**](docs/CoinMarginedFuturesAPI.md#getpremiumindexklinesv1) | **Get** /dapi/v1/premiumIndexKlines | Premium index Kline Data
 *CoinMarginedFuturesAPI* | [**GetPremiumIndexV1**](docs/CoinMarginedFuturesAPI.md#getpremiumindexv1) | **Get** /dapi/v1/premiumIndex | Index Price and Mark Price
 *CoinMarginedFuturesAPI* | [**GetTicker24hrV1**](docs/CoinMarginedFuturesAPI.md#getticker24hrv1) | **Get** /dapi/v1/ticker/24hr | 24hr Ticker Price Change Statistics
 *CoinMarginedFuturesAPI* | [**GetTickerBookTickerV1**](docs/CoinMarginedFuturesAPI.md#gettickerbooktickerv1) | **Get** /dapi/v1/ticker/bookTicker | Symbol Order Book Ticker
@@ -175,18 +184,9 @@ Class | Method | HTTP request | Description
 *CoinMarginedFuturesAPI* | [**GetTradeAsynV1**](docs/CoinMarginedFuturesAPI.md#gettradeasynv1) | **Get** /dapi/v1/trade/asyn | Get Download Id For Futures Trade History (USER_DATA)
 *CoinMarginedFuturesAPI* | [**GetTradesV1**](docs/CoinMarginedFuturesAPI.md#gettradesv1) | **Get** /dapi/v1/trades | Recent Trades List
 *CoinMarginedFuturesAPI* | [**GetUserTradesV1**](docs/CoinMarginedFuturesAPI.md#getusertradesv1) | **Get** /dapi/v1/userTrades | Account Trade List (USER_DATA)
+*CoinMarginedFuturesAPI* | [**UpdateBatchOrdersV1**](docs/CoinMarginedFuturesAPI.md#updatebatchordersv1) | **Put** /dapi/v1/batchOrders | Modify Multiple Orders(TRADE)
 *CoinMarginedFuturesAPI* | [**UpdateListenKeyV1**](docs/CoinMarginedFuturesAPI.md#updatelistenkeyv1) | **Put** /dapi/v1/listenKey | Keepalive User Data Stream (USER_STREAM)
 *CoinMarginedFuturesAPI* | [**UpdateOrderV1**](docs/CoinMarginedFuturesAPI.md#updateorderv1) | **Put** /dapi/v1/order | Modify Order (TRADE)
-*MarketDataAPI* | [**CmfuturesGetContinuousKlinesV1**](docs/MarketDataAPI.md#cmfuturesgetcontinuousklinesv1) | **Get** /dapi/v1/continuousKlines | Continuous Contract Kline/Candlestick Data
-*MarketDataAPI* | [**CmfuturesGetExchangeInfoV1**](docs/MarketDataAPI.md#cmfuturesgetexchangeinfov1) | **Get** /dapi/v1/exchangeInfo | Exchange Information
-*MarketDataAPI* | [**CmfuturesGetIndexPriceKlinesV1**](docs/MarketDataAPI.md#cmfuturesgetindexpriceklinesv1) | **Get** /dapi/v1/indexPriceKlines | Index Price Kline/Candlestick Data
-*MarketDataAPI* | [**CmfuturesGetKlinesV1**](docs/MarketDataAPI.md#cmfuturesgetklinesv1) | **Get** /dapi/v1/klines | Kline/Candlestick Data
-*MarketDataAPI* | [**CmfuturesGetMarkPriceKlinesV1**](docs/MarketDataAPI.md#cmfuturesgetmarkpriceklinesv1) | **Get** /dapi/v1/markPriceKlines | Mark Price Kline/Candlestick Data
-*MarketDataAPI* | [**CmfuturesGetPremiumIndexKlinesV1**](docs/MarketDataAPI.md#cmfuturesgetpremiumindexklinesv1) | **Get** /dapi/v1/premiumIndexKlines | Premium index Kline Data
-*TradeAPI* | [**CmfuturesCreateBatchOrdersV1**](docs/TradeAPI.md#cmfuturescreatebatchordersv1) | **Post** /dapi/v1/batchOrders | Place Multiple Orders(TRADE)
-*TradeAPI* | [**CmfuturesDeleteBatchOrdersV1**](docs/TradeAPI.md#cmfuturesdeletebatchordersv1) | **Delete** /dapi/v1/batchOrders | Cancel Multiple Orders(TRADE)
-*TradeAPI* | [**CmfuturesGetForceOrdersV1**](docs/TradeAPI.md#cmfuturesgetforceordersv1) | **Get** /dapi/v1/forceOrders | User&#39;s Force Orders(USER_DATA)
-*TradeAPI* | [**CmfuturesUpdateBatchOrdersV1**](docs/TradeAPI.md#cmfuturesupdatebatchordersv1) | **Put** /dapi/v1/batchOrders | Modify Multiple Orders(TRADE)
 
 
 ## Documentation For Models

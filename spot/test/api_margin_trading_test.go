@@ -46,6 +46,18 @@ func Test_spot_MarginTradingAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test MarginTradingAPIService CreateMarginExchangeSmallLiabilityV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.MarginTradingAPI.CreateMarginExchangeSmallLiabilityV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test MarginTradingAPIService CreateMarginIsolatedAccountV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -123,6 +135,18 @@ func Test_spot_MarginTradingAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.MarginTradingAPI.CreateMarginOrderOtocoV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test MarginTradingAPIService CreateMarginOrderV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.MarginTradingAPI.CreateMarginOrderV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -339,6 +363,18 @@ func Test_spot_MarginTradingAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.MarginTradingAPI.GetMarginApiKeyV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test MarginTradingAPIService GetMarginAvailableInventoryV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.MarginTradingAPI.GetMarginAvailableInventoryV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -591,6 +627,18 @@ func Test_spot_MarginTradingAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.MarginTradingAPI.GetMarginOpenOrderListV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test MarginTradingAPIService GetMarginOpenOrdersV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.MarginTradingAPI.GetMarginOpenOrdersV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

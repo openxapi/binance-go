@@ -49,13 +49,9 @@ type APIClient struct {
 
 	// API Services
 
-	MarketDataAPI *MarketDataAPIService
-
 	MarketMakerBlockTradeAPI *MarketMakerBlockTradeAPIService
 
 	OptionsAPI *OptionsAPIService
-
-	TradeAPI *TradeAPIService
 }
 
 type service struct {
@@ -74,10 +70,8 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
-	c.MarketDataAPI = (*MarketDataAPIService)(&c.common)
 	c.MarketMakerBlockTradeAPI = (*MarketMakerBlockTradeAPIService)(&c.common)
 	c.OptionsAPI = (*OptionsAPIService)(&c.common)
-	c.TradeAPI = (*TradeAPIService)(&c.common)
 
 	return c
 }

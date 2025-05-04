@@ -16,29 +16,29 @@ import (
 	"gopkg.in/validator.v2"
 )
 
-// SpotGetKlinesV3200ResponseInnerInner - struct for SpotGetKlinesV3200ResponseInnerInner
-type SpotGetKlinesV3200ResponseInnerInner struct {
+// GetKlinesV3200ResponseInnerInner - struct for GetKlinesV3200ResponseInnerInner
+type GetKlinesV3200ResponseInnerInner struct {
 	Int64 *int64
 	String *string
 }
 
-// int64AsSpotGetKlinesV3200ResponseInnerInner is a convenience function that returns int64 wrapped in SpotGetKlinesV3200ResponseInnerInner
-func Int64AsSpotGetKlinesV3200ResponseInnerInner(v *int64) SpotGetKlinesV3200ResponseInnerInner {
-	return SpotGetKlinesV3200ResponseInnerInner{
+// int64AsGetKlinesV3200ResponseInnerInner is a convenience function that returns int64 wrapped in GetKlinesV3200ResponseInnerInner
+func Int64AsGetKlinesV3200ResponseInnerInner(v *int64) GetKlinesV3200ResponseInnerInner {
+	return GetKlinesV3200ResponseInnerInner{
 		Int64: v,
 	}
 }
 
-// stringAsSpotGetKlinesV3200ResponseInnerInner is a convenience function that returns string wrapped in SpotGetKlinesV3200ResponseInnerInner
-func StringAsSpotGetKlinesV3200ResponseInnerInner(v *string) SpotGetKlinesV3200ResponseInnerInner {
-	return SpotGetKlinesV3200ResponseInnerInner{
+// stringAsGetKlinesV3200ResponseInnerInner is a convenience function that returns string wrapped in GetKlinesV3200ResponseInnerInner
+func StringAsGetKlinesV3200ResponseInnerInner(v *string) GetKlinesV3200ResponseInnerInner {
+	return GetKlinesV3200ResponseInnerInner{
 		String: v,
 	}
 }
 
 
 // Unmarshal JSON data into one of the pointers in the struct
-func (dst *SpotGetKlinesV3200ResponseInnerInner) UnmarshalJSON(data []byte) error {
+func (dst *GetKlinesV3200ResponseInnerInner) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into Int64
@@ -80,16 +80,16 @@ func (dst *SpotGetKlinesV3200ResponseInnerInner) UnmarshalJSON(data []byte) erro
 		dst.Int64 = nil
 		dst.String = nil
 
-		return fmt.Errorf("data matches more than one schema in oneOf(SpotGetKlinesV3200ResponseInnerInner)")
+		return fmt.Errorf("data matches more than one schema in oneOf(GetKlinesV3200ResponseInnerInner)")
 	} else if match == 1 {
 		return nil // exactly one match
 	} else { // no match
-		return fmt.Errorf("data failed to match schemas in oneOf(SpotGetKlinesV3200ResponseInnerInner)")
+		return fmt.Errorf("data failed to match schemas in oneOf(GetKlinesV3200ResponseInnerInner)")
 	}
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src SpotGetKlinesV3200ResponseInnerInner) MarshalJSON() ([]byte, error) {
+func (src GetKlinesV3200ResponseInnerInner) MarshalJSON() ([]byte, error) {
 	if src.Int64 != nil {
 		return json.Marshal(&src.Int64)
 	}
@@ -102,7 +102,7 @@ func (src SpotGetKlinesV3200ResponseInnerInner) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *SpotGetKlinesV3200ResponseInnerInner) GetActualInstance() (interface{}) {
+func (obj *GetKlinesV3200ResponseInnerInner) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
@@ -119,7 +119,7 @@ func (obj *SpotGetKlinesV3200ResponseInnerInner) GetActualInstance() (interface{
 }
 
 // Get the actual instance value
-func (obj SpotGetKlinesV3200ResponseInnerInner) GetActualInstanceValue() (interface{}) {
+func (obj GetKlinesV3200ResponseInnerInner) GetActualInstanceValue() (interface{}) {
 	if obj.Int64 != nil {
 		return *obj.Int64
 	}
@@ -132,38 +132,38 @@ func (obj SpotGetKlinesV3200ResponseInnerInner) GetActualInstanceValue() (interf
 	return nil
 }
 
-type NullableSpotGetKlinesV3200ResponseInnerInner struct {
-	value *SpotGetKlinesV3200ResponseInnerInner
+type NullableGetKlinesV3200ResponseInnerInner struct {
+	value *GetKlinesV3200ResponseInnerInner
 	isSet bool
 }
 
-func (v NullableSpotGetKlinesV3200ResponseInnerInner) Get() *SpotGetKlinesV3200ResponseInnerInner {
+func (v NullableGetKlinesV3200ResponseInnerInner) Get() *GetKlinesV3200ResponseInnerInner {
 	return v.value
 }
 
-func (v *NullableSpotGetKlinesV3200ResponseInnerInner) Set(val *SpotGetKlinesV3200ResponseInnerInner) {
+func (v *NullableGetKlinesV3200ResponseInnerInner) Set(val *GetKlinesV3200ResponseInnerInner) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableSpotGetKlinesV3200ResponseInnerInner) IsSet() bool {
+func (v NullableGetKlinesV3200ResponseInnerInner) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableSpotGetKlinesV3200ResponseInnerInner) Unset() {
+func (v *NullableGetKlinesV3200ResponseInnerInner) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableSpotGetKlinesV3200ResponseInnerInner(val *SpotGetKlinesV3200ResponseInnerInner) *NullableSpotGetKlinesV3200ResponseInnerInner {
-	return &NullableSpotGetKlinesV3200ResponseInnerInner{value: val, isSet: true}
+func NewNullableGetKlinesV3200ResponseInnerInner(val *GetKlinesV3200ResponseInnerInner) *NullableGetKlinesV3200ResponseInnerInner {
+	return &NullableGetKlinesV3200ResponseInnerInner{value: val, isSet: true}
 }
 
-func (v NullableSpotGetKlinesV3200ResponseInnerInner) MarshalJSON() ([]byte, error) {
+func (v NullableGetKlinesV3200ResponseInnerInner) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableSpotGetKlinesV3200ResponseInnerInner) UnmarshalJSON(src []byte) error {
+func (v *NullableGetKlinesV3200ResponseInnerInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

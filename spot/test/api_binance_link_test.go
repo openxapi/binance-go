@@ -310,6 +310,18 @@ func Test_spot_BinanceLinkAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test BinanceLinkAPIService GetBrokerInfoV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.BinanceLinkAPI.GetBrokerInfoV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test BinanceLinkAPIService GetBrokerRebateFuturesRecentRecordV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -411,6 +423,18 @@ func Test_spot_BinanceLinkAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.BinanceLinkAPI.GetBrokerSubAccountDepositHistV2(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test BinanceLinkAPIService GetBrokerSubAccountFuturesSummaryV3", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.BinanceLinkAPI.GetBrokerSubAccountFuturesSummaryV3(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

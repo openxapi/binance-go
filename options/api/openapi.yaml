@@ -163,7 +163,7 @@ paths:
   /eapi/v1/batchOrders:
     delete:
       description: Cancel multiple orders.
-      operationId: OptionsDeleteBatchOrdersV1
+      operationId: DeleteBatchOrdersV1
       parameters:
       - description: "Option trading pair, e.g BTC-200730-9000-C"
         explode: true
@@ -235,10 +235,10 @@ paths:
       - ApiKey: []
       summary: Cancel Multiple Option Orders (TRADE)
       tags:
-      - Trade
+      - Options
     post:
       description: Send multiple option orders.
-      operationId: OptionsCreateBatchOrdersV1
+      operationId: CreateBatchOrdersV1
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -269,7 +269,7 @@ paths:
       - ApiKey: []
       summary: Place Multiple Orders(TRADE)
       tags:
-      - Trade
+      - Options
   /eapi/v1/bill:
     get:
       description: Query account funding flows.
@@ -363,7 +363,7 @@ paths:
   /eapi/v1/block/order/create:
     delete:
       description: Cancel a block trade order.
-      operationId: OptionsDeleteBlockOrderCreateV1
+      operationId: DeleteBlockOrderCreateV1
       parameters:
       - explode: true
         in: query
@@ -414,7 +414,7 @@ paths:
       - Market Maker Block Trade
     post:
       description: Send in a new block trade order.
-      operationId: OptionsCreateBlockOrderCreateV1
+      operationId: CreateBlockOrderCreateV1
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -947,7 +947,7 @@ paths:
   /eapi/v1/exchangeInfo:
     get:
       description: Current exchange trading rules and symbol information
-      operationId: OptionsGetExchangeInfoV1
+      operationId: GetExchangeInfoV1
       responses:
         "4XX":
           content:
@@ -969,7 +969,7 @@ paths:
           description: Successful operation
       summary: Exchange Information
       tags:
-      - Market Data
+      - Options
   /eapi/v1/exerciseHistory:
     get:
       description: Get historical exercise records.
@@ -2025,7 +2025,7 @@ paths:
       - Options
     post:
       description: Send a new order.
-      operationId: OptionsCreateOrderV1
+      operationId: CreateOrderV1
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -2056,7 +2056,7 @@ paths:
       - ApiKey: []
       summary: New Order (TRADE)
       tags:
-      - Trade
+      - Options
   /eapi/v1/ping:
     get:
       description: Test connectivity to the Rest API.

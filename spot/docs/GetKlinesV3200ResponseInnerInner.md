@@ -1,4 +1,4 @@
-# SpotGetKlinesV3200ResponseInnerInner
+# GetKlinesV3200ResponseInnerInner
 
 ## Properties
 
@@ -7,20 +7,20 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewSpotGetKlinesV3200ResponseInnerInner
+### NewGetKlinesV3200ResponseInnerInner
 
-`func NewSpotGetKlinesV3200ResponseInnerInner() *SpotGetKlinesV3200ResponseInnerInner`
+`func NewGetKlinesV3200ResponseInnerInner() *GetKlinesV3200ResponseInnerInner`
 
-NewSpotGetKlinesV3200ResponseInnerInner instantiates a new SpotGetKlinesV3200ResponseInnerInner object
+NewGetKlinesV3200ResponseInnerInner instantiates a new GetKlinesV3200ResponseInnerInner object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewSpotGetKlinesV3200ResponseInnerInnerWithDefaults
+### NewGetKlinesV3200ResponseInnerInnerWithDefaults
 
-`func NewSpotGetKlinesV3200ResponseInnerInnerWithDefaults() *SpotGetKlinesV3200ResponseInnerInner`
+`func NewGetKlinesV3200ResponseInnerInnerWithDefaults() *GetKlinesV3200ResponseInnerInner`
 
-NewSpotGetKlinesV3200ResponseInnerInnerWithDefaults instantiates a new SpotGetKlinesV3200ResponseInnerInner object
+NewGetKlinesV3200ResponseInnerInnerWithDefaults instantiates a new GetKlinesV3200ResponseInnerInner object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 

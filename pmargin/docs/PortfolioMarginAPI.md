@@ -29,6 +29,7 @@ Method | HTTP request | Description
 [**DeleteCmConditionalOrderV1**](PortfolioMarginAPI.md#DeleteCmConditionalOrderV1) | **Delete** /papi/v1/cm/conditional/order | Cancel CM Conditional Order(TRADE)
 [**DeleteCmOrderV1**](PortfolioMarginAPI.md#DeleteCmOrderV1) | **Delete** /papi/v1/cm/order | Cancel CM Order(TRADE)
 [**DeleteListenKeyV1**](PortfolioMarginAPI.md#DeleteListenKeyV1) | **Delete** /papi/v1/listenKey | Close User Data Stream(USER_STREAM)
+[**DeleteMarginAllOpenOrdersV1**](PortfolioMarginAPI.md#DeleteMarginAllOpenOrdersV1) | **Delete** /papi/v1/margin/allOpenOrders | Cancel Margin Account All Open Orders on a Symbol(TRADE)
 [**DeleteMarginOrderListV1**](PortfolioMarginAPI.md#DeleteMarginOrderListV1) | **Delete** /papi/v1/margin/orderList | Cancel Margin Account OCO Orders(TRADE)
 [**DeleteMarginOrderV1**](PortfolioMarginAPI.md#DeleteMarginOrderV1) | **Delete** /papi/v1/margin/order | Cancel Margin Account Order(TRADE)
 [**DeleteUmAllOpenOrdersV1**](PortfolioMarginAPI.md#DeleteUmAllOpenOrdersV1) | **Delete** /papi/v1/um/allOpenOrders | Cancel All UM Open Orders(TRADE)
@@ -36,6 +37,7 @@ Method | HTTP request | Description
 [**DeleteUmConditionalOrderV1**](PortfolioMarginAPI.md#DeleteUmConditionalOrderV1) | **Delete** /papi/v1/um/conditional/order | Cancel UM Conditional Order(TRADE)
 [**DeleteUmOrderV1**](PortfolioMarginAPI.md#DeleteUmOrderV1) | **Delete** /papi/v1/um/order | Cancel UM Order(TRADE)
 [**GetAccountV1**](PortfolioMarginAPI.md#GetAccountV1) | **Get** /papi/v1/account | Account Information(USER_DATA)
+[**GetBalanceV1**](PortfolioMarginAPI.md#GetBalanceV1) | **Get** /papi/v1/balance | Account Balance(USER_DATA)
 [**GetCmAccountV1**](PortfolioMarginAPI.md#GetCmAccountV1) | **Get** /papi/v1/cm/account | Get CM Account Detail(USER_DATA)
 [**GetCmAdlQuantileV1**](PortfolioMarginAPI.md#GetCmAdlQuantileV1) | **Get** /papi/v1/cm/adlQuantile | CM Position ADL Quantile Estimation(USER_DATA)
 [**GetCmAllOrdersV1**](PortfolioMarginAPI.md#GetCmAllOrdersV1) | **Get** /papi/v1/cm/allOrders | Query All CM Orders (USER_DATA)
@@ -2011,6 +2013,76 @@ Other parameters are passed through a pointer to a apiDeleteListenKeyV1Request s
 [[Back to README]](../README.md)
 
 
+## DeleteMarginAllOpenOrdersV1
+
+> []PmarginDeleteMarginAllOpenOrdersV1RespInner DeleteMarginAllOpenOrdersV1(ctx).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+
+Cancel Margin Account All Open Orders on a Symbol(TRADE)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/pmargin"
+)
+
+func main() {
+	symbol := "symbol_example" // string |  (default to "")
+	timestamp := int64(789) // int64 | 
+	recvWindow := int64(789) // int64 | The value cannot be greater than 60000 (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PortfolioMarginAPI.DeleteMarginAllOpenOrdersV1(context.Background()).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PortfolioMarginAPI.DeleteMarginAllOpenOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteMarginAllOpenOrdersV1`: []PmarginDeleteMarginAllOpenOrdersV1RespInner
+	fmt.Fprintf(os.Stdout, "Response from `PortfolioMarginAPI.DeleteMarginAllOpenOrdersV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteMarginAllOpenOrdersV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **string** |  | [default to &quot;&quot;]
+ **timestamp** | **int64** |  | 
+ **recvWindow** | **int64** | The value cannot be greater than 60000 | 
+
+### Return type
+
+[**[]PmarginDeleteMarginAllOpenOrdersV1RespInner**](PmarginDeleteMarginAllOpenOrdersV1RespInner.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DeleteMarginOrderListV1
 
 > DeleteMarginOrderListV1Resp DeleteMarginOrderListV1(ctx).Symbol(symbol).Timestamp(timestamp).OrderListId(orderListId).ListClientOrderId(listClientOrderId).NewClientOrderId(newClientOrderId).RecvWindow(recvWindow).Execute()
@@ -2504,6 +2576,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetAccountV1Resp**](GetAccountV1Resp.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetBalanceV1
+
+> PmarginGetBalanceV1Resp GetBalanceV1(ctx).Timestamp(timestamp).Asset(asset).RecvWindow(recvWindow).Execute()
+
+Account Balance(USER_DATA)
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/openxapi/binance-go/pmargin"
+)
+
+func main() {
+	timestamp := int64(789) // int64 | 
+	asset := "asset_example" // string |  (optional) (default to "")
+	recvWindow := int64(789) // int64 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PortfolioMarginAPI.GetBalanceV1(context.Background()).Timestamp(timestamp).Asset(asset).RecvWindow(recvWindow).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PortfolioMarginAPI.GetBalanceV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetBalanceV1`: PmarginGetBalanceV1Resp
+	fmt.Fprintf(os.Stdout, "Response from `PortfolioMarginAPI.GetBalanceV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetBalanceV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **timestamp** | **int64** |  | 
+ **asset** | **string** |  | [default to &quot;&quot;]
+ **recvWindow** | **int64** |  | 
+
+### Return type
+
+[**PmarginGetBalanceV1Resp**](PmarginGetBalanceV1Resp.md)
 
 ### Authorization
 

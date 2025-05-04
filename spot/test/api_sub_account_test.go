@@ -550,6 +550,18 @@ func Test_spot_SubAccountAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test SubAccountAPIService GetSubAccountTransactionStatisticsV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.SubAccountAPI.GetSubAccountTransactionStatisticsV1(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test SubAccountAPIService GetSubAccountTransferSubUserHistoryV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
