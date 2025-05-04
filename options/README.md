@@ -35,7 +35,7 @@ Example
     client := options.NewAPIClient(conf)
     ctx := context.Background()
 
-    info, res, err := client.GeneralAPI.SpotGetExchangeInfoV3(ctx).Symbol("BTCUSDT").Execute()
+    info, res, err := client.SpotTradingAPI.GetExchangeInfoV3(ctx).Symbol("BTCUSDT").Execute()
     if err != nil {
         fmt.Println(err)
     }
@@ -67,7 +67,7 @@ Example
         fmt.Println(err)
     }
     // Get current time in millisecond
-    user, res, err := client.AccountAPI.SpotGetAccountV3(ctx).Timestamp(time.Now().UnixMilli()).Execute()
+    user, res, err := client.SpotTradingAPI.GetAccountV3(ctx).Timestamp(time.Now().UnixMilli()).Execute()
     if err != nil {
         fmt.Println(err)
     }
@@ -94,7 +94,7 @@ Example
         fmt.Println(err)
     }
     // Get current time in millisecond
-    user, res, err := client.AccountAPI.SpotGetAccountV3(ctx).Timestamp(time.Now().UnixMilli()).Execute()
+    user, res, err := client.SpotTradingAPI.GetAccountV3(ctx).Timestamp(time.Now().UnixMilli()).Execute()
     if err != nil {
         fmt.Println(err)
     }

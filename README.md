@@ -15,12 +15,12 @@ If you need to update the API client, please submit an issue or a PR to [OpenXAP
 ## Supported Products
 
 | Product | Package | Modules |
-|---------|---------|---------|
-| Spot | [github.com/openxapi/binance-go/spot](./spot) | ✅ Spot Trading <br> ✅ Margin Trading <br> ✅ Algo Trading <br> ✅ Wallet <br> ✅ Copy Trading <br> ✅ Convert <br> ✅ Sub Account <br>✅ Binance Link <br>✅ Futures Data <br> ✅ Portfolio Margin Pro |
-| USDS-M Futures | [github.com/openxapi/binance-go/umfutures](./umfutures) | ✅ USDS-M Futures Trading |
-| COIN-M Futures | [github.com/openxapi/binance-go/cmfutures](./cmfutures) | ✅ COIN-M Futures Trading |
-| Options | [github.com/openxapi/binance-go/options](./options) | ✅ Options Trading |
-| Portfolio Margin | [github.com/openxapi/binance-go/pmargin](./pmargin) | ✅ Portfolio Margin Trading |
+|:---------:|---------|---------|
+| Spot | `github.com/openxapi/binance-go/spot` | ✅ Spot Trading <br> ✅ Margin Trading <br> ✅ Algo Trading <br> ✅ Wallet <br> ✅ Copy Trading <br> ✅ Convert <br> ✅ Sub Account <br>✅ Binance Link <br>✅ Futures Data <br> ✅ Portfolio Margin Pro |
+| USDS-M Futures | `github.com/openxapi/binance-go/umfutures` | ✅ USDS-M Futures |
+| COIN-M Futures | `github.com/openxapi/binance-go/cmfutures` | ✅ COIN-M Futures |
+| Options | `github.com/openxapi/binance-go/options` | ✅ Options |
+| Portfolio Margin | `github.com/openxapi/binance-go/pmargin` | ✅ Portfolio Margin |
 
 Feel free to contribute to this project by adding support for other products.
 
