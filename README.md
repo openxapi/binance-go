@@ -47,16 +47,16 @@ os.Setenv("HTTP_PROXY", "http://proxy_name:proxy_port")
 Example
 
 ```go
-    conf := spot.NewConfiguration()
-    client := spot.NewAPIClient(conf)
-    ctx := context.Background()
+conf := spot.NewConfiguration()
+client := spot.NewAPIClient(conf)
+ctx := context.Background()
 
-    info, res, err := client.SpotAPI.GetExchangeInfoV3(ctx).Symbol("BTCUSDT").Execute()
-    if err != nil {
-        fmt.Println(err)
-    }
-    fmt.Printf("%+v\n", info)
-    fmt.Printf("%+v\n", res)
+info, res, err := client.SpotAPI.GetExchangeInfoV3(ctx).Symbol("BTCUSDT").Execute()
+if err != nil {
+    fmt.Println(err)
+}
+fmt.Printf("%+v\n", info)
+fmt.Printf("%+v\n", res)
 ```
 
 ## Authentication
@@ -70,25 +70,25 @@ The authentication is calculated per request, so you can use different keys for 
 Example
 
 ```go
-    conf := spot.NewConfiguration()
-    client := spot.NewAPIClient(conf)
-    ctx := context.Background()
+conf := spot.NewConfiguration()
+client := spot.NewAPIClient(conf)
+ctx := context.Background()
 
-    // get API key from env
-    apiKey := os.Getenv("BINANCE_API_KEY")
-    auth := spot.NewAuth(apiKey)    
-    auth.SetSecretKey(os.Getenv("BINANCE_SECRET_KEY"))
-    ctx, err = auth.ContextWithValue(ctx)
-    if err != nil {
-        fmt.Println(err)
-    }
-    // Get current time in millisecond
-    user, res, err := client.SpotAPI.GetAccountV3(ctx).Timestamp(time.Now().UnixMilli()).Execute()
-    if err != nil {
-        fmt.Println(err)
-    }
-    fmt.Printf("%+v\n", user)
-    fmt.Printf("%+v\n", res)
+// get API key from env
+apiKey := os.Getenv("BINANCE_API_KEY")
+auth := spot.NewAuth(apiKey)    
+auth.SetSecretKey(os.Getenv("BINANCE_SECRET_KEY"))
+ctx, err = auth.ContextWithValue(ctx)
+if err != nil {
+    fmt.Println(err)
+}
+// Get current time in millisecond
+user, res, err := client.SpotAPI.GetAccountV3(ctx).Timestamp(time.Now().UnixMilli()).Execute()
+if err != nil {
+    fmt.Println(err)
+}
+fmt.Printf("%+v\n", user)
+fmt.Printf("%+v\n", res)
 ```
 
 ### RSA or Ed25519
@@ -96,26 +96,26 @@ Example
 Example
 
 ```go
-    conf := spot.NewConfiguration()
-    client := spot.NewAPIClient(conf)
-    ctx := context.Background()
+conf := spot.NewConfiguration()
+client := spot.NewAPIClient(conf)
+ctx := context.Background()
 
-    // get API key from env
-    apiKey := os.Getenv("BINANCE_API_KEY")
-    auth := spot.NewAuth(apiKey)
-    // Key type will be auto-detected, you can use RSA or Ed25519 key here
-    auth.PrivateKeyPath = "/path/to/your/private_key.pem"
-    ctx, err = auth.ContextWithValue(ctx)
-    if err != nil {
-        fmt.Println(err)
-    }
-    // Get current time in millisecond
-    user, res, err := client.SpotAPI.GetAccountV3(ctx).Timestamp(time.Now().UnixMilli()).Execute()
-    if err != nil {
-        fmt.Println(err)
-    }
-    fmt.Printf("%+v\n", user)
-    fmt.Printf("%+v\n", res)
+// get API key from env
+apiKey := os.Getenv("BINANCE_API_KEY")
+auth := spot.NewAuth(apiKey)
+// Key type will be auto-detected, you can use RSA or Ed25519 key here
+auth.PrivateKeyPath = "/path/to/your/private_key.pem"
+ctx, err = auth.ContextWithValue(ctx)
+if err != nil {
+    fmt.Println(err)
+}
+// Get current time in millisecond
+user, res, err := client.SpotAPI.GetAccountV3(ctx).Timestamp(time.Now().UnixMilli()).Execute()
+if err != nil {
+    fmt.Println(err)
+}
+fmt.Printf("%+v\n", user)
+fmt.Printf("%+v\n", res)
 ```
 
 ## Configuration
