@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   description: OpenAPI specification for Binance exchange - Cmfutures API
   title: Binance COIN-M Futures API
-  version: 0.1.0
+  version: 0.2.2
 servers:
 - description: Binance Cmfutures API Server
   url: https://dapi.binance.com
@@ -51,7 +51,7 @@ paths:
       - ApiKey: []
       summary: Account Information (USER_DATA)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/adlQuantile:
     get:
       description: Query position ADL quantile estimation
@@ -104,7 +104,7 @@ paths:
       - ApiKey: []
       summary: Position ADL Quantile Estimation(USER_DATA)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/aggTrades:
     get:
       description: "Get compressed, aggregate trades. Market trades that fill in 100ms\
@@ -177,7 +177,7 @@ paths:
           description: Successful operation
       summary: Compressed/Aggregate Trades List
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/allOpenOrders:
     delete:
       description: Cancel All Open Orders
@@ -230,7 +230,7 @@ paths:
       - ApiKey: []
       summary: Cancel All Open Orders(TRADE)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/allOrders:
     get:
       description: "Get all account orders; active, canceled, or filled."
@@ -325,7 +325,7 @@ paths:
       - ApiKey: []
       summary: All Orders (USER_DATA)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/balance:
     get:
       description: Check futures account balance
@@ -370,7 +370,7 @@ paths:
       - ApiKey: []
       summary: Futures Account Balance (USER_DATA)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/batchOrders:
     delete:
       description: Cancel Multiple Orders
@@ -446,7 +446,7 @@ paths:
       - ApiKey: []
       summary: Cancel Multiple Orders(TRADE)
       tags:
-      - Coin Margined Futures
+      - Futures
     post:
       description: Place multiple orders
       operationId: CreateBatchOrdersV1
@@ -480,7 +480,7 @@ paths:
       - ApiKey: []
       summary: Place Multiple Orders(TRADE)
       tags:
-      - Coin Margined Futures
+      - Futures
     put:
       description: Modify Multiple Orders
       operationId: UpdateBatchOrdersV1
@@ -514,7 +514,7 @@ paths:
       - ApiKey: []
       summary: Modify Multiple Orders(TRADE)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/commissionRate:
     get:
       description: Query user commission rate
@@ -567,7 +567,7 @@ paths:
       - ApiKey: []
       summary: User Commission Rate (USER_DATA)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/constituents:
     get:
       description: Query index price constituents
@@ -602,7 +602,7 @@ paths:
           description: Successful operation
       summary: Query Index Price Constituents
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/continuousKlines:
     get:
       description: |-
@@ -681,7 +681,7 @@ paths:
           description: Successful operation
       summary: Continuous Contract Kline/Candlestick Data
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/countdownCancelAll:
     post:
       description: "Cancel all open orders of the specified symbol at the end of the\
@@ -723,7 +723,7 @@ paths:
       - ApiKey: []
       summary: Auto-Cancel All Open Orders (TRADE)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/depth:
     get:
       description: Query orderbook on specific symbol
@@ -767,7 +767,7 @@ paths:
           description: Successful operation
       summary: Order Book
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/exchangeInfo:
     get:
       description: Current exchange trading rules and symbol information
@@ -793,7 +793,7 @@ paths:
           description: Successful operation
       summary: Exchange Information
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/forceOrders:
     get:
       description: User's Force Orders
@@ -879,7 +879,7 @@ paths:
       - ApiKey: []
       summary: User's Force Orders(USER_DATA)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/fundingInfo:
     get:
       description: Query funding rate info for symbols that had FundingRateCap/ FundingRateFloor
@@ -906,7 +906,7 @@ paths:
           description: Successful operation
       summary: Get Funding Rate Info
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/fundingRate:
     get:
       description: Get Funding Rate History of Perpetual Futures
@@ -969,7 +969,7 @@ paths:
           description: Successful operation
       summary: Get Funding Rate History of Perpetual Futures
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/historicalTrades:
     get:
       description: Get older market historical trades.
@@ -1023,7 +1023,7 @@ paths:
           description: Successful operation
       summary: Old Trades Lookup(MARKET_DATA)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/income:
     get:
       description: Get income history
@@ -1122,7 +1122,7 @@ paths:
       - ApiKey: []
       summary: Get Income History(USER_DATA)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/income/asyn:
     get:
       description: Get download id for futures transaction history
@@ -1185,7 +1185,7 @@ paths:
       - ApiKey: []
       summary: Get Download Id For Futures Transaction History(USER_DATA)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/income/asyn/id:
     get:
       description: Get futures transaction history download link by Id
@@ -1239,7 +1239,7 @@ paths:
       - ApiKey: []
       summary: Get Futures Transaction History Download Link by Id (USER_DATA)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/indexPriceKlines:
     get:
       description: Kline/candlestick bars for the index price of a pair. Klines are
@@ -1309,7 +1309,7 @@ paths:
           description: Successful operation
       summary: Index Price Kline/Candlestick Data
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/klines:
     get:
       description: |-
@@ -1380,7 +1380,7 @@ paths:
           description: Successful operation
       summary: Kline/Candlestick Data
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/leverage:
     post:
       description: |-
@@ -1417,7 +1417,7 @@ paths:
       - ApiKey: []
       summary: Change Initial Leverage (TRADE)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/leverageBracket:
     get:
       description: Not recommended to continue using this v1 endpoint
@@ -1470,7 +1470,7 @@ paths:
       - ApiKey: []
       summary: Notional Bracket for Pair(USER_DATA)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/listenKey:
     delete:
       description: Close out a user data stream.
@@ -1498,7 +1498,7 @@ paths:
       - ApiKey: []
       summary: Close User Data Stream(USER_STREAM)
       tags:
-      - Coin Margined Futures
+      - Futures
     post:
       description: "Start a new user data stream. The stream will close after 60 minutes\
         \ unless a keepalive is sent. If the account has an active listenKey, that\
@@ -1527,7 +1527,7 @@ paths:
       - ApiKey: []
       summary: Start User Data Stream (USER_STREAM)
       tags:
-      - Coin Margined Futures
+      - Futures
     put:
       description: Keepalive a user data stream to prevent a time out. User data streams
         will close after 60 minutes.
@@ -1555,7 +1555,7 @@ paths:
       - ApiKey: []
       summary: Keepalive User Data Stream (USER_STREAM)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/marginType:
     post:
       description: |-
@@ -1592,7 +1592,7 @@ paths:
       - ApiKey: []
       summary: Change Margin Type (TRADE)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/markPriceKlines:
     get:
       description: |-
@@ -1663,7 +1663,7 @@ paths:
           description: Successful operation
       summary: Mark Price Kline/Candlestick Data
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/openInterest:
     get:
       description: Get present open interest of a specific symbol.
@@ -1698,7 +1698,7 @@ paths:
           description: Successful operation
       summary: Open Interest
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/openOrder:
     get:
       description: Query Current Open Order
@@ -1767,7 +1767,7 @@ paths:
       - ApiKey: []
       summary: Query Current Open Order(USER_DATA)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/openOrders:
     get:
       description: Get all open orders on a symbol. Careful when accessing this with
@@ -1829,7 +1829,7 @@ paths:
       - ApiKey: []
       summary: Current All Open Orders (USER_DATA)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/order:
     delete:
       description: Cancel an active order.
@@ -1898,7 +1898,7 @@ paths:
       - ApiKey: []
       summary: Cancel Order (TRADE)
       tags:
-      - Coin Margined Futures
+      - Futures
     get:
       description: Check an order's status.
       operationId: GetOrderV1
@@ -1966,7 +1966,7 @@ paths:
       - ApiKey: []
       summary: Query Order (USER_DATA)
       tags:
-      - Coin Margined Futures
+      - Futures
     post:
       description: Send in a new order.
       operationId: CreateOrderV1
@@ -2000,7 +2000,7 @@ paths:
       - ApiKey: []
       summary: New Order (TRADE)
       tags:
-      - Coin Margined Futures
+      - Futures
     put:
       description: "Order modify function, currently only LIMIT order modification\
         \ is supported, modified orders will be reordered in the match queue"
@@ -2035,7 +2035,7 @@ paths:
       - ApiKey: []
       summary: Modify Order (TRADE)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/order/asyn:
     get:
       description: Get Download Id For Futures Order History
@@ -2098,7 +2098,7 @@ paths:
       - ApiKey: []
       summary: Get Download Id For Futures Order History (USER_DATA)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/order/asyn/id:
     get:
       description: Get futures order history download link by Id
@@ -2152,7 +2152,7 @@ paths:
       - ApiKey: []
       summary: Get Futures Order History Download Link by Id (USER_DATA)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/orderAmendment:
     get:
       description: Get order modification history
@@ -2249,7 +2249,7 @@ paths:
       - ApiKey: []
       summary: Get Order Modify History (USER_DATA)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/ping:
     get:
       description: Test connectivity to the Rest API.
@@ -2275,7 +2275,7 @@ paths:
           description: Successful operation
       summary: Test Connectivity
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/pmAccountInfo:
     get:
       description: Get Classic Portfolio Margin current account information.
@@ -2320,7 +2320,7 @@ paths:
       - ApiKey: []
       summary: Classic Portfolio Margin Account Information (USER_DATA)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/positionMargin:
     post:
       description: Modify Isolated Position Margin
@@ -2355,7 +2355,7 @@ paths:
       - ApiKey: []
       summary: Modify Isolated Position Margin(TRADE)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/positionMargin/history:
     get:
       description: Get position margin change history
@@ -2441,7 +2441,7 @@ paths:
       - ApiKey: []
       summary: Get Position Margin Change History(TRADE)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/positionRisk:
     get:
       description: Get current account information.
@@ -2502,7 +2502,7 @@ paths:
       - ApiKey: []
       summary: Position Information(USER_DATA)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/positionSide/dual:
     get:
       description: Get user's position mode (Hedge Mode or One-way Mode ) on EVERY
@@ -2548,7 +2548,7 @@ paths:
       - ApiKey: []
       summary: Get Current Position Mode(USER_DATA)
       tags:
-      - Coin Margined Futures
+      - Futures
     post:
       description: Change user's position mode (Hedge Mode or One-way Mode ) on EVERY
         symbol
@@ -2583,7 +2583,7 @@ paths:
       - ApiKey: []
       summary: Change Position Mode(TRADE)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/premiumIndex:
     get:
       description: Query index price and mark price
@@ -2626,7 +2626,7 @@ paths:
           description: Successful operation
       summary: Index Price and Mark Price
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/premiumIndexKlines:
     get:
       description: Premium index kline bars of a symbol. Klines are uniquely identified
@@ -2696,7 +2696,7 @@ paths:
           description: Successful operation
       summary: Premium index Kline Data
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/ticker/24hr:
     get:
       description: 24 hour rolling window price change statistics.
@@ -2739,7 +2739,7 @@ paths:
           description: Successful operation
       summary: 24hr Ticker Price Change Statistics
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/ticker/bookTicker:
     get:
       description: Best price/qty on the order book for a symbol or symbols.
@@ -2782,7 +2782,7 @@ paths:
           description: Successful operation
       summary: Symbol Order Book Ticker
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/ticker/price:
     get:
       description: Latest price for a symbol or symbols.
@@ -2825,7 +2825,7 @@ paths:
           description: Successful operation
       summary: Symbol Price Ticker
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/time:
     get:
       description: Test connectivity to the Rest API and get the current server time.
@@ -2851,7 +2851,7 @@ paths:
           description: Successful operation
       summary: Check Server time
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/trade/asyn:
     get:
       description: Get download id for futures trade history
@@ -2914,7 +2914,7 @@ paths:
       - ApiKey: []
       summary: Get Download Id For Futures Trade History (USER_DATA)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/trade/asyn/id:
     get:
       description: Get futures trade download link by Id
@@ -2968,7 +2968,7 @@ paths:
       - ApiKey: []
       summary: Get Futures Trade Download Link by Id(USER_DATA)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/trades:
     get:
       description: Get recent market trades
@@ -3013,7 +3013,7 @@ paths:
           description: Successful operation
       summary: Recent Trades List
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v1/userTrades:
     get:
       description: Get trades for a specific account and symbol.
@@ -3117,7 +3117,7 @@ paths:
       - ApiKey: []
       summary: Account Trade List (USER_DATA)
       tags:
-      - Coin Margined Futures
+      - Futures
   /dapi/v2/leverageBracket:
     get:
       description: Get the symbol's notional bracket list.
@@ -3170,7 +3170,7 @@ paths:
       - ApiKey: []
       summary: Notional Bracket for Symbol(USER_DATA)
       tags:
-      - Coin Margined Futures
+      - Futures
   /futures/data/basis:
     get:
       description: Query basis
@@ -3251,7 +3251,7 @@ paths:
           description: Successful operation
       summary: Basis
       tags:
-      - Coin Margined Futures
+      - Futures
   /futures/data/globalLongShortAccountRatio:
     get:
       description: Query symbol Long/Short Ratio
@@ -3323,7 +3323,7 @@ paths:
           description: Successful operation
       summary: Long/Short Ratio
       tags:
-      - Coin Margined Futures
+      - Futures
   /futures/data/openInterestHist:
     get:
       description: Query open interest stats
@@ -3404,7 +3404,7 @@ paths:
           description: Successful operation
       summary: Open Interest Statistics
       tags:
-      - Coin Margined Futures
+      - Futures
   /futures/data/takerBuySellVol:
     get:
       description: |-
@@ -3487,7 +3487,7 @@ paths:
           description: Successful operation
       summary: Taker Buy/Sell Volume
       tags:
-      - Coin Margined Futures
+      - Futures
   /futures/data/topLongShortAccountRatio:
     get:
       description: |-
@@ -3562,7 +3562,7 @@ paths:
           description: Successful operation
       summary: Top Trader Long/Short Ratio (Accounts)
       tags:
-      - Coin Margined Futures
+      - Futures
   /futures/data/topLongShortPositionRatio:
     get:
       description: |-
@@ -3638,7 +3638,7 @@ paths:
           description: Successful operation
       summary: Top Trader Long/Short Ratio (Positions)
       tags:
-      - Coin Margined Futures
+      - Futures
 components:
   schemas:
     APIError:

@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   description: OpenAPI specification for Binance exchange - Options API
   title: Binance Options API
-  version: 0.1.0
+  version: 0.2.2
 servers:
 - description: Binance Options API Server
   url: https://eapi.binance.com

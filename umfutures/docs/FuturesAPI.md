@@ -1,92 +1,92 @@
-# \UsdsMarginedFuturesAPI
+# \FuturesAPI
 
 All URIs are relative to *https://fapi.binance.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateBatchOrdersV1**](UsdsMarginedFuturesAPI.md#CreateBatchOrdersV1) | **Post** /fapi/v1/batchOrders | Place Multiple Orders(TRADE)
-[**CreateConvertAcceptQuoteV1**](UsdsMarginedFuturesAPI.md#CreateConvertAcceptQuoteV1) | **Post** /fapi/v1/convert/acceptQuote | Accept the offered quote (USER_DATA)
-[**CreateConvertGetQuoteV1**](UsdsMarginedFuturesAPI.md#CreateConvertGetQuoteV1) | **Post** /fapi/v1/convert/getQuote | Send Quote Request(USER_DATA)
-[**CreateCountdownCancelAllV1**](UsdsMarginedFuturesAPI.md#CreateCountdownCancelAllV1) | **Post** /fapi/v1/countdownCancelAll | Auto-Cancel All Open Orders (TRADE)
-[**CreateFeeBurnV1**](UsdsMarginedFuturesAPI.md#CreateFeeBurnV1) | **Post** /fapi/v1/feeBurn | Toggle BNB Burn On Futures Trade (TRADE)
-[**CreateLeverageV1**](UsdsMarginedFuturesAPI.md#CreateLeverageV1) | **Post** /fapi/v1/leverage | Change Initial Leverage(TRADE)
-[**CreateListenKeyV1**](UsdsMarginedFuturesAPI.md#CreateListenKeyV1) | **Post** /fapi/v1/listenKey | Start User Data Stream (USER_STREAM)
-[**CreateMarginTypeV1**](UsdsMarginedFuturesAPI.md#CreateMarginTypeV1) | **Post** /fapi/v1/marginType | Change Margin Type(TRADE)
-[**CreateMultiAssetsMarginV1**](UsdsMarginedFuturesAPI.md#CreateMultiAssetsMarginV1) | **Post** /fapi/v1/multiAssetsMargin | Change Multi-Assets Mode (TRADE)
-[**CreateOrderTestV1**](UsdsMarginedFuturesAPI.md#CreateOrderTestV1) | **Post** /fapi/v1/order/test | Test Order(TRADE)
-[**CreateOrderV1**](UsdsMarginedFuturesAPI.md#CreateOrderV1) | **Post** /fapi/v1/order | New Order(TRADE)
-[**CreatePositionMarginV1**](UsdsMarginedFuturesAPI.md#CreatePositionMarginV1) | **Post** /fapi/v1/positionMargin | Modify Isolated Position Margin(TRADE)
-[**CreatePositionSideDualV1**](UsdsMarginedFuturesAPI.md#CreatePositionSideDualV1) | **Post** /fapi/v1/positionSide/dual | Change Position Mode(TRADE)
-[**DeleteAllOpenOrdersV1**](UsdsMarginedFuturesAPI.md#DeleteAllOpenOrdersV1) | **Delete** /fapi/v1/allOpenOrders | Cancel All Open Orders (TRADE)
-[**DeleteBatchOrdersV1**](UsdsMarginedFuturesAPI.md#DeleteBatchOrdersV1) | **Delete** /fapi/v1/batchOrders | Cancel Multiple Orders (TRADE)
-[**DeleteListenKeyV1**](UsdsMarginedFuturesAPI.md#DeleteListenKeyV1) | **Delete** /fapi/v1/listenKey | Close User Data Stream (USER_STREAM)
-[**DeleteOrderV1**](UsdsMarginedFuturesAPI.md#DeleteOrderV1) | **Delete** /fapi/v1/order | Cancel Order (TRADE)
-[**GetAccountConfigV1**](UsdsMarginedFuturesAPI.md#GetAccountConfigV1) | **Get** /fapi/v1/accountConfig | Futures Account Configuration(USER_DATA)
-[**GetAccountV2**](UsdsMarginedFuturesAPI.md#GetAccountV2) | **Get** /fapi/v2/account | Account Information V2(USER_DATA)
-[**GetAccountV3**](UsdsMarginedFuturesAPI.md#GetAccountV3) | **Get** /fapi/v3/account | Account Information V3(USER_DATA)
-[**GetAdlQuantileV1**](UsdsMarginedFuturesAPI.md#GetAdlQuantileV1) | **Get** /fapi/v1/adlQuantile | Position ADL Quantile Estimation(USER_DATA)
-[**GetAggTradesV1**](UsdsMarginedFuturesAPI.md#GetAggTradesV1) | **Get** /fapi/v1/aggTrades | Compressed/Aggregate Trades List
-[**GetAllOrdersV1**](UsdsMarginedFuturesAPI.md#GetAllOrdersV1) | **Get** /fapi/v1/allOrders | All Orders (USER_DATA)
-[**GetApiTradingStatusV1**](UsdsMarginedFuturesAPI.md#GetApiTradingStatusV1) | **Get** /fapi/v1/apiTradingStatus | Futures Trading Quantitative Rules Indicators (USER_DATA)
-[**GetAssetIndexV1**](UsdsMarginedFuturesAPI.md#GetAssetIndexV1) | **Get** /fapi/v1/assetIndex | Multi-Assets Mode Asset Index
-[**GetBalanceV2**](UsdsMarginedFuturesAPI.md#GetBalanceV2) | **Get** /fapi/v2/balance | Futures Account Balance V2 (USER_DATA)
-[**GetBalanceV3**](UsdsMarginedFuturesAPI.md#GetBalanceV3) | **Get** /fapi/v3/balance | Futures Account Balance V3 (USER_DATA)
-[**GetCommissionRateV1**](UsdsMarginedFuturesAPI.md#GetCommissionRateV1) | **Get** /fapi/v1/commissionRate | User Commission Rate (USER_DATA)
-[**GetConstituentsV1**](UsdsMarginedFuturesAPI.md#GetConstituentsV1) | **Get** /fapi/v1/constituents | Query Index Price Constituents
-[**GetContinuousKlinesV1**](UsdsMarginedFuturesAPI.md#GetContinuousKlinesV1) | **Get** /fapi/v1/continuousKlines | Continuous Contract Kline/Candlestick Data
-[**GetConvertExchangeInfoV1**](UsdsMarginedFuturesAPI.md#GetConvertExchangeInfoV1) | **Get** /fapi/v1/convert/exchangeInfo | List All Convert Pairs
-[**GetConvertOrderStatusV1**](UsdsMarginedFuturesAPI.md#GetConvertOrderStatusV1) | **Get** /fapi/v1/convert/orderStatus | Order status(USER_DATA)
-[**GetDepthV1**](UsdsMarginedFuturesAPI.md#GetDepthV1) | **Get** /fapi/v1/depth | Order Book
-[**GetExchangeInfoV1**](UsdsMarginedFuturesAPI.md#GetExchangeInfoV1) | **Get** /fapi/v1/exchangeInfo | Exchange Information
-[**GetFeeBurnV1**](UsdsMarginedFuturesAPI.md#GetFeeBurnV1) | **Get** /fapi/v1/feeBurn | Get BNB Burn Status (USER_DATA)
-[**GetForceOrdersV1**](UsdsMarginedFuturesAPI.md#GetForceOrdersV1) | **Get** /fapi/v1/forceOrders | User&#39;s Force Orders (USER_DATA)
-[**GetFundingInfoV1**](UsdsMarginedFuturesAPI.md#GetFundingInfoV1) | **Get** /fapi/v1/fundingInfo | Get Funding Rate Info
-[**GetFundingRateV1**](UsdsMarginedFuturesAPI.md#GetFundingRateV1) | **Get** /fapi/v1/fundingRate | Get Funding Rate History
-[**GetFuturesDataBasis**](UsdsMarginedFuturesAPI.md#GetFuturesDataBasis) | **Get** /futures/data/basis | Basis
-[**GetFuturesDataDeliveryPrice**](UsdsMarginedFuturesAPI.md#GetFuturesDataDeliveryPrice) | **Get** /futures/data/delivery-price | Quarterly Contract Settlement Price
-[**GetFuturesDataGlobalLongShortAccountRatio**](UsdsMarginedFuturesAPI.md#GetFuturesDataGlobalLongShortAccountRatio) | **Get** /futures/data/globalLongShortAccountRatio | Long/Short Ratio
-[**GetFuturesDataOpenInterestHist**](UsdsMarginedFuturesAPI.md#GetFuturesDataOpenInterestHist) | **Get** /futures/data/openInterestHist | Open Interest Statistics
-[**GetFuturesDataTakerlongshortRatio**](UsdsMarginedFuturesAPI.md#GetFuturesDataTakerlongshortRatio) | **Get** /futures/data/takerlongshortRatio | Taker Buy/Sell Volume
-[**GetFuturesDataTopLongShortAccountRatio**](UsdsMarginedFuturesAPI.md#GetFuturesDataTopLongShortAccountRatio) | **Get** /futures/data/topLongShortAccountRatio | Top Trader Long/Short Ratio (Accounts)
-[**GetFuturesDataTopLongShortPositionRatio**](UsdsMarginedFuturesAPI.md#GetFuturesDataTopLongShortPositionRatio) | **Get** /futures/data/topLongShortPositionRatio | Top Trader Long/Short Ratio (Positions)
-[**GetHistoricalTradesV1**](UsdsMarginedFuturesAPI.md#GetHistoricalTradesV1) | **Get** /fapi/v1/historicalTrades | Old Trades Lookup (MARKET_DATA)
-[**GetIncomeAsynIdV1**](UsdsMarginedFuturesAPI.md#GetIncomeAsynIdV1) | **Get** /fapi/v1/income/asyn/id | Get Futures Transaction History Download Link by Id (USER_DATA)
-[**GetIncomeAsynV1**](UsdsMarginedFuturesAPI.md#GetIncomeAsynV1) | **Get** /fapi/v1/income/asyn | Get Download Id For Futures Transaction History(USER_DATA)
-[**GetIndexInfoV1**](UsdsMarginedFuturesAPI.md#GetIndexInfoV1) | **Get** /fapi/v1/indexInfo | Composite Index Symbol Information
-[**GetIndexPriceKlinesV1**](UsdsMarginedFuturesAPI.md#GetIndexPriceKlinesV1) | **Get** /fapi/v1/indexPriceKlines | Index Price Kline/Candlestick Data
-[**GetKlinesV1**](UsdsMarginedFuturesAPI.md#GetKlinesV1) | **Get** /fapi/v1/klines | Kline/Candlestick Data
-[**GetLeverageBracketV1**](UsdsMarginedFuturesAPI.md#GetLeverageBracketV1) | **Get** /fapi/v1/leverageBracket | Notional and Leverage Brackets (USER_DATA)
-[**GetMarkPriceKlinesV1**](UsdsMarginedFuturesAPI.md#GetMarkPriceKlinesV1) | **Get** /fapi/v1/markPriceKlines | Mark Price Kline/Candlestick Data
-[**GetMultiAssetsMarginV1**](UsdsMarginedFuturesAPI.md#GetMultiAssetsMarginV1) | **Get** /fapi/v1/multiAssetsMargin | Get Current Multi-Assets Mode (USER_DATA)
-[**GetOpenInterestV1**](UsdsMarginedFuturesAPI.md#GetOpenInterestV1) | **Get** /fapi/v1/openInterest | Open Interest
-[**GetOpenOrderV1**](UsdsMarginedFuturesAPI.md#GetOpenOrderV1) | **Get** /fapi/v1/openOrder | Query Current Open Order (USER_DATA)
-[**GetOpenOrdersV1**](UsdsMarginedFuturesAPI.md#GetOpenOrdersV1) | **Get** /fapi/v1/openOrders | Current All Open Orders (USER_DATA)
-[**GetOrderAmendmentV1**](UsdsMarginedFuturesAPI.md#GetOrderAmendmentV1) | **Get** /fapi/v1/orderAmendment | Get Order Modify History (USER_DATA)
-[**GetOrderAsynIdV1**](UsdsMarginedFuturesAPI.md#GetOrderAsynIdV1) | **Get** /fapi/v1/order/asyn/id | Get Futures Order History Download Link by Id (USER_DATA)
-[**GetOrderAsynV1**](UsdsMarginedFuturesAPI.md#GetOrderAsynV1) | **Get** /fapi/v1/order/asyn | Get Download Id For Futures Order History (USER_DATA)
-[**GetOrderV1**](UsdsMarginedFuturesAPI.md#GetOrderV1) | **Get** /fapi/v1/order | Query Order (USER_DATA)
-[**GetPingV1**](UsdsMarginedFuturesAPI.md#GetPingV1) | **Get** /fapi/v1/ping | Test Connectivity
-[**GetPmAccountInfoV1**](UsdsMarginedFuturesAPI.md#GetPmAccountInfoV1) | **Get** /fapi/v1/pmAccountInfo | Classic Portfolio Margin Account Information (USER_DATA)
-[**GetPositionMarginHistoryV1**](UsdsMarginedFuturesAPI.md#GetPositionMarginHistoryV1) | **Get** /fapi/v1/positionMargin/history | Get Position Margin Change History (TRADE)
-[**GetPositionRiskV2**](UsdsMarginedFuturesAPI.md#GetPositionRiskV2) | **Get** /fapi/v2/positionRisk | Position Information V2 (USER_DATA)
-[**GetPositionRiskV3**](UsdsMarginedFuturesAPI.md#GetPositionRiskV3) | **Get** /fapi/v3/positionRisk | Position Information V3 (USER_DATA)
-[**GetPositionSideDualV1**](UsdsMarginedFuturesAPI.md#GetPositionSideDualV1) | **Get** /fapi/v1/positionSide/dual | Get Current Position Mode(USER_DATA)
-[**GetPremiumIndexKlinesV1**](UsdsMarginedFuturesAPI.md#GetPremiumIndexKlinesV1) | **Get** /fapi/v1/premiumIndexKlines | Premium index Kline Data
-[**GetPremiumIndexV1**](UsdsMarginedFuturesAPI.md#GetPremiumIndexV1) | **Get** /fapi/v1/premiumIndex | Mark Price
-[**GetRateLimitOrderV1**](UsdsMarginedFuturesAPI.md#GetRateLimitOrderV1) | **Get** /fapi/v1/rateLimit/order | Query User Rate Limit (USER_DATA)
-[**GetSymbolConfigV1**](UsdsMarginedFuturesAPI.md#GetSymbolConfigV1) | **Get** /fapi/v1/symbolConfig | Symbol Configuration(USER_DATA)
-[**GetTicker24hrV1**](UsdsMarginedFuturesAPI.md#GetTicker24hrV1) | **Get** /fapi/v1/ticker/24hr | 24hr Ticker Price Change Statistics
-[**GetTickerBookTickerV1**](UsdsMarginedFuturesAPI.md#GetTickerBookTickerV1) | **Get** /fapi/v1/ticker/bookTicker | Symbol Order Book Ticker
-[**GetTickerPriceV1**](UsdsMarginedFuturesAPI.md#GetTickerPriceV1) | **Get** /fapi/v1/ticker/price | Symbol Price Ticker
-[**GetTickerPriceV2**](UsdsMarginedFuturesAPI.md#GetTickerPriceV2) | **Get** /fapi/v2/ticker/price | Symbol Price Ticker V2
-[**GetTimeV1**](UsdsMarginedFuturesAPI.md#GetTimeV1) | **Get** /fapi/v1/time | Check Server Time
-[**GetTradeAsynIdV1**](UsdsMarginedFuturesAPI.md#GetTradeAsynIdV1) | **Get** /fapi/v1/trade/asyn/id | Get Futures Trade Download Link by Id(USER_DATA)
-[**GetTradeAsynV1**](UsdsMarginedFuturesAPI.md#GetTradeAsynV1) | **Get** /fapi/v1/trade/asyn | Get Download Id For Futures Trade History (USER_DATA)
-[**GetTradesV1**](UsdsMarginedFuturesAPI.md#GetTradesV1) | **Get** /fapi/v1/trades | Recent Trades List
-[**GetUserTradesV1**](UsdsMarginedFuturesAPI.md#GetUserTradesV1) | **Get** /fapi/v1/userTrades | Account Trade List (USER_DATA)
-[**UpdateBatchOrdersV1**](UsdsMarginedFuturesAPI.md#UpdateBatchOrdersV1) | **Put** /fapi/v1/batchOrders | Modify Multiple Orders(TRADE)
-[**UpdateListenKeyV1**](UsdsMarginedFuturesAPI.md#UpdateListenKeyV1) | **Put** /fapi/v1/listenKey | Keepalive User Data Stream (USER_STREAM)
-[**UpdateOrderV1**](UsdsMarginedFuturesAPI.md#UpdateOrderV1) | **Put** /fapi/v1/order | Modify Order (TRADE)
+[**CreateBatchOrdersV1**](FuturesAPI.md#CreateBatchOrdersV1) | **Post** /fapi/v1/batchOrders | Place Multiple Orders(TRADE)
+[**CreateConvertAcceptQuoteV1**](FuturesAPI.md#CreateConvertAcceptQuoteV1) | **Post** /fapi/v1/convert/acceptQuote | Accept the offered quote (USER_DATA)
+[**CreateConvertGetQuoteV1**](FuturesAPI.md#CreateConvertGetQuoteV1) | **Post** /fapi/v1/convert/getQuote | Send Quote Request(USER_DATA)
+[**CreateCountdownCancelAllV1**](FuturesAPI.md#CreateCountdownCancelAllV1) | **Post** /fapi/v1/countdownCancelAll | Auto-Cancel All Open Orders (TRADE)
+[**CreateFeeBurnV1**](FuturesAPI.md#CreateFeeBurnV1) | **Post** /fapi/v1/feeBurn | Toggle BNB Burn On Futures Trade (TRADE)
+[**CreateLeverageV1**](FuturesAPI.md#CreateLeverageV1) | **Post** /fapi/v1/leverage | Change Initial Leverage(TRADE)
+[**CreateListenKeyV1**](FuturesAPI.md#CreateListenKeyV1) | **Post** /fapi/v1/listenKey | Start User Data Stream (USER_STREAM)
+[**CreateMarginTypeV1**](FuturesAPI.md#CreateMarginTypeV1) | **Post** /fapi/v1/marginType | Change Margin Type(TRADE)
+[**CreateMultiAssetsMarginV1**](FuturesAPI.md#CreateMultiAssetsMarginV1) | **Post** /fapi/v1/multiAssetsMargin | Change Multi-Assets Mode (TRADE)
+[**CreateOrderTestV1**](FuturesAPI.md#CreateOrderTestV1) | **Post** /fapi/v1/order/test | Test Order(TRADE)
+[**CreateOrderV1**](FuturesAPI.md#CreateOrderV1) | **Post** /fapi/v1/order | New Order(TRADE)
+[**CreatePositionMarginV1**](FuturesAPI.md#CreatePositionMarginV1) | **Post** /fapi/v1/positionMargin | Modify Isolated Position Margin(TRADE)
+[**CreatePositionSideDualV1**](FuturesAPI.md#CreatePositionSideDualV1) | **Post** /fapi/v1/positionSide/dual | Change Position Mode(TRADE)
+[**DeleteAllOpenOrdersV1**](FuturesAPI.md#DeleteAllOpenOrdersV1) | **Delete** /fapi/v1/allOpenOrders | Cancel All Open Orders (TRADE)
+[**DeleteBatchOrdersV1**](FuturesAPI.md#DeleteBatchOrdersV1) | **Delete** /fapi/v1/batchOrders | Cancel Multiple Orders (TRADE)
+[**DeleteListenKeyV1**](FuturesAPI.md#DeleteListenKeyV1) | **Delete** /fapi/v1/listenKey | Close User Data Stream (USER_STREAM)
+[**DeleteOrderV1**](FuturesAPI.md#DeleteOrderV1) | **Delete** /fapi/v1/order | Cancel Order (TRADE)
+[**GetAccountConfigV1**](FuturesAPI.md#GetAccountConfigV1) | **Get** /fapi/v1/accountConfig | Futures Account Configuration(USER_DATA)
+[**GetAccountV2**](FuturesAPI.md#GetAccountV2) | **Get** /fapi/v2/account | Account Information V2(USER_DATA)
+[**GetAccountV3**](FuturesAPI.md#GetAccountV3) | **Get** /fapi/v3/account | Account Information V3(USER_DATA)
+[**GetAdlQuantileV1**](FuturesAPI.md#GetAdlQuantileV1) | **Get** /fapi/v1/adlQuantile | Position ADL Quantile Estimation(USER_DATA)
+[**GetAggTradesV1**](FuturesAPI.md#GetAggTradesV1) | **Get** /fapi/v1/aggTrades | Compressed/Aggregate Trades List
+[**GetAllOrdersV1**](FuturesAPI.md#GetAllOrdersV1) | **Get** /fapi/v1/allOrders | All Orders (USER_DATA)
+[**GetApiTradingStatusV1**](FuturesAPI.md#GetApiTradingStatusV1) | **Get** /fapi/v1/apiTradingStatus | Futures Trading Quantitative Rules Indicators (USER_DATA)
+[**GetAssetIndexV1**](FuturesAPI.md#GetAssetIndexV1) | **Get** /fapi/v1/assetIndex | Multi-Assets Mode Asset Index
+[**GetBalanceV2**](FuturesAPI.md#GetBalanceV2) | **Get** /fapi/v2/balance | Futures Account Balance V2 (USER_DATA)
+[**GetBalanceV3**](FuturesAPI.md#GetBalanceV3) | **Get** /fapi/v3/balance | Futures Account Balance V3 (USER_DATA)
+[**GetCommissionRateV1**](FuturesAPI.md#GetCommissionRateV1) | **Get** /fapi/v1/commissionRate | User Commission Rate (USER_DATA)
+[**GetConstituentsV1**](FuturesAPI.md#GetConstituentsV1) | **Get** /fapi/v1/constituents | Query Index Price Constituents
+[**GetContinuousKlinesV1**](FuturesAPI.md#GetContinuousKlinesV1) | **Get** /fapi/v1/continuousKlines | Continuous Contract Kline/Candlestick Data
+[**GetConvertExchangeInfoV1**](FuturesAPI.md#GetConvertExchangeInfoV1) | **Get** /fapi/v1/convert/exchangeInfo | List All Convert Pairs
+[**GetConvertOrderStatusV1**](FuturesAPI.md#GetConvertOrderStatusV1) | **Get** /fapi/v1/convert/orderStatus | Order status(USER_DATA)
+[**GetDepthV1**](FuturesAPI.md#GetDepthV1) | **Get** /fapi/v1/depth | Order Book
+[**GetExchangeInfoV1**](FuturesAPI.md#GetExchangeInfoV1) | **Get** /fapi/v1/exchangeInfo | Exchange Information
+[**GetFeeBurnV1**](FuturesAPI.md#GetFeeBurnV1) | **Get** /fapi/v1/feeBurn | Get BNB Burn Status (USER_DATA)
+[**GetForceOrdersV1**](FuturesAPI.md#GetForceOrdersV1) | **Get** /fapi/v1/forceOrders | User&#39;s Force Orders (USER_DATA)
+[**GetFundingInfoV1**](FuturesAPI.md#GetFundingInfoV1) | **Get** /fapi/v1/fundingInfo | Get Funding Rate Info
+[**GetFundingRateV1**](FuturesAPI.md#GetFundingRateV1) | **Get** /fapi/v1/fundingRate | Get Funding Rate History
+[**GetFuturesDataBasis**](FuturesAPI.md#GetFuturesDataBasis) | **Get** /futures/data/basis | Basis
+[**GetFuturesDataDeliveryPrice**](FuturesAPI.md#GetFuturesDataDeliveryPrice) | **Get** /futures/data/delivery-price | Quarterly Contract Settlement Price
+[**GetFuturesDataGlobalLongShortAccountRatio**](FuturesAPI.md#GetFuturesDataGlobalLongShortAccountRatio) | **Get** /futures/data/globalLongShortAccountRatio | Long/Short Ratio
+[**GetFuturesDataOpenInterestHist**](FuturesAPI.md#GetFuturesDataOpenInterestHist) | **Get** /futures/data/openInterestHist | Open Interest Statistics
+[**GetFuturesDataTakerlongshortRatio**](FuturesAPI.md#GetFuturesDataTakerlongshortRatio) | **Get** /futures/data/takerlongshortRatio | Taker Buy/Sell Volume
+[**GetFuturesDataTopLongShortAccountRatio**](FuturesAPI.md#GetFuturesDataTopLongShortAccountRatio) | **Get** /futures/data/topLongShortAccountRatio | Top Trader Long/Short Ratio (Accounts)
+[**GetFuturesDataTopLongShortPositionRatio**](FuturesAPI.md#GetFuturesDataTopLongShortPositionRatio) | **Get** /futures/data/topLongShortPositionRatio | Top Trader Long/Short Ratio (Positions)
+[**GetHistoricalTradesV1**](FuturesAPI.md#GetHistoricalTradesV1) | **Get** /fapi/v1/historicalTrades | Old Trades Lookup (MARKET_DATA)
+[**GetIncomeAsynIdV1**](FuturesAPI.md#GetIncomeAsynIdV1) | **Get** /fapi/v1/income/asyn/id | Get Futures Transaction History Download Link by Id (USER_DATA)
+[**GetIncomeAsynV1**](FuturesAPI.md#GetIncomeAsynV1) | **Get** /fapi/v1/income/asyn | Get Download Id For Futures Transaction History(USER_DATA)
+[**GetIndexInfoV1**](FuturesAPI.md#GetIndexInfoV1) | **Get** /fapi/v1/indexInfo | Composite Index Symbol Information
+[**GetIndexPriceKlinesV1**](FuturesAPI.md#GetIndexPriceKlinesV1) | **Get** /fapi/v1/indexPriceKlines | Index Price Kline/Candlestick Data
+[**GetKlinesV1**](FuturesAPI.md#GetKlinesV1) | **Get** /fapi/v1/klines | Kline/Candlestick Data
+[**GetLeverageBracketV1**](FuturesAPI.md#GetLeverageBracketV1) | **Get** /fapi/v1/leverageBracket | Notional and Leverage Brackets (USER_DATA)
+[**GetMarkPriceKlinesV1**](FuturesAPI.md#GetMarkPriceKlinesV1) | **Get** /fapi/v1/markPriceKlines | Mark Price Kline/Candlestick Data
+[**GetMultiAssetsMarginV1**](FuturesAPI.md#GetMultiAssetsMarginV1) | **Get** /fapi/v1/multiAssetsMargin | Get Current Multi-Assets Mode (USER_DATA)
+[**GetOpenInterestV1**](FuturesAPI.md#GetOpenInterestV1) | **Get** /fapi/v1/openInterest | Open Interest
+[**GetOpenOrderV1**](FuturesAPI.md#GetOpenOrderV1) | **Get** /fapi/v1/openOrder | Query Current Open Order (USER_DATA)
+[**GetOpenOrdersV1**](FuturesAPI.md#GetOpenOrdersV1) | **Get** /fapi/v1/openOrders | Current All Open Orders (USER_DATA)
+[**GetOrderAmendmentV1**](FuturesAPI.md#GetOrderAmendmentV1) | **Get** /fapi/v1/orderAmendment | Get Order Modify History (USER_DATA)
+[**GetOrderAsynIdV1**](FuturesAPI.md#GetOrderAsynIdV1) | **Get** /fapi/v1/order/asyn/id | Get Futures Order History Download Link by Id (USER_DATA)
+[**GetOrderAsynV1**](FuturesAPI.md#GetOrderAsynV1) | **Get** /fapi/v1/order/asyn | Get Download Id For Futures Order History (USER_DATA)
+[**GetOrderV1**](FuturesAPI.md#GetOrderV1) | **Get** /fapi/v1/order | Query Order (USER_DATA)
+[**GetPingV1**](FuturesAPI.md#GetPingV1) | **Get** /fapi/v1/ping | Test Connectivity
+[**GetPmAccountInfoV1**](FuturesAPI.md#GetPmAccountInfoV1) | **Get** /fapi/v1/pmAccountInfo | Classic Portfolio Margin Account Information (USER_DATA)
+[**GetPositionMarginHistoryV1**](FuturesAPI.md#GetPositionMarginHistoryV1) | **Get** /fapi/v1/positionMargin/history | Get Position Margin Change History (TRADE)
+[**GetPositionRiskV2**](FuturesAPI.md#GetPositionRiskV2) | **Get** /fapi/v2/positionRisk | Position Information V2 (USER_DATA)
+[**GetPositionRiskV3**](FuturesAPI.md#GetPositionRiskV3) | **Get** /fapi/v3/positionRisk | Position Information V3 (USER_DATA)
+[**GetPositionSideDualV1**](FuturesAPI.md#GetPositionSideDualV1) | **Get** /fapi/v1/positionSide/dual | Get Current Position Mode(USER_DATA)
+[**GetPremiumIndexKlinesV1**](FuturesAPI.md#GetPremiumIndexKlinesV1) | **Get** /fapi/v1/premiumIndexKlines | Premium index Kline Data
+[**GetPremiumIndexV1**](FuturesAPI.md#GetPremiumIndexV1) | **Get** /fapi/v1/premiumIndex | Mark Price
+[**GetRateLimitOrderV1**](FuturesAPI.md#GetRateLimitOrderV1) | **Get** /fapi/v1/rateLimit/order | Query User Rate Limit (USER_DATA)
+[**GetSymbolConfigV1**](FuturesAPI.md#GetSymbolConfigV1) | **Get** /fapi/v1/symbolConfig | Symbol Configuration(USER_DATA)
+[**GetTicker24hrV1**](FuturesAPI.md#GetTicker24hrV1) | **Get** /fapi/v1/ticker/24hr | 24hr Ticker Price Change Statistics
+[**GetTickerBookTickerV1**](FuturesAPI.md#GetTickerBookTickerV1) | **Get** /fapi/v1/ticker/bookTicker | Symbol Order Book Ticker
+[**GetTickerPriceV1**](FuturesAPI.md#GetTickerPriceV1) | **Get** /fapi/v1/ticker/price | Symbol Price Ticker
+[**GetTickerPriceV2**](FuturesAPI.md#GetTickerPriceV2) | **Get** /fapi/v2/ticker/price | Symbol Price Ticker V2
+[**GetTimeV1**](FuturesAPI.md#GetTimeV1) | **Get** /fapi/v1/time | Check Server Time
+[**GetTradeAsynIdV1**](FuturesAPI.md#GetTradeAsynIdV1) | **Get** /fapi/v1/trade/asyn/id | Get Futures Trade Download Link by Id(USER_DATA)
+[**GetTradeAsynV1**](FuturesAPI.md#GetTradeAsynV1) | **Get** /fapi/v1/trade/asyn | Get Download Id For Futures Trade History (USER_DATA)
+[**GetTradesV1**](FuturesAPI.md#GetTradesV1) | **Get** /fapi/v1/trades | Recent Trades List
+[**GetUserTradesV1**](FuturesAPI.md#GetUserTradesV1) | **Get** /fapi/v1/userTrades | Account Trade List (USER_DATA)
+[**UpdateBatchOrdersV1**](FuturesAPI.md#UpdateBatchOrdersV1) | **Put** /fapi/v1/batchOrders | Modify Multiple Orders(TRADE)
+[**UpdateListenKeyV1**](FuturesAPI.md#UpdateListenKeyV1) | **Put** /fapi/v1/listenKey | Keepalive User Data Stream (USER_STREAM)
+[**UpdateOrderV1**](FuturesAPI.md#UpdateOrderV1) | **Put** /fapi/v1/order | Modify Order (TRADE)
 
 
 
@@ -117,13 +117,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.CreateBatchOrdersV1(context.Background()).BatchOrders(batchOrders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.CreateBatchOrdersV1(context.Background()).BatchOrders(batchOrders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.CreateBatchOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.CreateBatchOrdersV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `CreateBatchOrdersV1`: []UmfuturesCreateBatchOrdersV1RespInner
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.CreateBatchOrdersV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.CreateBatchOrdersV1`: %v\n", resp)
 }
 ```
 
@@ -187,13 +187,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.CreateConvertAcceptQuoteV1(context.Background()).QuoteId(quoteId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.CreateConvertAcceptQuoteV1(context.Background()).QuoteId(quoteId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.CreateConvertAcceptQuoteV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.CreateConvertAcceptQuoteV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `CreateConvertAcceptQuoteV1`: CreateConvertAcceptQuoteV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.CreateConvertAcceptQuoteV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.CreateConvertAcceptQuoteV1`: %v\n", resp)
 }
 ```
 
@@ -261,13 +261,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.CreateConvertGetQuoteV1(context.Background()).FromAsset(fromAsset).Timestamp(timestamp).ToAsset(toAsset).FromAmount(fromAmount).RecvWindow(recvWindow).ToAmount(toAmount).ValidTime(validTime).Execute()
+	resp, r, err := apiClient.FuturesAPI.CreateConvertGetQuoteV1(context.Background()).FromAsset(fromAsset).Timestamp(timestamp).ToAsset(toAsset).FromAmount(fromAmount).RecvWindow(recvWindow).ToAmount(toAmount).ValidTime(validTime).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.CreateConvertGetQuoteV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.CreateConvertGetQuoteV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `CreateConvertGetQuoteV1`: CreateConvertGetQuoteV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.CreateConvertGetQuoteV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.CreateConvertGetQuoteV1`: %v\n", resp)
 }
 ```
 
@@ -333,13 +333,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.CreateCountdownCancelAllV1(context.Background()).UmfuturesCreateCountdownCancelAllV1Req(umfuturesCreateCountdownCancelAllV1Req).Execute()
+	resp, r, err := apiClient.FuturesAPI.CreateCountdownCancelAllV1(context.Background()).UmfuturesCreateCountdownCancelAllV1Req(umfuturesCreateCountdownCancelAllV1Req).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.CreateCountdownCancelAllV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.CreateCountdownCancelAllV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `CreateCountdownCancelAllV1`: UmfuturesCreateCountdownCancelAllV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.CreateCountdownCancelAllV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.CreateCountdownCancelAllV1`: %v\n", resp)
 }
 ```
 
@@ -401,13 +401,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.CreateFeeBurnV1(context.Background()).FeeBurn(feeBurn).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.CreateFeeBurnV1(context.Background()).FeeBurn(feeBurn).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.CreateFeeBurnV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.CreateFeeBurnV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `CreateFeeBurnV1`: CreateFeeBurnV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.CreateFeeBurnV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.CreateFeeBurnV1`: %v\n", resp)
 }
 ```
 
@@ -472,13 +472,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.CreateLeverageV1(context.Background()).Leverage(leverage).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.CreateLeverageV1(context.Background()).Leverage(leverage).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.CreateLeverageV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.CreateLeverageV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `CreateLeverageV1`: CreateLeverageV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.CreateLeverageV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.CreateLeverageV1`: %v\n", resp)
 }
 ```
 
@@ -540,13 +540,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.CreateListenKeyV1(context.Background()).Execute()
+	resp, r, err := apiClient.FuturesAPI.CreateListenKeyV1(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.CreateListenKeyV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.CreateListenKeyV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `CreateListenKeyV1`: CreateListenKeyV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.CreateListenKeyV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.CreateListenKeyV1`: %v\n", resp)
 }
 ```
 
@@ -605,13 +605,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.CreateMarginTypeV1(context.Background()).MarginType(marginType).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.CreateMarginTypeV1(context.Background()).MarginType(marginType).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.CreateMarginTypeV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.CreateMarginTypeV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `CreateMarginTypeV1`: CreateMarginTypeV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.CreateMarginTypeV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.CreateMarginTypeV1`: %v\n", resp)
 }
 ```
 
@@ -676,13 +676,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.CreateMultiAssetsMarginV1(context.Background()).MultiAssetsMargin(multiAssetsMargin).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.CreateMultiAssetsMarginV1(context.Background()).MultiAssetsMargin(multiAssetsMargin).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.CreateMultiAssetsMarginV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.CreateMultiAssetsMarginV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `CreateMultiAssetsMarginV1`: CreateMultiAssetsMarginV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.CreateMultiAssetsMarginV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.CreateMultiAssetsMarginV1`: %v\n", resp)
 }
 ```
 
@@ -764,13 +764,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.CreateOrderTestV1(context.Background()).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).ActivationPrice(activationPrice).CallbackRate(callbackRate).ClosePosition(closePosition).GoodTillDate(goodTillDate).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).PositionSide(positionSide).Price(price).PriceMatch(priceMatch).PriceProtect(priceProtect).Quantity(quantity).RecvWindow(recvWindow).ReduceOnly(reduceOnly).SelfTradePreventionMode(selfTradePreventionMode).StopPrice(stopPrice).TimeInForce(timeInForce).WorkingType(workingType).Execute()
+	resp, r, err := apiClient.FuturesAPI.CreateOrderTestV1(context.Background()).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).ActivationPrice(activationPrice).CallbackRate(callbackRate).ClosePosition(closePosition).GoodTillDate(goodTillDate).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).PositionSide(positionSide).Price(price).PriceMatch(priceMatch).PriceProtect(priceProtect).Quantity(quantity).RecvWindow(recvWindow).ReduceOnly(reduceOnly).SelfTradePreventionMode(selfTradePreventionMode).StopPrice(stopPrice).TimeInForce(timeInForce).WorkingType(workingType).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.CreateOrderTestV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.CreateOrderTestV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `CreateOrderTestV1`: CreateOrderTestV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.CreateOrderTestV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.CreateOrderTestV1`: %v\n", resp)
 }
 ```
 
@@ -870,13 +870,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.CreateOrderV1(context.Background()).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).ActivationPrice(activationPrice).CallbackRate(callbackRate).ClosePosition(closePosition).GoodTillDate(goodTillDate).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).PositionSide(positionSide).Price(price).PriceMatch(priceMatch).PriceProtect(priceProtect).Quantity(quantity).RecvWindow(recvWindow).ReduceOnly(reduceOnly).SelfTradePreventionMode(selfTradePreventionMode).StopPrice(stopPrice).TimeInForce(timeInForce).WorkingType(workingType).Execute()
+	resp, r, err := apiClient.FuturesAPI.CreateOrderV1(context.Background()).Side(side).Symbol(symbol).Timestamp(timestamp).Type_(type_).ActivationPrice(activationPrice).CallbackRate(callbackRate).ClosePosition(closePosition).GoodTillDate(goodTillDate).NewClientOrderId(newClientOrderId).NewOrderRespType(newOrderRespType).PositionSide(positionSide).Price(price).PriceMatch(priceMatch).PriceProtect(priceProtect).Quantity(quantity).RecvWindow(recvWindow).ReduceOnly(reduceOnly).SelfTradePreventionMode(selfTradePreventionMode).StopPrice(stopPrice).TimeInForce(timeInForce).WorkingType(workingType).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.CreateOrderV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.CreateOrderV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `CreateOrderV1`: CreateOrderV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.CreateOrderV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.CreateOrderV1`: %v\n", resp)
 }
 ```
 
@@ -961,13 +961,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.CreatePositionMarginV1(context.Background()).Amount(amount).Symbol(symbol).Timestamp(timestamp).Type_(type_).PositionSide(positionSide).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.CreatePositionMarginV1(context.Background()).Amount(amount).Symbol(symbol).Timestamp(timestamp).Type_(type_).PositionSide(positionSide).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.CreatePositionMarginV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.CreatePositionMarginV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `CreatePositionMarginV1`: CreatePositionMarginV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.CreatePositionMarginV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.CreatePositionMarginV1`: %v\n", resp)
 }
 ```
 
@@ -1034,13 +1034,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.CreatePositionSideDualV1(context.Background()).DualSidePosition(dualSidePosition).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.CreatePositionSideDualV1(context.Background()).DualSidePosition(dualSidePosition).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.CreatePositionSideDualV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.CreatePositionSideDualV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `CreatePositionSideDualV1`: CreatePositionSideDualV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.CreatePositionSideDualV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.CreatePositionSideDualV1`: %v\n", resp)
 }
 ```
 
@@ -1104,13 +1104,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.DeleteAllOpenOrdersV1(context.Background()).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.DeleteAllOpenOrdersV1(context.Background()).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.DeleteAllOpenOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.DeleteAllOpenOrdersV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `DeleteAllOpenOrdersV1`: DeleteAllOpenOrdersV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.DeleteAllOpenOrdersV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.DeleteAllOpenOrdersV1`: %v\n", resp)
 }
 ```
 
@@ -1176,13 +1176,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.DeleteBatchOrdersV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderIdList(orderIdList).OrigClientOrderIdList(origClientOrderIdList).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.DeleteBatchOrdersV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderIdList(orderIdList).OrigClientOrderIdList(origClientOrderIdList).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.DeleteBatchOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.DeleteBatchOrdersV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `DeleteBatchOrdersV1`: []UmfuturesDeleteBatchOrdersV1RespInner
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.DeleteBatchOrdersV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.DeleteBatchOrdersV1`: %v\n", resp)
 }
 ```
 
@@ -1245,13 +1245,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.DeleteListenKeyV1(context.Background()).Execute()
+	resp, r, err := apiClient.FuturesAPI.DeleteListenKeyV1(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.DeleteListenKeyV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.DeleteListenKeyV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `DeleteListenKeyV1`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.DeleteListenKeyV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.DeleteListenKeyV1`: %v\n", resp)
 }
 ```
 
@@ -1311,13 +1311,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.DeleteOrderV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.DeleteOrderV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.DeleteOrderV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.DeleteOrderV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `DeleteOrderV1`: DeleteOrderV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.DeleteOrderV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.DeleteOrderV1`: %v\n", resp)
 }
 ```
 
@@ -1382,13 +1382,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetAccountConfigV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetAccountConfigV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetAccountConfigV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetAccountConfigV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetAccountConfigV1`: GetAccountConfigV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetAccountConfigV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetAccountConfigV1`: %v\n", resp)
 }
 ```
 
@@ -1450,13 +1450,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetAccountV2(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetAccountV2(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetAccountV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetAccountV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetAccountV2`: GetAccountV2Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetAccountV2`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetAccountV2`: %v\n", resp)
 }
 ```
 
@@ -1518,13 +1518,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetAccountV3(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetAccountV3(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetAccountV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetAccountV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetAccountV3`: GetAccountV3Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetAccountV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetAccountV3`: %v\n", resp)
 }
 ```
 
@@ -1587,13 +1587,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetAdlQuantileV1(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetAdlQuantileV1(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetAdlQuantileV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetAdlQuantileV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetAdlQuantileV1`: []GetAdlQuantileV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetAdlQuantileV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetAdlQuantileV1`: %v\n", resp)
 }
 ```
 
@@ -1659,13 +1659,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetAggTradesV1(context.Background()).Symbol(symbol).FromId(fromId).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetAggTradesV1(context.Background()).Symbol(symbol).FromId(fromId).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetAggTradesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetAggTradesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetAggTradesV1`: []UmfuturesGetAggTradesV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetAggTradesV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetAggTradesV1`: %v\n", resp)
 }
 ```
 
@@ -1735,13 +1735,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetAllOrdersV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetAllOrdersV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetAllOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetAllOrdersV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetAllOrdersV1`: []GetAllOrdersV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetAllOrdersV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetAllOrdersV1`: %v\n", resp)
 }
 ```
 
@@ -1809,13 +1809,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetApiTradingStatusV1(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetApiTradingStatusV1(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetApiTradingStatusV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetApiTradingStatusV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetApiTradingStatusV1`: UmfuturesGetApiTradingStatusV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetApiTradingStatusV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetApiTradingStatusV1`: %v\n", resp)
 }
 ```
 
@@ -1877,13 +1877,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetAssetIndexV1(context.Background()).Symbol(symbol).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetAssetIndexV1(context.Background()).Symbol(symbol).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetAssetIndexV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetAssetIndexV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetAssetIndexV1`: UmfuturesGetAssetIndexV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetAssetIndexV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetAssetIndexV1`: %v\n", resp)
 }
 ```
 
@@ -1944,13 +1944,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetBalanceV2(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetBalanceV2(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetBalanceV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetBalanceV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetBalanceV2`: []GetBalanceV2RespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetBalanceV2`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetBalanceV2`: %v\n", resp)
 }
 ```
 
@@ -2012,13 +2012,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetBalanceV3(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetBalanceV3(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetBalanceV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetBalanceV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetBalanceV3`: []GetBalanceV3RespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetBalanceV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetBalanceV3`: %v\n", resp)
 }
 ```
 
@@ -2081,13 +2081,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetCommissionRateV1(context.Background()).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetCommissionRateV1(context.Background()).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetCommissionRateV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetCommissionRateV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetCommissionRateV1`: GetCommissionRateV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetCommissionRateV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetCommissionRateV1`: %v\n", resp)
 }
 ```
 
@@ -2149,13 +2149,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetConstituentsV1(context.Background()).Symbol(symbol).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetConstituentsV1(context.Background()).Symbol(symbol).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetConstituentsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetConstituentsV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetConstituentsV1`: GetConstituentsV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetConstituentsV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetConstituentsV1`: %v\n", resp)
 }
 ```
 
@@ -2220,13 +2220,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetContinuousKlinesV1(context.Background()).Pair(pair).ContractType(contractType).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetContinuousKlinesV1(context.Background()).Pair(pair).ContractType(contractType).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetContinuousKlinesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetContinuousKlinesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetContinuousKlinesV1`: [][]UmfuturesGetContinuousKlinesV1RespInnerInner
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetContinuousKlinesV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetContinuousKlinesV1`: %v\n", resp)
 }
 ```
 
@@ -2292,13 +2292,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetConvertExchangeInfoV1(context.Background()).FromAsset(fromAsset).ToAsset(toAsset).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetConvertExchangeInfoV1(context.Background()).FromAsset(fromAsset).ToAsset(toAsset).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetConvertExchangeInfoV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetConvertExchangeInfoV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetConvertExchangeInfoV1`: []GetConvertExchangeInfoV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetConvertExchangeInfoV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetConvertExchangeInfoV1`: %v\n", resp)
 }
 ```
 
@@ -2360,13 +2360,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetConvertOrderStatusV1(context.Background()).OrderId(orderId).QuoteId(quoteId).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetConvertOrderStatusV1(context.Background()).OrderId(orderId).QuoteId(quoteId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetConvertOrderStatusV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetConvertOrderStatusV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetConvertOrderStatusV1`: GetConvertOrderStatusV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetConvertOrderStatusV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetConvertOrderStatusV1`: %v\n", resp)
 }
 ```
 
@@ -2428,13 +2428,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetDepthV1(context.Background()).Symbol(symbol).Limit(limit).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetDepthV1(context.Background()).Symbol(symbol).Limit(limit).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetDepthV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetDepthV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetDepthV1`: GetDepthV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetDepthV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetDepthV1`: %v\n", resp)
 }
 ```
 
@@ -2494,13 +2494,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetExchangeInfoV1(context.Background()).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetExchangeInfoV1(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetExchangeInfoV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetExchangeInfoV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetExchangeInfoV1`: UmfuturesGetExchangeInfoV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetExchangeInfoV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetExchangeInfoV1`: %v\n", resp)
 }
 ```
 
@@ -2557,13 +2557,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetFeeBurnV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetFeeBurnV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetFeeBurnV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetFeeBurnV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetFeeBurnV1`: GetFeeBurnV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetFeeBurnV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetFeeBurnV1`: %v\n", resp)
 }
 ```
 
@@ -2630,13 +2630,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetForceOrdersV1(context.Background()).Timestamp(timestamp).Symbol(symbol).AutoCloseType(autoCloseType).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetForceOrdersV1(context.Background()).Timestamp(timestamp).Symbol(symbol).AutoCloseType(autoCloseType).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetForceOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetForceOrdersV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetForceOrdersV1`: []GetForceOrdersV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetForceOrdersV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetForceOrdersV1`: %v\n", resp)
 }
 ```
 
@@ -2701,13 +2701,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetFundingInfoV1(context.Background()).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetFundingInfoV1(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetFundingInfoV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetFundingInfoV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetFundingInfoV1`: []GetFundingInfoV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetFundingInfoV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetFundingInfoV1`: %v\n", resp)
 }
 ```
 
@@ -2766,13 +2766,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetFundingRateV1(context.Background()).Symbol(symbol).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetFundingRateV1(context.Background()).Symbol(symbol).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetFundingRateV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetFundingRateV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetFundingRateV1`: []GetFundingRateV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetFundingRateV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetFundingRateV1`: %v\n", resp)
 }
 ```
 
@@ -2840,13 +2840,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetFuturesDataBasis(context.Background()).Pair(pair).ContractType(contractType).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetFuturesDataBasis(context.Background()).Pair(pair).ContractType(contractType).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetFuturesDataBasis``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetFuturesDataBasis``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetFuturesDataBasis`: []GetFuturesDataBasisRespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetFuturesDataBasis`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetFuturesDataBasis`: %v\n", resp)
 }
 ```
 
@@ -2911,13 +2911,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetFuturesDataDeliveryPrice(context.Background()).Pair(pair).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetFuturesDataDeliveryPrice(context.Background()).Pair(pair).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetFuturesDataDeliveryPrice``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetFuturesDataDeliveryPrice``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetFuturesDataDeliveryPrice`: []UmfuturesGetFuturesDataDeliveryPriceRespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetFuturesDataDeliveryPrice`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetFuturesDataDeliveryPrice`: %v\n", resp)
 }
 ```
 
@@ -2981,13 +2981,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetFuturesDataGlobalLongShortAccountRatio(context.Background()).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetFuturesDataGlobalLongShortAccountRatio(context.Background()).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetFuturesDataGlobalLongShortAccountRatio``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetFuturesDataGlobalLongShortAccountRatio``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetFuturesDataGlobalLongShortAccountRatio`: []GetFuturesDataGlobalLongShortAccountRatioRespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetFuturesDataGlobalLongShortAccountRatio`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetFuturesDataGlobalLongShortAccountRatio`: %v\n", resp)
 }
 ```
 
@@ -3055,13 +3055,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetFuturesDataOpenInterestHist(context.Background()).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetFuturesDataOpenInterestHist(context.Background()).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetFuturesDataOpenInterestHist``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetFuturesDataOpenInterestHist``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetFuturesDataOpenInterestHist`: []GetFuturesDataOpenInterestHistRespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetFuturesDataOpenInterestHist`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetFuturesDataOpenInterestHist`: %v\n", resp)
 }
 ```
 
@@ -3129,13 +3129,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetFuturesDataTakerlongshortRatio(context.Background()).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetFuturesDataTakerlongshortRatio(context.Background()).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetFuturesDataTakerlongshortRatio``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetFuturesDataTakerlongshortRatio``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetFuturesDataTakerlongshortRatio`: []GetFuturesDataTakerlongshortRatioRespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetFuturesDataTakerlongshortRatio`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetFuturesDataTakerlongshortRatio`: %v\n", resp)
 }
 ```
 
@@ -3203,13 +3203,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetFuturesDataTopLongShortAccountRatio(context.Background()).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetFuturesDataTopLongShortAccountRatio(context.Background()).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetFuturesDataTopLongShortAccountRatio``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetFuturesDataTopLongShortAccountRatio``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetFuturesDataTopLongShortAccountRatio`: []GetFuturesDataTopLongShortAccountRatioRespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetFuturesDataTopLongShortAccountRatio`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetFuturesDataTopLongShortAccountRatio`: %v\n", resp)
 }
 ```
 
@@ -3277,13 +3277,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetFuturesDataTopLongShortPositionRatio(context.Background()).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetFuturesDataTopLongShortPositionRatio(context.Background()).Symbol(symbol).Period(period).Limit(limit).StartTime(startTime).EndTime(endTime).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetFuturesDataTopLongShortPositionRatio``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetFuturesDataTopLongShortPositionRatio``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetFuturesDataTopLongShortPositionRatio`: []GetFuturesDataTopLongShortPositionRatioRespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetFuturesDataTopLongShortPositionRatio`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetFuturesDataTopLongShortPositionRatio`: %v\n", resp)
 }
 ```
 
@@ -3349,13 +3349,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetHistoricalTradesV1(context.Background()).Symbol(symbol).Limit(limit).FromId(fromId).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetHistoricalTradesV1(context.Background()).Symbol(symbol).Limit(limit).FromId(fromId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetHistoricalTradesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetHistoricalTradesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetHistoricalTradesV1`: []GetHistoricalTradesV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetHistoricalTradesV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetHistoricalTradesV1`: %v\n", resp)
 }
 ```
 
@@ -3419,13 +3419,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetIncomeAsynIdV1(context.Background()).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetIncomeAsynIdV1(context.Background()).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetIncomeAsynIdV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetIncomeAsynIdV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetIncomeAsynIdV1`: GetIncomeAsynIdV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetIncomeAsynIdV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetIncomeAsynIdV1`: %v\n", resp)
 }
 ```
 
@@ -3490,13 +3490,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetIncomeAsynV1(context.Background()).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetIncomeAsynV1(context.Background()).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetIncomeAsynV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetIncomeAsynV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetIncomeAsynV1`: GetIncomeAsynV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetIncomeAsynV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetIncomeAsynV1`: %v\n", resp)
 }
 ```
 
@@ -3559,13 +3559,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetIndexInfoV1(context.Background()).Symbol(symbol).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetIndexInfoV1(context.Background()).Symbol(symbol).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetIndexInfoV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetIndexInfoV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetIndexInfoV1`: []GetIndexInfoV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetIndexInfoV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetIndexInfoV1`: %v\n", resp)
 }
 ```
 
@@ -3629,13 +3629,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetIndexPriceKlinesV1(context.Background()).Pair(pair).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetIndexPriceKlinesV1(context.Background()).Pair(pair).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetIndexPriceKlinesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetIndexPriceKlinesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetIndexPriceKlinesV1`: [][]UmfuturesGetContinuousKlinesV1RespInnerInner
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetIndexPriceKlinesV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetIndexPriceKlinesV1`: %v\n", resp)
 }
 ```
 
@@ -3703,13 +3703,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetKlinesV1(context.Background()).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetKlinesV1(context.Background()).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetKlinesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetKlinesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetKlinesV1`: [][]UmfuturesGetContinuousKlinesV1RespInnerInner
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetKlinesV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetKlinesV1`: %v\n", resp)
 }
 ```
 
@@ -3775,13 +3775,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetLeverageBracketV1(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetLeverageBracketV1(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetLeverageBracketV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetLeverageBracketV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetLeverageBracketV1`: UmfuturesGetLeverageBracketV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetLeverageBracketV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetLeverageBracketV1`: %v\n", resp)
 }
 ```
 
@@ -3847,13 +3847,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetMarkPriceKlinesV1(context.Background()).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetMarkPriceKlinesV1(context.Background()).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetMarkPriceKlinesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetMarkPriceKlinesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetMarkPriceKlinesV1`: [][]UmfuturesGetContinuousKlinesV1RespInnerInner
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetMarkPriceKlinesV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetMarkPriceKlinesV1`: %v\n", resp)
 }
 ```
 
@@ -3918,13 +3918,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetMultiAssetsMarginV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetMultiAssetsMarginV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetMultiAssetsMarginV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetMultiAssetsMarginV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetMultiAssetsMarginV1`: GetMultiAssetsMarginV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetMultiAssetsMarginV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetMultiAssetsMarginV1`: %v\n", resp)
 }
 ```
 
@@ -3985,13 +3985,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetOpenInterestV1(context.Background()).Symbol(symbol).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetOpenInterestV1(context.Background()).Symbol(symbol).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetOpenInterestV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetOpenInterestV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetOpenInterestV1`: GetOpenInterestV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetOpenInterestV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetOpenInterestV1`: %v\n", resp)
 }
 ```
 
@@ -4055,13 +4055,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetOpenOrderV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetOpenOrderV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetOpenOrderV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetOpenOrderV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetOpenOrderV1`: GetOpenOrderV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetOpenOrderV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetOpenOrderV1`: %v\n", resp)
 }
 ```
 
@@ -4127,13 +4127,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetOpenOrdersV1(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetOpenOrdersV1(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetOpenOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetOpenOrdersV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetOpenOrdersV1`: []GetOpenOrdersV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetOpenOrdersV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetOpenOrdersV1`: %v\n", resp)
 }
 ```
 
@@ -4202,13 +4202,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetOrderAmendmentV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetOrderAmendmentV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetOrderAmendmentV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetOrderAmendmentV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetOrderAmendmentV1`: []GetOrderAmendmentV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetOrderAmendmentV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetOrderAmendmentV1`: %v\n", resp)
 }
 ```
 
@@ -4277,13 +4277,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetOrderAsynIdV1(context.Background()).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetOrderAsynIdV1(context.Background()).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetOrderAsynIdV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetOrderAsynIdV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetOrderAsynIdV1`: GetOrderAsynIdV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetOrderAsynIdV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetOrderAsynIdV1`: %v\n", resp)
 }
 ```
 
@@ -4348,13 +4348,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetOrderAsynV1(context.Background()).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetOrderAsynV1(context.Background()).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetOrderAsynV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetOrderAsynV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetOrderAsynV1`: UmfuturesGetOrderAsynV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetOrderAsynV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetOrderAsynV1`: %v\n", resp)
 }
 ```
 
@@ -4421,13 +4421,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetOrderV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetOrderV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetOrderV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetOrderV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetOrderV1`: GetOrderV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetOrderV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetOrderV1`: %v\n", resp)
 }
 ```
 
@@ -4490,13 +4490,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetPingV1(context.Background()).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetPingV1(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetPingV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetPingV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetPingV1`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetPingV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetPingV1`: %v\n", resp)
 }
 ```
 
@@ -4554,13 +4554,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetPmAccountInfoV1(context.Background()).Asset(asset).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetPmAccountInfoV1(context.Background()).Asset(asset).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetPmAccountInfoV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetPmAccountInfoV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetPmAccountInfoV1`: GetPmAccountInfoV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetPmAccountInfoV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetPmAccountInfoV1`: %v\n", resp)
 }
 ```
 
@@ -4628,13 +4628,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetPositionMarginHistoryV1(context.Background()).Symbol(symbol).Timestamp(timestamp).Type_(type_).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetPositionMarginHistoryV1(context.Background()).Symbol(symbol).Timestamp(timestamp).Type_(type_).StartTime(startTime).EndTime(endTime).Limit(limit).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetPositionMarginHistoryV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetPositionMarginHistoryV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetPositionMarginHistoryV1`: []GetPositionMarginHistoryV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetPositionMarginHistoryV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetPositionMarginHistoryV1`: %v\n", resp)
 }
 ```
 
@@ -4702,13 +4702,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetPositionRiskV2(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetPositionRiskV2(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetPositionRiskV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetPositionRiskV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetPositionRiskV2`: []GetPositionRiskV2RespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetPositionRiskV2`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetPositionRiskV2`: %v\n", resp)
 }
 ```
 
@@ -4772,13 +4772,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetPositionRiskV3(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetPositionRiskV3(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetPositionRiskV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetPositionRiskV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetPositionRiskV3`: []GetPositionRiskV3RespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetPositionRiskV3`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetPositionRiskV3`: %v\n", resp)
 }
 ```
 
@@ -4841,13 +4841,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetPositionSideDualV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetPositionSideDualV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetPositionSideDualV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetPositionSideDualV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetPositionSideDualV1`: GetPositionSideDualV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetPositionSideDualV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetPositionSideDualV1`: %v\n", resp)
 }
 ```
 
@@ -4912,13 +4912,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetPremiumIndexKlinesV1(context.Background()).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetPremiumIndexKlinesV1(context.Background()).Symbol(symbol).Interval(interval).StartTime(startTime).EndTime(endTime).Limit(limit).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetPremiumIndexKlinesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetPremiumIndexKlinesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetPremiumIndexKlinesV1`: [][]UmfuturesGetContinuousKlinesV1RespInnerInner
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetPremiumIndexKlinesV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetPremiumIndexKlinesV1`: %v\n", resp)
 }
 ```
 
@@ -4982,13 +4982,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetPremiumIndexV1(context.Background()).Symbol(symbol).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetPremiumIndexV1(context.Background()).Symbol(symbol).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetPremiumIndexV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetPremiumIndexV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetPremiumIndexV1`: UmfuturesGetPremiumIndexV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetPremiumIndexV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetPremiumIndexV1`: %v\n", resp)
 }
 ```
 
@@ -5049,13 +5049,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetRateLimitOrderV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetRateLimitOrderV1(context.Background()).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetRateLimitOrderV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetRateLimitOrderV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetRateLimitOrderV1`: []GetRateLimitOrderV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetRateLimitOrderV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetRateLimitOrderV1`: %v\n", resp)
 }
 ```
 
@@ -5118,13 +5118,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetSymbolConfigV1(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetSymbolConfigV1(context.Background()).Timestamp(timestamp).Symbol(symbol).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetSymbolConfigV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetSymbolConfigV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetSymbolConfigV1`: []GetSymbolConfigV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetSymbolConfigV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetSymbolConfigV1`: %v\n", resp)
 }
 ```
 
@@ -5186,13 +5186,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetTicker24hrV1(context.Background()).Symbol(symbol).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetTicker24hrV1(context.Background()).Symbol(symbol).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetTicker24hrV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetTicker24hrV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetTicker24hrV1`: UmfuturesGetTicker24hrV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetTicker24hrV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetTicker24hrV1`: %v\n", resp)
 }
 ```
 
@@ -5252,13 +5252,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetTickerBookTickerV1(context.Background()).Symbol(symbol).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetTickerBookTickerV1(context.Background()).Symbol(symbol).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetTickerBookTickerV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetTickerBookTickerV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetTickerBookTickerV1`: UmfuturesGetTickerBookTickerV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetTickerBookTickerV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetTickerBookTickerV1`: %v\n", resp)
 }
 ```
 
@@ -5318,13 +5318,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetTickerPriceV1(context.Background()).Symbol(symbol).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetTickerPriceV1(context.Background()).Symbol(symbol).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetTickerPriceV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetTickerPriceV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetTickerPriceV1`: UmfuturesGetTickerPriceV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetTickerPriceV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetTickerPriceV1`: %v\n", resp)
 }
 ```
 
@@ -5384,13 +5384,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetTickerPriceV2(context.Background()).Symbol(symbol).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetTickerPriceV2(context.Background()).Symbol(symbol).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetTickerPriceV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetTickerPriceV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetTickerPriceV2`: UmfuturesGetTickerPriceV2Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetTickerPriceV2`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetTickerPriceV2`: %v\n", resp)
 }
 ```
 
@@ -5449,13 +5449,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetTimeV1(context.Background()).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetTimeV1(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetTimeV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetTimeV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetTimeV1`: GetTimeV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetTimeV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetTimeV1`: %v\n", resp)
 }
 ```
 
@@ -5513,13 +5513,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetTradeAsynIdV1(context.Background()).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetTradeAsynIdV1(context.Background()).DownloadId(downloadId).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetTradeAsynIdV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetTradeAsynIdV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetTradeAsynIdV1`: GetTradeAsynIdV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetTradeAsynIdV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetTradeAsynIdV1`: %v\n", resp)
 }
 ```
 
@@ -5584,13 +5584,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetTradeAsynV1(context.Background()).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetTradeAsynV1(context.Background()).StartTime(startTime).EndTime(endTime).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetTradeAsynV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetTradeAsynV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetTradeAsynV1`: GetTradeAsynV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetTradeAsynV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetTradeAsynV1`: %v\n", resp)
 }
 ```
 
@@ -5654,13 +5654,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetTradesV1(context.Background()).Symbol(symbol).Limit(limit).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetTradesV1(context.Background()).Symbol(symbol).Limit(limit).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetTradesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetTradesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetTradesV1`: []GetTradesV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetTradesV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetTradesV1`: %v\n", resp)
 }
 ```
 
@@ -5728,13 +5728,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.GetUserTradesV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).StartTime(startTime).EndTime(endTime).FromId(fromId).Limit(limit).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.GetUserTradesV1(context.Background()).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).StartTime(startTime).EndTime(endTime).FromId(fromId).Limit(limit).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.GetUserTradesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.GetUserTradesV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `GetUserTradesV1`: []GetUserTradesV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.GetUserTradesV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.GetUserTradesV1`: %v\n", resp)
 }
 ```
 
@@ -5803,13 +5803,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.UpdateBatchOrdersV1(context.Background()).BatchOrders(batchOrders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.UpdateBatchOrdersV1(context.Background()).BatchOrders(batchOrders).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.UpdateBatchOrdersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.UpdateBatchOrdersV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `UpdateBatchOrdersV1`: []UmfuturesUpdateBatchOrdersV1RespItem
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.UpdateBatchOrdersV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.UpdateBatchOrdersV1`: %v\n", resp)
 }
 ```
 
@@ -5870,13 +5870,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.UpdateListenKeyV1(context.Background()).Execute()
+	resp, r, err := apiClient.FuturesAPI.UpdateListenKeyV1(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.UpdateListenKeyV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.UpdateListenKeyV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `UpdateListenKeyV1`: UpdateListenKeyV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.UpdateListenKeyV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.UpdateListenKeyV1`: %v\n", resp)
 }
 ```
 
@@ -5940,13 +5940,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsdsMarginedFuturesAPI.UpdateOrderV1(context.Background()).Price(price).Quantity(quantity).Side(side).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).PriceMatch(priceMatch).RecvWindow(recvWindow).Execute()
+	resp, r, err := apiClient.FuturesAPI.UpdateOrderV1(context.Background()).Price(price).Quantity(quantity).Side(side).Symbol(symbol).Timestamp(timestamp).OrderId(orderId).OrigClientOrderId(origClientOrderId).PriceMatch(priceMatch).RecvWindow(recvWindow).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsdsMarginedFuturesAPI.UpdateOrderV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FuturesAPI.UpdateOrderV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `UpdateOrderV1`: UpdateOrderV1Resp
-	fmt.Fprintf(os.Stdout, "Response from `UsdsMarginedFuturesAPI.UpdateOrderV1`: %v\n", resp)
+	fmt.Fprintf(os.Stdout, "Response from `FuturesAPI.UpdateOrderV1`: %v\n", resp)
 }
 ```
 
