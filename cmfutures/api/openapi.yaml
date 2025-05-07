@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   description: OpenAPI specification for Binance exchange - Cmfutures API
   title: Binance COIN-M Futures API
-  version: 0.2.2
+  version: 0.3.0
 servers:
 - description: Binance Cmfutures API Server
   url: https://dapi.binance.com

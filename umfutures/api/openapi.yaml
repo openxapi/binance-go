@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   description: OpenAPI specification for Binance exchange - Umfutures API
   title: Binance USD-M Futures API
-  version: 0.2.2
+  version: 0.3.0
 servers:
 - description: Binance Umfutures API Server
   url: https://fapi.binance.com
