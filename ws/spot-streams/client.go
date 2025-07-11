@@ -1,0 +1,1338 @@
+package spotstreams
+import (
+	"context"
+	"encoding/json"
+	"fmt"
+	"log"
+	"net/url"
+	"strings"
+	"sync"
+	"time"
+
+	"github.com/google/uuid"
+	"github.com/gorilla/websocket"
+	"github.com/openxapi/binance-go/ws/spot-streams/models"
+)
+
+// Context keys for authentication and configuration
+type contextKey string
+
+const (
+	// ContextBinanceAuth takes Auth as authentication for the request
+	ContextBinanceAuth = contextKey("binanceAuth")
+)
+
+// ServerInfo represents a WebSocket server configuration
+type ServerInfo struct {
+	Name        string `json:"name"`        // Server identifier (e.g., "mainnet", "testnet")
+	URL         string `json:"url"`         // Full WebSocket URL
+	Host        string `json:"host"`        // Server host
+	Pathname    string `json:"pathname"`    // URL path
+	Protocol    string `json:"protocol"`    // ws or wss
+	Title       string `json:"title"`       // Human-readable title
+	Summary     string `json:"summary"`     // Short description
+	Description string `json:"description"` // Detailed description
+	Active      bool   `json:"active"`      // Whether this server is currently active
+}
+
+// ServerManager manages multiple WebSocket servers
+type ServerManager struct {
+	servers      map[string]*ServerInfo
+	activeServer string
+	mu           sync.RWMutex
+}
+
+// NewServerManager creates a new server manager with default servers
+func NewServerManager() *ServerManager {
+	sm := &ServerManager{
+		servers: make(map[string]*ServerInfo),
+	}
+	
+	// Initialize with predefined servers from AsyncAPI spec
+	// Using direct assignment since this is initialization (no risk of conflicts)
+	sm.servers["mainnet1"] = &ServerInfo{
+		Name:        "mainnet1",
+		URL:         "wss://stream.binance.com:9443/ws",
+		Host:        "stream.binance.com:9443",
+		Pathname:    "/ws",
+		Protocol:    "wss",
+		Title:       "Binance Mainnet Server",
+		Summary:     "Binance Spot WebSocket Streams Server (Mainnet)",
+		Description: "WebSocket server for binance exchange spot market data streams (mainnet environment)",
+		Active:      false,
+	}
+	sm.servers["mainnet2"] = &ServerInfo{
+		Name:        "mainnet2",
+		URL:         "wss://stream.binance.com:443/ws",
+		Host:        "stream.binance.com:443",
+		Pathname:    "/ws",
+		Protocol:    "wss",
+		Title:       "Binance Mainnet Server (Alternative)",
+		Summary:     "Binance Spot WebSocket Streams Server (Mainnet Alternative)",
+		Description: "Alternative WebSocket server for binance exchange spot market data streams (mainnet environment)",
+		Active:      false,
+	}
+	sm.servers["mainnet3"] = &ServerInfo{
+		Name:        "mainnet3",
+		URL:         "wss://data-stream.binance.vision/ws",
+		Host:        "data-stream.binance.vision",
+		Pathname:    "/ws",
+		Protocol:    "wss",
+		Title:       "Binance Mainnet Server (Market Data Only)",
+		Summary:     "Binance Spot WebSocket Streams Server (Market Data Only)",
+		Description: "WebSocket server for binance exchange spot market data streams (mainnet environment, market data only)",
+		Active:      false,
+	}
+	sm.servers["testnet1"] = &ServerInfo{
+		Name:        "testnet1",
+		URL:         "wss://stream.testnet.binance.vision/ws",
+		Host:        "stream.testnet.binance.vision",
+		Pathname:    "/ws",
+		Protocol:    "wss",
+		Title:       "Binance Testnet Server",
+		Summary:     "Binance Spot WebSocket Streams Server (Testnet)",
+		Description: "WebSocket server for binance exchange spot market data streams (testnet environment)",
+		Active:      false,
+	}
+	
+	// Set first server as active by default
+	sm.SetActiveServer("mainnet1")
+	
+	return sm
+}
+
+// AddServer adds a new server to the manager
+func (sm *ServerManager) AddServer(name string, server *ServerInfo) error {
+	sm.mu.Lock()
+	defer sm.mu.Unlock()
+	
+	if server == nil {
+		return fmt.Errorf("server info cannot be nil")
+	}
+	
+	// Check if server name already exists
+	if _, exists := sm.servers[name]; exists {
+		return fmt.Errorf("server with name '%s' already exists, use UpdateServer() to modify it", name)
+	}
+	
+	// Validate URL
+	if _, err := url.Parse(server.URL); err != nil {
+		return fmt.Errorf("invalid server URL '%s': %w", server.URL, err)
+	}
+	
+	server.Name = name
+	sm.servers[name] = server
+	
+	// If this is the first server, make it active
+	if sm.activeServer == "" {
+		sm.activeServer = name
+		server.Active = true
+	}
+	
+	return nil
+}
+
+// AddOrUpdateServer adds a new server or updates an existing one
+func (sm *ServerManager) AddOrUpdateServer(name string, server *ServerInfo) error {
+	sm.mu.Lock()
+	defer sm.mu.Unlock()
+	
+	if server == nil {
+		return fmt.Errorf("server info cannot be nil")
+	}
+	
+	// Validate URL
+	if _, err := url.Parse(server.URL); err != nil {
+		return fmt.Errorf("invalid server URL '%s': %w", server.URL, err)
+	}
+	
+	// Preserve active status if server already exists
+	server.Name = name
+	if existingServer, exists := sm.servers[name]; exists {
+		server.Active = existingServer.Active
+	}
+	
+	sm.servers[name] = server
+	
+	// If this is the first server, make it active
+	if sm.activeServer == "" {
+		sm.activeServer = name
+		server.Active = true
+	}
+	
+	return nil
+}
+
+// RemoveServer removes a server from the manager
+func (sm *ServerManager) RemoveServer(name string) error {
+	sm.mu.Lock()
+	defer sm.mu.Unlock()
+	
+	if _, exists := sm.servers[name]; !exists {
+		return fmt.Errorf("server '%s' not found", name)
+	}
+	
+	// Don't allow removing the active server
+	if sm.activeServer == name {
+		return fmt.Errorf("cannot remove active server '%s', switch to another server first", name)
+	}
+	
+	delete(sm.servers, name)
+	return nil
+}
+
+// UpdateServer updates an existing server's configuration
+func (sm *ServerManager) UpdateServer(name string, server *ServerInfo) error {
+	sm.mu.Lock()
+	defer sm.mu.Unlock()
+	
+	if _, exists := sm.servers[name]; !exists {
+		return fmt.Errorf("server '%s' not found", name)
+	}
+	
+	if server == nil {
+		return fmt.Errorf("server info cannot be nil")
+	}
+	
+	// Validate URL
+	if _, err := url.Parse(server.URL); err != nil {
+		return fmt.Errorf("invalid server URL '%s': %w", server.URL, err)
+	}
+	
+	// Preserve active status and name
+	server.Name = name
+	server.Active = (sm.activeServer == name)
+	sm.servers[name] = server
+	
+	return nil
+}
+
+// UpdateServerPathname updates the pathname of an existing server
+func (sm *ServerManager) UpdateServerPathname(name string, pathname string) error {
+	sm.mu.Lock()
+	defer sm.mu.Unlock()
+	
+	server, exists := sm.servers[name]
+	if !exists {
+		return fmt.Errorf("server '%s' not found", name)
+	}
+	
+	// Update pathname and rebuild URL
+	server.Pathname = pathname
+	server.URL = fmt.Sprintf("%s://%s%s", server.Protocol, server.Host, pathname)
+	
+	// Validate the new URL
+	if _, err := url.Parse(server.URL); err != nil {
+		return fmt.Errorf("invalid server URL '%s': %w", server.URL, err)
+	}
+	
+	return nil
+}
+
+// SetActiveServer sets the active server
+func (sm *ServerManager) SetActiveServer(name string) error {
+	sm.mu.Lock()
+	defer sm.mu.Unlock()
+	
+	if _, exists := sm.servers[name]; !exists {
+		return fmt.Errorf("server '%s' not found", name)
+	}
+	
+	// Deactivate current active server
+	if sm.activeServer != "" {
+		if currentActive := sm.servers[sm.activeServer]; currentActive != nil {
+			currentActive.Active = false
+		}
+	}
+	
+	// Activate new server
+	sm.activeServer = name
+	sm.servers[name].Active = true
+	
+	return nil
+}
+
+// GetActiveServer returns the currently active server
+func (sm *ServerManager) GetActiveServer() *ServerInfo {
+	sm.mu.RLock()
+	defer sm.mu.RUnlock()
+	
+	if sm.activeServer == "" {
+		return nil
+	}
+	
+	server := sm.servers[sm.activeServer]
+	if server == nil {
+		return nil
+	}
+	
+	// Return a copy to prevent external modification
+	return &ServerInfo{
+		Name:        server.Name,
+		URL:         server.URL,
+		Host:        server.Host,
+		Pathname:    server.Pathname,
+		Protocol:    server.Protocol,
+		Title:       server.Title,
+		Summary:     server.Summary,
+		Description: server.Description,
+		Active:      server.Active,
+	}
+}
+
+// GetServer returns a specific server by name
+func (sm *ServerManager) GetServer(name string) *ServerInfo {
+	sm.mu.RLock()
+	defer sm.mu.RUnlock()
+	
+	server := sm.servers[name]
+	if server == nil {
+		return nil
+	}
+	
+	// Return a copy to prevent external modification
+	return &ServerInfo{
+		Name:        server.Name,
+		URL:         server.URL,
+		Host:        server.Host,
+		Pathname:    server.Pathname,
+		Protocol:    server.Protocol,
+		Title:       server.Title,
+		Summary:     server.Summary,
+		Description: server.Description,
+		Active:      server.Active,
+	}
+}
+
+// ListServers returns all available servers
+func (sm *ServerManager) ListServers() map[string]*ServerInfo {
+	sm.mu.RLock()
+	defer sm.mu.RUnlock()
+	
+	result := make(map[string]*ServerInfo, len(sm.servers))
+	for name, server := range sm.servers {
+		result[name] = &ServerInfo{
+			Name:        server.Name,
+			URL:         server.URL,
+			Host:        server.Host,
+			Pathname:    server.Pathname,
+			Protocol:    server.Protocol,
+			Title:       server.Title,
+			Summary:     server.Summary,
+			Description: server.Description,
+			Active:      server.Active,
+		}
+	}
+	
+	return result
+}
+
+// GetActiveServerURL returns the URL of the currently active server
+func (sm *ServerManager) GetActiveServerURL() string {
+	if server := sm.GetActiveServer(); server != nil {
+		return server.URL
+	}
+	return ""
+}
+
+// APIError represents an error returned by the Binance WebSocket API
+type APIError struct {
+	Status  int    `json:"status"`  // HTTP-like status code from the response
+	Code    int    `json:"code"`    // Binance-specific error code
+	Message string `json:"msg"`     // Error message
+	ID      string `json:"id"`      // Request ID that caused the error
+}
+
+// Error implements the error interface
+func (e APIError) Error() string {
+	return fmt.Sprintf("binance api error: status=%d, code=%d, message=%s, id=%s", e.Status, e.Code, e.Message, e.ID)
+}
+
+// IsAPIError checks if an error is an APIError
+func IsAPIError(err error) (*APIError, bool) {
+	if apiErr, ok := err.(APIError); ok {
+		return &apiErr, true
+	}
+	if apiErr, ok := err.(*APIError); ok {
+		return apiErr, true
+	}
+	return nil, false
+}
+
+// ResponseHandler represents a high-performance handler for WebSocket responses
+type ResponseHandler struct {
+	RequestID string
+	Handler   func([]byte, error) error
+}
+
+// TypedResponseHandler is a generic interface for type-safe response handling
+type TypedResponseHandler[T any] interface {
+	Handle(*T, error) error
+}
+
+// HandlerFunc is a function type that implements TypedResponseHandler
+type HandlerFunc[T any] func(*T, error) error
+
+// Handle implements TypedResponseHandler interface
+func (f HandlerFunc[T]) Handle(response *T, err error) error {
+	return f(response, err)
+}
+
+// EventHandler handles all possible response types with optimized lookup
+type EventHandler struct {
+	handlers sync.Map // Using sync.Map for better concurrent performance
+}
+
+// NewEventHandler creates a new optimized event handler
+func NewEventHandler() *EventHandler {
+	return &EventHandler{}
+}
+
+// RegisterHandler registers a handler for a specific response type
+func (e *EventHandler) RegisterHandler(responseType string, handler func(interface{}) error) {
+	e.handlers.Store(responseType, handler)
+}
+
+// HandleResponse processes a event based on its type with optimized lookup
+func (e *EventHandler) HandleResponse(eventType string, data []byte) error {
+	if handler, ok := e.handlers.Load(eventType); ok {
+		if h, ok := handler.(func(interface{}) error); ok {
+			return h(data)
+		}
+	}
+	
+	log.Printf("No handler found for event type: %s", eventType)
+	return nil
+}
+
+// Client represents a high-performance WebSocket client for Binance Spot WebSocket Streams
+type Client struct {
+	conn             *websocket.Conn
+	serverManager    *ServerManager   // Manages multiple servers
+	responseHandlers sync.Map         // Using sync.Map for better concurrent performance
+	eventHandler     *EventHandler
+	responseList     []interface{}    // Global list of all received responses
+	responseListMu   sync.RWMutex     // Separate mutex for response list
+	auth             *Auth            // Authentication configuration
+	done             chan struct{}
+	isConnected      bool             // Connection status flag
+	handlers         eventHandlers    // Event handlers registry
+	
+	// Pre-allocated buffer for JSON parsing to reduce allocations
+	jsonBuffer []byte
+	bufferMu   sync.Mutex
+}
+
+// NewClient creates a new high-performance WebSocket client
+func NewClient() *Client {
+	return &Client{
+		serverManager: NewServerManager(),
+		eventHandler:  NewEventHandler(),
+		responseList:  make([]interface{}, 0, 100), // Pre-allocate with capacity
+		done:          make(chan struct{}),
+		jsonBuffer:    make([]byte, 0, 1024), // Pre-allocate JSON buffer
+	}
+}
+
+// NewClientWithAuth creates a new high-performance WebSocket client with authentication
+func NewClientWithAuth(auth *Auth) *Client {
+	client := NewClient()
+	client.auth = auth
+	return client
+}
+
+// SetAuth sets authentication for the client
+func (c *Client) SetAuth(auth *Auth) {
+	c.auth = auth
+}
+
+// Server Management Methods
+
+// AddServer adds a new server to the client
+func (c *Client) AddServer(name string, serverURL string, title string, description string) error {
+	if c.conn != nil {
+		return fmt.Errorf("cannot add server while connected - please disconnect first")
+	}
+	
+	// Parse URL to extract components
+	parsedURL, err := url.Parse(serverURL)
+	if err != nil {
+		return fmt.Errorf("invalid URL format: %w", err)
+	}
+	
+	server := &ServerInfo{
+		Name:        name,
+		URL:         serverURL,
+		Host:        parsedURL.Host,
+		Pathname:    parsedURL.Path,
+		Protocol:    parsedURL.Scheme,
+		Title:       title,
+		Summary:     fmt.Sprintf("WebSocket API Server (%s)", name),
+		Description: description,
+		Active:      false,
+	}
+	
+	return c.serverManager.AddServer(name, server)
+}
+
+// AddOrUpdateServer adds a new server or updates an existing one
+func (c *Client) AddOrUpdateServer(name string, serverURL string, title string, description string) error {
+	if c.conn != nil {
+		return fmt.Errorf("cannot add/update server while connected - please disconnect first")
+	}
+	
+	// Parse URL to extract components
+	parsedURL, err := url.Parse(serverURL)
+	if err != nil {
+		return fmt.Errorf("invalid URL format: %w", err)
+	}
+	
+	server := &ServerInfo{
+		Name:        name,
+		URL:         serverURL,
+		Host:        parsedURL.Host,
+		Pathname:    parsedURL.Path,
+		Protocol:    parsedURL.Scheme,
+		Title:       title,
+		Summary:     fmt.Sprintf("WebSocket API Server (%s)", name),
+		Description: description,
+		Active:      false,
+	}
+	
+	return c.serverManager.AddOrUpdateServer(name, server)
+}
+
+// RemoveServer removes a server from the client
+func (c *Client) RemoveServer(name string) error {
+	if c.conn != nil {
+		return fmt.Errorf("cannot remove server while connected - please disconnect first")
+	}
+	
+	return c.serverManager.RemoveServer(name)
+}
+
+// UpdateServer updates an existing server's configuration
+func (c *Client) UpdateServer(name string, serverURL string, title string, description string) error {
+	if c.conn != nil {
+		return fmt.Errorf("cannot update server while connected - please disconnect first")
+	}
+	
+	// Parse URL to extract components
+	parsedURL, err := url.Parse(serverURL)
+	if err != nil {
+		return fmt.Errorf("invalid URL format: %w", err)
+	}
+	
+	server := &ServerInfo{
+		Name:        name,
+		URL:         serverURL,
+		Host:        parsedURL.Host,
+		Pathname:    parsedURL.Path,
+		Protocol:    parsedURL.Scheme,
+		Title:       title,
+		Summary:     fmt.Sprintf("WebSocket API Server (%s)", name),
+		Description: description,
+		Active:      false, // Will be set correctly by UpdateServer
+	}
+	
+	return c.serverManager.UpdateServer(name, server)
+}
+
+// SetActiveServer sets the active server by name
+func (c *Client) SetActiveServer(name string) error {
+	if c.conn != nil {
+		return fmt.Errorf("cannot change active server while connected - please disconnect first")
+	}
+	
+	return c.serverManager.SetActiveServer(name)
+}
+
+// GetActiveServer returns the currently active server information
+func (c *Client) GetActiveServer() *ServerInfo {
+	return c.serverManager.GetActiveServer()
+}
+
+// GetServer returns information about a specific server
+func (c *Client) GetServer(name string) *ServerInfo {
+	return c.serverManager.GetServer(name)
+}
+
+// ListServers returns all available servers
+func (c *Client) ListServers() map[string]*ServerInfo {
+	return c.serverManager.ListServers()
+}
+
+// GetCurrentURL returns the URL of the currently active server
+func (c *Client) GetCurrentURL() string {
+	return c.serverManager.GetActiveServerURL()
+}
+
+// Legacy SetURL method for backward compatibility
+// Deprecated: Use SetActiveServer() or UpdateServer() instead
+func (c *Client) SetURL(newURL string) error {
+	if c.conn != nil {
+		return fmt.Errorf("cannot change URL while connected - please disconnect first")
+	}
+	
+	// Find if this URL matches any existing server
+	servers := c.serverManager.ListServers()
+	for name, server := range servers {
+		if server.URL == newURL {
+			return c.serverManager.SetActiveServer(name)
+		}
+	}
+	
+	// If URL doesn't match any existing server, update the active server
+	activeServer := c.serverManager.GetActiveServer()
+	if activeServer != nil {
+		return c.UpdateServer(activeServer.Name, newURL, activeServer.Title, activeServer.Description)
+	}
+	
+	// If no active server, add as new server
+	return c.AddServer("custom", newURL, "Custom Server", "Custom WebSocket server")
+}
+
+// Connect establishes a WebSocket connection to the active server
+func (c *Client) Connect(ctx context.Context) error {
+	currentURL := c.serverManager.GetActiveServerURL()
+	if currentURL == "" {
+		return fmt.Errorf("no active server configured")
+	}
+	
+	u, err := url.Parse(currentURL)
+	if err != nil {
+		return fmt.Errorf("invalid URL: %w", err)
+	}
+
+	dialer := websocket.DefaultDialer
+	dialer.HandshakeTimeout = 10 * time.Second
+
+	conn, _, err := dialer.DialContext(ctx, u.String(), nil)
+	if err != nil {
+		return fmt.Errorf("failed to connect to %s: %w", currentURL, err)
+	}
+
+	c.conn = conn
+	c.isConnected = true
+	go c.readMessages()
+	return nil
+}
+
+// ConnectToServer establishes a WebSocket connection to a specific server
+func (c *Client) ConnectToServer(ctx context.Context, serverName string) error {
+	if err := c.SetActiveServer(serverName); err != nil {
+		return fmt.Errorf("failed to set active server: %w", err)
+	}
+	
+	return c.Connect(ctx)
+}
+
+// Disconnect closes the WebSocket connection
+func (c *Client) Disconnect() error {
+	c.isConnected = false
+	close(c.done)
+	if c.conn != nil {
+		return c.conn.Close()
+	}
+	return nil
+}
+
+// GenerateRequestID generates a unique UUID v4 request ID (global function)
+func GenerateRequestID() string {
+	return uuid.New().String()
+}
+
+// readMessages reads messages from the WebSocket connection
+func (c *Client) readMessages() {
+	defer func() {
+		c.isConnected = false
+		if c.conn != nil {
+			c.conn.Close()
+		}
+	}()
+
+	for {
+		select {
+		case <-c.done:
+			return
+		default:
+			_, message, err := c.conn.ReadMessage()
+			if err != nil {
+				// Check if the error is due to connection being closed
+				if websocket.IsCloseError(err, websocket.CloseNormalClosure, websocket.CloseGoingAway, websocket.CloseAbnormalClosure) {
+					// Normal close - no need to log as error
+					return
+				}
+				// Check if this is a network connection closed error (also normal during shutdown)
+				if strings.Contains(err.Error(), "use of closed network connection") {
+					// Normal network close - no need to log as error
+					return
+				}
+				log.Printf("Error reading message: %v", err)
+				return
+			}
+
+			if err := c.handleMessage(message); err != nil {
+				log.Printf("Error handling message: %v", err)
+			}
+		}
+	}
+}
+
+// handleMessage processes incoming WebSocket messages
+func (c *Client) handleMessage(data []byte) error {
+	// Parse the message to determine its type
+	var genericMessage map[string]interface{}
+	if err := json.Unmarshal(data, &genericMessage); err != nil {
+		return fmt.Errorf("failed to parse message: %w", err)
+	}
+
+	// Check if this is a response to a request (has "id" field)
+	if id, hasID := genericMessage["id"]; hasID {
+		// Parse response structure to check for errors
+		var response struct {
+			ID     interface{} `json:"id"`
+			Status int         `json:"status"`
+			Result interface{} `json:"result,omitempty"`
+			Error  *struct {
+				Code int    `json:"code"`
+				Msg  string `json:"msg"`
+			} `json:"error,omitempty"`
+			RateLimits []interface{} `json:"rateLimits,omitempty"`
+		}
+
+		if err := json.Unmarshal(data, &response); err != nil {
+			return fmt.Errorf("failed to parse response structure: %w", err)
+		}
+
+		requestID := fmt.Sprintf("%v", id)
+
+		// Check if status indicates an error
+		var responseError error
+		if response.Status != 200 && response.Error != nil {
+			responseError = &APIError{
+				Status:  response.Status,
+				Code:    response.Error.Code,
+				Message: response.Error.Msg,
+				ID:      requestID,
+			}
+		}
+
+		return c.handleRequestResponse(requestID, data, responseError)
+	}
+
+	// Check for event structure with nested "event" object (Binance event messages)
+	if eventObj, hasEventObj := genericMessage["event"]; hasEventObj {
+		if eventMap, ok := eventObj.(map[string]interface{}); ok {
+			if eventType, hasEventType := eventMap["e"]; hasEventType {
+				return c.handleEventMessage(eventType.(string), data)
+			}
+		}
+	}
+
+	// For spot-streams, always try processStreamMessage for any non-request message
+		// This handles both standard events (with "e" field) and special events (BookTicker, PartialDepth)
+		return c.processStreamMessage(data)
+}
+
+// handleRequestResponse handles responses to specific requests
+func (c *Client) handleRequestResponse(requestID string, data []byte, err error) error {
+	if handler, ok := c.responseHandlers.Load(requestID); ok {
+		c.responseHandlers.Delete(requestID) // Clean up after handling
+		
+		if h, ok := handler.(ResponseHandler); ok {
+			return h.Handler(data, err)
+		}
+	}
+	
+	// Store in global response list for debugging/monitoring
+	c.responseListMu.Lock()
+	defer c.responseListMu.Unlock()
+	
+	var response interface{}
+	if err == nil {
+		json.Unmarshal(data, &response)
+	}
+	c.responseList = append(c.responseList, response)
+	
+	return nil
+}
+
+// handleEventMessage handles event messages (like balance updates, execution reports, etc.)
+func (c *Client) handleEventMessage(eventType string, data []byte) error {
+	// For stream modules, use the dedicated stream processing logic
+	return c.processStreamMessage(data)
+}
+
+// sendRequest sends a request over the WebSocket connection
+func (c *Client) sendRequest(request map[string]interface{}) error {
+	if c.conn == nil {
+		return fmt.Errorf("not connected")
+	}
+
+	data, err := json.Marshal(request)
+	if err != nil {
+		return fmt.Errorf("failed to marshal request: %w", err)
+	}
+
+	return c.conn.WriteMessage(websocket.TextMessage, data)
+}
+
+// GetResponseList returns a copy of all received responses (for debugging)
+func (c *Client) GetResponseList() []interface{} {
+	c.responseListMu.RLock()
+	defer c.responseListMu.RUnlock()
+	
+	result := make([]interface{}, len(c.responseList))
+	copy(result, c.responseList)
+	return result
+}
+
+// ClearResponseList clears the response list
+func (c *Client) ClearResponseList() {
+	c.responseListMu.Lock()
+	defer c.responseListMu.Unlock()
+	c.responseList = c.responseList[:0]
+}
+
+// Health check and utility methods
+func (c *Client) IsConnected() bool {
+	return c.isConnected && c.conn != nil
+}
+
+// Deprecated: Use GetCurrentURL() instead
+func (c *Client) GetURL() string {
+	return c.GetCurrentURL()
+}
+
+
+// Subscribe to market data streams
+func (c *Client) Subscribe(ctx context.Context, streams []string) error {
+	if !c.isConnected {
+		return fmt.Errorf("websocket not connected")
+	}
+
+	request := map[string]interface{}{
+		"method": "SUBSCRIBE",
+		"params": streams,
+		"id":     c.generateRequestID(),
+	}
+
+	return c.sendRequest(request)
+}
+
+// Unsubscribe from market data streams  
+func (c *Client) Unsubscribe(ctx context.Context, streams []string) error {
+	if !c.isConnected {
+		return fmt.Errorf("websocket not connected")
+	}
+
+	request := map[string]interface{}{
+		"method": "UNSUBSCRIBE", 
+		"params": streams,
+		"id":     c.generateRequestID(),
+	}
+
+	return c.sendRequest(request)
+}
+
+// List active subscriptions
+func (c *Client) ListSubscriptions(ctx context.Context) error {
+	if !c.isConnected {
+		return fmt.Errorf("websocket not connected")
+	}
+
+	request := map[string]interface{}{
+		"method": "LIST_SUBSCRIPTIONS",
+		"id":     c.generateRequestID(),
+	}
+
+	return c.sendRequest(request)
+}
+
+// ConnectToSingleStreams connects to single stream endpoint with optional timeUnit parameter
+func (c *Client) ConnectToSingleStreams(ctx context.Context, timeUnit string) error {
+	if c.isConnected {
+		return fmt.Errorf("already connected to websocket")
+	}
+	
+	// Set server variable to single stream path
+	if err := c.setStreamPath("ws"); err != nil {
+		return fmt.Errorf("failed to set stream path: %w", err)
+	}
+	
+	// Build endpoint URL with timeUnit parameter
+	endpoint := "/ws"
+	if timeUnit != "" {
+		endpoint += timeUnit // timeUnit should be formatted like "?timeUnit=MICROSECOND"
+	}
+	
+	return c.connect(ctx, endpoint, false) // false = not combined stream
+}
+
+// ConnectToCombinedStreams connects to combined stream endpoint with optional timeUnit parameter
+func (c *Client) ConnectToCombinedStreams(ctx context.Context, timeUnit string) error {
+	if c.isConnected {
+		return fmt.Errorf("already connected to websocket")
+	}
+	
+	// Set server variable to combined stream path
+	if err := c.setStreamPath("stream"); err != nil {
+		return fmt.Errorf("failed to set stream path: %w", err)
+	}
+	
+	// Build endpoint URL with timeUnit parameter
+	endpoint := "/stream"
+	if timeUnit != "" {
+		endpoint += timeUnit // timeUnit should be formatted like "?timeUnit=MICROSECOND"
+	}
+	
+	return c.connect(ctx, endpoint, true) // true = combined stream
+}
+
+// ConnectToSingleStreamsMicrosecond connects to single stream endpoint with microsecond precision
+func (c *Client) ConnectToSingleStreamsMicrosecond(ctx context.Context) error {
+	return c.ConnectToSingleStreams(ctx, "?timeUnit=MICROSECOND")
+}
+
+// ConnectToCombinedStreamsMicrosecond connects to combined stream endpoint with microsecond precision
+func (c *Client) ConnectToCombinedStreamsMicrosecond(ctx context.Context) error {
+	return c.ConnectToCombinedStreams(ctx, "?timeUnit=MICROSECOND")
+}
+
+// setStreamPath sets the server variable for stream path selection
+func (c *Client) setStreamPath(streamPath string) error {
+	activeServer := c.serverManager.GetActiveServer()
+	if activeServer == nil {
+		return fmt.Errorf("no active server configured")
+	}
+	
+	// Update the server's pathname to use the specified stream path
+	updatedPathname := "/" + streamPath
+	return c.serverManager.UpdateServerPathname(activeServer.Name, updatedPathname)
+}
+
+// connect establishes a WebSocket connection to a specific endpoint (for spot-streams)
+func (c *Client) connect(ctx context.Context, endpoint string, isCombined bool) error {
+	if c.isConnected {
+		return fmt.Errorf("websocket already connected")
+	}
+	
+	activeServer := c.serverManager.GetActiveServer()
+	if activeServer == nil {
+		return fmt.Errorf("no active server configured")
+	}
+	
+	// Build the WebSocket URL with the specific endpoint
+	serverURL := fmt.Sprintf("%s://%s%s", activeServer.Protocol, activeServer.Host, endpoint)
+	
+	u, err := url.Parse(serverURL)
+	if err != nil {
+		return fmt.Errorf("invalid URL: %w", err)
+	}
+
+	dialer := websocket.DefaultDialer
+	dialer.HandshakeTimeout = 10 * time.Second
+
+	conn, _, err := dialer.DialContext(ctx, u.String(), nil)
+	if err != nil {
+		return fmt.Errorf("failed to connect to %s: %w", serverURL, err)
+	}
+
+	c.conn = conn
+	c.isConnected = true
+	
+	// Start message processing based on connection type
+	if isCombined {
+		go c.readCombinedStreamMessages()
+	} else {
+		go c.readSingleStreamMessages()
+	}
+	
+	return nil
+}
+
+// readSingleStreamMessages processes messages from single stream connections
+func (c *Client) readSingleStreamMessages() {
+	defer func() {
+		c.isConnected = false
+		if c.conn != nil {
+			c.conn.Close()
+		}
+	}()
+
+	for {
+		select {
+		case <-c.done:
+			return
+		default:
+			_, message, err := c.conn.ReadMessage()
+			if err != nil {
+				if websocket.IsCloseError(err, websocket.CloseNormalClosure, websocket.CloseGoingAway, websocket.CloseAbnormalClosure) {
+					return
+				}
+				if strings.Contains(err.Error(), "use of closed network connection") {
+					return
+				}
+				log.Printf("Error reading message: %v", err)
+				return
+			}
+
+			if err := c.processStreamMessage(message); err != nil {
+				log.Printf("Error processing stream message: %v", err)
+			}
+		}
+	}
+}
+
+// readCombinedStreamMessages processes messages from combined stream connections
+func (c *Client) readCombinedStreamMessages() {
+	defer func() {
+		c.isConnected = false
+		if c.conn != nil {
+			c.conn.Close()
+		}
+	}()
+
+	for {
+		select {
+		case <-c.done:
+			return
+		default:
+			_, message, err := c.conn.ReadMessage()
+			if err != nil {
+				if websocket.IsCloseError(err, websocket.CloseNormalClosure, websocket.CloseGoingAway, websocket.CloseAbnormalClosure) {
+					return
+				}
+				if strings.Contains(err.Error(), "use of closed network connection") {
+					return
+				}
+				log.Printf("Error reading message: %v", err)
+				return
+			}
+
+			if err := c.processStreamMessage(message); err != nil {
+				log.Printf("Error processing stream message: %v", err)
+			}
+		}
+	}
+}
+
+
+// Stream event handler functions
+type (
+	// Aggregate Trade Handler
+	AggregateTradeHandler func(*models.AggregateTradeEvent) error
+	
+	// Trade Handler
+	TradeHandler func(*models.TradeEvent) error
+	
+	// Kline Handler  
+	KlineHandler func(*models.KlineEvent) error
+	
+	// Mini Ticker Handler
+	MiniTickerHandler func(*models.MiniTickerEvent) error
+	
+	// Ticker Handler
+	TickerHandler func(*models.TickerEvent) error
+	
+	// Book Ticker Handler
+	BookTickerHandler func(*models.BookTickerEvent) error
+	
+	// Depth Handler
+	DepthHandler func(*models.DiffDepthEvent) error
+	
+	// Partial Depth Handler
+	PartialDepthHandler func(*models.PartialDepthEvent) error
+	
+	// Rolling Window Ticker Handler
+	RollingWindowTickerHandler func(*models.RollingWindowTickerEvent) error
+	
+	// Average Price Handler
+	AvgPriceHandler func(*models.AvgPriceEvent) error
+	
+	// Combined Stream Handler
+	CombinedStreamHandler func(*models.CombinedStreamEvent) error
+	
+	// Subscription Response Handler
+	SubscriptionResponseHandler func(*models.SubscriptionResponse) error
+	
+	// Error Handler
+	StreamErrorHandler func(*models.ErrorResponse) error
+)
+
+// Event handler registry
+type eventHandlers struct {
+	aggregateTrade      AggregateTradeHandler
+	trade              TradeHandler  
+	kline              KlineHandler
+	miniTicker         MiniTickerHandler
+	ticker             TickerHandler
+	bookTicker         BookTickerHandler
+	depth              DepthHandler
+	partialDepth       PartialDepthHandler
+	rollingWindowTicker RollingWindowTickerHandler
+	avgPrice           AvgPriceHandler
+	combinedStream     CombinedStreamHandler
+	subscriptionResponse SubscriptionResponseHandler
+	error              StreamErrorHandler
+}
+
+// Register event handlers
+func (c *Client) OnAggregateTradeEvent(handler AggregateTradeHandler) {
+	c.handlers.aggregateTrade = handler
+}
+
+func (c *Client) OnTradeEvent(handler TradeHandler) {
+	c.handlers.trade = handler
+}
+
+func (c *Client) OnKlineEvent(handler KlineHandler) {
+	c.handlers.kline = handler
+}
+
+func (c *Client) OnMiniTickerEvent(handler MiniTickerHandler) {
+	c.handlers.miniTicker = handler
+}
+
+func (c *Client) OnTickerEvent(handler TickerHandler) {
+	c.handlers.ticker = handler
+}
+
+func (c *Client) OnBookTickerEvent(handler BookTickerHandler) {
+	c.handlers.bookTicker = handler
+}
+
+func (c *Client) OnDepthEvent(handler DepthHandler) {
+	c.handlers.depth = handler
+}
+
+func (c *Client) OnPartialDepthEvent(handler PartialDepthHandler) {
+	c.handlers.partialDepth = handler
+}
+
+func (c *Client) OnRollingWindowTickerEvent(handler RollingWindowTickerHandler) {
+	c.handlers.rollingWindowTicker = handler
+}
+
+func (c *Client) OnAvgPriceEvent(handler AvgPriceHandler) {
+	c.handlers.avgPrice = handler
+}
+
+func (c *Client) OnCombinedStreamEvent(handler CombinedStreamHandler) {
+	c.handlers.combinedStream = handler
+}
+
+func (c *Client) OnSubscriptionResponse(handler SubscriptionResponseHandler) {
+	c.handlers.subscriptionResponse = handler
+}
+
+func (c *Client) OnStreamError(handler StreamErrorHandler) {
+	c.handlers.error = handler
+}
+
+
+// Message processing for incoming stream data
+func (c *Client) processStreamMessage(message []byte) error {
+	// Try to parse as subscription response first
+	var subscriptionResp models.SubscriptionResponse
+	if err := json.Unmarshal(message, &subscriptionResp); err == nil && subscriptionResp.RequestIdEcho != 0 {
+		if c.handlers.subscriptionResponse != nil {
+			return c.handlers.subscriptionResponse(&subscriptionResp)
+		}
+		return nil
+	}
+
+	// Try to parse as error response
+	var errorResp models.ErrorResponse
+	if err := json.Unmarshal(message, &errorResp); err == nil && errorResp.Error != nil {
+		if c.handlers.error != nil {
+			return c.handlers.error(&errorResp)
+		}
+		return nil
+	}
+
+	// Try to parse as individual stream event by detecting event type FIRST
+	var genericMsg map[string]interface{}
+	if err := json.Unmarshal(message, &genericMsg); err == nil {
+		if eventType, hasEventType := genericMsg["e"]; hasEventType {
+			if eventTypeStr, ok := eventType.(string); ok {
+				return c.processStreamDataByEventType(eventTypeStr, message)
+			}
+		}
+		
+		// Special handling for BookTicker events (no "e" field)
+		// BookTicker messages have fields: "u" (update ID), "s" (symbol), "b" (best bid), "a" (best ask)
+		if _, hasUpdateId := genericMsg["u"]; hasUpdateId {
+			if _, hasSymbol := genericMsg["s"]; hasSymbol {
+				if _, hasBestBid := genericMsg["b"]; hasBestBid {
+					if _, hasBestAsk := genericMsg["a"]; hasBestAsk {
+						// This is a BookTicker event
+						return c.processStreamDataByEventType("bookTicker", message)
+					}
+				}
+			}
+		}
+		
+		// Special handling for PartialDepth events (no "e" field)
+		// PartialDepth messages have fields: "lastUpdateId", "bids", "asks"
+		if _, hasLastUpdateId := genericMsg["lastUpdateId"]; hasLastUpdateId {
+			if _, hasBids := genericMsg["bids"]; hasBids {
+				if _, hasAsks := genericMsg["asks"]; hasAsks {
+					// This is a PartialDepth event
+					return c.processStreamDataByEventType("partialDepth", message)
+				}
+			}
+		}
+	}
+
+	// Try to parse as combined stream event (only if not an individual stream event)
+	var combinedEvent models.CombinedStreamEvent
+	if err := json.Unmarshal(message, &combinedEvent); err == nil && combinedEvent.StreamName != "" {
+		if c.handlers.combinedStream != nil {
+			if err := c.handlers.combinedStream(&combinedEvent); err != nil {
+				return err
+			}
+		}
+		
+		// Also process the inner data based on stream type
+		return c.processStreamData(combinedEvent.StreamName, combinedEvent.StreamData)
+	}
+
+	log.Printf("Unknown message format: %s", string(message))
+	return nil
+}
+
+// Process stream data based on stream name
+func (c *Client) processStreamData(streamName string, data interface{}) error {
+	dataBytes, err := json.Marshal(data)
+	if err != nil {
+		return err
+	}
+
+	// Determine event type from stream name
+	if strings.Contains(streamName, "@aggTrade") {
+		return c.processStreamDataByEventType("aggTrade", dataBytes)
+	} else if strings.Contains(streamName, "@trade") {
+		return c.processStreamDataByEventType("trade", dataBytes)
+	} else if strings.Contains(streamName, "@kline") {
+		return c.processStreamDataByEventType("kline", dataBytes)
+	} else if strings.Contains(streamName, "@miniTicker") {
+		return c.processStreamDataByEventType("24hrMiniTicker", dataBytes)
+	} else if strings.Contains(streamName, "@ticker") {
+		return c.processStreamDataByEventType("24hrTicker", dataBytes)
+	} else if strings.Contains(streamName, "@bookTicker") {
+		return c.processStreamDataByEventType("bookTicker", dataBytes)
+	} else if strings.Contains(streamName, "@depth") {
+		return c.processStreamDataByEventType("depthUpdate", dataBytes)
+	} else if strings.Contains(streamName, "@avgPrice") {
+		return c.processStreamDataByEventType("avgPrice", dataBytes)
+	}
+
+	return nil
+}
+
+// Process stream data based on event type
+func (c *Client) processStreamDataByEventType(eventType string, data []byte) error {
+	switch eventType {
+	case "aggTrade":
+		if c.handlers.aggregateTrade != nil {
+			var event models.AggregateTradeEvent
+			if err := json.Unmarshal(data, &event); err != nil {
+				return err
+			}
+			return c.handlers.aggregateTrade(&event)
+		}
+		return nil
+
+	case "trade":
+		if c.handlers.trade != nil {
+			var event models.TradeEvent
+			if err := json.Unmarshal(data, &event); err != nil {
+				return err
+			}
+			return c.handlers.trade(&event)
+		}
+		return nil
+
+	case "kline":
+		if c.handlers.kline != nil {
+			var event models.KlineEvent
+			if err := json.Unmarshal(data, &event); err != nil {
+				return err
+			}
+			return c.handlers.kline(&event)
+		}
+		return nil
+
+	case "24hrMiniTicker":
+		if c.handlers.miniTicker != nil {
+			var event models.MiniTickerEvent
+			if err := json.Unmarshal(data, &event); err != nil {
+				return err
+			}
+			return c.handlers.miniTicker(&event)
+		}
+		return nil
+
+	case "24hrTicker":
+		if c.handlers.ticker != nil {
+			var event models.TickerEvent
+			if err := json.Unmarshal(data, &event); err != nil {
+				return err
+			}
+			return c.handlers.ticker(&event)
+		}
+		return nil
+
+	case "bookTicker":
+		if c.handlers.bookTicker != nil {
+			var event models.BookTickerEvent
+			if err := json.Unmarshal(data, &event); err != nil {
+				return err
+			}
+			return c.handlers.bookTicker(&event)
+		}
+		return nil
+
+	case "depthUpdate":
+		if c.handlers.depth != nil {
+			var event models.DiffDepthEvent
+			if err := json.Unmarshal(data, &event); err != nil {
+				return err
+			}
+			return c.handlers.depth(&event)
+		}
+		return nil
+
+	case "partialDepth":
+		if c.handlers.partialDepth != nil {
+			var event models.PartialDepthEvent
+			if err := json.Unmarshal(data, &event); err != nil {
+				return err
+			}
+			return c.handlers.partialDepth(&event)
+		}
+		return nil
+
+	case "avgPrice":
+		if c.handlers.avgPrice != nil {
+			var event models.AvgPriceEvent
+			if err := json.Unmarshal(data, &event); err != nil {
+				return err
+			}
+			return c.handlers.avgPrice(&event)
+		}
+		return nil
+	}
+
+	return nil
+}
+
+// Generate unique request ID
+func (c *Client) generateRequestID() int64 {
+	return time.Now().UnixNano() / int64(time.Millisecond)
+}
+
+
+
