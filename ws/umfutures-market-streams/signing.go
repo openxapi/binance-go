@@ -1,4 +1,4 @@
-package umfuturesstreams
+package umfuturesmarketstreams
 import (
 	"context"
 	"crypto"

@@ -1,4 +1,4 @@
-package umfuturesstreams
+package umfuturesmarketstreams
 import (
 	"context"
 	"encoding/json"
@@ -11,7 +11,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/gorilla/websocket"
-	"github.com/openxapi/binance-go/ws/umfutures-streams/models"
+	"github.com/openxapi/binance-go/ws/umfutures-market-streams/models"
 )
 
 // Context keys for authentication and configuration
@@ -905,7 +905,7 @@ func (c *Client) setStreamPath(streamPath string) error {
 	return c.serverManager.UpdateServerPathname(activeServer.Name, updatedPathname)
 }
 
-// connect establishes a WebSocket connection to a specific endpoint (for umfutures-streams)
+// connect establishes a WebSocket connection to a specific endpoint (for umfutures-market-streams)
 func (c *Client) connect(ctx context.Context, endpoint string, isCombined bool) error {
 	if c.isConnected {
 		return fmt.Errorf("websocket already connected")
@@ -1368,7 +1368,7 @@ func (c *Client) processSingleStreamEvent(data []byte) error {
 		}
 	default:
 		// Log unknown event types with full message for debugging
-		log.Printf("Unknown event type '%s' in umfutures-streams. Message: %s", eventType, string(data))
+		log.Printf("Unknown event type '%s' in umfutures-market-streams. Message: %s", eventType, string(data))
 		// Don't return error for unknown event types, just ignore them
 	}
 	return nil
