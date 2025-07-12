@@ -21,7 +21,7 @@ type ExternalLockUpdateEvent struct {
 // ExternalLockUpdate - Sent when spot wallet balance is locked/unlocked by external system
 // Message name: External Lock Update Event
 type ExternalLockUpdate struct {
-	Event ExternalLockUpdateEvent `json:"event,omitempty"`
+	Event *ExternalLockUpdateEvent `json:"event,omitempty"`
 }
 
 // String returns string representation of ExternalLockUpdate

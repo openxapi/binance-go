@@ -659,6 +659,14 @@ func (c *Client) readMessages() {
 
 // handleMessage processes incoming WebSocket messages
 func (c *Client) handleMessage(data []byte) error {
+	// First check if this is an array stream (like !assetIndex@arr)
+	// by trying to parse as an array first
+	var arrayData []interface{}
+	if err := json.Unmarshal(data, &arrayData); err == nil {
+		// This is an array stream - delegate to stream processing logic
+		return c.processStreamMessage(data)
+	}
+	
 	// Parse the message to determine its type
 	var genericMessage map[string]interface{}
 	if err := json.Unmarshal(data, &genericMessage); err != nil {
@@ -1072,8 +1080,8 @@ type eventHandlers struct {
 	depthupdate DiffDepthHandler
 	compositeindex CompositeIndexHandler
 	contractinfo ContractInfoHandler
-	assetindex AssetIndexHandler
 	assetindexupdate AssetIndexHandler
+	assetindex AssetIndexHandler
 	combinedStream     CombinedStreamHandler
 	subscriptionResponse SubscriptionResponseHandler
 	error              StreamErrorHandler
@@ -1125,8 +1133,8 @@ func (c *Client) OnContractInfoEvent(handler ContractInfoHandler) {
 }
 
 func (c *Client) OnAssetIndexEvent(handler AssetIndexHandler) {
-	c.handlers.assetindex = handler
 	c.handlers.assetindexupdate = handler
+	c.handlers.assetindex = handler
 }
 
 func (c *Client) OnCombinedStreamEvent(handler CombinedStreamHandler) {
@@ -1143,7 +1151,15 @@ func (c *Client) OnStreamError(handler StreamErrorHandler) {
 
 // processStreamMessage processes incoming stream messages
 func (c *Client) processStreamMessage(data []byte) error {
-	// Parse message to determine type
+	// First check if this is an array stream (like !assetIndex@arr)
+	// by trying to parse as an array first
+	var arrayData []interface{}
+	if err := json.Unmarshal(data, &arrayData); err == nil {
+		// This is an array stream - process as array of events
+		return c.processArrayStreamEvent(data, arrayData)
+	}
+	
+	// Parse message as object to determine type
 	var baseMsg map[string]interface{}
 	if err := json.Unmarshal(data, &baseMsg); err != nil {
 		return fmt.Errorf("failed to parse message: %w", err)
@@ -1191,6 +1207,31 @@ func (c *Client) processStreamMessage(data []byte) error {
 
 	// Process as single stream event
 	return c.processSingleStreamEvent(data)
+}
+
+// processArrayStreamEvent processes array stream events (like !assetIndex@arr)
+func (c *Client) processArrayStreamEvent(data []byte, arrayData []interface{}) error {
+	// Array streams contain multiple events of the same type
+	// Process each element in the array individually
+	if len(arrayData) == 0 {
+		return nil // Empty array, nothing to process
+	}
+	
+	// Process each element in the array
+	for i, element := range arrayData {
+		elementBytes, err := json.Marshal(element)
+		if err != nil {
+			log.Printf("Failed to marshal array element %d: %v", i, err)
+			continue
+		}
+		
+		if err := c.processSingleStreamEvent(elementBytes); err != nil {
+			log.Printf("Failed to process array element %d: %v", i, err)
+			// Continue processing other elements even if one fails
+		}
+	}
+	
+	return nil
 }
 
 // processSingleStreamEvent processes individual stream events
@@ -1309,14 +1350,6 @@ func (c *Client) processSingleStreamEvent(data []byte) error {
 			}
 			return c.handlers.contractinfo(&event)
 		}
-	case "assetIndex":
-		if c.handlers.assetindex != nil {
-			var event models.AssetIndexEvent
-			if err := json.Unmarshal(data, &event); err != nil {
-				return fmt.Errorf("failed to parse assetIndex event: %w", err)
-			}
-			return c.handlers.assetindex(&event)
-		}
 	case "assetIndexUpdate":
 		if c.handlers.assetindexupdate != nil {
 			var event models.AssetIndexEvent
@@ -1324,6 +1357,14 @@ func (c *Client) processSingleStreamEvent(data []byte) error {
 				return fmt.Errorf("failed to parse assetIndexUpdate event: %w", err)
 			}
 			return c.handlers.assetindexupdate(&event)
+		}
+	case "assetIndex":
+		if c.handlers.assetindex != nil {
+			var event models.AssetIndexEvent
+			if err := json.Unmarshal(data, &event); err != nil {
+				return fmt.Errorf("failed to parse assetIndex event: %w", err)
+			}
+			return c.handlers.assetindex(&event)
 		}
 	default:
 		// Log unknown event types with full message for debugging

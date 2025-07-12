@@ -13,7 +13,45 @@ type KlineEvent struct {
 	// Symbol
 	Symbol string `json:"s,omitempty"`
 	// Kline data
-	Kline interface{} `json:"k,omitempty"`
+	Kline *KlineEventKline `json:"k,omitempty"`
+}
+
+// KlineEventKline represents the kline details
+type KlineEventKline struct {
+	// Kline start time
+	TradeId int64 `json:"t,omitempty"`
+	// Kline close time
+	TradeTime int64 `json:"T,omitempty"`
+	// Symbol
+	Symbol string `json:"s,omitempty"`
+	// Interval
+	Interval string `json:"i,omitempty"`
+	// First trade ID
+	FirstTradeId int64 `json:"f,omitempty"`
+	// Last trade ID
+	LastTradeId int64 `json:"L,omitempty"`
+	// Open price
+	OpenPrice string `json:"o,omitempty"`
+	// Close price
+	ClosePrice string `json:"c,omitempty"`
+	// High price
+	HighPrice string `json:"h,omitempty"`
+	// Low price
+	LastTradeId2 string `json:"l,omitempty"`
+	// Base asset volume
+	Volume string `json:"v,omitempty"`
+	// Number of trades
+	NumberOfTrades int `json:"n,omitempty"`
+	// Is this kline closed
+	IsKlineClosed bool `json:"x,omitempty"`
+	// Quote asset volume
+	Quantity string `json:"q,omitempty"`
+	// Taker buy base asset volume
+	TakerBuyBaseVolume string `json:"V,omitempty"`
+	// Taker buy quote asset volume
+	TakerBuyQuoteVolume string `json:"Q,omitempty"`
+	// Ignore field
+	BestBidQuantity string `json:"B,omitempty"`
 }
 
 // String returns string representation of KlineEvent

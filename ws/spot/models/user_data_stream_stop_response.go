@@ -30,7 +30,7 @@ type UserDataStreamStopResponse struct {
 	// rateLimits property
 	RateLimits []UserDataStreamStopResponseRateLimitsItem `json:"rateLimits,omitempty"`
 	// response property
-	Response interface{} `json:"response,omitempty"`
+	Response *interface{} `json:"response,omitempty"`
 	// status property
 	Status int64 `json:"status,omitempty"`
 }

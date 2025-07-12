@@ -94,7 +94,7 @@ type OrderListPlaceOtocoResponse struct {
 	// rateLimits property
 	RateLimits []OrderListPlaceOtocoResponseRateLimitsItem `json:"rateLimits,omitempty"`
 	// result property
-	Result OrderListPlaceOtocoResponseResult `json:"result,omitempty"`
+	Result *OrderListPlaceOtocoResponseResult `json:"result,omitempty"`
 	// status property
 	Status int64 `json:"status,omitempty"`
 }

@@ -32,7 +32,7 @@ type TimeResponse struct {
 	// rateLimits property
 	RateLimits []TimeResponseRateLimitsItem `json:"rateLimits,omitempty"`
 	// result property
-	Result TimeResponseResult `json:"result,omitempty"`
+	Result *TimeResponseResult `json:"result,omitempty"`
 	// status property
 	Status int64 `json:"status,omitempty"`
 }

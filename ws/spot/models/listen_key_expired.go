@@ -17,7 +17,7 @@ type ListenKeyExpiredEvent struct {
 // ListenKeyExpired - Sent when the listen key expires
 // Message name: Listen Key Expired Event
 type ListenKeyExpired struct {
-	Event ListenKeyExpiredEvent `json:"event,omitempty"`
+	Event *ListenKeyExpiredEvent `json:"event,omitempty"`
 }
 
 // String returns string representation of ListenKeyExpired

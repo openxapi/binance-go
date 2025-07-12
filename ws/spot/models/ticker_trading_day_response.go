@@ -60,7 +60,7 @@ type TickerTradingDayResponse struct {
 	// rateLimits property
 	RateLimits []TickerTradingDayResponseRateLimitsItem `json:"rateLimits,omitempty"`
 	// result property
-	Result TickerTradingDayResponseResult `json:"result,omitempty"`
+	Result *TickerTradingDayResponseResult `json:"result,omitempty"`
 	// status property
 	Status int64 `json:"status,omitempty"`
 }

@@ -74,7 +74,7 @@ type OrderModifyResponse struct {
 	// rateLimits property
 	RateLimits []OrderModifyResponseRateLimitsItem `json:"rateLimits,omitempty"`
 	// result property
-	Result OrderModifyResponseResult `json:"result,omitempty"`
+	Result *OrderModifyResponseResult `json:"result,omitempty"`
 	// status property
 	Status int64 `json:"status,omitempty"`
 }

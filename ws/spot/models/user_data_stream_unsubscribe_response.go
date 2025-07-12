@@ -14,7 +14,7 @@ type UserDataStreamUnsubscribeResponse struct {
 	// id property
 	Id string `json:"id,omitempty"`
 	// result property
-	Result interface{} `json:"result,omitempty"`
+	Result *interface{} `json:"result,omitempty"`
 	// status property
 	Status int64 `json:"status,omitempty"`
 }

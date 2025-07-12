@@ -17,7 +17,21 @@ type CompositeIndexEvent struct {
 	// Asset type
 	CloseTime string `json:"C,omitempty"`
 	// Composition
-	ClosePrice []interface{} `json:"c,omitempty"`
+	ClosePrice []CompositeIndexEventClosePriceItem `json:"c,omitempty"`
+}
+
+// CompositeIndexEventClosePriceItem represents the closeprice item details
+type CompositeIndexEventClosePriceItem struct {
+	// Base asset
+	BuyerOrderId string `json:"b,omitempty"`
+	// Quote asset
+	Quantity string `json:"q,omitempty"`
+	// Weight in quantity
+	WeightedAveragePrice string `json:"w,omitempty"`
+	// Weight in percentage
+	WeightInPercentage string `json:"W,omitempty"`
+	// Index price
+	Interval string `json:"i,omitempty"`
 }
 
 // String returns string representation of CompositeIndexEvent

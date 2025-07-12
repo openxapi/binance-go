@@ -32,7 +32,7 @@ type UserDataStreamStartResponse struct {
 	// rateLimits property
 	RateLimits []UserDataStreamStartResponseRateLimitsItem `json:"rateLimits,omitempty"`
 	// result property
-	Result UserDataStreamStartResponseResult `json:"result,omitempty"`
+	Result *UserDataStreamStartResponseResult `json:"result,omitempty"`
 	// status property
 	Status int64 `json:"status,omitempty"`
 }

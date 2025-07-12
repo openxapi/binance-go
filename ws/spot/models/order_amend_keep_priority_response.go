@@ -21,7 +21,7 @@ type OrderAmendKeepPriorityResponseRateLimitsItem struct {
 // OrderAmendKeepPriorityResponseResult represents a nested object structure
 type OrderAmendKeepPriorityResponseResult struct {
 	// amendedOrder property
-	AmendedOrder OrderAmendKeepPriorityResponseResultAmendedOrder `json:"amendedOrder,omitempty"`
+	AmendedOrder *OrderAmendKeepPriorityResponseResultAmendedOrder `json:"amendedOrder,omitempty"`
 	// executionId property
 	ExecutionId int64 `json:"executionId,omitempty"`
 	// transactTime property
@@ -74,7 +74,7 @@ type OrderAmendKeepPriorityResponse struct {
 	// rateLimits property
 	RateLimits []OrderAmendKeepPriorityResponseRateLimitsItem `json:"rateLimits,omitempty"`
 	// result property
-	Result OrderAmendKeepPriorityResponseResult `json:"result,omitempty"`
+	Result *OrderAmendKeepPriorityResponseResult `json:"result,omitempty"`
 	// status property
 	Status int64 `json:"status,omitempty"`
 }

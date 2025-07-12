@@ -96,7 +96,7 @@ type OrderListPlaceResponse struct {
 	// rateLimits property
 	RateLimits []OrderListPlaceResponseRateLimitsItem `json:"rateLimits,omitempty"`
 	// result property
-	Result OrderListPlaceResponseResult `json:"result,omitempty"`
+	Result *OrderListPlaceResponseResult `json:"result,omitempty"`
 	// status property
 	Status int64 `json:"status,omitempty"`
 }

@@ -35,7 +35,7 @@ type AccountStatusResponseResult struct {
 	// canWithdraw property
 	CanWithdraw bool `json:"canWithdraw,omitempty"`
 	// commissionRates property
-	CommissionRates AccountStatusResponseResultCommissionRates `json:"commissionRates,omitempty"`
+	CommissionRates *AccountStatusResponseResultCommissionRates `json:"commissionRates,omitempty"`
 	// makerCommission property
 	MakerCommission int64 `json:"makerCommission,omitempty"`
 	// permissions property
@@ -84,7 +84,7 @@ type AccountStatusResponse struct {
 	// rateLimits property
 	RateLimits []AccountStatusResponseRateLimitsItem `json:"rateLimits,omitempty"`
 	// result property
-	Result AccountStatusResponseResult `json:"result,omitempty"`
+	Result *AccountStatusResponseResult `json:"result,omitempty"`
 	// status property
 	Status int64 `json:"status,omitempty"`
 }

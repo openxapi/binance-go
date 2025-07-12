@@ -21,11 +21,11 @@ type OrderCancelReplaceResponseRateLimitsItem struct {
 // OrderCancelReplaceResponseResult represents a nested object structure
 type OrderCancelReplaceResponseResult struct {
 	// cancelResponse property
-	CancelResponse OrderCancelReplaceResponseResultCancelResponse `json:"cancelResponse,omitempty"`
+	CancelResponse *OrderCancelReplaceResponseResultCancelResponse `json:"cancelResponse,omitempty"`
 	// cancelResult property
 	CancelResult string `json:"cancelResult,omitempty"`
 	// newOrderResponse property
-	NewOrderResponse OrderCancelReplaceResponseResultNewOrderResponse `json:"newOrderResponse,omitempty"`
+	NewOrderResponse *OrderCancelReplaceResponseResultNewOrderResponse `json:"newOrderResponse,omitempty"`
 	// newOrderResult property
 	NewOrderResult string `json:"newOrderResult,omitempty"`
 }
@@ -108,7 +108,7 @@ type OrderCancelReplaceResponse struct {
 	// rateLimits property
 	RateLimits []OrderCancelReplaceResponseRateLimitsItem `json:"rateLimits,omitempty"`
 	// result property
-	Result OrderCancelReplaceResponseResult `json:"result,omitempty"`
+	Result *OrderCancelReplaceResponseResult `json:"result,omitempty"`
 	// status property
 	Status int64 `json:"status,omitempty"`
 }

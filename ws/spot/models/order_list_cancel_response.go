@@ -94,7 +94,7 @@ type OrderListCancelResponse struct {
 	// rateLimits property
 	RateLimits []OrderListCancelResponseRateLimitsItem `json:"rateLimits,omitempty"`
 	// result property
-	Result OrderListCancelResponseResult `json:"result,omitempty"`
+	Result *OrderListCancelResponseResult `json:"result,omitempty"`
 	// status property
 	Status int64 `json:"status,omitempty"`
 }

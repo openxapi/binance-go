@@ -113,7 +113,7 @@ type ExecutionReportEvent struct {
 // ExecutionReport - Orders are updated with executionReport event
 // Message name: Execution Report Event
 type ExecutionReport struct {
-	Event ExecutionReportEvent `json:"event,omitempty"`
+	Event *ExecutionReportEvent `json:"event,omitempty"`
 }
 
 // String returns string representation of ExecutionReport

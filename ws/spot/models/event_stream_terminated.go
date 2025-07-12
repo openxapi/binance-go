@@ -15,7 +15,7 @@ type EventStreamTerminatedEvent struct {
 // EventStreamTerminated - Sent when User Data Stream is stopped (WebSocket API only)
 // Message name: Event Stream Terminated Event
 type EventStreamTerminated struct {
-	Event EventStreamTerminatedEvent `json:"event,omitempty"`
+	Event *EventStreamTerminatedEvent `json:"event,omitempty"`
 }
 
 // String returns string representation of EventStreamTerminated

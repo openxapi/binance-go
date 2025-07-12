@@ -21,7 +21,7 @@ type BalanceUpdateEvent struct {
 // BalanceUpdate - Occurs during deposits, withdrawals, or transfers
 // Message name: Balance Update Event
 type BalanceUpdate struct {
-	Event BalanceUpdateEvent `json:"event,omitempty"`
+	Event *BalanceUpdateEvent `json:"event,omitempty"`
 }
 
 // String returns string representation of BalanceUpdate

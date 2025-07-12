@@ -110,7 +110,7 @@ type AccountStatusResponse struct {
 	// rateLimits property
 	RateLimits []AccountStatusResponseRateLimitsItem `json:"rateLimits,omitempty"`
 	// result property
-	Result AccountStatusResponseResult `json:"result,omitempty"`
+	Result *AccountStatusResponseResult `json:"result,omitempty"`
 	// status property
 	Status int64 `json:"status,omitempty"`
 }

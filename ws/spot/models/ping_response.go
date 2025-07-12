@@ -30,7 +30,7 @@ type PingResponse struct {
 	// rateLimits property
 	RateLimits []PingResponseRateLimitsItem `json:"rateLimits,omitempty"`
 	// result property
-	Result interface{} `json:"result,omitempty"`
+	Result *interface{} `json:"result,omitempty"`
 	// status property
 	Status int64 `json:"status,omitempty"`
 }

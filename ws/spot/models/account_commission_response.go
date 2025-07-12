@@ -21,13 +21,13 @@ type AccountCommissionResponseRateLimitsItem struct {
 // AccountCommissionResponseResult represents a nested object structure
 type AccountCommissionResponseResult struct {
 	// discount property
-	Discount AccountCommissionResponseResultDiscount `json:"discount,omitempty"`
+	Discount *AccountCommissionResponseResultDiscount `json:"discount,omitempty"`
 	// standardCommission property
-	StandardCommission AccountCommissionResponseResultStandardCommission `json:"standardCommission,omitempty"`
+	StandardCommission *AccountCommissionResponseResultStandardCommission `json:"standardCommission,omitempty"`
 	// symbol property
 	Symbol string `json:"symbol,omitempty"`
 	// taxCommission property
-	TaxCommission AccountCommissionResponseResultTaxCommission `json:"taxCommission,omitempty"`
+	TaxCommission *AccountCommissionResponseResultTaxCommission `json:"taxCommission,omitempty"`
 }
 
 // AccountCommissionResponseResultDiscount represents a nested object structure
@@ -74,7 +74,7 @@ type AccountCommissionResponse struct {
 	// rateLimits property
 	RateLimits []AccountCommissionResponseRateLimitsItem `json:"rateLimits,omitempty"`
 	// result property
-	Result AccountCommissionResponseResult `json:"result,omitempty"`
+	Result *AccountCommissionResponseResult `json:"result,omitempty"`
 	// status property
 	Status int64 `json:"status,omitempty"`
 }

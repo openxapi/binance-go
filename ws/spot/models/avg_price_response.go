@@ -36,7 +36,7 @@ type AvgPriceResponse struct {
 	// rateLimits property
 	RateLimits []AvgPriceResponseRateLimitsItem `json:"rateLimits,omitempty"`
 	// result property
-	Result AvgPriceResponseResult `json:"result,omitempty"`
+	Result *AvgPriceResponseResult `json:"result,omitempty"`
 	// status property
 	Status int64 `json:"status,omitempty"`
 }

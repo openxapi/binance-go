@@ -34,7 +34,7 @@ type TickerPriceResponse struct {
 	// rateLimits property
 	RateLimits []TickerPriceResponseRateLimitsItem `json:"rateLimits,omitempty"`
 	// result property
-	Result TickerPriceResponseResult `json:"result,omitempty"`
+	Result *TickerPriceResponseResult `json:"result,omitempty"`
 	// status property
 	Status int64 `json:"status,omitempty"`
 }

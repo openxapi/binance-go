@@ -26,7 +26,7 @@ type SessionLogoutResponse struct {
 	// id property
 	Id string `json:"id,omitempty"`
 	// result property
-	Result SessionLogoutResponseResult `json:"result,omitempty"`
+	Result *SessionLogoutResponseResult `json:"result,omitempty"`
 	// status property
 	Status int64 `json:"status,omitempty"`
 }

@@ -40,7 +40,7 @@ type DepthResponse struct {
 	// rateLimits property
 	RateLimits []DepthResponseRateLimitsItem `json:"rateLimits,omitempty"`
 	// result property
-	Result DepthResponseResult `json:"result,omitempty"`
+	Result *DepthResponseResult `json:"result,omitempty"`
 	// status property
 	Status int64 `json:"status,omitempty"`
 }

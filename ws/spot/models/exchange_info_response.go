@@ -126,7 +126,7 @@ type ExchangeInfoResponse struct {
 	// rateLimits property
 	RateLimits []ExchangeInfoResponseRateLimitsItem `json:"rateLimits,omitempty"`
 	// result property
-	Result ExchangeInfoResponseResult `json:"result,omitempty"`
+	Result *ExchangeInfoResponseResult `json:"result,omitempty"`
 	// status property
 	Status int64 `json:"status,omitempty"`
 }

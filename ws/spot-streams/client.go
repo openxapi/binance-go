@@ -681,6 +681,14 @@ func (c *Client) readMessages() {
 
 // handleMessage processes incoming WebSocket messages
 func (c *Client) handleMessage(data []byte) error {
+	// First check if this is an array stream (like !assetIndex@arr)
+	// by trying to parse as an array first
+	var arrayData []interface{}
+	if err := json.Unmarshal(data, &arrayData); err == nil {
+		// This is an array stream - delegate to stream processing logic
+		return c.processStreamMessage(data)
+	}
+	
 	// Parse the message to determine its type
 	var genericMessage map[string]interface{}
 	if err := json.Unmarshal(data, &genericMessage); err != nil {
@@ -1134,6 +1142,14 @@ func (c *Client) OnStreamError(handler StreamErrorHandler) {
 
 // Message processing for incoming stream data
 func (c *Client) processStreamMessage(message []byte) error {
+	// First check if this is an array stream (like !miniTicker@arr)
+	// by trying to parse as an array first
+	var arrayData []interface{}
+	if err := json.Unmarshal(message, &arrayData); err == nil {
+		// This is an array stream - process as array of events
+		return c.processArrayStreamEvent(message, arrayData)
+	}
+
 	// Try to parse as subscription response first
 	var subscriptionResp models.SubscriptionResponse
 	if err := json.Unmarshal(message, &subscriptionResp); err == nil && subscriptionResp.RequestIdEcho != 0 {
@@ -1200,6 +1216,57 @@ func (c *Client) processStreamMessage(message []byte) error {
 	}
 
 	log.Printf("Unknown message format: %s", string(message))
+	return nil
+}
+
+// processArrayStreamEvent processes array stream events (like !miniTicker@arr)
+func (c *Client) processArrayStreamEvent(data []byte, arrayData []interface{}) error {
+	// Array streams contain multiple events of the same type
+	// Process each element in the array individually
+	if len(arrayData) == 0 {
+		return nil // Empty array, nothing to process
+	}
+	
+	// Process each element in the array
+	for i, element := range arrayData {
+		elementBytes, err := json.Marshal(element)
+		if err != nil {
+			log.Printf("Failed to marshal array element %d: %v", i, err)
+			continue
+		}
+		
+		// Parse the element to determine its event type
+		var genericMsg map[string]interface{}
+		if err := json.Unmarshal(elementBytes, &genericMsg); err != nil {
+			log.Printf("Failed to parse array element %d: %v", i, err)
+			continue
+		}
+		
+		// Extract event type from the element
+		var eventType string
+		if eValue, hasEventType := genericMsg["e"]; hasEventType {
+			switch v := eValue.(type) {
+			case string:
+				eventType = v
+			case float64:
+				eventType = fmt.Sprintf("%.0f", v)
+			case int:
+				eventType = fmt.Sprintf("%d", v)
+			default:
+				log.Printf("Unknown event type format in array element %d: %T", i, v)
+				continue
+			}
+		} else {
+			log.Printf("No event type field found in array element %d", i)
+			continue
+		}
+		
+		if err := c.processStreamDataByEventType(eventType, elementBytes); err != nil {
+			log.Printf("Failed to process array element %d: %v", i, err)
+			// Continue processing other elements even if one fails
+		}
+	}
+	
 	return nil
 }
 

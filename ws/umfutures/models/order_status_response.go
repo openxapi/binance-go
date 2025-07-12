@@ -60,7 +60,7 @@ type OrderStatusResponse struct {
 	// id property
 	Id string `json:"id,omitempty"`
 	// result property
-	Result OrderStatusResponseResult `json:"result,omitempty"`
+	Result *OrderStatusResponseResult `json:"result,omitempty"`
 	// status property
 	Status int64 `json:"status,omitempty"`
 }
