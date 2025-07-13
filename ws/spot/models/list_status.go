@@ -13,7 +13,7 @@ type ListStatusEvent struct {
 	// List Order Status
 	ListOrderStatus string `json:"L,omitempty"`
 	// Array of orders in the list
-	ArrayOfOrdersInTheList []ListStatusEventArrayItem `json:"O,omitempty"`
+	ArrayOfOrdersInTheList []ListStatusEventOItem `json:"O,omitempty"`
 	// Transaction Time (milliseconds)
 	TransactionTime int64 `json:"T,omitempty"`
 	// Contingency Type
@@ -30,8 +30,8 @@ type ListStatusEvent struct {
 	Symbol string `json:"s,omitempty"`
 }
 
-// ListStatusEventArrayItem represents a nested object structure
-type ListStatusEventArrayItem struct {
+// ListStatusEventOItem represents a nested object structure
+type ListStatusEventOItem struct {
 	// ClientOrderId (example: "AJYsMjErWJesZvqlJCTUgL")
 	ClientOrderId string `json:"c,omitempty"`
 	// OrderId (example: 17)

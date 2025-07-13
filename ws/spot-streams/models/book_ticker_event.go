@@ -11,13 +11,13 @@ type BookTickerEvent struct {
 	// Symbol
 	Symbol string `json:"s,omitempty"`
 	// Best bid price
-	BuyerOrderId string `json:"b,omitempty"`
+	BestBidPrice string `json:"b,omitempty"`
 	// Best bid quantity
 	BestBidQuantity string `json:"B,omitempty"`
 	// Best ask price
-	AggregateTradeId string `json:"a,omitempty"`
+	BestAskPrice string `json:"a,omitempty"`
 	// Best ask quantity
-	SellerOrderId string `json:"A,omitempty"`
+	BestAskQuantity string `json:"A,omitempty"`
 }
 
 // String returns string representation of BookTickerEvent

@@ -15,11 +15,11 @@ type DiffDepthEvent struct {
 	// First update ID in event
 	FirstUpdateId int64 `json:"U,omitempty"`
 	// Final update ID in event
-	UpdateId int64 `json:"u,omitempty"`
+	FinalUpdateId int64 `json:"u,omitempty"`
 	// Bids to be updated
-	BuyerOrderId [][]string `json:"b,omitempty"`
+	Bids [][]string `json:"b,omitempty"`
 	// Asks to be updated
-	AggregateTradeId [][]string `json:"a,omitempty"`
+	Asks [][]string `json:"a,omitempty"`
 }
 
 // String returns string representation of DiffDepthEvent

@@ -11,21 +11,21 @@ type LiquidationEvent struct {
 	// Event time
 	EventTime int64 `json:"E,omitempty"`
 	// Liquidation order
-	OpenPrice *LiquidationEventOpenPrice `json:"o,omitempty"`
+	LiquidationOrder *LiquidationEventLiquidationOrder `json:"o,omitempty"`
 }
 
-// LiquidationEventOpenPrice represents the openprice details
-type LiquidationEventOpenPrice struct {
+// LiquidationEventLiquidationOrder represents the liquidationorder details
+type LiquidationEventLiquidationOrder struct {
 	// Symbol
 	Symbol string `json:"s,omitempty"`
 	// Side
 	Side string `json:"S,omitempty"`
 	// Order type
-	OpenPrice string `json:"o,omitempty"`
+	OrderType string `json:"o,omitempty"`
 	// Time in force
-	FirstTradeId string `json:"f,omitempty"`
+	TimeInForce string `json:"f,omitempty"`
 	// Original quantity
-	Quantity string `json:"q,omitempty"`
+	OriginalQuantity string `json:"q,omitempty"`
 	// Price
 	Price string `json:"p,omitempty"`
 	// Average price
@@ -33,7 +33,7 @@ type LiquidationEventOpenPrice struct {
 	// Order status
 	OrderStatus string `json:"X,omitempty"`
 	// Last filled quantity
-	LastTradeId string `json:"l,omitempty"`
+	LastFilledQuantity string `json:"l,omitempty"`
 	// Accumulated filled quantity
 	AccumulatedFilledQuantity string `json:"z,omitempty"`
 	// Trade time

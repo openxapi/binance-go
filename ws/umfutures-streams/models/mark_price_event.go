@@ -13,15 +13,15 @@ type MarkPriceEvent struct {
 	// Symbol
 	Symbol string `json:"s,omitempty"`
 	// Mark price
-	Price string `json:"p,omitempty"`
+	MarkPrice string `json:"p,omitempty"`
 	// Estimated settle price (only for quarterly contract)
-	PriceChangePercent string `json:"P,omitempty"`
+	EstimatedSettlePrice string `json:"P,omitempty"`
 	// Index price
-	Interval string `json:"i,omitempty"`
+	IndexPrice string `json:"i,omitempty"`
 	// Funding rate
 	FundingRate string `json:"r,omitempty"`
 	// Next funding time
-	TradeTime int64 `json:"T,omitempty"`
+	NextFundingTime int64 `json:"T,omitempty"`
 }
 
 // String returns string representation of MarkPriceEvent

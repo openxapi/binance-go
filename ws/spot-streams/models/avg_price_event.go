@@ -13,9 +13,9 @@ type AvgPriceEvent struct {
 	// Symbol
 	Symbol string `json:"s,omitempty"`
 	// Average price interval (minutes)
-	Interval string `json:"i,omitempty"`
+	AveragePriceInterval string `json:"i,omitempty"`
 	// Average price
-	WeightedAveragePrice string `json:"w,omitempty"`
+	AveragePrice string `json:"w,omitempty"`
 	// Last trade time
 	TradeTime int64 `json:"T,omitempty"`
 }

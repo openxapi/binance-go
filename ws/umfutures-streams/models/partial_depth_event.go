@@ -11,19 +11,19 @@ type PartialDepthEvent struct {
 	// Event time
 	EventTime int64 `json:"E,omitempty"`
 	// Transaction time
-	TradeTime int64 `json:"T,omitempty"`
+	TransactionTime int64 `json:"T,omitempty"`
 	// Symbol
 	Symbol string `json:"s,omitempty"`
 	// First update ID in event
 	FirstUpdateId int64 `json:"U,omitempty"`
 	// Final update ID in event
-	UpdateId int64 `json:"u,omitempty"`
+	FinalUpdateId int64 `json:"u,omitempty"`
 	// Final update ID in last stream
-	FinalUpdateIdInLastStream int64 `json:"pu,omitempty"`
+	PrevFinalUpdateId int64 `json:"pu,omitempty"`
 	// Bids
-	BuyerOrderId [][]string `json:"b,omitempty"`
+	Bids [][]string `json:"b,omitempty"`
 	// Asks
-	AggregateTradeId [][]string `json:"a,omitempty"`
+	Asks [][]string `json:"a,omitempty"`
 }
 
 // String returns string representation of PartialDepthEvent

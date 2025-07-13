@@ -1,4 +1,4 @@
-package umfuturesmarketstreams
+package umfuturesstreams
 import (
 	"testing"
 	"reflect"

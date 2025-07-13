@@ -13,7 +13,7 @@ type AssetIndexEvent struct {
 	// Asset symbol
 	Symbol string `json:"s,omitempty"`
 	// Asset index
-	Interval string `json:"i,omitempty"`
+	AssetIndex string `json:"i,omitempty"`
 }
 
 // String returns string representation of AssetIndexEvent

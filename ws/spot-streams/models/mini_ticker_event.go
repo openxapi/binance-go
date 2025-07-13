@@ -19,11 +19,11 @@ type MiniTickerEvent struct {
 	// High price
 	HighPrice string `json:"h,omitempty"`
 	// Low price
-	LastTradeId string `json:"l,omitempty"`
+	LowPrice string `json:"l,omitempty"`
 	// Total traded base asset volume
-	Volume string `json:"v,omitempty"`
+	TotalTradedBaseAssetVolume string `json:"v,omitempty"`
 	// Total traded quote asset volume
-	Quantity string `json:"q,omitempty"`
+	TotalTradedQuoteAssetVolume string `json:"q,omitempty"`
 }
 
 // String returns string representation of MiniTickerEvent

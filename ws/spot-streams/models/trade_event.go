@@ -21,7 +21,7 @@ type TradeEvent struct {
 	// Buyer order ID
 	BuyerOrderId int64 `json:"b,omitempty"`
 	// Seller order ID
-	AggregateTradeId int64 `json:"a,omitempty"`
+	SellerOrderId int64 `json:"a,omitempty"`
 	// Trade time
 	TradeTime int64 `json:"T,omitempty"`
 	// Is the buyer the market maker

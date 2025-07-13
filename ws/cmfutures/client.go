@@ -199,12 +199,40 @@ func (sm *ServerManager) UpdateServerPathname(name string, pathname string) erro
 	server.Pathname = pathname
 	server.URL = fmt.Sprintf("%s://%s%s", server.Protocol, server.Host, pathname)
 	
-	// Validate the new URL
-	if _, err := url.Parse(server.URL); err != nil {
-		return fmt.Errorf("invalid server URL '%s': %w", server.URL, err)
+	// Validate the new URL (skip validation if it contains template variables)
+	if !strings.Contains(server.URL, "{") {
+		if _, err := url.Parse(server.URL); err != nil {
+			return fmt.Errorf("invalid server URL '%s': %w", server.URL, err)
+		}
 	}
 	
 	return nil
+}
+
+// ResolveServerURL resolves template variables in server URL
+func (sm *ServerManager) ResolveServerURL(name string, variables map[string]string) (string, error) {
+	sm.mu.RLock()
+	defer sm.mu.RUnlock()
+	
+	server, exists := sm.servers[name]
+	if !exists {
+		return "", fmt.Errorf("server '%s' not found", name)
+	}
+	
+	resolvedURL := server.URL
+	
+	// Replace template variables
+	for key, value := range variables {
+		placeholder := fmt.Sprintf("{%s}", key)
+		resolvedURL = strings.ReplaceAll(resolvedURL, placeholder, value)
+	}
+	
+	// Validate the resolved URL
+	if _, err := url.Parse(resolvedURL); err != nil {
+		return "", fmt.Errorf("invalid resolved URL '%s': %w", resolvedURL, err)
+	}
+	
+	return resolvedURL, nil
 }
 
 // SetActiveServer sets the active server
@@ -605,10 +633,18 @@ func (c *Client) ConnectToServer(ctx context.Context, serverName string) error {
 	return c.Connect(ctx)
 }
 
-// Disconnect closes the WebSocket connection
+// Disconnect closes the WebSocket connection safely
 func (c *Client) Disconnect() error {
 	c.isConnected = false
-	close(c.done)
+	
+	// Safely close the done channel only once
+	select {
+	case <-c.done:
+		// Channel already closed, do nothing
+	default:
+		close(c.done)
+	}
+	
 	if c.conn != nil {
 		return c.conn.Close()
 	}

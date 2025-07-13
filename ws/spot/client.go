@@ -221,12 +221,40 @@ func (sm *ServerManager) UpdateServerPathname(name string, pathname string) erro
 	server.Pathname = pathname
 	server.URL = fmt.Sprintf("%s://%s%s", server.Protocol, server.Host, pathname)
 	
-	// Validate the new URL
-	if _, err := url.Parse(server.URL); err != nil {
-		return fmt.Errorf("invalid server URL '%s': %w", server.URL, err)
+	// Validate the new URL (skip validation if it contains template variables)
+	if !strings.Contains(server.URL, "{") {
+		if _, err := url.Parse(server.URL); err != nil {
+			return fmt.Errorf("invalid server URL '%s': %w", server.URL, err)
+		}
 	}
 	
 	return nil
+}
+
+// ResolveServerURL resolves template variables in server URL
+func (sm *ServerManager) ResolveServerURL(name string, variables map[string]string) (string, error) {
+	sm.mu.RLock()
+	defer sm.mu.RUnlock()
+	
+	server, exists := sm.servers[name]
+	if !exists {
+		return "", fmt.Errorf("server '%s' not found", name)
+	}
+	
+	resolvedURL := server.URL
+	
+	// Replace template variables
+	for key, value := range variables {
+		placeholder := fmt.Sprintf("{%s}", key)
+		resolvedURL = strings.ReplaceAll(resolvedURL, placeholder, value)
+	}
+	
+	// Validate the resolved URL
+	if _, err := url.Parse(resolvedURL); err != nil {
+		return "", fmt.Errorf("invalid resolved URL '%s': %w", resolvedURL, err)
+	}
+	
+	return resolvedURL, nil
 }
 
 // SetActiveServer sets the active server
@@ -627,10 +655,18 @@ func (c *Client) ConnectToServer(ctx context.Context, serverName string) error {
 	return c.Connect(ctx)
 }
 
-// Disconnect closes the WebSocket connection
+// Disconnect closes the WebSocket connection safely
 func (c *Client) Disconnect() error {
 	c.isConnected = false
-	close(c.done)
+	
+	// Safely close the done channel only once
+	select {
+	case <-c.done:
+		// Channel already closed, do nothing
+	default:
+		close(c.done)
+	}
+	
 	if c.conn != nil {
 		return c.conn.Close()
 	}
@@ -2365,7 +2401,7 @@ func (c *Client) SendPing(ctx context.Context, request *models.PingRequest, resp
 
 
 // SendSessionLogon sends a session.logon request using typed request/response structs
-// Authentication required: NONE
+// Authentication required: SIGNED
 // If request.Id is empty, a new request ID will be generated automatically
 func (c *Client) SendSessionLogon(ctx context.Context, request *models.SessionLogonRequest, responseHandler func(*models.SessionLogonResponse, error) error) error {
 	// Use existing request ID or generate a new one
@@ -2382,6 +2418,32 @@ func (c *Client) SendSessionLogon(ctx context.Context, request *models.SessionLo
 	requestMap, err := structToMap(request)
 	if err != nil {
 		return fmt.Errorf("failed to convert request to map: %w", err)
+	}
+
+	// Get authentication from context or fall back to client auth
+	var auth *Auth
+	if contextAuth, ok := ctx.Value(ContextBinanceAuth).(Auth); ok {
+		auth = &contextAuth
+	} else if c.auth != nil {
+		auth = c.auth
+	} else {
+		return fmt.Errorf("authentication required for SIGNED request but no auth provided in context or client")
+	}
+
+	// Create signer and sign the request parameters
+	signer := NewRequestSigner(auth)
+	if params, ok := requestMap["params"].(map[string]interface{}); ok {
+		if err := signer.SignRequest(params, AuthTypeSigned); err != nil {
+			return fmt.Errorf("failed to sign request: %w", err)
+		}
+		requestMap["params"] = params
+	} else {
+		// Create params if it doesn't exist
+		params := make(map[string]interface{})
+		if err := signer.SignRequest(params, AuthTypeSigned); err != nil {
+			return fmt.Errorf("failed to sign request: %w", err)
+		}
+		requestMap["params"] = params
 	}
 
 	// Register typed response handler with automatic JSON parsing

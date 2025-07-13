@@ -84,7 +84,7 @@ package main
 import (
     "context"
     "log"
-    "github.com/openxapi/binance-go/ws/umfutures-market-streams"
+    "github.com/openxapi/binance-go/ws/umfutures-streams"
 )
 
 func main() {
@@ -151,7 +151,7 @@ package main
 import (
     "context"
     "log"
-    "github.com/openxapi/binance-go/ws/umfutures-market-streams"
+    "github.com/openxapi/binance-go/ws/umfutures-streams"
 )
 
 func main() {
@@ -200,7 +200,7 @@ package main
 import (
     "context"
     "log"
-    "github.com/openxapi/binance-go/ws/umfutures-market-streams"
+    "github.com/openxapi/binance-go/ws/umfutures-streams"
 )
 
 func main() {
@@ -264,7 +264,7 @@ package main
 import (
     "context"
     "log"
-    "github.com/openxapi/binance-go/ws/umfutures-market-streams"
+    "github.com/openxapi/binance-go/ws/umfutures-streams"
 )
 
 func main() {
@@ -351,7 +351,7 @@ import (
     "context"
     "log"
     "os"
-    "github.com/openxapi/binance-go/ws/umfutures-market-streams"
+    "github.com/openxapi/binance-go/ws/umfutures-streams"
 )
 
 func main() {
@@ -410,7 +410,7 @@ import (
     "context"
     "log"
     "os"
-    "github.com/openxapi/binance-go/ws/umfutures-market-streams"
+    "github.com/openxapi/binance-go/ws/umfutures-streams"
 )
 
 func main() {
@@ -481,7 +481,7 @@ package main
 import (
     "context"
     "log"
-    "github.com/openxapi/binance-go/ws/umfutures-market-streams"
+    "github.com/openxapi/binance-go/ws/umfutures-streams"
 )
 
 func main() {
@@ -882,8 +882,8 @@ go test -bench=. # Run benchmarks
 
 ## Package Information
 
-- **Module**: github.com/openxapi/binance-go/ws/umfutures-market-streams
-- **Package**: umfuturesmarketstreams
+- **Module**: github.com/openxapi/binance-go/ws/umfutures-streams
+- **Package**: umfuturesstreams
 - **Version**: 0.1.0
 - **Author**: openxapi
 

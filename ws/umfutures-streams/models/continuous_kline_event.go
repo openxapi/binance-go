@@ -21,9 +21,9 @@ type ContinuousKlineEvent struct {
 // ContinuousKlineEventKline represents the kline details
 type ContinuousKlineEventKline struct {
 	// Kline start time
-	TradeId int64 `json:"t,omitempty"`
+	KlineStartTime int64 `json:"t,omitempty"`
 	// Kline close time
-	TradeTime int64 `json:"T,omitempty"`
+	KlineCloseTime int64 `json:"T,omitempty"`
 	// Interval
 	Interval string `json:"i,omitempty"`
 	// First trade ID
@@ -37,21 +37,21 @@ type ContinuousKlineEventKline struct {
 	// High price
 	HighPrice string `json:"h,omitempty"`
 	// Low price
-	LastTradeId2 string `json:"l,omitempty"`
+	LowPrice string `json:"l,omitempty"`
 	// Volume
-	Volume string `json:"v,omitempty"`
+	BaseAssetVolume string `json:"v,omitempty"`
 	// Number of trades
 	NumberOfTrades int `json:"n,omitempty"`
 	// Is this kline closed
 	IsKlineClosed bool `json:"x,omitempty"`
 	// Quote asset volume
-	Quantity string `json:"q,omitempty"`
+	QuoteAssetVolume string `json:"q,omitempty"`
 	// Taker buy volume
-	TakerBuyBaseVolume string `json:"V,omitempty"`
+	TakerBuyBaseAssetVolume string `json:"V,omitempty"`
 	// Taker buy quote asset volume
-	TakerBuyQuoteVolume string `json:"Q,omitempty"`
+	TakerBuyQuoteAssetVolume string `json:"Q,omitempty"`
 	// Ignore field
-	BestBidQuantity string `json:"B,omitempty"`
+	IgnoreField string `json:"B,omitempty"`
 }
 
 // String returns string representation of ContinuousKlineEvent

@@ -1,4 +1,4 @@
-package umfuturesmarketstreams
+package umfuturesstreams
 import (
 	"context"
 	"crypto"
@@ -27,6 +27,7 @@ const (
 	AuthTypeTrade      AuthType = "TRADE"       // Trading on the exchange, placing and canceling orders
 	AuthTypeUserData   AuthType = "USER_DATA"   // Private account information, such as order status and trading history
 	AuthTypeUserStream AuthType = "USER_STREAM" // Managing User Data Stream subscriptions
+	AuthTypeSigned     AuthType = "SIGNED"      // Signed requests requiring API key and signature
 )
 
 // KeyType represents the key type for authentication
@@ -198,6 +199,7 @@ func GetAuthTypeFromMessageName(messageName string) AuthType {
 	// Extract content from parentheses at the end of the message name
 	// Examples:
 	// "Account Commission Rates (USER_DATA) Request" -> "USER_DATA"
+	// "Log in with API key (SIGNED) Request" -> "SIGNED"
 	// "Current average price Request" -> "NONE" (no parentheses)
 	
 	if strings.Contains(messageName, "(USER_DATA)") {
@@ -209,12 +211,15 @@ func GetAuthTypeFromMessageName(messageName string) AuthType {
 	if strings.Contains(messageName, "(USER_STREAM)") {
 		return AuthTypeUserStream
 	}
+	if strings.Contains(messageName, "(SIGNED)") {
+		return AuthTypeSigned
+	}
 	return AuthTypeNone
 }
 
 // RequiresSignature returns true if the authentication type requires a signature
 func RequiresSignature(authType AuthType) bool {
-	return authType == AuthTypeTrade || authType == AuthTypeUserData
+	return authType == AuthTypeTrade || authType == AuthTypeUserData || authType == AuthTypeSigned
 }
 
 // SignRequest signs a request based on the authentication type and signing method
