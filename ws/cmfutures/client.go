@@ -621,7 +621,10 @@ func (c *Client) Connect(ctx context.Context) error {
 
 	c.conn = conn
 	c.isConnected = true
+	
+	// Start the message reading loop
 	go c.readMessages()
+	
 	return nil
 }
 

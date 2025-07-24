@@ -72,7 +72,7 @@ import (
 )
 
 func main() {
-	orders := []openapiclient.OptionsCreateBatchOrdersV1ReqOrdersItem{*openapiclient.NewOptionsCreateBatchOrdersV1ReqOrdersItem("Quantity_example", "Side_example", "Symbol_example", "Type_example")} // []OptionsCreateBatchOrdersV1ReqOrdersItem | 
+	orders := "orders_example" // string | JSON string containing array of order objects. Max 20 orders.
 	timestamp := int64(789) // int64 | 
 	recvWindow := int64(789) // int64 |  (optional)
 
@@ -99,7 +99,7 @@ Other parameters are passed through a pointer to a apiCreateBatchOrdersV1Request
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orders** | [**[]OptionsCreateBatchOrdersV1ReqOrdersItem**](OptionsCreateBatchOrdersV1ReqOrdersItem.md) |  | 
+ **orders** | **string** | JSON string containing array of order objects. Max 20 orders. | 
  **timestamp** | **int64** |  | 
  **recvWindow** | **int64** |  | 
 
@@ -795,8 +795,8 @@ import (
 func main() {
 	symbol := "symbol_example" // string | Option trading pair, e.g BTC-200730-9000-C (default to "")
 	timestamp := int64(789) // int64 | 
-	orderIds := []int64{int64(123)} // []int64 | Order ID, e.g [4611875134427365377,4611875134427365378] (optional)
-	clientOrderIds := []string{"Inner_example"} // []string | User-defined order ID, e.g [&#34;my_id_1&#34;,&#34;my_id_2&#34;] (optional)
+	orderIds := "orderIds_example" // string | Order ID, e.g [4611875134427365377,4611875134427365378] (optional)
+	clientOrderIds := "clientOrderIds_example" // string | User-defined order ID, e.g [&#34;my_id_1&#34;,&#34;my_id_2&#34;] (optional)
 	recvWindow := int64(789) // int64 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -824,8 +824,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **symbol** | **string** | Option trading pair, e.g BTC-200730-9000-C | [default to &quot;&quot;]
  **timestamp** | **int64** |  | 
- **orderIds** | **[]int64** | Order ID, e.g [4611875134427365377,4611875134427365378] | 
- **clientOrderIds** | **[]string** | User-defined order ID, e.g [&amp;#34;my_id_1&amp;#34;,&amp;#34;my_id_2&amp;#34;] | 
+ **orderIds** | **string** | Order ID, e.g [4611875134427365377,4611875134427365378] | 
+ **clientOrderIds** | **string** | User-defined order ID, e.g [&amp;#34;my_id_1&amp;#34;,&amp;#34;my_id_2&amp;#34;] | 
  **recvWindow** | **int64** |  | 
 
 ### Return type
@@ -1820,7 +1820,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 

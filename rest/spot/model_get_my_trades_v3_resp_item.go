@@ -21,7 +21,7 @@ var _ MappedNullable = &GetMyTradesV3RespItem{}
 type GetMyTradesV3RespItem struct {
 	Commission *string `json:"commission,omitempty"`
 	CommissionAsset *string `json:"commissionAsset,omitempty"`
-	Id *int32 `json:"id,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 	IsBestMatch *bool `json:"isBestMatch,omitempty"`
 	IsBuyer *bool `json:"isBuyer,omitempty"`
 	IsMaker *bool `json:"isMaker,omitempty"`
@@ -116,9 +116,9 @@ func (o *GetMyTradesV3RespItem) SetCommissionAsset(v string) {
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *GetMyTradesV3RespItem) GetId() int32 {
+func (o *GetMyTradesV3RespItem) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -126,7 +126,7 @@ func (o *GetMyTradesV3RespItem) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetMyTradesV3RespItem) GetIdOk() (*int32, bool) {
+func (o *GetMyTradesV3RespItem) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -142,8 +142,8 @@ func (o *GetMyTradesV3RespItem) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *GetMyTradesV3RespItem) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *GetMyTradesV3RespItem) SetId(v int64) {
 	o.Id = &v
 }
 

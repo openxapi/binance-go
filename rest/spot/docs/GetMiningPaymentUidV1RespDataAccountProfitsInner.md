@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Amount** | Pointer to **float32** |  | [optional] 
 **CoinName** | Pointer to **string** |  | [optional] 
-**Puid** | Pointer to **int32** |  | [optional] 
+**Puid** | Pointer to **int64** |  | [optional] 
 **SubName** | Pointer to **string** |  | [optional] 
 **Time** | Pointer to **int64** |  | [optional] 
 **Type** | Pointer to **int32** |  | [optional] 
@@ -82,20 +82,20 @@ HasCoinName returns a boolean if a field has been set.
 
 ### GetPuid
 
-`func (o *GetMiningPaymentUidV1RespDataAccountProfitsInner) GetPuid() int32`
+`func (o *GetMiningPaymentUidV1RespDataAccountProfitsInner) GetPuid() int64`
 
 GetPuid returns the Puid field if non-nil, zero value otherwise.
 
 ### GetPuidOk
 
-`func (o *GetMiningPaymentUidV1RespDataAccountProfitsInner) GetPuidOk() (*int32, bool)`
+`func (o *GetMiningPaymentUidV1RespDataAccountProfitsInner) GetPuidOk() (*int64, bool)`
 
 GetPuidOk returns a tuple with the Puid field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPuid
 
-`func (o *GetMiningPaymentUidV1RespDataAccountProfitsInner) SetPuid(v int32)`
+`func (o *GetMiningPaymentUidV1RespDataAccountProfitsInner) SetPuid(v int64)`
 
 SetPuid sets Puid field to given value.
 

@@ -25,7 +25,7 @@ type CmfuturesSymbolFilter struct {
 	MaxQty *string `json:"maxQty,omitempty"`
 	MinPrice *string `json:"minPrice,omitempty"`
 	MinQty *string `json:"minQty,omitempty"`
-	MultiplierDecimal *int32 `json:"multiplierDecimal,omitempty"`
+	MultiplierDecimal *string `json:"multiplierDecimal,omitempty"`
 	MultiplierDown *string `json:"multiplierDown,omitempty"`
 	MultiplierUp *string `json:"multiplierUp,omitempty"`
 	StepSize *string `json:"stepSize,omitempty"`
@@ -242,9 +242,9 @@ func (o *CmfuturesSymbolFilter) SetMinQty(v string) {
 }
 
 // GetMultiplierDecimal returns the MultiplierDecimal field value if set, zero value otherwise.
-func (o *CmfuturesSymbolFilter) GetMultiplierDecimal() int32 {
+func (o *CmfuturesSymbolFilter) GetMultiplierDecimal() string {
 	if o == nil || IsNil(o.MultiplierDecimal) {
-		var ret int32
+		var ret string
 		return ret
 	}
 	return *o.MultiplierDecimal
@@ -252,7 +252,7 @@ func (o *CmfuturesSymbolFilter) GetMultiplierDecimal() int32 {
 
 // GetMultiplierDecimalOk returns a tuple with the MultiplierDecimal field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CmfuturesSymbolFilter) GetMultiplierDecimalOk() (*int32, bool) {
+func (o *CmfuturesSymbolFilter) GetMultiplierDecimalOk() (*string, bool) {
 	if o == nil || IsNil(o.MultiplierDecimal) {
 		return nil, false
 	}
@@ -268,8 +268,8 @@ func (o *CmfuturesSymbolFilter) HasMultiplierDecimal() bool {
 	return false
 }
 
-// SetMultiplierDecimal gets a reference to the given int32 and assigns it to the MultiplierDecimal field.
-func (o *CmfuturesSymbolFilter) SetMultiplierDecimal(v int32) {
+// SetMultiplierDecimal gets a reference to the given string and assigns it to the MultiplierDecimal field.
+func (o *CmfuturesSymbolFilter) SetMultiplierDecimal(v string) {
 	o.MultiplierDecimal = &v
 }
 

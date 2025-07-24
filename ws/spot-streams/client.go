@@ -623,28 +623,8 @@ func (c *Client) SetURL(newURL string) error {
 
 // Connect establishes a WebSocket connection to the active server
 func (c *Client) Connect(ctx context.Context) error {
-	currentURL := c.serverManager.GetActiveServerURL()
-	if currentURL == "" {
-		return fmt.Errorf("no active server configured")
-	}
-	
-	u, err := url.Parse(currentURL)
-	if err != nil {
-		return fmt.Errorf("invalid URL: %w", err)
-	}
-
-	dialer := websocket.DefaultDialer
-	dialer.HandshakeTimeout = 10 * time.Second
-
-	conn, _, err := dialer.DialContext(ctx, u.String(), nil)
-	if err != nil {
-		return fmt.Errorf("failed to connect to %s: %w", currentURL, err)
-	}
-
-	c.conn = conn
-	c.isConnected = true
-	go c.readMessages()
-	return nil
+	// For streams modules, use ConnectToSingleStreams by default
+	return c.ConnectToSingleStreams(ctx, "")
 }
 
 // ConnectToServer establishes a WebSocket connection to a specific server
@@ -1030,7 +1010,15 @@ func (c *Client) connect(ctx context.Context, endpoint string, isCombined bool) 
 	}
 	
 	// Build the WebSocket URL with the specific endpoint
-	serverURL := fmt.Sprintf("%s://%s%s", activeServer.Protocol, activeServer.Host, endpoint)
+	// For streams, we connect directly to the endpoint (like /ws or /stream)
+	// The Host field should be clean hostname without template variables
+	host := activeServer.Host
+	if strings.Contains(host, "{streamPath}") {
+		// Extract just the hostname part, removing template variables
+		host = strings.Split(host, "/")[0]
+		host = strings.ReplaceAll(host, "{streamPath}", "")
+	}
+	serverURL := fmt.Sprintf("%s://%s%s", activeServer.Protocol, host, endpoint)
 	
 	u, err := url.Parse(serverURL)
 	if err != nil {

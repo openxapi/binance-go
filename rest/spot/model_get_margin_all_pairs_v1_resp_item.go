@@ -20,7 +20,7 @@ var _ MappedNullable = &GetMarginAllPairsV1RespItem{}
 // GetMarginAllPairsV1RespItem struct for GetMarginAllPairsV1RespItem
 type GetMarginAllPairsV1RespItem struct {
 	Base *string `json:"base,omitempty"`
-	Id *int32 `json:"id,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 	IsBuyAllowed *bool `json:"isBuyAllowed,omitempty"`
 	IsMarginTrade *bool `json:"isMarginTrade,omitempty"`
 	IsSellAllowed *bool `json:"isSellAllowed,omitempty"`
@@ -78,9 +78,9 @@ func (o *GetMarginAllPairsV1RespItem) SetBase(v string) {
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *GetMarginAllPairsV1RespItem) GetId() int32 {
+func (o *GetMarginAllPairsV1RespItem) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -88,7 +88,7 @@ func (o *GetMarginAllPairsV1RespItem) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetMarginAllPairsV1RespItem) GetIdOk() (*int32, bool) {
+func (o *GetMarginAllPairsV1RespItem) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -104,8 +104,8 @@ func (o *GetMarginAllPairsV1RespItem) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *GetMarginAllPairsV1RespItem) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *GetMarginAllPairsV1RespItem) SetId(v int64) {
 	o.Id = &v
 }
 

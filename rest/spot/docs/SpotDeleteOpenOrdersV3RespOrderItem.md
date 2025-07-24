@@ -7,14 +7,17 @@ Name | Type | Description | Notes
 **ClientOrderId** | Pointer to **string** |  | [optional] 
 **CummulativeQuoteQty** | Pointer to **string** |  | [optional] 
 **ExecutedQty** | Pointer to **string** |  | [optional] 
+**IcebergQty** | Pointer to **string** |  | [optional] 
 **OrderId** | Pointer to **int64** |  | [optional] 
 **OrderListId** | Pointer to **int64** |  | [optional] 
 **OrigClientOrderId** | Pointer to **string** |  | [optional] 
 **OrigQty** | Pointer to **string** |  | [optional] 
+**OrigQuoteOrderQty** | Pointer to **string** |  | [optional] 
 **Price** | Pointer to **string** |  | [optional] 
 **SelfTradePreventionMode** | Pointer to **string** |  | [optional] 
 **Side** | Pointer to **string** |  | [optional] 
 **Status** | Pointer to **string** |  | [optional] 
+**StopPrice** | Pointer to **string** |  | [optional] 
 **Symbol** | Pointer to **string** |  | [optional] 
 **TimeInForce** | Pointer to **string** |  | [optional] 
 **TransactTime** | Pointer to **int64** |  | [optional] 
@@ -113,6 +116,31 @@ SetExecutedQty sets ExecutedQty field to given value.
 `func (o *SpotDeleteOpenOrdersV3RespOrderItem) HasExecutedQty() bool`
 
 HasExecutedQty returns a boolean if a field has been set.
+
+### GetIcebergQty
+
+`func (o *SpotDeleteOpenOrdersV3RespOrderItem) GetIcebergQty() string`
+
+GetIcebergQty returns the IcebergQty field if non-nil, zero value otherwise.
+
+### GetIcebergQtyOk
+
+`func (o *SpotDeleteOpenOrdersV3RespOrderItem) GetIcebergQtyOk() (*string, bool)`
+
+GetIcebergQtyOk returns a tuple with the IcebergQty field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIcebergQty
+
+`func (o *SpotDeleteOpenOrdersV3RespOrderItem) SetIcebergQty(v string)`
+
+SetIcebergQty sets IcebergQty field to given value.
+
+### HasIcebergQty
+
+`func (o *SpotDeleteOpenOrdersV3RespOrderItem) HasIcebergQty() bool`
+
+HasIcebergQty returns a boolean if a field has been set.
 
 ### GetOrderId
 
@@ -214,6 +242,31 @@ SetOrigQty sets OrigQty field to given value.
 
 HasOrigQty returns a boolean if a field has been set.
 
+### GetOrigQuoteOrderQty
+
+`func (o *SpotDeleteOpenOrdersV3RespOrderItem) GetOrigQuoteOrderQty() string`
+
+GetOrigQuoteOrderQty returns the OrigQuoteOrderQty field if non-nil, zero value otherwise.
+
+### GetOrigQuoteOrderQtyOk
+
+`func (o *SpotDeleteOpenOrdersV3RespOrderItem) GetOrigQuoteOrderQtyOk() (*string, bool)`
+
+GetOrigQuoteOrderQtyOk returns a tuple with the OrigQuoteOrderQty field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrigQuoteOrderQty
+
+`func (o *SpotDeleteOpenOrdersV3RespOrderItem) SetOrigQuoteOrderQty(v string)`
+
+SetOrigQuoteOrderQty sets OrigQuoteOrderQty field to given value.
+
+### HasOrigQuoteOrderQty
+
+`func (o *SpotDeleteOpenOrdersV3RespOrderItem) HasOrigQuoteOrderQty() bool`
+
+HasOrigQuoteOrderQty returns a boolean if a field has been set.
+
 ### GetPrice
 
 `func (o *SpotDeleteOpenOrdersV3RespOrderItem) GetPrice() string`
@@ -313,6 +366,31 @@ SetStatus sets Status field to given value.
 `func (o *SpotDeleteOpenOrdersV3RespOrderItem) HasStatus() bool`
 
 HasStatus returns a boolean if a field has been set.
+
+### GetStopPrice
+
+`func (o *SpotDeleteOpenOrdersV3RespOrderItem) GetStopPrice() string`
+
+GetStopPrice returns the StopPrice field if non-nil, zero value otherwise.
+
+### GetStopPriceOk
+
+`func (o *SpotDeleteOpenOrdersV3RespOrderItem) GetStopPriceOk() (*string, bool)`
+
+GetStopPriceOk returns a tuple with the StopPrice field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStopPrice
+
+`func (o *SpotDeleteOpenOrdersV3RespOrderItem) SetStopPrice(v string)`
+
+SetStopPrice sets StopPrice field to given value.
+
+### HasStopPrice
+
+`func (o *SpotDeleteOpenOrdersV3RespOrderItem) HasStopPrice() bool`
+
+HasStopPrice returns a boolean if a field has been set.
 
 ### GetSymbol
 

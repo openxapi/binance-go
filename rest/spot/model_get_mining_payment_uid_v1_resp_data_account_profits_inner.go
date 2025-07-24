@@ -21,7 +21,7 @@ var _ MappedNullable = &GetMiningPaymentUidV1RespDataAccountProfitsInner{}
 type GetMiningPaymentUidV1RespDataAccountProfitsInner struct {
 	Amount *float32 `json:"amount,omitempty"`
 	CoinName *string `json:"coinName,omitempty"`
-	Puid *int32 `json:"puid,omitempty"`
+	Puid *int64 `json:"puid,omitempty"`
 	SubName *string `json:"subName,omitempty"`
 	Time *int64 `json:"time,omitempty"`
 	Type *int32 `json:"type,omitempty"`
@@ -109,9 +109,9 @@ func (o *GetMiningPaymentUidV1RespDataAccountProfitsInner) SetCoinName(v string)
 }
 
 // GetPuid returns the Puid field value if set, zero value otherwise.
-func (o *GetMiningPaymentUidV1RespDataAccountProfitsInner) GetPuid() int32 {
+func (o *GetMiningPaymentUidV1RespDataAccountProfitsInner) GetPuid() int64 {
 	if o == nil || IsNil(o.Puid) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Puid
@@ -119,7 +119,7 @@ func (o *GetMiningPaymentUidV1RespDataAccountProfitsInner) GetPuid() int32 {
 
 // GetPuidOk returns a tuple with the Puid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetMiningPaymentUidV1RespDataAccountProfitsInner) GetPuidOk() (*int32, bool) {
+func (o *GetMiningPaymentUidV1RespDataAccountProfitsInner) GetPuidOk() (*int64, bool) {
 	if o == nil || IsNil(o.Puid) {
 		return nil, false
 	}
@@ -135,8 +135,8 @@ func (o *GetMiningPaymentUidV1RespDataAccountProfitsInner) HasPuid() bool {
 	return false
 }
 
-// SetPuid gets a reference to the given int32 and assigns it to the Puid field.
-func (o *GetMiningPaymentUidV1RespDataAccountProfitsInner) SetPuid(v int32) {
+// SetPuid gets a reference to the given int64 and assigns it to the Puid field.
+func (o *GetMiningPaymentUidV1RespDataAccountProfitsInner) SetPuid(v int64) {
 	o.Puid = &v
 }
 

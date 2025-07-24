@@ -19,7 +19,7 @@ var _ MappedNullable = &CreatePositionMarginV1Resp{}
 
 // CreatePositionMarginV1Resp struct for CreatePositionMarginV1Resp
 type CreatePositionMarginV1Resp struct {
-	Amount *int32 `json:"amount,omitempty"`
+	Amount *float32 `json:"amount,omitempty"`
 	Code *int32 `json:"code,omitempty"`
 	Msg *string `json:"msg,omitempty"`
 	Type *int32 `json:"type,omitempty"`
@@ -43,9 +43,9 @@ func NewCreatePositionMarginV1RespWithDefaults() *CreatePositionMarginV1Resp {
 }
 
 // GetAmount returns the Amount field value if set, zero value otherwise.
-func (o *CreatePositionMarginV1Resp) GetAmount() int32 {
+func (o *CreatePositionMarginV1Resp) GetAmount() float32 {
 	if o == nil || IsNil(o.Amount) {
-		var ret int32
+		var ret float32
 		return ret
 	}
 	return *o.Amount
@@ -53,7 +53,7 @@ func (o *CreatePositionMarginV1Resp) GetAmount() int32 {
 
 // GetAmountOk returns a tuple with the Amount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreatePositionMarginV1Resp) GetAmountOk() (*int32, bool) {
+func (o *CreatePositionMarginV1Resp) GetAmountOk() (*float32, bool) {
 	if o == nil || IsNil(o.Amount) {
 		return nil, false
 	}
@@ -69,8 +69,8 @@ func (o *CreatePositionMarginV1Resp) HasAmount() bool {
 	return false
 }
 
-// SetAmount gets a reference to the given int32 and assigns it to the Amount field.
-func (o *CreatePositionMarginV1Resp) SetAmount(v int32) {
+// SetAmount gets a reference to the given float32 and assigns it to the Amount field.
+func (o *CreatePositionMarginV1Resp) SetAmount(v float32) {
 	o.Amount = &v
 }
 

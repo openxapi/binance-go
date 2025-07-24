@@ -16,7 +16,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"reflect"
 )
 
 
@@ -26,12 +25,13 @@ type OptionsAPIService service
 type ApiCreateBatchOrdersV1Request struct {
 	ctx context.Context
 	ApiService *OptionsAPIService
-	orders *[]OptionsCreateBatchOrdersV1ReqOrdersItem
+	orders *string
 	timestamp *int64
 	recvWindow *int64
 }
 
-func (r ApiCreateBatchOrdersV1Request) Orders(orders []OptionsCreateBatchOrdersV1ReqOrdersItem) ApiCreateBatchOrdersV1Request {
+// JSON string containing array of order objects. Max 20 orders.
+func (r ApiCreateBatchOrdersV1Request) Orders(orders string) ApiCreateBatchOrdersV1Request {
 	r.orders = &orders
 	return r
 }
@@ -109,7 +109,7 @@ func (a *OptionsAPIService) CreateBatchOrdersV1Execute(r ApiCreateBatchOrdersV1R
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarFormParams, "orders", r.orders, "", "csv")
+	parameterAddToHeaderOrQuery(localVarFormParams, "orders", r.orders, "", "")
 	if r.recvWindow != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
 	}
@@ -1689,8 +1689,8 @@ type ApiDeleteBatchOrdersV1Request struct {
 	ApiService *OptionsAPIService
 	symbol *string
 	timestamp *int64
-	orderIds *[]int64
-	clientOrderIds *[]string
+	orderIds *string
+	clientOrderIds *string
 	recvWindow *int64
 }
 
@@ -1706,13 +1706,13 @@ func (r ApiDeleteBatchOrdersV1Request) Timestamp(timestamp int64) ApiDeleteBatch
 }
 
 // Order ID, e.g [4611875134427365377,4611875134427365378]
-func (r ApiDeleteBatchOrdersV1Request) OrderIds(orderIds []int64) ApiDeleteBatchOrdersV1Request {
+func (r ApiDeleteBatchOrdersV1Request) OrderIds(orderIds string) ApiDeleteBatchOrdersV1Request {
 	r.orderIds = &orderIds
 	return r
 }
 
 // User-defined order ID, e.g [&amp;#34;my_id_1&amp;#34;,&amp;#34;my_id_2&amp;#34;]
-func (r ApiDeleteBatchOrdersV1Request) ClientOrderIds(clientOrderIds []string) ApiDeleteBatchOrdersV1Request {
+func (r ApiDeleteBatchOrdersV1Request) ClientOrderIds(clientOrderIds string) ApiDeleteBatchOrdersV1Request {
 	r.clientOrderIds = &clientOrderIds
 	return r
 }
@@ -1770,26 +1770,10 @@ func (a *OptionsAPIService) DeleteBatchOrdersV1Execute(r ApiDeleteBatchOrdersV1R
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
 	if r.orderIds != nil {
-		t := *r.orderIds
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "orderIds", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "orderIds", t, "form", "multi")
-		}
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orderIds", r.orderIds, "form", "")
 	}
 	if r.clientOrderIds != nil {
-		t := *r.clientOrderIds
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "clientOrderIds", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "clientOrderIds", t, "form", "multi")
-		}
+		parameterAddToHeaderOrQuery(localVarQueryParams, "clientOrderIds", r.clientOrderIds, "form", "")
 	}
 	if r.recvWindow != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "recvWindow", r.recvWindow, "form", "")
@@ -4054,6 +4038,12 @@ func (a *OptionsAPIService) GetHistoricalTradesV1Execute(r ApiGetHistoricalTrade
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
+			localVarHeaderParams["X-MBX-APIKEY"] = auth.APIKey
+		}
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {

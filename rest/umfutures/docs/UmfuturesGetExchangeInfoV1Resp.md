@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Assets** | Pointer to [**[]UmfuturesGetExchangeInfoV1RespAssetsInner**](UmfuturesGetExchangeInfoV1RespAssetsInner.md) |  | [optional] 
 **ExchangeFilters** | Pointer to **[]string** |  | [optional] 
 **RateLimits** | Pointer to [**[]UmfuturesGetExchangeInfoV1RespRateLimitsInner**](UmfuturesGetExchangeInfoV1RespRateLimitsInner.md) |  | [optional] 
-**ServerTime** | Pointer to **int32** |  | [optional] 
+**ServerTime** | Pointer to **int64** |  | [optional] 
 **Symbols** | Pointer to [**[]UmfuturesGetExchangeInfoV1RespSymbolsInner**](UmfuturesGetExchangeInfoV1RespSymbolsInner.md) |  | [optional] 
 **Timezone** | Pointer to **string** |  | [optional] 
 
@@ -107,20 +107,20 @@ HasRateLimits returns a boolean if a field has been set.
 
 ### GetServerTime
 
-`func (o *UmfuturesGetExchangeInfoV1Resp) GetServerTime() int32`
+`func (o *UmfuturesGetExchangeInfoV1Resp) GetServerTime() int64`
 
 GetServerTime returns the ServerTime field if non-nil, zero value otherwise.
 
 ### GetServerTimeOk
 
-`func (o *UmfuturesGetExchangeInfoV1Resp) GetServerTimeOk() (*int32, bool)`
+`func (o *UmfuturesGetExchangeInfoV1Resp) GetServerTimeOk() (*int64, bool)`
 
 GetServerTimeOk returns a tuple with the ServerTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetServerTime
 
-`func (o *UmfuturesGetExchangeInfoV1Resp) SetServerTime(v int32)`
+`func (o *UmfuturesGetExchangeInfoV1Resp) SetServerTime(v int64)`
 
 SetServerTime sets ServerTime field to given value.
 

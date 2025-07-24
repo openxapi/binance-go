@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Base** | Pointer to **string** |  | [optional] 
-**Id** | Pointer to **int32** |  | [optional] 
+**Id** | Pointer to **int64** |  | [optional] 
 **IsBuyAllowed** | Pointer to **bool** |  | [optional] 
 **IsMarginTrade** | Pointer to **bool** |  | [optional] 
 **IsSellAllowed** | Pointer to **bool** |  | [optional] 
@@ -58,20 +58,20 @@ HasBase returns a boolean if a field has been set.
 
 ### GetId
 
-`func (o *GetMarginAllPairsV1RespItem) GetId() int32`
+`func (o *GetMarginAllPairsV1RespItem) GetId() int64`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *GetMarginAllPairsV1RespItem) GetIdOk() (*int32, bool)`
+`func (o *GetMarginAllPairsV1RespItem) GetIdOk() (*int64, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *GetMarginAllPairsV1RespItem) SetId(v int32)`
+`func (o *GetMarginAllPairsV1RespItem) SetId(v int64)`
 
 SetId sets Id field to given value.
 

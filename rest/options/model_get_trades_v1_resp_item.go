@@ -19,7 +19,7 @@ var _ MappedNullable = &GetTradesV1RespItem{}
 
 // GetTradesV1RespItem struct for GetTradesV1RespItem
 type GetTradesV1RespItem struct {
-	Id *string `json:"id,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 	Price *string `json:"price,omitempty"`
 	Qty *string `json:"qty,omitempty"`
 	QuoteQty *string `json:"quoteQty,omitempty"`
@@ -46,9 +46,9 @@ func NewGetTradesV1RespItemWithDefaults() *GetTradesV1RespItem {
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *GetTradesV1RespItem) GetId() string {
+func (o *GetTradesV1RespItem) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret string
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -56,7 +56,7 @@ func (o *GetTradesV1RespItem) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetTradesV1RespItem) GetIdOk() (*string, bool) {
+func (o *GetTradesV1RespItem) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -72,8 +72,8 @@ func (o *GetTradesV1RespItem) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
-func (o *GetTradesV1RespItem) SetId(v string) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *GetTradesV1RespItem) SetId(v int64) {
 	o.Id = &v
 }
 

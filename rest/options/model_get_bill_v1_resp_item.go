@@ -21,8 +21,8 @@ var _ MappedNullable = &GetBillV1RespItem{}
 type GetBillV1RespItem struct {
 	Amount *string `json:"amount,omitempty"`
 	Asset *string `json:"asset,omitempty"`
-	CreateDate *int32 `json:"createDate,omitempty"`
-	Id *int32 `json:"id,omitempty"`
+	CreateDate *int64 `json:"createDate,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 	Type *string `json:"type,omitempty"`
 }
 
@@ -108,9 +108,9 @@ func (o *GetBillV1RespItem) SetAsset(v string) {
 }
 
 // GetCreateDate returns the CreateDate field value if set, zero value otherwise.
-func (o *GetBillV1RespItem) GetCreateDate() int32 {
+func (o *GetBillV1RespItem) GetCreateDate() int64 {
 	if o == nil || IsNil(o.CreateDate) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CreateDate
@@ -118,7 +118,7 @@ func (o *GetBillV1RespItem) GetCreateDate() int32 {
 
 // GetCreateDateOk returns a tuple with the CreateDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetBillV1RespItem) GetCreateDateOk() (*int32, bool) {
+func (o *GetBillV1RespItem) GetCreateDateOk() (*int64, bool) {
 	if o == nil || IsNil(o.CreateDate) {
 		return nil, false
 	}
@@ -134,15 +134,15 @@ func (o *GetBillV1RespItem) HasCreateDate() bool {
 	return false
 }
 
-// SetCreateDate gets a reference to the given int32 and assigns it to the CreateDate field.
-func (o *GetBillV1RespItem) SetCreateDate(v int32) {
+// SetCreateDate gets a reference to the given int64 and assigns it to the CreateDate field.
+func (o *GetBillV1RespItem) SetCreateDate(v int64) {
 	o.CreateDate = &v
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *GetBillV1RespItem) GetId() int32 {
+func (o *GetBillV1RespItem) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -150,7 +150,7 @@ func (o *GetBillV1RespItem) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetBillV1RespItem) GetIdOk() (*int32, bool) {
+func (o *GetBillV1RespItem) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -166,8 +166,8 @@ func (o *GetBillV1RespItem) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *GetBillV1RespItem) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *GetBillV1RespItem) SetId(v int64) {
 	o.Id = &v
 }
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ExpiryDate** | Pointer to **int32** |  | [optional] 
+**ExpiryDate** | Pointer to **int64** |  | [optional] 
 **RealStrikePrice** | Pointer to **string** |  | [optional] 
 **StrikePrice** | Pointer to **string** |  | [optional] 
 **StrikeResult** | Pointer to **string** |  | [optional] 
@@ -31,20 +31,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetExpiryDate
 
-`func (o *GetExerciseHistoryV1RespItem) GetExpiryDate() int32`
+`func (o *GetExerciseHistoryV1RespItem) GetExpiryDate() int64`
 
 GetExpiryDate returns the ExpiryDate field if non-nil, zero value otherwise.
 
 ### GetExpiryDateOk
 
-`func (o *GetExerciseHistoryV1RespItem) GetExpiryDateOk() (*int32, bool)`
+`func (o *GetExerciseHistoryV1RespItem) GetExpiryDateOk() (*int64, bool)`
 
 GetExpiryDateOk returns a tuple with the ExpiryDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExpiryDate
 
-`func (o *GetExerciseHistoryV1RespItem) SetExpiryDate(v int32)`
+`func (o *GetExerciseHistoryV1RespItem) SetExpiryDate(v int64)`
 
 SetExpiryDate sets ExpiryDate field to given value.
 

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Buyer** | Pointer to **bool** |  | [optional] 
 **Commission** | Pointer to **string** |  | [optional] 
 **CommissionAsset** | Pointer to **string** |  | [optional] 
-**Id** | Pointer to **int32** |  | [optional] 
+**Id** | Pointer to **int64** |  | [optional] 
 **Maker** | Pointer to **bool** |  | [optional] 
 **MarginAsset** | Pointer to **string** |  | [optional] 
 **OrderId** | Pointer to **int64** |  | [optional] 
@@ -142,20 +142,20 @@ HasCommissionAsset returns a boolean if a field has been set.
 
 ### GetId
 
-`func (o *GetCmUserTradesV1RespItem) GetId() int32`
+`func (o *GetCmUserTradesV1RespItem) GetId() int64`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *GetCmUserTradesV1RespItem) GetIdOk() (*int32, bool)`
+`func (o *GetCmUserTradesV1RespItem) GetIdOk() (*int64, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *GetCmUserTradesV1RespItem) SetId(v int32)`
+`func (o *GetCmUserTradesV1RespItem) SetId(v int64)`
 
 SetId sets Id field to given value.
 

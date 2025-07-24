@@ -33,7 +33,7 @@ type GetAccountV3Resp struct {
 	RequireSelfTradePrevention *bool `json:"requireSelfTradePrevention,omitempty"`
 	SellerCommission *int32 `json:"sellerCommission,omitempty"`
 	TakerCommission *int32 `json:"takerCommission,omitempty"`
-	Uid *int32 `json:"uid,omitempty"`
+	Uid *int64 `json:"uid,omitempty"`
 	UpdateTime *int64 `json:"updateTime,omitempty"`
 }
 
@@ -503,9 +503,9 @@ func (o *GetAccountV3Resp) SetTakerCommission(v int32) {
 }
 
 // GetUid returns the Uid field value if set, zero value otherwise.
-func (o *GetAccountV3Resp) GetUid() int32 {
+func (o *GetAccountV3Resp) GetUid() int64 {
 	if o == nil || IsNil(o.Uid) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Uid
@@ -513,7 +513,7 @@ func (o *GetAccountV3Resp) GetUid() int32 {
 
 // GetUidOk returns a tuple with the Uid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetAccountV3Resp) GetUidOk() (*int32, bool) {
+func (o *GetAccountV3Resp) GetUidOk() (*int64, bool) {
 	if o == nil || IsNil(o.Uid) {
 		return nil, false
 	}
@@ -529,8 +529,8 @@ func (o *GetAccountV3Resp) HasUid() bool {
 	return false
 }
 
-// SetUid gets a reference to the given int32 and assigns it to the Uid field.
-func (o *GetAccountV3Resp) SetUid(v int32) {
+// SetUid gets a reference to the given int64 and assigns it to the Uid field.
+func (o *GetAccountV3Resp) SetUid(v int64) {
 	o.Uid = &v
 }
 

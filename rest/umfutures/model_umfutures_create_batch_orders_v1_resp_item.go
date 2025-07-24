@@ -22,6 +22,7 @@ type UmfuturesCreateBatchOrdersV1RespItem struct {
 	ActivatePrice *string `json:"activatePrice,omitempty"`
 	AvgPrice *string `json:"avgPrice,omitempty"`
 	ClientOrderId *string `json:"clientOrderId,omitempty"`
+	ClosePosition *bool `json:"closePosition,omitempty"`
 	CumQty *string `json:"cumQty,omitempty"`
 	CumQuote *string `json:"cumQuote,omitempty"`
 	ExecutedQty *string `json:"executedQty,omitempty"`
@@ -157,6 +158,38 @@ func (o *UmfuturesCreateBatchOrdersV1RespItem) HasClientOrderId() bool {
 // SetClientOrderId gets a reference to the given string and assigns it to the ClientOrderId field.
 func (o *UmfuturesCreateBatchOrdersV1RespItem) SetClientOrderId(v string) {
 	o.ClientOrderId = &v
+}
+
+// GetClosePosition returns the ClosePosition field value if set, zero value otherwise.
+func (o *UmfuturesCreateBatchOrdersV1RespItem) GetClosePosition() bool {
+	if o == nil || IsNil(o.ClosePosition) {
+		var ret bool
+		return ret
+	}
+	return *o.ClosePosition
+}
+
+// GetClosePositionOk returns a tuple with the ClosePosition field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UmfuturesCreateBatchOrdersV1RespItem) GetClosePositionOk() (*bool, bool) {
+	if o == nil || IsNil(o.ClosePosition) {
+		return nil, false
+	}
+	return o.ClosePosition, true
+}
+
+// HasClosePosition returns a boolean if a field has been set.
+func (o *UmfuturesCreateBatchOrdersV1RespItem) HasClosePosition() bool {
+	if o != nil && !IsNil(o.ClosePosition) {
+		return true
+	}
+
+	return false
+}
+
+// SetClosePosition gets a reference to the given bool and assigns it to the ClosePosition field.
+func (o *UmfuturesCreateBatchOrdersV1RespItem) SetClosePosition(v bool) {
+	o.ClosePosition = &v
 }
 
 // GetCumQty returns the CumQty field value if set, zero value otherwise.
@@ -881,6 +914,9 @@ func (o UmfuturesCreateBatchOrdersV1RespItem) ToMap() (map[string]interface{}, e
 	}
 	if !IsNil(o.ClientOrderId) {
 		toSerialize["clientOrderId"] = o.ClientOrderId
+	}
+	if !IsNil(o.ClosePosition) {
+		toSerialize["closePosition"] = o.ClosePosition
 	}
 	if !IsNil(o.CumQty) {
 		toSerialize["cumQty"] = o.CumQty

@@ -23,6 +23,7 @@ type UmfuturesGetTickerBookTickerV1RespItem struct {
 	AskQty *string `json:"askQty,omitempty"`
 	BidPrice *string `json:"bidPrice,omitempty"`
 	BidQty *string `json:"bidQty,omitempty"`
+	LastUpdateId *int64 `json:"lastUpdateId,omitempty"`
 	Symbol *string `json:"symbol,omitempty"`
 	Time *int64 `json:"time,omitempty"`
 }
@@ -172,6 +173,38 @@ func (o *UmfuturesGetTickerBookTickerV1RespItem) SetBidQty(v string) {
 	o.BidQty = &v
 }
 
+// GetLastUpdateId returns the LastUpdateId field value if set, zero value otherwise.
+func (o *UmfuturesGetTickerBookTickerV1RespItem) GetLastUpdateId() int64 {
+	if o == nil || IsNil(o.LastUpdateId) {
+		var ret int64
+		return ret
+	}
+	return *o.LastUpdateId
+}
+
+// GetLastUpdateIdOk returns a tuple with the LastUpdateId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UmfuturesGetTickerBookTickerV1RespItem) GetLastUpdateIdOk() (*int64, bool) {
+	if o == nil || IsNil(o.LastUpdateId) {
+		return nil, false
+	}
+	return o.LastUpdateId, true
+}
+
+// HasLastUpdateId returns a boolean if a field has been set.
+func (o *UmfuturesGetTickerBookTickerV1RespItem) HasLastUpdateId() bool {
+	if o != nil && !IsNil(o.LastUpdateId) {
+		return true
+	}
+
+	return false
+}
+
+// SetLastUpdateId gets a reference to the given int64 and assigns it to the LastUpdateId field.
+func (o *UmfuturesGetTickerBookTickerV1RespItem) SetLastUpdateId(v int64) {
+	o.LastUpdateId = &v
+}
+
 // GetSymbol returns the Symbol field value if set, zero value otherwise.
 func (o *UmfuturesGetTickerBookTickerV1RespItem) GetSymbol() string {
 	if o == nil || IsNil(o.Symbol) {
@@ -257,6 +290,9 @@ func (o UmfuturesGetTickerBookTickerV1RespItem) ToMap() (map[string]interface{},
 	}
 	if !IsNil(o.BidQty) {
 		toSerialize["bidQty"] = o.BidQty
+	}
+	if !IsNil(o.LastUpdateId) {
+		toSerialize["lastUpdateId"] = o.LastUpdateId
 	}
 	if !IsNil(o.Symbol) {
 		toSerialize["symbol"] = o.Symbol

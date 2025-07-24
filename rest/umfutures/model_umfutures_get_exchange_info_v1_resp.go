@@ -22,7 +22,7 @@ type UmfuturesGetExchangeInfoV1Resp struct {
 	Assets []UmfuturesGetExchangeInfoV1RespAssetsInner `json:"assets,omitempty"`
 	ExchangeFilters []string `json:"exchangeFilters,omitempty"`
 	RateLimits []UmfuturesGetExchangeInfoV1RespRateLimitsInner `json:"rateLimits,omitempty"`
-	ServerTime *int32 `json:"serverTime,omitempty"`
+	ServerTime *int64 `json:"serverTime,omitempty"`
 	Symbols []UmfuturesGetExchangeInfoV1RespSymbolsInner `json:"symbols,omitempty"`
 	Timezone *string `json:"timezone,omitempty"`
 }
@@ -141,9 +141,9 @@ func (o *UmfuturesGetExchangeInfoV1Resp) SetRateLimits(v []UmfuturesGetExchangeI
 }
 
 // GetServerTime returns the ServerTime field value if set, zero value otherwise.
-func (o *UmfuturesGetExchangeInfoV1Resp) GetServerTime() int32 {
+func (o *UmfuturesGetExchangeInfoV1Resp) GetServerTime() int64 {
 	if o == nil || IsNil(o.ServerTime) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ServerTime
@@ -151,7 +151,7 @@ func (o *UmfuturesGetExchangeInfoV1Resp) GetServerTime() int32 {
 
 // GetServerTimeOk returns a tuple with the ServerTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UmfuturesGetExchangeInfoV1Resp) GetServerTimeOk() (*int32, bool) {
+func (o *UmfuturesGetExchangeInfoV1Resp) GetServerTimeOk() (*int64, bool) {
 	if o == nil || IsNil(o.ServerTime) {
 		return nil, false
 	}
@@ -167,8 +167,8 @@ func (o *UmfuturesGetExchangeInfoV1Resp) HasServerTime() bool {
 	return false
 }
 
-// SetServerTime gets a reference to the given int32 and assigns it to the ServerTime field.
-func (o *UmfuturesGetExchangeInfoV1Resp) SetServerTime(v int32) {
+// SetServerTime gets a reference to the given int64 and assigns it to the ServerTime field.
+func (o *UmfuturesGetExchangeInfoV1Resp) SetServerTime(v int64) {
 	o.ServerTime = &v
 }
 

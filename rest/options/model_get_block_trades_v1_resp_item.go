@@ -19,7 +19,7 @@ var _ MappedNullable = &GetBlockTradesV1RespItem{}
 
 // GetBlockTradesV1RespItem struct for GetBlockTradesV1RespItem
 type GetBlockTradesV1RespItem struct {
-	Id *int32 `json:"id,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 	Price *string `json:"price,omitempty"`
 	Qty *string `json:"qty,omitempty"`
 	QuoteQty *string `json:"quoteQty,omitempty"`
@@ -47,9 +47,9 @@ func NewGetBlockTradesV1RespItemWithDefaults() *GetBlockTradesV1RespItem {
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *GetBlockTradesV1RespItem) GetId() int32 {
+func (o *GetBlockTradesV1RespItem) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -57,7 +57,7 @@ func (o *GetBlockTradesV1RespItem) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetBlockTradesV1RespItem) GetIdOk() (*int32, bool) {
+func (o *GetBlockTradesV1RespItem) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -73,8 +73,8 @@ func (o *GetBlockTradesV1RespItem) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *GetBlockTradesV1RespItem) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *GetBlockTradesV1RespItem) SetId(v int64) {
 	o.Id = &v
 }
 

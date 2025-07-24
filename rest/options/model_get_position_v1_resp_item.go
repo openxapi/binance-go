@@ -20,7 +20,7 @@ var _ MappedNullable = &GetPositionV1RespItem{}
 // GetPositionV1RespItem struct for GetPositionV1RespItem
 type GetPositionV1RespItem struct {
 	EntryPrice *string `json:"entryPrice,omitempty"`
-	ExpiryDate *int32 `json:"expiryDate,omitempty"`
+	ExpiryDate *int64 `json:"expiryDate,omitempty"`
 	MarkPrice *string `json:"markPrice,omitempty"`
 	MarkValue *string `json:"markValue,omitempty"`
 	OptionSide *string `json:"optionSide,omitempty"`
@@ -87,9 +87,9 @@ func (o *GetPositionV1RespItem) SetEntryPrice(v string) {
 }
 
 // GetExpiryDate returns the ExpiryDate field value if set, zero value otherwise.
-func (o *GetPositionV1RespItem) GetExpiryDate() int32 {
+func (o *GetPositionV1RespItem) GetExpiryDate() int64 {
 	if o == nil || IsNil(o.ExpiryDate) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ExpiryDate
@@ -97,7 +97,7 @@ func (o *GetPositionV1RespItem) GetExpiryDate() int32 {
 
 // GetExpiryDateOk returns a tuple with the ExpiryDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetPositionV1RespItem) GetExpiryDateOk() (*int32, bool) {
+func (o *GetPositionV1RespItem) GetExpiryDateOk() (*int64, bool) {
 	if o == nil || IsNil(o.ExpiryDate) {
 		return nil, false
 	}
@@ -113,8 +113,8 @@ func (o *GetPositionV1RespItem) HasExpiryDate() bool {
 	return false
 }
 
-// SetExpiryDate gets a reference to the given int32 and assigns it to the ExpiryDate field.
-func (o *GetPositionV1RespItem) SetExpiryDate(v int32) {
+// SetExpiryDate gets a reference to the given int64 and assigns it to the ExpiryDate field.
+func (o *GetPositionV1RespItem) SetExpiryDate(v int64) {
 	o.ExpiryDate = &v
 }
 

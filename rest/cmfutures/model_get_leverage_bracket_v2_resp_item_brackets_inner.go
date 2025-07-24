@@ -14,38 +14,38 @@ import (
 	"encoding/json"
 )
 
-// checks if the GetLeverageBracketV1RespItemBracketsInner type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &GetLeverageBracketV1RespItemBracketsInner{}
+// checks if the GetLeverageBracketV2RespItemBracketsInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetLeverageBracketV2RespItemBracketsInner{}
 
-// GetLeverageBracketV1RespItemBracketsInner struct for GetLeverageBracketV1RespItemBracketsInner
-type GetLeverageBracketV1RespItemBracketsInner struct {
+// GetLeverageBracketV2RespItemBracketsInner struct for GetLeverageBracketV2RespItemBracketsInner
+type GetLeverageBracketV2RespItemBracketsInner struct {
 	Bracket *int32 `json:"bracket,omitempty"`
-	Cum *float32 `json:"cum,omitempty"`
+	Cum *int32 `json:"cum,omitempty"`
 	InitialLeverage *int32 `json:"initialLeverage,omitempty"`
 	MaintMarginRatio *float32 `json:"maintMarginRatio,omitempty"`
-	QtyCap *int64 `json:"qtyCap,omitempty"`
-	QtylFloor *int64 `json:"qtylFloor,omitempty"`
+	QtyCap *int32 `json:"qtyCap,omitempty"`
+	QtylFloor *int32 `json:"qtylFloor,omitempty"`
 }
 
-// NewGetLeverageBracketV1RespItemBracketsInner instantiates a new GetLeverageBracketV1RespItemBracketsInner object
+// NewGetLeverageBracketV2RespItemBracketsInner instantiates a new GetLeverageBracketV2RespItemBracketsInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetLeverageBracketV1RespItemBracketsInner() *GetLeverageBracketV1RespItemBracketsInner {
-	this := GetLeverageBracketV1RespItemBracketsInner{}
+func NewGetLeverageBracketV2RespItemBracketsInner() *GetLeverageBracketV2RespItemBracketsInner {
+	this := GetLeverageBracketV2RespItemBracketsInner{}
 	return &this
 }
 
-// NewGetLeverageBracketV1RespItemBracketsInnerWithDefaults instantiates a new GetLeverageBracketV1RespItemBracketsInner object
+// NewGetLeverageBracketV2RespItemBracketsInnerWithDefaults instantiates a new GetLeverageBracketV2RespItemBracketsInner object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewGetLeverageBracketV1RespItemBracketsInnerWithDefaults() *GetLeverageBracketV1RespItemBracketsInner {
-	this := GetLeverageBracketV1RespItemBracketsInner{}
+func NewGetLeverageBracketV2RespItemBracketsInnerWithDefaults() *GetLeverageBracketV2RespItemBracketsInner {
+	this := GetLeverageBracketV2RespItemBracketsInner{}
 	return &this
 }
 
 // GetBracket returns the Bracket field value if set, zero value otherwise.
-func (o *GetLeverageBracketV1RespItemBracketsInner) GetBracket() int32 {
+func (o *GetLeverageBracketV2RespItemBracketsInner) GetBracket() int32 {
 	if o == nil || IsNil(o.Bracket) {
 		var ret int32
 		return ret
@@ -55,7 +55,7 @@ func (o *GetLeverageBracketV1RespItemBracketsInner) GetBracket() int32 {
 
 // GetBracketOk returns a tuple with the Bracket field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetLeverageBracketV1RespItemBracketsInner) GetBracketOk() (*int32, bool) {
+func (o *GetLeverageBracketV2RespItemBracketsInner) GetBracketOk() (*int32, bool) {
 	if o == nil || IsNil(o.Bracket) {
 		return nil, false
 	}
@@ -63,7 +63,7 @@ func (o *GetLeverageBracketV1RespItemBracketsInner) GetBracketOk() (*int32, bool
 }
 
 // HasBracket returns a boolean if a field has been set.
-func (o *GetLeverageBracketV1RespItemBracketsInner) HasBracket() bool {
+func (o *GetLeverageBracketV2RespItemBracketsInner) HasBracket() bool {
 	if o != nil && !IsNil(o.Bracket) {
 		return true
 	}
@@ -72,14 +72,14 @@ func (o *GetLeverageBracketV1RespItemBracketsInner) HasBracket() bool {
 }
 
 // SetBracket gets a reference to the given int32 and assigns it to the Bracket field.
-func (o *GetLeverageBracketV1RespItemBracketsInner) SetBracket(v int32) {
+func (o *GetLeverageBracketV2RespItemBracketsInner) SetBracket(v int32) {
 	o.Bracket = &v
 }
 
 // GetCum returns the Cum field value if set, zero value otherwise.
-func (o *GetLeverageBracketV1RespItemBracketsInner) GetCum() float32 {
+func (o *GetLeverageBracketV2RespItemBracketsInner) GetCum() int32 {
 	if o == nil || IsNil(o.Cum) {
-		var ret float32
+		var ret int32
 		return ret
 	}
 	return *o.Cum
@@ -87,7 +87,7 @@ func (o *GetLeverageBracketV1RespItemBracketsInner) GetCum() float32 {
 
 // GetCumOk returns a tuple with the Cum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetLeverageBracketV1RespItemBracketsInner) GetCumOk() (*float32, bool) {
+func (o *GetLeverageBracketV2RespItemBracketsInner) GetCumOk() (*int32, bool) {
 	if o == nil || IsNil(o.Cum) {
 		return nil, false
 	}
@@ -95,7 +95,7 @@ func (o *GetLeverageBracketV1RespItemBracketsInner) GetCumOk() (*float32, bool) 
 }
 
 // HasCum returns a boolean if a field has been set.
-func (o *GetLeverageBracketV1RespItemBracketsInner) HasCum() bool {
+func (o *GetLeverageBracketV2RespItemBracketsInner) HasCum() bool {
 	if o != nil && !IsNil(o.Cum) {
 		return true
 	}
@@ -103,13 +103,13 @@ func (o *GetLeverageBracketV1RespItemBracketsInner) HasCum() bool {
 	return false
 }
 
-// SetCum gets a reference to the given float32 and assigns it to the Cum field.
-func (o *GetLeverageBracketV1RespItemBracketsInner) SetCum(v float32) {
+// SetCum gets a reference to the given int32 and assigns it to the Cum field.
+func (o *GetLeverageBracketV2RespItemBracketsInner) SetCum(v int32) {
 	o.Cum = &v
 }
 
 // GetInitialLeverage returns the InitialLeverage field value if set, zero value otherwise.
-func (o *GetLeverageBracketV1RespItemBracketsInner) GetInitialLeverage() int32 {
+func (o *GetLeverageBracketV2RespItemBracketsInner) GetInitialLeverage() int32 {
 	if o == nil || IsNil(o.InitialLeverage) {
 		var ret int32
 		return ret
@@ -119,7 +119,7 @@ func (o *GetLeverageBracketV1RespItemBracketsInner) GetInitialLeverage() int32 {
 
 // GetInitialLeverageOk returns a tuple with the InitialLeverage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetLeverageBracketV1RespItemBracketsInner) GetInitialLeverageOk() (*int32, bool) {
+func (o *GetLeverageBracketV2RespItemBracketsInner) GetInitialLeverageOk() (*int32, bool) {
 	if o == nil || IsNil(o.InitialLeverage) {
 		return nil, false
 	}
@@ -127,7 +127,7 @@ func (o *GetLeverageBracketV1RespItemBracketsInner) GetInitialLeverageOk() (*int
 }
 
 // HasInitialLeverage returns a boolean if a field has been set.
-func (o *GetLeverageBracketV1RespItemBracketsInner) HasInitialLeverage() bool {
+func (o *GetLeverageBracketV2RespItemBracketsInner) HasInitialLeverage() bool {
 	if o != nil && !IsNil(o.InitialLeverage) {
 		return true
 	}
@@ -136,12 +136,12 @@ func (o *GetLeverageBracketV1RespItemBracketsInner) HasInitialLeverage() bool {
 }
 
 // SetInitialLeverage gets a reference to the given int32 and assigns it to the InitialLeverage field.
-func (o *GetLeverageBracketV1RespItemBracketsInner) SetInitialLeverage(v int32) {
+func (o *GetLeverageBracketV2RespItemBracketsInner) SetInitialLeverage(v int32) {
 	o.InitialLeverage = &v
 }
 
 // GetMaintMarginRatio returns the MaintMarginRatio field value if set, zero value otherwise.
-func (o *GetLeverageBracketV1RespItemBracketsInner) GetMaintMarginRatio() float32 {
+func (o *GetLeverageBracketV2RespItemBracketsInner) GetMaintMarginRatio() float32 {
 	if o == nil || IsNil(o.MaintMarginRatio) {
 		var ret float32
 		return ret
@@ -151,7 +151,7 @@ func (o *GetLeverageBracketV1RespItemBracketsInner) GetMaintMarginRatio() float3
 
 // GetMaintMarginRatioOk returns a tuple with the MaintMarginRatio field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetLeverageBracketV1RespItemBracketsInner) GetMaintMarginRatioOk() (*float32, bool) {
+func (o *GetLeverageBracketV2RespItemBracketsInner) GetMaintMarginRatioOk() (*float32, bool) {
 	if o == nil || IsNil(o.MaintMarginRatio) {
 		return nil, false
 	}
@@ -159,7 +159,7 @@ func (o *GetLeverageBracketV1RespItemBracketsInner) GetMaintMarginRatioOk() (*fl
 }
 
 // HasMaintMarginRatio returns a boolean if a field has been set.
-func (o *GetLeverageBracketV1RespItemBracketsInner) HasMaintMarginRatio() bool {
+func (o *GetLeverageBracketV2RespItemBracketsInner) HasMaintMarginRatio() bool {
 	if o != nil && !IsNil(o.MaintMarginRatio) {
 		return true
 	}
@@ -168,14 +168,14 @@ func (o *GetLeverageBracketV1RespItemBracketsInner) HasMaintMarginRatio() bool {
 }
 
 // SetMaintMarginRatio gets a reference to the given float32 and assigns it to the MaintMarginRatio field.
-func (o *GetLeverageBracketV1RespItemBracketsInner) SetMaintMarginRatio(v float32) {
+func (o *GetLeverageBracketV2RespItemBracketsInner) SetMaintMarginRatio(v float32) {
 	o.MaintMarginRatio = &v
 }
 
 // GetQtyCap returns the QtyCap field value if set, zero value otherwise.
-func (o *GetLeverageBracketV1RespItemBracketsInner) GetQtyCap() int64 {
+func (o *GetLeverageBracketV2RespItemBracketsInner) GetQtyCap() int32 {
 	if o == nil || IsNil(o.QtyCap) {
-		var ret int64
+		var ret int32
 		return ret
 	}
 	return *o.QtyCap
@@ -183,7 +183,7 @@ func (o *GetLeverageBracketV1RespItemBracketsInner) GetQtyCap() int64 {
 
 // GetQtyCapOk returns a tuple with the QtyCap field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetLeverageBracketV1RespItemBracketsInner) GetQtyCapOk() (*int64, bool) {
+func (o *GetLeverageBracketV2RespItemBracketsInner) GetQtyCapOk() (*int32, bool) {
 	if o == nil || IsNil(o.QtyCap) {
 		return nil, false
 	}
@@ -191,7 +191,7 @@ func (o *GetLeverageBracketV1RespItemBracketsInner) GetQtyCapOk() (*int64, bool)
 }
 
 // HasQtyCap returns a boolean if a field has been set.
-func (o *GetLeverageBracketV1RespItemBracketsInner) HasQtyCap() bool {
+func (o *GetLeverageBracketV2RespItemBracketsInner) HasQtyCap() bool {
 	if o != nil && !IsNil(o.QtyCap) {
 		return true
 	}
@@ -199,15 +199,15 @@ func (o *GetLeverageBracketV1RespItemBracketsInner) HasQtyCap() bool {
 	return false
 }
 
-// SetQtyCap gets a reference to the given int64 and assigns it to the QtyCap field.
-func (o *GetLeverageBracketV1RespItemBracketsInner) SetQtyCap(v int64) {
+// SetQtyCap gets a reference to the given int32 and assigns it to the QtyCap field.
+func (o *GetLeverageBracketV2RespItemBracketsInner) SetQtyCap(v int32) {
 	o.QtyCap = &v
 }
 
 // GetQtylFloor returns the QtylFloor field value if set, zero value otherwise.
-func (o *GetLeverageBracketV1RespItemBracketsInner) GetQtylFloor() int64 {
+func (o *GetLeverageBracketV2RespItemBracketsInner) GetQtylFloor() int32 {
 	if o == nil || IsNil(o.QtylFloor) {
-		var ret int64
+		var ret int32
 		return ret
 	}
 	return *o.QtylFloor
@@ -215,7 +215,7 @@ func (o *GetLeverageBracketV1RespItemBracketsInner) GetQtylFloor() int64 {
 
 // GetQtylFloorOk returns a tuple with the QtylFloor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetLeverageBracketV1RespItemBracketsInner) GetQtylFloorOk() (*int64, bool) {
+func (o *GetLeverageBracketV2RespItemBracketsInner) GetQtylFloorOk() (*int32, bool) {
 	if o == nil || IsNil(o.QtylFloor) {
 		return nil, false
 	}
@@ -223,7 +223,7 @@ func (o *GetLeverageBracketV1RespItemBracketsInner) GetQtylFloorOk() (*int64, bo
 }
 
 // HasQtylFloor returns a boolean if a field has been set.
-func (o *GetLeverageBracketV1RespItemBracketsInner) HasQtylFloor() bool {
+func (o *GetLeverageBracketV2RespItemBracketsInner) HasQtylFloor() bool {
 	if o != nil && !IsNil(o.QtylFloor) {
 		return true
 	}
@@ -231,12 +231,12 @@ func (o *GetLeverageBracketV1RespItemBracketsInner) HasQtylFloor() bool {
 	return false
 }
 
-// SetQtylFloor gets a reference to the given int64 and assigns it to the QtylFloor field.
-func (o *GetLeverageBracketV1RespItemBracketsInner) SetQtylFloor(v int64) {
+// SetQtylFloor gets a reference to the given int32 and assigns it to the QtylFloor field.
+func (o *GetLeverageBracketV2RespItemBracketsInner) SetQtylFloor(v int32) {
 	o.QtylFloor = &v
 }
 
-func (o GetLeverageBracketV1RespItemBracketsInner) MarshalJSON() ([]byte, error) {
+func (o GetLeverageBracketV2RespItemBracketsInner) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -244,7 +244,7 @@ func (o GetLeverageBracketV1RespItemBracketsInner) MarshalJSON() ([]byte, error)
 	return json.Marshal(toSerialize)
 }
 
-func (o GetLeverageBracketV1RespItemBracketsInner) ToMap() (map[string]interface{}, error) {
+func (o GetLeverageBracketV2RespItemBracketsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Bracket) {
 		toSerialize["bracket"] = o.Bracket
@@ -267,38 +267,38 @@ func (o GetLeverageBracketV1RespItemBracketsInner) ToMap() (map[string]interface
 	return toSerialize, nil
 }
 
-type NullableGetLeverageBracketV1RespItemBracketsInner struct {
-	value *GetLeverageBracketV1RespItemBracketsInner
+type NullableGetLeverageBracketV2RespItemBracketsInner struct {
+	value *GetLeverageBracketV2RespItemBracketsInner
 	isSet bool
 }
 
-func (v NullableGetLeverageBracketV1RespItemBracketsInner) Get() *GetLeverageBracketV1RespItemBracketsInner {
+func (v NullableGetLeverageBracketV2RespItemBracketsInner) Get() *GetLeverageBracketV2RespItemBracketsInner {
 	return v.value
 }
 
-func (v *NullableGetLeverageBracketV1RespItemBracketsInner) Set(val *GetLeverageBracketV1RespItemBracketsInner) {
+func (v *NullableGetLeverageBracketV2RespItemBracketsInner) Set(val *GetLeverageBracketV2RespItemBracketsInner) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableGetLeverageBracketV1RespItemBracketsInner) IsSet() bool {
+func (v NullableGetLeverageBracketV2RespItemBracketsInner) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableGetLeverageBracketV1RespItemBracketsInner) Unset() {
+func (v *NullableGetLeverageBracketV2RespItemBracketsInner) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableGetLeverageBracketV1RespItemBracketsInner(val *GetLeverageBracketV1RespItemBracketsInner) *NullableGetLeverageBracketV1RespItemBracketsInner {
-	return &NullableGetLeverageBracketV1RespItemBracketsInner{value: val, isSet: true}
+func NewNullableGetLeverageBracketV2RespItemBracketsInner(val *GetLeverageBracketV2RespItemBracketsInner) *NullableGetLeverageBracketV2RespItemBracketsInner {
+	return &NullableGetLeverageBracketV2RespItemBracketsInner{value: val, isSet: true}
 }
 
-func (v NullableGetLeverageBracketV1RespItemBracketsInner) MarshalJSON() ([]byte, error) {
+func (v NullableGetLeverageBracketV2RespItemBracketsInner) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableGetLeverageBracketV1RespItemBracketsInner) UnmarshalJSON(src []byte) error {
+func (v *NullableGetLeverageBracketV2RespItemBracketsInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

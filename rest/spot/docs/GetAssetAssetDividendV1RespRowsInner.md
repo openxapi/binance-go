@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Asset** | Pointer to **string** |  | [optional] 
 **DivTime** | Pointer to **int64** |  | [optional] 
 **EnInfo** | Pointer to **string** |  | [optional] 
-**Id** | Pointer to **int32** |  | [optional] 
+**Id** | Pointer to **int64** |  | [optional] 
 **TranId** | Pointer to **int64** |  | [optional] 
 
 ## Methods
@@ -132,20 +132,20 @@ HasEnInfo returns a boolean if a field has been set.
 
 ### GetId
 
-`func (o *GetAssetAssetDividendV1RespRowsInner) GetId() int32`
+`func (o *GetAssetAssetDividendV1RespRowsInner) GetId() int64`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *GetAssetAssetDividendV1RespRowsInner) GetIdOk() (*int32, bool)`
+`func (o *GetAssetAssetDividendV1RespRowsInner) GetIdOk() (*int64, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *GetAssetAssetDividendV1RespRowsInner) SetId(v int32)`
+`func (o *GetAssetAssetDividendV1RespRowsInner) SetId(v int64)`
 
 SetId sets Id field to given value.
 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AvgPrice** | Pointer to **string** |  | [optional] 
 **ClientOrderId** | Pointer to **string** |  | [optional] 
-**CreateDate** | Pointer to **int32** |  | [optional] 
+**CreateDate** | Pointer to **int64** |  | [optional] 
 **ExecutedQty** | Pointer to **string** |  | [optional] 
 **Fee** | Pointer to **string** |  | [optional] 
 **Mmp** | Pointer to **bool** |  | [optional] 
@@ -98,20 +98,20 @@ HasClientOrderId returns a boolean if a field has been set.
 
 ### GetCreateDate
 
-`func (o *DeleteOrderV1Resp) GetCreateDate() int32`
+`func (o *DeleteOrderV1Resp) GetCreateDate() int64`
 
 GetCreateDate returns the CreateDate field if non-nil, zero value otherwise.
 
 ### GetCreateDateOk
 
-`func (o *DeleteOrderV1Resp) GetCreateDateOk() (*int32, bool)`
+`func (o *DeleteOrderV1Resp) GetCreateDateOk() (*int64, bool)`
 
 GetCreateDateOk returns a tuple with the CreateDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreateDate
 
-`func (o *DeleteOrderV1Resp) SetCreateDate(v int32)`
+`func (o *DeleteOrderV1Resp) SetCreateDate(v int64)`
 
 SetCreateDate sets CreateDate field to given value.
 

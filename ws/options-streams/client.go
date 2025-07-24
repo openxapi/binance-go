@@ -590,28 +590,8 @@ func (c *Client) SetURL(newURL string) error {
 
 // Connect establishes a WebSocket connection to the active server
 func (c *Client) Connect(ctx context.Context) error {
-	currentURL := c.serverManager.GetActiveServerURL()
-	if currentURL == "" {
-		return fmt.Errorf("no active server configured")
-	}
-	
-	u, err := url.Parse(currentURL)
-	if err != nil {
-		return fmt.Errorf("invalid URL: %w", err)
-	}
-
-	dialer := websocket.DefaultDialer
-	dialer.HandshakeTimeout = 10 * time.Second
-
-	conn, _, err := dialer.DialContext(ctx, u.String(), nil)
-	if err != nil {
-		return fmt.Errorf("failed to connect to %s: %w", currentURL, err)
-	}
-
-	c.conn = conn
-	c.isConnected = true
-	go c.readMessages()
-	return nil
+	// For streams modules, use ConnectToSingleStreams by default
+	return c.ConnectToSingleStreams(ctx, "")
 }
 
 // ConnectToServer establishes a WebSocket connection to a specific server

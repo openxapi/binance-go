@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **AskQty** | Pointer to **string** |  | [optional] 
 **BidPrice** | Pointer to **string** |  | [optional] 
 **BidQty** | Pointer to **string** |  | [optional] 
+**LastUpdateId** | Pointer to **int64** |  | [optional] 
 **Symbol** | Pointer to **string** |  | [optional] 
 **Time** | Pointer to **int64** |  | [optional] 
 
@@ -129,6 +130,31 @@ SetBidQty sets BidQty field to given value.
 `func (o *UmfuturesGetTickerBookTickerV1Resp) HasBidQty() bool`
 
 HasBidQty returns a boolean if a field has been set.
+
+### GetLastUpdateId
+
+`func (o *UmfuturesGetTickerBookTickerV1Resp) GetLastUpdateId() int64`
+
+GetLastUpdateId returns the LastUpdateId field if non-nil, zero value otherwise.
+
+### GetLastUpdateIdOk
+
+`func (o *UmfuturesGetTickerBookTickerV1Resp) GetLastUpdateIdOk() (*int64, bool)`
+
+GetLastUpdateIdOk returns a tuple with the LastUpdateId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastUpdateId
+
+`func (o *UmfuturesGetTickerBookTickerV1Resp) SetLastUpdateId(v int64)`
+
+SetLastUpdateId sets LastUpdateId field to given value.
+
+### HasLastUpdateId
+
+`func (o *UmfuturesGetTickerBookTickerV1Resp) HasLastUpdateId() bool`
+
+HasLastUpdateId returns a boolean if a field has been set.
 
 ### GetSymbol
 

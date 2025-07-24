@@ -2723,7 +2723,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -2784,7 +2784,7 @@ Other parameters are passed through a pointer to a apiGetSpotOpenSymbolListV1Req
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 

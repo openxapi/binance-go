@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **PositionId** | Pointer to **int64** |  | [optional] 
 **PurchaseStatus** | Pointer to **string** |  | [optional] 
 **PurchaseTime** | Pointer to **int64** |  | [optional] 
-**SettleDate** | Pointer to **int32** |  | [optional] 
+**SettleDate** | Pointer to **int64** |  | [optional] 
 **StrikePrice** | Pointer to **string** |  | [optional] 
 **SubscriptionAmount** | Pointer to **string** |  | [optional] 
 
@@ -289,20 +289,20 @@ HasPurchaseTime returns a boolean if a field has been set.
 
 ### GetSettleDate
 
-`func (o *CreateDciProductSubscribeV1Resp) GetSettleDate() int32`
+`func (o *CreateDciProductSubscribeV1Resp) GetSettleDate() int64`
 
 GetSettleDate returns the SettleDate field if non-nil, zero value otherwise.
 
 ### GetSettleDateOk
 
-`func (o *CreateDciProductSubscribeV1Resp) GetSettleDateOk() (*int32, bool)`
+`func (o *CreateDciProductSubscribeV1Resp) GetSettleDateOk() (*int64, bool)`
 
 GetSettleDateOk returns a tuple with the SettleDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSettleDate
 
-`func (o *CreateDciProductSubscribeV1Resp) SetSettleDate(v int32)`
+`func (o *CreateDciProductSubscribeV1Resp) SetSettleDate(v int64)`
 
 SetSettleDate sets SettleDate field to given value.
 

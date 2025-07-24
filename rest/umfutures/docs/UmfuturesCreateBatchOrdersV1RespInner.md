@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **ActivatePrice** | Pointer to **string** |  | [optional] 
 **AvgPrice** | Pointer to **string** |  | [optional] 
 **ClientOrderId** | Pointer to **string** |  | [optional] 
+**ClosePosition** | Pointer to **bool** |  | [optional] 
 **CumQty** | Pointer to **string** |  | [optional] 
 **CumQuote** | Pointer to **string** |  | [optional] 
 **ExecutedQty** | Pointer to **string** |  | [optional] 
@@ -125,6 +126,31 @@ SetClientOrderId sets ClientOrderId field to given value.
 `func (o *UmfuturesCreateBatchOrdersV1RespInner) HasClientOrderId() bool`
 
 HasClientOrderId returns a boolean if a field has been set.
+
+### GetClosePosition
+
+`func (o *UmfuturesCreateBatchOrdersV1RespInner) GetClosePosition() bool`
+
+GetClosePosition returns the ClosePosition field if non-nil, zero value otherwise.
+
+### GetClosePositionOk
+
+`func (o *UmfuturesCreateBatchOrdersV1RespInner) GetClosePositionOk() (*bool, bool)`
+
+GetClosePositionOk returns a tuple with the ClosePosition field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClosePosition
+
+`func (o *UmfuturesCreateBatchOrdersV1RespInner) SetClosePosition(v bool)`
+
+SetClosePosition sets ClosePosition field to given value.
+
+### HasClosePosition
+
+`func (o *UmfuturesCreateBatchOrdersV1RespInner) HasClosePosition() bool`
+
+HasClosePosition returns a boolean if a field has been set.
 
 ### GetCumQty
 

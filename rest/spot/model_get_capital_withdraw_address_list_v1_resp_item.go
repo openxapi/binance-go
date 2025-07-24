@@ -24,6 +24,7 @@ type GetCapitalWithdrawAddressListV1RespItem struct {
 	Coin *string `json:"coin,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Network *string `json:"network,omitempty"`
+	Origin *string `json:"origin,omitempty"`
 	OriginType *string `json:"originType,omitempty"`
 	WhiteStatus *bool `json:"whiteStatus,omitempty"`
 }
@@ -205,6 +206,38 @@ func (o *GetCapitalWithdrawAddressListV1RespItem) SetNetwork(v string) {
 	o.Network = &v
 }
 
+// GetOrigin returns the Origin field value if set, zero value otherwise.
+func (o *GetCapitalWithdrawAddressListV1RespItem) GetOrigin() string {
+	if o == nil || IsNil(o.Origin) {
+		var ret string
+		return ret
+	}
+	return *o.Origin
+}
+
+// GetOriginOk returns a tuple with the Origin field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetCapitalWithdrawAddressListV1RespItem) GetOriginOk() (*string, bool) {
+	if o == nil || IsNil(o.Origin) {
+		return nil, false
+	}
+	return o.Origin, true
+}
+
+// HasOrigin returns a boolean if a field has been set.
+func (o *GetCapitalWithdrawAddressListV1RespItem) HasOrigin() bool {
+	if o != nil && !IsNil(o.Origin) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrigin gets a reference to the given string and assigns it to the Origin field.
+func (o *GetCapitalWithdrawAddressListV1RespItem) SetOrigin(v string) {
+	o.Origin = &v
+}
+
 // GetOriginType returns the OriginType field value if set, zero value otherwise.
 func (o *GetCapitalWithdrawAddressListV1RespItem) GetOriginType() string {
 	if o == nil || IsNil(o.OriginType) {
@@ -293,6 +326,9 @@ func (o GetCapitalWithdrawAddressListV1RespItem) ToMap() (map[string]interface{}
 	}
 	if !IsNil(o.Network) {
 		toSerialize["network"] = o.Network
+	}
+	if !IsNil(o.Origin) {
+		toSerialize["origin"] = o.Origin
 	}
 	if !IsNil(o.OriginType) {
 		toSerialize["originType"] = o.OriginType

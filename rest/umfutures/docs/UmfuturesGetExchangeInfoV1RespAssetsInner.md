@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Asset** | Pointer to **string** |  | [optional] 
-**AutoAssetExchange** | Pointer to **int32** |  | [optional] 
+**AutoAssetExchange** | Pointer to **string** |  | [optional] 
 **MarginAvailable** | Pointer to **bool** |  | [optional] 
 
 ## Methods
@@ -54,20 +54,20 @@ HasAsset returns a boolean if a field has been set.
 
 ### GetAutoAssetExchange
 
-`func (o *UmfuturesGetExchangeInfoV1RespAssetsInner) GetAutoAssetExchange() int32`
+`func (o *UmfuturesGetExchangeInfoV1RespAssetsInner) GetAutoAssetExchange() string`
 
 GetAutoAssetExchange returns the AutoAssetExchange field if non-nil, zero value otherwise.
 
 ### GetAutoAssetExchangeOk
 
-`func (o *UmfuturesGetExchangeInfoV1RespAssetsInner) GetAutoAssetExchangeOk() (*int32, bool)`
+`func (o *UmfuturesGetExchangeInfoV1RespAssetsInner) GetAutoAssetExchangeOk() (*string, bool)`
 
 GetAutoAssetExchangeOk returns a tuple with the AutoAssetExchange field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAutoAssetExchange
 
-`func (o *UmfuturesGetExchangeInfoV1RespAssetsInner) SetAutoAssetExchange(v int32)`
+`func (o *UmfuturesGetExchangeInfoV1RespAssetsInner) SetAutoAssetExchange(v string)`
 
 SetAutoAssetExchange sets AutoAssetExchange field to given value.
 

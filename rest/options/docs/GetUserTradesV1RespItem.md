@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Fee** | Pointer to **string** |  | [optional] 
-**Id** | Pointer to **int32** |  | [optional] 
+**Id** | Pointer to **int64** |  | [optional] 
 **Liquidity** | Pointer to **string** |  | [optional] 
 **OptionSide** | Pointer to **string** |  | [optional] 
 **OrderId** | Pointer to **int64** |  | [optional] 
@@ -68,20 +68,20 @@ HasFee returns a boolean if a field has been set.
 
 ### GetId
 
-`func (o *GetUserTradesV1RespItem) GetId() int32`
+`func (o *GetUserTradesV1RespItem) GetId() int64`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *GetUserTradesV1RespItem) GetIdOk() (*int32, bool)`
+`func (o *GetUserTradesV1RespItem) GetIdOk() (*int64, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *GetUserTradesV1RespItem) SetId(v int32)`
+`func (o *GetUserTradesV1RespItem) SetId(v int64)`
 
 SetId sets Id field to given value.
 

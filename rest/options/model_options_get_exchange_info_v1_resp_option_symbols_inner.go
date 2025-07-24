@@ -19,7 +19,7 @@ var _ MappedNullable = &OptionsGetExchangeInfoV1RespOptionSymbolsInner{}
 
 // OptionsGetExchangeInfoV1RespOptionSymbolsInner struct for OptionsGetExchangeInfoV1RespOptionSymbolsInner
 type OptionsGetExchangeInfoV1RespOptionSymbolsInner struct {
-	ExpiryDate *int32 `json:"expiryDate,omitempty"`
+	ExpiryDate *int64 `json:"expiryDate,omitempty"`
 	Filters []OptionsSymbolFilter `json:"filters,omitempty"`
 	InitialMargin *string `json:"initialMargin,omitempty"`
 	MaintenanceMargin *string `json:"maintenanceMargin,omitempty"`
@@ -57,9 +57,9 @@ func NewOptionsGetExchangeInfoV1RespOptionSymbolsInnerWithDefaults() *OptionsGet
 }
 
 // GetExpiryDate returns the ExpiryDate field value if set, zero value otherwise.
-func (o *OptionsGetExchangeInfoV1RespOptionSymbolsInner) GetExpiryDate() int32 {
+func (o *OptionsGetExchangeInfoV1RespOptionSymbolsInner) GetExpiryDate() int64 {
 	if o == nil || IsNil(o.ExpiryDate) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ExpiryDate
@@ -67,7 +67,7 @@ func (o *OptionsGetExchangeInfoV1RespOptionSymbolsInner) GetExpiryDate() int32 {
 
 // GetExpiryDateOk returns a tuple with the ExpiryDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OptionsGetExchangeInfoV1RespOptionSymbolsInner) GetExpiryDateOk() (*int32, bool) {
+func (o *OptionsGetExchangeInfoV1RespOptionSymbolsInner) GetExpiryDateOk() (*int64, bool) {
 	if o == nil || IsNil(o.ExpiryDate) {
 		return nil, false
 	}
@@ -83,8 +83,8 @@ func (o *OptionsGetExchangeInfoV1RespOptionSymbolsInner) HasExpiryDate() bool {
 	return false
 }
 
-// SetExpiryDate gets a reference to the given int32 and assigns it to the ExpiryDate field.
-func (o *OptionsGetExchangeInfoV1RespOptionSymbolsInner) SetExpiryDate(v int32) {
+// SetExpiryDate gets a reference to the given int64 and assigns it to the ExpiryDate field.
+func (o *OptionsGetExchangeInfoV1RespOptionSymbolsInner) SetExpiryDate(v int64) {
 	o.ExpiryDate = &v
 }
 

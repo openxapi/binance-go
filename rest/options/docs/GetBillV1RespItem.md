@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Amount** | Pointer to **string** |  | [optional] 
 **Asset** | Pointer to **string** |  | [optional] 
-**CreateDate** | Pointer to **int32** |  | [optional] 
-**Id** | Pointer to **int32** |  | [optional] 
+**CreateDate** | Pointer to **int64** |  | [optional] 
+**Id** | Pointer to **int64** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -81,20 +81,20 @@ HasAsset returns a boolean if a field has been set.
 
 ### GetCreateDate
 
-`func (o *GetBillV1RespItem) GetCreateDate() int32`
+`func (o *GetBillV1RespItem) GetCreateDate() int64`
 
 GetCreateDate returns the CreateDate field if non-nil, zero value otherwise.
 
 ### GetCreateDateOk
 
-`func (o *GetBillV1RespItem) GetCreateDateOk() (*int32, bool)`
+`func (o *GetBillV1RespItem) GetCreateDateOk() (*int64, bool)`
 
 GetCreateDateOk returns a tuple with the CreateDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreateDate
 
-`func (o *GetBillV1RespItem) SetCreateDate(v int32)`
+`func (o *GetBillV1RespItem) SetCreateDate(v int64)`
 
 SetCreateDate sets CreateDate field to given value.
 
@@ -106,20 +106,20 @@ HasCreateDate returns a boolean if a field has been set.
 
 ### GetId
 
-`func (o *GetBillV1RespItem) GetId() int32`
+`func (o *GetBillV1RespItem) GetId() int64`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *GetBillV1RespItem) GetIdOk() (*int32, bool)`
+`func (o *GetBillV1RespItem) GetIdOk() (*int64, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *GetBillV1RespItem) SetId(v int32)`
+`func (o *GetBillV1RespItem) SetId(v int64)`
 
 SetId sets Id field to given value.
 

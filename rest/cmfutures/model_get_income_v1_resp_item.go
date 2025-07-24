@@ -26,7 +26,7 @@ type GetIncomeV1RespItem struct {
 	Symbol *string `json:"symbol,omitempty"`
 	Time *int64 `json:"time,omitempty"`
 	TradeId *string `json:"tradeId,omitempty"`
-	TranId *string `json:"tranId,omitempty"`
+	TranId *int64 `json:"tranId,omitempty"`
 }
 
 // NewGetIncomeV1RespItem instantiates a new GetIncomeV1RespItem object
@@ -271,9 +271,9 @@ func (o *GetIncomeV1RespItem) SetTradeId(v string) {
 }
 
 // GetTranId returns the TranId field value if set, zero value otherwise.
-func (o *GetIncomeV1RespItem) GetTranId() string {
+func (o *GetIncomeV1RespItem) GetTranId() int64 {
 	if o == nil || IsNil(o.TranId) {
-		var ret string
+		var ret int64
 		return ret
 	}
 	return *o.TranId
@@ -281,7 +281,7 @@ func (o *GetIncomeV1RespItem) GetTranId() string {
 
 // GetTranIdOk returns a tuple with the TranId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetIncomeV1RespItem) GetTranIdOk() (*string, bool) {
+func (o *GetIncomeV1RespItem) GetTranIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.TranId) {
 		return nil, false
 	}
@@ -297,8 +297,8 @@ func (o *GetIncomeV1RespItem) HasTranId() bool {
 	return false
 }
 
-// SetTranId gets a reference to the given string and assigns it to the TranId field.
-func (o *GetIncomeV1RespItem) SetTranId(v string) {
+// SetTranId gets a reference to the given int64 and assigns it to the TranId field.
+func (o *GetIncomeV1RespItem) SetTranId(v int64) {
 	o.TranId = &v
 }
 

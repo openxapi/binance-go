@@ -23,7 +23,7 @@ type GetAssetAssetDividendV1RespRowsInner struct {
 	Asset *string `json:"asset,omitempty"`
 	DivTime *int64 `json:"divTime,omitempty"`
 	EnInfo *string `json:"enInfo,omitempty"`
-	Id *int32 `json:"id,omitempty"`
+	Id *int64 `json:"id,omitempty"`
 	TranId *int64 `json:"tranId,omitempty"`
 }
 
@@ -173,9 +173,9 @@ func (o *GetAssetAssetDividendV1RespRowsInner) SetEnInfo(v string) {
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *GetAssetAssetDividendV1RespRowsInner) GetId() int32 {
+func (o *GetAssetAssetDividendV1RespRowsInner) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -183,7 +183,7 @@ func (o *GetAssetAssetDividendV1RespRowsInner) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetAssetAssetDividendV1RespRowsInner) GetIdOk() (*int32, bool) {
+func (o *GetAssetAssetDividendV1RespRowsInner) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -199,8 +199,8 @@ func (o *GetAssetAssetDividendV1RespRowsInner) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *GetAssetAssetDividendV1RespRowsInner) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *GetAssetAssetDividendV1RespRowsInner) SetId(v int64) {
 	o.Id = &v
 }
 

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Coin** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Network** | Pointer to **string** |  | [optional] 
+**Origin** | Pointer to **string** |  | [optional] 
 **OriginType** | Pointer to **string** |  | [optional] 
 **WhiteStatus** | Pointer to **bool** |  | [optional] 
 
@@ -155,6 +156,31 @@ SetNetwork sets Network field to given value.
 `func (o *GetCapitalWithdrawAddressListV1RespItem) HasNetwork() bool`
 
 HasNetwork returns a boolean if a field has been set.
+
+### GetOrigin
+
+`func (o *GetCapitalWithdrawAddressListV1RespItem) GetOrigin() string`
+
+GetOrigin returns the Origin field if non-nil, zero value otherwise.
+
+### GetOriginOk
+
+`func (o *GetCapitalWithdrawAddressListV1RespItem) GetOriginOk() (*string, bool)`
+
+GetOriginOk returns a tuple with the Origin field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrigin
+
+`func (o *GetCapitalWithdrawAddressListV1RespItem) SetOrigin(v string)`
+
+SetOrigin sets Origin field to given value.
+
+### HasOrigin
+
+`func (o *GetCapitalWithdrawAddressListV1RespItem) HasOrigin() bool`
+
+HasOrigin returns a boolean if a field has been set.
 
 ### GetOriginType
 

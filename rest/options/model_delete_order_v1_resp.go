@@ -21,7 +21,7 @@ var _ MappedNullable = &DeleteOrderV1Resp{}
 type DeleteOrderV1Resp struct {
 	AvgPrice *string `json:"avgPrice,omitempty"`
 	ClientOrderId *string `json:"clientOrderId,omitempty"`
-	CreateDate *int32 `json:"createDate,omitempty"`
+	CreateDate *int64 `json:"createDate,omitempty"`
 	ExecutedQty *string `json:"executedQty,omitempty"`
 	Fee *string `json:"fee,omitempty"`
 	Mmp *bool `json:"mmp,omitempty"`
@@ -125,9 +125,9 @@ func (o *DeleteOrderV1Resp) SetClientOrderId(v string) {
 }
 
 // GetCreateDate returns the CreateDate field value if set, zero value otherwise.
-func (o *DeleteOrderV1Resp) GetCreateDate() int32 {
+func (o *DeleteOrderV1Resp) GetCreateDate() int64 {
 	if o == nil || IsNil(o.CreateDate) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CreateDate
@@ -135,7 +135,7 @@ func (o *DeleteOrderV1Resp) GetCreateDate() int32 {
 
 // GetCreateDateOk returns a tuple with the CreateDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DeleteOrderV1Resp) GetCreateDateOk() (*int32, bool) {
+func (o *DeleteOrderV1Resp) GetCreateDateOk() (*int64, bool) {
 	if o == nil || IsNil(o.CreateDate) {
 		return nil, false
 	}
@@ -151,8 +151,8 @@ func (o *DeleteOrderV1Resp) HasCreateDate() bool {
 	return false
 }
 
-// SetCreateDate gets a reference to the given int32 and assigns it to the CreateDate field.
-func (o *DeleteOrderV1Resp) SetCreateDate(v int32) {
+// SetCreateDate gets a reference to the given int64 and assigns it to the CreateDate field.
+func (o *DeleteOrderV1Resp) SetCreateDate(v int64) {
 	o.CreateDate = &v
 }
 

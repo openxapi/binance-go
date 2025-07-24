@@ -23,13 +23,13 @@ type UmfuturesGetExchangeInfoV1RespSymbolsInner struct {
 	BaseAsset *string `json:"baseAsset,omitempty"`
 	BaseAssetPrecision *int32 `json:"baseAssetPrecision,omitempty"`
 	ContractType *string `json:"contractType,omitempty"`
-	DeliveryDate *int32 `json:"deliveryDate,omitempty"`
+	DeliveryDate *int64 `json:"deliveryDate,omitempty"`
 	Filters []UmfuturesGetExchangeInfoV1RespSymbolsInnerFiltersInner `json:"filters,omitempty"`
 	LiquidationFee *string `json:"liquidationFee,omitempty"`
 	MaintMarginPercent *string `json:"maintMarginPercent,omitempty"`
 	MarginAsset *string `json:"marginAsset,omitempty"`
 	MarketTakeBound *string `json:"marketTakeBound,omitempty"`
-	OnboardDate *int32 `json:"onboardDate,omitempty"`
+	OnboardDate *int64 `json:"onboardDate,omitempty"`
 	Pair *string `json:"pair,omitempty"`
 	PricePrecision *int32 `json:"pricePrecision,omitempty"`
 	QuantityPrecision *int32 `json:"quantityPrecision,omitempty"`
@@ -191,9 +191,9 @@ func (o *UmfuturesGetExchangeInfoV1RespSymbolsInner) SetContractType(v string) {
 }
 
 // GetDeliveryDate returns the DeliveryDate field value if set, zero value otherwise.
-func (o *UmfuturesGetExchangeInfoV1RespSymbolsInner) GetDeliveryDate() int32 {
+func (o *UmfuturesGetExchangeInfoV1RespSymbolsInner) GetDeliveryDate() int64 {
 	if o == nil || IsNil(o.DeliveryDate) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.DeliveryDate
@@ -201,7 +201,7 @@ func (o *UmfuturesGetExchangeInfoV1RespSymbolsInner) GetDeliveryDate() int32 {
 
 // GetDeliveryDateOk returns a tuple with the DeliveryDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UmfuturesGetExchangeInfoV1RespSymbolsInner) GetDeliveryDateOk() (*int32, bool) {
+func (o *UmfuturesGetExchangeInfoV1RespSymbolsInner) GetDeliveryDateOk() (*int64, bool) {
 	if o == nil || IsNil(o.DeliveryDate) {
 		return nil, false
 	}
@@ -217,8 +217,8 @@ func (o *UmfuturesGetExchangeInfoV1RespSymbolsInner) HasDeliveryDate() bool {
 	return false
 }
 
-// SetDeliveryDate gets a reference to the given int32 and assigns it to the DeliveryDate field.
-func (o *UmfuturesGetExchangeInfoV1RespSymbolsInner) SetDeliveryDate(v int32) {
+// SetDeliveryDate gets a reference to the given int64 and assigns it to the DeliveryDate field.
+func (o *UmfuturesGetExchangeInfoV1RespSymbolsInner) SetDeliveryDate(v int64) {
 	o.DeliveryDate = &v
 }
 
@@ -383,9 +383,9 @@ func (o *UmfuturesGetExchangeInfoV1RespSymbolsInner) SetMarketTakeBound(v string
 }
 
 // GetOnboardDate returns the OnboardDate field value if set, zero value otherwise.
-func (o *UmfuturesGetExchangeInfoV1RespSymbolsInner) GetOnboardDate() int32 {
+func (o *UmfuturesGetExchangeInfoV1RespSymbolsInner) GetOnboardDate() int64 {
 	if o == nil || IsNil(o.OnboardDate) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OnboardDate
@@ -393,7 +393,7 @@ func (o *UmfuturesGetExchangeInfoV1RespSymbolsInner) GetOnboardDate() int32 {
 
 // GetOnboardDateOk returns a tuple with the OnboardDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UmfuturesGetExchangeInfoV1RespSymbolsInner) GetOnboardDateOk() (*int32, bool) {
+func (o *UmfuturesGetExchangeInfoV1RespSymbolsInner) GetOnboardDateOk() (*int64, bool) {
 	if o == nil || IsNil(o.OnboardDate) {
 		return nil, false
 	}
@@ -409,8 +409,8 @@ func (o *UmfuturesGetExchangeInfoV1RespSymbolsInner) HasOnboardDate() bool {
 	return false
 }
 
-// SetOnboardDate gets a reference to the given int32 and assigns it to the OnboardDate field.
-func (o *UmfuturesGetExchangeInfoV1RespSymbolsInner) SetOnboardDate(v int32) {
+// SetOnboardDate gets a reference to the given int64 and assigns it to the OnboardDate field.
+func (o *UmfuturesGetExchangeInfoV1RespSymbolsInner) SetOnboardDate(v int64) {
 	o.OnboardDate = &v
 }
 

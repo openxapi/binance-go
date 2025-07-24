@@ -20,7 +20,7 @@ var _ MappedNullable = &UmfuturesGetExchangeInfoV1RespAssetsInner{}
 // UmfuturesGetExchangeInfoV1RespAssetsInner struct for UmfuturesGetExchangeInfoV1RespAssetsInner
 type UmfuturesGetExchangeInfoV1RespAssetsInner struct {
 	Asset *string `json:"asset,omitempty"`
-	AutoAssetExchange *int32 `json:"autoAssetExchange,omitempty"`
+	AutoAssetExchange *string `json:"autoAssetExchange,omitempty"`
 	MarginAvailable *bool `json:"marginAvailable,omitempty"`
 }
 
@@ -74,9 +74,9 @@ func (o *UmfuturesGetExchangeInfoV1RespAssetsInner) SetAsset(v string) {
 }
 
 // GetAutoAssetExchange returns the AutoAssetExchange field value if set, zero value otherwise.
-func (o *UmfuturesGetExchangeInfoV1RespAssetsInner) GetAutoAssetExchange() int32 {
+func (o *UmfuturesGetExchangeInfoV1RespAssetsInner) GetAutoAssetExchange() string {
 	if o == nil || IsNil(o.AutoAssetExchange) {
-		var ret int32
+		var ret string
 		return ret
 	}
 	return *o.AutoAssetExchange
@@ -84,7 +84,7 @@ func (o *UmfuturesGetExchangeInfoV1RespAssetsInner) GetAutoAssetExchange() int32
 
 // GetAutoAssetExchangeOk returns a tuple with the AutoAssetExchange field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UmfuturesGetExchangeInfoV1RespAssetsInner) GetAutoAssetExchangeOk() (*int32, bool) {
+func (o *UmfuturesGetExchangeInfoV1RespAssetsInner) GetAutoAssetExchangeOk() (*string, bool) {
 	if o == nil || IsNil(o.AutoAssetExchange) {
 		return nil, false
 	}
@@ -100,8 +100,8 @@ func (o *UmfuturesGetExchangeInfoV1RespAssetsInner) HasAutoAssetExchange() bool 
 	return false
 }
 
-// SetAutoAssetExchange gets a reference to the given int32 and assigns it to the AutoAssetExchange field.
-func (o *UmfuturesGetExchangeInfoV1RespAssetsInner) SetAutoAssetExchange(v int32) {
+// SetAutoAssetExchange gets a reference to the given string and assigns it to the AutoAssetExchange field.
+func (o *UmfuturesGetExchangeInfoV1RespAssetsInner) SetAutoAssetExchange(v string) {
 	o.AutoAssetExchange = &v
 }
 

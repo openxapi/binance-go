@@ -34,7 +34,7 @@ type GetDciProductListV1RespListInner struct {
 	OrderId *int64 `json:"orderId,omitempty"`
 	PurchaseDecimal *int32 `json:"purchaseDecimal,omitempty"`
 	PurchaseEndTime *int64 `json:"purchaseEndTime,omitempty"`
-	SettleDate *int32 `json:"settleDate,omitempty"`
+	SettleDate *int64 `json:"settleDate,omitempty"`
 	StrikePrice *string `json:"strikePrice,omitempty"`
 }
 
@@ -536,9 +536,9 @@ func (o *GetDciProductListV1RespListInner) SetPurchaseEndTime(v int64) {
 }
 
 // GetSettleDate returns the SettleDate field value if set, zero value otherwise.
-func (o *GetDciProductListV1RespListInner) GetSettleDate() int32 {
+func (o *GetDciProductListV1RespListInner) GetSettleDate() int64 {
 	if o == nil || IsNil(o.SettleDate) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SettleDate
@@ -546,7 +546,7 @@ func (o *GetDciProductListV1RespListInner) GetSettleDate() int32 {
 
 // GetSettleDateOk returns a tuple with the SettleDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetDciProductListV1RespListInner) GetSettleDateOk() (*int32, bool) {
+func (o *GetDciProductListV1RespListInner) GetSettleDateOk() (*int64, bool) {
 	if o == nil || IsNil(o.SettleDate) {
 		return nil, false
 	}
@@ -562,8 +562,8 @@ func (o *GetDciProductListV1RespListInner) HasSettleDate() bool {
 	return false
 }
 
-// SetSettleDate gets a reference to the given int32 and assigns it to the SettleDate field.
-func (o *GetDciProductListV1RespListInner) SetSettleDate(v int32) {
+// SetSettleDate gets a reference to the given int64 and assigns it to the SettleDate field.
+func (o *GetDciProductListV1RespListInner) SetSettleDate(v int64) {
 	o.SettleDate = &v
 }
 

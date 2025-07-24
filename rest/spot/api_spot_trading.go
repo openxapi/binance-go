@@ -3157,7 +3157,7 @@ func (r ApiDeleteOpenOrdersV3Request) RecvWindow(recvWindow int64) ApiDeleteOpen
 	return r
 }
 
-func (r ApiDeleteOpenOrdersV3Request) Execute() ([][]SpotDeleteOpenOrdersV3RespInner, *http.Response, error) {
+func (r ApiDeleteOpenOrdersV3Request) Execute() ([]SpotDeleteOpenOrdersV3RespInner, *http.Response, error) {
 	return r.ApiService.DeleteOpenOrdersV3Execute(r)
 }
 
@@ -3178,13 +3178,13 @@ func (a *SpotTradingAPIService) DeleteOpenOrdersV3(ctx context.Context) ApiDelet
 }
 
 // Execute executes the request
-//  @return [][]SpotDeleteOpenOrdersV3RespInner
-func (a *SpotTradingAPIService) DeleteOpenOrdersV3Execute(r ApiDeleteOpenOrdersV3Request) ([][]SpotDeleteOpenOrdersV3RespInner, *http.Response, error) {
+//  @return []SpotDeleteOpenOrdersV3RespInner
+func (a *SpotTradingAPIService) DeleteOpenOrdersV3Execute(r ApiDeleteOpenOrdersV3Request) ([]SpotDeleteOpenOrdersV3RespInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  [][]SpotDeleteOpenOrdersV3RespInner
+		localVarReturnValue  []SpotDeleteOpenOrdersV3RespInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SpotTradingAPIService.DeleteOpenOrdersV3")
@@ -3825,10 +3825,23 @@ type ApiGetAccountCommissionV3Request struct {
 	ctx context.Context
 	ApiService *SpotTradingAPIService
 	symbol *string
+	timestamp *int64
+	recvWindow *int64
 }
 
 func (r ApiGetAccountCommissionV3Request) Symbol(symbol string) ApiGetAccountCommissionV3Request {
 	r.symbol = &symbol
+	return r
+}
+
+func (r ApiGetAccountCommissionV3Request) Timestamp(timestamp int64) ApiGetAccountCommissionV3Request {
+	r.timestamp = &timestamp
+	return r
+}
+
+// The value cannot be greater than &#x60;60000&#x60;
+func (r ApiGetAccountCommissionV3Request) RecvWindow(recvWindow int64) ApiGetAccountCommissionV3Request {
+	r.recvWindow = &recvWindow
 	return r
 }
 
@@ -3874,8 +3887,15 @@ func (a *SpotTradingAPIService) GetAccountCommissionV3Execute(r ApiGetAccountCom
 	if r.symbol == nil {
 		return localVarReturnValue, nil, reportError("symbol is required and must be specified")
 	}
+	if r.timestamp == nil {
+		return localVarReturnValue, nil, reportError("timestamp is required and must be specified")
+	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
+	if r.recvWindow != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "recvWindow", r.recvWindow, "form", "")
+	}
+	parameterAddToHeaderOrQuery(localVarQueryParams, "timestamp", r.timestamp, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -7515,15 +7535,19 @@ func (a *SpotTradingAPIService) GetTickerTradingDayV3Execute(r ApiGetTickerTradi
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.symbol == nil {
-		return localVarReturnValue, nil, reportError("symbol is required and must be specified")
-	}
-	if r.symbols == nil {
-		return localVarReturnValue, nil, reportError("symbols is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "symbols", r.symbols, "form", "")
+	if r.symbol != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
+	} else {
+		var defaultValue string = ""
+		r.symbol = &defaultValue
+	}
+	if r.symbols != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "symbols", r.symbols, "form", "")
+	} else {
+		var defaultValue string = ""
+		r.symbols = &defaultValue
+	}
 	if r.timeZone != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "timeZone", r.timeZone, "form", "")
 	} else {
@@ -7688,15 +7712,19 @@ func (a *SpotTradingAPIService) GetTickerV3Execute(r ApiGetTickerV3Request) (*Sp
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.symbol == nil {
-		return localVarReturnValue, nil, reportError("symbol is required and must be specified")
-	}
-	if r.symbols == nil {
-		return localVarReturnValue, nil, reportError("symbols is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "symbols", r.symbols, "form", "")
+	if r.symbol != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "symbol", r.symbol, "form", "")
+	} else {
+		var defaultValue string = ""
+		r.symbol = &defaultValue
+	}
+	if r.symbols != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "symbols", r.symbols, "form", "")
+	} else {
+		var defaultValue string = ""
+		r.symbols = &defaultValue
+	}
 	if r.windowSize != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "windowSize", r.windowSize, "form", "")
 	} else {

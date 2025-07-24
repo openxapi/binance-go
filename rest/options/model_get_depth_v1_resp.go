@@ -19,7 +19,7 @@ var _ MappedNullable = &GetDepthV1Resp{}
 
 // GetDepthV1Resp struct for GetDepthV1Resp
 type GetDepthV1Resp struct {
-	T *int32 `json:"T,omitempty"`
+	T *int64 `json:"T,omitempty"`
 	Asks [][]string `json:"asks,omitempty"`
 	Bids [][]string `json:"bids,omitempty"`
 	U *int32 `json:"u,omitempty"`
@@ -43,9 +43,9 @@ func NewGetDepthV1RespWithDefaults() *GetDepthV1Resp {
 }
 
 // GetT returns the T field value if set, zero value otherwise.
-func (o *GetDepthV1Resp) GetT() int32 {
+func (o *GetDepthV1Resp) GetT() int64 {
 	if o == nil || IsNil(o.T) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.T
@@ -53,7 +53,7 @@ func (o *GetDepthV1Resp) GetT() int32 {
 
 // GetTOk returns a tuple with the T field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetDepthV1Resp) GetTOk() (*int32, bool) {
+func (o *GetDepthV1Resp) GetTOk() (*int64, bool) {
 	if o == nil || IsNil(o.T) {
 		return nil, false
 	}
@@ -69,8 +69,8 @@ func (o *GetDepthV1Resp) HasT() bool {
 	return false
 }
 
-// SetT gets a reference to the given int32 and assigns it to the T field.
-func (o *GetDepthV1Resp) SetT(v int32) {
+// SetT gets a reference to the given int64 and assigns it to the T field.
+func (o *GetDepthV1Resp) SetT(v int64) {
 	o.T = &v
 }
 

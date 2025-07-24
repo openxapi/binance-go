@@ -20,7 +20,7 @@ var _ MappedNullable = &GetExerciseRecordV1RespItem{}
 // GetExerciseRecordV1RespItem struct for GetExerciseRecordV1RespItem
 type GetExerciseRecordV1RespItem struct {
 	Amount *string `json:"amount,omitempty"`
-	CreateDate *int32 `json:"createDate,omitempty"`
+	CreateDate *int64 `json:"createDate,omitempty"`
 	Currency *string `json:"currency,omitempty"`
 	ExercisePrice *string `json:"exercisePrice,omitempty"`
 	Fee *string `json:"fee,omitempty"`
@@ -85,9 +85,9 @@ func (o *GetExerciseRecordV1RespItem) SetAmount(v string) {
 }
 
 // GetCreateDate returns the CreateDate field value if set, zero value otherwise.
-func (o *GetExerciseRecordV1RespItem) GetCreateDate() int32 {
+func (o *GetExerciseRecordV1RespItem) GetCreateDate() int64 {
 	if o == nil || IsNil(o.CreateDate) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CreateDate
@@ -95,7 +95,7 @@ func (o *GetExerciseRecordV1RespItem) GetCreateDate() int32 {
 
 // GetCreateDateOk returns a tuple with the CreateDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetExerciseRecordV1RespItem) GetCreateDateOk() (*int32, bool) {
+func (o *GetExerciseRecordV1RespItem) GetCreateDateOk() (*int64, bool) {
 	if o == nil || IsNil(o.CreateDate) {
 		return nil, false
 	}
@@ -111,8 +111,8 @@ func (o *GetExerciseRecordV1RespItem) HasCreateDate() bool {
 	return false
 }
 
-// SetCreateDate gets a reference to the given int32 and assigns it to the CreateDate field.
-func (o *GetExerciseRecordV1RespItem) SetCreateDate(v int32) {
+// SetCreateDate gets a reference to the given int64 and assigns it to the CreateDate field.
+func (o *GetExerciseRecordV1RespItem) SetCreateDate(v int64) {
 	o.CreateDate = &v
 }
 

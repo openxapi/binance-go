@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **MaxQty** | Pointer to **string** |  | [optional] 
 **MinPrice** | Pointer to **string** |  | [optional] 
 **MinQty** | Pointer to **string** |  | [optional] 
-**MultiplierDecimal** | Pointer to **int32** |  | [optional] 
+**MultiplierDecimal** | Pointer to **string** |  | [optional] 
 **MultiplierDown** | Pointer to **string** |  | [optional] 
 **MultiplierUp** | Pointer to **string** |  | [optional] 
 **StepSize** | Pointer to **string** |  | [optional] 
@@ -187,20 +187,20 @@ HasMinQty returns a boolean if a field has been set.
 
 ### GetMultiplierDecimal
 
-`func (o *CmfuturesSymbolFilter) GetMultiplierDecimal() int32`
+`func (o *CmfuturesSymbolFilter) GetMultiplierDecimal() string`
 
 GetMultiplierDecimal returns the MultiplierDecimal field if non-nil, zero value otherwise.
 
 ### GetMultiplierDecimalOk
 
-`func (o *CmfuturesSymbolFilter) GetMultiplierDecimalOk() (*int32, bool)`
+`func (o *CmfuturesSymbolFilter) GetMultiplierDecimalOk() (*string, bool)`
 
 GetMultiplierDecimalOk returns a tuple with the MultiplierDecimal field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMultiplierDecimal
 
-`func (o *CmfuturesSymbolFilter) SetMultiplierDecimal(v int32)`
+`func (o *CmfuturesSymbolFilter) SetMultiplierDecimal(v string)`
 
 SetMultiplierDecimal sets MultiplierDecimal field to given value.
 

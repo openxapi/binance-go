@@ -22,14 +22,17 @@ type SpotDeleteOpenOrdersV3RespOrderItem struct {
 	ClientOrderId *string `json:"clientOrderId,omitempty"`
 	CummulativeQuoteQty *string `json:"cummulativeQuoteQty,omitempty"`
 	ExecutedQty *string `json:"executedQty,omitempty"`
+	IcebergQty *string `json:"icebergQty,omitempty"`
 	OrderId *int64 `json:"orderId,omitempty"`
 	OrderListId *int64 `json:"orderListId,omitempty"`
 	OrigClientOrderId *string `json:"origClientOrderId,omitempty"`
 	OrigQty *string `json:"origQty,omitempty"`
+	OrigQuoteOrderQty *string `json:"origQuoteOrderQty,omitempty"`
 	Price *string `json:"price,omitempty"`
 	SelfTradePreventionMode *string `json:"selfTradePreventionMode,omitempty"`
 	Side *string `json:"side,omitempty"`
 	Status *string `json:"status,omitempty"`
+	StopPrice *string `json:"stopPrice,omitempty"`
 	Symbol *string `json:"symbol,omitempty"`
 	TimeInForce *string `json:"timeInForce,omitempty"`
 	TransactTime *int64 `json:"transactTime,omitempty"`
@@ -147,6 +150,38 @@ func (o *SpotDeleteOpenOrdersV3RespOrderItem) HasExecutedQty() bool {
 // SetExecutedQty gets a reference to the given string and assigns it to the ExecutedQty field.
 func (o *SpotDeleteOpenOrdersV3RespOrderItem) SetExecutedQty(v string) {
 	o.ExecutedQty = &v
+}
+
+// GetIcebergQty returns the IcebergQty field value if set, zero value otherwise.
+func (o *SpotDeleteOpenOrdersV3RespOrderItem) GetIcebergQty() string {
+	if o == nil || IsNil(o.IcebergQty) {
+		var ret string
+		return ret
+	}
+	return *o.IcebergQty
+}
+
+// GetIcebergQtyOk returns a tuple with the IcebergQty field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SpotDeleteOpenOrdersV3RespOrderItem) GetIcebergQtyOk() (*string, bool) {
+	if o == nil || IsNil(o.IcebergQty) {
+		return nil, false
+	}
+	return o.IcebergQty, true
+}
+
+// HasIcebergQty returns a boolean if a field has been set.
+func (o *SpotDeleteOpenOrdersV3RespOrderItem) HasIcebergQty() bool {
+	if o != nil && !IsNil(o.IcebergQty) {
+		return true
+	}
+
+	return false
+}
+
+// SetIcebergQty gets a reference to the given string and assigns it to the IcebergQty field.
+func (o *SpotDeleteOpenOrdersV3RespOrderItem) SetIcebergQty(v string) {
+	o.IcebergQty = &v
 }
 
 // GetOrderId returns the OrderId field value if set, zero value otherwise.
@@ -277,6 +312,38 @@ func (o *SpotDeleteOpenOrdersV3RespOrderItem) SetOrigQty(v string) {
 	o.OrigQty = &v
 }
 
+// GetOrigQuoteOrderQty returns the OrigQuoteOrderQty field value if set, zero value otherwise.
+func (o *SpotDeleteOpenOrdersV3RespOrderItem) GetOrigQuoteOrderQty() string {
+	if o == nil || IsNil(o.OrigQuoteOrderQty) {
+		var ret string
+		return ret
+	}
+	return *o.OrigQuoteOrderQty
+}
+
+// GetOrigQuoteOrderQtyOk returns a tuple with the OrigQuoteOrderQty field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SpotDeleteOpenOrdersV3RespOrderItem) GetOrigQuoteOrderQtyOk() (*string, bool) {
+	if o == nil || IsNil(o.OrigQuoteOrderQty) {
+		return nil, false
+	}
+	return o.OrigQuoteOrderQty, true
+}
+
+// HasOrigQuoteOrderQty returns a boolean if a field has been set.
+func (o *SpotDeleteOpenOrdersV3RespOrderItem) HasOrigQuoteOrderQty() bool {
+	if o != nil && !IsNil(o.OrigQuoteOrderQty) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrigQuoteOrderQty gets a reference to the given string and assigns it to the OrigQuoteOrderQty field.
+func (o *SpotDeleteOpenOrdersV3RespOrderItem) SetOrigQuoteOrderQty(v string) {
+	o.OrigQuoteOrderQty = &v
+}
+
 // GetPrice returns the Price field value if set, zero value otherwise.
 func (o *SpotDeleteOpenOrdersV3RespOrderItem) GetPrice() string {
 	if o == nil || IsNil(o.Price) {
@@ -403,6 +470,38 @@ func (o *SpotDeleteOpenOrdersV3RespOrderItem) HasStatus() bool {
 // SetStatus gets a reference to the given string and assigns it to the Status field.
 func (o *SpotDeleteOpenOrdersV3RespOrderItem) SetStatus(v string) {
 	o.Status = &v
+}
+
+// GetStopPrice returns the StopPrice field value if set, zero value otherwise.
+func (o *SpotDeleteOpenOrdersV3RespOrderItem) GetStopPrice() string {
+	if o == nil || IsNil(o.StopPrice) {
+		var ret string
+		return ret
+	}
+	return *o.StopPrice
+}
+
+// GetStopPriceOk returns a tuple with the StopPrice field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SpotDeleteOpenOrdersV3RespOrderItem) GetStopPriceOk() (*string, bool) {
+	if o == nil || IsNil(o.StopPrice) {
+		return nil, false
+	}
+	return o.StopPrice, true
+}
+
+// HasStopPrice returns a boolean if a field has been set.
+func (o *SpotDeleteOpenOrdersV3RespOrderItem) HasStopPrice() bool {
+	if o != nil && !IsNil(o.StopPrice) {
+		return true
+	}
+
+	return false
+}
+
+// SetStopPrice gets a reference to the given string and assigns it to the StopPrice field.
+func (o *SpotDeleteOpenOrdersV3RespOrderItem) SetStopPrice(v string) {
+	o.StopPrice = &v
 }
 
 // GetSymbol returns the Symbol field value if set, zero value otherwise.
@@ -552,6 +651,9 @@ func (o SpotDeleteOpenOrdersV3RespOrderItem) ToMap() (map[string]interface{}, er
 	if !IsNil(o.ExecutedQty) {
 		toSerialize["executedQty"] = o.ExecutedQty
 	}
+	if !IsNil(o.IcebergQty) {
+		toSerialize["icebergQty"] = o.IcebergQty
+	}
 	if !IsNil(o.OrderId) {
 		toSerialize["orderId"] = o.OrderId
 	}
@@ -564,6 +666,9 @@ func (o SpotDeleteOpenOrdersV3RespOrderItem) ToMap() (map[string]interface{}, er
 	if !IsNil(o.OrigQty) {
 		toSerialize["origQty"] = o.OrigQty
 	}
+	if !IsNil(o.OrigQuoteOrderQty) {
+		toSerialize["origQuoteOrderQty"] = o.OrigQuoteOrderQty
+	}
 	if !IsNil(o.Price) {
 		toSerialize["price"] = o.Price
 	}
@@ -575,6 +680,9 @@ func (o SpotDeleteOpenOrdersV3RespOrderItem) ToMap() (map[string]interface{}, er
 	}
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
+	}
+	if !IsNil(o.StopPrice) {
+		toSerialize["stopPrice"] = o.StopPrice
 	}
 	if !IsNil(o.Symbol) {
 		toSerialize["symbol"] = o.Symbol

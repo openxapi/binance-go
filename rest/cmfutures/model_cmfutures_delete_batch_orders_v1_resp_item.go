@@ -29,6 +29,7 @@ type CmfuturesDeleteBatchOrdersV1RespItem struct {
 	OrderId *int64 `json:"orderId,omitempty"`
 	OrigQty *string `json:"origQty,omitempty"`
 	OrigType *string `json:"origType,omitempty"`
+	Pair *string `json:"pair,omitempty"`
 	PositionSide *string `json:"positionSide,omitempty"`
 	Price *string `json:"price,omitempty"`
 	PriceMatch *string `json:"priceMatch,omitempty"`
@@ -381,6 +382,38 @@ func (o *CmfuturesDeleteBatchOrdersV1RespItem) HasOrigType() bool {
 // SetOrigType gets a reference to the given string and assigns it to the OrigType field.
 func (o *CmfuturesDeleteBatchOrdersV1RespItem) SetOrigType(v string) {
 	o.OrigType = &v
+}
+
+// GetPair returns the Pair field value if set, zero value otherwise.
+func (o *CmfuturesDeleteBatchOrdersV1RespItem) GetPair() string {
+	if o == nil || IsNil(o.Pair) {
+		var ret string
+		return ret
+	}
+	return *o.Pair
+}
+
+// GetPairOk returns a tuple with the Pair field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CmfuturesDeleteBatchOrdersV1RespItem) GetPairOk() (*string, bool) {
+	if o == nil || IsNil(o.Pair) {
+		return nil, false
+	}
+	return o.Pair, true
+}
+
+// HasPair returns a boolean if a field has been set.
+func (o *CmfuturesDeleteBatchOrdersV1RespItem) HasPair() bool {
+	if o != nil && !IsNil(o.Pair) {
+		return true
+	}
+
+	return false
+}
+
+// SetPair gets a reference to the given string and assigns it to the Pair field.
+func (o *CmfuturesDeleteBatchOrdersV1RespItem) SetPair(v string) {
+	o.Pair = &v
 }
 
 // GetPositionSide returns the PositionSide field value if set, zero value otherwise.
@@ -902,6 +935,9 @@ func (o CmfuturesDeleteBatchOrdersV1RespItem) ToMap() (map[string]interface{}, e
 	}
 	if !IsNil(o.OrigType) {
 		toSerialize["origType"] = o.OrigType
+	}
+	if !IsNil(o.Pair) {
+		toSerialize["pair"] = o.Pair
 	}
 	if !IsNil(o.PositionSide) {
 		toSerialize["positionSide"] = o.PositionSide

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ExpiryDate** | Pointer to **int32** |  | [optional] 
+**ExpiryDate** | Pointer to **int64** |  | [optional] 
 **Filters** | Pointer to [**[]OptionsSymbolFilter**](OptionsSymbolFilter.md) |  | [optional] 
 **InitialMargin** | Pointer to **string** |  | [optional] 
 **MaintenanceMargin** | Pointer to **string** |  | [optional] 
@@ -44,20 +44,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetExpiryDate
 
-`func (o *OptionsGetExchangeInfoV1RespOptionSymbolsInner) GetExpiryDate() int32`
+`func (o *OptionsGetExchangeInfoV1RespOptionSymbolsInner) GetExpiryDate() int64`
 
 GetExpiryDate returns the ExpiryDate field if non-nil, zero value otherwise.
 
 ### GetExpiryDateOk
 
-`func (o *OptionsGetExchangeInfoV1RespOptionSymbolsInner) GetExpiryDateOk() (*int32, bool)`
+`func (o *OptionsGetExchangeInfoV1RespOptionSymbolsInner) GetExpiryDateOk() (*int64, bool)`
 
 GetExpiryDateOk returns a tuple with the ExpiryDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExpiryDate
 
-`func (o *OptionsGetExchangeInfoV1RespOptionSymbolsInner) SetExpiryDate(v int32)`
+`func (o *OptionsGetExchangeInfoV1RespOptionSymbolsInner) SetExpiryDate(v int64)`
 
 SetExpiryDate sets ExpiryDate field to given value.
 

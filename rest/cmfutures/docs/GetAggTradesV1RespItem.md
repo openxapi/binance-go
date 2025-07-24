@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**T** | Pointer to **int32** |  | [optional] 
+**T** | Pointer to **int64** |  | [optional] 
 **A** | Pointer to **int32** |  | [optional] 
 **F** | Pointer to **int32** |  | [optional] 
 **L** | Pointer to **int32** |  | [optional] 
@@ -33,20 +33,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetT
 
-`func (o *GetAggTradesV1RespItem) GetT() int32`
+`func (o *GetAggTradesV1RespItem) GetT() int64`
 
 GetT returns the T field if non-nil, zero value otherwise.
 
 ### GetTOk
 
-`func (o *GetAggTradesV1RespItem) GetTOk() (*int32, bool)`
+`func (o *GetAggTradesV1RespItem) GetTOk() (*int64, bool)`
 
 GetTOk returns a tuple with the T field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetT
 
-`func (o *GetAggTradesV1RespItem) SetT(v int32)`
+`func (o *GetAggTradesV1RespItem) SetT(v int64)`
 
 SetT sets T field to given value.
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | Pointer to **int64** |  | [optional] 
 **Price** | Pointer to **string** |  | [optional] 
 **Qty** | Pointer to **string** |  | [optional] 
 **QuoteQty** | Pointer to **string** |  | [optional] 
@@ -33,20 +33,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetId
 
-`func (o *GetTradesV1RespItem) GetId() string`
+`func (o *GetTradesV1RespItem) GetId() int64`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *GetTradesV1RespItem) GetIdOk() (*string, bool)`
+`func (o *GetTradesV1RespItem) GetIdOk() (*int64, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *GetTradesV1RespItem) SetId(v string)`
+`func (o *GetTradesV1RespItem) SetId(v int64)`
 
 SetId sets Id field to given value.
 

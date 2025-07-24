@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **RequireSelfTradePrevention** | Pointer to **bool** |  | [optional] 
 **SellerCommission** | Pointer to **int32** |  | [optional] 
 **TakerCommission** | Pointer to **int32** |  | [optional] 
-**Uid** | Pointer to **int32** |  | [optional] 
+**Uid** | Pointer to **int64** |  | [optional] 
 **UpdateTime** | Pointer to **int64** |  | [optional] 
 
 ## Methods
@@ -392,20 +392,20 @@ HasTakerCommission returns a boolean if a field has been set.
 
 ### GetUid
 
-`func (o *GetAccountV3Resp) GetUid() int32`
+`func (o *GetAccountV3Resp) GetUid() int64`
 
 GetUid returns the Uid field if non-nil, zero value otherwise.
 
 ### GetUidOk
 
-`func (o *GetAccountV3Resp) GetUidOk() (*int32, bool)`
+`func (o *GetAccountV3Resp) GetUidOk() (*int64, bool)`
 
 GetUidOk returns a tuple with the Uid field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUid
 
-`func (o *GetAccountV3Resp) SetUid(v int32)`
+`func (o *GetAccountV3Resp) SetUid(v int64)`
 
 SetUid sets Uid field to given value.
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EntryPrice** | Pointer to **string** |  | [optional] 
-**ExpiryDate** | Pointer to **int32** |  | [optional] 
+**ExpiryDate** | Pointer to **int64** |  | [optional] 
 **MarkPrice** | Pointer to **string** |  | [optional] 
 **MarkValue** | Pointer to **string** |  | [optional] 
 **OptionSide** | Pointer to **string** |  | [optional] 
@@ -67,20 +67,20 @@ HasEntryPrice returns a boolean if a field has been set.
 
 ### GetExpiryDate
 
-`func (o *GetPositionV1RespItem) GetExpiryDate() int32`
+`func (o *GetPositionV1RespItem) GetExpiryDate() int64`
 
 GetExpiryDate returns the ExpiryDate field if non-nil, zero value otherwise.
 
 ### GetExpiryDateOk
 
-`func (o *GetPositionV1RespItem) GetExpiryDateOk() (*int32, bool)`
+`func (o *GetPositionV1RespItem) GetExpiryDateOk() (*int64, bool)`
 
 GetExpiryDateOk returns a tuple with the ExpiryDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExpiryDate
 
-`func (o *GetPositionV1RespItem) SetExpiryDate(v int32)`
+`func (o *GetPositionV1RespItem) SetExpiryDate(v int64)`
 
 SetExpiryDate sets ExpiryDate field to given value.
 

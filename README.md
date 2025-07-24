@@ -40,7 +40,7 @@ This SDK is organized into two main components:
 |---------|----------|---------------|-------------------|
 | **Spot** | ✅ [`rest/spot`](rest/) | ✅ [`ws/spot`](ws/) | ✅ [`ws/spot-streams`](ws/) |
 | **USDS-M Futures** | ✅ [`rest/umfutures`](rest/) | ✅ [`ws/umfutures`](ws/) | ✅ [`ws/umfutures-streams`](ws/) |
-| **COIN-M Futures** | ✅ [`rest/cmfutures`](rest/) | ✅ [`ws/cmfutures`](ws/) | - |
+| **COIN-M Futures** | ✅ [`rest/cmfutures`](rest/) | ✅ [`ws/cmfutures`](ws/) | ✅ [`ws/cmfutures-streams`](ws/) |
 | **Options** | ✅ [`rest/options`](rest/) | - | - |
 | **Portfolio Margin** | ✅ [`rest/pmargin`](rest/) | - | - |
 

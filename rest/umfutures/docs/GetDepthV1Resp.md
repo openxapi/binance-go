@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**E** | Pointer to **int32** |  | [optional] 
-**T** | Pointer to **int32** |  | [optional] 
+**E** | Pointer to **int64** |  | [optional] 
+**T** | Pointer to **int64** |  | [optional] 
 **Asks** | Pointer to **[][]string** |  | [optional] 
 **Bids** | Pointer to **[][]string** |  | [optional] 
 **LastUpdateId** | Pointer to **int64** |  | [optional] 
@@ -31,20 +31,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetE
 
-`func (o *GetDepthV1Resp) GetE() int32`
+`func (o *GetDepthV1Resp) GetE() int64`
 
 GetE returns the E field if non-nil, zero value otherwise.
 
 ### GetEOk
 
-`func (o *GetDepthV1Resp) GetEOk() (*int32, bool)`
+`func (o *GetDepthV1Resp) GetEOk() (*int64, bool)`
 
 GetEOk returns a tuple with the E field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetE
 
-`func (o *GetDepthV1Resp) SetE(v int32)`
+`func (o *GetDepthV1Resp) SetE(v int64)`
 
 SetE sets E field to given value.
 
@@ -56,20 +56,20 @@ HasE returns a boolean if a field has been set.
 
 ### GetT
 
-`func (o *GetDepthV1Resp) GetT() int32`
+`func (o *GetDepthV1Resp) GetT() int64`
 
 GetT returns the T field if non-nil, zero value otherwise.
 
 ### GetTOk
 
-`func (o *GetDepthV1Resp) GetTOk() (*int32, bool)`
+`func (o *GetDepthV1Resp) GetTOk() (*int64, bool)`
 
 GetTOk returns a tuple with the T field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetT
 
-`func (o *GetDepthV1Resp) SetT(v int32)`
+`func (o *GetDepthV1Resp) SetT(v int64)`
 
 SetT sets T field to given value.
 

@@ -609,7 +609,7 @@ Other parameters are passed through a pointer to a apiGetMiningPubAlgoListV1Requ
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -670,7 +670,7 @@ Other parameters are passed through a pointer to a apiGetMiningPubCoinListV1Requ
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 

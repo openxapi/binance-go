@@ -93,7 +93,7 @@ import (
 )
 
 func main() {
-	batchOrders := []openapiclient.CmfuturesCreateBatchOrderV1ReqBatchOrdersItem{*openapiclient.NewCmfuturesCreateBatchOrderV1ReqBatchOrdersItem("Side_example", "Symbol_example", "Type_example")} // []CmfuturesCreateBatchOrderV1ReqBatchOrdersItem | 
+	batchOrders := "batchOrders_example" // string | 
 	timestamp := int64(789) // int64 | 
 	recvWindow := int64(789) // int64 |  (optional)
 
@@ -120,7 +120,7 @@ Other parameters are passed through a pointer to a apiCreateBatchOrdersV1Request
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **batchOrders** | [**[]CmfuturesCreateBatchOrderV1ReqBatchOrdersItem**](CmfuturesCreateBatchOrderV1ReqBatchOrdersItem.md) |  | 
+ **batchOrders** | **string** |  | 
  **timestamp** | **int64** |  | 
  **recvWindow** | **int64** |  | 
 
@@ -762,8 +762,8 @@ import (
 func main() {
 	symbol := "symbol_example" // string |  (default to "")
 	timestamp := int64(789) // int64 | 
-	orderIdList := []int64{int64(123)} // []int64 | max length 10 <br/> e.g. [1234567,2345678] (optional)
-	origClientOrderIdList := []string{"Inner_example"} // []string | max length 10<br/> e.g. [&#34;my_id_1&#34;,&#34;my_id_2&#34;], encode the double quotes. No space after comma. (optional)
+	orderIdList := "[1234567,2345678]" // string | max length 10 <br/> e.g. [1234567,2345678] (optional)
+	origClientOrderIdList := "["my_id_1","my_id_2"]" // string | max length 10<br/> e.g. [&#34;my_id_1&#34;,&#34;my_id_2&#34;], encode the double quotes. No space after comma. (optional)
 	recvWindow := int64(789) // int64 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -791,8 +791,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **symbol** | **string** |  | [default to &quot;&quot;]
  **timestamp** | **int64** |  | 
- **orderIdList** | **[]int64** | max length 10 &lt;br/&gt; e.g. [1234567,2345678] | 
- **origClientOrderIdList** | **[]string** | max length 10&lt;br/&gt; e.g. [&amp;#34;my_id_1&amp;#34;,&amp;#34;my_id_2&amp;#34;], encode the double quotes. No space after comma. | 
+ **orderIdList** | **string** | max length 10 &lt;br/&gt; e.g. [1234567,2345678] | 
+ **origClientOrderIdList** | **string** | max length 10&lt;br/&gt; e.g. [&amp;#34;my_id_1&amp;#34;,&amp;#34;my_id_2&amp;#34;], encode the double quotes. No space after comma. | 
  **recvWindow** | **int64** |  | 
 
 ### Return type
@@ -2368,7 +2368,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
@@ -4539,7 +4539,7 @@ import (
 )
 
 func main() {
-	batchOrders := []openapiclient.CmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem{*openapiclient.NewCmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem("Side_example", "Symbol_example", int64(123))} // []CmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem | 
+	batchOrders := "batchOrders_example" // string | JSON string containing array of order modification objects. Max 5 orders.
 	timestamp := int64(789) // int64 | 
 	recvWindow := int64(789) // int64 |  (optional)
 
@@ -4566,7 +4566,7 @@ Other parameters are passed through a pointer to a apiUpdateBatchOrdersV1Request
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **batchOrders** | [**[]CmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem**](CmfuturesUpdateBatchOrdersV1ReqBatchOrdersItem.md) |  | 
+ **batchOrders** | **string** | JSON string containing array of order modification objects. Max 5 orders. | 
  **timestamp** | **int64** |  | 
  **recvWindow** | **int64** |  | 
 

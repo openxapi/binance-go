@@ -10,14 +10,14 @@ Name | Type | Description | Notes
 **ContractSize** | Pointer to **int32** |  | [optional] 
 **ContractStatus** | Pointer to **string** |  | [optional] 
 **ContractType** | Pointer to **string** |  | [optional] 
-**DeliveryDate** | Pointer to **int32** |  | [optional] 
+**DeliveryDate** | Pointer to **int64** |  | [optional] 
 **EqualQtyPrecision** | Pointer to **int32** |  | [optional] 
 **Filters** | Pointer to [**[]CmfuturesSymbolFilter**](CmfuturesSymbolFilter.md) |  | [optional] 
 **LiquidationFee** | Pointer to **string** |  | [optional] 
 **MaintMarginPercent** | Pointer to **string** |  | [optional] 
 **MarginAsset** | Pointer to **string** |  | [optional] 
 **MarketTakeBound** | Pointer to **string** |  | [optional] 
-**OnboardDate** | Pointer to **int32** |  | [optional] 
+**OnboardDate** | Pointer to **int64** |  | [optional] 
 **Pair** | Pointer to **string** |  | [optional] 
 **PricePrecision** | Pointer to **int32** |  | [optional] 
 **QuantityPrecision** | Pointer to **int32** |  | [optional] 
@@ -201,20 +201,20 @@ HasContractType returns a boolean if a field has been set.
 
 ### GetDeliveryDate
 
-`func (o *CmfuturesGetExchangeInfoV1RespSymbolsInner) GetDeliveryDate() int32`
+`func (o *CmfuturesGetExchangeInfoV1RespSymbolsInner) GetDeliveryDate() int64`
 
 GetDeliveryDate returns the DeliveryDate field if non-nil, zero value otherwise.
 
 ### GetDeliveryDateOk
 
-`func (o *CmfuturesGetExchangeInfoV1RespSymbolsInner) GetDeliveryDateOk() (*int32, bool)`
+`func (o *CmfuturesGetExchangeInfoV1RespSymbolsInner) GetDeliveryDateOk() (*int64, bool)`
 
 GetDeliveryDateOk returns a tuple with the DeliveryDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeliveryDate
 
-`func (o *CmfuturesGetExchangeInfoV1RespSymbolsInner) SetDeliveryDate(v int32)`
+`func (o *CmfuturesGetExchangeInfoV1RespSymbolsInner) SetDeliveryDate(v int64)`
 
 SetDeliveryDate sets DeliveryDate field to given value.
 
@@ -376,20 +376,20 @@ HasMarketTakeBound returns a boolean if a field has been set.
 
 ### GetOnboardDate
 
-`func (o *CmfuturesGetExchangeInfoV1RespSymbolsInner) GetOnboardDate() int32`
+`func (o *CmfuturesGetExchangeInfoV1RespSymbolsInner) GetOnboardDate() int64`
 
 GetOnboardDate returns the OnboardDate field if non-nil, zero value otherwise.
 
 ### GetOnboardDateOk
 
-`func (o *CmfuturesGetExchangeInfoV1RespSymbolsInner) GetOnboardDateOk() (*int32, bool)`
+`func (o *CmfuturesGetExchangeInfoV1RespSymbolsInner) GetOnboardDateOk() (*int64, bool)`
 
 GetOnboardDateOk returns a tuple with the OnboardDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOnboardDate
 
-`func (o *CmfuturesGetExchangeInfoV1RespSymbolsInner) SetOnboardDate(v int32)`
+`func (o *CmfuturesGetExchangeInfoV1RespSymbolsInner) SetOnboardDate(v int64)`
 
 SetOnboardDate sets OnboardDate field to given value.
 

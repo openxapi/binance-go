@@ -180,10 +180,7 @@ paths:
         name: orderIds
         required: false
         schema:
-          items:
-            format: int64
-            type: integer
-          type: array
+          type: string
         style: form
       - description: "User-defined order ID, e.g [&#34;my_id_1&#34;,&#34;my_id_2&#34;]"
         explode: true
@@ -191,10 +188,7 @@ paths:
         name: clientOrderIds
         required: false
         schema:
-          items:
-            default: ""
-            type: string
-          type: array
+          type: string
         style: form
       - explode: true
         in: query
@@ -1165,6 +1159,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetHistoricalTradesV1Resp'
           description: Successful operation
+      security:
+      - ApiKey: []
       summary: Old Trades Lookup (MARKET_DATA)
       tags:
       - Options
@@ -2567,6 +2563,7 @@ components:
         clientOrderId:
           type: string
         createDate:
+          format: int64
           type: integer
         executedQty:
           type: string
@@ -2651,8 +2648,10 @@ components:
         asset:
           type: string
         createDate:
+          format: int64
           type: integer
         id:
+          format: int64
           type: integer
         type:
           type: string
@@ -2724,6 +2723,7 @@ components:
     GetBlockTradesV1RespItem:
       properties:
         id:
+          format: int64
           type: integer
         price:
           type: string
@@ -2783,6 +2783,7 @@ components:
         : [               [ \"1100\",             \"0.1\"               ] ] }"
       properties:
         T:
+          format: int64
           type: integer
         asks:
           items:
@@ -2810,6 +2811,7 @@ components:
     GetExerciseHistoryV1RespItem:
       properties:
         expiryDate:
+          format: int64
           type: integer
         realStrikePrice:
           type: string
@@ -2835,6 +2837,7 @@ components:
         amount:
           type: string
         createDate:
+          format: int64
           type: integer
         currency:
           type: string
@@ -3272,6 +3275,7 @@ components:
         entryPrice:
           type: string
         expiryDate:
+          format: int64
           type: integer
         markPrice:
           type: string
@@ -3375,7 +3379,8 @@ components:
     GetTradesV1RespItem:
       properties:
         id:
-          type: string
+          format: int64
+          type: integer
         price:
           type: string
         qty:
@@ -3408,6 +3413,7 @@ components:
         fee:
           type: string
         id:
+          format: int64
           type: integer
         liquidity:
           type: string
@@ -3446,9 +3452,12 @@ components:
     OptionsCreateBatchOrdersV1Req:
       properties:
         orders:
-          items:
-            $ref: '#/components/schemas/OptionsCreateBatchOrdersV1ReqOrdersItem'
-          type: array
+          description: JSON string containing array of order objects. Max 20 orders.
+          example: "[{\"symbol\":\"BTC-240329-50000-C\",\"side\":\"BUY\",\"type\"\
+            :\"LIMIT\",\"quantity\":\"1\",\"price\":\"100\"},{\"symbol\":\"BTC-240329-55000-C\"\
+            ,\"side\":\"BUY\",\"type\":\"LIMIT\",\"quantity\":\"1\",\"price\":\"150\"\
+            }]"
+          type: string
         recvWindow:
           format: int64
           type: integer
@@ -3972,6 +3981,7 @@ components:
     OptionsGetExchangeInfoV1Resp_optionSymbols_inner:
       properties:
         expiryDate:
+          format: int64
           type: integer
         filters:
           items:

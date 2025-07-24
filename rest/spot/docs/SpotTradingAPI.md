@@ -1078,7 +1078,7 @@ Other parameters are passed through a pointer to a apiCreateUserDataStreamV3Requ
 
 ## DeleteOpenOrdersV3
 
-> [][]SpotDeleteOpenOrdersV3RespInner DeleteOpenOrdersV3(ctx).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
+> []SpotDeleteOpenOrdersV3RespInner DeleteOpenOrdersV3(ctx).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Cancel All Open Orders on a Symbol (TRADE)
 
@@ -1108,7 +1108,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.DeleteOpenOrdersV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteOpenOrdersV3`: [][]SpotDeleteOpenOrdersV3RespInner
+	// response from `DeleteOpenOrdersV3`: []SpotDeleteOpenOrdersV3RespInner
 	fmt.Fprintf(os.Stdout, "Response from `SpotTradingAPI.DeleteOpenOrdersV3`: %v\n", resp)
 }
 ```
@@ -1130,7 +1130,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[][]SpotDeleteOpenOrdersV3RespInner**](array.md)
+[**[]SpotDeleteOpenOrdersV3RespInner**](SpotDeleteOpenOrdersV3RespInner.md)
 
 ### Authorization
 
@@ -1368,7 +1368,7 @@ Name | Type | Description  | Notes
 
 ## GetAccountCommissionV3
 
-> GetAccountCommissionV3Resp GetAccountCommissionV3(ctx).Symbol(symbol).Execute()
+> GetAccountCommissionV3Resp GetAccountCommissionV3(ctx).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 
 Query Commission Rates (USER_DATA)
 
@@ -1388,10 +1388,12 @@ import (
 
 func main() {
 	symbol := "symbol_example" // string |  (default to "")
+	timestamp := int64(789) // int64 | 
+	recvWindow := int64(789) // int64 | The value cannot be greater than `60000` (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SpotTradingAPI.GetAccountCommissionV3(context.Background()).Symbol(symbol).Execute()
+	resp, r, err := apiClient.SpotTradingAPI.GetAccountCommissionV3(context.Background()).Symbol(symbol).Timestamp(timestamp).RecvWindow(recvWindow).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SpotTradingAPI.GetAccountCommissionV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1413,6 +1415,8 @@ Other parameters are passed through a pointer to a apiGetAccountCommissionV3Requ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **symbol** | **string** |  | [default to &quot;&quot;]
+ **timestamp** | **int64** |  | 
+ **recvWindow** | **int64** | The value cannot be greater than &#x60;60000&#x60; | 
 
 ### Return type
 
@@ -2958,8 +2962,8 @@ import (
 )
 
 func main() {
-	symbol := "symbol_example" // string | Either `symbol` or `symbols` must be provided <br/><br/> Examples of accepted format for the `symbols` parameter: <br/> [&#34;BTCUSDT&#34;,&#34;BNBUSDT&#34;] <br/>or <br/>%5B%22BTCUSDT%22,%22BNBUSDT%22%5D <br/><br/> The maximum number of `symbols` allowed in a request is 100. (default to "")
-	symbols := "symbols_example" // string | Either `symbol` or `symbols` must be provided <br/><br/> Examples of accepted format for the `symbols` parameter: <br/> [&#34;BTCUSDT&#34;,&#34;BNBUSDT&#34;] <br/>or <br/>%5B%22BTCUSDT%22,%22BNBUSDT%22%5D <br/><br/> The maximum number of `symbols` allowed in a request is 100. (default to "")
+	symbol := "symbol_example" // string | Either `symbol` or `symbols` must be provided <br/><br/> Examples of accepted format for the `symbols` parameter: <br/> [&#34;BTCUSDT&#34;,&#34;BNBUSDT&#34;] <br/>or <br/>%5B%22BTCUSDT%22,%22BNBUSDT%22%5D <br/><br/> The maximum number of `symbols` allowed in a request is 100. (optional) (default to "")
+	symbols := "symbols_example" // string | Either `symbol` or `symbols` must be provided <br/><br/> Examples of accepted format for the `symbols` parameter: <br/> [&#34;BTCUSDT&#34;,&#34;BNBUSDT&#34;] <br/>or <br/>%5B%22BTCUSDT%22,%22BNBUSDT%22%5D <br/><br/> The maximum number of `symbols` allowed in a request is 100. (optional) (default to "")
 	timeZone := "timeZone_example" // string | Default: 0 (UTC) (optional) (default to "0")
 	type_ := "type__example" // string | Supported values: `FULL` or `MINI`. <br/>If none provided, the default is `FULL` (optional) (default to "")
 
@@ -3030,8 +3034,8 @@ import (
 )
 
 func main() {
-	symbol := "symbol_example" // string | Either `symbol` or `symbols` must be provided <br/><br/> Examples of accepted format for the `symbols` parameter: <br/> [&#34;BTCUSDT&#34;,&#34;BNBUSDT&#34;] <br/>or <br/>%5B%22BTCUSDT%22,%22BNBUSDT%22%5D <br/><br/> The maximum number of `symbols` allowed in a request is 100. (default to "")
-	symbols := "symbols_example" // string | Either `symbol` or `symbols` must be provided <br/><br/> Examples of accepted format for the `symbols` parameter: <br/> [&#34;BTCUSDT&#34;,&#34;BNBUSDT&#34;] <br/>or <br/>%5B%22BTCUSDT%22,%22BNBUSDT%22%5D <br/><br/> The maximum number of `symbols` allowed in a request is 100. (default to "")
+	symbol := "symbol_example" // string | Either `symbol` or `symbols` must be provided <br/><br/> Examples of accepted format for the `symbols` parameter: <br/> [&#34;BTCUSDT&#34;,&#34;BNBUSDT&#34;] <br/>or <br/>%5B%22BTCUSDT%22,%22BNBUSDT%22%5D <br/><br/> The maximum number of `symbols` allowed in a request is 100. (optional) (default to "")
+	symbols := "symbols_example" // string | Either `symbol` or `symbols` must be provided <br/><br/> Examples of accepted format for the `symbols` parameter: <br/> [&#34;BTCUSDT&#34;,&#34;BNBUSDT&#34;] <br/>or <br/>%5B%22BTCUSDT%22,%22BNBUSDT%22%5D <br/><br/> The maximum number of `symbols` allowed in a request is 100. (optional) (default to "")
 	windowSize := "windowSize_example" // string | Defaults to `1d` if no parameter provided <br/> Supported `windowSize` values: <br/> `1m`,`2m`....`59m` for minutes <br/> `1h`, `2h`....`23h` - for hours <br/> `1d`...`7d` - for days <br/><br/> Units cannot be combined (e.g. `1d2h` is not allowed) (optional) (default to "")
 	type_ := "type__example" // string | Supported values: `FULL` or `MINI`. <br/>If none provided, the default is `FULL` (optional) (default to "")
 
