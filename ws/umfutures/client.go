@@ -437,6 +437,7 @@ func NewClient() *Client {
 		responseList:  make([]interface{}, 0, 100), // Pre-allocate with capacity
 		done:          make(chan struct{}),
 		jsonBuffer:    make([]byte, 0, 1024), // Pre-allocate JSON buffer
+		handlers:      eventHandlers{},        // Initialize event handlers registry
 	}
 }
 
@@ -632,6 +633,8 @@ func (c *Client) ConnectToServer(ctx context.Context, serverName string) error {
 	
 	return c.Connect(ctx)
 }
+
+
 
 // Disconnect closes the WebSocket connection safely
 func (c *Client) Disconnect() error {

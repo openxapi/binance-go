@@ -437,6 +437,7 @@ func NewClient() *Client {
 		responseList:  make([]interface{}, 0, 100), // Pre-allocate with capacity
 		done:          make(chan struct{}),
 		jsonBuffer:    make([]byte, 0, 1024), // Pre-allocate JSON buffer
+		handlers:      eventHandlers{},        // Initialize event handlers registry
 	}
 }
 
@@ -632,6 +633,8 @@ func (c *Client) ConnectToServer(ctx context.Context, serverName string) error {
 	
 	return c.Connect(ctx)
 }
+
+
 
 // Disconnect closes the WebSocket connection safely
 func (c *Client) Disconnect() error {
@@ -1240,6 +1243,161 @@ func (c *Client) SendOrderStatus(ctx context.Context, request *models.OrderStatu
 }
 
 
+// SendSessionLogon sends a session.logon request using typed request/response structs
+// Authentication required: SIGNED
+// If request.Id is empty, a new request ID will be generated automatically
+func (c *Client) SendSessionLogon(ctx context.Context, request *models.SessionLogonRequest, responseHandler func(interface{}, error) error) error {
+	// Use existing request ID or generate a new one
+	var reqID string
+	if request.Id != "" {
+		reqID = request.Id
+	} else {
+		reqID = GenerateRequestID()
+		request.Id = reqID
+	}
+	request.Method = "session.logon"
+
+	// Convert struct to map for WebSocket sending
+	requestMap, err := structToMap(request)
+	if err != nil {
+		return fmt.Errorf("failed to convert request to map: %w", err)
+	}
+
+	// Get authentication from context or fall back to client auth
+	var auth *Auth
+	if contextAuth, ok := ctx.Value(ContextBinanceAuth).(Auth); ok {
+		auth = &contextAuth
+	} else if c.auth != nil {
+		auth = c.auth
+	} else {
+		return fmt.Errorf("authentication required for SIGNED request but no auth provided in context or client")
+	}
+
+	// Create signer and sign the request parameters
+	signer := NewRequestSigner(auth)
+	if params, ok := requestMap["params"].(map[string]interface{}); ok {
+		if err := signer.SignRequest(params, AuthTypeSigned); err != nil {
+			return fmt.Errorf("failed to sign request: %w", err)
+		}
+		requestMap["params"] = params
+	} else {
+		// Create params if it doesn't exist
+		params := make(map[string]interface{})
+		if err := signer.SignRequest(params, AuthTypeSigned); err != nil {
+			return fmt.Errorf("failed to sign request: %w", err)
+		}
+		requestMap["params"] = params
+	}
+
+	// Register typed response handler with automatic JSON parsing
+	c.responseHandlers.Store(reqID, ResponseHandler{
+		RequestID: reqID,
+		Handler: func(data []byte, err error) error {
+			if err != nil {
+				return responseHandler(nil, err)
+			}
+			
+			// Parse as generic interface{} 
+			var response interface{}
+			if err := json.Unmarshal(data, &response); err != nil {
+				return responseHandler(nil, fmt.Errorf("failed to parse response: %w", err))
+			}
+			
+			return responseHandler(response, nil)
+		},
+	})
+
+	// Send request
+	return c.sendRequest(requestMap)
+}
+
+
+// SendSessionLogout sends a session.logout request using typed request/response structs
+// Authentication required: NONE
+// If request.Id is empty, a new request ID will be generated automatically
+func (c *Client) SendSessionLogout(ctx context.Context, request *models.SessionLogoutRequest, responseHandler func(interface{}, error) error) error {
+	// Use existing request ID or generate a new one
+	var reqID string
+	if request.Id != "" {
+		reqID = request.Id
+	} else {
+		reqID = GenerateRequestID()
+		request.Id = reqID
+	}
+	request.Method = "session.logout"
+
+	// Convert struct to map for WebSocket sending
+	requestMap, err := structToMap(request)
+	if err != nil {
+		return fmt.Errorf("failed to convert request to map: %w", err)
+	}
+
+	// Register typed response handler with automatic JSON parsing
+	c.responseHandlers.Store(reqID, ResponseHandler{
+		RequestID: reqID,
+		Handler: func(data []byte, err error) error {
+			if err != nil {
+				return responseHandler(nil, err)
+			}
+			
+			// Parse as generic interface{} 
+			var response interface{}
+			if err := json.Unmarshal(data, &response); err != nil {
+				return responseHandler(nil, fmt.Errorf("failed to parse response: %w", err))
+			}
+			
+			return responseHandler(response, nil)
+		},
+	})
+
+	// Send request
+	return c.sendRequest(requestMap)
+}
+
+
+// SendSessionStatus sends a session.status request using typed request/response structs
+// Authentication required: NONE
+// If request.Id is empty, a new request ID will be generated automatically
+func (c *Client) SendSessionStatus(ctx context.Context, request *models.SessionStatusRequest, responseHandler func(interface{}, error) error) error {
+	// Use existing request ID or generate a new one
+	var reqID string
+	if request.Id != "" {
+		reqID = request.Id
+	} else {
+		reqID = GenerateRequestID()
+		request.Id = reqID
+	}
+	request.Method = "session.status"
+
+	// Convert struct to map for WebSocket sending
+	requestMap, err := structToMap(request)
+	if err != nil {
+		return fmt.Errorf("failed to convert request to map: %w", err)
+	}
+
+	// Register typed response handler with automatic JSON parsing
+	c.responseHandlers.Store(reqID, ResponseHandler{
+		RequestID: reqID,
+		Handler: func(data []byte, err error) error {
+			if err != nil {
+				return responseHandler(nil, err)
+			}
+			
+			// Parse as generic interface{} 
+			var response interface{}
+			if err := json.Unmarshal(data, &response); err != nil {
+				return responseHandler(nil, fmt.Errorf("failed to parse response: %w", err))
+			}
+			
+			return responseHandler(response, nil)
+		},
+	})
+
+	// Send request
+	return c.sendRequest(requestMap)
+}
+
+
 // SendUserDataStreamPing sends a userDataStream.ping request using typed request/response structs
 // Authentication required: USER_STREAM
 // If request.Id is empty, a new request ID will be generated automatically
@@ -1399,6 +1557,314 @@ func (c *Client) SendUserDataStreamStop(ctx context.Context, request *models.Use
 
 	// Send request
 	return c.sendRequest(requestMap)
+}
+
+
+// HandleAccountConfigUpdate registers a handler for Account Configuration Update Event events
+// This method allows you to handle real-time Account Configuration Update Event events from the WebSocket stream
+func (c *Client) HandleAccountConfigUpdate(handler func(*models.AccountConfigUpdate) error) {
+	c.eventHandler.RegisterHandler("accountConfigUpdate", func(data interface{}) error {
+		// Parse the event data - handle both nested and direct event structures
+		var event models.AccountConfigUpdate
+		
+		if jsonData, ok := data.([]byte); ok {
+			// Direct JSON data parsing
+			if err := json.Unmarshal(jsonData, &event); err != nil {
+				return fmt.Errorf("failed to parse Account Configuration Update Event event: %w", err)
+			}
+		} else if mapData, ok := data.(map[string]interface{}); ok {
+			// Map data - check if this is the nested event object or the full message
+			var eventDataToUnmarshal interface{}
+			
+			// Check if this map contains an "event" field (nested structure)
+			if _, hasEvent := mapData["event"]; hasEvent {
+				// This is a full message with nested event object
+				// Use the entire message structure for parsing
+				eventDataToUnmarshal = mapData
+			} else {
+				// This might be the event data itself
+				eventDataToUnmarshal = mapData
+			}
+			
+			// Convert to JSON and back to struct
+			jsonBytes, err := json.Marshal(eventDataToUnmarshal)
+			if err != nil {
+				return fmt.Errorf("failed to marshal Account Configuration Update Event event data: %w", err)
+			}
+			if err := json.Unmarshal(jsonBytes, &event); err != nil {
+				return fmt.Errorf("failed to parse Account Configuration Update Event event: %w", err)
+			}
+		} else {
+			return fmt.Errorf("unexpected data type for Account Configuration Update Event event: %T", data)
+		}
+		
+		// Call the user-provided handler
+		return handler(&event)
+	})
+}
+
+
+// HandleAccountUpdate registers a handler for Account Update Event events
+// This method allows you to handle real-time Account Update Event events from the WebSocket stream
+func (c *Client) HandleAccountUpdate(handler func(*models.AccountUpdate) error) {
+	c.eventHandler.RegisterHandler("accountUpdate", func(data interface{}) error {
+		// Parse the event data - handle both nested and direct event structures
+		var event models.AccountUpdate
+		
+		if jsonData, ok := data.([]byte); ok {
+			// Direct JSON data parsing
+			if err := json.Unmarshal(jsonData, &event); err != nil {
+				return fmt.Errorf("failed to parse Account Update Event event: %w", err)
+			}
+		} else if mapData, ok := data.(map[string]interface{}); ok {
+			// Map data - check if this is the nested event object or the full message
+			var eventDataToUnmarshal interface{}
+			
+			// Check if this map contains an "event" field (nested structure)
+			if _, hasEvent := mapData["event"]; hasEvent {
+				// This is a full message with nested event object
+				// Use the entire message structure for parsing
+				eventDataToUnmarshal = mapData
+			} else {
+				// This might be the event data itself
+				eventDataToUnmarshal = mapData
+			}
+			
+			// Convert to JSON and back to struct
+			jsonBytes, err := json.Marshal(eventDataToUnmarshal)
+			if err != nil {
+				return fmt.Errorf("failed to marshal Account Update Event event data: %w", err)
+			}
+			if err := json.Unmarshal(jsonBytes, &event); err != nil {
+				return fmt.Errorf("failed to parse Account Update Event event: %w", err)
+			}
+		} else {
+			return fmt.Errorf("unexpected data type for Account Update Event event: %T", data)
+		}
+		
+		// Call the user-provided handler
+		return handler(&event)
+	})
+}
+
+
+// HandleGridUpdate registers a handler for Grid Update Event events
+// This method allows you to handle real-time Grid Update Event events from the WebSocket stream
+func (c *Client) HandleGridUpdate(handler func(*models.GridUpdate) error) {
+	c.eventHandler.RegisterHandler("gridUpdate", func(data interface{}) error {
+		// Parse the event data - handle both nested and direct event structures
+		var event models.GridUpdate
+		
+		if jsonData, ok := data.([]byte); ok {
+			// Direct JSON data parsing
+			if err := json.Unmarshal(jsonData, &event); err != nil {
+				return fmt.Errorf("failed to parse Grid Update Event event: %w", err)
+			}
+		} else if mapData, ok := data.(map[string]interface{}); ok {
+			// Map data - check if this is the nested event object or the full message
+			var eventDataToUnmarshal interface{}
+			
+			// Check if this map contains an "event" field (nested structure)
+			if _, hasEvent := mapData["event"]; hasEvent {
+				// This is a full message with nested event object
+				// Use the entire message structure for parsing
+				eventDataToUnmarshal = mapData
+			} else {
+				// This might be the event data itself
+				eventDataToUnmarshal = mapData
+			}
+			
+			// Convert to JSON and back to struct
+			jsonBytes, err := json.Marshal(eventDataToUnmarshal)
+			if err != nil {
+				return fmt.Errorf("failed to marshal Grid Update Event event data: %w", err)
+			}
+			if err := json.Unmarshal(jsonBytes, &event); err != nil {
+				return fmt.Errorf("failed to parse Grid Update Event event: %w", err)
+			}
+		} else {
+			return fmt.Errorf("unexpected data type for Grid Update Event event: %T", data)
+		}
+		
+		// Call the user-provided handler
+		return handler(&event)
+	})
+}
+
+
+// HandleListenKeyExpired registers a handler for Listen Key Expired Event events
+// This method allows you to handle real-time Listen Key Expired Event events from the WebSocket stream
+func (c *Client) HandleListenKeyExpired(handler func(*models.ListenKeyExpired) error) {
+	c.eventHandler.RegisterHandler("listenKeyExpired", func(data interface{}) error {
+		// Parse the event data - handle both nested and direct event structures
+		var event models.ListenKeyExpired
+		
+		if jsonData, ok := data.([]byte); ok {
+			// Direct JSON data parsing
+			if err := json.Unmarshal(jsonData, &event); err != nil {
+				return fmt.Errorf("failed to parse Listen Key Expired Event event: %w", err)
+			}
+		} else if mapData, ok := data.(map[string]interface{}); ok {
+			// Map data - check if this is the nested event object or the full message
+			var eventDataToUnmarshal interface{}
+			
+			// Check if this map contains an "event" field (nested structure)
+			if _, hasEvent := mapData["event"]; hasEvent {
+				// This is a full message with nested event object
+				// Use the entire message structure for parsing
+				eventDataToUnmarshal = mapData
+			} else {
+				// This might be the event data itself
+				eventDataToUnmarshal = mapData
+			}
+			
+			// Convert to JSON and back to struct
+			jsonBytes, err := json.Marshal(eventDataToUnmarshal)
+			if err != nil {
+				return fmt.Errorf("failed to marshal Listen Key Expired Event event data: %w", err)
+			}
+			if err := json.Unmarshal(jsonBytes, &event); err != nil {
+				return fmt.Errorf("failed to parse Listen Key Expired Event event: %w", err)
+			}
+		} else {
+			return fmt.Errorf("unexpected data type for Listen Key Expired Event event: %T", data)
+		}
+		
+		// Call the user-provided handler
+		return handler(&event)
+	})
+}
+
+
+// HandleMarginCall registers a handler for Margin Call Event events
+// This method allows you to handle real-time Margin Call Event events from the WebSocket stream
+func (c *Client) HandleMarginCall(handler func(*models.MarginCall) error) {
+	c.eventHandler.RegisterHandler("marginCall", func(data interface{}) error {
+		// Parse the event data - handle both nested and direct event structures
+		var event models.MarginCall
+		
+		if jsonData, ok := data.([]byte); ok {
+			// Direct JSON data parsing
+			if err := json.Unmarshal(jsonData, &event); err != nil {
+				return fmt.Errorf("failed to parse Margin Call Event event: %w", err)
+			}
+		} else if mapData, ok := data.(map[string]interface{}); ok {
+			// Map data - check if this is the nested event object or the full message
+			var eventDataToUnmarshal interface{}
+			
+			// Check if this map contains an "event" field (nested structure)
+			if _, hasEvent := mapData["event"]; hasEvent {
+				// This is a full message with nested event object
+				// Use the entire message structure for parsing
+				eventDataToUnmarshal = mapData
+			} else {
+				// This might be the event data itself
+				eventDataToUnmarshal = mapData
+			}
+			
+			// Convert to JSON and back to struct
+			jsonBytes, err := json.Marshal(eventDataToUnmarshal)
+			if err != nil {
+				return fmt.Errorf("failed to marshal Margin Call Event event data: %w", err)
+			}
+			if err := json.Unmarshal(jsonBytes, &event); err != nil {
+				return fmt.Errorf("failed to parse Margin Call Event event: %w", err)
+			}
+		} else {
+			return fmt.Errorf("unexpected data type for Margin Call Event event: %T", data)
+		}
+		
+		// Call the user-provided handler
+		return handler(&event)
+	})
+}
+
+
+// HandleOrderTradeUpdate registers a handler for Order Trade Update Event events
+// This method allows you to handle real-time Order Trade Update Event events from the WebSocket stream
+func (c *Client) HandleOrderTradeUpdate(handler func(*models.OrderTradeUpdate) error) {
+	c.eventHandler.RegisterHandler("orderTradeUpdate", func(data interface{}) error {
+		// Parse the event data - handle both nested and direct event structures
+		var event models.OrderTradeUpdate
+		
+		if jsonData, ok := data.([]byte); ok {
+			// Direct JSON data parsing
+			if err := json.Unmarshal(jsonData, &event); err != nil {
+				return fmt.Errorf("failed to parse Order Trade Update Event event: %w", err)
+			}
+		} else if mapData, ok := data.(map[string]interface{}); ok {
+			// Map data - check if this is the nested event object or the full message
+			var eventDataToUnmarshal interface{}
+			
+			// Check if this map contains an "event" field (nested structure)
+			if _, hasEvent := mapData["event"]; hasEvent {
+				// This is a full message with nested event object
+				// Use the entire message structure for parsing
+				eventDataToUnmarshal = mapData
+			} else {
+				// This might be the event data itself
+				eventDataToUnmarshal = mapData
+			}
+			
+			// Convert to JSON and back to struct
+			jsonBytes, err := json.Marshal(eventDataToUnmarshal)
+			if err != nil {
+				return fmt.Errorf("failed to marshal Order Trade Update Event event data: %w", err)
+			}
+			if err := json.Unmarshal(jsonBytes, &event); err != nil {
+				return fmt.Errorf("failed to parse Order Trade Update Event event: %w", err)
+			}
+		} else {
+			return fmt.Errorf("unexpected data type for Order Trade Update Event event: %T", data)
+		}
+		
+		// Call the user-provided handler
+		return handler(&event)
+	})
+}
+
+
+// HandleStrategyUpdate registers a handler for Strategy Update Event events
+// This method allows you to handle real-time Strategy Update Event events from the WebSocket stream
+func (c *Client) HandleStrategyUpdate(handler func(*models.StrategyUpdate) error) {
+	c.eventHandler.RegisterHandler("strategyUpdate", func(data interface{}) error {
+		// Parse the event data - handle both nested and direct event structures
+		var event models.StrategyUpdate
+		
+		if jsonData, ok := data.([]byte); ok {
+			// Direct JSON data parsing
+			if err := json.Unmarshal(jsonData, &event); err != nil {
+				return fmt.Errorf("failed to parse Strategy Update Event event: %w", err)
+			}
+		} else if mapData, ok := data.(map[string]interface{}); ok {
+			// Map data - check if this is the nested event object or the full message
+			var eventDataToUnmarshal interface{}
+			
+			// Check if this map contains an "event" field (nested structure)
+			if _, hasEvent := mapData["event"]; hasEvent {
+				// This is a full message with nested event object
+				// Use the entire message structure for parsing
+				eventDataToUnmarshal = mapData
+			} else {
+				// This might be the event data itself
+				eventDataToUnmarshal = mapData
+			}
+			
+			// Convert to JSON and back to struct
+			jsonBytes, err := json.Marshal(eventDataToUnmarshal)
+			if err != nil {
+				return fmt.Errorf("failed to marshal Strategy Update Event event data: %w", err)
+			}
+			if err := json.Unmarshal(jsonBytes, &event); err != nil {
+				return fmt.Errorf("failed to parse Strategy Update Event event: %w", err)
+			}
+		} else {
+			return fmt.Errorf("unexpected data type for Strategy Update Event event: %T", data)
+		}
+		
+		// Call the user-provided handler
+		return handler(&event)
+	})
 }
 
 

@@ -52,9 +52,9 @@ func NewServerManager() *ServerManager {
 	// Using direct assignment since this is initialization (no risk of conflicts)
 	sm.servers["mainnet1"] = &ServerInfo{
 		Name:        "mainnet1",
-		URL:         "wss://fstream.binance.com/ws",
+		URL:         "wss://fstream.binance.com/{streamPath}",
 		Host:        "fstream.binance.com",
-		Pathname:    "/ws",
+		Pathname:    "/{streamPath}",
 		Protocol:    "wss",
 		Title:       "Binance USD-S Margined Futures Server",
 		Summary:     "Binance USD-S Margined Futures WebSocket Streams Server (Mainnet)",
@@ -63,9 +63,9 @@ func NewServerManager() *ServerManager {
 	}
 	sm.servers["testnet1"] = &ServerInfo{
 		Name:        "testnet1",
-		URL:         "wss://fstream.binancefuture.com/ws",
+		URL:         "wss://fstream.binancefuture.com/{streamPath}",
 		Host:        "fstream.binancefuture.com",
-		Pathname:    "/ws",
+		Pathname:    "/{streamPath}",
 		Protocol:    "wss",
 		Title:       "Binance USD-S Margined Futures Testnet Server",
 		Summary:     "Binance USD-S Margined Futures WebSocket Streams Server (Testnet)",
@@ -437,6 +437,7 @@ func NewClient() *Client {
 		responseList:  make([]interface{}, 0, 100), // Pre-allocate with capacity
 		done:          make(chan struct{}),
 		jsonBuffer:    make([]byte, 0, 1024), // Pre-allocate JSON buffer
+		handlers:      eventHandlers{},        // Initialize event handlers registry
 	}
 }
 
@@ -631,6 +632,67 @@ func (c *Client) ConnectToServer(ctx context.Context, serverName string) error {
 	}
 	
 	return c.Connect(ctx)
+}
+
+// ConnectWithVariables establishes a WebSocket connection using provided server variables
+// This method resolves server URL template variables like {streamPath}
+func (c *Client) ConnectWithVariables(ctx context.Context, streamPath string) error {
+	activeServer := c.serverManager.GetActiveServer()
+	if activeServer == nil {
+		return fmt.Errorf("no active server configured")
+	}
+	
+	// Resolve the URL with the provided variables
+	variables := map[string]string{
+		"streamPath": streamPath,
+	}
+	
+	resolvedURL, err := c.serverManager.ResolveServerURL(activeServer.Name, variables)
+	if err != nil {
+		return fmt.Errorf("failed to resolve server URL: %w", err)
+	}
+	
+	u, err := url.Parse(resolvedURL)
+	if err != nil {
+		return fmt.Errorf("invalid URL: %w", err)
+	}
+
+	dialer := websocket.DefaultDialer
+	dialer.HandshakeTimeout = 10 * time.Second
+
+	conn, _, err := dialer.DialContext(ctx, u.String(), nil)
+	if err != nil {
+		return fmt.Errorf("failed to connect to %s: %w", resolvedURL, err)
+	}
+
+	c.conn = conn
+	c.isConnected = true
+	go c.readMessages()
+	return nil
+}
+
+// ConnectToServerWithVariables establishes a WebSocket connection to a specific server using provided server variables
+func (c *Client) ConnectToServerWithVariables(ctx context.Context, serverName string, streamPath string) error {
+	if err := c.SetActiveServer(serverName); err != nil {
+		return fmt.Errorf("failed to set active server: %w", err)
+	}
+	
+	return c.ConnectWithVariables(ctx, streamPath)
+}
+
+// ConnectWithStreamPath establishes a WebSocket connection using the provided streamPath
+// This is a convenience method for the streamPath variable
+func (c *Client) ConnectWithStreamPath(ctx context.Context, streamPath string) error {
+	return c.ConnectWithVariables(ctx, streamPath)
+}
+
+// ConnectToServerWithStreamPath establishes a WebSocket connection to a specific server using the provided streamPath
+func (c *Client) ConnectToServerWithStreamPath(ctx context.Context, serverName string, streamPath string) error {
+	if err := c.SetActiveServer(serverName); err != nil {
+		return fmt.Errorf("failed to set active server: %w", err)
+	}
+	
+	return c.ConnectWithStreamPath(ctx, streamPath)
 }
 
 // Disconnect closes the WebSocket connection safely

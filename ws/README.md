@@ -21,6 +21,7 @@ If you need to update the API client, please submit an issue or a PR to [OpenXAP
 | WebSocket API | USDS-M Futures | `github.com/openxapi/binance-go/ws/umfutures` | ✅ [USDS-M Futures WebSocket API](https://developers.binance.com/docs/derivatives/usds-margined-futures/websocket-api) |
 | WebSocket Streams | USDS-M Futures Streams | `github.com/openxapi/binance-go/ws/umfutures-streams` | ✅ [USDS-M Futures WebSocket Streams](https://developers.binance.com/docs/derivatives/usds-margined-futures/websocket-streams) |
 | WebSocket API | COIN-M Futures | `github.com/openxapi/binance-go/ws/cmfutures` | ✅ [COIN-M Futures WebSocket API](https://developers.binance.com/docs/derivatives/coin-margined-futures/websocket-api) |
+| WebSocket Streams | COIN-M Futures Streams | `github.com/openxapi/binance-go/ws/cmfutures-streams` | ✅ [COIN-M Futures WebSocket Streams](https://developers.binance.com/docs/derivatives/coin-margined-futures/websocket-streams) |
 
 Feel free to contribute to this project by adding support for other products.
 
@@ -40,6 +41,7 @@ import (
     umfutures "github.com/openxapi/binance-go/ws/umfutures"
     umfuturesstreams "github.com/openxapi/binance-go/ws/umfutures-streams"
     cmfutures "github.com/openxapi/binance-go/ws/cmfutures"
+    cmfuturesstreams "github.com/openxapi/binance-go/ws/cmfutures-streams"
 )
 ```
 

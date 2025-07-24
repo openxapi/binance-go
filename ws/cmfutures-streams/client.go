@@ -1,4 +1,4 @@
-package spotstreams
+package cmfuturesstreams
 import (
 	"context"
 	"encoding/json"
@@ -11,7 +11,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/gorilla/websocket"
-	"github.com/openxapi/binance-go/ws/spot-streams/models"
+	"github.com/openxapi/binance-go/ws/cmfutures-streams/models"
 )
 
 // Context keys for authentication and configuration
@@ -52,46 +52,35 @@ func NewServerManager() *ServerManager {
 	// Using direct assignment since this is initialization (no risk of conflicts)
 	sm.servers["mainnet1"] = &ServerInfo{
 		Name:        "mainnet1",
-		URL:         "wss://stream.binance.com:9443/{streamPath}",
-		Host:        "stream.binance.com:9443",
+		URL:         "wss://dstream.binance.com/{streamPath}",
+		Host:        "dstream.binance.com",
 		Pathname:    "/{streamPath}",
 		Protocol:    "wss",
-		Title:       "Binance Mainnet Server",
-		Summary:     "Binance Spot WebSocket Streams Server (Mainnet)",
-		Description: "WebSocket server for binance exchange spot market data streams (mainnet environment)",
-		Active:      false,
-	}
-	sm.servers["mainnet2"] = &ServerInfo{
-		Name:        "mainnet2",
-		URL:         "wss://stream.binance.com:443/{streamPath}",
-		Host:        "stream.binance.com:443",
-		Pathname:    "/{streamPath}",
-		Protocol:    "wss",
-		Title:       "Binance Mainnet Server (Alternative)",
-		Summary:     "Binance Spot WebSocket Streams Server (Mainnet Alternative)",
-		Description: "Alternative WebSocket server for binance exchange spot market data streams (mainnet environment)",
-		Active:      false,
-	}
-	sm.servers["mainnet3"] = &ServerInfo{
-		Name:        "mainnet3",
-		URL:         "wss://data-stream.binance.vision/{streamPath}",
-		Host:        "data-stream.binance.vision",
-		Pathname:    "/{streamPath}",
-		Protocol:    "wss",
-		Title:       "Binance Mainnet Server (Market Data Only)",
-		Summary:     "Binance Spot WebSocket Streams Server (Market Data Only)",
-		Description: "WebSocket server for binance exchange spot market data streams (mainnet environment, market data only)",
+		Title:       "Binance Coin-M Futures Server",
+		Summary:     "Binance Coin-M Futures WebSocket Streams Server (Mainnet)",
+		Description: "WebSocket server for binance exchange coin-margined futures market data streams (mainnet environment)",
 		Active:      false,
 	}
 	sm.servers["testnet1"] = &ServerInfo{
 		Name:        "testnet1",
-		URL:         "wss://stream.testnet.binance.vision/{streamPath}",
-		Host:        "stream.testnet.binance.vision",
+		URL:         "wss://dstream.binancefuture.com/{streamPath}",
+		Host:        "dstream.binancefuture.com",
 		Pathname:    "/{streamPath}",
 		Protocol:    "wss",
-		Title:       "Binance Testnet Server",
-		Summary:     "Binance Spot WebSocket Streams Server (Testnet)",
-		Description: "WebSocket server for binance exchange spot market data streams (testnet environment)",
+		Title:       "Binance Coin-M Futures Testnet Server",
+		Summary:     "Binance Coin-M Futures WebSocket Streams Server (Testnet)",
+		Description: "WebSocket server for binance exchange coin-margined futures market data streams (testnet environment)",
+		Active:      false,
+	}
+	sm.servers["mainnet_auth1"] = &ServerInfo{
+		Name:        "mainnet_auth1",
+		URL:         "wss://dstream-auth.binance.com/{streamPath}",
+		Host:        "dstream-auth.binance.com",
+		Pathname:    "/{streamPath}",
+		Protocol:    "wss",
+		Title:       "Binance Coin-M Futures Authenticated Server",
+		Summary:     "Binance Coin-M Futures WebSocket Streams Server with Authentication (Mainnet)",
+		Description: "WebSocket server for binance exchange coin-margined futures market data streams with authentication support.\nRequires a valid listenKey parameter for authentication.\nExample: wss://dstream-auth.binance.com/ws/btcusdt@markPrice?listenKey=...\n",
 		Active:      false,
 	}
 	
@@ -433,7 +422,7 @@ func (e *EventHandler) HandleResponse(eventType string, data []byte) error {
 	return nil
 }
 
-// Client represents a high-performance WebSocket client for Binance Spot WebSocket Streams
+// Client represents a high-performance WebSocket client for Binance Coin-M Futures WebSocket Streams
 type Client struct {
 	conn             *websocket.Conn
 	serverManager    *ServerManager   // Manages multiple servers
@@ -836,9 +825,16 @@ func (c *Client) handleMessage(data []byte) error {
 		}
 	}
 
-	// For spot-streams, always try processStreamMessage for any non-request message
-		// This handles both standard events (with "e" field) and special events (BookTicker, PartialDepth)
-		return c.processStreamMessage(data)
+	// Check for direct event type field (stream messages)
+		if eventType, hasEventType := genericMessage["e"]; hasEventType {
+			if eventTypeStr, ok := eventType.(string); ok {
+				return c.handleEventMessage(eventTypeStr, data)
+			}
+		}
+
+		// If we can't determine the message type, log it
+		log.Printf("Unknown message type: %s", string(data))
+		return nil
 }
 
 // handleRequestResponse handles responses to specific requests
@@ -1018,7 +1014,7 @@ func (c *Client) setStreamPath(streamPath string) error {
 	return c.serverManager.UpdateServerPathname(activeServer.Name, updatedPathname)
 }
 
-// connect establishes a WebSocket connection to a specific endpoint (for spot-streams)
+// connect establishes a WebSocket connection to a specific endpoint (for cmfutures-streams)
 func (c *Client) connect(ctx context.Context, endpoint string, isCombined bool) error {
 	if c.isConnected {
 		return fmt.Errorf("websocket already connected")
@@ -1125,16 +1121,28 @@ func (c *Client) readCombinedStreamMessages() {
 }
 
 
-// Stream event handler functions
+// Stream event handler functions for Coin-M Futures
 type (
 	// Aggregate Trade Handler
 	AggregateTradeHandler func(*models.AggregateTradeEvent) error
 	
-	// Trade Handler
-	TradeHandler func(*models.TradeEvent) error
+	// Index Price Handler
+	IndexPriceHandler func(*models.IndexPriceEvent) error
+	
+	// Mark Price Handler
+	MarkPriceHandler func(*models.MarkPriceEvent) error
 	
 	// Kline Handler  
 	KlineHandler func(*models.KlineEvent) error
+	
+	// Continuous Kline Handler
+	ContinuousKlineHandler func(*models.ContinuousKlineEvent) error
+	
+	// Index Kline Handler
+	IndexKlineHandler func(*models.IndexKlineEvent) error
+	
+	// Mark Price Kline Handler
+	MarkPriceKlineHandler func(*models.MarkPriceKlineEvent) error
 	
 	// Mini Ticker Handler
 	MiniTickerHandler func(*models.MiniTickerEvent) error
@@ -1145,17 +1153,17 @@ type (
 	// Book Ticker Handler
 	BookTickerHandler func(*models.BookTickerEvent) error
 	
-	// Depth Handler
-	DepthHandler func(*models.DiffDepthEvent) error
+	// Liquidation Handler
+	LiquidationHandler func(*models.LiquidationEvent) error
+	
+	// Contract Info Handler
+	ContractInfoHandler func(*models.ContractInfoEvent) error
 	
 	// Partial Depth Handler
 	PartialDepthHandler func(*models.PartialDepthEvent) error
 	
-	// Rolling Window Ticker Handler
-	RollingWindowTickerHandler func(*models.RollingWindowTickerEvent) error
-	
-	// Average Price Handler
-	AvgPriceHandler func(*models.AvgPriceEvent) error
+	// Depth Handler
+	DepthHandler func(*models.DiffDepthEvent) error
 	
 	// Combined Stream Handler
 	CombinedStreamHandler func(*models.CombinedStreamEvent) error
@@ -1169,32 +1177,52 @@ type (
 
 // Event handler registry
 type eventHandlers struct {
-	aggregateTrade      AggregateTradeHandler
-	trade              TradeHandler  
-	kline              KlineHandler
-	miniTicker         MiniTickerHandler
-	ticker             TickerHandler
-	bookTicker         BookTickerHandler
-	depth              DepthHandler
-	partialDepth       PartialDepthHandler
-	rollingWindowTicker RollingWindowTickerHandler
-	avgPrice           AvgPriceHandler
-	combinedStream     CombinedStreamHandler
+	aggregateTrade        AggregateTradeHandler
+	indexPrice           IndexPriceHandler
+	markPrice            MarkPriceHandler
+	kline                KlineHandler
+	continuousKline      ContinuousKlineHandler
+	indexKline           IndexKlineHandler
+	markPriceKline       MarkPriceKlineHandler
+	miniTicker           MiniTickerHandler
+	ticker               TickerHandler
+	bookTicker           BookTickerHandler
+	liquidation          LiquidationHandler
+	contractInfo         ContractInfoHandler
+	partialDepth         PartialDepthHandler
+	depth                DepthHandler
+	combinedStream       CombinedStreamHandler
 	subscriptionResponse SubscriptionResponseHandler
-	error              StreamErrorHandler
+	error                StreamErrorHandler
 }
 
-// Register event handlers
+// Register event handlers for Coin-M Futures streams
 func (c *Client) OnAggregateTradeEvent(handler AggregateTradeHandler) {
 	c.handlers.aggregateTrade = handler
 }
 
-func (c *Client) OnTradeEvent(handler TradeHandler) {
-	c.handlers.trade = handler
+func (c *Client) OnIndexPriceEvent(handler IndexPriceHandler) {
+	c.handlers.indexPrice = handler
+}
+
+func (c *Client) OnMarkPriceEvent(handler MarkPriceHandler) {
+	c.handlers.markPrice = handler
 }
 
 func (c *Client) OnKlineEvent(handler KlineHandler) {
 	c.handlers.kline = handler
+}
+
+func (c *Client) OnContinuousKlineEvent(handler ContinuousKlineHandler) {
+	c.handlers.continuousKline = handler
+}
+
+func (c *Client) OnIndexKlineEvent(handler IndexKlineHandler) {
+	c.handlers.indexKline = handler
+}
+
+func (c *Client) OnMarkPriceKlineEvent(handler MarkPriceKlineHandler) {
+	c.handlers.markPriceKline = handler
 }
 
 func (c *Client) OnMiniTickerEvent(handler MiniTickerHandler) {
@@ -1209,20 +1237,20 @@ func (c *Client) OnBookTickerEvent(handler BookTickerHandler) {
 	c.handlers.bookTicker = handler
 }
 
-func (c *Client) OnDepthEvent(handler DepthHandler) {
-	c.handlers.depth = handler
+func (c *Client) OnLiquidationEvent(handler LiquidationHandler) {
+	c.handlers.liquidation = handler
+}
+
+func (c *Client) OnContractInfoEvent(handler ContractInfoHandler) {
+	c.handlers.contractInfo = handler
 }
 
 func (c *Client) OnPartialDepthEvent(handler PartialDepthHandler) {
 	c.handlers.partialDepth = handler
 }
 
-func (c *Client) OnRollingWindowTickerEvent(handler RollingWindowTickerHandler) {
-	c.handlers.rollingWindowTicker = handler
-}
-
-func (c *Client) OnAvgPriceEvent(handler AvgPriceHandler) {
-	c.handlers.avgPrice = handler
+func (c *Client) OnDepthEvent(handler DepthHandler) {
+	c.handlers.depth = handler
 }
 
 func (c *Client) OnCombinedStreamEvent(handler CombinedStreamHandler) {
@@ -1376,11 +1404,19 @@ func (c *Client) processStreamData(streamName string, data interface{}) error {
 		return err
 	}
 
-	// Determine event type from stream name
+	// Determine event type from stream name for Coin-M Futures
 	if strings.Contains(streamName, "@aggTrade") {
 		return c.processStreamDataByEventType("aggTrade", dataBytes)
-	} else if strings.Contains(streamName, "@trade") {
-		return c.processStreamDataByEventType("trade", dataBytes)
+	} else if strings.Contains(streamName, "@indexPrice") {
+		return c.processStreamDataByEventType("indexPriceUpdate", dataBytes)
+	} else if strings.Contains(streamName, "@markPrice") {
+		return c.processStreamDataByEventType("markPriceUpdate", dataBytes)
+	} else if strings.Contains(streamName, "@continuousKline") {
+		return c.processStreamDataByEventType("continuous_kline", dataBytes)
+	} else if strings.Contains(streamName, "@indexPriceKline") {
+		return c.processStreamDataByEventType("indexPrice_kline", dataBytes)
+	} else if strings.Contains(streamName, "@markPriceKline") {
+		return c.processStreamDataByEventType("markPrice_kline", dataBytes)
 	} else if strings.Contains(streamName, "@kline") {
 		return c.processStreamDataByEventType("kline", dataBytes)
 	} else if strings.Contains(streamName, "@miniTicker") {
@@ -1389,10 +1425,12 @@ func (c *Client) processStreamData(streamName string, data interface{}) error {
 		return c.processStreamDataByEventType("24hrTicker", dataBytes)
 	} else if strings.Contains(streamName, "@bookTicker") {
 		return c.processStreamDataByEventType("bookTicker", dataBytes)
+	} else if strings.Contains(streamName, "@forceOrder") {
+		return c.processStreamDataByEventType("forceOrder", dataBytes)
+	} else if strings.Contains(streamName, "@contractInfo") {
+		return c.processStreamDataByEventType("contractInfo", dataBytes)
 	} else if strings.Contains(streamName, "@depth") {
 		return c.processStreamDataByEventType("depthUpdate", dataBytes)
-	} else if strings.Contains(streamName, "@avgPrice") {
-		return c.processStreamDataByEventType("avgPrice", dataBytes)
 	}
 
 	return nil
@@ -1411,13 +1449,23 @@ func (c *Client) processStreamDataByEventType(eventType string, data []byte) err
 		}
 		return nil
 
-	case "trade":
-		if c.handlers.trade != nil {
-			var event models.TradeEvent
+	case "indexPriceUpdate":
+		if c.handlers.indexPrice != nil {
+			var event models.IndexPriceEvent
 			if err := json.Unmarshal(data, &event); err != nil {
 				return err
 			}
-			return c.handlers.trade(&event)
+			return c.handlers.indexPrice(&event)
+		}
+		return nil
+
+	case "markPriceUpdate":
+		if c.handlers.markPrice != nil {
+			var event models.MarkPriceEvent
+			if err := json.Unmarshal(data, &event); err != nil {
+				return err
+			}
+			return c.handlers.markPrice(&event)
 		}
 		return nil
 
@@ -1428,6 +1476,36 @@ func (c *Client) processStreamDataByEventType(eventType string, data []byte) err
 				return err
 			}
 			return c.handlers.kline(&event)
+		}
+		return nil
+
+	case "continuous_kline":
+		if c.handlers.continuousKline != nil {
+			var event models.ContinuousKlineEvent
+			if err := json.Unmarshal(data, &event); err != nil {
+				return err
+			}
+			return c.handlers.continuousKline(&event)
+		}
+		return nil
+
+	case "indexPrice_kline":
+		if c.handlers.indexKline != nil {
+			var event models.IndexKlineEvent
+			if err := json.Unmarshal(data, &event); err != nil {
+				return err
+			}
+			return c.handlers.indexKline(&event)
+		}
+		return nil
+
+	case "markPrice_kline":
+		if c.handlers.markPriceKline != nil {
+			var event models.MarkPriceKlineEvent
+			if err := json.Unmarshal(data, &event); err != nil {
+				return err
+			}
+			return c.handlers.markPriceKline(&event)
 		}
 		return nil
 
@@ -1461,6 +1539,26 @@ func (c *Client) processStreamDataByEventType(eventType string, data []byte) err
 		}
 		return nil
 
+	case "forceOrder":
+		if c.handlers.liquidation != nil {
+			var event models.LiquidationEvent
+			if err := json.Unmarshal(data, &event); err != nil {
+				return err
+			}
+			return c.handlers.liquidation(&event)
+		}
+		return nil
+
+	case "contractInfo":
+		if c.handlers.contractInfo != nil {
+			var event models.ContractInfoEvent
+			if err := json.Unmarshal(data, &event); err != nil {
+				return err
+			}
+			return c.handlers.contractInfo(&event)
+		}
+		return nil
+
 	case "depthUpdate":
 		if c.handlers.depth != nil {
 			var event models.DiffDepthEvent
@@ -1480,16 +1578,6 @@ func (c *Client) processStreamDataByEventType(eventType string, data []byte) err
 			return c.handlers.partialDepth(&event)
 		}
 		return nil
-
-	case "avgPrice":
-		if c.handlers.avgPrice != nil {
-			var event models.AvgPriceEvent
-			if err := json.Unmarshal(data, &event); err != nil {
-				return err
-			}
-			return c.handlers.avgPrice(&event)
-		}
-		return nil
 	}
 
 	return nil
@@ -1499,6 +1587,12 @@ func (c *Client) processStreamDataByEventType(eventType string, data []byte) err
 func (c *Client) generateRequestID() int64 {
 	return time.Now().UnixNano() / int64(time.Millisecond)
 }
+
+
+// Combined stream processing
+// Combined streams wrap each event with stream name and data fields
+// Format: {"stream": "btcusd_perp@aggTrade", "data": {...}}
+// This section is already handled in processStreamMessage()
 
 
 

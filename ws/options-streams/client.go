@@ -1,4 +1,4 @@
-package spotstreams
+package optionsstreams
 import (
 	"context"
 	"encoding/json"
@@ -11,7 +11,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/gorilla/websocket"
-	"github.com/openxapi/binance-go/ws/spot-streams/models"
+	"github.com/openxapi/binance-go/ws/options-streams/models"
 )
 
 // Context keys for authentication and configuration
@@ -52,46 +52,13 @@ func NewServerManager() *ServerManager {
 	// Using direct assignment since this is initialization (no risk of conflicts)
 	sm.servers["mainnet1"] = &ServerInfo{
 		Name:        "mainnet1",
-		URL:         "wss://stream.binance.com:9443/{streamPath}",
-		Host:        "stream.binance.com:9443",
-		Pathname:    "/{streamPath}",
+		URL:         "wss://nbstream.binance.com/eoptions{streamPath}",
+		Host:        "nbstream.binance.com",
+		Pathname:    "/eoptions{streamPath}",
 		Protocol:    "wss",
-		Title:       "Binance Mainnet Server",
-		Summary:     "Binance Spot WebSocket Streams Server (Mainnet)",
-		Description: "WebSocket server for binance exchange spot market data streams (mainnet environment)",
-		Active:      false,
-	}
-	sm.servers["mainnet2"] = &ServerInfo{
-		Name:        "mainnet2",
-		URL:         "wss://stream.binance.com:443/{streamPath}",
-		Host:        "stream.binance.com:443",
-		Pathname:    "/{streamPath}",
-		Protocol:    "wss",
-		Title:       "Binance Mainnet Server (Alternative)",
-		Summary:     "Binance Spot WebSocket Streams Server (Mainnet Alternative)",
-		Description: "Alternative WebSocket server for binance exchange spot market data streams (mainnet environment)",
-		Active:      false,
-	}
-	sm.servers["mainnet3"] = &ServerInfo{
-		Name:        "mainnet3",
-		URL:         "wss://data-stream.binance.vision/{streamPath}",
-		Host:        "data-stream.binance.vision",
-		Pathname:    "/{streamPath}",
-		Protocol:    "wss",
-		Title:       "Binance Mainnet Server (Market Data Only)",
-		Summary:     "Binance Spot WebSocket Streams Server (Market Data Only)",
-		Description: "WebSocket server for binance exchange spot market data streams (mainnet environment, market data only)",
-		Active:      false,
-	}
-	sm.servers["testnet1"] = &ServerInfo{
-		Name:        "testnet1",
-		URL:         "wss://stream.testnet.binance.vision/{streamPath}",
-		Host:        "stream.testnet.binance.vision",
-		Pathname:    "/{streamPath}",
-		Protocol:    "wss",
-		Title:       "Binance Testnet Server",
-		Summary:     "Binance Spot WebSocket Streams Server (Testnet)",
-		Description: "WebSocket server for binance exchange spot market data streams (testnet environment)",
+		Title:       "Binance Options Server",
+		Summary:     "Binance Options WebSocket Streams Server (Mainnet)",
+		Description: "WebSocket server for binance exchange options market data streams (mainnet environment)",
 		Active:      false,
 	}
 	
@@ -433,7 +400,7 @@ func (e *EventHandler) HandleResponse(eventType string, data []byte) error {
 	return nil
 }
 
-// Client represents a high-performance WebSocket client for Binance Spot WebSocket Streams
+// Client represents a high-performance WebSocket client for Binance Options WebSocket Streams
 type Client struct {
 	conn             *websocket.Conn
 	serverManager    *ServerManager   // Manages multiple servers
@@ -836,9 +803,16 @@ func (c *Client) handleMessage(data []byte) error {
 		}
 	}
 
-	// For spot-streams, always try processStreamMessage for any non-request message
-		// This handles both standard events (with "e" field) and special events (BookTicker, PartialDepth)
-		return c.processStreamMessage(data)
+	// Check for direct event type field (stream messages)
+		if eventType, hasEventType := genericMessage["e"]; hasEventType {
+			if eventTypeStr, ok := eventType.(string); ok {
+				return c.handleEventMessage(eventTypeStr, data)
+			}
+		}
+
+		// If we can't determine the message type, log it
+		log.Printf("Unknown message type: %s", string(data))
+		return nil
 }
 
 // handleRequestResponse handles responses to specific requests
@@ -912,7 +886,7 @@ func (c *Client) GetURL() string {
 }
 
 
-// Subscribe to market data streams
+// Subscribe to options market data streams
 func (c *Client) Subscribe(ctx context.Context, streams []string) error {
 	if !c.isConnected {
 		return fmt.Errorf("websocket not connected")
@@ -927,7 +901,7 @@ func (c *Client) Subscribe(ctx context.Context, streams []string) error {
 	return c.sendRequest(request)
 }
 
-// Unsubscribe from market data streams  
+// Unsubscribe from options market data streams  
 func (c *Client) Unsubscribe(ctx context.Context, streams []string) error {
 	if !c.isConnected {
 		return fmt.Errorf("websocket not connected")
@@ -962,18 +936,14 @@ func (c *Client) ConnectToSingleStreams(ctx context.Context, timeUnit string) er
 		return fmt.Errorf("already connected to websocket")
 	}
 	
-	// Set server variable to single stream path
-	if err := c.setStreamPath("ws"); err != nil {
-		return fmt.Errorf("failed to set stream path: %w", err)
-	}
-	
-	// Build endpoint URL with timeUnit parameter
-	endpoint := "/ws"
+	// Build stream path with timeUnit parameter
+	streamPath := "/ws"
 	if timeUnit != "" {
-		endpoint += timeUnit // timeUnit should be formatted like "?timeUnit=MICROSECOND"
+		streamPath += timeUnit // timeUnit should be formatted like "?timeUnit=MICROSECOND"
 	}
 	
-	return c.connect(ctx, endpoint, false) // false = not combined stream
+	// Use ConnectWithVariables to resolve {streamPath} template variable correctly
+	return c.ConnectWithVariables(ctx, streamPath)
 }
 
 // ConnectToCombinedStreams connects to combined stream endpoint with optional timeUnit parameter
@@ -982,18 +952,14 @@ func (c *Client) ConnectToCombinedStreams(ctx context.Context, timeUnit string) 
 		return fmt.Errorf("already connected to websocket")
 	}
 	
-	// Set server variable to combined stream path
-	if err := c.setStreamPath("stream"); err != nil {
-		return fmt.Errorf("failed to set stream path: %w", err)
-	}
-	
-	// Build endpoint URL with timeUnit parameter
-	endpoint := "/stream"
+	// Build stream path with timeUnit parameter
+	streamPath := "/stream"
 	if timeUnit != "" {
-		endpoint += timeUnit // timeUnit should be formatted like "?timeUnit=MICROSECOND"
+		streamPath += timeUnit // timeUnit should be formatted like "?timeUnit=MICROSECOND"
 	}
 	
-	return c.connect(ctx, endpoint, true) // true = combined stream
+	// Use ConnectWithVariables to resolve {streamPath} template variable correctly
+	return c.ConnectWithVariables(ctx, streamPath)
 }
 
 // ConnectToSingleStreamsMicrosecond connects to single stream endpoint with microsecond precision
@@ -1006,156 +972,115 @@ func (c *Client) ConnectToCombinedStreamsMicrosecond(ctx context.Context) error 
 	return c.ConnectToCombinedStreams(ctx, "?timeUnit=MICROSECOND")
 }
 
-// setStreamPath sets the server variable for stream path selection
-func (c *Client) setStreamPath(streamPath string) error {
-	activeServer := c.serverManager.GetActiveServer()
-	if activeServer == nil {
-		return fmt.Errorf("no active server configured")
-	}
-	
-	// Update the server's pathname to use the specified stream path
-	updatedPathname := "/" + streamPath
-	return c.serverManager.UpdateServerPathname(activeServer.Name, updatedPathname)
-}
-
-// connect establishes a WebSocket connection to a specific endpoint (for spot-streams)
-func (c *Client) connect(ctx context.Context, endpoint string, isCombined bool) error {
+// ConnectToStream connects directly to a specific stream (single stream connection)
+func (c *Client) ConnectToStream(ctx context.Context, streamName string) error {
 	if c.isConnected {
-		return fmt.Errorf("websocket already connected")
+		return fmt.Errorf("already connected to websocket")
 	}
 	
-	activeServer := c.serverManager.GetActiveServer()
-	if activeServer == nil {
-		return fmt.Errorf("no active server configured")
-	}
+	// Build full stream path with stream name
+	streamPath := "/ws/" + streamName
 	
-	// Build the WebSocket URL with the specific endpoint
-	serverURL := fmt.Sprintf("%s://%s%s", activeServer.Protocol, activeServer.Host, endpoint)
-	
-	u, err := url.Parse(serverURL)
-	if err != nil {
-		return fmt.Errorf("invalid URL: %w", err)
-	}
-
-	dialer := websocket.DefaultDialer
-	dialer.HandshakeTimeout = 10 * time.Second
-
-	conn, _, err := dialer.DialContext(ctx, u.String(), nil)
-	if err != nil {
-		return fmt.Errorf("failed to connect to %s: %w", serverURL, err)
-	}
-
-	c.conn = conn
-	c.isConnected = true
-	
-	// Start message processing based on connection type
-	if isCombined {
-		go c.readCombinedStreamMessages()
-	} else {
-		go c.readSingleStreamMessages()
-	}
-	
-	return nil
+	// Use ConnectWithVariables to resolve {streamPath} template variable correctly
+	return c.ConnectWithVariables(ctx, streamPath)
 }
 
-// readSingleStreamMessages processes messages from single stream connections
-func (c *Client) readSingleStreamMessages() {
-	defer func() {
-		c.isConnected = false
-		if c.conn != nil {
-			c.conn.Close()
-		}
-	}()
-
-	for {
-		select {
-		case <-c.done:
-			return
-		default:
-			_, message, err := c.conn.ReadMessage()
-			if err != nil {
-				if websocket.IsCloseError(err, websocket.CloseNormalClosure, websocket.CloseGoingAway, websocket.CloseAbnormalClosure) {
-					return
-				}
-				if strings.Contains(err.Error(), "use of closed network connection") {
-					return
-				}
-				log.Printf("Error reading message: %v", err)
-				return
-			}
-
-			if err := c.processStreamMessage(message); err != nil {
-				log.Printf("Error processing stream message: %v", err)
-			}
-		}
+// ConnectToStreamWithTimeUnit connects directly to a specific stream with time unit parameter
+func (c *Client) ConnectToStreamWithTimeUnit(ctx context.Context, streamName string, timeUnit string) error {
+	if c.isConnected {
+		return fmt.Errorf("already connected to websocket")
 	}
+	
+	// Build full stream path with stream name and time unit
+	streamPath := "/ws/" + streamName
+	if timeUnit != "" {
+		streamPath += timeUnit // timeUnit should be formatted like "?timeUnit=MICROSECOND"
+	}
+	
+	// Use ConnectWithVariables to resolve {streamPath} template variable correctly
+	return c.ConnectWithVariables(ctx, streamPath)
 }
 
-// readCombinedStreamMessages processes messages from combined stream connections
-func (c *Client) readCombinedStreamMessages() {
-	defer func() {
-		c.isConnected = false
-		if c.conn != nil {
-			c.conn.Close()
+// ConnectWithAutoCorrection establishes a WebSocket connection with automatic stream path correction
+// This method ensures proper URL construction for options streams
+func (c *Client) ConnectWithAutoCorrection(ctx context.Context, streamPath string) error {
+	if c.isConnected {
+		return fmt.Errorf("already connected to websocket")
+	}
+	
+	// Validate and correct streamPath format for options streams
+	correctedStreamPath := c.validateAndCorrectStreamPath(streamPath)
+	
+	// Use ConnectWithVariables to resolve {streamPath} template variable correctly
+	return c.ConnectWithVariables(ctx, correctedStreamPath)
+}
+
+// validateAndCorrectStreamPath ensures proper streamPath format for options streams
+func (c *Client) validateAndCorrectStreamPath(streamPath string) string {
+	// If streamPath doesn't start with / it's likely a raw stream name
+	if !strings.HasPrefix(streamPath, "/") {
+		// Check if it looks like a stream name (contains @ or is option_pair)
+		if strings.Contains(streamPath, "@") || streamPath == "option_pair" {
+			// It's a stream name, prepend /ws/
+			return "/ws/" + streamPath
 		}
-	}()
-
-	for {
-		select {
-		case <-c.done:
-			return
-		default:
-			_, message, err := c.conn.ReadMessage()
-			if err != nil {
-				if websocket.IsCloseError(err, websocket.CloseNormalClosure, websocket.CloseGoingAway, websocket.CloseAbnormalClosure) {
-					return
-				}
-				if strings.Contains(err.Error(), "use of closed network connection") {
-					return
-				}
-				log.Printf("Error reading message: %v", err)
-				return
-			}
-
-			if err := c.processStreamMessage(message); err != nil {
-				log.Printf("Error processing stream message: %v", err)
-			}
+		// It's a path fragment, prepend /
+		return "/" + streamPath
+	}
+	
+	// If it starts with /ws/ or /stream, it's already correct
+	if strings.HasPrefix(streamPath, "/ws/") || strings.HasPrefix(streamPath, "/stream") {
+		return streamPath
+	}
+	
+	// If it's just /ws or /stream, it's correct for base endpoints
+	if streamPath == "/ws" || streamPath == "/stream" {
+		return streamPath
+	}
+	
+	// If it starts with / but not /ws/ or /stream, it might be a raw stream name with /
+	// Remove the / and treat as stream name
+	if strings.HasPrefix(streamPath, "/") {
+		streamName := streamPath[1:] // Remove leading /
+		if strings.Contains(streamName, "@") || streamName == "option_pair" {
+			return "/ws/" + streamName
 		}
 	}
+	
+	// Default: return as-is
+	return streamPath
 }
 
 
-// Stream event handler functions
+
+// Options stream event handler functions
 type (
-	// Aggregate Trade Handler
-	AggregateTradeHandler func(*models.AggregateTradeEvent) error
+	// New Symbol Info Handler
+	NewSymbolInfoHandler func(*models.NewSymbolInfoEvent) error
 	
-	// Trade Handler
-	TradeHandler func(*models.TradeEvent) error
+	// Open Interest Handler
+	OpenInterestHandler func(*models.OpenInterestEvent) error
+	
+	// Mark Price Handler
+	MarkPriceHandler func(*models.MarkPriceEvent) error
 	
 	// Kline Handler  
 	KlineHandler func(*models.KlineEvent) error
 	
-	// Mini Ticker Handler
-	MiniTickerHandler func(*models.MiniTickerEvent) error
-	
 	// Ticker Handler
 	TickerHandler func(*models.TickerEvent) error
 	
-	// Book Ticker Handler
-	BookTickerHandler func(*models.BookTickerEvent) error
+	// Ticker by Underlying Handler
+	TickerByUnderlyingHandler func(*models.TickerByUnderlyingEvent) error
 	
-	// Depth Handler
-	DepthHandler func(*models.DiffDepthEvent) error
+	// Index Price Handler
+	IndexPriceHandler func(*models.IndexPriceEvent) error
+	
+	// Trade Handler
+	TradeHandler func(*models.TradeEvent) error
 	
 	// Partial Depth Handler
 	PartialDepthHandler func(*models.PartialDepthEvent) error
-	
-	// Rolling Window Ticker Handler
-	RollingWindowTickerHandler func(*models.RollingWindowTickerEvent) error
-	
-	// Average Price Handler
-	AvgPriceHandler func(*models.AvgPriceEvent) error
 	
 	// Combined Stream Handler
 	CombinedStreamHandler func(*models.CombinedStreamEvent) error
@@ -1167,62 +1092,57 @@ type (
 	StreamErrorHandler func(*models.ErrorResponse) error
 )
 
-// Event handler registry
+// Event handler registry for options streams
 type eventHandlers struct {
-	aggregateTrade      AggregateTradeHandler
-	trade              TradeHandler  
-	kline              KlineHandler
-	miniTicker         MiniTickerHandler
-	ticker             TickerHandler
-	bookTicker         BookTickerHandler
-	depth              DepthHandler
-	partialDepth       PartialDepthHandler
-	rollingWindowTicker RollingWindowTickerHandler
-	avgPrice           AvgPriceHandler
-	combinedStream     CombinedStreamHandler
+	newSymbolInfo        NewSymbolInfoHandler
+	openInterest         OpenInterestHandler
+	markPrice           MarkPriceHandler
+	kline               KlineHandler
+	ticker              TickerHandler
+	tickerByUnderlying  TickerByUnderlyingHandler
+	indexPrice          IndexPriceHandler
+	trade               TradeHandler
+	partialDepth        PartialDepthHandler
+	combinedStream      CombinedStreamHandler
 	subscriptionResponse SubscriptionResponseHandler
-	error              StreamErrorHandler
+	error               StreamErrorHandler
 }
 
-// Register event handlers
-func (c *Client) OnAggregateTradeEvent(handler AggregateTradeHandler) {
-	c.handlers.aggregateTrade = handler
+// Register event handlers for options streams
+func (c *Client) OnNewSymbolInfoEvent(handler NewSymbolInfoHandler) {
+	c.handlers.newSymbolInfo = handler
 }
 
-func (c *Client) OnTradeEvent(handler TradeHandler) {
-	c.handlers.trade = handler
+func (c *Client) OnOpenInterestEvent(handler OpenInterestHandler) {
+	c.handlers.openInterest = handler
+}
+
+func (c *Client) OnMarkPriceEvent(handler MarkPriceHandler) {
+	c.handlers.markPrice = handler
 }
 
 func (c *Client) OnKlineEvent(handler KlineHandler) {
 	c.handlers.kline = handler
 }
 
-func (c *Client) OnMiniTickerEvent(handler MiniTickerHandler) {
-	c.handlers.miniTicker = handler
-}
-
 func (c *Client) OnTickerEvent(handler TickerHandler) {
 	c.handlers.ticker = handler
 }
 
-func (c *Client) OnBookTickerEvent(handler BookTickerHandler) {
-	c.handlers.bookTicker = handler
+func (c *Client) OnTickerByUnderlyingEvent(handler TickerByUnderlyingHandler) {
+	c.handlers.tickerByUnderlying = handler
 }
 
-func (c *Client) OnDepthEvent(handler DepthHandler) {
-	c.handlers.depth = handler
+func (c *Client) OnIndexPriceEvent(handler IndexPriceHandler) {
+	c.handlers.indexPrice = handler
+}
+
+func (c *Client) OnTradeEvent(handler TradeHandler) {
+	c.handlers.trade = handler
 }
 
 func (c *Client) OnPartialDepthEvent(handler PartialDepthHandler) {
 	c.handlers.partialDepth = handler
-}
-
-func (c *Client) OnRollingWindowTickerEvent(handler RollingWindowTickerHandler) {
-	c.handlers.rollingWindowTicker = handler
-}
-
-func (c *Client) OnAvgPriceEvent(handler AvgPriceHandler) {
-	c.handlers.avgPrice = handler
 }
 
 func (c *Client) OnCombinedStreamEvent(handler CombinedStreamHandler) {
@@ -1238,7 +1158,7 @@ func (c *Client) OnStreamError(handler StreamErrorHandler) {
 }
 
 
-// Message processing for incoming stream data
+// Message processing for incoming options stream data
 func (c *Client) processStreamMessage(message []byte) error {
 	// First check if this is an array stream (like !miniTicker@arr)
 	// by trying to parse as an array first
@@ -1277,7 +1197,7 @@ func (c *Client) processStreamMessage(message []byte) error {
 		}
 		
 		// Also process the inner data based on stream type
-		return c.processStreamData(combinedEvent.StreamName, combinedEvent.StreamData)
+		return c.processOptionsStreamData(combinedEvent.StreamName, combinedEvent.StreamData)
 	}
 
 	// Try to parse as individual stream event by detecting event type
@@ -1285,36 +1205,68 @@ func (c *Client) processStreamMessage(message []byte) error {
 	if err := json.Unmarshal(message, &genericMsg); err == nil {
 		if eventType, hasEventType := genericMsg["e"]; hasEventType {
 			if eventTypeStr, ok := eventType.(string); ok {
-				return c.processStreamDataByEventType(eventTypeStr, message)
+				return c.processOptionsStreamDataByEventType(eventTypeStr, message)
 			}
 		}
 		
-		// Special handling for BookTicker events (no "e" field)
-		// BookTicker messages have fields: "u" (update ID), "s" (symbol), "b" (best bid), "a" (best ask)
-		if _, hasUpdateId := genericMsg["u"]; hasUpdateId {
-			if _, hasSymbol := genericMsg["s"]; hasSymbol {
-				if _, hasBestBid := genericMsg["b"]; hasBestBid {
-					if _, hasBestAsk := genericMsg["a"]; hasBestAsk {
-						// This is a BookTicker event
-						return c.processStreamDataByEventType("bookTicker", message)
-					}
+		// Special handling for events without "e" field - detect by field patterns
+		
+		// New Symbol Info events (option_pair stream)
+		if _, hasSymbol := genericMsg["s"]; hasSymbol {
+			if _, hasId := genericMsg["id"]; hasId {
+				if _, hasType := genericMsg["o"]; hasType { // "o" for option type
+					return c.processOptionsStreamDataByEventType("newSymbolInfo", message)
 				}
 			}
 		}
 		
-		// Special handling for PartialDepth events (no "e" field)
-		// PartialDepth messages have fields: "lastUpdateId", "bids", "asks"
+		// Open Interest events
+		if _, hasSymbol := genericMsg["s"]; hasSymbol {
+			if _, hasOpenInterest := genericMsg["o"]; hasOpenInterest {
+				if _, hasTime := genericMsg["T"]; hasTime {
+					return c.processOptionsStreamDataByEventType("openInterest", message)
+				}
+			}
+		}
+		
+		// Mark Price events  
+		if _, hasSymbol := genericMsg["s"]; hasSymbol {
+			if _, hasMarkPrice := genericMsg["mp"]; hasMarkPrice {
+				return c.processOptionsStreamDataByEventType("markPrice", message)
+			}
+		}
+		
+		// Index Price events
+		if _, hasSymbol := genericMsg["s"]; hasSymbol { // "s" for symbol
+			if _, hasPrice := genericMsg["p"]; hasPrice {
+				// Index events typically have fewer fields, distinguish from other events
+				if len(genericMsg) <= 4 { // index events usually have e, E, s, p
+					return c.processOptionsStreamDataByEventType("index", message)
+				}
+			}
+		}
+		
+		// Ticker events - detect by having all ticker fields
+		if _, hasSymbol := genericMsg["s"]; hasSymbol {
+			if _, hasCount := genericMsg["c"]; hasCount { // count field indicates ticker
+				if _, hasVolume := genericMsg["v"]; hasVolume {
+					return c.processOptionsStreamDataByEventType("ticker", message)
+				}
+			}
+		}
+		
+		// Partial Depth events (no "e" field)
+		// PartialDepth messages have fields: "lastUpdateId", "bids", "asks"  
 		if _, hasLastUpdateId := genericMsg["lastUpdateId"]; hasLastUpdateId {
 			if _, hasBids := genericMsg["bids"]; hasBids {
 				if _, hasAsks := genericMsg["asks"]; hasAsks {
-					// This is a PartialDepth event
-					return c.processStreamDataByEventType("partialDepth", message)
+					return c.processOptionsStreamDataByEventType("partialDepth", message)
 				}
 			}
 		}
 	}
 
-	log.Printf("Unknown message format: %s", string(message))
+	log.Printf("Unknown options stream message format: %s", string(message))
 	return nil
 }
 
@@ -1360,7 +1312,7 @@ func (c *Client) processArrayStreamEvent(data []byte, arrayData []interface{}) e
 			continue
 		}
 		
-		if err := c.processStreamDataByEventType(eventType, elementBytes); err != nil {
+		if err := c.processOptionsStreamDataByEventType(eventType, elementBytes); err != nil {
 			log.Printf("Failed to process array element %d: %v", i, err)
 			// Continue processing other elements even if one fails
 		}
@@ -1369,55 +1321,68 @@ func (c *Client) processArrayStreamEvent(data []byte, arrayData []interface{}) e
 	return nil
 }
 
-// Process stream data based on stream name
-func (c *Client) processStreamData(streamName string, data interface{}) error {
+// Process options stream data based on stream name
+func (c *Client) processOptionsStreamData(streamName string, data interface{}) error {
 	dataBytes, err := json.Marshal(data)
 	if err != nil {
 		return err
 	}
 
-	// Determine event type from stream name
-	if strings.Contains(streamName, "@aggTrade") {
-		return c.processStreamDataByEventType("aggTrade", dataBytes)
-	} else if strings.Contains(streamName, "@trade") {
-		return c.processStreamDataByEventType("trade", dataBytes)
+	// Determine event type from options stream name patterns
+	if streamName == "option_pair" || strings.Contains(streamName, "@option_pair") {
+		return c.processOptionsStreamDataByEventType("newSymbolInfo", dataBytes)
+	} else if strings.Contains(streamName, "@openInterest") {
+		return c.processOptionsStreamDataByEventType("openInterest", dataBytes)
+	} else if strings.Contains(streamName, "@markPrice") {
+		return c.processOptionsStreamDataByEventType("markPrice", dataBytes)
 	} else if strings.Contains(streamName, "@kline") {
-		return c.processStreamDataByEventType("kline", dataBytes)
-	} else if strings.Contains(streamName, "@miniTicker") {
-		return c.processStreamDataByEventType("24hrMiniTicker", dataBytes)
+		return c.processOptionsStreamDataByEventType("kline", dataBytes)
+	} else if strings.Contains(streamName, "@ticker@") && strings.Contains(streamName, "@") {
+		// tickerByUnderlying has format like @ticker@BTC@230630
+		return c.processOptionsStreamDataByEventType("tickerByUnderlying", dataBytes)
 	} else if strings.Contains(streamName, "@ticker") {
-		return c.processStreamDataByEventType("24hrTicker", dataBytes)
-	} else if strings.Contains(streamName, "@bookTicker") {
-		return c.processStreamDataByEventType("bookTicker", dataBytes)
+		return c.processOptionsStreamDataByEventType("ticker", dataBytes)
+	} else if strings.Contains(streamName, "@index") {
+		return c.processOptionsStreamDataByEventType("index", dataBytes)
+	} else if strings.Contains(streamName, "@trade") {
+		return c.processOptionsStreamDataByEventType("trade", dataBytes)
 	} else if strings.Contains(streamName, "@depth") {
-		return c.processStreamDataByEventType("depthUpdate", dataBytes)
-	} else if strings.Contains(streamName, "@avgPrice") {
-		return c.processStreamDataByEventType("avgPrice", dataBytes)
+		return c.processOptionsStreamDataByEventType("partialDepth", dataBytes)
 	}
 
 	return nil
 }
 
-// Process stream data based on event type
-func (c *Client) processStreamDataByEventType(eventType string, data []byte) error {
+// Process options stream data based on event type
+func (c *Client) processOptionsStreamDataByEventType(eventType string, data []byte) error {
 	switch eventType {
-	case "aggTrade":
-		if c.handlers.aggregateTrade != nil {
-			var event models.AggregateTradeEvent
+	case "newSymbolInfo":
+		if c.handlers.newSymbolInfo != nil {
+			var event models.NewSymbolInfoEvent
 			if err := json.Unmarshal(data, &event); err != nil {
 				return err
 			}
-			return c.handlers.aggregateTrade(&event)
+			return c.handlers.newSymbolInfo(&event)
 		}
 		return nil
 
-	case "trade":
-		if c.handlers.trade != nil {
-			var event models.TradeEvent
+	case "openInterest":
+		if c.handlers.openInterest != nil {
+			var event models.OpenInterestEvent
 			if err := json.Unmarshal(data, &event); err != nil {
 				return err
 			}
-			return c.handlers.trade(&event)
+			return c.handlers.openInterest(&event)
+		}
+		return nil
+
+	case "markPrice":
+		if c.handlers.markPrice != nil {
+			var event models.MarkPriceEvent
+			if err := json.Unmarshal(data, &event); err != nil {
+				return err
+			}
+			return c.handlers.markPrice(&event)
 		}
 		return nil
 
@@ -1431,17 +1396,7 @@ func (c *Client) processStreamDataByEventType(eventType string, data []byte) err
 		}
 		return nil
 
-	case "24hrMiniTicker":
-		if c.handlers.miniTicker != nil {
-			var event models.MiniTickerEvent
-			if err := json.Unmarshal(data, &event); err != nil {
-				return err
-			}
-			return c.handlers.miniTicker(&event)
-		}
-		return nil
-
-	case "24hrTicker":
+	case "ticker":
 		if c.handlers.ticker != nil {
 			var event models.TickerEvent
 			if err := json.Unmarshal(data, &event); err != nil {
@@ -1451,23 +1406,33 @@ func (c *Client) processStreamDataByEventType(eventType string, data []byte) err
 		}
 		return nil
 
-	case "bookTicker":
-		if c.handlers.bookTicker != nil {
-			var event models.BookTickerEvent
+	case "tickerByUnderlying":
+		if c.handlers.tickerByUnderlying != nil {
+			var event models.TickerByUnderlyingEvent
 			if err := json.Unmarshal(data, &event); err != nil {
 				return err
 			}
-			return c.handlers.bookTicker(&event)
+			return c.handlers.tickerByUnderlying(&event)
 		}
 		return nil
 
-	case "depthUpdate":
-		if c.handlers.depth != nil {
-			var event models.DiffDepthEvent
+	case "index":
+		if c.handlers.indexPrice != nil {
+			var event models.IndexPriceEvent
 			if err := json.Unmarshal(data, &event); err != nil {
 				return err
 			}
-			return c.handlers.depth(&event)
+			return c.handlers.indexPrice(&event)
+		}
+		return nil
+
+	case "trade":
+		if c.handlers.trade != nil {
+			var event models.TradeEvent
+			if err := json.Unmarshal(data, &event); err != nil {
+				return err
+			}
+			return c.handlers.trade(&event)
 		}
 		return nil
 
@@ -1478,16 +1443,6 @@ func (c *Client) processStreamDataByEventType(eventType string, data []byte) err
 				return err
 			}
 			return c.handlers.partialDepth(&event)
-		}
-		return nil
-
-	case "avgPrice":
-		if c.handlers.avgPrice != nil {
-			var event models.AvgPriceEvent
-			if err := json.Unmarshal(data, &event); err != nil {
-				return err
-			}
-			return c.handlers.avgPrice(&event)
 		}
 		return nil
 	}
