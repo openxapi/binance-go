@@ -1,0 +1,121 @@
+package models
+
+import (
+	"encoding/json"
+)
+
+// OrderTradeUpdateEventEvent represents a nested object structure
+type OrderTradeUpdateEventEvent struct {
+	// Event Time (milliseconds)
+	EventTime int64 `json:"E,omitempty"`
+	// Transaction Time (milliseconds)
+	TransactionTime int64 `json:"T,omitempty"`
+	// Event Type
+	EventType string `json:"e,omitempty"`
+	// Order details
+	OrderDetails *OrderTradeUpdateEventEventOrderDetails `json:"o,omitempty"`
+}
+
+// OrderTradeUpdateEventEventOrderDetails represents a nested object structure
+type OrderTradeUpdateEventEventOrderDetails struct {
+	// Activation Price (only for TRAILING_STOP_MARKET)
+	ActivationPrice string `json:"AP,omitempty"`
+	// Last Filled Price
+	LastFilledPrice string `json:"L,omitempty"`
+	// Commission Asset
+	CommissionAsset string `json:"N,omitempty"`
+	// Is this reduce only
+	IsThisReduceOnly bool `json:"R,omitempty"`
+	// Side
+	Side string `json:"S,omitempty"`
+	// Order Trade Time (milliseconds)
+	OrderTradeTime int64 `json:"T,omitempty"`
+	// STP mode
+	STPMode string `json:"V,omitempty"`
+	// Order Status
+	OrderStatus string `json:"X,omitempty"`
+	// Ask Notional
+	AskNotional string `json:"a,omitempty"`
+	// Average Price
+	AveragePrice string `json:"ap,omitempty"`
+	// Bids Notional
+	BidsNotional string `json:"b,omitempty"`
+	// Client Order ID
+	ClientOrderID string `json:"c,omitempty"`
+	// If Close-All
+	IfCloseAll bool `json:"cp,omitempty"`
+	// Callback Rate (only for TRAILING_STOP_MARKET)
+	CallbackRate string `json:"cr,omitempty"`
+	// Time in Force
+	TimeInForce string `json:"f,omitempty"`
+	// TIF GTD order auto cancel time
+	TIFGTDOrderAutoCancelTime int64 `json:"gtd,omitempty"`
+	// Order ID
+	OrderID int64 `json:"i,omitempty"`
+	// Order Last Filled Quantity
+	OrderLastFilledQuantity string `json:"l,omitempty"`
+	// Maker side
+	MakerSide bool `json:"m,omitempty"`
+	// Commission
+	Commission string `json:"n,omitempty"`
+	// Order Type
+	OrderType string `json:"o,omitempty"`
+	// Original Order Type
+	OriginalOrderType string `json:"ot,omitempty"`
+	// Original Price
+	OriginalPrice string `json:"p,omitempty"`
+	// Protect position
+	ProtectPosition bool `json:"pP,omitempty"`
+	// Price match mode
+	PriceMatchMode string `json:"pm,omitempty"`
+	// Position Side
+	PositionSide string `json:"ps,omitempty"`
+	// Original Quantity
+	OriginalQuantity string `json:"q,omitempty"`
+	// Symbol
+	Symbol string `json:"s,omitempty"`
+	// Ignore
+	Ignore int64 `json:"si,omitempty"`
+	// Stop Price
+	StopPrice string `json:"sp,omitempty"`
+	// Ignore
+	Ignore2 int64 `json:"ss,omitempty"`
+	// Trade ID
+	TradeID int64 `json:"t,omitempty"`
+	// Stop Price Working Type
+	StopPriceWorkingType string `json:"wt,omitempty"`
+	// Execution Type
+	ExecutionType string `json:"x,omitempty"`
+	// Order Filled Accumulated Quantity
+	OrderFilledAccumulatedQuantity string `json:"z,omitempty"`
+}
+
+// OrderTradeUpdateEvent - Orders are updated with orderTradeUpdate event
+// Message name: Order Trade Update Event
+type OrderTradeUpdateEvent struct {
+	Event *OrderTradeUpdateEventEvent `json:"event,omitempty"`
+}
+
+// String returns string representation of OrderTradeUpdateEvent
+func (s OrderTradeUpdateEvent) String() string {
+	b, _ := json.Marshal(s)
+	return string(b)
+}
+
+// GetEventType returns the event type for OrderTradeUpdateEvent
+func (s OrderTradeUpdateEvent) GetEventType() string {
+	if s.Event.EventType != "" {
+		return s.Event.EventType
+	}
+	return "ordertradeupdateevent"
+}
+
+// GetEventTime returns the event timestamp for OrderTradeUpdateEvent
+func (s OrderTradeUpdateEvent) GetEventTime() int64 {
+	if s.Event.EventTime != 0 {
+		return s.Event.EventTime
+	}
+	return 0
+}
+
+
