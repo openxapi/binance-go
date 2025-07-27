@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 )
 
-// ConditionalOrderTradeUpdateStrategyOrderDetails represents a nested object structure
-type ConditionalOrderTradeUpdateStrategyOrderDetails struct {
+// ConditionalOrderTradeUpdateEventStrategyOrderDetails represents a nested object structure
+type ConditionalOrderTradeUpdateEventStrategyOrderDetails struct {
 	// Symbol
 	Symbol string `json:"s,omitempty"`
 	// Strategy Client Order Id
@@ -50,9 +50,9 @@ type ConditionalOrderTradeUpdateStrategyOrderDetails struct {
 	GoodTillDate int64 `json:"gtd,omitempty"`
 }
 
-// ConditionalOrderTradeUpdate - Sent when new order created or order status changed
+// ConditionalOrderTradeUpdateEvent - Sent when new order created or order status changed
 // Message name: Conditional Order Trade Update Event
-type ConditionalOrderTradeUpdate struct {
+type ConditionalOrderTradeUpdateEvent struct {
 	// Event Type
 	EventType string `json:"e,omitempty"`
 	// Transaction Time (milliseconds)
@@ -62,25 +62,25 @@ type ConditionalOrderTradeUpdate struct {
 	// Event business unit
 	EventBusinessUnit string `json:"fs,omitempty"`
 	// Strategy order details
-	StrategyOrderDetails *ConditionalOrderTradeUpdateStrategyOrderDetails `json:"so,omitempty"`
+	StrategyOrderDetails *ConditionalOrderTradeUpdateEventStrategyOrderDetails `json:"so,omitempty"`
 }
 
-// String returns string representation of ConditionalOrderTradeUpdate
-func (s ConditionalOrderTradeUpdate) String() string {
+// String returns string representation of ConditionalOrderTradeUpdateEvent
+func (s ConditionalOrderTradeUpdateEvent) String() string {
 	b, _ := json.Marshal(s)
 	return string(b)
 }
 
-// GetEventType returns the event type for ConditionalOrderTradeUpdate
-func (s ConditionalOrderTradeUpdate) GetEventType() string {
+// GetEventType returns the event type for ConditionalOrderTradeUpdateEvent
+func (s ConditionalOrderTradeUpdateEvent) GetEventType() string {
 	if s.EventType != "" {
 		return s.EventType
 	}
-	return "conditionalordertradeupdate"
+	return "conditionalordertradeupdateevent"
 }
 
-// GetEventTime returns the event timestamp for ConditionalOrderTradeUpdate
-func (s ConditionalOrderTradeUpdate) GetEventTime() int64 {
+// GetEventTime returns the event timestamp for ConditionalOrderTradeUpdateEvent
+func (s ConditionalOrderTradeUpdateEvent) GetEventTime() int64 {
 	if s.EventTime != 0 {
 		return s.EventTime
 	}

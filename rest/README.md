@@ -28,6 +28,25 @@ With [OpenXAPI](https://github.com/openxapi/openxapi), you can add support for o
 
 Following is an example of how to use the spot API client, please refer to the sub-folders for other products for more details.
 
+## Installation
+
+Install the REST module:
+
+```bash
+go get github.com/openxapi/binance-go/rest
+```
+
+Or install specific products:
+
+```bash
+# REST API for specific products
+go get github.com/openxapi/binance-go/rest/spot
+go get github.com/openxapi/binance-go/rest/umfutures
+go get github.com/openxapi/binance-go/rest/cmfutures
+go get github.com/openxapi/binance-go/rest/options
+go get github.com/openxapi/binance-go/rest/pmargin
+```
+
 ## Import
 
 ```go

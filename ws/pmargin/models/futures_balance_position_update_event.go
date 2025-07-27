@@ -4,18 +4,18 @@ import (
 	"encoding/json"
 )
 
-// FuturesBalancePositionUpdateAccountUpdateDetails represents a nested object structure
-type FuturesBalancePositionUpdateAccountUpdateDetails struct {
+// FuturesBalancePositionUpdateEventAccountUpdateDetails represents a nested object structure
+type FuturesBalancePositionUpdateEventAccountUpdateDetails struct {
 	// Event Reason Type
 	EventReasonType string `json:"m,omitempty"`
 	// Balances Array
-	BalancesArray []FuturesBalancePositionUpdateAccountUpdateDetailsBItem `json:"B,omitempty"`
+	BalancesArray []FuturesBalancePositionUpdateEventAccountUpdateDetailsBItem `json:"B,omitempty"`
 	// Positions Array
-	PositionsArray []FuturesBalancePositionUpdateAccountUpdateDetailsPItem `json:"P,omitempty"`
+	PositionsArray []FuturesBalancePositionUpdateEventAccountUpdateDetailsPItem `json:"P,omitempty"`
 }
 
-// FuturesBalancePositionUpdateAccountUpdateDetailsBItem represents a nested object structure
-type FuturesBalancePositionUpdateAccountUpdateDetailsBItem struct {
+// FuturesBalancePositionUpdateEventAccountUpdateDetailsBItem represents a nested object structure
+type FuturesBalancePositionUpdateEventAccountUpdateDetailsBItem struct {
 	// Asset (example: "USDT")
 	Asset string `json:"a,omitempty"`
 	// Wallet Balance (example: "122624.12345678")
@@ -26,8 +26,8 @@ type FuturesBalancePositionUpdateAccountUpdateDetailsBItem struct {
 	BalanceChange string `json:"bc,omitempty"`
 }
 
-// FuturesBalancePositionUpdateAccountUpdateDetailsPItem represents a nested object structure
-type FuturesBalancePositionUpdateAccountUpdateDetailsPItem struct {
+// FuturesBalancePositionUpdateEventAccountUpdateDetailsPItem represents a nested object structure
+type FuturesBalancePositionUpdateEventAccountUpdateDetailsPItem struct {
 	// Symbol (example: "BTCUSDT")
 	Symbol string `json:"s,omitempty"`
 	// Position Amount (example: "0")
@@ -44,9 +44,9 @@ type FuturesBalancePositionUpdateAccountUpdateDetailsPItem struct {
 	BreakevenPrice string `json:"bep,omitempty"`
 }
 
-// FuturesBalancePositionUpdate - Futures balance and position update event
+// FuturesBalancePositionUpdateEvent - Futures balance and position update event
 // Message name: Futures Balance and Position Update Event
-type FuturesBalancePositionUpdate struct {
+type FuturesBalancePositionUpdateEvent struct {
 	// Event Type
 	EventType string `json:"e,omitempty"`
 	// Event business unit
@@ -58,25 +58,25 @@ type FuturesBalancePositionUpdate struct {
 	// Account Alias
 	AccountAlias string `json:"i,omitempty"`
 	// Account update details
-	AccountUpdateDetails *FuturesBalancePositionUpdateAccountUpdateDetails `json:"a,omitempty"`
+	AccountUpdateDetails *FuturesBalancePositionUpdateEventAccountUpdateDetails `json:"a,omitempty"`
 }
 
-// String returns string representation of FuturesBalancePositionUpdate
-func (s FuturesBalancePositionUpdate) String() string {
+// String returns string representation of FuturesBalancePositionUpdateEvent
+func (s FuturesBalancePositionUpdateEvent) String() string {
 	b, _ := json.Marshal(s)
 	return string(b)
 }
 
-// GetEventType returns the event type for FuturesBalancePositionUpdate
-func (s FuturesBalancePositionUpdate) GetEventType() string {
+// GetEventType returns the event type for FuturesBalancePositionUpdateEvent
+func (s FuturesBalancePositionUpdateEvent) GetEventType() string {
 	if s.EventType != "" {
 		return s.EventType
 	}
-	return "futuresbalancepositionupdate"
+	return "futuresbalancepositionupdateevent"
 }
 
-// GetEventTime returns the event timestamp for FuturesBalancePositionUpdate
-func (s FuturesBalancePositionUpdate) GetEventTime() int64 {
+// GetEventTime returns the event timestamp for FuturesBalancePositionUpdateEvent
+func (s FuturesBalancePositionUpdateEvent) GetEventTime() int64 {
 	if s.EventTime != 0 {
 		return s.EventTime
 	}

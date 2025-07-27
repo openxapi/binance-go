@@ -1197,64 +1197,64 @@ type eventHandlers struct {
 }
 
 // Register event handlers
-func (c *Client) OnAggregateTradeEvent(handler AggregateTradeHandler) {
+func (c *Client) HandleAggregateTradeEvent(handler AggregateTradeHandler) {
 	c.handlers.aggregateTrade = handler
 }
 
-func (c *Client) OnMarkPriceEvent(handler MarkPriceHandler) {
+func (c *Client) HandleMarkPriceEvent(handler MarkPriceHandler) {
 	c.handlers.markPriceUpdate = handler
 }
 
-func (c *Client) OnKlineEvent(handler KlineHandler) {
+func (c *Client) HandleKlineEvent(handler KlineHandler) {
 	c.handlers.kline = handler
 }
 
-func (c *Client) OnContinuousKlineEvent(handler ContinuousKlineHandler) {
+func (c *Client) HandleContinuousKlineEvent(handler ContinuousKlineHandler) {
 	c.handlers.continuouskline = handler
 }
 
-func (c *Client) OnMiniTickerEvent(handler MiniTickerHandler) {
+func (c *Client) HandleMiniTickerEvent(handler MiniTickerHandler) {
 	c.handlers.miniTicker = handler
 }
 
-func (c *Client) OnTickerEvent(handler TickerHandler) {
+func (c *Client) HandleTickerEvent(handler TickerHandler) {
 	c.handlers.ticker = handler
 }
 
-func (c *Client) OnBookTickerEvent(handler BookTickerHandler) {
+func (c *Client) HandleBookTickerEvent(handler BookTickerHandler) {
 	c.handlers.bookTicker = handler
 }
 
-func (c *Client) OnLiquidationEvent(handler LiquidationHandler) {
+func (c *Client) HandleLiquidationEvent(handler LiquidationHandler) {
 	c.handlers.forceOrder = handler
 }
 
-func (c *Client) OnDiffDepthEvent(handler DiffDepthHandler) {
+func (c *Client) HandleDiffDepthEvent(handler DiffDepthHandler) {
 	c.handlers.depth = handler
 }
 
-func (c *Client) OnCompositeIndexEvent(handler CompositeIndexHandler) {
+func (c *Client) HandleCompositeIndexEvent(handler CompositeIndexHandler) {
 	c.handlers.compositeIndex = handler
 }
 
-func (c *Client) OnContractInfoEvent(handler ContractInfoHandler) {
+func (c *Client) HandleContractInfoEvent(handler ContractInfoHandler) {
 	c.handlers.contractInfo = handler
 }
 
-func (c *Client) OnAssetIndexEvent(handler AssetIndexHandler) {
+func (c *Client) HandleAssetIndexEvent(handler AssetIndexHandler) {
 	c.handlers.assetIndexUpdate = handler
 	c.handlers.assetIndex = handler
 }
 
-func (c *Client) OnCombinedStreamEvent(handler CombinedStreamHandler) {
+func (c *Client) HandleCombinedStreamEvent(handler CombinedStreamHandler) {
 	c.handlers.combinedStream = handler
 }
 
-func (c *Client) OnSubscriptionResponse(handler SubscriptionResponseHandler) {
+func (c *Client) HandleSubscriptionResponse(handler SubscriptionResponseHandler) {
 	c.handlers.subscriptionResponse = handler
 }
 
-func (c *Client) OnStreamError(handler StreamErrorHandler) {
+func (c *Client) HandleStreamError(handler StreamErrorHandler) {
 	c.handlers.error = handler
 }
 

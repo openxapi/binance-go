@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 )
 
-// LiabilityUpdate - Margin liability update event
+// LiabilityUpdateEvent - Margin liability update event
 // Message name: Liability Update Event
-type LiabilityUpdate struct {
+type LiabilityUpdateEvent struct {
 	// Event Type
 	EventType string `json:"e,omitempty"`
 	// Event Time (milliseconds)
@@ -25,22 +25,22 @@ type LiabilityUpdate struct {
 	TotalLiability string `json:"l,omitempty"`
 }
 
-// String returns string representation of LiabilityUpdate
-func (s LiabilityUpdate) String() string {
+// String returns string representation of LiabilityUpdateEvent
+func (s LiabilityUpdateEvent) String() string {
 	b, _ := json.Marshal(s)
 	return string(b)
 }
 
-// GetEventType returns the event type for LiabilityUpdate
-func (s LiabilityUpdate) GetEventType() string {
+// GetEventType returns the event type for LiabilityUpdateEvent
+func (s LiabilityUpdateEvent) GetEventType() string {
 	if s.EventType != "" {
 		return s.EventType
 	}
-	return "liabilityupdate"
+	return "liabilityupdateevent"
 }
 
-// GetEventTime returns the event timestamp for LiabilityUpdate
-func (s LiabilityUpdate) GetEventTime() int64 {
+// GetEventTime returns the event timestamp for LiabilityUpdateEvent
+func (s LiabilityUpdateEvent) GetEventTime() int64 {
 	if s.EventTime != 0 {
 		return s.EventTime
 	}

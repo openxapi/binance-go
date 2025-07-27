@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 )
 
-// MarginOrderUpdate - Margin order execution report event
+// MarginOrderUpdateEvent - Margin order execution report event
 // Message name: Margin Order Update Event
-type MarginOrderUpdate struct {
+type MarginOrderUpdateEvent struct {
 	// Event Type
 	EventType string `json:"e,omitempty"`
 	// Event Time (milliseconds)
@@ -95,22 +95,22 @@ type MarginOrderUpdate struct {
 	PreventedQuantity string `json:"B,omitempty"`
 }
 
-// String returns string representation of MarginOrderUpdate
-func (s MarginOrderUpdate) String() string {
+// String returns string representation of MarginOrderUpdateEvent
+func (s MarginOrderUpdateEvent) String() string {
 	b, _ := json.Marshal(s)
 	return string(b)
 }
 
-// GetEventType returns the event type for MarginOrderUpdate
-func (s MarginOrderUpdate) GetEventType() string {
+// GetEventType returns the event type for MarginOrderUpdateEvent
+func (s MarginOrderUpdateEvent) GetEventType() string {
 	if s.EventType != "" {
 		return s.EventType
 	}
-	return "marginorderupdate"
+	return "marginorderupdateevent"
 }
 
-// GetEventTime returns the event timestamp for MarginOrderUpdate
-func (s MarginOrderUpdate) GetEventTime() int64 {
+// GetEventTime returns the event timestamp for MarginOrderUpdateEvent
+func (s MarginOrderUpdateEvent) GetEventTime() int64 {
 	if s.EventTime != 0 {
 		return s.EventTime
 	}

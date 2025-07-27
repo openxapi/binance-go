@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 )
 
-// FuturesOrderUpdateOrderDetails represents a nested object structure
-type FuturesOrderUpdateOrderDetails struct {
+// FuturesOrderUpdateEventOrderDetails represents a nested object structure
+type FuturesOrderUpdateEventOrderDetails struct {
 	// Symbol
 	Symbol string `json:"s,omitempty"`
 	// Client Order Id
@@ -42,9 +42,9 @@ type FuturesOrderUpdateOrderDetails struct {
 	Commission string `json:"n,omitempty"`
 }
 
-// FuturesOrderUpdate - Futures order trade update event
+// FuturesOrderUpdateEvent - Futures order trade update event
 // Message name: Futures Order Update Event
-type FuturesOrderUpdate struct {
+type FuturesOrderUpdateEvent struct {
 	// Event Type
 	EventType string `json:"e,omitempty"`
 	// Event business unit
@@ -56,25 +56,25 @@ type FuturesOrderUpdate struct {
 	// Account Alias
 	AccountAlias string `json:"i,omitempty"`
 	// Order details
-	OrderDetails *FuturesOrderUpdateOrderDetails `json:"o,omitempty"`
+	OrderDetails *FuturesOrderUpdateEventOrderDetails `json:"o,omitempty"`
 }
 
-// String returns string representation of FuturesOrderUpdate
-func (s FuturesOrderUpdate) String() string {
+// String returns string representation of FuturesOrderUpdateEvent
+func (s FuturesOrderUpdateEvent) String() string {
 	b, _ := json.Marshal(s)
 	return string(b)
 }
 
-// GetEventType returns the event type for FuturesOrderUpdate
-func (s FuturesOrderUpdate) GetEventType() string {
+// GetEventType returns the event type for FuturesOrderUpdateEvent
+func (s FuturesOrderUpdateEvent) GetEventType() string {
 	if s.EventType != "" {
 		return s.EventType
 	}
-	return "futuresorderupdate"
+	return "futuresorderupdateevent"
 }
 
-// GetEventTime returns the event timestamp for FuturesOrderUpdate
-func (s FuturesOrderUpdate) GetEventTime() int64 {
+// GetEventTime returns the event timestamp for FuturesOrderUpdateEvent
+func (s FuturesOrderUpdateEvent) GetEventTime() int64 {
 	if s.EventTime != 0 {
 		return s.EventTime
 	}

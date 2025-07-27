@@ -35,6 +35,31 @@ With [OpenXAPI](https://github.com/openxapi/openxapi), you can add support for o
 - **WebSocket API**: Provides request-response functionality similar to REST API but over WebSocket connections. Supports account operations, order management, market data queries, and user data streams.
 - **WebSocket Market Streams**: Provides real-time market data streams only. Optimized for high-frequency market data updates.
 
+## Installation
+
+Install the WebSocket module:
+
+```bash
+go get github.com/openxapi/binance-go/ws
+```
+
+Or install specific products:
+
+```bash
+# WebSocket API products
+go get github.com/openxapi/binance-go/ws/spot
+go get github.com/openxapi/binance-go/ws/umfutures
+go get github.com/openxapi/binance-go/ws/cmfutures
+go get github.com/openxapi/binance-go/ws/options
+go get github.com/openxapi/binance-go/ws/pmargin
+
+# WebSocket Stream products
+go get github.com/openxapi/binance-go/ws/spot-streams
+go get github.com/openxapi/binance-go/ws/umfutures-streams
+go get github.com/openxapi/binance-go/ws/cmfutures-streams
+go get github.com/openxapi/binance-go/ws/options-streams
+```
+
 ## Import
 
 ```go
@@ -123,7 +148,7 @@ func main() {
     defer client.Disconnect()
 
     // Get server time (public endpoint)
-    timeResp, err := client.SendTime(ctx, 
+    err = client.SendTime(ctx,
         models.NewTimeRequest(),
         func(response *models.TimeResponse, err error) error {
             if err != nil {
@@ -139,7 +164,7 @@ func main() {
 
     // Get account information (requires authentication)
     if apiKey != "" && secretKey != "" {
-        accountResp, err := client.SendAccount(ctx,
+        err = client.SendAccountStatus(ctx,
             models.NewAccountStatusRequest(),
             func(response *models.AccountStatusResponse, err error) error {
                 if err != nil {
@@ -185,44 +210,44 @@ func main() {
     }
 
     // Register event handlers
-    client.OnTradeEvent(func(event *models.TradeEvent) error {
+    client.HandleTradeEvent(func(event *models.TradeEvent) error {
         fmt.Printf("Trade: %s Price: %s Quantity: %s\n", 
             event.Symbol, event.Price, event.Quantity)
         return nil
     })
 
-    client.OnAggregateTradeEvent(func(event *models.AggregateTradeEvent) error {
+    client.HandleAggregateTradeEvent(func(event *models.AggregateTradeEvent) error {
         fmt.Printf("Agg Trade: %s Price: %s Quantity: %s\n", 
             event.Symbol, event.Price, event.Quantity)
         return nil
     })
 
-    client.OnKlineEvent(func(event *models.KlineEvent) error {
+    client.HandleKlineEvent(func(event *models.KlineEvent) error {
         fmt.Printf("Kline: %s Open: %s High: %s Low: %s Close: %s\n", 
             event.Symbol, event.Kline.OpenPrice, event.Kline.HighPrice, 
             event.Kline.LowPrice, event.Kline.ClosePrice)
         return nil
     })
 
-    client.OnTickerEvent(func(event *models.TickerEvent) error {
+    client.HandleTickerEvent(func(event *models.TickerEvent) error {
         fmt.Printf("Ticker: %s Price: %s Change: %s%%\n", 
             event.Symbol, event.CurrentClosePrice, event.PriceChangePercent)
         return nil
     })
 
-    client.OnBookTickerEvent(func(event *models.BookTickerEvent) error {
+    client.HandleBookTickerEvent(func(event *models.BookTickerEvent) error {
         fmt.Printf("Book Ticker: %s Bid: %s Ask: %s\n", 
             event.Symbol, event.BidPrice, event.AskPrice)
         return nil
     })
 
-    client.OnMiniTickerEvent(func(event *models.MiniTickerEvent) error {
+    client.HandleMiniTickerEvent(func(event *models.MiniTickerEvent) error {
         fmt.Printf("Mini Ticker: %s Price: %s\n", 
             event.Symbol, event.ClosePrice)
         return nil
     })
 
-    client.OnStreamError(func(event *models.ErrorResponse) error {
+    client.HandleStreamError(func(event *models.ErrorResponse) error {
         log.Printf("Stream error: %+v", event)
         return nil
     })
@@ -398,43 +423,43 @@ func main() {
     }
 
     // Register event handlers
-    client.OnAggregateTradeEvent(func(event *models.AggregateTradeEvent) error {
+    client.HandleAggregateTradeEvent(func(event *models.AggregateTradeEvent) error {
         fmt.Printf("Futures Agg Trade: %s Price: %s Quantity: %s\n", 
             event.Symbol, event.Price, event.Quantity)
         return nil
     })
 
-    client.OnKlineEvent(func(event *models.KlineEvent) error {
+    client.HandleKlineEvent(func(event *models.KlineEvent) error {
         fmt.Printf("Futures Kline: %s Open: %s Close: %s Volume: %s\n", 
             event.Symbol, event.Kline.OpenPrice, event.Kline.ClosePrice, event.Kline.Volume)
         return nil
     })
 
-    client.OnMarkPriceEvent(func(event *models.MarkPriceEvent) error {
+    client.HandleMarkPriceEvent(func(event *models.MarkPriceEvent) error {
         fmt.Printf("Mark Price: %s Price: %s FundingRate: %s\n", 
             event.Symbol, event.MarkPrice, event.FundingRate)
         return nil
     })
 
-    client.OnLiquidationEvent(func(event *models.LiquidationEvent) error {
+    client.HandleLiquidationEvent(func(event *models.LiquidationEvent) error {
         fmt.Printf("Liquidation: %s Side: %s Price: %s Quantity: %s\n", 
             event.Symbol, event.Side, event.Price, event.Quantity)
         return nil
     })
 
-    client.OnTickerEvent(func(event *models.TickerEvent) error {
+    client.HandleTickerEvent(func(event *models.TickerEvent) error {
         fmt.Printf("Ticker: %s Price: %s Change: %s%%\n", 
             event.Symbol, event.LastPrice, event.PriceChangePercent)
         return nil
     })
 
-    client.OnBookTickerEvent(func(event *models.BookTickerEvent) error {
+    client.HandleBookTickerEvent(func(event *models.BookTickerEvent) error {
         fmt.Printf("Book Ticker: %s Bid: %s Ask: %s\n", 
             event.Symbol, event.BidPrice, event.AskPrice)
         return nil
     })
 
-    client.OnStreamError(func(event *models.ErrorResponse) error {
+    client.HandleStreamError(func(event *models.ErrorResponse) error {
         log.Printf("Stream error: %+v", event)
         return nil
     })
@@ -509,17 +534,17 @@ func main() {
     }
 
     // Register event handlers for user data
-    client.OnAccountUpdate(func(event *models.AccountUpdate) error {
+    client.HandleAccountUpdateEvent(func(event *models.AccountUpdateEvent) error {
         fmt.Printf("Options Account Update: %+v\n", event)
         return nil
     })
 
-    client.OnOrderTradeUpdate(func(event *models.OrderTradeUpdate) error {
+    client.HandleOrderTradeUpdateEvent(func(event *models.OrderTradeUpdateEvent) error {
         fmt.Printf("Options Order Update: %+v\n", event)
         return nil
     })
 
-    client.OnRiskLevelChange(func(event *models.RiskLevelChange) error {
+    client.HandleRiskLevelChangeEvent(func(event *models.RiskLevelChangeEvent) error {
         fmt.Printf("Options Risk Level Change: %+v\n", event)
         return nil
     })
@@ -574,37 +599,37 @@ func main() {
     }
 
     // Register event handlers for portfolio margin events
-    client.OnMarginAccountUpdate(func(event *models.MarginAccountUpdate) error {
+    client.HandleMarginAccountUpdateEvent(func(event *models.MarginAccountUpdateEvent) error {
         fmt.Printf("Margin Account Update: %+v\n", event)
         return nil
     })
 
-    client.OnFuturesOrderUpdate(func(event *models.FuturesOrderUpdate) error {
+    client.HandleFuturesOrderUpdateEvent(func(event *models.FuturesOrderUpdateEvent) error {
         fmt.Printf("Futures Order Update: %+v\n", event)
         return nil
     })
 
-    client.OnFuturesBalancePositionUpdate(func(event *models.FuturesBalancePositionUpdate) error {
+    client.HandleFuturesBalancePositionUpdateEvent(func(event *models.FuturesBalancePositionUpdateEvent) error {
         fmt.Printf("Futures Balance/Position Update: %+v\n", event)
         return nil
     })
 
-    client.OnMarginOrderUpdate(func(event *models.MarginOrderUpdate) error {
+    client.HandleMarginOrderUpdateEvent(func(event *models.MarginOrderUpdateEvent) error {
         fmt.Printf("Margin Order Update: %+v\n", event)
         return nil
     })
 
-    client.OnRiskLevelChange(func(event *models.RiskLevelChange) error {
+    client.HandleRiskLevelChangeEvent(func(event *models.RiskLevelChangeEvent) error {
         fmt.Printf("Risk Level Change: %+v\n", event)
         return nil
     })
 
-    client.OnLiabilityUpdate(func(event *models.LiabilityUpdate) error {
+    client.HandleLiabilityUpdateEvent(func(event *models.LiabilityUpdateEvent) error {
         fmt.Printf("Liability Update: %+v\n", event)
         return nil
     })
 
-    client.OnUserDataStreamExpired(func(event *models.UserDataStreamExpired) error {
+    client.HandleUserDataStreamExpiredEvent(func(event *models.UserDataStreamExpiredEvent) error {
         fmt.Printf("User Data Stream Expired: %+v\n", event)
         return nil
     })
@@ -672,19 +697,19 @@ All WebSocket clients provide event handling mechanisms for real-time data:
 
 ```go
 // Handle execution reports for order updates
-client.HandleExecutionReport(func(event *models.ExecutionReport) error {
+client.HandleExecutionReportEvent(func(event *models.ExecutionReportEvent) error {
     fmt.Printf("Order Update: %+v\n", event)
     return nil
 })
 
 // Handle balance updates
-client.HandleBalanceUpdate(func(event *models.BalanceUpdate) error {
+client.HandleBalanceUpdateEvent(func(event *models.BalanceUpdateEvent) error {
     fmt.Printf("Balance Update: %+v\n", event)
     return nil
 })
 
 // Handle account position updates
-client.HandleOutboundAccountPosition(func(event *models.OutboundAccountPosition) error {
+client.HandleOutboundAccountPositionEvent(func(event *models.OutboundAccountPositionEvent) error {
     fmt.Printf("Position Update: %+v\n", event)
     return nil
 })
@@ -692,19 +717,17 @@ client.HandleOutboundAccountPosition(func(event *models.OutboundAccountPosition)
 
 ## Error Handling
 
-Handle connection errors and API errors:
+Handle errors in streams:
 
 ```go
-// Handle connection errors
-client.HandleError(func(err error) {
-    log.Printf("WebSocket error: %v", err)
-})
-
-// Handle API errors in streams
-client.HandleErrorResponse(func(event *models.ErrorResponse) error {
-    log.Printf("API error: %+v", event)
+// Handle stream errors (for market streams only)
+client.HandleStreamError(func(event *models.ErrorResponse) error {
+    log.Printf("Stream error: %+v", event)
     return nil
 })
+
+// Note: WebSocket API clients handle errors through callback functions
+// in Send methods, not through global error handlers
 ```
 
 ## Configuration

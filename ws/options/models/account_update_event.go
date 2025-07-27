@@ -4,24 +4,24 @@ import (
 	"encoding/json"
 )
 
-// AccountUpdateEvent represents a nested object structure
-type AccountUpdateEvent struct {
+// AccountUpdateEventEvent represents a nested object structure
+type AccountUpdateEventEvent struct {
 	// Account Balance Array
-	AccountBalanceArray []AccountUpdateEventBItem `json:"B,omitempty"`
+	AccountBalanceArray []AccountUpdateEventEventBItem `json:"B,omitempty"`
 	// Event Time (milliseconds)
 	EventTime int64 `json:"E,omitempty"`
 	// Greeks Array
-	GreeksArray []AccountUpdateEventGItem `json:"G,omitempty"`
+	GreeksArray []AccountUpdateEventEventGItem `json:"G,omitempty"`
 	// Positions Array
-	PositionsArray []AccountUpdateEventPItem `json:"P,omitempty"`
+	PositionsArray []AccountUpdateEventEventPItem `json:"P,omitempty"`
 	// Event Type
 	EventType string `json:"e,omitempty"`
 	// User ID
 	UserID float64 `json:"uid,omitempty"`
 }
 
-// AccountUpdateEventBItem represents a nested object structure
-type AccountUpdateEventBItem struct {
+// AccountUpdateEventEventBItem represents a nested object structure
+type AccountUpdateEventEventBItem struct {
 	// Maintenance margin (example: "100.00000000")
 	MaintenanceMargin string `json:"M,omitempty"`
 	// Positive unrealized profit for long position (example: 25.5)
@@ -38,8 +38,8 @@ type AccountUpdateEventBItem struct {
 	UnrealizedProfitLoss string `json:"u,omitempty"`
 }
 
-// AccountUpdateEventGItem represents a nested object structure
-type AccountUpdateEventGItem struct {
+// AccountUpdateEventEventGItem represents a nested object structure
+type AccountUpdateEventEventGItem struct {
 	// Delta (example: 0.5)
 	Delta float64 `json:"d,omitempty"`
 	// Gamma (example: 0.01)
@@ -52,8 +52,8 @@ type AccountUpdateEventGItem struct {
 	Vega float64 `json:"v,omitempty"`
 }
 
-// AccountUpdateEventPItem represents a nested object structure
-type AccountUpdateEventPItem struct {
+// AccountUpdateEventEventPItem represents a nested object structure
+type AccountUpdateEventEventPItem struct {
 	// Average entry price (example: "100.00000000")
 	AverageEntryPrice string `json:"a,omitempty"`
 	// Current positions (example: "10")
@@ -66,28 +66,28 @@ type AccountUpdateEventPItem struct {
 	ContractSymbol string `json:"s,omitempty"`
 }
 
-// AccountUpdate - Sent when account balance or position changes
+// AccountUpdateEvent - Sent when account balance or position changes
 // Message name: Account Update Event
-type AccountUpdate struct {
-	Event *AccountUpdateEvent `json:"event,omitempty"`
+type AccountUpdateEvent struct {
+	Event *AccountUpdateEventEvent `json:"event,omitempty"`
 }
 
-// String returns string representation of AccountUpdate
-func (s AccountUpdate) String() string {
+// String returns string representation of AccountUpdateEvent
+func (s AccountUpdateEvent) String() string {
 	b, _ := json.Marshal(s)
 	return string(b)
 }
 
-// GetEventType returns the event type for AccountUpdate
-func (s AccountUpdate) GetEventType() string {
+// GetEventType returns the event type for AccountUpdateEvent
+func (s AccountUpdateEvent) GetEventType() string {
 	if s.Event.EventType != "" {
 		return s.Event.EventType
 	}
-	return "accountupdate"
+	return "accountupdateevent"
 }
 
-// GetEventTime returns the event timestamp for AccountUpdate
-func (s AccountUpdate) GetEventTime() int64 {
+// GetEventTime returns the event timestamp for AccountUpdateEvent
+func (s AccountUpdateEvent) GetEventTime() int64 {
 	if s.Event.EventTime != 0 {
 		return s.Event.EventTime
 	}

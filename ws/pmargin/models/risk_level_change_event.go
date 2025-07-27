@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 )
 
-// RiskLevelChange - Sent when user's position risk ratio is too high
+// RiskLevelChangeEvent - Sent when user's position risk ratio is too high
 // Message name: Risk Level Change Event
-type RiskLevelChange struct {
+type RiskLevelChangeEvent struct {
 	// Event Type
 	EventType string `json:"e,omitempty"`
 	// Event Time (milliseconds)
@@ -23,22 +23,22 @@ type RiskLevelChange struct {
 	TotalMaintenanceMarginInUSD string `json:"m,omitempty"`
 }
 
-// String returns string representation of RiskLevelChange
-func (s RiskLevelChange) String() string {
+// String returns string representation of RiskLevelChangeEvent
+func (s RiskLevelChangeEvent) String() string {
 	b, _ := json.Marshal(s)
 	return string(b)
 }
 
-// GetEventType returns the event type for RiskLevelChange
-func (s RiskLevelChange) GetEventType() string {
+// GetEventType returns the event type for RiskLevelChangeEvent
+func (s RiskLevelChangeEvent) GetEventType() string {
 	if s.EventType != "" {
 		return s.EventType
 	}
-	return "risklevelchange"
+	return "risklevelchangeevent"
 }
 
-// GetEventTime returns the event timestamp for RiskLevelChange
-func (s RiskLevelChange) GetEventTime() int64 {
+// GetEventTime returns the event timestamp for RiskLevelChangeEvent
+func (s RiskLevelChangeEvent) GetEventTime() int64 {
 	if s.EventTime != 0 {
 		return s.EventTime
 	}

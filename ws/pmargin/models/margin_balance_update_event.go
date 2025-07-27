@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 )
 
-// MarginBalanceUpdate - Margin balance update event
+// MarginBalanceUpdateEvent - Margin balance update event
 // Message name: Margin Balance Update Event
-type MarginBalanceUpdate struct {
+type MarginBalanceUpdateEvent struct {
 	// Event Type
 	EventType string `json:"e,omitempty"`
 	// Event Time (milliseconds)
@@ -21,22 +21,22 @@ type MarginBalanceUpdate struct {
 	ClearTime int64 `json:"T,omitempty"`
 }
 
-// String returns string representation of MarginBalanceUpdate
-func (s MarginBalanceUpdate) String() string {
+// String returns string representation of MarginBalanceUpdateEvent
+func (s MarginBalanceUpdateEvent) String() string {
 	b, _ := json.Marshal(s)
 	return string(b)
 }
 
-// GetEventType returns the event type for MarginBalanceUpdate
-func (s MarginBalanceUpdate) GetEventType() string {
+// GetEventType returns the event type for MarginBalanceUpdateEvent
+func (s MarginBalanceUpdateEvent) GetEventType() string {
 	if s.EventType != "" {
 		return s.EventType
 	}
-	return "marginbalanceupdate"
+	return "marginbalanceupdateevent"
 }
 
-// GetEventTime returns the event timestamp for MarginBalanceUpdate
-func (s MarginBalanceUpdate) GetEventTime() int64 {
+// GetEventTime returns the event timestamp for MarginBalanceUpdateEvent
+func (s MarginBalanceUpdateEvent) GetEventTime() int64 {
 	if s.EventTime != 0 {
 		return s.EventTime
 	}

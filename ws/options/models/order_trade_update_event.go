@@ -4,18 +4,18 @@ import (
 	"encoding/json"
 )
 
-// OrderTradeUpdateEvent represents a nested object structure
-type OrderTradeUpdateEvent struct {
+// OrderTradeUpdateEventEvent represents a nested object structure
+type OrderTradeUpdateEventEvent struct {
 	// Event Time (milliseconds)
 	EventTime int64 `json:"E,omitempty"`
 	// Event Type
 	EventType string `json:"e,omitempty"`
 	// Order details array
-	OrderDetailsArray []OrderTradeUpdateEventOItem `json:"o,omitempty"`
+	OrderDetailsArray []OrderTradeUpdateEventEventOItem `json:"o,omitempty"`
 }
 
-// OrderTradeUpdateEventOItem represents a nested object structure
-type OrderTradeUpdateEventOItem struct {
+// OrderTradeUpdateEventEventOItem represents a nested object structure
+type OrderTradeUpdateEventEventOItem struct {
 	// Order Status (example: "PARTIALLY_FILLED")
 	OrderStatus string `json:"S,omitempty"`
 	// Order Create Time (milliseconds) (example: 1657613342918)
@@ -29,7 +29,7 @@ type OrderTradeUpdateEventOItem struct {
 	// Fee (example: "2")
 	Fee string `json:"f,omitempty"`
 	// Fills Array
-	FillsArray []OrderTradeUpdateEventOItemFiItem `json:"fi,omitempty"`
+	FillsArray []OrderTradeUpdateEventEventOItemFiItem `json:"fi,omitempty"`
 	// Order ID (example: "4611869636869226548")
 	OrderID string `json:"oid,omitempty"`
 	// Order Type (example: "LIMIT")
@@ -52,8 +52,8 @@ type OrderTradeUpdateEventOItem struct {
 	TimeInForce string `json:"tif,omitempty"`
 }
 
-// OrderTradeUpdateEventOItemFiItem represents a nested object structure
-type OrderTradeUpdateEventOItemFiItem struct {
+// OrderTradeUpdateEventEventOItemFiItem represents a nested object structure
+type OrderTradeUpdateEventEventOItemFiItem struct {
 	// Trade Time (milliseconds) (example: 1657613774336)
 	TradeTime int64 `json:"T,omitempty"`
 	// Commission/Rebate (example: "0.0002")
@@ -68,28 +68,28 @@ type OrderTradeUpdateEventOItemFiItem struct {
 	TradeID string `json:"t,omitempty"`
 }
 
-// OrderTradeUpdate - Orders are updated with orderTradeUpdate event
+// OrderTradeUpdateEvent - Orders are updated with orderTradeUpdate event
 // Message name: Order Trade Update Event
-type OrderTradeUpdate struct {
-	Event *OrderTradeUpdateEvent `json:"event,omitempty"`
+type OrderTradeUpdateEvent struct {
+	Event *OrderTradeUpdateEventEvent `json:"event,omitempty"`
 }
 
-// String returns string representation of OrderTradeUpdate
-func (s OrderTradeUpdate) String() string {
+// String returns string representation of OrderTradeUpdateEvent
+func (s OrderTradeUpdateEvent) String() string {
 	b, _ := json.Marshal(s)
 	return string(b)
 }
 
-// GetEventType returns the event type for OrderTradeUpdate
-func (s OrderTradeUpdate) GetEventType() string {
+// GetEventType returns the event type for OrderTradeUpdateEvent
+func (s OrderTradeUpdateEvent) GetEventType() string {
 	if s.Event.EventType != "" {
 		return s.Event.EventType
 	}
-	return "ordertradeupdate"
+	return "ordertradeupdateevent"
 }
 
-// GetEventTime returns the event timestamp for OrderTradeUpdate
-func (s OrderTradeUpdate) GetEventTime() int64 {
+// GetEventTime returns the event timestamp for OrderTradeUpdateEvent
+func (s OrderTradeUpdateEvent) GetEventTime() int64 {
 	if s.Event.EventTime != 0 {
 		return s.Event.EventTime
 	}

@@ -911,12 +911,12 @@ type eventHandlers struct {
 	// It serves as a placeholder to satisfy the Client struct definition
 }
 
-// HandleAccountUpdate registers a handler for Account Update Event events
+// HandleAccountUpdateEvent registers a handler for Account Update Event events
 // This method allows you to handle real-time Account Update Event events from the WebSocket stream
-func (c *Client) HandleAccountUpdate(handler func(*models.AccountUpdate) error) {
-	c.eventHandler.RegisterHandler("accountUpdate", func(data interface{}) error {
+func (c *Client) HandleAccountUpdateEvent(handler func(*models.AccountUpdateEvent) error) {
+	c.eventHandler.RegisterHandler("accountUpdateEvent", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
-		var event models.AccountUpdate
+		var event models.AccountUpdateEvent
 		
 		if jsonData, ok := data.([]byte); ok {
 			// Direct JSON data parsing
@@ -955,12 +955,12 @@ func (c *Client) HandleAccountUpdate(handler func(*models.AccountUpdate) error) 
 }
 
 
-// HandleOrderTradeUpdate registers a handler for Order Trade Update Event events
+// HandleOrderTradeUpdateEvent registers a handler for Order Trade Update Event events
 // This method allows you to handle real-time Order Trade Update Event events from the WebSocket stream
-func (c *Client) HandleOrderTradeUpdate(handler func(*models.OrderTradeUpdate) error) {
-	c.eventHandler.RegisterHandler("orderTradeUpdate", func(data interface{}) error {
+func (c *Client) HandleOrderTradeUpdateEvent(handler func(*models.OrderTradeUpdateEvent) error) {
+	c.eventHandler.RegisterHandler("orderTradeUpdateEvent", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
-		var event models.OrderTradeUpdate
+		var event models.OrderTradeUpdateEvent
 		
 		if jsonData, ok := data.([]byte); ok {
 			// Direct JSON data parsing
@@ -999,12 +999,12 @@ func (c *Client) HandleOrderTradeUpdate(handler func(*models.OrderTradeUpdate) e
 }
 
 
-// HandleRiskLevelChange registers a handler for Risk Level Change Event events
+// HandleRiskLevelChangeEvent registers a handler for Risk Level Change Event events
 // This method allows you to handle real-time Risk Level Change Event events from the WebSocket stream
-func (c *Client) HandleRiskLevelChange(handler func(*models.RiskLevelChange) error) {
-	c.eventHandler.RegisterHandler("riskLevelChange", func(data interface{}) error {
+func (c *Client) HandleRiskLevelChangeEvent(handler func(*models.RiskLevelChangeEvent) error) {
+	c.eventHandler.RegisterHandler("riskLevelChangeEvent", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
-		var event models.RiskLevelChange
+		var event models.RiskLevelChangeEvent
 		
 		if jsonData, ok := data.([]byte); ok {
 			// Direct JSON data parsing
