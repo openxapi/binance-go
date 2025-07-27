@@ -9,7 +9,7 @@ type ListSubscriptions struct {
 	// Method name
 	MethodName string `json:"method,omitempty"`
 	// Request ID
-	RequestId int `json:"id,omitempty"`
+	RequestId string `json:"id,omitempty"`
 }
 
 // String returns string representation of ListSubscriptions

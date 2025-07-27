@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 )
 
-// TradeLiteEvent represents a nested object structure
-type TradeLiteEvent struct {
+// TradeLiteEventEvent represents a nested object structure
+type TradeLiteEventEvent struct {
 	// Event Time (milliseconds)
 	EventTime int64 `json:"E,omitempty"`
 	// Last Filled Price
@@ -34,28 +34,28 @@ type TradeLiteEvent struct {
 	TradeId int64 `json:"t,omitempty"`
 }
 
-// TradeLite - Simplified trade execution event
+// TradeLiteEvent - Simplified trade execution event
 // Message name: Trade Lite Event
-type TradeLite struct {
-	Event *TradeLiteEvent `json:"event,omitempty"`
+type TradeLiteEvent struct {
+	Event *TradeLiteEventEvent `json:"event,omitempty"`
 }
 
-// String returns string representation of TradeLite
-func (s TradeLite) String() string {
+// String returns string representation of TradeLiteEvent
+func (s TradeLiteEvent) String() string {
 	b, _ := json.Marshal(s)
 	return string(b)
 }
 
-// GetEventType returns the event type for TradeLite
-func (s TradeLite) GetEventType() string {
+// GetEventType returns the event type for TradeLiteEvent
+func (s TradeLiteEvent) GetEventType() string {
 	if s.Event.EventType != "" {
 		return s.Event.EventType
 	}
-	return "tradelite"
+	return "tradeliteevent"
 }
 
-// GetEventTime returns the event timestamp for TradeLite
-func (s TradeLite) GetEventTime() int64 {
+// GetEventTime returns the event timestamp for TradeLiteEvent
+func (s TradeLiteEvent) GetEventTime() int64 {
 	if s.Event.EventTime != 0 {
 		return s.Event.EventTime
 	}

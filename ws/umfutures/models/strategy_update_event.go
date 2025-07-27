@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 )
 
-// StrategyUpdateEvent represents a nested object structure
-type StrategyUpdateEvent struct {
+// StrategyUpdateEventEvent represents a nested object structure
+type StrategyUpdateEventEvent struct {
 	// Event Time (milliseconds)
 	EventTime int64 `json:"E,omitempty"`
 	// Transaction Time (milliseconds)
@@ -13,11 +13,11 @@ type StrategyUpdateEvent struct {
 	// Event Type
 	EventType string `json:"e,omitempty"`
 	// Strategy Update
-	StrategyUpdate *StrategyUpdateEventStrategyUpdate `json:"su,omitempty"`
+	StrategyUpdate *StrategyUpdateEventEventStrategyUpdate `json:"su,omitempty"`
 }
 
-// StrategyUpdateEventStrategyUpdate represents a nested object structure
-type StrategyUpdateEventStrategyUpdate struct {
+// StrategyUpdateEventEventStrategyUpdate represents a nested object structure
+type StrategyUpdateEventEventStrategyUpdate struct {
 	// Operation Code
 	OperationCode int64 `json:"c,omitempty"`
 	// Symbol
@@ -32,28 +32,28 @@ type StrategyUpdateEventStrategyUpdate struct {
 	UpdateTime int64 `json:"ut,omitempty"`
 }
 
-// StrategyUpdate - Sent when strategy status changes
+// StrategyUpdateEvent - Sent when strategy status changes
 // Message name: Strategy Update Event
-type StrategyUpdate struct {
-	Event *StrategyUpdateEvent `json:"event,omitempty"`
+type StrategyUpdateEvent struct {
+	Event *StrategyUpdateEventEvent `json:"event,omitempty"`
 }
 
-// String returns string representation of StrategyUpdate
-func (s StrategyUpdate) String() string {
+// String returns string representation of StrategyUpdateEvent
+func (s StrategyUpdateEvent) String() string {
 	b, _ := json.Marshal(s)
 	return string(b)
 }
 
-// GetEventType returns the event type for StrategyUpdate
-func (s StrategyUpdate) GetEventType() string {
+// GetEventType returns the event type for StrategyUpdateEvent
+func (s StrategyUpdateEvent) GetEventType() string {
 	if s.Event.EventType != "" {
 		return s.Event.EventType
 	}
-	return "strategyupdate"
+	return "strategyupdateevent"
 }
 
-// GetEventTime returns the event timestamp for StrategyUpdate
-func (s StrategyUpdate) GetEventTime() int64 {
+// GetEventTime returns the event timestamp for StrategyUpdateEvent
+func (s StrategyUpdateEvent) GetEventTime() int64 {
 	if s.Event.EventTime != 0 {
 		return s.Event.EventTime
 	}

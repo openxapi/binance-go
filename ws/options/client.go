@@ -335,12 +335,12 @@ type APIError struct {
 	Status  int    `json:"status"`  // HTTP-like status code from the response
 	Code    int    `json:"code"`    // Binance-specific error code
 	Message string `json:"msg"`     // Error message
-	ID      string `json:"id"`      // Request ID that caused the error
+	Id      string `json:"id"`      // Request ID that caused the error
 }
 
 // Error implements the error interface
 func (e APIError) Error() string {
-	return fmt.Sprintf("binance api error: status=%d, code=%d, message=%s, id=%s", e.Status, e.Code, e.Message, e.ID)
+	return fmt.Sprintf("binance api error: status=%d, code=%d, message=%s, id=%s", e.Status, e.Code, e.Message, e.Id)
 }
 
 // IsAPIError checks if an error is an APIError
@@ -356,7 +356,7 @@ func IsAPIError(err error) (*APIError, bool) {
 
 // ResponseHandler represents a high-performance handler for WebSocket responses
 type ResponseHandler struct {
-	RequestID string
+	RequestId string
 	Handler   func([]byte, error) error
 }
 
@@ -403,6 +403,7 @@ func (e *EventHandler) HandleResponse(eventType string, data []byte) error {
 // Client represents a high-performance WebSocket client for 
 type Client struct {
 	conn             *websocket.Conn
+	connMu           sync.RWMutex     // Protects connection access
 	serverManager    *ServerManager   // Manages multiple servers
 	responseHandlers sync.Map         // Using sync.Map for better concurrent performance
 	eventHandler     *EventHandler
@@ -687,8 +688,9 @@ func (c *Client) ConnectToServerWithListenKey(ctx context.Context, serverName st
 	return c.ConnectWithListenKey(ctx, listenKey)
 }
 
-// Disconnect closes the WebSocket connection safely
+// Disconnect closes the WebSocket connection safely and resets state for reconnection
 func (c *Client) Disconnect() error {
+	// Signal all goroutines to stop first
 	c.isConnected = false
 	
 	// Safely close the done channel only once
@@ -699,10 +701,23 @@ func (c *Client) Disconnect() error {
 		close(c.done)
 	}
 	
+	// Wait a brief moment for goroutines to see the done signal
+	time.Sleep(10 * time.Millisecond)
+	
+	// Now safely handle the connection with proper locking
+	c.connMu.Lock()
+	defer c.connMu.Unlock()
+	
+	var err error
 	if c.conn != nil {
-		return c.conn.Close()
+		err = c.conn.Close()
+		c.conn = nil  // Reset connection to nil for clean reconnection
 	}
-	return nil
+	
+	// Reset connection state for reconnection
+	c.done = make(chan struct{})  // Recreate done channel
+	
+	return err
 }
 
 // GenerateRequestID generates a unique UUID v4 request ID (global function)
@@ -767,7 +782,7 @@ func (c *Client) handleMessage(data []byte) error {
 	if id, hasID := genericMessage["id"]; hasID {
 		// Parse response structure to check for errors
 		var response struct {
-			ID     interface{} `json:"id"`
+			Id     interface{} `json:"id"`
 			Status int         `json:"status"`
 			Result interface{} `json:"result,omitempty"`
 			Error  *struct {
@@ -790,7 +805,7 @@ func (c *Client) handleMessage(data []byte) error {
 				Status:  response.Status,
 				Code:    response.Error.Code,
 				Message: response.Error.Msg,
-				ID:      requestID,
+				Id:      requestID,
 			}
 		}
 
@@ -1031,7 +1046,7 @@ func (c *Client) HandleRiskLevelChange(handler func(*models.RiskLevelChange) err
 // RegisterTypedResponseHandler registers a typed response handler for a request ID
 func RegisterTypedResponseHandler[T any](c *Client, requestID string, handler func(*T, error) error) {
 	c.responseHandlers.Store(requestID, ResponseHandler{
-		RequestID: requestID,
+		RequestId: requestID,
 		Handler: func(data []byte, err error) error {
 			if err != nil {
 				return handler(nil, err)

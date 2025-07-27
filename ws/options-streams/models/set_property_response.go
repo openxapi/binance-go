@@ -8,8 +8,7 @@ import (
 type SetPropertyResponse struct {
 	// Always null for successful property setting
 	AlwaysNullForSuccessfulPropertySetting interface{} `json:"result,omitempty"`
-	// Request ID echo
-	RequestIdEcho int `json:"id,omitempty"`
+	Id int `json:"id,omitempty"`
 }
 
 // String returns string representation of SetPropertyResponse

@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 )
 
-// GridUpdateEvent represents a nested object structure
-type GridUpdateEvent struct {
+// GridUpdateEventEvent represents a nested object structure
+type GridUpdateEventEvent struct {
 	// Event Time (milliseconds)
 	EventTime int64 `json:"E,omitempty"`
 	// Transaction Time (milliseconds)
@@ -13,11 +13,11 @@ type GridUpdateEvent struct {
 	// Event Type
 	EventType string `json:"e,omitempty"`
 	// Grid Update
-	GridUpdate *GridUpdateEventGridUpdate `json:"gu,omitempty"`
+	GridUpdate *GridUpdateEventEventGridUpdate `json:"gu,omitempty"`
 }
 
-// GridUpdateEventGridUpdate represents a nested object structure
-type GridUpdateEventGridUpdate struct {
+// GridUpdateEventEventGridUpdate represents a nested object structure
+type GridUpdateEventEventGridUpdate struct {
 	// Additional properties
 	AdditionalProperties string `json:"mp,omitempty"`
 	// Realized PNL
@@ -38,28 +38,28 @@ type GridUpdateEventGridUpdate struct {
 	UnmatchedQty string `json:"uq,omitempty"`
 }
 
-// GridUpdate - Sent when grid strategy updates
+// GridUpdateEvent - Sent when grid strategy updates
 // Message name: Grid Update Event
-type GridUpdate struct {
-	Event *GridUpdateEvent `json:"event,omitempty"`
+type GridUpdateEvent struct {
+	Event *GridUpdateEventEvent `json:"event,omitempty"`
 }
 
-// String returns string representation of GridUpdate
-func (s GridUpdate) String() string {
+// String returns string representation of GridUpdateEvent
+func (s GridUpdateEvent) String() string {
 	b, _ := json.Marshal(s)
 	return string(b)
 }
 
-// GetEventType returns the event type for GridUpdate
-func (s GridUpdate) GetEventType() string {
+// GetEventType returns the event type for GridUpdateEvent
+func (s GridUpdateEvent) GetEventType() string {
 	if s.Event.EventType != "" {
 		return s.Event.EventType
 	}
-	return "gridupdate"
+	return "gridupdateevent"
 }
 
-// GetEventTime returns the event timestamp for GridUpdate
-func (s GridUpdate) GetEventTime() int64 {
+// GetEventTime returns the event timestamp for GridUpdateEvent
+func (s GridUpdateEvent) GetEventTime() int64 {
 	if s.Event.EventTime != 0 {
 		return s.Event.EventTime
 	}

@@ -8,8 +8,7 @@ import (
 type GetPropertyResponse struct {
 	// Property value (currently only 'combined' property supported)
 	PropertyValue interface{} `json:"result,omitempty"`
-	// Request ID echo
-	RequestIdEcho int `json:"id,omitempty"`
+	Id string `json:"id,omitempty"`
 }
 
 // String returns string representation of GetPropertyResponse

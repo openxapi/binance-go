@@ -15,7 +15,6 @@ type ErrorResponseError struct {
 // ErrorResponse represents ErrorResponse
 type ErrorResponse struct {
 	Error ErrorResponseError `json:"error,omitempty"`
-	// Request ID echo
 	Id int64 `json:"id,omitempty"`
 }
 

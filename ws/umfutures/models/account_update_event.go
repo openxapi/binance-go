@@ -4,30 +4,30 @@ import (
 	"encoding/json"
 )
 
-// AccountUpdateEvent represents a nested object structure
-type AccountUpdateEvent struct {
+// AccountUpdateEventEvent represents a nested object structure
+type AccountUpdateEventEvent struct {
 	// Event Time (milliseconds)
 	EventTime int64 `json:"E,omitempty"`
 	// Transaction Time (milliseconds)
 	TransactionTime int64 `json:"T,omitempty"`
 	// Account information
-	AccountInformation *AccountUpdateEventAccountInformation `json:"a,omitempty"`
+	AccountInformation *AccountUpdateEventEventAccountInformation `json:"a,omitempty"`
 	// Event type
 	EventType string `json:"e,omitempty"`
 }
 
-// AccountUpdateEventAccountInformation represents a nested object structure
-type AccountUpdateEventAccountInformation struct {
+// AccountUpdateEventEventAccountInformation represents a nested object structure
+type AccountUpdateEventEventAccountInformation struct {
 	// Balance updates
-	BalanceUpdates []AccountUpdateEventAccountInformationBItem `json:"B,omitempty"`
+	BalanceUpdates []AccountUpdateEventEventAccountInformationBItem `json:"B,omitempty"`
 	// Position updates
-	PositionUpdates []AccountUpdateEventAccountInformationPItem `json:"P,omitempty"`
+	PositionUpdates []AccountUpdateEventEventAccountInformationPItem `json:"P,omitempty"`
 	// Event reason type
 	EventReasonType string `json:"m,omitempty"`
 }
 
-// AccountUpdateEventAccountInformationBItem represents a nested object structure
-type AccountUpdateEventAccountInformationBItem struct {
+// AccountUpdateEventEventAccountInformationBItem represents a nested object structure
+type AccountUpdateEventEventAccountInformationBItem struct {
 	// Asset name (example: "USDT")
 	AssetName string `json:"a,omitempty"`
 	// Balance Change except PnL and Commission (example: "-49.12345678")
@@ -38,8 +38,8 @@ type AccountUpdateEventAccountInformationBItem struct {
 	WalletBalance string `json:"wb,omitempty"`
 }
 
-// AccountUpdateEventAccountInformationPItem represents a nested object structure
-type AccountUpdateEventAccountInformationPItem struct {
+// AccountUpdateEventEventAccountInformationPItem represents a nested object structure
+type AccountUpdateEventEventAccountInformationPItem struct {
 	// Breakeven Price (example: "0.0")
 	BreakevenPrice string `json:"bep,omitempty"`
 	// Accumulated Realized (example: "200")
@@ -60,28 +60,28 @@ type AccountUpdateEventAccountInformationPItem struct {
 	UnrealizedPnL string `json:"up,omitempty"`
 }
 
-// AccountUpdate - Sent when account balance or position changes
+// AccountUpdateEvent - Sent when account balance or position changes
 // Message name: Account Update Event
-type AccountUpdate struct {
-	Event *AccountUpdateEvent `json:"event,omitempty"`
+type AccountUpdateEvent struct {
+	Event *AccountUpdateEventEvent `json:"event,omitempty"`
 }
 
-// String returns string representation of AccountUpdate
-func (s AccountUpdate) String() string {
+// String returns string representation of AccountUpdateEvent
+func (s AccountUpdateEvent) String() string {
 	b, _ := json.Marshal(s)
 	return string(b)
 }
 
-// GetEventType returns the event type for AccountUpdate
-func (s AccountUpdate) GetEventType() string {
+// GetEventType returns the event type for AccountUpdateEvent
+func (s AccountUpdateEvent) GetEventType() string {
 	if s.Event.EventType != "" {
 		return s.Event.EventType
 	}
-	return "accountupdate"
+	return "accountupdateevent"
 }
 
-// GetEventTime returns the event timestamp for AccountUpdate
-func (s AccountUpdate) GetEventTime() int64 {
+// GetEventTime returns the event timestamp for AccountUpdateEvent
+func (s AccountUpdateEvent) GetEventTime() int64 {
 	if s.Event.EventTime != 0 {
 		return s.Event.EventTime
 	}

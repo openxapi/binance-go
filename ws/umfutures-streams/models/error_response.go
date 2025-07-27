@@ -7,8 +7,7 @@ import (
 // ErrorResponse represents ErrorResponse
 type ErrorResponse struct {
 	Error *ErrorResponseError `json:"error,omitempty"`
-	// Request ID echo
-	RequestIdEcho int `json:"id,omitempty"`
+	Id string `json:"id,omitempty"`
 }
 
 // ErrorResponseError represents the error details

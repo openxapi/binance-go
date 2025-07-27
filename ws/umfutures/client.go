@@ -346,12 +346,12 @@ type APIError struct {
 	Status  int    `json:"status"`  // HTTP-like status code from the response
 	Code    int    `json:"code"`    // Binance-specific error code
 	Message string `json:"msg"`     // Error message
-	ID      string `json:"id"`      // Request ID that caused the error
+	Id      string `json:"id"`      // Request ID that caused the error
 }
 
 // Error implements the error interface
 func (e APIError) Error() string {
-	return fmt.Sprintf("binance api error: status=%d, code=%d, message=%s, id=%s", e.Status, e.Code, e.Message, e.ID)
+	return fmt.Sprintf("binance api error: status=%d, code=%d, message=%s, id=%s", e.Status, e.Code, e.Message, e.Id)
 }
 
 // IsAPIError checks if an error is an APIError
@@ -367,7 +367,7 @@ func IsAPIError(err error) (*APIError, bool) {
 
 // ResponseHandler represents a high-performance handler for WebSocket responses
 type ResponseHandler struct {
-	RequestID string
+	RequestId string
 	Handler   func([]byte, error) error
 }
 
@@ -411,9 +411,10 @@ func (e *EventHandler) HandleResponse(eventType string, data []byte) error {
 	return nil
 }
 
-// Client represents a high-performance WebSocket client for 
+// Client represents a high-performance WebSocket client for Binance USD-S Margined Futures WebSocket API
 type Client struct {
 	conn             *websocket.Conn
+	connMu           sync.RWMutex     // Protects connection access
 	serverManager    *ServerManager   // Manages multiple servers
 	responseHandlers sync.Map         // Using sync.Map for better concurrent performance
 	eventHandler     *EventHandler
@@ -639,8 +640,9 @@ func (c *Client) ConnectToServer(ctx context.Context, serverName string) error {
 
 
 
-// Disconnect closes the WebSocket connection safely
+// Disconnect closes the WebSocket connection safely and resets state for reconnection
 func (c *Client) Disconnect() error {
+	// Signal all goroutines to stop first
 	c.isConnected = false
 	
 	// Safely close the done channel only once
@@ -651,10 +653,23 @@ func (c *Client) Disconnect() error {
 		close(c.done)
 	}
 	
+	// Wait a brief moment for goroutines to see the done signal
+	time.Sleep(10 * time.Millisecond)
+	
+	// Now safely handle the connection with proper locking
+	c.connMu.Lock()
+	defer c.connMu.Unlock()
+	
+	var err error
 	if c.conn != nil {
-		return c.conn.Close()
+		err = c.conn.Close()
+		c.conn = nil  // Reset connection to nil for clean reconnection
 	}
-	return nil
+	
+	// Reset connection state for reconnection
+	c.done = make(chan struct{})  // Recreate done channel
+	
+	return err
 }
 
 // GenerateRequestID generates a unique UUID v4 request ID (global function)
@@ -719,7 +734,7 @@ func (c *Client) handleMessage(data []byte) error {
 	if id, hasID := genericMessage["id"]; hasID {
 		// Parse response structure to check for errors
 		var response struct {
-			ID     interface{} `json:"id"`
+			Id     interface{} `json:"id"`
 			Status int         `json:"status"`
 			Result interface{} `json:"result,omitempty"`
 			Error  *struct {
@@ -742,7 +757,7 @@ func (c *Client) handleMessage(data []byte) error {
 				Status:  response.Status,
 				Code:    response.Error.Code,
 				Message: response.Error.Msg,
-				ID:      requestID,
+				Id:      requestID,
 			}
 		}
 
@@ -1769,12 +1784,12 @@ func (c *Client) SendV2AccountStatus(ctx context.Context, request *models.V2Acco
 }
 
 
-// HandleAccountConfigUpdate registers a handler for Account Configuration Update Event events
+// HandleAccountConfigUpdateEvent registers a handler for Account Configuration Update Event events
 // This method allows you to handle real-time Account Configuration Update Event events from the WebSocket stream
-func (c *Client) HandleAccountConfigUpdate(handler func(*models.AccountConfigUpdate) error) {
-	c.eventHandler.RegisterHandler("accountConfigUpdate", func(data interface{}) error {
+func (c *Client) HandleAccountConfigUpdateEvent(handler func(*models.AccountConfigUpdateEvent) error) {
+	c.eventHandler.RegisterHandler("accountConfigUpdateEvent", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
-		var event models.AccountConfigUpdate
+		var event models.AccountConfigUpdateEvent
 		
 		if jsonData, ok := data.([]byte); ok {
 			// Direct JSON data parsing
@@ -1813,12 +1828,12 @@ func (c *Client) HandleAccountConfigUpdate(handler func(*models.AccountConfigUpd
 }
 
 
-// HandleAccountUpdate registers a handler for Account Update Event events
+// HandleAccountUpdateEvent registers a handler for Account Update Event events
 // This method allows you to handle real-time Account Update Event events from the WebSocket stream
-func (c *Client) HandleAccountUpdate(handler func(*models.AccountUpdate) error) {
-	c.eventHandler.RegisterHandler("accountUpdate", func(data interface{}) error {
+func (c *Client) HandleAccountUpdateEvent(handler func(*models.AccountUpdateEvent) error) {
+	c.eventHandler.RegisterHandler("accountUpdateEvent", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
-		var event models.AccountUpdate
+		var event models.AccountUpdateEvent
 		
 		if jsonData, ok := data.([]byte); ok {
 			// Direct JSON data parsing
@@ -1857,12 +1872,12 @@ func (c *Client) HandleAccountUpdate(handler func(*models.AccountUpdate) error) 
 }
 
 
-// HandleConditionalOrderTriggerReject registers a handler for Conditional Order Trigger Reject Event events
+// HandleConditionalOrderTriggerRejectEvent registers a handler for Conditional Order Trigger Reject Event events
 // This method allows you to handle real-time Conditional Order Trigger Reject Event events from the WebSocket stream
-func (c *Client) HandleConditionalOrderTriggerReject(handler func(*models.ConditionalOrderTriggerReject) error) {
-	c.eventHandler.RegisterHandler("conditionalOrderTriggerReject", func(data interface{}) error {
+func (c *Client) HandleConditionalOrderTriggerRejectEvent(handler func(*models.ConditionalOrderTriggerRejectEvent) error) {
+	c.eventHandler.RegisterHandler("conditionalOrderTriggerRejectEvent", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
-		var event models.ConditionalOrderTriggerReject
+		var event models.ConditionalOrderTriggerRejectEvent
 		
 		if jsonData, ok := data.([]byte); ok {
 			// Direct JSON data parsing
@@ -1901,12 +1916,12 @@ func (c *Client) HandleConditionalOrderTriggerReject(handler func(*models.Condit
 }
 
 
-// HandleGridUpdate registers a handler for Grid Update Event events
+// HandleGridUpdateEvent registers a handler for Grid Update Event events
 // This method allows you to handle real-time Grid Update Event events from the WebSocket stream
-func (c *Client) HandleGridUpdate(handler func(*models.GridUpdate) error) {
-	c.eventHandler.RegisterHandler("gridUpdate", func(data interface{}) error {
+func (c *Client) HandleGridUpdateEvent(handler func(*models.GridUpdateEvent) error) {
+	c.eventHandler.RegisterHandler("gridUpdateEvent", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
-		var event models.GridUpdate
+		var event models.GridUpdateEvent
 		
 		if jsonData, ok := data.([]byte); ok {
 			// Direct JSON data parsing
@@ -1945,12 +1960,12 @@ func (c *Client) HandleGridUpdate(handler func(*models.GridUpdate) error) {
 }
 
 
-// HandleListenKeyExpired registers a handler for Listen Key Expired Event events
+// HandleListenKeyExpiredEvent registers a handler for Listen Key Expired Event events
 // This method allows you to handle real-time Listen Key Expired Event events from the WebSocket stream
-func (c *Client) HandleListenKeyExpired(handler func(*models.ListenKeyExpired) error) {
-	c.eventHandler.RegisterHandler("listenKeyExpired", func(data interface{}) error {
+func (c *Client) HandleListenKeyExpiredEvent(handler func(*models.ListenKeyExpiredEvent) error) {
+	c.eventHandler.RegisterHandler("listenKeyExpiredEvent", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
-		var event models.ListenKeyExpired
+		var event models.ListenKeyExpiredEvent
 		
 		if jsonData, ok := data.([]byte); ok {
 			// Direct JSON data parsing
@@ -1989,12 +2004,12 @@ func (c *Client) HandleListenKeyExpired(handler func(*models.ListenKeyExpired) e
 }
 
 
-// HandleMarginCall registers a handler for Margin Call Event events
+// HandleMarginCallEvent registers a handler for Margin Call Event events
 // This method allows you to handle real-time Margin Call Event events from the WebSocket stream
-func (c *Client) HandleMarginCall(handler func(*models.MarginCall) error) {
-	c.eventHandler.RegisterHandler("marginCall", func(data interface{}) error {
+func (c *Client) HandleMarginCallEvent(handler func(*models.MarginCallEvent) error) {
+	c.eventHandler.RegisterHandler("marginCallEvent", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
-		var event models.MarginCall
+		var event models.MarginCallEvent
 		
 		if jsonData, ok := data.([]byte); ok {
 			// Direct JSON data parsing
@@ -2033,12 +2048,12 @@ func (c *Client) HandleMarginCall(handler func(*models.MarginCall) error) {
 }
 
 
-// HandleOrderTradeUpdate registers a handler for Order Trade Update Event events
+// HandleOrderTradeUpdateEvent registers a handler for Order Trade Update Event events
 // This method allows you to handle real-time Order Trade Update Event events from the WebSocket stream
-func (c *Client) HandleOrderTradeUpdate(handler func(*models.OrderTradeUpdate) error) {
-	c.eventHandler.RegisterHandler("orderTradeUpdate", func(data interface{}) error {
+func (c *Client) HandleOrderTradeUpdateEvent(handler func(*models.OrderTradeUpdateEvent) error) {
+	c.eventHandler.RegisterHandler("orderTradeUpdateEvent", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
-		var event models.OrderTradeUpdate
+		var event models.OrderTradeUpdateEvent
 		
 		if jsonData, ok := data.([]byte); ok {
 			// Direct JSON data parsing
@@ -2077,12 +2092,12 @@ func (c *Client) HandleOrderTradeUpdate(handler func(*models.OrderTradeUpdate) e
 }
 
 
-// HandleStrategyUpdate registers a handler for Strategy Update Event events
+// HandleStrategyUpdateEvent registers a handler for Strategy Update Event events
 // This method allows you to handle real-time Strategy Update Event events from the WebSocket stream
-func (c *Client) HandleStrategyUpdate(handler func(*models.StrategyUpdate) error) {
-	c.eventHandler.RegisterHandler("strategyUpdate", func(data interface{}) error {
+func (c *Client) HandleStrategyUpdateEvent(handler func(*models.StrategyUpdateEvent) error) {
+	c.eventHandler.RegisterHandler("strategyUpdateEvent", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
-		var event models.StrategyUpdate
+		var event models.StrategyUpdateEvent
 		
 		if jsonData, ok := data.([]byte); ok {
 			// Direct JSON data parsing
@@ -2121,12 +2136,12 @@ func (c *Client) HandleStrategyUpdate(handler func(*models.StrategyUpdate) error
 }
 
 
-// HandleTradeLite registers a handler for Trade Lite Event events
+// HandleTradeLiteEvent registers a handler for Trade Lite Event events
 // This method allows you to handle real-time Trade Lite Event events from the WebSocket stream
-func (c *Client) HandleTradeLite(handler func(*models.TradeLite) error) {
-	c.eventHandler.RegisterHandler("tradeLite", func(data interface{}) error {
+func (c *Client) HandleTradeLiteEvent(handler func(*models.TradeLiteEvent) error) {
+	c.eventHandler.RegisterHandler("tradeLiteEvent", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
-		var event models.TradeLite
+		var event models.TradeLiteEvent
 		
 		if jsonData, ok := data.([]byte); ok {
 			// Direct JSON data parsing
@@ -2168,7 +2183,7 @@ func (c *Client) HandleTradeLite(handler func(*models.TradeLite) error) {
 // RegisterTypedResponseHandler registers a typed response handler for a request ID
 func RegisterTypedResponseHandler[T any](c *Client, requestID string, handler func(*T, error) error) {
 	c.responseHandlers.Store(requestID, ResponseHandler{
-		RequestID: requestID,
+		RequestId: requestID,
 		Handler: func(data []byte, err error) error {
 			if err != nil {
 				return handler(nil, err)

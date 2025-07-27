@@ -8,8 +8,7 @@ import (
 type ListSubscriptionsResponse struct {
 	// Array of active stream names
 	ArrayOfActiveStreamNames []string `json:"result,omitempty"`
-	// Request ID echo
-	RequestIdEcho int `json:"id,omitempty"`
+	Id string `json:"id,omitempty"`
 }
 
 // String returns string representation of ListSubscriptionsResponse

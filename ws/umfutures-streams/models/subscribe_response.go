@@ -8,8 +8,7 @@ import (
 type SubscribeResponse struct {
 	// Always null for successful subscription
 	AlwaysNullForSuccessfulSubscription interface{} `json:"result,omitempty"`
-	// Request ID echo
-	RequestIdEcho int `json:"id,omitempty"`
+	Id string `json:"id,omitempty"`
 }
 
 // String returns string representation of SubscribeResponse

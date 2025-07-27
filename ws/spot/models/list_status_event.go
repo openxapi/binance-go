@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 )
 
-// ListStatusEvent represents a nested object structure
-type ListStatusEvent struct {
+// ListStatusEventEvent represents a nested object structure
+type ListStatusEventEvent struct {
 	// List Client Order ID
 	ListClientOrderID string `json:"C,omitempty"`
 	// Event Time (milliseconds)
@@ -13,7 +13,7 @@ type ListStatusEvent struct {
 	// List Order Status
 	ListOrderStatus string `json:"L,omitempty"`
 	// Array of orders in the list
-	ArrayOfOrdersInTheList []ListStatusEventOItem `json:"O,omitempty"`
+	ArrayOfOrdersInTheList []ListStatusEventEventOItem `json:"O,omitempty"`
 	// Transaction Time (milliseconds)
 	TransactionTime int64 `json:"T,omitempty"`
 	// Contingency Type
@@ -30,8 +30,8 @@ type ListStatusEvent struct {
 	Symbol string `json:"s,omitempty"`
 }
 
-// ListStatusEventOItem represents a nested object structure
-type ListStatusEventOItem struct {
+// ListStatusEventEventOItem represents a nested object structure
+type ListStatusEventEventOItem struct {
 	// ClientOrderId (example: "AJYsMjErWJesZvqlJCTUgL")
 	ClientOrderId string `json:"c,omitempty"`
 	// OrderId (example: 17)
@@ -40,28 +40,28 @@ type ListStatusEventOItem struct {
 	Symbol string `json:"s,omitempty"`
 }
 
-// ListStatus - Sent with executionReport for order lists (OCO orders)
+// ListStatusEvent - Sent with executionReport for order lists (OCO orders)
 // Message name: List Status Event
-type ListStatus struct {
-	Event *ListStatusEvent `json:"event,omitempty"`
+type ListStatusEvent struct {
+	Event *ListStatusEventEvent `json:"event,omitempty"`
 }
 
-// String returns string representation of ListStatus
-func (s ListStatus) String() string {
+// String returns string representation of ListStatusEvent
+func (s ListStatusEvent) String() string {
 	b, _ := json.Marshal(s)
 	return string(b)
 }
 
-// GetEventType returns the event type for ListStatus
-func (s ListStatus) GetEventType() string {
+// GetEventType returns the event type for ListStatusEvent
+func (s ListStatusEvent) GetEventType() string {
 	if s.Event.EventType != "" {
 		return s.Event.EventType
 	}
-	return "liststatus"
+	return "liststatusevent"
 }
 
-// GetEventTime returns the event timestamp for ListStatus
-func (s ListStatus) GetEventTime() int64 {
+// GetEventTime returns the event timestamp for ListStatusEvent
+func (s ListStatusEvent) GetEventTime() int64 {
 	if s.Event.EventTime != 0 {
 		return s.Event.EventTime
 	}

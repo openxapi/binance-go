@@ -16,7 +16,6 @@ type ErrorMessageError struct {
 // Message name: Error Message
 type ErrorMessage struct {
 	Error *ErrorMessageError `json:"error,omitempty"`
-	// Request ID echo
 	Id int64 `json:"id,omitempty"`
 }
 

@@ -11,7 +11,7 @@ type GetProperty struct {
 	// Array containing property name to retrieve
 	ArrayContainingPropertyNameToRetrieve []string `json:"params,omitempty"`
 	// Request ID
-	RequestId int `json:"id,omitempty"`
+	RequestId string `json:"id,omitempty"`
 }
 
 // String returns string representation of GetProperty

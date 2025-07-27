@@ -4,62 +4,60 @@ import (
 	"encoding/json"
 )
 
-// MarginCallEvent represents a nested object structure
-type MarginCallEvent struct {
+// MarginCallEventEvent represents a nested object structure
+type MarginCallEventEvent struct {
 	// Event Time (milliseconds)
 	EventTime int64 `json:"E,omitempty"`
-	// Cross Wallet Balance (only for cross position)
+	// Cross Wallet Balance (only for crossed position)
 	CrossWalletBalance string `json:"cw,omitempty"`
 	// Event Type
 	EventType string `json:"e,omitempty"`
-	// Account Alias
-	AccountAlias string `json:"i,omitempty"`
 	// Position(s) of Margin Call
-	PositionofMarginCall []MarginCallEventPItem `json:"p,omitempty"`
+	PositionofMarginCall []MarginCallEventEventPItem `json:"p,omitempty"`
 }
 
-// MarginCallEventPItem represents a nested object structure
-type MarginCallEventPItem struct {
+// MarginCallEventEventPItem represents a nested object structure
+type MarginCallEventEventPItem struct {
 	// Isolated Wallet (example: "0")
 	IsolatedWallet string `json:"iw,omitempty"`
 	// Maintenance Margin Required (example: "1.614445")
 	MaintenanceMarginRequired string `json:"mm,omitempty"`
 	// Mark Price (example: "187.17127")
 	MarkPrice string `json:"mp,omitempty"`
-	// Margin Type (example: "cross")
+	// Margin Type (example: "crossed")
 	MarginType string `json:"mt,omitempty"`
 	// Position Amount (example: "1.327")
 	PositionAmount string `json:"pa,omitempty"`
 	// Position Side (example: "LONG")
 	PositionSide string `json:"ps,omitempty"`
-	// Symbol (example: "ETHUSD_PERP")
+	// Symbol (example: "ETHUSDT")
 	Symbol string `json:"s,omitempty"`
 	// Unrealized PnL (example: "-1.166074")
 	UnrealizedPnL string `json:"up,omitempty"`
 }
 
-// MarginCall - Sent when account is under margin call
+// MarginCallEvent - Sent when account is under margin call
 // Message name: Margin Call Event
-type MarginCall struct {
-	Event *MarginCallEvent `json:"event,omitempty"`
+type MarginCallEvent struct {
+	Event *MarginCallEventEvent `json:"event,omitempty"`
 }
 
-// String returns string representation of MarginCall
-func (s MarginCall) String() string {
+// String returns string representation of MarginCallEvent
+func (s MarginCallEvent) String() string {
 	b, _ := json.Marshal(s)
 	return string(b)
 }
 
-// GetEventType returns the event type for MarginCall
-func (s MarginCall) GetEventType() string {
+// GetEventType returns the event type for MarginCallEvent
+func (s MarginCallEvent) GetEventType() string {
 	if s.Event.EventType != "" {
 		return s.Event.EventType
 	}
-	return "margincall"
+	return "margincallevent"
 }
 
-// GetEventTime returns the event timestamp for MarginCall
-func (s MarginCall) GetEventTime() int64 {
+// GetEventTime returns the event timestamp for MarginCallEvent
+func (s MarginCallEvent) GetEventTime() int64 {
 	if s.Event.EventTime != 0 {
 		return s.Event.EventTime
 	}

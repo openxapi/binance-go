@@ -346,12 +346,12 @@ type APIError struct {
 	Status  int    `json:"status"`  // HTTP-like status code from the response
 	Code    int    `json:"code"`    // Binance-specific error code
 	Message string `json:"msg"`     // Error message
-	ID      string `json:"id"`      // Request ID that caused the error
+	Id      string `json:"id"`      // Request ID that caused the error
 }
 
 // Error implements the error interface
 func (e APIError) Error() string {
-	return fmt.Sprintf("binance api error: status=%d, code=%d, message=%s, id=%s", e.Status, e.Code, e.Message, e.ID)
+	return fmt.Sprintf("binance api error: status=%d, code=%d, message=%s, id=%s", e.Status, e.Code, e.Message, e.Id)
 }
 
 // IsAPIError checks if an error is an APIError
@@ -367,7 +367,7 @@ func IsAPIError(err error) (*APIError, bool) {
 
 // ResponseHandler represents a high-performance handler for WebSocket responses
 type ResponseHandler struct {
-	RequestID string
+	RequestId string
 	Handler   func([]byte, error) error
 }
 
@@ -414,6 +414,7 @@ func (e *EventHandler) HandleResponse(eventType string, data []byte) error {
 // Client represents a high-performance WebSocket client for Binance USD-S Margined Futures WebSocket Streams
 type Client struct {
 	conn             *websocket.Conn
+	connMu           sync.RWMutex     // Protects connection access
 	serverManager    *ServerManager   // Manages multiple servers
 	responseHandlers sync.Map         // Using sync.Map for better concurrent performance
 	eventHandler     *EventHandler
@@ -675,8 +676,9 @@ func (c *Client) ConnectToServerWithStreamPath(ctx context.Context, serverName s
 	return c.ConnectWithStreamPath(ctx, streamPath)
 }
 
-// Disconnect closes the WebSocket connection safely
+// Disconnect closes the WebSocket connection safely and resets state for reconnection
 func (c *Client) Disconnect() error {
+	// Signal all goroutines to stop first
 	c.isConnected = false
 	
 	// Safely close the done channel only once
@@ -687,10 +689,23 @@ func (c *Client) Disconnect() error {
 		close(c.done)
 	}
 	
+	// Wait a brief moment for goroutines to see the done signal
+	time.Sleep(10 * time.Millisecond)
+	
+	// Now safely handle the connection with proper locking
+	c.connMu.Lock()
+	defer c.connMu.Unlock()
+	
+	var err error
 	if c.conn != nil {
-		return c.conn.Close()
+		err = c.conn.Close()
+		c.conn = nil  // Reset connection to nil for clean reconnection
 	}
-	return nil
+	
+	// Reset connection state for reconnection
+	c.done = make(chan struct{})  // Recreate done channel
+	
+	return err
 }
 
 // GenerateRequestID generates a unique UUID v4 request ID (global function)
@@ -755,7 +770,7 @@ func (c *Client) handleMessage(data []byte) error {
 	if id, hasID := genericMessage["id"]; hasID {
 		// Parse response structure to check for errors
 		var response struct {
-			ID     interface{} `json:"id"`
+			Id     interface{} `json:"id"`
 			Status int         `json:"status"`
 			Result interface{} `json:"result,omitempty"`
 			Error  *struct {
@@ -778,7 +793,7 @@ func (c *Client) handleMessage(data []byte) error {
 				Status:  response.Status,
 				Code:    response.Error.Code,
 				Message: response.Error.Msg,
-				ID:      requestID,
+				Id:      requestID,
 			}
 		}
 
@@ -794,16 +809,9 @@ func (c *Client) handleMessage(data []byte) error {
 		}
 	}
 
-	// Check for direct event type field (stream messages)
-		if eventType, hasEventType := genericMessage["e"]; hasEventType {
-			if eventTypeStr, ok := eventType.(string); ok {
-				return c.handleEventMessage(eventTypeStr, data)
-			}
-		}
-
-		// If we can't determine the message type, log it
-		log.Printf("Unknown message type: %s", string(data))
-		return nil
+	// For stream modules, always try processStreamMessage for any non-request message
+		// This handles both standard events (with "e" field), special events (BookTicker, PartialDepth), and combined streams
+		return c.processStreamMessage(data)
 }
 
 // handleRequestResponse handles responses to specific requests
@@ -886,7 +894,7 @@ func (c *Client) Subscribe(ctx context.Context, streams []string) error {
 	request := map[string]interface{}{
 		"method": "SUBSCRIBE",
 		"params": streams,
-		"id":     c.generateRequestID(),
+		"id":     GenerateRequestID(),
 	}
 
 	return c.sendRequest(request)
@@ -901,7 +909,7 @@ func (c *Client) Unsubscribe(ctx context.Context, streams []string) error {
 	request := map[string]interface{}{
 		"method": "UNSUBSCRIBE", 
 		"params": streams,
-		"id":     c.generateRequestID(),
+		"id":     GenerateRequestID(),
 	}
 
 	return c.sendRequest(request)
@@ -915,7 +923,7 @@ func (c *Client) ListSubscriptions(ctx context.Context) error {
 
 	request := map[string]interface{}{
 		"method": "LIST_SUBSCRIPTIONS",
-		"id":     c.generateRequestID(),
+		"id":     GenerateRequestID(),
 	}
 
 	return c.sendRequest(request)
@@ -985,7 +993,12 @@ func (c *Client) setStreamPath(streamPath string) error {
 
 // connect establishes a WebSocket connection to a specific endpoint (for umfutures-streams)
 func (c *Client) connect(ctx context.Context, endpoint string, isCombined bool) error {
-	if c.isConnected {
+	// Check connection state with proper locking
+	c.connMu.RLock()
+	isConnected := c.isConnected
+	c.connMu.RUnlock()
+	
+	if isConnected {
 		return fmt.Errorf("websocket already connected")
 	}
 	
@@ -1018,8 +1031,11 @@ func (c *Client) connect(ctx context.Context, endpoint string, isCombined bool) 
 		return fmt.Errorf("failed to connect to %s: %w", serverURL, err)
 	}
 
+	// Safely assign connection with proper locking
+	c.connMu.Lock()
 	c.conn = conn
 	c.isConnected = true
+	c.connMu.Unlock()
 	
 	// Start appropriate message reading routine
 	if isCombined {
@@ -1031,20 +1047,10 @@ func (c *Client) connect(ctx context.Context, endpoint string, isCombined bool) 
 	return nil
 }
 
-// generateRequestID generates a unique request ID
-func (c *Client) generateRequestID() int {
-	// Simple incrementing ID for WebSocket requests
-	// In production, you might want to use a more sophisticated ID generation
-	return int(time.Now().UnixNano() % 1000000)
-}
-
 // readSingleStreamMessages processes messages from single stream connections
 func (c *Client) readSingleStreamMessages() {
 	defer func() {
 		c.isConnected = false
-		if c.conn != nil {
-			c.conn.Close()
-		}
 	}()
 
 	for {
@@ -1052,7 +1058,17 @@ func (c *Client) readSingleStreamMessages() {
 		case <-c.done:
 			return
 		default:
-			_, message, err := c.conn.ReadMessage()
+			// Safely access connection with read lock
+			c.connMu.RLock()
+			conn := c.conn
+			c.connMu.RUnlock()
+			
+			// Check if connection is nil (race condition protection)
+			if conn == nil {
+				return
+			}
+			
+			_, message, err := conn.ReadMessage()
 			if err != nil {
 				if websocket.IsCloseError(err, websocket.CloseNormalClosure, websocket.CloseGoingAway, websocket.CloseAbnormalClosure) {
 					return
@@ -1075,9 +1091,6 @@ func (c *Client) readSingleStreamMessages() {
 func (c *Client) readCombinedStreamMessages() {
 	defer func() {
 		c.isConnected = false
-		if c.conn != nil {
-			c.conn.Close()
-		}
 	}()
 
 	for {
@@ -1085,7 +1098,17 @@ func (c *Client) readCombinedStreamMessages() {
 		case <-c.done:
 			return
 		default:
-			_, message, err := c.conn.ReadMessage()
+			// Safely access connection with read lock
+			c.connMu.RLock()
+			conn := c.conn
+			c.connMu.RUnlock()
+			
+			// Check if connection is nil (race condition protection)
+			if conn == nil {
+				return
+			}
+			
+			_, message, err := conn.ReadMessage()
 			if err != nil {
 				if websocket.IsCloseError(err, websocket.CloseNormalClosure, websocket.CloseGoingAway, websocket.CloseAbnormalClosure) {
 					return
@@ -1155,19 +1178,19 @@ type (
 
 // Event handler registry
 type eventHandlers struct {
-	aggtrade AggregateTradeHandler
-	markpriceupdate MarkPriceHandler
+	aggregateTrade AggregateTradeHandler
+	markPriceUpdate MarkPriceHandler
 	kline KlineHandler
 	continuouskline ContinuousKlineHandler
-	h24hrminiticker MiniTickerHandler
-	h24hrticker TickerHandler
-	bookticker BookTickerHandler
-	forceorder LiquidationHandler
-	depthupdate DiffDepthHandler
-	compositeindex CompositeIndexHandler
-	contractinfo ContractInfoHandler
-	assetindexupdate AssetIndexHandler
-	assetindex AssetIndexHandler
+	miniTicker MiniTickerHandler
+	ticker TickerHandler
+	bookTicker BookTickerHandler
+	forceOrder LiquidationHandler
+	depth DiffDepthHandler
+	compositeIndex CompositeIndexHandler
+	contractInfo ContractInfoHandler
+	assetIndexUpdate AssetIndexHandler
+	assetIndex AssetIndexHandler
 	combinedStream     CombinedStreamHandler
 	subscriptionResponse SubscriptionResponseHandler
 	error              StreamErrorHandler
@@ -1175,11 +1198,11 @@ type eventHandlers struct {
 
 // Register event handlers
 func (c *Client) OnAggregateTradeEvent(handler AggregateTradeHandler) {
-	c.handlers.aggtrade = handler
+	c.handlers.aggregateTrade = handler
 }
 
 func (c *Client) OnMarkPriceEvent(handler MarkPriceHandler) {
-	c.handlers.markpriceupdate = handler
+	c.handlers.markPriceUpdate = handler
 }
 
 func (c *Client) OnKlineEvent(handler KlineHandler) {
@@ -1191,36 +1214,36 @@ func (c *Client) OnContinuousKlineEvent(handler ContinuousKlineHandler) {
 }
 
 func (c *Client) OnMiniTickerEvent(handler MiniTickerHandler) {
-	c.handlers.h24hrminiticker = handler
+	c.handlers.miniTicker = handler
 }
 
 func (c *Client) OnTickerEvent(handler TickerHandler) {
-	c.handlers.h24hrticker = handler
+	c.handlers.ticker = handler
 }
 
 func (c *Client) OnBookTickerEvent(handler BookTickerHandler) {
-	c.handlers.bookticker = handler
+	c.handlers.bookTicker = handler
 }
 
 func (c *Client) OnLiquidationEvent(handler LiquidationHandler) {
-	c.handlers.forceorder = handler
+	c.handlers.forceOrder = handler
 }
 
 func (c *Client) OnDiffDepthEvent(handler DiffDepthHandler) {
-	c.handlers.depthupdate = handler
+	c.handlers.depth = handler
 }
 
 func (c *Client) OnCompositeIndexEvent(handler CompositeIndexHandler) {
-	c.handlers.compositeindex = handler
+	c.handlers.compositeIndex = handler
 }
 
 func (c *Client) OnContractInfoEvent(handler ContractInfoHandler) {
-	c.handlers.contractinfo = handler
+	c.handlers.contractInfo = handler
 }
 
 func (c *Client) OnAssetIndexEvent(handler AssetIndexHandler) {
-	c.handlers.assetindexupdate = handler
-	c.handlers.assetindex = handler
+	c.handlers.assetIndexUpdate = handler
+	c.handlers.assetIndex = handler
 }
 
 func (c *Client) OnCombinedStreamEvent(handler CombinedStreamHandler) {
@@ -1349,20 +1372,20 @@ func (c *Client) processSingleStreamEvent(data []byte) error {
 
 	switch eventType {
 	case "aggTrade":
-		if c.handlers.aggtrade != nil {
+		if c.handlers.aggregateTrade != nil {
 			var event models.AggregateTradeEvent
 			if err := json.Unmarshal(data, &event); err != nil {
 				return fmt.Errorf("failed to parse aggTrade event: %w", err)
 			}
-			return c.handlers.aggtrade(&event)
+			return c.handlers.aggregateTrade(&event)
 		}
 	case "markPriceUpdate":
-		if c.handlers.markpriceupdate != nil {
+		if c.handlers.markPriceUpdate != nil {
 			var event models.MarkPriceEvent
 			if err := json.Unmarshal(data, &event); err != nil {
 				return fmt.Errorf("failed to parse markPriceUpdate event: %w", err)
 			}
-			return c.handlers.markpriceupdate(&event)
+			return c.handlers.markPriceUpdate(&event)
 		}
 	case "kline":
 		if c.handlers.kline != nil {
@@ -1381,76 +1404,76 @@ func (c *Client) processSingleStreamEvent(data []byte) error {
 			return c.handlers.continuouskline(&event)
 		}
 	case "24hrMiniTicker":
-		if c.handlers.h24hrminiticker != nil {
+		if c.handlers.miniTicker != nil {
 			var event models.MiniTickerEvent
 			if err := json.Unmarshal(data, &event); err != nil {
 				return fmt.Errorf("failed to parse 24hrMiniTicker event: %w", err)
 			}
-			return c.handlers.h24hrminiticker(&event)
+			return c.handlers.miniTicker(&event)
 		}
 	case "24hrTicker":
-		if c.handlers.h24hrticker != nil {
+		if c.handlers.ticker != nil {
 			var event models.TickerEvent
 			if err := json.Unmarshal(data, &event); err != nil {
 				return fmt.Errorf("failed to parse 24hrTicker event: %w", err)
 			}
-			return c.handlers.h24hrticker(&event)
+			return c.handlers.ticker(&event)
 		}
 	case "bookTicker":
-		if c.handlers.bookticker != nil {
+		if c.handlers.bookTicker != nil {
 			var event models.BookTickerEvent
 			if err := json.Unmarshal(data, &event); err != nil {
 				return fmt.Errorf("failed to parse bookTicker event: %w", err)
 			}
-			return c.handlers.bookticker(&event)
+			return c.handlers.bookTicker(&event)
 		}
 	case "forceOrder":
-		if c.handlers.forceorder != nil {
+		if c.handlers.forceOrder != nil {
 			var event models.LiquidationEvent
 			if err := json.Unmarshal(data, &event); err != nil {
 				return fmt.Errorf("failed to parse forceOrder event: %w", err)
 			}
-			return c.handlers.forceorder(&event)
+			return c.handlers.forceOrder(&event)
 		}
 	case "depthUpdate":
-		if c.handlers.depthupdate != nil {
+		if c.handlers.depth != nil {
 			var event models.DiffDepthEvent
 			if err := json.Unmarshal(data, &event); err != nil {
 				return fmt.Errorf("failed to parse depthUpdate event: %w", err)
 			}
-			return c.handlers.depthupdate(&event)
+			return c.handlers.depth(&event)
 		}
 	case "compositeIndex":
-		if c.handlers.compositeindex != nil {
+		if c.handlers.compositeIndex != nil {
 			var event models.CompositeIndexEvent
 			if err := json.Unmarshal(data, &event); err != nil {
 				return fmt.Errorf("failed to parse compositeIndex event: %w", err)
 			}
-			return c.handlers.compositeindex(&event)
+			return c.handlers.compositeIndex(&event)
 		}
 	case "contractInfo":
-		if c.handlers.contractinfo != nil {
+		if c.handlers.contractInfo != nil {
 			var event models.ContractInfoEvent
 			if err := json.Unmarshal(data, &event); err != nil {
 				return fmt.Errorf("failed to parse contractInfo event: %w", err)
 			}
-			return c.handlers.contractinfo(&event)
+			return c.handlers.contractInfo(&event)
 		}
 	case "assetIndexUpdate":
-		if c.handlers.assetindexupdate != nil {
+		if c.handlers.assetIndexUpdate != nil {
 			var event models.AssetIndexEvent
 			if err := json.Unmarshal(data, &event); err != nil {
 				return fmt.Errorf("failed to parse assetIndexUpdate event: %w", err)
 			}
-			return c.handlers.assetindexupdate(&event)
+			return c.handlers.assetIndexUpdate(&event)
 		}
 	case "assetIndex":
-		if c.handlers.assetindex != nil {
+		if c.handlers.assetIndex != nil {
 			var event models.AssetIndexEvent
 			if err := json.Unmarshal(data, &event); err != nil {
 				return fmt.Errorf("failed to parse assetIndex event: %w", err)
 			}
-			return c.handlers.assetindex(&event)
+			return c.handlers.assetIndex(&event)
 		}
 	default:
 		// Log unknown event types with full message for debugging

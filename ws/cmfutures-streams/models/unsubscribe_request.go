@@ -11,7 +11,7 @@ type UnsubscribeRequest struct {
 	// Array of stream names to unsubscribe from
 	ArrayOfStreamNamesToUnsubscribeFrom []string `json:"params,omitempty"`
 	// Request ID
-	RequestId int `json:"id,omitempty"`
+	RequestId string `json:"id,omitempty"`
 }
 
 // String returns string representation of UnsubscribeRequest

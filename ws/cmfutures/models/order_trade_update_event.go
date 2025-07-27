@@ -4,22 +4,22 @@ import (
 	"encoding/json"
 )
 
-// OrderTradeUpdateEvent represents a nested object structure
-type OrderTradeUpdateEvent struct {
+// OrderTradeUpdateEventEvent represents a nested object structure
+type OrderTradeUpdateEventEvent struct {
 	// Event Time (milliseconds)
 	EventTime int64 `json:"E,omitempty"`
 	// Transaction Time (milliseconds)
 	TransactionTime int64 `json:"T,omitempty"`
 	// Event Type
 	EventType string `json:"e,omitempty"`
+	// Account Alias
+	AccountAlias string `json:"i,omitempty"`
 	// Order details
-	OrderDetails *OrderTradeUpdateEventOrderDetails `json:"o,omitempty"`
+	OrderDetails *OrderTradeUpdateEventEventOrderDetails `json:"o,omitempty"`
 }
 
-// OrderTradeUpdateEventOrderDetails represents a nested object structure
-type OrderTradeUpdateEventOrderDetails struct {
-	// Activation Price (only for TRAILING_STOP_MARKET)
-	ActivationPrice string `json:"AP,omitempty"`
+// OrderTradeUpdateEventEventOrderDetails represents a nested object structure
+type OrderTradeUpdateEventEventOrderDetails struct {
 	// Last Filled Price
 	LastFilledPrice string `json:"L,omitempty"`
 	// Commission Asset
@@ -30,8 +30,6 @@ type OrderTradeUpdateEventOrderDetails struct {
 	Side string `json:"S,omitempty"`
 	// Order Trade Time (milliseconds)
 	OrderTradeTime int64 `json:"T,omitempty"`
-	// STP mode
-	STPMode string `json:"V,omitempty"`
 	// Order Status
 	OrderStatus string `json:"X,omitempty"`
 	// Ask Notional
@@ -44,12 +42,8 @@ type OrderTradeUpdateEventOrderDetails struct {
 	ClientOrderID string `json:"c,omitempty"`
 	// If Close-All
 	IfCloseAll bool `json:"cp,omitempty"`
-	// Callback Rate (only for TRAILING_STOP_MARKET)
-	CallbackRate string `json:"cr,omitempty"`
 	// Time in Force
 	TimeInForce string `json:"f,omitempty"`
-	// TIF GTD order auto cancel time
-	TIFGTDOrderAutoCancelTime int64 `json:"gtd,omitempty"`
 	// Order ID
 	OrderID int64 `json:"i,omitempty"`
 	// Order Last Filled Quantity
@@ -66,12 +60,12 @@ type OrderTradeUpdateEventOrderDetails struct {
 	OriginalPrice string `json:"p,omitempty"`
 	// Protect position
 	ProtectPosition bool `json:"pP,omitempty"`
-	// Price match mode
-	PriceMatchMode string `json:"pm,omitempty"`
 	// Position Side
 	PositionSide string `json:"ps,omitempty"`
 	// Original Quantity
 	OriginalQuantity string `json:"q,omitempty"`
+	// Realized Profit of the trade
+	RealizedProfitOfTheTrade string `json:"rp,omitempty"`
 	// Symbol
 	Symbol string `json:"s,omitempty"`
 	// Ignore
@@ -90,28 +84,28 @@ type OrderTradeUpdateEventOrderDetails struct {
 	OrderFilledAccumulatedQuantity string `json:"z,omitempty"`
 }
 
-// OrderTradeUpdate - Orders are updated with orderTradeUpdate event
+// OrderTradeUpdateEvent - Orders are updated with orderTradeUpdate event
 // Message name: Order Trade Update Event
-type OrderTradeUpdate struct {
-	Event *OrderTradeUpdateEvent `json:"event,omitempty"`
+type OrderTradeUpdateEvent struct {
+	Event *OrderTradeUpdateEventEvent `json:"event,omitempty"`
 }
 
-// String returns string representation of OrderTradeUpdate
-func (s OrderTradeUpdate) String() string {
+// String returns string representation of OrderTradeUpdateEvent
+func (s OrderTradeUpdateEvent) String() string {
 	b, _ := json.Marshal(s)
 	return string(b)
 }
 
-// GetEventType returns the event type for OrderTradeUpdate
-func (s OrderTradeUpdate) GetEventType() string {
+// GetEventType returns the event type for OrderTradeUpdateEvent
+func (s OrderTradeUpdateEvent) GetEventType() string {
 	if s.Event.EventType != "" {
 		return s.Event.EventType
 	}
-	return "ordertradeupdate"
+	return "ordertradeupdateevent"
 }
 
-// GetEventTime returns the event timestamp for OrderTradeUpdate
-func (s OrderTradeUpdate) GetEventTime() int64 {
+// GetEventTime returns the event timestamp for OrderTradeUpdateEvent
+func (s OrderTradeUpdateEvent) GetEventTime() int64 {
 	if s.Event.EventTime != 0 {
 		return s.Event.EventTime
 	}

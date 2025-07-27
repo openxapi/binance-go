@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 )
 
-// ExecutionReportEvent represents a nested object structure
-type ExecutionReportEvent struct {
+// ExecutionReportEventEvent represents a nested object structure
+type ExecutionReportEventEvent struct {
 	// Prevented Quantity
 	PreventedQuantity string `json:"A,omitempty"`
 	// Last Prevented Quantity
@@ -110,28 +110,28 @@ type ExecutionReportEvent struct {
 	CumulativeFilledQuantity string `json:"z,omitempty"`
 }
 
-// ExecutionReport - Orders are updated with executionReport event
+// ExecutionReportEvent - Orders are updated with executionReport event
 // Message name: Execution Report Event
-type ExecutionReport struct {
-	Event *ExecutionReportEvent `json:"event,omitempty"`
+type ExecutionReportEvent struct {
+	Event *ExecutionReportEventEvent `json:"event,omitempty"`
 }
 
-// String returns string representation of ExecutionReport
-func (s ExecutionReport) String() string {
+// String returns string representation of ExecutionReportEvent
+func (s ExecutionReportEvent) String() string {
 	b, _ := json.Marshal(s)
 	return string(b)
 }
 
-// GetEventType returns the event type for ExecutionReport
-func (s ExecutionReport) GetEventType() string {
+// GetEventType returns the event type for ExecutionReportEvent
+func (s ExecutionReportEvent) GetEventType() string {
 	if s.Event.EventType != "" {
 		return s.Event.EventType
 	}
-	return "executionreport"
+	return "executionreportevent"
 }
 
-// GetEventTime returns the event timestamp for ExecutionReport
-func (s ExecutionReport) GetEventTime() int64 {
+// GetEventTime returns the event timestamp for ExecutionReportEvent
+func (s ExecutionReportEvent) GetEventTime() int64 {
 	if s.Event.EventTime != 0 {
 		return s.Event.EventTime
 	}
