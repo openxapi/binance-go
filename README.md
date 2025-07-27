@@ -5,6 +5,21 @@
 
 Comprehensive Go SDK for Binance cryptocurrency exchange APIs, supporting both REST and WebSocket APIs across all Binance products.
 
+## ⚠️ Auto-Generated Repository
+
+This repository is **automatically generated** by [OpenXAPI](https://github.com/openxapi/openxapi).
+
+**⚠️ Do not modify the SDK code manually** - changes will be overwritten during regeneration.
+
+For detailed usage examples and documentation:
+- **REST APIs**: See [rest/README.md](rest/README.md)
+- **WebSocket APIs**: See [ws/README.md](ws/README.md)
+
+To contribute or report issues:
+1. **Report Issues**: [GitHub Issues](https://github.com/openxapi/binance-go/issues)
+2. **Update Code**: Submit PRs to [OpenXAPI](https://github.com/openxapi/openxapi)
+3. **Update Templates**: Modify [code generation templates](https://github.com/openxapi/openxapi/tree/main/templates)
+
 ## 🚀 Features
 
 - **Complete API Coverage**: REST and WebSocket APIs for all Binance products
@@ -70,8 +85,8 @@ This SDK is organized into two main components:
 | **Spot** | ✅ [`rest/spot`](rest/) | ✅ [`ws/spot`](ws/) | ✅ [`ws/spot-streams`](ws/) |
 | **USDS-M Futures** | ✅ [`rest/umfutures`](rest/) | ✅ [`ws/umfutures`](ws/) | ✅ [`ws/umfutures-streams`](ws/) |
 | **COIN-M Futures** | ✅ [`rest/cmfutures`](rest/) | ✅ [`ws/cmfutures`](ws/) | ✅ [`ws/cmfutures-streams`](ws/) |
-| **Options** | ✅ [`rest/options`](rest/) | - | - |
-| **Portfolio Margin** | ✅ [`rest/pmargin`](rest/) | - | - |
+| **Options** | ✅ [`rest/options`](rest/) | ✅ [`ws/options`](ws/) | ✅ [`ws/options-streams`](ws/) |
+| **Portfolio Margin** | ✅ [`rest/pmargin`](rest/) | ✅ [`ws/pmargin`](ws/) | - |
 
 ## 🚀 Quick Start
 
@@ -97,7 +112,7 @@ func main() {
     ctx := context.Background()
 
     // Public endpoint - no authentication required
-    info, _, err := client.SpotTradingAPI.GetExchangeInfoV3(ctx).Execute()
+    info, _, err := client.SpotAPI.GetExchangeInfoV3(ctx).Symbol("BTCUSDT").Execute()
     if err != nil {
         log.Fatal(err)
     }
@@ -115,7 +130,7 @@ func main() {
             log.Fatal(err)
         }
 
-        account, _, err := client.SpotTradingAPI.GetAccountV3(ctx).
+        account, _, err := client.SpotAPI.GetAccountV3(ctx).
             Timestamp(time.Now().UnixMilli()).Execute()
         if err != nil {
             log.Fatal(err)
@@ -144,6 +159,12 @@ import (
 func main() {
     // Create WebSocket client
     client := spotws.NewClient()
+    
+    // Set to testnet for testing (optional)
+    err := client.SetActiveServer("testnet1")
+    if err != nil {
+        log.Fatal(err)
+    }
 
     // Authentication
     apiKey := os.Getenv("BINANCE_API_KEY")
@@ -155,28 +176,66 @@ func main() {
         client.SetAuth(auth)
     }
 
-    // Register event handlers
-    client.HandleExecutionReport(func(event *models.ExecutionReport) error {
-        fmt.Printf("Order update: %+v\n", event)
+    // Register event handlers for user data streams
+    client.HandleExecutionReportEvent(func(event *models.ExecutionReportEvent) error {
+        fmt.Printf("Execution Report: %+v\n", event)
         return nil
     })
 
-    // Connect and use
+    client.HandleBalanceUpdateEvent(func(event *models.BalanceUpdateEvent) error {
+        fmt.Printf("Balance Update: %+v\n", event)
+        return nil
+    })
+
+    client.HandleOutboundAccountPositionEvent(func(event *models.OutboundAccountPositionEvent) error {
+        fmt.Printf("Account Position: %+v\n", event)
+        return nil
+    })
+
+    // Connect to WebSocket
     ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
     defer cancel()
 
-    err := client.Connect(ctx)
+    err = client.Connect(ctx)
     if err != nil {
         log.Fatal(err)
     }
     defer client.Disconnect()
 
-    // Get server time
-    timeResp, err := client.Time(ctx)
+    // Get server time (public endpoint)
+    err = client.SendTime(ctx,
+        models.NewTimeRequest(),
+        func(response *models.TimeResponse, err error) error {
+            if err != nil {
+                log.Printf("Time request failed: %v", err)
+                return err
+            }
+            fmt.Printf("Server time: %d\n", response.Result.ServerTime)
+            return nil
+        })
     if err != nil {
         log.Fatal(err)
     }
-    fmt.Printf("Server time: %d\n", timeResp.ServerTime)
+
+    // Get account information (requires authentication)
+    if apiKey != "" && secretKey != "" {
+        err = client.SendAccountStatus(ctx,
+            models.NewAccountStatusRequest(),
+            func(response *models.AccountStatusResponse, err error) error {
+                if err != nil {
+                    log.Printf("Account request failed: %v", err)
+                    return err
+                }
+                fmt.Printf("Account: %+v\n", response.Result)
+                return nil
+            })
+        if err != nil {
+            log.Fatal(err)
+        }
+    }
+
+    // Keep connection alive for user data events
+    time.Sleep(30 * time.Second)
 }
 ```
 
@@ -191,46 +250,92 @@ import (
     "log"
     "time"
 
-    "github.com/openxapi/binance-go/ws/spot-streams"
+    spotstreams "github.com/openxapi/binance-go/ws/spot-streams"
     "github.com/openxapi/binance-go/ws/spot-streams/models"
 )
 
 func main() {
     // Create streams client
     client := spotstreams.NewClient()
+    
+    // Set to testnet for testing (optional)
+    err := client.SetActiveServer("testnet1")
+    if err != nil {
+        log.Fatal(err)
+    }
 
     // Register event handlers
     client.HandleTradeEvent(func(event *models.TradeEvent) error {
-        fmt.Printf("Trade: %s @ %s (%s)\n", 
+        fmt.Printf("Trade: %s Price: %s Quantity: %s\n", 
             event.Symbol, event.Price, event.Quantity)
         return nil
     })
 
+    client.HandleAggregateTradeEvent(func(event *models.AggregateTradeEvent) error {
+        fmt.Printf("Agg Trade: %s Price: %s Quantity: %s\n", 
+            event.Symbol, event.Price, event.Quantity)
+        return nil
+    })
+
+    client.HandleKlineEvent(func(event *models.KlineEvent) error {
+        fmt.Printf("Kline: %s Open: %s High: %s Low: %s Close: %s\n", 
+            event.Symbol, event.Kline.OpenPrice, event.Kline.HighPrice, 
+            event.Kline.LowPrice, event.Kline.ClosePrice)
+        return nil
+    })
+
     client.HandleTickerEvent(func(event *models.TickerEvent) error {
-        fmt.Printf("Ticker %s: %s (%s%%)\n", 
+        fmt.Printf("Ticker: %s Price: %s Change: %s%%\n", 
             event.Symbol, event.CurrentClosePrice, event.PriceChangePercent)
         return nil
     })
 
-    // Connect
+    client.HandleBookTickerEvent(func(event *models.BookTickerEvent) error {
+        fmt.Printf("Book Ticker: %s Bid: %s Ask: %s\n", 
+            event.Symbol, event.BidPrice, event.AskPrice)
+        return nil
+    })
+
+    client.HandleStreamError(func(event *models.ErrorResponse) error {
+        log.Printf("Stream error: %+v", event)
+        return nil
+    })
+
+    // Connect to WebSocket
     ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
     defer cancel()
 
-    err := client.Connect(ctx)
+    err = client.Connect(ctx)
     if err != nil {
         log.Fatal(err)
     }
     defer client.Disconnect()
 
     // Subscribe to streams
-    streams := []string{"btcusdt@trade", "btcusdt@ticker"}
-    _, err = client.Subscribe(ctx, streams)
+    streams := []string{
+        "btcusdt@trade",
+        "btcusdt@aggTrade",
+        "btcusdt@kline_1m",
+        "btcusdt@ticker",
+        "btcusdt@bookTicker",
+    }
+
+    err = client.Subscribe(ctx, streams)
     if err != nil {
         log.Fatal(err)
     }
+    fmt.Printf("Subscribed to streams: %v\n", streams)
 
-    // Keep alive
+    // Keep the connection alive to receive events
     time.Sleep(30 * time.Second)
+
+    // Unsubscribe from streams
+    err = client.Unsubscribe(ctx, streams)
+    if err != nil {
+        log.Printf("Failed to unsubscribe: %v", err)
+    } else {
+        fmt.Printf("Unsubscribed from streams: %v\n", streams)
+    }
 }
 ```
 
@@ -335,7 +440,7 @@ client.HandleTradeEvent(func(event *models.TradeEvent) error {
 ### Portfolio Management
 ```go
 // Monitor account balances and positions
-account, _, err := client.SpotTradingAPI.GetAccountV3(ctx).Execute()
+account, _, err := client.SpotAPI.GetAccountV3(ctx).Execute()
 if err != nil {
     return err
 }
