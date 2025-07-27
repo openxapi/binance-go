@@ -17,20 +17,23 @@ If you need to update the API client, please submit an issue or a PR to [OpenXAP
 | Category | Product | Package | Description |
 |:---------:|:---------:|---------|-------------|
 | WebSocket API | Spot | `github.com/openxapi/binance-go/ws/spot` | ✅ [Spot WebSocket API](https://developers.binance.com/docs/binance-spot-api-docs/websocket-api) |
-| WebSocket Streams | Spot Streams | `github.com/openxapi/binance-go/ws/spot-streams` | ✅ [Spot WebSocket Streams](https://developers.binance.com/docs/binance-spot-api-docs/websocket-streams) |
+| WebSocket Market Streams | Spot | `github.com/openxapi/binance-go/ws/spot-streams` | ✅ [Spot WebSocket Streams](https://developers.binance.com/docs/binance-spot-api-docs/websocket-streams) |
 | WebSocket API | USDS-M Futures | `github.com/openxapi/binance-go/ws/umfutures` | ✅ [USDS-M Futures WebSocket API](https://developers.binance.com/docs/derivatives/usds-margined-futures/websocket-api) |
-| WebSocket Streams | USDS-M Futures Streams | `github.com/openxapi/binance-go/ws/umfutures-streams` | ✅ [USDS-M Futures WebSocket Streams](https://developers.binance.com/docs/derivatives/usds-margined-futures/websocket-streams) |
+| WebSocket Market Streams | USDS-M Futures | `github.com/openxapi/binance-go/ws/umfutures-streams` | ✅ [USDS-M Futures WebSocket Streams](https://developers.binance.com/docs/derivatives/usds-margined-futures/websocket-streams) |
 | WebSocket API | COIN-M Futures | `github.com/openxapi/binance-go/ws/cmfutures` | ✅ [COIN-M Futures WebSocket API](https://developers.binance.com/docs/derivatives/coin-margined-futures/websocket-api) |
-| WebSocket Streams | COIN-M Futures Streams | `github.com/openxapi/binance-go/ws/cmfutures-streams` | ✅ [COIN-M Futures WebSocket Streams](https://developers.binance.com/docs/derivatives/coin-margined-futures/websocket-streams) |
+| WebSocket Market Streams | COIN-M Futures | `github.com/openxapi/binance-go/ws/cmfutures-streams` | ✅ [COIN-M Futures WebSocket Streams](https://developers.binance.com/docs/derivatives/coin-margined-futures/websocket-streams) |
+| WebSocket API | Options | `github.com/openxapi/binance-go/ws/options` | ✅ [Options WebSocket API](https://developers.binance.com/docs/derivatives/option/websocket-api) |
+| WebSocket Market Streams | Options | `github.com/openxapi/binance-go/ws/options-streams` | ✅ [Options WebSocket Streams](https://developers.binance.com/docs/derivatives/option/websocket-streams) |
+| WebSocket API | Portfolio Margin | `github.com/openxapi/binance-go/ws/pmargin` | ✅ [Portfolio Margin WebSocket API](https://developers.binance.com/docs/derivatives/portfolio-margin/websocket-api) |
 
 Feel free to contribute to this project by adding support for other products.
 
 With [OpenXAPI](https://github.com/openxapi/openxapi), you can add support for other products and generate API clients in different languages in a breeze.
 
-## WebSocket API vs WebSocket Streams
+## WebSocket API vs WebSocket Market Streams
 
-- **WebSocket API**: Provides request-response functionality similar to REST API but over WebSocket connections. Supports account operations, order management, and market data queries.
-- **WebSocket Streams**: Provides real-time market data streams and user data streams. Optimized for high-frequency data updates.
+- **WebSocket API**: Provides request-response functionality similar to REST API but over WebSocket connections. Supports account operations, order management, market data queries, and user data streams.
+- **WebSocket Market Streams**: Provides real-time market data streams only. Optimized for high-frequency market data updates.
 
 ## Import
 
@@ -42,6 +45,9 @@ import (
     umfuturesstreams "github.com/openxapi/binance-go/ws/umfutures-streams"
     cmfutures "github.com/openxapi/binance-go/ws/cmfutures"
     cmfuturesstreams "github.com/openxapi/binance-go/ws/cmfutures-streams"
+    options "github.com/openxapi/binance-go/ws/options"
+    optionsstreams "github.com/openxapi/binance-go/ws/options-streams"
+    pmargin "github.com/openxapi/binance-go/ws/pmargin"
 )
 ```
 
@@ -85,14 +91,24 @@ func main() {
         client.SetAuth(auth)
     }
 
-    // Register event handlers
-    client.HandleExecutionReport(func(event *models.ExecutionReport) error {
+    // Register event handlers for user data streams
+    client.HandleExecutionReportEvent(func(event *models.ExecutionReportEvent) error {
         fmt.Printf("Execution Report: %+v\n", event)
         return nil
     })
 
-    client.HandleBalanceUpdate(func(event *models.BalanceUpdate) error {
+    client.HandleBalanceUpdateEvent(func(event *models.BalanceUpdateEvent) error {
         fmt.Printf("Balance Update: %+v\n", event)
+        return nil
+    })
+
+    client.HandleOutboundAccountPositionEvent(func(event *models.OutboundAccountPositionEvent) error {
+        fmt.Printf("Account Position: %+v\n", event)
+        return nil
+    })
+
+    client.HandleListStatusEvent(func(event *models.ListStatusEvent) error {
+        fmt.Printf("List Status: %+v\n", event)
         return nil
     })
 
@@ -106,25 +122,44 @@ func main() {
     }
     defer client.Disconnect()
 
-    // Get server time
-    timeResp, err := client.Time(ctx)
+    // Get server time (public endpoint)
+    timeResp, err := client.SendTime(ctx, 
+        models.NewTimeRequest(),
+        func(response *models.TimeResponse, err error) error {
+            if err != nil {
+                log.Printf("Time request failed: %v", err)
+                return err
+            }
+            fmt.Printf("Server time: %d\n", response.Result.ServerTime)
+            return nil
+        })
     if err != nil {
         log.Fatal(err)
     }
-    fmt.Printf("Server time: %d\n", timeResp.ServerTime)
 
     // Get account information (requires authentication)
     if apiKey != "" && secretKey != "" {
-        accountResp, err := client.Account(ctx)
+        accountResp, err := client.SendAccount(ctx,
+            models.NewAccountStatusRequest(),
+            func(response *models.AccountStatusResponse, err error) error {
+                if err != nil {
+                    log.Printf("Account request failed: %v", err)
+                    return err
+                }
+                fmt.Printf("Account: %+v\n", response.Result)
+                return nil
+            })
         if err != nil {
             log.Fatal(err)
         }
-        fmt.Printf("Account: %+v\n", accountResp)
     }
+
+    // Keep connection alive for user data events
+    time.Sleep(30 * time.Second)
 }
 ```
 
-### WebSocket Streams Example (Spot)
+### WebSocket Market Streams Example (Spot)
 
 ```go
 package main
@@ -150,34 +185,45 @@ func main() {
     }
 
     // Register event handlers
-    client.HandleTradeEvent(func(event *models.TradeEvent) error {
+    client.OnTradeEvent(func(event *models.TradeEvent) error {
         fmt.Printf("Trade: %s Price: %s Quantity: %s\n", 
             event.Symbol, event.Price, event.Quantity)
         return nil
     })
 
-    client.HandleAggregateTradeEvent(func(event *models.AggregateTradeEvent) error {
+    client.OnAggregateTradeEvent(func(event *models.AggregateTradeEvent) error {
         fmt.Printf("Agg Trade: %s Price: %s Quantity: %s\n", 
             event.Symbol, event.Price, event.Quantity)
         return nil
     })
 
-    client.HandleKlineEvent(func(event *models.KlineEvent) error {
+    client.OnKlineEvent(func(event *models.KlineEvent) error {
         fmt.Printf("Kline: %s Open: %s High: %s Low: %s Close: %s\n", 
             event.Symbol, event.Kline.OpenPrice, event.Kline.HighPrice, 
             event.Kline.LowPrice, event.Kline.ClosePrice)
         return nil
     })
 
-    client.HandleTickerEvent(func(event *models.TickerEvent) error {
+    client.OnTickerEvent(func(event *models.TickerEvent) error {
         fmt.Printf("Ticker: %s Price: %s Change: %s%%\n", 
             event.Symbol, event.CurrentClosePrice, event.PriceChangePercent)
         return nil
     })
 
-    client.HandleBookTickerEvent(func(event *models.BookTickerEvent) error {
+    client.OnBookTickerEvent(func(event *models.BookTickerEvent) error {
         fmt.Printf("Book Ticker: %s Bid: %s Ask: %s\n", 
             event.Symbol, event.BidPrice, event.AskPrice)
+        return nil
+    })
+
+    client.OnMiniTickerEvent(func(event *models.MiniTickerEvent) error {
+        fmt.Printf("Mini Ticker: %s Price: %s\n", 
+            event.Symbol, event.ClosePrice)
+        return nil
+    })
+
+    client.OnStreamError(func(event *models.ErrorResponse) error {
+        log.Printf("Stream error: %+v", event)
         return nil
     })
 
@@ -198,23 +244,24 @@ func main() {
         "btcusdt@kline_1m",
         "btcusdt@ticker",
         "btcusdt@bookTicker",
+        "btcusdt@miniTicker",
     }
 
-    subscribeResp, err := client.Subscribe(ctx, streams)
+    err = client.Subscribe(ctx, streams)
     if err != nil {
         log.Fatal(err)
     }
-    fmt.Printf("Subscribed to streams: %+v\n", subscribeResp)
+    fmt.Printf("Subscribed to streams: %v\n", streams)
 
-    // Keep the connection alive
+    // Keep the connection alive to receive events
     time.Sleep(30 * time.Second)
 
     // Unsubscribe from streams
-    unsubscribeResp, err := client.Unsubscribe(ctx, streams)
+    err = client.Unsubscribe(ctx, streams)
     if err != nil {
         log.Printf("Failed to unsubscribe: %v", err)
     } else {
-        fmt.Printf("Unsubscribed from streams: %+v\n", unsubscribeResp)
+        fmt.Printf("Unsubscribed from streams: %v\n", streams)
     }
 }
 ```
@@ -257,6 +304,27 @@ func main() {
         client.SetAuth(auth)
     }
 
+    // Register event handlers for user data streams
+    client.HandleAccountUpdateEvent(func(event *models.AccountUpdateEvent) error {
+        fmt.Printf("Account Update: %+v\n", event)
+        return nil
+    })
+
+    client.HandleOrderTradeUpdateEvent(func(event *models.OrderTradeUpdateEvent) error {
+        fmt.Printf("Order Update: %+v\n", event)
+        return nil
+    })
+
+    client.HandleMarginCallEvent(func(event *models.MarginCallEvent) error {
+        fmt.Printf("Margin Call: %+v\n", event)
+        return nil
+    })
+
+    client.HandleAccountConfigUpdateEvent(func(event *models.AccountConfigUpdateEvent) error {
+        fmt.Printf("Account Config Update: %+v\n", event)
+        return nil
+    })
+
     // Connect to WebSocket
     ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
     defer cancel()
@@ -267,18 +335,44 @@ func main() {
     }
     defer client.Disconnect()
 
-    // Get account balance
+    // Get account balance (requires authentication)
     if apiKey != "" && secretKey != "" {
-        balanceResp, err := client.AccountBalance(ctx)
+        err = client.SendAccountBalance(ctx,
+            models.NewAccountBalanceRequest(),
+            func(response *models.AccountBalanceResponse, err error) error {
+                if err != nil {
+                    log.Printf("Account balance request failed: %v", err)
+                    return err
+                }
+                fmt.Printf("Account balance: %+v\n", response.Result)
+                return nil
+            })
         if err != nil {
             log.Fatal(err)
         }
-        fmt.Printf("Account balance: %+v\n", balanceResp)
     }
+
+    // Get ticker price (public endpoint)
+    err = client.SendTickerPrice(ctx,
+        models.NewTickerPriceRequest().SetSymbol("BTCUSDT"),
+        func(response *models.TickerPriceResponse, err error) error {
+            if err != nil {
+                log.Printf("Ticker price request failed: %v", err)
+                return err
+            }
+            fmt.Printf("BTCUSDT price: %s\n", response.Result.Price)
+            return nil
+        })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Keep connection alive for user data events
+    time.Sleep(30 * time.Second)
 }
 ```
 
-### USDS-M Futures Streams Example
+### USDS-M Futures Market Streams Example
 
 ```go
 package main
@@ -304,27 +398,44 @@ func main() {
     }
 
     // Register event handlers
-    client.HandleAggregateTradeEvent(func(event *models.AggregateTradeEvent) error {
+    client.OnAggregateTradeEvent(func(event *models.AggregateTradeEvent) error {
         fmt.Printf("Futures Agg Trade: %s Price: %s Quantity: %s\n", 
             event.Symbol, event.Price, event.Quantity)
         return nil
     })
 
-    client.HandleKlineEvent(func(event *models.KlineEvent) error {
+    client.OnKlineEvent(func(event *models.KlineEvent) error {
         fmt.Printf("Futures Kline: %s Open: %s Close: %s Volume: %s\n", 
             event.Symbol, event.Kline.OpenPrice, event.Kline.ClosePrice, event.Kline.Volume)
         return nil
     })
 
-    client.HandleMarkPriceEvent(func(event *models.MarkPriceEvent) error {
+    client.OnMarkPriceEvent(func(event *models.MarkPriceEvent) error {
         fmt.Printf("Mark Price: %s Price: %s FundingRate: %s\n", 
             event.Symbol, event.MarkPrice, event.FundingRate)
         return nil
     })
 
-    client.HandleLiquidationEvent(func(event *models.LiquidationEvent) error {
+    client.OnLiquidationEvent(func(event *models.LiquidationEvent) error {
         fmt.Printf("Liquidation: %s Side: %s Price: %s Quantity: %s\n", 
             event.Symbol, event.Side, event.Price, event.Quantity)
+        return nil
+    })
+
+    client.OnTickerEvent(func(event *models.TickerEvent) error {
+        fmt.Printf("Ticker: %s Price: %s Change: %s%%\n", 
+            event.Symbol, event.LastPrice, event.PriceChangePercent)
+        return nil
+    })
+
+    client.OnBookTickerEvent(func(event *models.BookTickerEvent) error {
+        fmt.Printf("Book Ticker: %s Bid: %s Ask: %s\n", 
+            event.Symbol, event.BidPrice, event.AskPrice)
+        return nil
+    })
+
+    client.OnStreamError(func(event *models.ErrorResponse) error {
+        log.Printf("Stream error: %+v", event)
         return nil
     })
 
@@ -343,17 +454,177 @@ func main() {
         "btcusdt@aggTrade",
         "btcusdt@kline_1m",
         "btcusdt@markPrice",
+        "btcusdt@ticker",
+        "btcusdt@bookTicker",
         "!forceOrder@arr",    // All liquidation orders
     }
 
-    subscribeResp, err := client.Subscribe(ctx, streams)
+    err = client.Subscribe(ctx, streams)
     if err != nil {
         log.Fatal(err)
     }
-    fmt.Printf("Subscribed to futures streams: %+v\n", subscribeResp)
+    fmt.Printf("Subscribed to futures streams: %v\n", streams)
 
-    // Keep the connection alive
+    // Keep the connection alive to receive events
     time.Sleep(30 * time.Second)
+
+    // Unsubscribe from streams
+    err = client.Unsubscribe(ctx, streams)
+    if err != nil {
+        log.Printf("Failed to unsubscribe: %v", err)
+    } else {
+        fmt.Printf("Unsubscribed from streams: %v\n", streams)
+    }
+}
+```
+
+### Options WebSocket API Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+    "os"
+    "time"
+
+    options "github.com/openxapi/binance-go/ws/options"
+    "github.com/openxapi/binance-go/ws/options/models"
+)
+
+func main() {
+    // Create client with authentication
+    apiKey := os.Getenv("BINANCE_API_KEY")
+    secretKey := os.Getenv("BINANCE_SECRET_KEY")
+    
+    var client *options.Client
+    if apiKey != "" && secretKey != "" {
+        auth := options.NewAuth(apiKey)
+        auth.SetSecretKey(secretKey)
+        client = options.NewClientWithAuth(auth)
+    } else {
+        client = options.NewClient()
+    }
+
+    // Register event handlers for user data
+    client.OnAccountUpdate(func(event *models.AccountUpdate) error {
+        fmt.Printf("Options Account Update: %+v\n", event)
+        return nil
+    })
+
+    client.OnOrderTradeUpdate(func(event *models.OrderTradeUpdate) error {
+        fmt.Printf("Options Order Update: %+v\n", event)
+        return nil
+    })
+
+    client.OnRiskLevelChange(func(event *models.RiskLevelChange) error {
+        fmt.Printf("Options Risk Level Change: %+v\n", event)
+        return nil
+    })
+
+    // Note: Options WebSocket requires a listen key from REST API
+    // This example shows the connection pattern
+    ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+    defer cancel()
+
+    // Connection requires a valid listen key
+    // err := client.ConnectWithListenKey(ctx, "your_listen_key_here")
+    // For demonstration, we'll show connection attempt
+    err := client.Connect(ctx)
+    if err != nil {
+        log.Printf("Connection failed (expected without listen key): %v", err)
+    }
+    defer client.Disconnect()
+
+    fmt.Println("Options WebSocket client configured successfully")
+    fmt.Println("To connect, provide a valid listen key from the REST API")
+}
+```
+
+### Portfolio Margin WebSocket API Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+    "os"
+    "time"
+
+    pmargin "github.com/openxapi/binance-go/ws/pmargin"
+    "github.com/openxapi/binance-go/ws/pmargin/models"
+)
+
+func main() {
+    // Create client with authentication
+    apiKey := os.Getenv("BINANCE_API_KEY")
+    secretKey := os.Getenv("BINANCE_SECRET_KEY")
+    
+    var client *pmargin.Client
+    if apiKey != "" && secretKey != "" {
+        auth := pmargin.NewAuth(apiKey)
+        auth.SetSecretKey(secretKey)
+        client = pmargin.NewClientWithAuth(auth)
+    } else {
+        client = pmargin.NewClient()
+    }
+
+    // Register event handlers for portfolio margin events
+    client.OnMarginAccountUpdate(func(event *models.MarginAccountUpdate) error {
+        fmt.Printf("Margin Account Update: %+v\n", event)
+        return nil
+    })
+
+    client.OnFuturesOrderUpdate(func(event *models.FuturesOrderUpdate) error {
+        fmt.Printf("Futures Order Update: %+v\n", event)
+        return nil
+    })
+
+    client.OnFuturesBalancePositionUpdate(func(event *models.FuturesBalancePositionUpdate) error {
+        fmt.Printf("Futures Balance/Position Update: %+v\n", event)
+        return nil
+    })
+
+    client.OnMarginOrderUpdate(func(event *models.MarginOrderUpdate) error {
+        fmt.Printf("Margin Order Update: %+v\n", event)
+        return nil
+    })
+
+    client.OnRiskLevelChange(func(event *models.RiskLevelChange) error {
+        fmt.Printf("Risk Level Change: %+v\n", event)
+        return nil
+    })
+
+    client.OnLiabilityUpdate(func(event *models.LiabilityUpdate) error {
+        fmt.Printf("Liability Update: %+v\n", event)
+        return nil
+    })
+
+    client.OnUserDataStreamExpired(func(event *models.UserDataStreamExpired) error {
+        fmt.Printf("User Data Stream Expired: %+v\n", event)
+        return nil
+    })
+
+    // Note: Portfolio Margin WebSocket requires a listen key from REST API
+    // This example shows the connection pattern
+    ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+    defer cancel()
+
+    // Connection requires a valid listen key
+    // err := client.ConnectWithListenKey(ctx, "your_listen_key_here")
+    // For demonstration, we'll show connection attempt
+    err := client.Connect(ctx)
+    if err != nil {
+        log.Printf("Connection failed (expected without listen key): %v", err)
+    }
+    defer client.Disconnect()
+
+    fmt.Println("Portfolio Margin WebSocket client configured successfully")
+    fmt.Println("To connect, provide a valid listen key from the REST API")
 }
 ```
 
@@ -536,6 +807,18 @@ go test -v
 
 # Run tests for USDS-M futures streams
 cd ws/umfutures-streams
+go test -v
+
+# Run tests for options WebSocket API
+cd ws/options
+go test -v
+
+# Run tests for options streams
+cd ws/options-streams
+go test -v
+
+# Run tests for portfolio margin WebSocket API
+cd ws/pmargin
 go test -v
 ```
 

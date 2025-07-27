@@ -52,11 +52,11 @@ export BINANCE_API_KEY="your_api_key"
 export BINANCE_SECRET_KEY="your_secret_key"
 
 # Test REST APIs
-cd /Users/adam/Work/go/src/github.com/openxapi/integration-tests/src/binance/go/rest/spot
+cd ../integration-tests/src/binance/go/rest/spot
 go test -v
 
 # Test WebSocket APIs  
-cd /Users/adam/Work/go/src/github.com/openxapi/integration-tests/src/binance/go/ws/spot
+cd ../integration-tests/src/binance/go/ws/spot
 go test -v
 ```
 
@@ -138,7 +138,7 @@ github.com/gorilla/websocket v1.5.3
 3. Replace generated files in this repository
 
 ### For Testing Changes
-1. Use integration tests at `/Users/adam/Work/go/src/github.com/openxapi/integration-tests/src/binance/go/`
+1. Use integration tests at `../integration-tests/src/binance/go/`
 2. Set up Binance API credentials
 3. Run comprehensive test suites for each product
 
