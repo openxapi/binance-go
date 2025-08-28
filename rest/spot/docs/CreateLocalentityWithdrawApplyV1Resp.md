@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Accpted** | Pointer to **bool** |  | [optional] 
+**Accepted** | Pointer to **bool** |  | [optional] 
 **Info** | Pointer to **string** |  | [optional] 
 **TrId** | Pointer to **int64** |  | [optional] 
 
@@ -27,30 +27,30 @@ NewCreateLocalentityWithdrawApplyV1RespWithDefaults instantiates a new CreateLoc
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetAccpted
+### GetAccepted
 
-`func (o *CreateLocalentityWithdrawApplyV1Resp) GetAccpted() bool`
+`func (o *CreateLocalentityWithdrawApplyV1Resp) GetAccepted() bool`
 
-GetAccpted returns the Accpted field if non-nil, zero value otherwise.
+GetAccepted returns the Accepted field if non-nil, zero value otherwise.
 
-### GetAccptedOk
+### GetAcceptedOk
 
-`func (o *CreateLocalentityWithdrawApplyV1Resp) GetAccptedOk() (*bool, bool)`
+`func (o *CreateLocalentityWithdrawApplyV1Resp) GetAcceptedOk() (*bool, bool)`
 
-GetAccptedOk returns a tuple with the Accpted field if it's non-nil, zero value otherwise
+GetAcceptedOk returns a tuple with the Accepted field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAccpted
+### SetAccepted
 
-`func (o *CreateLocalentityWithdrawApplyV1Resp) SetAccpted(v bool)`
+`func (o *CreateLocalentityWithdrawApplyV1Resp) SetAccepted(v bool)`
 
-SetAccpted sets Accpted field to given value.
+SetAccepted sets Accepted field to given value.
 
-### HasAccpted
+### HasAccepted
 
-`func (o *CreateLocalentityWithdrawApplyV1Resp) HasAccpted() bool`
+`func (o *CreateLocalentityWithdrawApplyV1Resp) HasAccepted() bool`
 
-HasAccpted returns a boolean if a field has been set.
+HasAccepted returns a boolean if a field has been set.
 
 ### GetInfo
 
