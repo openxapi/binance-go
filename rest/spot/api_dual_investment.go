@@ -114,6 +114,8 @@ func (a *DualInvestmentAPIService) CreateDciProductAutoCompoundEditStatusV1Execu
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	if r.autoCompoundPlan != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "AutoCompoundPlan", r.autoCompoundPlan, "", "")
 	}
@@ -122,6 +124,10 @@ func (a *DualInvestmentAPIService) CreateDciProductAutoCompoundEditStatusV1Execu
 		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -299,6 +305,8 @@ func (a *DualInvestmentAPIService) CreateDciProductSubscribeV1Execute(r ApiCreat
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	parameterAddToHeaderOrQuery(localVarFormParams, "autoCompoundPlan", r.autoCompoundPlan, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "depositAmount", r.depositAmount, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "id", r.id, "", "")
@@ -307,6 +315,10 @@ func (a *DualInvestmentAPIService) CreateDciProductSubscribeV1Execute(r ApiCreat
 		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -452,6 +464,12 @@ func (a *DualInvestmentAPIService) GetDciProductAccountsV1Execute(r ApiGetDciPro
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -658,6 +676,12 @@ func (a *DualInvestmentAPIService) GetDciProductListV1Execute(r ApiGetDciProduct
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -833,6 +857,12 @@ func (a *DualInvestmentAPIService) GetDciProductPositionsV1Execute(r ApiGetDciPr
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication

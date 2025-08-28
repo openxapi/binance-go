@@ -109,11 +109,17 @@ func (a *OptionsAPIService) CreateBatchOrdersV1Execute(r ApiCreateBatchOrdersV1R
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	parameterAddToHeaderOrQuery(localVarFormParams, "orders", r.orders, "", "")
 	if r.recvWindow != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -264,11 +270,17 @@ func (a *OptionsAPIService) CreateBlockOrderExecuteV1Execute(r ApiCreateBlockOrd
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	parameterAddToHeaderOrQuery(localVarFormParams, "blockOrderMatchingKey", r.blockOrderMatchingKey, "", "")
 	if r.recvWindow != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -419,11 +431,17 @@ func (a *OptionsAPIService) CreateCountdownCancelAllHeartBeatV1Execute(r ApiCrea
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	if r.recvWindow != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "underlyings", r.underlyings, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -583,12 +601,18 @@ func (a *OptionsAPIService) CreateCountdownCancelAllV1Execute(r ApiCreateCountdo
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	parameterAddToHeaderOrQuery(localVarFormParams, "countdownTime", r.countdownTime, "", "")
 	if r.recvWindow != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "underlying", r.underlying, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -714,6 +738,12 @@ func (a *OptionsAPIService) CreateListenKeyV1Execute(r ApiCreateListenKeyV1Reque
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -862,12 +892,18 @@ func (a *OptionsAPIService) CreateMmpResetV1Execute(r ApiCreateMmpResetV1Request
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	if r.recvWindow != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
 	if r.underlying != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "underlying", r.underlying, "", "")
+	}
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -1041,6 +1077,8 @@ func (a *OptionsAPIService) CreateMmpSetV1Execute(r ApiCreateMmpSetV1Request) (*
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	if r.deltaLimit != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "deltaLimit", r.deltaLimit, "", "")
 	}
@@ -1059,6 +1097,10 @@ func (a *OptionsAPIService) CreateMmpSetV1Execute(r ApiCreateMmpSetV1Request) (*
 	}
 	if r.windowTimeInMilliseconds != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "windowTimeInMilliseconds", r.windowTimeInMilliseconds, "", "")
+	}
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -1279,6 +1321,8 @@ func (a *OptionsAPIService) CreateOrderV1Execute(r ApiCreateOrderV1Request) (*Op
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	if r.clientOrderId != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "clientOrderId", r.clientOrderId, "", "")
 	}
@@ -1308,6 +1352,10 @@ func (a *OptionsAPIService) CreateOrderV1Execute(r ApiCreateOrderV1Request) (*Op
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "type", r.type_, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -1464,6 +1512,12 @@ func (a *OptionsAPIService) DeleteAllOpenOrdersByUnderlyingV1Execute(r ApiDelete
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -1619,6 +1673,12 @@ func (a *OptionsAPIService) DeleteAllOpenOrdersV1Execute(r ApiDeleteAllOpenOrder
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -1796,6 +1856,12 @@ func (a *OptionsAPIService) DeleteBatchOrdersV1Execute(r ApiDeleteBatchOrdersV1R
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -1921,6 +1987,12 @@ func (a *OptionsAPIService) DeleteListenKeyV1Execute(r ApiDeleteListenKeyV1Reque
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -2101,6 +2173,12 @@ func (a *OptionsAPIService) DeleteOrderV1Execute(r ApiDeleteOrderV1Request) (*De
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -2245,6 +2323,12 @@ func (a *OptionsAPIService) GetAccountV1Execute(r ApiGetAccountV1Request) (*GetA
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -2442,6 +2526,12 @@ func (a *OptionsAPIService) GetBillV1Execute(r ApiGetBillV1Request) ([]GetBillV1
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -2597,6 +2687,12 @@ func (a *OptionsAPIService) GetBlockOrderExecuteV1Execute(r ApiGetBlockOrderExec
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -2787,6 +2883,12 @@ func (a *OptionsAPIService) GetBlockOrderOrdersV1Execute(r ApiGetBlockOrderOrder
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -2938,6 +3040,12 @@ func (a *OptionsAPIService) GetBlockTradesV1Execute(r ApiGetBlockTradesV1Request
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -3109,6 +3217,12 @@ func (a *OptionsAPIService) GetBlockUserTradesV1Execute(r ApiGetBlockUserTradesV
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -3267,6 +3381,12 @@ func (a *OptionsAPIService) GetCountdownCancelAllV1Execute(r ApiGetCountdownCanc
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -3414,6 +3534,12 @@ func (a *OptionsAPIService) GetDepthV1Execute(r ApiGetDepthV1Request) (*GetDepth
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3533,6 +3659,12 @@ func (a *OptionsAPIService) GetExchangeInfoV1Execute(r ApiGetExchangeInfoV1Reque
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -3696,6 +3828,12 @@ func (a *OptionsAPIService) GetExerciseHistoryV1Execute(r ApiGetExerciseHistoryV
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -3882,6 +4020,12 @@ func (a *OptionsAPIService) GetExerciseRecordV1Execute(r ApiGetExerciseRecordV1R
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -4038,6 +4182,12 @@ func (a *OptionsAPIService) GetHistoricalTradesV1Execute(r ApiGetHistoricalTrade
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -4235,6 +4385,12 @@ func (a *OptionsAPIService) GetHistoryOrdersV1Execute(r ApiGetHistoryOrdersV1Req
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -4391,6 +4547,12 @@ func (a *OptionsAPIService) GetIncomeAsynIdV1Execute(r ApiGetIncomeAsynIdV1Reque
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -4516,6 +4678,12 @@ func (a *OptionsAPIService) GetIncomeAsynV1Execute(r ApiGetIncomeAsynV1Request) 
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -4653,6 +4821,12 @@ func (a *OptionsAPIService) GetIndexV1Execute(r ApiGetIndexV1Request) (*GetIndex
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -4827,6 +5001,12 @@ func (a *OptionsAPIService) GetKlinesV1Execute(r ApiGetKlinesV1Request) ([]GetKl
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4966,6 +5146,12 @@ func (a *OptionsAPIService) GetMarginAccountV1Execute(r ApiGetMarginAccountV1Req
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -5104,6 +5290,12 @@ func (a *OptionsAPIService) GetMarkV1Execute(r ApiGetMarkV1Request) ([]GetMarkV1
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -5257,6 +5449,12 @@ func (a *OptionsAPIService) GetMmpV1Execute(r ApiGetMmpV1Request) (*GetMmpV1Resp
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -5404,6 +5602,12 @@ func (a *OptionsAPIService) GetOpenInterestV1Execute(r ApiGetOpenInterestV1Reque
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -5597,6 +5801,12 @@ func (a *OptionsAPIService) GetOpenOrdersV1Execute(r ApiGetOpenOrdersV1Request) 
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -5776,6 +5986,12 @@ func (a *OptionsAPIService) GetOrderV1Execute(r ApiGetOrderV1Request) (*GetOrder
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -5901,6 +6117,12 @@ func (a *OptionsAPIService) GetPingV1Execute(r ApiGetPingV1Request) (map[string]
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -6054,6 +6276,12 @@ func (a *OptionsAPIService) GetPositionV1Execute(r ApiGetPositionV1Request) ([]G
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -6193,6 +6421,12 @@ func (a *OptionsAPIService) GetTickerV1Execute(r ApiGetTickerV1Request) ([]GetTi
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -6312,6 +6546,12 @@ func (a *OptionsAPIService) GetTimeV1Execute(r ApiGetTimeV1Request) (*GetTimeV1R
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -6453,6 +6693,12 @@ func (a *OptionsAPIService) GetTradesV1Execute(r ApiGetTradesV1Request) ([]GetTr
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -6649,6 +6895,12 @@ func (a *OptionsAPIService) GetUserTradesV1Execute(r ApiGetUserTradesV1Request) 
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -6799,11 +7051,17 @@ func (a *OptionsAPIService) UpdateBlockOrderCreateV1Execute(r ApiUpdateBlockOrde
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	parameterAddToHeaderOrQuery(localVarFormParams, "blockOrderMatchingKey", r.blockOrderMatchingKey, "", "")
 	if r.recvWindow != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -6929,6 +7187,12 @@ func (a *OptionsAPIService) UpdateListenKeyV1Execute(r ApiUpdateListenKeyV1Reque
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication

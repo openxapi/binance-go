@@ -126,6 +126,8 @@ func (a *SimpleEarnAPIService) CreateSimpleEarnFlexibleRedeemV1Execute(r ApiCrea
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	if r.amount != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "amount", r.amount, "", "")
 	}
@@ -140,6 +142,10 @@ func (a *SimpleEarnAPIService) CreateSimpleEarnFlexibleRedeemV1Execute(r ApiCrea
 		parameterAddToHeaderOrQuery(localVarFormParams, "redeemAll", r.redeemAll, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -299,12 +305,18 @@ func (a *SimpleEarnAPIService) CreateSimpleEarnFlexibleSetAutoSubscribeV1Execute
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	parameterAddToHeaderOrQuery(localVarFormParams, "autoSubscribe", r.autoSubscribe, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "productId", r.productId, "", "")
 	if r.recvWindow != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -476,6 +488,8 @@ func (a *SimpleEarnAPIService) CreateSimpleEarnFlexibleSubscribeV1Execute(r ApiC
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	parameterAddToHeaderOrQuery(localVarFormParams, "amount", r.amount, "", "")
 	if r.autoSubscribe != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "autoSubscribe", r.autoSubscribe, "", "")
@@ -488,6 +502,10 @@ func (a *SimpleEarnAPIService) CreateSimpleEarnFlexibleSubscribeV1Execute(r ApiC
 		parameterAddToHeaderOrQuery(localVarFormParams, "sourceAccount", r.sourceAccount, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -638,11 +656,17 @@ func (a *SimpleEarnAPIService) CreateSimpleEarnLockedRedeemV1Execute(r ApiCreate
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	parameterAddToHeaderOrQuery(localVarFormParams, "positionId", r.positionId, "", "")
 	if r.recvWindow != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -802,12 +826,18 @@ func (a *SimpleEarnAPIService) CreateSimpleEarnLockedSetAutoSubscribeV1Execute(r
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	parameterAddToHeaderOrQuery(localVarFormParams, "autoSubscribe", r.autoSubscribe, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "positionId", r.positionId, "", "")
 	if r.recvWindow != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -967,12 +997,18 @@ func (a *SimpleEarnAPIService) CreateSimpleEarnLockedSetRedeemOptionV1Execute(r 
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	parameterAddToHeaderOrQuery(localVarFormParams, "positionId", r.positionId, "", "")
 	if r.recvWindow != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "redeemTo", r.redeemTo, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -1150,6 +1186,8 @@ func (a *SimpleEarnAPIService) CreateSimpleEarnLockedSubscribeV1Execute(r ApiCre
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	parameterAddToHeaderOrQuery(localVarFormParams, "amount", r.amount, "", "")
 	if r.autoSubscribe != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "autoSubscribe", r.autoSubscribe, "", "")
@@ -1165,6 +1203,10 @@ func (a *SimpleEarnAPIService) CreateSimpleEarnLockedSubscribeV1Execute(r ApiCre
 		parameterAddToHeaderOrQuery(localVarFormParams, "sourceAccount", r.sourceAccount, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -1310,6 +1352,12 @@ func (a *SimpleEarnAPIService) GetSimpleEarnAccountV1Execute(r ApiGetSimpleEarnA
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -1506,6 +1554,12 @@ func (a *SimpleEarnAPIService) GetSimpleEarnFlexibleHistoryCollateralRecordV1Exe
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -1714,6 +1768,12 @@ func (a *SimpleEarnAPIService) GetSimpleEarnFlexibleHistoryRateHistoryV1Execute(
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -1913,6 +1973,12 @@ func (a *SimpleEarnAPIService) GetSimpleEarnFlexibleHistoryRedemptionRecordV1Exe
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -2131,6 +2197,12 @@ func (a *SimpleEarnAPIService) GetSimpleEarnFlexibleHistoryRewardsRecordV1Execut
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -2351,6 +2423,12 @@ func (a *SimpleEarnAPIService) GetSimpleEarnFlexibleHistorySubscriptionRecordV1E
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -2528,6 +2606,12 @@ func (a *SimpleEarnAPIService) GetSimpleEarnFlexibleListV1Execute(r ApiGetSimple
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -2682,6 +2766,12 @@ func (a *SimpleEarnAPIService) GetSimpleEarnFlexiblePersonalLeftQuotaV1Execute(r
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -2872,6 +2962,12 @@ func (a *SimpleEarnAPIService) GetSimpleEarnFlexiblePositionV1Execute(r ApiGetSi
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -3036,6 +3132,12 @@ func (a *SimpleEarnAPIService) GetSimpleEarnFlexibleSubscriptionPreviewV1Execute
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -3253,6 +3355,12 @@ func (a *SimpleEarnAPIService) GetSimpleEarnLockedHistoryRedemptionRecordV1Execu
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -3456,6 +3564,12 @@ func (a *SimpleEarnAPIService) GetSimpleEarnLockedHistoryRewardsRecordV1Execute(
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -3664,6 +3778,12 @@ func (a *SimpleEarnAPIService) GetSimpleEarnLockedHistorySubscriptionRecordV1Exe
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -3841,6 +3961,12 @@ func (a *SimpleEarnAPIService) GetSimpleEarnLockedListV1Execute(r ApiGetSimpleEa
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -3995,6 +4121,12 @@ func (a *SimpleEarnAPIService) GetSimpleEarnLockedPersonalLeftQuotaV1Execute(r A
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -4194,6 +4326,12 @@ func (a *SimpleEarnAPIService) GetSimpleEarnLockedPositionV1Execute(r ApiGetSimp
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4365,6 +4503,12 @@ func (a *SimpleEarnAPIService) GetSimpleEarnLockedSubscriptionPreviewV1Execute(r
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication

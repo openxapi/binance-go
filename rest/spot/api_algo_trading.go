@@ -160,6 +160,8 @@ func (a *AlgoTradingAPIService) CreateAlgoFuturesNewOrderTwapV1Execute(r ApiCrea
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	if r.clientAlgoId != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "clientAlgoId", r.clientAlgoId, "", "")
 	}
@@ -180,6 +182,10 @@ func (a *AlgoTradingAPIService) CreateAlgoFuturesNewOrderTwapV1Execute(r ApiCrea
 	parameterAddToHeaderOrQuery(localVarFormParams, "side", r.side, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "symbol", r.symbol, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -382,6 +388,8 @@ func (a *AlgoTradingAPIService) CreateAlgoFuturesNewOrderVpV1Execute(r ApiCreate
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	if r.clientAlgoId != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "clientAlgoId", r.clientAlgoId, "", "")
 	}
@@ -402,6 +410,10 @@ func (a *AlgoTradingAPIService) CreateAlgoFuturesNewOrderVpV1Execute(r ApiCreate
 	parameterAddToHeaderOrQuery(localVarFormParams, "symbol", r.symbol, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "urgency", r.urgency, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -585,6 +597,8 @@ func (a *AlgoTradingAPIService) CreateAlgoSpotNewOrderTwapV1Execute(r ApiCreateA
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	if r.clientAlgoId != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "clientAlgoId", r.clientAlgoId, "", "")
 	}
@@ -596,6 +610,10 @@ func (a *AlgoTradingAPIService) CreateAlgoSpotNewOrderTwapV1Execute(r ApiCreateA
 	parameterAddToHeaderOrQuery(localVarFormParams, "side", r.side, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "symbol", r.symbol, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -752,6 +770,12 @@ func (a *AlgoTradingAPIService) DeleteAlgoFuturesOrderV1Execute(r ApiDeleteAlgoF
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -907,6 +931,12 @@ func (a *AlgoTradingAPIService) DeleteAlgoSpotOrderV1Execute(r ApiDeleteAlgoSpot
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -1122,6 +1152,12 @@ func (a *AlgoTradingAPIService) GetAlgoFuturesHistoricalOrdersV1Execute(r ApiGet
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -1266,6 +1302,12 @@ func (a *AlgoTradingAPIService) GetAlgoFuturesOpenOrdersV1Execute(r ApiGetAlgoFu
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -1444,6 +1486,12 @@ func (a *AlgoTradingAPIService) GetAlgoFuturesSubOrdersV1Execute(r ApiGetAlgoFut
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -1659,6 +1707,12 @@ func (a *AlgoTradingAPIService) GetAlgoSpotHistoricalOrdersV1Execute(r ApiGetAlg
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -1803,6 +1857,12 @@ func (a *AlgoTradingAPIService) GetAlgoSpotOpenOrdersV1Execute(r ApiGetAlgoSpotO
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -1981,6 +2041,12 @@ func (a *AlgoTradingAPIService) GetAlgoSpotSubOrdersV1Execute(r ApiGetAlgoSpotSu
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication

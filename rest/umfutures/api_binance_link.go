@@ -117,12 +117,18 @@ func (a *BinanceLinkAPIService) CreateApiReferralCustomizationV1Execute(r ApiCre
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	parameterAddToHeaderOrQuery(localVarFormParams, "customerId", r.customerId, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "email", r.email, "", "")
 	if r.recvWindow != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -282,12 +288,18 @@ func (a *BinanceLinkAPIService) CreateApiReferralUserCustomizationPAPIV1Execute(
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	parameterAddToHeaderOrQuery(localVarFormParams, "brokerId", r.brokerId, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "customerId", r.customerId, "", "")
 	if r.recvWindow != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -448,12 +460,18 @@ func (a *BinanceLinkAPIService) CreateApiReferralUserCustomizationV1Execute(r Ap
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	parameterAddToHeaderOrQuery(localVarFormParams, "brokerId", r.brokerId, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "customerId", r.customerId, "", "")
 	if r.recvWindow != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -649,6 +667,12 @@ func (a *BinanceLinkAPIService) GetApiReferralCustomizationV1Execute(r ApiGetApi
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -811,6 +835,12 @@ func (a *BinanceLinkAPIService) GetApiReferralIfNewUserPAPIV1Execute(r ApiGetApi
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -977,6 +1007,12 @@ func (a *BinanceLinkAPIService) GetApiReferralIfNewUserV1Execute(r ApiGetApiRefe
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -1129,6 +1165,12 @@ func (a *BinanceLinkAPIService) GetApiReferralOverviewV1Execute(r ApiGetApiRefer
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -1314,6 +1356,12 @@ func (a *BinanceLinkAPIService) GetApiReferralRebateVolV1Execute(r ApiGetApiRefe
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -1498,6 +1546,12 @@ func (a *BinanceLinkAPIService) GetApiReferralTradeVolV1Execute(r ApiGetApiRefer
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -1681,6 +1735,12 @@ func (a *BinanceLinkAPIService) GetApiReferralTraderNumV1Execute(r ApiGetApiRefe
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -1878,6 +1938,12 @@ func (a *BinanceLinkAPIService) GetApiReferralTraderSummaryV1Execute(r ApiGetApi
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -2030,6 +2096,12 @@ func (a *BinanceLinkAPIService) GetApiReferralUserCustomizationPAPIV1Execute(r A
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -2186,6 +2258,12 @@ func (a *BinanceLinkAPIService) GetApiReferralUserCustomizationV1Execute(r ApiGe
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -2391,6 +2469,12 @@ func (a *BinanceLinkAPIService) GetIncomeV1Execute(r ApiGetIncomeV1Request) ([]G
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication

@@ -19,7 +19,7 @@ var _ MappedNullable = &CreateLocalentityWithdrawApplyV1Resp{}
 
 // CreateLocalentityWithdrawApplyV1Resp struct for CreateLocalentityWithdrawApplyV1Resp
 type CreateLocalentityWithdrawApplyV1Resp struct {
-	Accpted *bool `json:"accpted,omitempty"`
+	Accepted *bool `json:"accepted,omitempty"`
 	Info *string `json:"info,omitempty"`
 	TrId *int64 `json:"trId,omitempty"`
 }
@@ -41,36 +41,36 @@ func NewCreateLocalentityWithdrawApplyV1RespWithDefaults() *CreateLocalentityWit
 	return &this
 }
 
-// GetAccpted returns the Accpted field value if set, zero value otherwise.
-func (o *CreateLocalentityWithdrawApplyV1Resp) GetAccpted() bool {
-	if o == nil || IsNil(o.Accpted) {
+// GetAccepted returns the Accepted field value if set, zero value otherwise.
+func (o *CreateLocalentityWithdrawApplyV1Resp) GetAccepted() bool {
+	if o == nil || IsNil(o.Accepted) {
 		var ret bool
 		return ret
 	}
-	return *o.Accpted
+	return *o.Accepted
 }
 
-// GetAccptedOk returns a tuple with the Accpted field value if set, nil otherwise
+// GetAcceptedOk returns a tuple with the Accepted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateLocalentityWithdrawApplyV1Resp) GetAccptedOk() (*bool, bool) {
-	if o == nil || IsNil(o.Accpted) {
+func (o *CreateLocalentityWithdrawApplyV1Resp) GetAcceptedOk() (*bool, bool) {
+	if o == nil || IsNil(o.Accepted) {
 		return nil, false
 	}
-	return o.Accpted, true
+	return o.Accepted, true
 }
 
-// HasAccpted returns a boolean if a field has been set.
-func (o *CreateLocalentityWithdrawApplyV1Resp) HasAccpted() bool {
-	if o != nil && !IsNil(o.Accpted) {
+// HasAccepted returns a boolean if a field has been set.
+func (o *CreateLocalentityWithdrawApplyV1Resp) HasAccepted() bool {
+	if o != nil && !IsNil(o.Accepted) {
 		return true
 	}
 
 	return false
 }
 
-// SetAccpted gets a reference to the given bool and assigns it to the Accpted field.
-func (o *CreateLocalentityWithdrawApplyV1Resp) SetAccpted(v bool) {
-	o.Accpted = &v
+// SetAccepted gets a reference to the given bool and assigns it to the Accepted field.
+func (o *CreateLocalentityWithdrawApplyV1Resp) SetAccepted(v bool) {
+	o.Accepted = &v
 }
 
 // GetInfo returns the Info field value if set, zero value otherwise.
@@ -147,8 +147,8 @@ func (o CreateLocalentityWithdrawApplyV1Resp) MarshalJSON() ([]byte, error) {
 
 func (o CreateLocalentityWithdrawApplyV1Resp) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Accpted) {
-		toSerialize["accpted"] = o.Accpted
+	if !IsNil(o.Accepted) {
+		toSerialize["accepted"] = o.Accepted
 	}
 	if !IsNil(o.Info) {
 		toSerialize["info"] = o.Info

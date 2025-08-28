@@ -97,10 +97,16 @@ func (a *WalletAPIService) CreateAccountDisableFastWithdrawSwitchV1Execute(r Api
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	if r.recvWindow != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -242,10 +248,16 @@ func (a *WalletAPIService) CreateAccountEnableFastWithdrawSwitchV1Execute(r ApiC
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	if r.recvWindow != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -393,6 +405,8 @@ func (a *WalletAPIService) CreateAssetDustBtcV1Execute(r ApiCreateAssetDustBtcV1
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	if r.accountType != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "accountType", r.accountType, "", "")
 	}
@@ -400,6 +414,10 @@ func (a *WalletAPIService) CreateAssetDustBtcV1Execute(r ApiCreateAssetDustBtcV1
 		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -556,6 +574,8 @@ func (a *WalletAPIService) CreateAssetDustV1Execute(r ApiCreateAssetDustV1Reques
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	if r.accountType != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "accountType", r.accountType, "", "")
 	}
@@ -564,6 +584,10 @@ func (a *WalletAPIService) CreateAssetDustV1Execute(r ApiCreateAssetDustV1Reques
 		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -717,6 +741,8 @@ func (a *WalletAPIService) CreateAssetGetFundingAssetV1Execute(r ApiCreateAssetG
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	if r.asset != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "asset", r.asset, "", "")
 	}
@@ -727,6 +753,10 @@ func (a *WalletAPIService) CreateAssetGetFundingAssetV1Execute(r ApiCreateAssetG
 		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -880,6 +910,8 @@ func (a *WalletAPIService) CreateAssetGetUserAssetV3Execute(r ApiCreateAssetGetU
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	if r.asset != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "asset", r.asset, "", "")
 	}
@@ -890,6 +922,10 @@ func (a *WalletAPIService) CreateAssetGetUserAssetV3Execute(r ApiCreateAssetGetU
 		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -1070,6 +1106,8 @@ func (a *WalletAPIService) CreateAssetTransferV1Execute(r ApiCreateAssetTransfer
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	parameterAddToHeaderOrQuery(localVarFormParams, "amount", r.amount, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "asset", r.asset, "", "")
 	if r.fromSymbol != nil {
@@ -1083,6 +1121,10 @@ func (a *WalletAPIService) CreateAssetTransferV1Execute(r ApiCreateAssetTransfer
 		parameterAddToHeaderOrQuery(localVarFormParams, "toSymbol", r.toSymbol, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "type", r.type_, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -1236,6 +1278,8 @@ func (a *WalletAPIService) CreateBnbBurnV1Execute(r ApiCreateBnbBurnV1Request) (
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	if r.interestBNBBurn != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "interestBNBBurn", r.interestBNBBurn, "", "")
 	}
@@ -1246,6 +1290,10 @@ func (a *WalletAPIService) CreateBnbBurnV1Execute(r ApiCreateBnbBurnV1Request) (
 		parameterAddToHeaderOrQuery(localVarFormParams, "spotBNBBurn", r.spotBNBBurn, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -1396,6 +1444,8 @@ func (a *WalletAPIService) CreateCapitalDepositCreditApplyV1Execute(r ApiCreateC
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	if r.depositId != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "depositId", r.depositId, "", "")
 	}
@@ -1407,6 +1457,10 @@ func (a *WalletAPIService) CreateCapitalDepositCreditApplyV1Execute(r ApiCreateC
 	}
 	if r.txId != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "txId", r.txId, "", "")
+	}
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -1612,6 +1666,8 @@ func (a *WalletAPIService) CreateCapitalWithdrawApplyV1Execute(r ApiCreateCapita
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	parameterAddToHeaderOrQuery(localVarFormParams, "address", r.address, "", "")
 	if r.addressTag != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "addressTag", r.addressTag, "", "")
@@ -1636,6 +1692,10 @@ func (a *WalletAPIService) CreateCapitalWithdrawApplyV1Execute(r ApiCreateCapita
 	}
 	if r.withdrawOrderId != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "withdrawOrderId", r.withdrawOrderId, "", "")
+	}
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -1874,6 +1934,8 @@ func (a *WalletAPIService) CreateLocalentityBrokerWithdrawApplyV1Execute(r ApiCr
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	parameterAddToHeaderOrQuery(localVarFormParams, "address", r.address, "", "")
 	if r.addressName != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "addressName", r.addressName, "", "")
@@ -1886,8 +1948,16 @@ func (a *WalletAPIService) CreateLocalentityBrokerWithdrawApplyV1Execute(r ApiCr
 	if r.network != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "network", r.network, "", "")
 	}
-	parameterAddToHeaderOrQuery(localVarFormParams, "originatorPii", r.originatorPii, "", "")
-	parameterAddToHeaderOrQuery(localVarFormParams, "questionnaire", r.questionnaire, "", "")
+	// x-no-encode parameter: store raw value, don't add to form params
+	if rawParams == nil {
+		rawParams = make(map[string]string)
+	}
+	rawParams["originatorPii"] = parameterValueToString(r.originatorPii, "originatorPii")
+	// x-no-encode parameter: store raw value, don't add to form params
+	if rawParams == nil {
+		rawParams = make(map[string]string)
+	}
+	rawParams["questionnaire"] = parameterValueToString(r.questionnaire, "questionnaire")
 	parameterAddToHeaderOrQuery(localVarFormParams, "signature", r.signature, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "subAccountId", r.subAccountId, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
@@ -1898,6 +1968,10 @@ func (a *WalletAPIService) CreateLocalentityBrokerWithdrawApplyV1Execute(r ApiCr
 		parameterAddToHeaderOrQuery(localVarFormParams, "walletType", r.walletType, "", "")
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "withdrawOrderId", r.withdrawOrderId, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -2111,6 +2185,8 @@ func (a *WalletAPIService) CreateLocalentityWithdrawApplyV1Execute(r ApiCreateLo
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	parameterAddToHeaderOrQuery(localVarFormParams, "address", r.address, "", "")
 	if r.addressTag != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "addressTag", r.addressTag, "", "")
@@ -2123,7 +2199,11 @@ func (a *WalletAPIService) CreateLocalentityWithdrawApplyV1Execute(r ApiCreateLo
 	if r.network != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "network", r.network, "", "")
 	}
-	parameterAddToHeaderOrQuery(localVarFormParams, "questionnaire", r.questionnaire, "", "")
+	// x-no-encode parameter: store raw value, don't add to form params
+	if rawParams == nil {
+		rawParams = make(map[string]string)
+	}
+	rawParams["questionnaire"] = parameterValueToString(r.questionnaire, "questionnaire")
 	if r.recvWindow != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "recvWindow", r.recvWindow, "", "")
 	}
@@ -2136,6 +2216,10 @@ func (a *WalletAPIService) CreateLocalentityWithdrawApplyV1Execute(r ApiCreateLo
 	}
 	if r.withdrawOrderId != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "withdrawOrderId", r.withdrawOrderId, "", "")
+	}
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -2282,6 +2366,12 @@ func (a *WalletAPIService) GetAccountApiRestrictionsV1Execute(r ApiGetAccountApi
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -2427,6 +2517,12 @@ func (a *WalletAPIService) GetAccountApiTradingStatusV1Execute(r ApiGetAccountAp
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -2571,6 +2667,12 @@ func (a *WalletAPIService) GetAccountInfoV1Execute(r ApiGetAccountInfoV1Request)
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -2759,6 +2861,12 @@ func (a *WalletAPIService) GetAccountSnapshotV1Execute(r ApiGetAccountSnapshotV1
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -2904,6 +3012,12 @@ func (a *WalletAPIService) GetAccountStatusV1Execute(r ApiGetAccountStatusV1Requ
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -3048,6 +3162,12 @@ func (a *WalletAPIService) GetAssetAssetDetailV1Execute(r ApiGetAssetAssetDetail
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -3236,6 +3356,12 @@ func (a *WalletAPIService) GetAssetAssetDividendV1Execute(r ApiGetAssetAssetDivi
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -3463,6 +3589,12 @@ func (a *WalletAPIService) GetAssetCustodyTransferHistoryV1Execute(r ApiGetAsset
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -3625,6 +3757,12 @@ func (a *WalletAPIService) GetAssetDribbletV1Execute(r ApiGetAssetDribbletV1Requ
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -3836,6 +3974,12 @@ func (a *WalletAPIService) GetAssetLedgerTransferCloudMiningQueryByPageV1Execute
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -3992,6 +4136,12 @@ func (a *WalletAPIService) GetAssetTradeFeeV1Execute(r ApiGetAssetTradeFeeV1Requ
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -4216,6 +4366,12 @@ func (a *WalletAPIService) GetAssetTransferV1Execute(r ApiGetAssetTransferV1Requ
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -4374,6 +4530,12 @@ func (a *WalletAPIService) GetAssetWalletBalanceV1Execute(r ApiGetAssetWalletBal
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -4518,6 +4680,12 @@ func (a *WalletAPIService) GetCapitalConfigGetallV1Execute(r ApiGetCapitalConfig
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -4677,6 +4845,12 @@ func (a *WalletAPIService) GetCapitalDepositAddressListV1Execute(r ApiGetCapital
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -4856,6 +5030,12 @@ func (a *WalletAPIService) GetCapitalDepositAddressV1Execute(r ApiGetCapitalDepo
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -5089,6 +5269,12 @@ func (a *WalletAPIService) GetCapitalDepositHisrecV1Execute(r ApiGetCapitalDepos
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -5214,6 +5400,12 @@ func (a *WalletAPIService) GetCapitalWithdrawAddressListV1Execute(r ApiGetCapita
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -5448,6 +5640,12 @@ func (a *WalletAPIService) GetCapitalWithdrawHistoryV1Execute(r ApiGetCapitalWit
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -5708,6 +5906,12 @@ func (a *WalletAPIService) GetLocalentityDepositHistoryV1Execute(r ApiGetLocalen
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -5833,6 +6037,12 @@ func (a *WalletAPIService) GetLocalentityVaspV1Execute(r ApiGetLocalentityVaspV1
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -6098,6 +6308,12 @@ func (a *WalletAPIService) GetLocalentityWithdrawHistoryV1Execute(r ApiGetLocale
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -6362,6 +6578,12 @@ func (a *WalletAPIService) GetLocalentityWithdrawHistoryV2Execute(r ApiGetLocale
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -6507,6 +6729,12 @@ func (a *WalletAPIService) GetSpotDelistScheduleV1Execute(r ApiGetSpotDelistSche
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -6633,6 +6861,12 @@ func (a *WalletAPIService) GetSpotOpenSymbolListV1Execute(r ApiGetSpotOpenSymbol
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -6758,6 +6992,12 @@ func (a *WalletAPIService) GetSystemStatusV1Execute(r ApiGetSystemStatusV1Reques
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -6965,6 +7205,8 @@ func (a *WalletAPIService) UpdateLocalentityBrokerDepositProvideInfoV1Execute(r 
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	if r.address != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "address", r.address, "", "")
 	}
@@ -6974,7 +7216,11 @@ func (a *WalletAPIService) UpdateLocalentityBrokerDepositProvideInfoV1Execute(r 
 	if r.amount != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "amount", r.amount, "", "")
 	}
-	parameterAddToHeaderOrQuery(localVarFormParams, "beneficiaryPii", r.beneficiaryPii, "", "")
+	// x-no-encode parameter: store raw value, don't add to form params
+	if rawParams == nil {
+		rawParams = make(map[string]string)
+	}
+	rawParams["beneficiaryPii"] = parameterValueToString(r.beneficiaryPii, "beneficiaryPii")
 	if r.coin != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "coin", r.coin, "", "")
 	}
@@ -6982,10 +7228,18 @@ func (a *WalletAPIService) UpdateLocalentityBrokerDepositProvideInfoV1Execute(r 
 	if r.network != nil {
 		parameterAddToHeaderOrQuery(localVarFormParams, "network", r.network, "", "")
 	}
-	parameterAddToHeaderOrQuery(localVarFormParams, "questionnaire", r.questionnaire, "", "")
+	// x-no-encode parameter: store raw value, don't add to form params
+	if rawParams == nil {
+		rawParams = make(map[string]string)
+	}
+	rawParams["questionnaire"] = parameterValueToString(r.questionnaire, "questionnaire")
 	parameterAddToHeaderOrQuery(localVarFormParams, "signature", r.signature, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "subAccountId", r.subAccountId, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -7141,9 +7395,19 @@ func (a *WalletAPIService) UpdateLocalentityDepositProvideInfoV1Execute(r ApiUpd
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarFormParams, "questionnaire", r.questionnaire, "", "")
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// x-no-encode parameter: store raw value, don't add to form params
+	if rawParams == nil {
+		rawParams = make(map[string]string)
+	}
+	rawParams["questionnaire"] = parameterValueToString(r.questionnaire, "questionnaire")
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "tranId", r.tranId, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {

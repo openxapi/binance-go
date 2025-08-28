@@ -153,6 +153,8 @@ func (a *MarketMakerBlockTradeAPIService) CreateBlockOrderCreateV1Execute(r ApiC
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
 	parameterAddToHeaderOrQuery(localVarFormParams, "legs", r.legs, "", "csv")
 	parameterAddToHeaderOrQuery(localVarFormParams, "liquidity", r.liquidity, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "price", r.price, "", "")
@@ -163,6 +165,10 @@ func (a *MarketMakerBlockTradeAPIService) CreateBlockOrderCreateV1Execute(r ApiC
 	parameterAddToHeaderOrQuery(localVarFormParams, "side", r.side, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "symbol", r.symbol, "", "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "timestamp", r.timestamp, "", "")
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
+	}
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextBinanceAuth).(Auth); ok {
@@ -318,6 +324,12 @@ func (a *MarketMakerBlockTradeAPIService) DeleteBlockOrderCreateV1Execute(r ApiD
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// Prepare raw parameters for signature if needed
+	var rawParams map[string]string
+	// Add raw parameters to context if any
+	if len(rawParams) > 0 {
+		r.ctx = context.WithValue(r.ctx, ContextRawParams, rawParams)
 	}
 	if r.ctx != nil {
 		// API Key Authentication

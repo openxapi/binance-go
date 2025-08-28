@@ -32,6 +32,9 @@ var (
 	ContextAPIKeys = contextKey("apiKeys")
 
 	ContextBinanceAuth = contextKey("binanceAuth")
+	
+	// ContextRawParams stores raw (unencoded) parameter values for signature calculation
+	ContextRawParams = contextKey("rawParams")
 
 	// ContextServerIndex uses a server configuration from the index.
 	ContextServerIndex = contextKey("serverIndex")
