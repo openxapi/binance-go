@@ -1581,7 +1581,7 @@ func (c *Client) SendUserDataStreamStop(ctx context.Context, request *models.Use
 // HandleAccountConfigUpdateEvent registers a handler for Account Configuration Update Event events
 // This method allows you to handle real-time Account Configuration Update Event events from the WebSocket stream
 func (c *Client) HandleAccountConfigUpdateEvent(handler func(*models.AccountConfigUpdateEvent) error) {
-	c.eventHandler.RegisterHandler("accountConfigUpdateEvent", func(data interface{}) error {
+	c.eventHandler.RegisterHandler("ACCOUNT_CONFIG_UPDATE", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
 		var event models.AccountConfigUpdateEvent
 		
@@ -1625,7 +1625,7 @@ func (c *Client) HandleAccountConfigUpdateEvent(handler func(*models.AccountConf
 // HandleAccountUpdateEvent registers a handler for Account Update Event events
 // This method allows you to handle real-time Account Update Event events from the WebSocket stream
 func (c *Client) HandleAccountUpdateEvent(handler func(*models.AccountUpdateEvent) error) {
-	c.eventHandler.RegisterHandler("accountUpdateEvent", func(data interface{}) error {
+	c.eventHandler.RegisterHandler("ACCOUNT_UPDATE", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
 		var event models.AccountUpdateEvent
 		
@@ -1669,7 +1669,7 @@ func (c *Client) HandleAccountUpdateEvent(handler func(*models.AccountUpdateEven
 // HandleGridUpdateEvent registers a handler for Grid Update Event events
 // This method allows you to handle real-time Grid Update Event events from the WebSocket stream
 func (c *Client) HandleGridUpdateEvent(handler func(*models.GridUpdateEvent) error) {
-	c.eventHandler.RegisterHandler("gridUpdateEvent", func(data interface{}) error {
+	c.eventHandler.RegisterHandler("GRID_UPDATE", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
 		var event models.GridUpdateEvent
 		
@@ -1713,7 +1713,7 @@ func (c *Client) HandleGridUpdateEvent(handler func(*models.GridUpdateEvent) err
 // HandleListenKeyExpiredEvent registers a handler for Listen Key Expired Event events
 // This method allows you to handle real-time Listen Key Expired Event events from the WebSocket stream
 func (c *Client) HandleListenKeyExpiredEvent(handler func(*models.ListenKeyExpiredEvent) error) {
-	c.eventHandler.RegisterHandler("listenKeyExpiredEvent", func(data interface{}) error {
+	c.eventHandler.RegisterHandler("listenKeyExpired", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
 		var event models.ListenKeyExpiredEvent
 		
@@ -1757,7 +1757,7 @@ func (c *Client) HandleListenKeyExpiredEvent(handler func(*models.ListenKeyExpir
 // HandleMarginCallEvent registers a handler for Margin Call Event events
 // This method allows you to handle real-time Margin Call Event events from the WebSocket stream
 func (c *Client) HandleMarginCallEvent(handler func(*models.MarginCallEvent) error) {
-	c.eventHandler.RegisterHandler("marginCallEvent", func(data interface{}) error {
+	c.eventHandler.RegisterHandler("MARGIN_CALL", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
 		var event models.MarginCallEvent
 		
@@ -1801,7 +1801,7 @@ func (c *Client) HandleMarginCallEvent(handler func(*models.MarginCallEvent) err
 // HandleOrderTradeUpdateEvent registers a handler for Order Trade Update Event events
 // This method allows you to handle real-time Order Trade Update Event events from the WebSocket stream
 func (c *Client) HandleOrderTradeUpdateEvent(handler func(*models.OrderTradeUpdateEvent) error) {
-	c.eventHandler.RegisterHandler("orderTradeUpdateEvent", func(data interface{}) error {
+	c.eventHandler.RegisterHandler("ORDER_TRADE_UPDATE", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
 		var event models.OrderTradeUpdateEvent
 		
@@ -1845,7 +1845,7 @@ func (c *Client) HandleOrderTradeUpdateEvent(handler func(*models.OrderTradeUpda
 // HandleStrategyUpdateEvent registers a handler for Strategy Update Event events
 // This method allows you to handle real-time Strategy Update Event events from the WebSocket stream
 func (c *Client) HandleStrategyUpdateEvent(handler func(*models.StrategyUpdateEvent) error) {
-	c.eventHandler.RegisterHandler("strategyUpdateEvent", func(data interface{}) error {
+	c.eventHandler.RegisterHandler("STRATEGY_UPDATE", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
 		var event models.StrategyUpdateEvent
 		

@@ -3179,7 +3179,7 @@ func (c *Client) SendUserDataStreamUnsubscribe(ctx context.Context, request *mod
 // HandleBalanceUpdateEvent registers a handler for Balance Update Event events
 // This method allows you to handle real-time Balance Update Event events from the WebSocket stream
 func (c *Client) HandleBalanceUpdateEvent(handler func(*models.BalanceUpdateEvent) error) {
-	c.eventHandler.RegisterHandler("balanceUpdateEvent", func(data interface{}) error {
+	c.eventHandler.RegisterHandler("balanceUpdate", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
 		var event models.BalanceUpdateEvent
 		
@@ -3223,7 +3223,7 @@ func (c *Client) HandleBalanceUpdateEvent(handler func(*models.BalanceUpdateEven
 // HandleEventStreamTerminatedEvent registers a handler for Event Stream Terminated Event events
 // This method allows you to handle real-time Event Stream Terminated Event events from the WebSocket stream
 func (c *Client) HandleEventStreamTerminatedEvent(handler func(*models.EventStreamTerminatedEvent) error) {
-	c.eventHandler.RegisterHandler("eventStreamTerminatedEvent", func(data interface{}) error {
+	c.eventHandler.RegisterHandler("eventStreamTerminated", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
 		var event models.EventStreamTerminatedEvent
 		
@@ -3267,7 +3267,7 @@ func (c *Client) HandleEventStreamTerminatedEvent(handler func(*models.EventStre
 // HandleExecutionReportEvent registers a handler for Execution Report Event events
 // This method allows you to handle real-time Execution Report Event events from the WebSocket stream
 func (c *Client) HandleExecutionReportEvent(handler func(*models.ExecutionReportEvent) error) {
-	c.eventHandler.RegisterHandler("executionReportEvent", func(data interface{}) error {
+	c.eventHandler.RegisterHandler("executionReport", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
 		var event models.ExecutionReportEvent
 		
@@ -3311,7 +3311,7 @@ func (c *Client) HandleExecutionReportEvent(handler func(*models.ExecutionReport
 // HandleExternalLockUpdateEvent registers a handler for External Lock Update Event events
 // This method allows you to handle real-time External Lock Update Event events from the WebSocket stream
 func (c *Client) HandleExternalLockUpdateEvent(handler func(*models.ExternalLockUpdateEvent) error) {
-	c.eventHandler.RegisterHandler("externalLockUpdateEvent", func(data interface{}) error {
+	c.eventHandler.RegisterHandler("externalLockUpdate", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
 		var event models.ExternalLockUpdateEvent
 		
@@ -3355,7 +3355,7 @@ func (c *Client) HandleExternalLockUpdateEvent(handler func(*models.ExternalLock
 // HandleListStatusEvent registers a handler for List Status Event events
 // This method allows you to handle real-time List Status Event events from the WebSocket stream
 func (c *Client) HandleListStatusEvent(handler func(*models.ListStatusEvent) error) {
-	c.eventHandler.RegisterHandler("listStatusEvent", func(data interface{}) error {
+	c.eventHandler.RegisterHandler("listStatus", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
 		var event models.ListStatusEvent
 		
@@ -3399,7 +3399,7 @@ func (c *Client) HandleListStatusEvent(handler func(*models.ListStatusEvent) err
 // HandleListenKeyExpiredEvent registers a handler for Listen Key Expired Event events
 // This method allows you to handle real-time Listen Key Expired Event events from the WebSocket stream
 func (c *Client) HandleListenKeyExpiredEvent(handler func(*models.ListenKeyExpiredEvent) error) {
-	c.eventHandler.RegisterHandler("listenKeyExpiredEvent", func(data interface{}) error {
+	c.eventHandler.RegisterHandler("listenKeyExpired", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
 		var event models.ListenKeyExpiredEvent
 		
@@ -3443,7 +3443,7 @@ func (c *Client) HandleListenKeyExpiredEvent(handler func(*models.ListenKeyExpir
 // HandleOutboundAccountPositionEvent registers a handler for Outbound Account Position Event events
 // This method allows you to handle real-time Outbound Account Position Event events from the WebSocket stream
 func (c *Client) HandleOutboundAccountPositionEvent(handler func(*models.OutboundAccountPositionEvent) error) {
-	c.eventHandler.RegisterHandler("outboundAccountPositionEvent", func(data interface{}) error {
+	c.eventHandler.RegisterHandler("outboundAccountPosition", func(data interface{}) error {
 		// Parse the event data - handle both nested and direct event structures
 		var event models.OutboundAccountPositionEvent
 		

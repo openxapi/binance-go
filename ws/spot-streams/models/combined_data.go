@@ -12,6 +12,9 @@ type CombinedData struct {
 	// that would be received when connecting to the individual stream directly.
 	// The event type can be determined by examining the 'stream' field.
 	// 
+	// For all-market streams (!ticker@arr, !miniTicker@arr), the data will be
+	// an array of events instead of a single event object.
+	// 
 	StreamData interface{} `json:"data,omitempty"`
 }
 

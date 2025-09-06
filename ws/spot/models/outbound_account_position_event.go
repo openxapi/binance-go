@@ -7,13 +7,13 @@ import (
 // OutboundAccountPositionEventEvent represents a nested object structure
 type OutboundAccountPositionEventEvent struct {
 	// Balances Array
-	BalancesArray []OutboundAccountPositionEventEventBItem `json:"B,omitempty"`
+	BalancesArray []OutboundAccountPositionEventEventBItem `json:"B"`
 	// Event Time (milliseconds)
-	EventTime int64 `json:"E,omitempty"`
+	EventTime int64 `json:"E"`
 	// Event type
-	EventType string `json:"e,omitempty"`
+	EventType string `json:"e"`
 	// Time of last account update (milliseconds)
-	TimeOfLastAccountUpdate int64 `json:"u,omitempty"`
+	TimeOfLastAccountUpdate int64 `json:"u"`
 }
 
 // OutboundAccountPositionEventEventBItem represents a nested object structure
@@ -29,7 +29,7 @@ type OutboundAccountPositionEventEventBItem struct {
 // OutboundAccountPositionEvent - Sent when account balance changes
 // Message name: Outbound Account Position Event
 type OutboundAccountPositionEvent struct {
-	Event *OutboundAccountPositionEventEvent `json:"event,omitempty"`
+	Event OutboundAccountPositionEventEvent `json:"event"`
 }
 
 // String returns string representation of OutboundAccountPositionEvent

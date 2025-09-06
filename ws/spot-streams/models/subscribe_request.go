@@ -9,10 +9,16 @@ import (
 // Binance naming conventions (lowercase, with @ separators).
 // 
 // Supported stream patterns:
-// - Symbol streams: {symbol}@{streamType} (e.g., "btcusdt@aggTrade")
-// - All market streams: !{streamType}@arr (e.g., "!ticker@arr")
-// - Depth streams: {symbol}@depth{levels}{speed} (e.g., "btcusdt@depth5@100ms")
-// - Kline streams: {symbol}@kline_{interval} (e.g., "btcusdt@kline_1m")
+// 
+// Individual Symbol Streams:
+// - Trade: `{symbol}@aggTrade`, `{symbol}@trade`
+// - Kline: `{symbol}@kline_{interval}`, `{symbol}@kline_{interval}@+08:00`
+// - Ticker: `{symbol}@miniTicker`, `{symbol}@ticker`, `{symbol}@ticker_{window}`
+// - Book: `{symbol}@bookTicker`, `{symbol}@avgPrice`
+// - Depth: `{symbol}@depth`, `{symbol}@depth{levels}`, with optional @{speed}
+// 
+// All Market Streams (arrays):
+// - `!ticker@arr`, `!miniTicker@arr`, `!ticker_{window}@arr`
 // 
 type SubscribeRequest struct {
 	// Method name

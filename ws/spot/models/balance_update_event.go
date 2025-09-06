@@ -7,21 +7,21 @@ import (
 // BalanceUpdateEventEvent represents a nested object structure
 type BalanceUpdateEventEvent struct {
 	// Event Time (milliseconds)
-	EventTime int64 `json:"E,omitempty"`
+	EventTime int64 `json:"E"`
 	// Clear Time (milliseconds)
-	ClearTime int64 `json:"T,omitempty"`
+	ClearTime int64 `json:"T"`
 	// Asset
-	Asset string `json:"a,omitempty"`
+	Asset string `json:"a"`
 	// Balance Delta
-	BalanceDelta string `json:"d,omitempty"`
+	BalanceDelta string `json:"d"`
 	// Event Type
-	EventType string `json:"e,omitempty"`
+	EventType string `json:"e"`
 }
 
 // BalanceUpdateEvent - Occurs during deposits, withdrawals, or transfers
 // Message name: Balance Update Event
 type BalanceUpdateEvent struct {
-	Event *BalanceUpdateEventEvent `json:"event,omitempty"`
+	Event BalanceUpdateEventEvent `json:"event"`
 }
 
 // String returns string representation of BalanceUpdateEvent
