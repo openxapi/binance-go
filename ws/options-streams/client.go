@@ -57,7 +57,7 @@ func NewServerManager() *ServerManager {
 		Protocol:    "wss",
 		Title:       "Binance Options Server",
 		Summary:     "Binance Options WebSocket Streams Server (Mainnet)",
-		Description: "WebSocket server for binance exchange options market data streams (mainnet environment)",
+		Description: "WebSocket server for binance exchange options market data and user data streams (mainnet environment)",
 		Active:      false,
 	}
 	
