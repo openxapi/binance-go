@@ -1,20 +1,9 @@
 package models
 
-import (
-	"encoding/json"
-)
-
-// SetPropertyResponse represents SetPropertyResponse
+// SetPropertyResponse represents global message '#/components/messages/setPropertyResponse'
 type SetPropertyResponse struct {
-	// Always null for successful property setting
-	AlwaysNullForSuccessfulPropertySetting interface{} `json:"result,omitempty"`
-	Id int `json:"id,omitempty"`
-}
-
-// String returns string representation of SetPropertyResponse
-func (s SetPropertyResponse) String() string {
-	b, _ := json.Marshal(s)
-	return string(b)
+	Result interface{} `json:"result,omitempty"` // Always null for successful property setting
+	Id int64 `json:"id,omitempty"`
 }
 
 

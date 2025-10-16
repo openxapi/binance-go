@@ -1,20 +1,9 @@
 package models
 
-import (
-	"encoding/json"
-)
-
-// GetPropertyResponse represents GetPropertyResponse
+// GetPropertyResponse represents global message '#/components/messages/getPropertyResponse'
 type GetPropertyResponse struct {
-	// Property value (currently only 'combined' property supported)
-	PropertyValue interface{} `json:"result,omitempty"`
-	Id int `json:"id,omitempty"`
-}
-
-// String returns string representation of GetPropertyResponse
-func (s GetPropertyResponse) String() string {
-	b, _ := json.Marshal(s)
-	return string(b)
+	Result interface{} `json:"result,omitempty"` // Property value (currently only 'combined' property supported)
+	Id int64 `json:"id,omitempty"`
 }
 
 

@@ -1,23 +1,10 @@
 package models
 
-import (
-	"encoding/json"
-)
-
-// GetPropertyRequest represents GetPropertyRequest
+// GetPropertyRequest represents global message '#/components/messages/getPropertyRequest'
 type GetPropertyRequest struct {
-	// Method name
-	MethodName string `json:"method,omitempty"`
-	// Array containing property name to retrieve
-	ArrayContainingPropertyNameToRetrieve []string `json:"params,omitempty"`
-	// Request ID
-	RequestId int `json:"id,omitempty"`
-}
-
-// String returns string representation of GetPropertyRequest
-func (s GetPropertyRequest) String() string {
-	b, _ := json.Marshal(s)
-	return string(b)
+	Method string `json:"method"` // Method name
+	Params []string `json:"params"` // Array containing property name to retrieve
+	Id int64 `json:"id"` // Request ID
 }
 
 
