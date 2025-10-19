@@ -1,7 +1,7 @@
 package models
 
-// BookTickerEvent represents global message '#/components/messages/bookTickerEvent'
-type BookTickerEvent struct {
+// AllBookTickersEvent represents global message '#/components/messages/allBookTickersEvent'
+type AllBookTickersEvent struct {
 	EventType string `json:"e"` // Event type
 	OrderBookUpdateId int64 `json:"u"` // Order book updateId
 	Symbol string `json:"s"` // Symbol

@@ -1,7 +1,7 @@
 package models
 
-// LiquidationEvent represents global message '#/components/messages/liquidationEvent'
-type LiquidationEvent struct {
+// AllLiquidationsEvent represents global message '#/components/messages/allLiquidationsEvent'
+type AllLiquidationsEvent struct {
 	EventType string `json:"e"` // Event type
 	EventTime int64 `json:"E"` // Event time
 	LiquidationOrder struct {

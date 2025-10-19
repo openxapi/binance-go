@@ -1,43 +1,19 @@
 package models
 
-import (
-	"encoding/json"
-)
-
-// CompositeIndexEvent represents CompositeIndexEvent
+// CompositeIndexEvent represents global message '#/components/messages/compositeIndexEvent'
 type CompositeIndexEvent struct {
-	// Event type
-	EventType string `json:"e,omitempty"`
-	// Event time
-	EventTime int64 `json:"E,omitempty"`
-	// Symbol
-	Symbol string `json:"s,omitempty"`
-	// Price
-	Price string `json:"p,omitempty"`
-	// Asset type
-	AssetType string `json:"C,omitempty"`
-	// Composition
-	Composition []CompositeIndexEventCompositionItem `json:"c,omitempty"`
-}
-
-// CompositeIndexEventCompositionItem represents the composition item details
-type CompositeIndexEventCompositionItem struct {
-	// Base asset
-	BaseAsset string `json:"b,omitempty"`
-	// Quote asset
-	QuoteAsset string `json:"q,omitempty"`
-	// Weight in quantity
-	WeightInQuantity string `json:"w,omitempty"`
-	// Weight in percentage
-	WeightInPercentage string `json:"W,omitempty"`
-	// Index price
-	IndexPrice string `json:"i,omitempty"`
-}
-
-// String returns string representation of CompositeIndexEvent
-func (s CompositeIndexEvent) String() string {
-	b, _ := json.Marshal(s)
-	return string(b)
+	EventType string `json:"e"` // Event type
+	EventTime int64 `json:"E"` // Event time
+	Symbol string `json:"s"` // Symbol
+	Price string `json:"p"` // Price
+	AssetType string `json:"C"` // Asset type
+	Composition []struct {
+		BaseAsset string `json:"b"` // Base asset
+		QuoteAsset string `json:"q"` // Quote asset
+		WeightInQuantity string `json:"w"` // Weight in quantity
+		WeightInPercentage string `json:"W"` // Weight in percentage
+		IndexPrice string `json:"i"` // Index price
+	} `json:"c"` // Composition
 }
 
 
