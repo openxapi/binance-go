@@ -1,7 +1,7 @@
 package models
 
-// UserDataStreamsStartRequest represents global message '#/components/messages/userDataStreamsStartRequest'
-type UserDataStreamsStartRequest struct {
+// UserDataStreamStopRequest represents global message '#/components/messages/userDataStreamStopRequest'
+type UserDataStreamStopRequest struct {
 	Id int64 `json:"id,omitempty"` // id property
 	Method string `json:"method,omitempty"` // method property
 	Params struct {

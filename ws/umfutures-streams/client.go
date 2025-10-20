@@ -53,8 +53,8 @@ func NewClientWithOptions(opts *ClientOptions) *Client {
   }
   c.workerCount = wc
   // Preload servers from AsyncAPI spec (first becomes active by default)
-  _ = c.AddServer("mainnet1", "wss://fstream.binance.com/", "Binance USD-S Margined Futures Server", "WebSocket server for Binance USD-S margined futures market data streams (mainnet)")
-  _ = c.AddServer("testnet1", "wss://fstream.binancefuture.com/", "Binance USD-S Margined Futures Testnet Server", "WebSocket server for Binance USD-S margined futures market data streams (testnet)")
+  _ = c.AddServer("mainnet", "wss://fstream.binance.com/", "Binance USD-S Margined Futures Server", "WebSocket server for Binance USD-S margined futures market data streams (mainnet)")
+  _ = c.AddServer("testnet", "wss://fstream.binancefuture.com/", "Binance USD-S Margined Futures Testnet Server", "WebSocket server for Binance USD-S margined futures market data streams (testnet)")
   return c
 }
 

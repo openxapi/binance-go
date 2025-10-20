@@ -53,7 +53,7 @@ Connect using generated channels (per AsyncAPI channel):
 
 ```go
 // Single stream channel
-ch := ws.NewMarketStreamsChannel(client)
+ch := ws.NewMarketStreamChannel(client)
 
 // Register handler(s) before connect (recommended)
 ch.HandleNewSymbolInfoEvent(func(ctx context.Context, ev *wsmodels.NewSymbolInfoEvent) error {
@@ -67,13 +67,13 @@ if err := ch.Connect(ctx, "ETH@openInterest@221125"); err != nil {
 }
 
 // Combined connection channel (connect first, then SUBSCRIBE)
-comb := ws.NewCombinedMarketStreamsChannel(client)
+comb := ws.NewCombinedMarketStreamChannel(client)
 if err := comb.Connect(ctx, "ETH@openInterest@221125/ETH@markPrice"); err != nil {
   log.Fatalf("connect combined failed: %v", err)
 }
 
 +// User Data Streams channel (requires listenKey)
-uds := ws.NewUserDataStreamsChannel(client)
+uds := ws.NewUserDataStreamChannel(client)
 // Example handler
 uds.HandleAccountUpdateEvent(func(ctx context.Context, ev *wsmodels.AccountUpdateEvent) error {
   log.Printf("account update: %+v", ev)
@@ -127,7 +127,7 @@ onReply := func(ctx context.Context, res *wsmodels.ListSubscriptionsResponse) er
 }
 
 // Send on combined channel (similar methods exist for single channel)
-if err := comb.ListSubscriptionsFromCombinedMarketStreams(ctx, req, &onReply); err != nil {
+if err := comb.CombinedMarketStreamListSubscriptions(ctx, req, &onReply); err != nil {
   log.Fatalf("list subscriptions failed: %v", err)
 }
 ```

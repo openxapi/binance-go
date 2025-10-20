@@ -12,8 +12,8 @@ import (
 	"github.com/openxapi/binance-go/ws/umfutures-streams/models"
 )
 
-// MarketStreamsChannel represents connection and handlers for channel 'marketStreams'
-type MarketStreamsChannel struct {
+// CombinedMarketStreamChannel represents connection and handlers for channel 'combinedMarketStream'
+type CombinedMarketStreamChannel struct {
 	client       *Client
 	isConnected  bool
 	addrTemplate string
@@ -22,17 +22,17 @@ type MarketStreamsChannel struct {
 	msgHandlers  map[string]func(context.Context, []byte) error
 }
 
-// NewMarketStreamsChannel constructs a channel bound to a client
-func NewMarketStreamsChannel(client *Client) *MarketStreamsChannel {
-	return &MarketStreamsChannel{
+// NewCombinedMarketStreamChannel constructs a channel bound to a client
+func NewCombinedMarketStreamChannel(client *Client) *CombinedMarketStreamChannel {
+	return &CombinedMarketStreamChannel{
 		client:       client,
-		addrTemplate: "/ws/{streamName}",
+		addrTemplate: "/stream?streams={streams}",
 		msgHandlers:  make(map[string]func(context.Context, []byte) error),
 	}
 }
 
 // Connect resolves the channel address and establishes a WebSocket connection
-func (ch *MarketStreamsChannel) Connect(ctx context.Context, streamName string) error {
+func (ch *CombinedMarketStreamChannel) Connect(ctx context.Context, streams string) error {
 	ch.mu.Lock()
 	defer ch.mu.Unlock()
 	if ch.isConnected {
@@ -43,7 +43,7 @@ func (ch *MarketStreamsChannel) Connect(ctx context.Context, streamName string) 
 		return fmt.Errorf("no active server configured")
 	}
 	path := ch.addrTemplate
-	path = strings.ReplaceAll(path, "{streamName}", streamName)
+	path = strings.ReplaceAll(path, "{streams}", streams)
 	if i := strings.Index(path, "?"); i >= 0 {
 		basePath := path[:i]
 		q := path[i+1:]
@@ -78,21 +78,21 @@ func (ch *MarketStreamsChannel) Connect(ctx context.Context, streamName string) 
 		ch.client.connMu.Unlock()
 	}
 	// register handlers and start shared read loop
-	ch.client.RegisterHandlers("marketStreams", ch.msgHandlers)
+	ch.client.RegisterHandlers("combinedMarketStream", ch.msgHandlers)
 	ch.client.ensureReadLoop(ctx)
 	ch.isConnected = true
 	return nil
 }
 
 // Disconnect tears down channel handlers and cancels the client's read loop
-func (ch *MarketStreamsChannel) Disconnect(ctx context.Context) error {
+func (ch *CombinedMarketStreamChannel) Disconnect(ctx context.Context) error {
 	// Stop the read loop and underlying connection early to avoid handler lock contention
 	ch.client.StopReadLoop()
 	// Wait for the read loop to exit or the context to cancel
 	if err := ch.client.Wait(ctx); err != nil && err != context.Canceled { return err }
 	// Remove handlers for this channel
 	ch.client.handlersMu.Lock()
-	delete(ch.client.handlers, "marketStreams")
+	delete(ch.client.handlers, "combinedMarketStream")
 	ch.client.handlersMu.Unlock()
 	// Mark channel as disconnected
 	ch.mu.Lock()
@@ -101,8 +101,8 @@ func (ch *MarketStreamsChannel) Disconnect(ctx context.Context) error {
 	return nil
 }
 
-// MarketStreamsSubscribe sends a message for operation 'marketStreamsSubscribe' on marketStreams
-func (ch *MarketStreamsChannel) MarketStreamsSubscribe(ctx context.Context, req *models.SubscribeRequest, handler *func(context.Context, *models.SubscribeResponse) error) error {
+// Subscribe sends a message for operation 'combinedMarketStreamSubscribe' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) Subscribe(ctx context.Context, req *models.SubscribeRequest, handler *func(context.Context, *models.SubscribeResponse) error) error {
 	ch.client.connMu.RLock()
 	conn := ch.client.conn
 	ch.client.connMu.RUnlock()
@@ -127,8 +127,8 @@ func (ch *MarketStreamsChannel) MarketStreamsSubscribe(ctx context.Context, req 
 	return conn.WriteMessage(websocket.TextMessage, data)
 }
 
-// MarketStreamsUnsubscribe sends a message for operation 'marketStreamsUnsubscribe' on marketStreams
-func (ch *MarketStreamsChannel) MarketStreamsUnsubscribe(ctx context.Context, req *models.UnsubscribeRequest, handler *func(context.Context, *models.UnsubscribeResponse) error) error {
+// Unsubscribe sends a message for operation 'combinedMarketStreamUnsubscribe' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) Unsubscribe(ctx context.Context, req *models.UnsubscribeRequest, handler *func(context.Context, *models.UnsubscribeResponse) error) error {
 	ch.client.connMu.RLock()
 	conn := ch.client.conn
 	ch.client.connMu.RUnlock()
@@ -153,8 +153,8 @@ func (ch *MarketStreamsChannel) MarketStreamsUnsubscribe(ctx context.Context, re
 	return conn.WriteMessage(websocket.TextMessage, data)
 }
 
-// MarketStreamsListSubscriptions sends a message for operation 'marketStreamsListSubscriptions' on marketStreams
-func (ch *MarketStreamsChannel) MarketStreamsListSubscriptions(ctx context.Context, req *models.ListSubscriptionsRequest, handler *func(context.Context, *models.ListSubscriptionsResponse) error) error {
+// ListSubscriptions sends a message for operation 'combinedMarketStreamListSubscriptions' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) ListSubscriptions(ctx context.Context, req *models.ListSubscriptionsRequest, handler *func(context.Context, *models.ListSubscriptionsResponse) error) error {
 	ch.client.connMu.RLock()
 	conn := ch.client.conn
 	ch.client.connMu.RUnlock()
@@ -179,8 +179,8 @@ func (ch *MarketStreamsChannel) MarketStreamsListSubscriptions(ctx context.Conte
 	return conn.WriteMessage(websocket.TextMessage, data)
 }
 
-// MarketStreamsSetProperty sends a message for operation 'marketStreamsSetProperty' on marketStreams
-func (ch *MarketStreamsChannel) MarketStreamsSetProperty(ctx context.Context, req *models.SetPropertyRequest, handler *func(context.Context, *models.SetPropertyResponse) error) error {
+// SetProperty sends a message for operation 'combinedMarketStreamSetProperty' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) SetProperty(ctx context.Context, req *models.SetPropertyRequest, handler *func(context.Context, *models.SetPropertyResponse) error) error {
 	ch.client.connMu.RLock()
 	conn := ch.client.conn
 	ch.client.connMu.RUnlock()
@@ -205,8 +205,8 @@ func (ch *MarketStreamsChannel) MarketStreamsSetProperty(ctx context.Context, re
 	return conn.WriteMessage(websocket.TextMessage, data)
 }
 
-// MarketStreamsGetProperty sends a message for operation 'marketStreamsGetProperty' on marketStreams
-func (ch *MarketStreamsChannel) MarketStreamsGetProperty(ctx context.Context, req *models.GetPropertyRequest, handler *func(context.Context, *models.GetPropertyResponse) error) error {
+// GetProperty sends a message for operation 'combinedMarketStreamGetProperty' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) GetProperty(ctx context.Context, req *models.GetPropertyRequest, handler *func(context.Context, *models.GetPropertyResponse) error) error {
 	ch.client.connMu.RLock()
 	conn := ch.client.conn
 	ch.client.connMu.RUnlock()
@@ -231,14 +231,61 @@ func (ch *MarketStreamsChannel) MarketStreamsGetProperty(ctx context.Context, re
 	return conn.WriteMessage(websocket.TextMessage, data)
 }
 
+// HandleCombinedMarketStreamEvent registers a handler for message 'Combined Stream Data Event' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) HandleCombinedMarketStreamEvent(fn func(context.Context, *models.CombinedMarketStreamEvent) error) {
+	if fn == nil { return }
+	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
+	ch.client.handlersMu.Lock()
+	ch.msgHandlers["wrap:combined"] = func(ctx context.Context, b []byte) error {
+
+		var probe map[string]json.RawMessage
+		if err := json.Unmarshal(b, &probe); err != nil { return err }
+		if _, ok := probe["stream"]; !ok { return fmt.Errorf("not combined wrapper") }
+		if _, ok := probe["data"]; !ok { return fmt.Errorf("not combined wrapper") }
+		var v models.CombinedMarketStreamEvent
+		if err := json.Unmarshal(b, &v); err != nil { return err }
+		return fn(ctx, &v)
+	}
+	ch.client.handlersMu.Unlock()
+}
+
+func (ch *CombinedMarketStreamChannel) UnregisterCombinedMarketStreamEvent() {
+	ch.client.handlersMu.Lock()
+	delete(ch.msgHandlers, "wrap:combined")
+	ch.client.handlersMu.Unlock()
+}
+
+// HandleErrorMessage registers a handler for message 'Error Message' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) HandleErrorMessage(fn func(context.Context, *models.ErrorMessage) error) {
+	if fn == nil { return }
+	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
+	ch.client.handlersMu.Lock()
+	ch.msgHandlers["error"] = func(ctx context.Context, b []byte) error {
+
+		var probe map[string]json.RawMessage
+		if err := json.Unmarshal(b, &probe); err != nil { return err }
+		if _, ok := probe["error"]; !ok { return fmt.Errorf("not error message") }
+		var v models.ErrorMessage
+		if err := json.Unmarshal(b, &v); err != nil { return err }
+		return fn(ctx, &v)
+	}
+	ch.client.handlersMu.Unlock()
+}
+
+func (ch *CombinedMarketStreamChannel) UnregisterErrorMessage() {
+	ch.client.handlersMu.Lock()
+	delete(ch.msgHandlers, "error")
+	ch.client.handlersMu.Unlock()
+}
+
 // Patterns:
 //   - {symbol}@aggTrade
 // Examples:
 //   - btcusdt@aggTrade
 // Update speeds:
 //   - 100ms
-// HandleAggregateTradeEvent registers a handler for message 'Aggregate Trade Event' on marketStreams
-func (ch *MarketStreamsChannel) HandleAggregateTradeEvent(fn func(context.Context, *models.AggregateTradeEvent) error) {
+// HandleAggregateTradeEvent registers a handler for unwrapped event 'aggregateTradeEvent' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) HandleAggregateTradeEvent(fn func(context.Context, *models.AggregateTradeEvent) error) {
 	if fn == nil { return }
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
@@ -256,7 +303,7 @@ func (ch *MarketStreamsChannel) HandleAggregateTradeEvent(fn func(context.Contex
 	ch.client.handlersMu.Unlock()
 }
 
-func (ch *MarketStreamsChannel) UnregisterAggregateTradeEvent() {
+func (ch *CombinedMarketStreamChannel) UnregisterAggregateTradeEvent() {
 	ch.client.handlersMu.Lock()
 	delete(ch.msgHandlers, "evt:aggTrade")
 	ch.client.handlersMu.Unlock()
@@ -271,8 +318,8 @@ func (ch *MarketStreamsChannel) UnregisterAggregateTradeEvent() {
 // Update speeds:
 //   - 1000ms
 //   - 3000ms
-// HandleMarkPriceEvent registers a handler for message 'Mark Price Event' on marketStreams
-func (ch *MarketStreamsChannel) HandleMarkPriceEvent(fn func(context.Context, *models.MarkPriceEvent) error) {
+// HandleMarkPriceEvent registers a handler for unwrapped event 'markPriceEvent' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) HandleMarkPriceEvent(fn func(context.Context, *models.MarkPriceEvent) error) {
 	if fn == nil { return }
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
@@ -290,7 +337,7 @@ func (ch *MarketStreamsChannel) HandleMarkPriceEvent(fn func(context.Context, *m
 	ch.client.handlersMu.Unlock()
 }
 
-func (ch *MarketStreamsChannel) UnregisterMarkPriceEvent() {
+func (ch *CombinedMarketStreamChannel) UnregisterMarkPriceEvent() {
 	ch.client.handlersMu.Lock()
 	delete(ch.msgHandlers, "evt:markPriceUpdate")
 	ch.client.handlersMu.Unlock()
@@ -305,16 +352,21 @@ func (ch *MarketStreamsChannel) UnregisterMarkPriceEvent() {
 // Update speeds:
 //   - 1000ms
 //   - 3000ms
-// HandleAllMarkPricesEvent registers a handler for message 'All Mark Prices Event' on marketStreams
-func (ch *MarketStreamsChannel) HandleAllMarkPricesEvent(fn func(context.Context, *models.AllMarkPricesEvent) error) {
+// HandleAllMarkPricesEvent registers a handler for unwrapped event 'allMarkPricesEvent' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) HandleAllMarkPricesEvent(fn func(context.Context, *models.AllMarkPricesEvent) error) {
 	if fn == nil { return }
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
-	ch.msgHandlers["All Mark Prices Event"] = func(ctx context.Context, b []byte) error {
+	ch.msgHandlers["evt:markPriceUpdate:array"] = func(ctx context.Context, b []byte) error {
 
 		var arr []json.RawMessage
 		if err := json.Unmarshal(b, &arr); err != nil { return err }
 		if len(arr) == 0 { return fmt.Errorf("empty array") }
+		var typ map[string]interface{}
+		if err := json.Unmarshal(arr[0], &typ); err != nil { return err }
+		var ev string
+		if v, ok := typ["e"].(string); ok { ev = v } else if evobj, ok := typ["event"].(map[string]interface{}); ok { if vv, ok2 := evobj["e"].(string); ok2 { ev = vv } }
+		if ev != "markPriceUpdate" { return fmt.Errorf("unexpected event type") }
 		var v models.AllMarkPricesEvent
 		if err := json.Unmarshal(b, &v); err != nil { return err }
 		return fn(ctx, &v)
@@ -322,9 +374,9 @@ func (ch *MarketStreamsChannel) HandleAllMarkPricesEvent(fn func(context.Context
 	ch.client.handlersMu.Unlock()
 }
 
-func (ch *MarketStreamsChannel) UnregisterAllMarkPricesEvent() {
+func (ch *CombinedMarketStreamChannel) UnregisterAllMarkPricesEvent() {
 	ch.client.handlersMu.Lock()
-	delete(ch.msgHandlers, "All Mark Prices Event")
+	delete(ch.msgHandlers, "evt:markPriceUpdate:array")
 	ch.client.handlersMu.Unlock()
 }
 
@@ -334,8 +386,8 @@ func (ch *MarketStreamsChannel) UnregisterAllMarkPricesEvent() {
 //   - btcusdt@kline_1m
 // Update speeds:
 //   - 250ms
-// HandleKlineEvent registers a handler for message 'Kline Event' on marketStreams
-func (ch *MarketStreamsChannel) HandleKlineEvent(fn func(context.Context, *models.KlineEvent) error) {
+// HandleKlineEvent registers a handler for unwrapped event 'klineEvent' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) HandleKlineEvent(fn func(context.Context, *models.KlineEvent) error) {
 	if fn == nil { return }
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
@@ -353,7 +405,7 @@ func (ch *MarketStreamsChannel) HandleKlineEvent(fn func(context.Context, *model
 	ch.client.handlersMu.Unlock()
 }
 
-func (ch *MarketStreamsChannel) UnregisterKlineEvent() {
+func (ch *CombinedMarketStreamChannel) UnregisterKlineEvent() {
 	ch.client.handlersMu.Lock()
 	delete(ch.msgHandlers, "evt:kline")
 	ch.client.handlersMu.Unlock()
@@ -365,8 +417,8 @@ func (ch *MarketStreamsChannel) UnregisterKlineEvent() {
 //   - BTCUSDT_PERPETUAL@continuousKline_1m
 // Update speeds:
 //   - 250ms
-// HandleContinuousKlineEvent registers a handler for message 'Continuous Kline Event' on marketStreams
-func (ch *MarketStreamsChannel) HandleContinuousKlineEvent(fn func(context.Context, *models.ContinuousKlineEvent) error) {
+// HandleContinuousKlineEvent registers a handler for unwrapped event 'continuousKlineEvent' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) HandleContinuousKlineEvent(fn func(context.Context, *models.ContinuousKlineEvent) error) {
 	if fn == nil { return }
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
@@ -384,7 +436,7 @@ func (ch *MarketStreamsChannel) HandleContinuousKlineEvent(fn func(context.Conte
 	ch.client.handlersMu.Unlock()
 }
 
-func (ch *MarketStreamsChannel) UnregisterContinuousKlineEvent() {
+func (ch *CombinedMarketStreamChannel) UnregisterContinuousKlineEvent() {
 	ch.client.handlersMu.Lock()
 	delete(ch.msgHandlers, "evt:continuous_kline")
 	ch.client.handlersMu.Unlock()
@@ -396,8 +448,8 @@ func (ch *MarketStreamsChannel) UnregisterContinuousKlineEvent() {
 //   - btcusdt@miniTicker
 // Update speeds:
 //   - 2s
-// HandleMiniTickerEvent registers a handler for message 'Mini Ticker Event' on marketStreams
-func (ch *MarketStreamsChannel) HandleMiniTickerEvent(fn func(context.Context, *models.MiniTickerEvent) error) {
+// HandleMiniTickerEvent registers a handler for unwrapped event 'miniTickerEvent' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) HandleMiniTickerEvent(fn func(context.Context, *models.MiniTickerEvent) error) {
 	if fn == nil { return }
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
@@ -415,7 +467,7 @@ func (ch *MarketStreamsChannel) HandleMiniTickerEvent(fn func(context.Context, *
 	ch.client.handlersMu.Unlock()
 }
 
-func (ch *MarketStreamsChannel) UnregisterMiniTickerEvent() {
+func (ch *CombinedMarketStreamChannel) UnregisterMiniTickerEvent() {
 	ch.client.handlersMu.Lock()
 	delete(ch.msgHandlers, "evt:24hrMiniTicker")
 	ch.client.handlersMu.Unlock()
@@ -427,8 +479,8 @@ func (ch *MarketStreamsChannel) UnregisterMiniTickerEvent() {
 //   - !miniTicker@arr
 // Update speeds:
 //   - 1000ms
-// HandleAllMiniTickersEvent registers a handler for message 'All Mini Tickers Event' on marketStreams
-func (ch *MarketStreamsChannel) HandleAllMiniTickersEvent(fn func(context.Context, *models.AllMiniTickersEvent) error) {
+// HandleAllMiniTickersEvent registers a handler for unwrapped event 'allMiniTickersEvent' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) HandleAllMiniTickersEvent(fn func(context.Context, *models.AllMiniTickersEvent) error) {
 	if fn == nil { return }
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
@@ -449,7 +501,7 @@ func (ch *MarketStreamsChannel) HandleAllMiniTickersEvent(fn func(context.Contex
 	ch.client.handlersMu.Unlock()
 }
 
-func (ch *MarketStreamsChannel) UnregisterAllMiniTickersEvent() {
+func (ch *CombinedMarketStreamChannel) UnregisterAllMiniTickersEvent() {
 	ch.client.handlersMu.Lock()
 	delete(ch.msgHandlers, "evt:24hrMiniTicker:array")
 	ch.client.handlersMu.Unlock()
@@ -461,8 +513,8 @@ func (ch *MarketStreamsChannel) UnregisterAllMiniTickersEvent() {
 //   - btcusdt@ticker
 // Update speeds:
 //   - 2000ms
-// HandleTickerEvent registers a handler for message 'Ticker Event' on marketStreams
-func (ch *MarketStreamsChannel) HandleTickerEvent(fn func(context.Context, *models.TickerEvent) error) {
+// HandleTickerEvent registers a handler for unwrapped event 'tickerEvent' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) HandleTickerEvent(fn func(context.Context, *models.TickerEvent) error) {
 	if fn == nil { return }
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
@@ -480,7 +532,7 @@ func (ch *MarketStreamsChannel) HandleTickerEvent(fn func(context.Context, *mode
 	ch.client.handlersMu.Unlock()
 }
 
-func (ch *MarketStreamsChannel) UnregisterTickerEvent() {
+func (ch *CombinedMarketStreamChannel) UnregisterTickerEvent() {
 	ch.client.handlersMu.Lock()
 	delete(ch.msgHandlers, "evt:24hrTicker")
 	ch.client.handlersMu.Unlock()
@@ -490,8 +542,8 @@ func (ch *MarketStreamsChannel) UnregisterTickerEvent() {
 //   - !ticker@arr
 // Examples:
 //   - !ticker@arr
-// HandleAllTickersEvent registers a handler for message 'All Tickers Event' on marketStreams
-func (ch *MarketStreamsChannel) HandleAllTickersEvent(fn func(context.Context, *models.AllTickersEvent) error) {
+// HandleAllTickersEvent registers a handler for unwrapped event 'allTickersEvent' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) HandleAllTickersEvent(fn func(context.Context, *models.AllTickersEvent) error) {
 	if fn == nil { return }
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
@@ -512,7 +564,7 @@ func (ch *MarketStreamsChannel) HandleAllTickersEvent(fn func(context.Context, *
 	ch.client.handlersMu.Unlock()
 }
 
-func (ch *MarketStreamsChannel) UnregisterAllTickersEvent() {
+func (ch *CombinedMarketStreamChannel) UnregisterAllTickersEvent() {
 	ch.client.handlersMu.Lock()
 	delete(ch.msgHandlers, "evt:24hrTicker:array")
 	ch.client.handlersMu.Unlock()
@@ -522,8 +574,8 @@ func (ch *MarketStreamsChannel) UnregisterAllTickersEvent() {
 //   - {symbol}@bookTicker
 // Examples:
 //   - btcusdt@bookTicker
-// HandleBookTickerEvent registers a handler for message 'Book Ticker Event' on marketStreams
-func (ch *MarketStreamsChannel) HandleBookTickerEvent(fn func(context.Context, *models.BookTickerEvent) error) {
+// HandleBookTickerEvent registers a handler for unwrapped event 'bookTickerEvent' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) HandleBookTickerEvent(fn func(context.Context, *models.BookTickerEvent) error) {
 	if fn == nil { return }
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
@@ -541,7 +593,7 @@ func (ch *MarketStreamsChannel) HandleBookTickerEvent(fn func(context.Context, *
 	ch.client.handlersMu.Unlock()
 }
 
-func (ch *MarketStreamsChannel) UnregisterBookTickerEvent() {
+func (ch *CombinedMarketStreamChannel) UnregisterBookTickerEvent() {
 	ch.client.handlersMu.Lock()
 	delete(ch.msgHandlers, "evt:bookTicker")
 	ch.client.handlersMu.Unlock()
@@ -551,8 +603,8 @@ func (ch *MarketStreamsChannel) UnregisterBookTickerEvent() {
 //   - !bookTicker
 // Examples:
 //   - !bookTicker
-// HandleAllBookTickersEvent registers a handler for message 'All Book Tickers Event' on marketStreams
-func (ch *MarketStreamsChannel) HandleAllBookTickersEvent(fn func(context.Context, *models.AllBookTickersEvent) error) {
+// HandleAllBookTickersEvent registers a handler for unwrapped event 'allBookTickersEvent' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) HandleAllBookTickersEvent(fn func(context.Context, *models.AllBookTickersEvent) error) {
 	if fn == nil { return }
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
@@ -570,7 +622,7 @@ func (ch *MarketStreamsChannel) HandleAllBookTickersEvent(fn func(context.Contex
 	ch.client.handlersMu.Unlock()
 }
 
-func (ch *MarketStreamsChannel) UnregisterAllBookTickersEvent() {
+func (ch *CombinedMarketStreamChannel) UnregisterAllBookTickersEvent() {
 	ch.client.handlersMu.Lock()
 	delete(ch.msgHandlers, "evt:bookTicker")
 	ch.client.handlersMu.Unlock()
@@ -582,8 +634,8 @@ func (ch *MarketStreamsChannel) UnregisterAllBookTickersEvent() {
 //   - btcusdt@forceOrder
 // Update speeds:
 //   - 1000ms
-// HandleLiquidationEvent registers a handler for message 'Liquidation Event' on marketStreams
-func (ch *MarketStreamsChannel) HandleLiquidationEvent(fn func(context.Context, *models.LiquidationEvent) error) {
+// HandleLiquidationEvent registers a handler for unwrapped event 'liquidationEvent' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) HandleLiquidationEvent(fn func(context.Context, *models.LiquidationEvent) error) {
 	if fn == nil { return }
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
@@ -601,7 +653,7 @@ func (ch *MarketStreamsChannel) HandleLiquidationEvent(fn func(context.Context, 
 	ch.client.handlersMu.Unlock()
 }
 
-func (ch *MarketStreamsChannel) UnregisterLiquidationEvent() {
+func (ch *CombinedMarketStreamChannel) UnregisterLiquidationEvent() {
 	ch.client.handlersMu.Lock()
 	delete(ch.msgHandlers, "evt:forceOrder")
 	ch.client.handlersMu.Unlock()
@@ -611,8 +663,8 @@ func (ch *MarketStreamsChannel) UnregisterLiquidationEvent() {
 //   - !forceOrder@arr
 // Examples:
 //   - !forceOrder@arr
-// HandleAllLiquidationsEvent registers a handler for message 'All Liquidations Event' on marketStreams
-func (ch *MarketStreamsChannel) HandleAllLiquidationsEvent(fn func(context.Context, *models.AllLiquidationsEvent) error) {
+// HandleAllLiquidationsEvent registers a handler for unwrapped event 'allLiquidationsEvent' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) HandleAllLiquidationsEvent(fn func(context.Context, *models.AllLiquidationsEvent) error) {
 	if fn == nil { return }
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
@@ -633,7 +685,7 @@ func (ch *MarketStreamsChannel) HandleAllLiquidationsEvent(fn func(context.Conte
 	ch.client.handlersMu.Unlock()
 }
 
-func (ch *MarketStreamsChannel) UnregisterAllLiquidationsEvent() {
+func (ch *CombinedMarketStreamChannel) UnregisterAllLiquidationsEvent() {
 	ch.client.handlersMu.Lock()
 	delete(ch.msgHandlers, "evt:forceOrder:array")
 	ch.client.handlersMu.Unlock()
@@ -648,8 +700,8 @@ func (ch *MarketStreamsChannel) UnregisterAllLiquidationsEvent() {
 //   - 100ms
 //   - 250ms
 //   - 500ms
-// HandlePartialDepthEvent registers a handler for message 'Partial Depth Event' on marketStreams
-func (ch *MarketStreamsChannel) HandlePartialDepthEvent(fn func(context.Context, *models.PartialDepthEvent) error) {
+// HandlePartialDepthEvent registers a handler for unwrapped event 'partialDepthEvent' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) HandlePartialDepthEvent(fn func(context.Context, *models.PartialDepthEvent) error) {
 	if fn == nil { return }
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
@@ -667,7 +719,7 @@ func (ch *MarketStreamsChannel) HandlePartialDepthEvent(fn func(context.Context,
 	ch.client.handlersMu.Unlock()
 }
 
-func (ch *MarketStreamsChannel) UnregisterPartialDepthEvent() {
+func (ch *CombinedMarketStreamChannel) UnregisterPartialDepthEvent() {
 	ch.client.handlersMu.Lock()
 	delete(ch.msgHandlers, "evt:depthUpdate")
 	ch.client.handlersMu.Unlock()
@@ -682,8 +734,8 @@ func (ch *MarketStreamsChannel) UnregisterPartialDepthEvent() {
 //   - 100ms
 //   - 250ms
 //   - 500ms
-// HandleDiffDepthEvent registers a handler for message 'Diff Depth Event' on marketStreams
-func (ch *MarketStreamsChannel) HandleDiffDepthEvent(fn func(context.Context, *models.DiffDepthEvent) error) {
+// HandleDiffDepthEvent registers a handler for unwrapped event 'diffDepthEvent' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) HandleDiffDepthEvent(fn func(context.Context, *models.DiffDepthEvent) error) {
 	if fn == nil { return }
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
@@ -701,7 +753,7 @@ func (ch *MarketStreamsChannel) HandleDiffDepthEvent(fn func(context.Context, *m
 	ch.client.handlersMu.Unlock()
 }
 
-func (ch *MarketStreamsChannel) UnregisterDiffDepthEvent() {
+func (ch *CombinedMarketStreamChannel) UnregisterDiffDepthEvent() {
 	ch.client.handlersMu.Lock()
 	delete(ch.msgHandlers, "evt:depthUpdate")
 	ch.client.handlersMu.Unlock()
@@ -713,8 +765,8 @@ func (ch *MarketStreamsChannel) UnregisterDiffDepthEvent() {
 //   - btcusdt@compositeIndex
 // Update speeds:
 //   - 1000ms
-// HandleCompositeIndexEvent registers a handler for message 'Composite Index Event' on marketStreams
-func (ch *MarketStreamsChannel) HandleCompositeIndexEvent(fn func(context.Context, *models.CompositeIndexEvent) error) {
+// HandleCompositeIndexEvent registers a handler for unwrapped event 'compositeIndexEvent' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) HandleCompositeIndexEvent(fn func(context.Context, *models.CompositeIndexEvent) error) {
 	if fn == nil { return }
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
@@ -732,7 +784,7 @@ func (ch *MarketStreamsChannel) HandleCompositeIndexEvent(fn func(context.Contex
 	ch.client.handlersMu.Unlock()
 }
 
-func (ch *MarketStreamsChannel) UnregisterCompositeIndexEvent() {
+func (ch *CombinedMarketStreamChannel) UnregisterCompositeIndexEvent() {
 	ch.client.handlersMu.Lock()
 	delete(ch.msgHandlers, "evt:compositeIndex")
 	ch.client.handlersMu.Unlock()
@@ -742,8 +794,8 @@ func (ch *MarketStreamsChannel) UnregisterCompositeIndexEvent() {
 //   - !contractInfo
 // Examples:
 //   - !contractInfo
-// HandleContractInfoEvent registers a handler for message 'Contract Info Event' on marketStreams
-func (ch *MarketStreamsChannel) HandleContractInfoEvent(fn func(context.Context, *models.ContractInfoEvent) error) {
+// HandleContractInfoEvent registers a handler for unwrapped event 'contractInfoEvent' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) HandleContractInfoEvent(fn func(context.Context, *models.ContractInfoEvent) error) {
 	if fn == nil { return }
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
@@ -761,7 +813,7 @@ func (ch *MarketStreamsChannel) HandleContractInfoEvent(fn func(context.Context,
 	ch.client.handlersMu.Unlock()
 }
 
-func (ch *MarketStreamsChannel) UnregisterContractInfoEvent() {
+func (ch *CombinedMarketStreamChannel) UnregisterContractInfoEvent() {
 	ch.client.handlersMu.Lock()
 	delete(ch.msgHandlers, "evt:contractInfo")
 	ch.client.handlersMu.Unlock()
@@ -773,8 +825,8 @@ func (ch *MarketStreamsChannel) UnregisterContractInfoEvent() {
 //   - btcusd@assetIndex
 // Update speeds:
 //   - 1s
-// HandleAssetIndexEvent registers a handler for message 'Asset Index Event' on marketStreams
-func (ch *MarketStreamsChannel) HandleAssetIndexEvent(fn func(context.Context, *models.AssetIndexEvent) error) {
+// HandleAssetIndexEvent registers a handler for unwrapped event 'assetIndexEvent' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) HandleAssetIndexEvent(fn func(context.Context, *models.AssetIndexEvent) error) {
 	if fn == nil { return }
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
@@ -792,7 +844,7 @@ func (ch *MarketStreamsChannel) HandleAssetIndexEvent(fn func(context.Context, *
 	ch.client.handlersMu.Unlock()
 }
 
-func (ch *MarketStreamsChannel) UnregisterAssetIndexEvent() {
+func (ch *CombinedMarketStreamChannel) UnregisterAssetIndexEvent() {
 	ch.client.handlersMu.Lock()
 	delete(ch.msgHandlers, "evt:assetIndexUpdate")
 	ch.client.handlersMu.Unlock()
@@ -804,8 +856,8 @@ func (ch *MarketStreamsChannel) UnregisterAssetIndexEvent() {
 //   - !assetIndex@arr
 // Update speeds:
 //   - 1s
-// HandleAllAssetIndexesEvent registers a handler for message 'All Asset Index Event' on marketStreams
-func (ch *MarketStreamsChannel) HandleAllAssetIndexesEvent(fn func(context.Context, *models.AllAssetIndexesEvent) error) {
+// HandleAllAssetIndexesEvent registers a handler for unwrapped event 'allAssetIndexesEvent' on combinedMarketStream
+func (ch *CombinedMarketStreamChannel) HandleAllAssetIndexesEvent(fn func(context.Context, *models.AllAssetIndexesEvent) error) {
 	if fn == nil { return }
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
@@ -826,32 +878,9 @@ func (ch *MarketStreamsChannel) HandleAllAssetIndexesEvent(fn func(context.Conte
 	ch.client.handlersMu.Unlock()
 }
 
-func (ch *MarketStreamsChannel) UnregisterAllAssetIndexesEvent() {
+func (ch *CombinedMarketStreamChannel) UnregisterAllAssetIndexesEvent() {
 	ch.client.handlersMu.Lock()
 	delete(ch.msgHandlers, "evt:assetIndexUpdate:array")
-	ch.client.handlersMu.Unlock()
-}
-
-// HandleErrorMessage registers a handler for message 'Error Message' on marketStreams
-func (ch *MarketStreamsChannel) HandleErrorMessage(fn func(context.Context, *models.ErrorMessage) error) {
-	if fn == nil { return }
-	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
-	ch.client.handlersMu.Lock()
-	ch.msgHandlers["error"] = func(ctx context.Context, b []byte) error {
-
-		var probe map[string]json.RawMessage
-		if err := json.Unmarshal(b, &probe); err != nil { return err }
-		if _, ok := probe["error"]; !ok { return fmt.Errorf("not error message") }
-		var v models.ErrorMessage
-		if err := json.Unmarshal(b, &v); err != nil { return err }
-		return fn(ctx, &v)
-	}
-	ch.client.handlersMu.Unlock()
-}
-
-func (ch *MarketStreamsChannel) UnregisterErrorMessage() {
-	ch.client.handlersMu.Lock()
-	delete(ch.msgHandlers, "error")
 	ch.client.handlersMu.Unlock()
 }
 

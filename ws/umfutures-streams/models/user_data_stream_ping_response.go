@@ -1,7 +1,7 @@
 package models
 
-// UserDataStreamsPingResponse represents global message '#/components/messages/userDataStreamsPingResponse'
-type UserDataStreamsPingResponse struct {
+// UserDataStreamPingResponse represents global message '#/components/messages/userDataStreamPingResponse'
+type UserDataStreamPingResponse struct {
 	Id int64 `json:"id,omitempty"` // id property
 	RateLimits []struct {
 		Count int `json:"count,omitempty"` // count property

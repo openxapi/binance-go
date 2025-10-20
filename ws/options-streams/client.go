@@ -53,7 +53,7 @@ func NewClientWithOptions(opts *ClientOptions) *Client {
   }
   c.workerCount = wc
   // Preload servers from AsyncAPI spec (first becomes active by default)
-  _ = c.AddServer("mainnet1", "wss://nbstream.binance.com/eoptions", "Binance Options Server", "WebSocket server for binance exchange options market data and user data streams (mainnet environment)")
+  _ = c.AddServer("mainnet", "wss://nbstream.binance.com/eoptions", "Binance Options Server", "WebSocket server for binance exchange options market data and user data streams (mainnet environment)")
   return c
 }
 

@@ -1,7 +1,7 @@
 package models
 
-// UserDataStreamsStartResponse represents global message '#/components/messages/userDataStreamsStartResponse'
-type UserDataStreamsStartResponse struct {
+// UserDataStreamStartResponse represents global message '#/components/messages/userDataStreamStartResponse'
+type UserDataStreamStartResponse struct {
 	Id int64 `json:"id,omitempty"` // id property
 	RateLimits []struct {
 		Count int `json:"count,omitempty"` // count property
