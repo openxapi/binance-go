@@ -1,23 +1,10 @@
 package models
 
-import (
-	"encoding/json"
-)
-
-// SetPropertyRequest represents SetPropertyRequest
+// SetPropertyRequest represents global message '#/components/messages/setPropertyRequest'
 type SetPropertyRequest struct {
-	// Method name
-	MethodName string `json:"method,omitempty"`
-	// Array containing property name and value
-	ArrayContainingPropertyNameAndValue []interface{} `json:"params,omitempty"`
-	// Request ID
-	RequestId string `json:"id,omitempty"`
-}
-
-// String returns string representation of SetPropertyRequest
-func (s SetPropertyRequest) String() string {
-	b, _ := json.Marshal(s)
-	return string(b)
+	Method string `json:"method"` // Method name
+	Params []interface{} `json:"params"` // Array containing property name and value
+	Id int64 `json:"id"` // Request ID
 }
 
 

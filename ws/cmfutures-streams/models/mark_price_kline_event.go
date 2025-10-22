@@ -1,49 +1,29 @@
 package models
 
-import (
-	"encoding/json"
-)
-
-// MarkPriceKlineEvent represents MarkPriceKlineEvent
+// MarkPriceKlineEvent represents global message '#/components/messages/markPriceKlineEvent'
 type MarkPriceKlineEvent struct {
-	// Event type
-	EventType string `json:"e,omitempty"`
-	// Event time
-	EventTime int64 `json:"E,omitempty"`
-	// Pair
-	Pair string `json:"ps,omitempty"`
-	// Kline data
-	KlineData *MarkPriceKlineEventKline `json:"k,omitempty"`
-}
-
-// MarkPriceKlineEventKline represents the kline details
-type MarkPriceKlineEventKline struct {
-	// Kline start time
-	KlineStartTime int64 `json:"t,omitempty"`
-	// Kline close time
-	NextFundingTime int64 `json:"T,omitempty"`
-	// Symbol
-	Symbol string `json:"s,omitempty"`
-	// Interval
-	IndexPrice string `json:"i,omitempty"`
-	// Open price
-	OpenPrice string `json:"o,omitempty"`
-	// Close price
-	ClosePrice string `json:"c,omitempty"`
-	// High price
-	HighPrice string `json:"h,omitempty"`
-	// Low price
-	LowPrice string `json:"l,omitempty"`
-	// Number of basic data points
-	NumberOfBasicDataPoints int `json:"n,omitempty"`
-	// Is this kline closed
-	IsThisKlineClosed bool `json:"x,omitempty"`
-}
-
-// String returns string representation of MarkPriceKlineEvent
-func (s MarkPriceKlineEvent) String() string {
-	b, _ := json.Marshal(s)
-	return string(b)
+	EventType string `json:"e"` // Event type
+	EventTime int64 `json:"E"` // Event time
+	Symbol string `json:"s"` // Symbol
+	KlineData struct {
+		KlineStartTime int64 `json:"t"` // Kline start time
+		KlineCloseTime int64 `json:"T"` // Kline close time
+		Symbol string `json:"s"` // Symbol
+		Interval string `json:"i"` // Interval
+		FirstUpdateID int64 `json:"f,omitempty"` // First update ID (ignore for mark price kline)
+		LastUpdateID int64 `json:"L,omitempty"` // Last update ID (ignore for mark price kline)
+		OpenPrice string `json:"o"` // Open price
+		ClosePrice string `json:"c"` // Close price
+		HighPrice string `json:"h"` // High price
+		LowPrice string `json:"l"` // Low price
+		Volume string `json:"v,omitempty"` // Volume (ignore for mark price kline)
+		NumberOfBasicData int `json:"n"` // Number of basic data
+		IsThisKlineClosed bool `json:"x"` // Is this kline closed
+		QuoteAssetVolume string `json:"q,omitempty"` // Quote asset volume (ignore for mark price kline)
+		TakerBuyBaseAssetVolume string `json:"V,omitempty"` // Taker buy base asset volume (ignore for mark price kline)
+		TakerBuyQuoteAssetVolume string `json:"Q,omitempty"` // Taker buy quote asset volume (ignore for mark price kline)
+		Ignore string `json:"B,omitempty"` // ignore
+	} `json:"k"` // Kline data
 }
 
 

@@ -1,23 +1,10 @@
 package models
 
-import (
-	"encoding/json"
-)
-
-// UnsubscribeRequest represents UnsubscribeRequest
+// UnsubscribeRequest represents global message '#/components/messages/unsubscribeRequest'
 type UnsubscribeRequest struct {
-	// Method name
-	MethodName string `json:"method,omitempty"`
-	// Array of stream names to unsubscribe from
-	ArrayOfStreamNamesToUnsubscribeFrom []string `json:"params,omitempty"`
-	// Request ID
-	RequestId string `json:"id,omitempty"`
-}
-
-// String returns string representation of UnsubscribeRequest
-func (s UnsubscribeRequest) String() string {
-	b, _ := json.Marshal(s)
-	return string(b)
+	Method string `json:"method"` // Method name
+	Params []string `json:"params"` // Array of stream names to unsubscribe from
+	Id int64 `json:"id"` // Request ID
 }
 
 

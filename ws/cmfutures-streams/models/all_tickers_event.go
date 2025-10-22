@@ -1,7 +1,7 @@
 package models
 
-// TickerEvent represents global message '#/components/messages/tickerEvent'
-type TickerEvent struct {
+// AllTickersEventItem is the item type for AllTickersEvent
+type AllTickersEventItem struct {
 	EventType string `json:"e"` // Event type
 	EventTime int64 `json:"E"` // Event time
 	Symbol string `json:"s"` // Symbol
@@ -23,4 +23,6 @@ type TickerEvent struct {
 	TotalNumberOfTrades int `json:"n"` // Total number of trades
 }
 
+// AllTickersEvent is an array of AllTickersEventItem
+type AllTickersEvent []AllTickersEventItem
 

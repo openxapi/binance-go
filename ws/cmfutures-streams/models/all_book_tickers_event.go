@@ -1,7 +1,7 @@
 package models
 
-// BookTickerEvent represents global message '#/components/messages/bookTickerEvent'
-type BookTickerEvent struct {
+// AllBookTickersEventItem is the item type for AllBookTickersEvent
+type AllBookTickersEventItem struct {
 	EventType string `json:"e"` // Event type
 	OrderBookUpdateId int64 `json:"u"` // Order book update Id
 	EventTime int64 `json:"E"` // Event time
@@ -14,4 +14,6 @@ type BookTickerEvent struct {
 	TransactionTime int64 `json:"T"` // Transaction time
 }
 
+// AllBookTickersEvent is an array of AllBookTickersEventItem
+type AllBookTickersEvent []AllBookTickersEventItem
 
