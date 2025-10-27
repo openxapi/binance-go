@@ -1,7 +1,7 @@
 package models
 
-// RollingWindowTickerEvent represents global message '#/components/messages/rollingWindowTickerEvent'
-type RollingWindowTickerEvent struct {
+// AllRollingWindowTickersEventItem is the item type for AllRollingWindowTickersEvent
+type AllRollingWindowTickersEventItem struct {
 	EventType string `json:"e"` // Event type
 	EventTime int64 `json:"E"` // Event time
 	Symbol string `json:"s"` // Symbol
@@ -21,4 +21,6 @@ type RollingWindowTickerEvent struct {
 	TotalNumberOfTrades int `json:"n"` // Total number of trades
 }
 
+// AllRollingWindowTickersEvent is an array of AllRollingWindowTickersEventItem
+type AllRollingWindowTickersEvent []AllRollingWindowTickersEventItem
 
