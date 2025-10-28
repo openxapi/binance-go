@@ -311,6 +311,7 @@ func (ch *MarketStreamChannel) HandleAllMarkPricesEvent(fn func(context.Context,
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
 	ch.msgHandlers["evt:markPriceUpdate:array"] = func(ctx context.Context, b []byte) error {
+		var v models.AllMarkPricesEvent
 
 		var arr []json.RawMessage
 		if err := json.Unmarshal(b, &arr); err != nil { return err }
@@ -320,7 +321,6 @@ func (ch *MarketStreamChannel) HandleAllMarkPricesEvent(fn func(context.Context,
 		var ev string
 		if v, ok := typ["e"].(string); ok { ev = v } else if evobj, ok := typ["event"].(map[string]interface{}); ok { if vv, ok2 := evobj["e"].(string); ok2 { ev = vv } }
 		if ev != "markPriceUpdate" { return fmt.Errorf("unexpected event type") }
-		var v models.AllMarkPricesEvent
 		if err := json.Unmarshal(b, &v); err != nil { return err }
 		return fn(ctx, &v)
 	}
@@ -438,6 +438,7 @@ func (ch *MarketStreamChannel) HandleAllMiniTickersEvent(fn func(context.Context
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
 	ch.msgHandlers["evt:24hrMiniTicker:array"] = func(ctx context.Context, b []byte) error {
+		var v models.AllMiniTickersEvent
 
 		var arr []json.RawMessage
 		if err := json.Unmarshal(b, &arr); err != nil { return err }
@@ -447,7 +448,6 @@ func (ch *MarketStreamChannel) HandleAllMiniTickersEvent(fn func(context.Context
 		var ev string
 		if v, ok := typ["e"].(string); ok { ev = v } else if evobj, ok := typ["event"].(map[string]interface{}); ok { if vv, ok2 := evobj["e"].(string); ok2 { ev = vv } }
 		if ev != "24hrMiniTicker" { return fmt.Errorf("unexpected event type") }
-		var v models.AllMiniTickersEvent
 		if err := json.Unmarshal(b, &v); err != nil { return err }
 		return fn(ctx, &v)
 	}
@@ -501,6 +501,7 @@ func (ch *MarketStreamChannel) HandleAllTickersEvent(fn func(context.Context, *m
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
 	ch.msgHandlers["evt:24hrTicker:array"] = func(ctx context.Context, b []byte) error {
+		var v models.AllTickersEvent
 
 		var arr []json.RawMessage
 		if err := json.Unmarshal(b, &arr); err != nil { return err }
@@ -510,7 +511,6 @@ func (ch *MarketStreamChannel) HandleAllTickersEvent(fn func(context.Context, *m
 		var ev string
 		if v, ok := typ["e"].(string); ok { ev = v } else if evobj, ok := typ["event"].(map[string]interface{}); ok { if vv, ok2 := evobj["e"].(string); ok2 { ev = vv } }
 		if ev != "24hrTicker" { return fmt.Errorf("unexpected event type") }
-		var v models.AllTickersEvent
 		if err := json.Unmarshal(b, &v); err != nil { return err }
 		return fn(ctx, &v)
 	}
@@ -622,6 +622,7 @@ func (ch *MarketStreamChannel) HandleAllLiquidationsEvent(fn func(context.Contex
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
 	ch.msgHandlers["evt:forceOrder:array"] = func(ctx context.Context, b []byte) error {
+		var v models.AllLiquidationsEvent
 
 		var arr []json.RawMessage
 		if err := json.Unmarshal(b, &arr); err != nil { return err }
@@ -631,7 +632,6 @@ func (ch *MarketStreamChannel) HandleAllLiquidationsEvent(fn func(context.Contex
 		var ev string
 		if v, ok := typ["e"].(string); ok { ev = v } else if evobj, ok := typ["event"].(map[string]interface{}); ok { if vv, ok2 := evobj["e"].(string); ok2 { ev = vv } }
 		if ev != "forceOrder" { return fmt.Errorf("unexpected event type") }
-		var v models.AllLiquidationsEvent
 		if err := json.Unmarshal(b, &v); err != nil { return err }
 		return fn(ctx, &v)
 	}
@@ -815,6 +815,7 @@ func (ch *MarketStreamChannel) HandleAllAssetIndexesEvent(fn func(context.Contex
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
 	ch.msgHandlers["evt:assetIndexUpdate:array"] = func(ctx context.Context, b []byte) error {
+		var v models.AllAssetIndexesEvent
 
 		var arr []json.RawMessage
 		if err := json.Unmarshal(b, &arr); err != nil { return err }
@@ -824,7 +825,6 @@ func (ch *MarketStreamChannel) HandleAllAssetIndexesEvent(fn func(context.Contex
 		var ev string
 		if v, ok := typ["e"].(string); ok { ev = v } else if evobj, ok := typ["event"].(map[string]interface{}); ok { if vv, ok2 := evobj["e"].(string); ok2 { ev = vv } }
 		if ev != "assetIndexUpdate" { return fmt.Errorf("unexpected event type") }
-		var v models.AllAssetIndexesEvent
 		if err := json.Unmarshal(b, &v); err != nil { return err }
 		return fn(ctx, &v)
 	}

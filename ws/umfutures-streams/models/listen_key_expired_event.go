@@ -4,7 +4,7 @@ package models
 type ListenKeyExpiredEvent struct {
 	EventType string `json:"e,omitempty"` // Event type
 	EventTime int64 `json:"E,omitempty"` // Event time (timestamp)
-	TheExpiredListenKey string `json:"listenKey,omitempty"` // The expired listen key
+	ListenKey string `json:"listenKey,omitempty"` // listen key
 }
 
 

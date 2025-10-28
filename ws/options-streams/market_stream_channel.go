@@ -272,6 +272,7 @@ func (ch *MarketStreamChannel) HandleOpenInterestEvent(fn func(context.Context, 
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
 	ch.msgHandlers["evt:openInterest:array"] = func(ctx context.Context, b []byte) error {
+		var v models.OpenInterestEvent
 
 		var arr []json.RawMessage
 		if err := json.Unmarshal(b, &arr); err != nil { return err }
@@ -281,7 +282,6 @@ func (ch *MarketStreamChannel) HandleOpenInterestEvent(fn func(context.Context, 
 		var ev string
 		if v, ok := typ["e"].(string); ok { ev = v } else if evobj, ok := typ["event"].(map[string]interface{}); ok { if vv, ok2 := evobj["e"].(string); ok2 { ev = vv } }
 		if ev != "openInterest" { return fmt.Errorf("unexpected event type") }
-		var v models.OpenInterestEvent
 		if err := json.Unmarshal(b, &v); err != nil { return err }
 		return fn(ctx, &v)
 	}
@@ -306,6 +306,7 @@ func (ch *MarketStreamChannel) HandleMarkPriceEvent(fn func(context.Context, *mo
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
 	ch.msgHandlers["evt:markPrice:array"] = func(ctx context.Context, b []byte) error {
+		var v models.MarkPriceEvent
 
 		var arr []json.RawMessage
 		if err := json.Unmarshal(b, &arr); err != nil { return err }
@@ -315,7 +316,6 @@ func (ch *MarketStreamChannel) HandleMarkPriceEvent(fn func(context.Context, *mo
 		var ev string
 		if v, ok := typ["e"].(string); ok { ev = v } else if evobj, ok := typ["event"].(map[string]interface{}); ok { if vv, ok2 := evobj["e"].(string); ok2 { ev = vv } }
 		if ev != "markPrice" { return fmt.Errorf("unexpected event type") }
-		var v models.MarkPriceEvent
 		if err := json.Unmarshal(b, &v); err != nil { return err }
 		return fn(ctx, &v)
 	}
@@ -371,6 +371,7 @@ func (ch *MarketStreamChannel) HandleTickerByUnderlyingEvent(fn func(context.Con
 	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
 	ch.client.handlersMu.Lock()
 	ch.msgHandlers["evt:24hrTicker:array"] = func(ctx context.Context, b []byte) error {
+		var v models.TickerByUnderlyingEvent
 
 		var arr []json.RawMessage
 		if err := json.Unmarshal(b, &arr); err != nil { return err }
@@ -380,7 +381,6 @@ func (ch *MarketStreamChannel) HandleTickerByUnderlyingEvent(fn func(context.Con
 		var ev string
 		if v, ok := typ["e"].(string); ok { ev = v } else if evobj, ok := typ["event"].(map[string]interface{}); ok { if vv, ok2 := evobj["e"].(string); ok2 { ev = vv } }
 		if ev != "24hrTicker" { return fmt.Errorf("unexpected event type") }
-		var v models.TickerByUnderlyingEvent
 		if err := json.Unmarshal(b, &v); err != nil { return err }
 		return fn(ctx, &v)
 	}

@@ -6,7 +6,7 @@ type ErrorMessage struct {
 		Code int `json:"code,omitempty"` // Error code
 		Msg string `json:"msg,omitempty"` // Error message
 	} `json:"error,omitempty"`
-	Id int64 `json:"id,omitempty"`
+	Id MessageID `json:"id,omitempty"`
 }
 
 

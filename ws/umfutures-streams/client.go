@@ -7,9 +7,15 @@ import (
   "log"
   "net/url"
   "runtime"
+  "strings"
   "sync"
   "github.com/gorilla/websocket"
 )
+
+// Wrapper alias keys discovered from spec
+var wrapperAliases = map[string]struct{}{
+  "wrap:combined": {},
+}
 
 // Client carries shared server manager and optional auth for per-channel connections
 type Client struct {
@@ -99,8 +105,41 @@ func (c *Client) GetURL() string { return c.GetCurrentURL() }
 func (c *Client) RegisterHandlers(channel string, m map[string]func(context.Context, []byte) error) {
   c.handlersMu.Lock()
   defer c.handlersMu.Unlock()
-  if c.handlers == nil { c.handlers = make(map[string]map[string]func(context.Context, []byte) error) }
-  c.handlers[channel] = m
+  // Expand event-type alias keys when templates provided a comma-separated list (x-event-type array)
+  // e.g. evt:1hTicker,4hTicker,1dTicker[:array] -> duplicate handlers for each value
+  expanded := make(map[string]func(context.Context, []byte) error, len(m))
+  for k, h := range m {
+    if strings.HasPrefix(k, "evt:") {
+      body := strings.TrimPrefix(k, "evt:")
+      suffix := ""
+      if strings.HasSuffix(body, ":array") {
+        body = strings.TrimSuffix(body, ":array")
+        suffix = ":array"
+      }
+      kb := strings.TrimSpace(body)
+      // strip optional bracket notation if present
+      if strings.HasPrefix(kb, "[") && strings.HasSuffix(kb, "]") {
+        kb = strings.TrimPrefix(kb, "[")
+        kb = strings.TrimSuffix(kb, "]")
+      }
+      createdAny := false
+      parts := strings.Split(kb, ",")
+      for _, p := range parts {
+        v := strings.TrimSpace(p)
+        if strings.HasPrefix(v, `"`) { v = strings.TrimPrefix(v, `"`) }
+        if strings.HasSuffix(v, `"`) { v = strings.TrimSuffix(v, `"`) }
+        if v == "" { continue }
+        expanded["evt:"+v+suffix] = h
+        createdAny = true
+      }
+      if !createdAny {
+        expanded[k] = h
+      }
+    } else {
+      expanded[k] = h
+    }
+  }
+  c.handlers[channel] = expanded
 }
 
 // StopReadLoop closes the underlying websocket connection and flips connection flags.
@@ -132,15 +171,16 @@ func (c *Client) ensureReadLoop(ctx context.Context) {
     wnum := c.workerCount
     if wnum <= 0 { wnum = 1 }
     for i := 0; i < wnum; i++ {
+      mb := c.mb
       c.workerWG.Add(1)
-      go func() {
+      go func(mb *mailbox) {
         defer c.workerWG.Done()
         for {
-          msg, ok := c.mb.Dequeue()
+          msg, ok := mb.Dequeue()
           if !ok { return }
           c.dispatchMessage(ctx, msg)
         }
-      }()
+      }(mb)
     }
   }
   c.readLoopStarted = true
@@ -167,6 +207,12 @@ func (c *Client) Wait(ctx context.Context) error {
 // readLoop reads from the shared connection and dispatches to registered handlers
 func (c *Client) readLoop(ctx context.Context) {
   defer func() {
+    // close mailbox and wait for all workers to drain before signalling completion
+    mb := c.mb
+    if mb != nil { mb.Close() }
+    c.workerWG.Wait()
+    c.mb = nil
+
     c.connMu.Lock()
     c.readLoopStarted = false
     if c.done != nil {
@@ -174,9 +220,6 @@ func (c *Client) readLoop(ctx context.Context) {
       c.done = nil
     }
     c.connMu.Unlock()
-    // close mailbox and wait for all workers to drain
-    if c.mb != nil { c.mb.Close(); c.mb = nil }
-    c.workerWG.Wait()
   }()
   for {
     c.connMu.RLock()
@@ -195,6 +238,68 @@ func (c *Client) readLoop(ctx context.Context) {
   }
 }
 
+// No-event-type classification (generated from AsyncAPI x-no-event-type)
+// These helpers allow routing events that do not include an 'e' field in payload.
+type noEvtCandidate struct {
+  Key        string
+  Required   []string
+  Properties []string
+  IsArray    bool
+}
+
+// Generated from spec: x-no-event-type messages
+var noEvtCandidates = []noEvtCandidate{
+
+}
+
+func hasAllFields(obj map[string]json.RawMessage, required []string) bool {
+  if len(required) == 0 { return true }
+  for _, k := range required {
+    if _, ok := obj[k]; !ok { return false }
+  }
+  return true
+}
+
+func scoreFields(obj map[string]json.RawMessage, candidates []string) int {
+  score := 0
+  for _, k := range candidates {
+    if _, ok := obj[k]; ok { score++ }
+  }
+  return score
+}
+
+// classifyNoEventTypePayload returns a handler key for x-no-event-type messages, or empty string if none matched
+func classifyNoEventTypePayload(b []byte) string {
+  // Try object payload
+  var obj map[string]json.RawMessage
+  if err := json.Unmarshal(b, &obj); err == nil {
+    bestKey := ""
+    bestScore := -1
+    for _, cand := range noEvtCandidates {
+      if cand.IsArray { continue }
+      if !hasAllFields(obj, cand.Required) { continue }
+      sc := scoreFields(obj, cand.Properties)
+      if sc > bestScore { bestScore = sc; bestKey = cand.Key }
+    }
+    if bestScore >= 0 && bestKey != "" { return bestKey }
+  }
+  // Try array payload; inspect first element
+  var arr []map[string]json.RawMessage
+  if err := json.Unmarshal(b, &arr); err == nil && len(arr) > 0 {
+    first := arr[0]
+    bestKey := ""
+    bestScore := -1
+    for _, cand := range noEvtCandidates {
+      if !cand.IsArray { continue }
+      if !hasAllFields(first, cand.Required) { continue }
+      sc := scoreFields(first, cand.Properties)
+      if sc > bestScore { bestScore = sc; bestKey = cand.Key }
+    }
+    if bestScore >= 0 && bestKey != "" { return bestKey }
+  }
+  return ""
+}
+
 // dispatchMessage performs JSON decoding + handler routing on a worker goroutine
 func (c *Client) dispatchMessage(ctx context.Context, data []byte) {
   // Try structured dispatch first
@@ -210,7 +315,8 @@ func (c *Client) dispatchMessage(ctx context.Context, data []byte) {
         if h, ok := hm["error"]; ok && h != nil { callList = append(callList, h) }
       }
       c.handlersMu.RUnlock()
-      for _, h := range callList { if err := h(ctx, data); err == nil { dispatched = true } }
+      // invoke wrapper handlers but do not mark dispatched; data-level handlers should decide
+      for _, h := range callList { _ = h(ctx, data) }
       // If this error correlates to a request id, clear the pending one-shot handler
       if rawID, ok := envelope["id"]; ok && len(rawID) > 0 {
         dec := json.NewDecoder(bytes.NewReader(rawID))
@@ -242,7 +348,8 @@ func (c *Client) dispatchMessage(ctx context.Context, data []byte) {
         if h, ok := hm["wrap:combined"]; ok && h != nil { callList = append(callList, h) }
       }
       c.handlersMu.RUnlock()
-      for _, h := range callList { if err := h(ctx, data); err == nil { dispatched = true } }
+      // invoke wrapper handlers but do not mark dispatched; data-level handlers should decide
+      for _, h := range callList { _ = h(ctx, data) }
       if raw, ok := envelope["data"]; ok && len(raw) > 0 { payload = raw }
     }
     // Event-type dispatch with array/object shape detection
@@ -250,7 +357,10 @@ func (c *Client) dispatchMessage(ctx context.Context, data []byte) {
     var typ map[string]interface{}
     if err := json.Unmarshal(payload, &typ); err == nil {
 
-      if ev, ok := typ["e"].(string); ok && ev != "" {
+      // support nested event.e as well as top-level e
+      var ev string
+      if v, ok := typ["e"].(string); ok { ev = v } else if evobj, ok := typ["event"].(map[string]interface{}); ok { if vv, ok2 := evobj["e"].(string); ok2 { ev = vv } }
+      if ev != "" {
         key := "evt:" + ev
         c.handlersMu.RLock()
         var callList []func(context.Context, []byte) error
@@ -267,7 +377,10 @@ func (c *Client) dispatchMessage(ctx context.Context, data []byte) {
         var first map[string]interface{}
         if err3 := json.Unmarshal(arr[0], &first); err3 == nil {
 
-          if ev, ok := first["e"].(string); ok && ev != "" {
+          // support nested event.e as well as top-level e for array payloads
+          var ev string
+          if v, ok := first["e"].(string); ok { ev = v } else if evobj, ok := first["event"].(map[string]interface{}); ok { if vv, ok2 := evobj["e"].(string); ok2 { ev = vv } }
+          if ev != "" {
             key := "evt:" + ev + ":array"
             c.handlersMu.RLock()
             var callList []func(context.Context, []byte) error
@@ -278,6 +391,18 @@ func (c *Client) dispatchMessage(ctx context.Context, data []byte) {
             for _, h := range callList { if err := h(ctx, payload); err == nil { dispatched = true } }
           }
         }
+      }
+    }
+    // No-event-type routing based on field presence (x-no-event-type)
+    if !dispatched {
+      if key := classifyNoEventTypePayload(payload); key != "" {
+        c.handlersMu.RLock()
+        var callList []func(context.Context, []byte) error
+        for _, hm := range c.handlers {
+          if h, ok := hm[key]; ok && h != nil { callList = append(callList, h) }
+        }
+        c.handlersMu.RUnlock()
+        for _, h := range callList { if err := h(ctx, payload); err == nil { dispatched = true } }
       }
     }
   }
@@ -335,7 +460,10 @@ func (c *Client) dispatchMessage(ctx context.Context, data []byte) {
     c.handlersMu.RLock()
     var callList []func(context.Context, []byte) error
     for _, hm := range c.handlers {
-      for _, h := range hm { if h != nil { callList = append(callList, h) } }
+      for k, h := range hm { if h != nil {
+        if _, isWrapper := wrapperAliases[k]; isWrapper { continue }
+        callList = append(callList, h)
+      } }
     }
     c.handlersMu.RUnlock()
     for _, h := range callList { if err := h(ctx, data); err == nil { dispatched = true } }
