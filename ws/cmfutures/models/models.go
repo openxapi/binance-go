@@ -1,5 +1,6 @@
 package models
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"reflect"
@@ -138,15 +139,14 @@ func ParseOneOfResult(data []byte) (interface{}, string, error) {
 
 // mapEventTypeToStruct maps Binance event types to Go struct types
 func mapEventTypeToStruct(eventType string) string {
-	// This function will be populated based on actual event types in the spec
-	// For APIs that don't define event types (like umfutures), this returns empty string
+	// This function is populated from event types declared in the AsyncAPI spec.
+	// When the spec omits explicit event identifiers, return empty string.
 	return ""
 }
 
 // RegisterAllEventTypes registers all known event types with the global registry
 func RegisterAllEventTypes() {
-	// Event types will be registered here based on what's actually defined in the AsyncAPI spec
-	// For APIs that don't define event types (like umfutures), this is a no-op function
+	// Event types are registered here when provided by the specification.
 }
 
 // MessageValidator interface for messages that can validate themselves
@@ -180,4 +180,84 @@ func init() {
 	// This will be called when the package is loaded
 	// Individual model files will call their registration functions
 }
+
+// MessageID represents a request/response id that can be either:
+// - 64-bit signed integer
+// - alphanumeric string (max length 36)
+// - null
+type MessageID struct {
+	i64   *int64
+	str   *string
+	isNull bool
+}
+
+// NewMessageIDInt64 creates a MessageID from int64
+func NewMessageIDInt64(v int64) MessageID { return MessageID{i64: &v} }
+
+// NewMessageIDString creates a MessageID from string (<=36 chars)
+func NewMessageIDString(v string) MessageID { return MessageID{str: &v} }
+
+// NewMessageIDNull creates a null MessageID
+func NewMessageIDNull() MessageID { return MessageID{isNull: true} }
+
+// String returns a canonical string form used for correlation maps
+func (m MessageID) String() string {
+	if m.isNull { return "" }
+	if m.str != nil { return *m.str }
+	if m.i64 != nil { return fmt.Sprintf("%d", *m.i64) }
+	return ""
+}
+
+// MarshalJSON encodes MessageID as number, string, or null
+func (m MessageID) MarshalJSON() ([]byte, error) {
+	if m.isNull { return []byte("null"), nil }
+	if m.str != nil { return json.Marshal(*m.str) }
+	if m.i64 != nil { return json.Marshal(*m.i64) }
+	return []byte("null"), nil
+}
+
+// UnmarshalJSON decodes MessageID from number, string, or null
+func (m *MessageID) UnmarshalJSON(b []byte) error {
+	// reset
+	*m = MessageID{}
+	// Handle null
+	if len(b) == 0 || string(b) == "null" { m.isNull = true; return nil }
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.UseNumber()
+	var v interface{}
+	if err := dec.Decode(&v); err != nil { return err }
+	switch t := v.(type) {
+	case json.Number:
+		i, err := t.Int64()
+		if err != nil { return fmt.Errorf("invalid id number: %w", err) }
+		m.i64 = &i
+		return nil
+	case string:
+		if len(t) > 36 { return fmt.Errorf("id string too long: %d", len(t)) }
+		m.str = &t
+		return nil
+	default:
+		return fmt.Errorf("invalid id type: %T", v)
+	}
+}
+
+// ValInt64 returns the int64 value and true if MessageID holds an integer; otherwise returns 0, false
+func (m MessageID) ValInt64() (int64, bool) {
+    if m.i64 != nil {
+        return *m.i64, true
+    }
+    return 0, false
+}
+
+// ValString returns the string value and true if MessageID holds a string; otherwise returns "", false
+func (m MessageID) ValString() (string, bool) {
+    if m.str != nil {
+        return *m.str, true
+    }
+    return "", false
+}
+
+// ValNull reports whether MessageID is explicitly null
+func (m MessageID) ValNull() bool { return m.isNull }
+
 
