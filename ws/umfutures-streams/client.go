@@ -354,10 +354,11 @@ func (c *Client) dispatchMessage(ctx context.Context, data []byte) {
     // 1) Try object payload
     var typ map[string]interface{}
     if err := json.Unmarshal(payload, &typ); err == nil {
-
-      // support nested event.e as well as top-level e
+      // event type derived from top-level e
       var ev string
-      if v, ok := typ["e"].(string); ok { ev = v } else if evobj, ok := typ["event"].(map[string]interface{}); ok { if vv, ok2 := evobj["e"].(string); ok2 { ev = vv } }
+      if v, ok := typ["e"].(string); ok {
+        ev = v
+      }
       if ev != "" {
         key := "evt:" + ev
         c.handlersMu.RLock()
@@ -374,10 +375,11 @@ func (c *Client) dispatchMessage(ctx context.Context, data []byte) {
       if err2 := json.Unmarshal(payload, &arr); err2 == nil && len(arr) > 0 {
         var first map[string]interface{}
         if err3 := json.Unmarshal(arr[0], &first); err3 == nil {
-
-          // support nested event.e as well as top-level e for array payloads
+          // event type derived from top-level e for array payloads
           var ev string
-          if v, ok := first["e"].(string); ok { ev = v } else if evobj, ok := first["event"].(map[string]interface{}); ok { if vv, ok2 := evobj["e"].(string); ok2 { ev = vv } }
+          if v, ok := first["e"].(string); ok {
+            ev = v
+          }
           if ev != "" {
             key := "evt:" + ev + ":array"
             c.handlersMu.RLock()
