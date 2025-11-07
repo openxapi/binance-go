@@ -22,6 +22,27 @@ type UserDataStreamChannel struct {
 	msgHandlers  map[string]func(context.Context, []byte) error
 }
 
+func (ch *UserDataStreamChannel) setHandlerLocked(key string, fn func(context.Context, []byte) error) {
+	if ch.msgHandlers == nil {
+		ch.msgHandlers = make(map[string]func(context.Context, []byte) error)
+	}
+	if fn != nil {
+		ch.msgHandlers[key] = fn
+		return
+	}
+	delete(ch.msgHandlers, key)
+}
+
+func (ch *UserDataStreamChannel) applyHandlers() {
+	ch.mu.RLock()
+	snapshot := make(map[string]func(context.Context, []byte) error, len(ch.msgHandlers))
+	for k, v := range ch.msgHandlers {
+		snapshot[k] = v
+	}
+	ch.mu.RUnlock()
+	ch.client.RegisterHandlers("userDataStream", snapshot)
+}
+
 // NewUserDataStreamChannel constructs a channel bound to a client
 func NewUserDataStreamChannel(client *Client) *UserDataStreamChannel {
 	return &UserDataStreamChannel{
@@ -34,15 +55,17 @@ func NewUserDataStreamChannel(client *Client) *UserDataStreamChannel {
 // Connect resolves the channel address and establishes a WebSocket connection
 func (ch *UserDataStreamChannel) Connect(ctx context.Context, listenKey string) error {
 	ch.mu.Lock()
-	defer ch.mu.Unlock()
 	if ch.isConnected {
+		ch.mu.Unlock()
 		return fmt.Errorf("channel already connected")
 	}
-	base := ch.client.serverManager.GetActiveServerURL()
+	templatePath := ch.addrTemplate
+	ch.mu.Unlock()
+	base := ch.client.GetCurrentURL()
 	if base == "" {
 		return fmt.Errorf("no active server configured")
 	}
-	path := ch.addrTemplate
+	path := templatePath
 	path = strings.ReplaceAll(path, "{listenKey}", listenKey)
 	if i := strings.Index(path, "?"); i >= 0 {
 		basePath := path[:i]
@@ -61,7 +84,19 @@ func (ch *UserDataStreamChannel) Connect(ctx context.Context, listenKey string) 
 			path = basePath
 		}
 	}
-	full := strings.TrimRight(base, "/") + path
+	baseClean := strings.TrimRight(base, "/")
+	var query string
+	if idx := strings.Index(path, "?"); idx >= 0 {
+		query = path[idx:]
+		path = path[:idx]
+	}
+	if path != "" {
+		path = "/" + strings.Trim(path, "/")
+		if path == "/" {
+			path = ""
+		}
+	}
+	full := baseClean + path + query
 	ch.client.connMu.RLock()
 	clConn := ch.client.conn
 	ch.client.connMu.RUnlock()
@@ -77,10 +112,11 @@ func (ch *UserDataStreamChannel) Connect(ctx context.Context, listenKey string) 
 		ch.client.isConnected = true
 		ch.client.connMu.Unlock()
 	}
-	// register handlers and start shared read loop
-	ch.client.RegisterHandlers("userDataStream", ch.msgHandlers)
-	ch.client.ensureReadLoop(ctx)
+	ch.mu.Lock()
 	ch.isConnected = true
+	ch.mu.Unlock()
+	ch.applyHandlers()
+	ch.client.ensureReadLoop(ctx)
 	return nil
 }
 
@@ -102,7 +138,7 @@ func (ch *UserDataStreamChannel) Disconnect(ctx context.Context) error {
 }
 
 // Start sends a message for operation 'userDataStreamStart' on userDataStream
-func (ch *UserDataStreamChannel) Start(ctx context.Context, req *models.UserDataStreamStartRequest, handler *func(context.Context, *models.UserDataStreamStartResponse) error) error {
+func (ch *UserDataStreamChannel) Start(ctx context.Context, req *models.UserDataStreamStartRequest, handler *func(context.Context, *models.UserDataStreamStartResponse, error) error) error {
 	ch.client.connMu.RLock()
 	conn := ch.client.conn
 	ch.client.connMu.RUnlock()
@@ -110,14 +146,19 @@ func (ch *UserDataStreamChannel) Start(ctx context.Context, req *models.UserData
 	if handler != nil && *handler != nil {
 		idStr := fmt.Sprintf("%v", req.Id)
 		ch.client.pendingByID.Store(idStr, func(ctx context.Context, b []byte) error {
+			var envelope map[string]json.RawMessage
+			if err := json.Unmarshal(b, &envelope); err != nil { return err }
+			if handler == nil || *handler == nil { return nil }
+			if rawErr, ok := envelope["error"]; ok && len(rawErr) > 0 {
+				var errMsg models.ErrorMessage
+				if err := json.Unmarshal(b, &errMsg); err != nil { return err }
+				return (*handler)(ctx, nil, &errMsg)
+			}
 
-		var probe map[string]json.RawMessage
-		if err := json.Unmarshal(b, &probe); err != nil { return err }
-		if _, ok := probe["result"]; !ok { return fmt.Errorf("no result field") }
+			if _, ok := envelope["result"]; !ok { return fmt.Errorf("no result field") }
 			var v models.UserDataStreamStartResponse
 			if err := json.Unmarshal(b, &v); err != nil { return err }
-			if handler == nil || *handler == nil { return nil }
-			return (*handler)(ctx, &v)
+			return (*handler)(ctx, &v, nil)
 		})
 	}
 	// Apply const constraints from schema
@@ -128,7 +169,7 @@ func (ch *UserDataStreamChannel) Start(ctx context.Context, req *models.UserData
 }
 
 // Ping sends a message for operation 'userDataStreamPing' on userDataStream
-func (ch *UserDataStreamChannel) Ping(ctx context.Context, req *models.UserDataStreamPingRequest, handler *func(context.Context, *models.UserDataStreamPingResponse) error) error {
+func (ch *UserDataStreamChannel) Ping(ctx context.Context, req *models.UserDataStreamPingRequest, handler *func(context.Context, *models.UserDataStreamPingResponse, error) error) error {
 	ch.client.connMu.RLock()
 	conn := ch.client.conn
 	ch.client.connMu.RUnlock()
@@ -136,14 +177,19 @@ func (ch *UserDataStreamChannel) Ping(ctx context.Context, req *models.UserDataS
 	if handler != nil && *handler != nil {
 		idStr := fmt.Sprintf("%v", req.Id)
 		ch.client.pendingByID.Store(idStr, func(ctx context.Context, b []byte) error {
+			var envelope map[string]json.RawMessage
+			if err := json.Unmarshal(b, &envelope); err != nil { return err }
+			if handler == nil || *handler == nil { return nil }
+			if rawErr, ok := envelope["error"]; ok && len(rawErr) > 0 {
+				var errMsg models.ErrorMessage
+				if err := json.Unmarshal(b, &errMsg); err != nil { return err }
+				return (*handler)(ctx, nil, &errMsg)
+			}
 
-		var probe map[string]json.RawMessage
-		if err := json.Unmarshal(b, &probe); err != nil { return err }
-		if _, ok := probe["result"]; !ok { return fmt.Errorf("no result field") }
+			if _, ok := envelope["result"]; !ok { return fmt.Errorf("no result field") }
 			var v models.UserDataStreamPingResponse
 			if err := json.Unmarshal(b, &v); err != nil { return err }
-			if handler == nil || *handler == nil { return nil }
-			return (*handler)(ctx, &v)
+			return (*handler)(ctx, &v, nil)
 		})
 	}
 	// Apply const constraints from schema
@@ -154,7 +200,7 @@ func (ch *UserDataStreamChannel) Ping(ctx context.Context, req *models.UserDataS
 }
 
 // Stop sends a message for operation 'userDataStreamStop' on userDataStream
-func (ch *UserDataStreamChannel) Stop(ctx context.Context, req *models.UserDataStreamStopRequest, handler *func(context.Context, *models.UserDataStreamStopResponse) error) error {
+func (ch *UserDataStreamChannel) Stop(ctx context.Context, req *models.UserDataStreamStopRequest, handler *func(context.Context, *models.UserDataStreamStopResponse, error) error) error {
 	ch.client.connMu.RLock()
 	conn := ch.client.conn
 	ch.client.connMu.RUnlock()
@@ -162,14 +208,19 @@ func (ch *UserDataStreamChannel) Stop(ctx context.Context, req *models.UserDataS
 	if handler != nil && *handler != nil {
 		idStr := fmt.Sprintf("%v", req.Id)
 		ch.client.pendingByID.Store(idStr, func(ctx context.Context, b []byte) error {
+			var envelope map[string]json.RawMessage
+			if err := json.Unmarshal(b, &envelope); err != nil { return err }
+			if handler == nil || *handler == nil { return nil }
+			if rawErr, ok := envelope["error"]; ok && len(rawErr) > 0 {
+				var errMsg models.ErrorMessage
+				if err := json.Unmarshal(b, &errMsg); err != nil { return err }
+				return (*handler)(ctx, nil, &errMsg)
+			}
 
-		var probe map[string]json.RawMessage
-		if err := json.Unmarshal(b, &probe); err != nil { return err }
-		if _, ok := probe["result"]; !ok { return fmt.Errorf("no result field") }
+			if _, ok := envelope["result"]; !ok { return fmt.Errorf("no result field") }
 			var v models.UserDataStreamStopResponse
 			if err := json.Unmarshal(b, &v); err != nil { return err }
-			if handler == nil || *handler == nil { return nil }
-			return (*handler)(ctx, &v)
+			return (*handler)(ctx, &v, nil)
 		})
 	}
 	// Apply const constraints from schema
@@ -182,9 +233,7 @@ func (ch *UserDataStreamChannel) Stop(ctx context.Context, req *models.UserDataS
 // HandleListenKeyExpiredEvent registers a handler for message 'Listen Key Expired Event' on userDataStream
 func (ch *UserDataStreamChannel) HandleListenKeyExpiredEvent(fn func(context.Context, *models.ListenKeyExpiredEvent) error) {
 	if fn == nil { return }
-	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
-	ch.client.handlersMu.Lock()
-	ch.msgHandlers["evt:listenKeyExpired"] = func(ctx context.Context, b []byte) error {
+	handler := func(ctx context.Context, b []byte) error {
 
 		var typ map[string]interface{}
 		if err := json.Unmarshal(b, &typ); err != nil { return err }
@@ -195,21 +244,25 @@ func (ch *UserDataStreamChannel) HandleListenKeyExpiredEvent(fn func(context.Con
 		if err := json.Unmarshal(b, &v); err != nil { return err }
 		return fn(ctx, &v)
 	}
-	ch.client.handlersMu.Unlock()
+	ch.mu.Lock()
+	ch.setHandlerLocked("evt:listenKeyExpired", handler)
+	connected := ch.isConnected
+	ch.mu.Unlock()
+	if connected { ch.applyHandlers() }
 }
 
 func (ch *UserDataStreamChannel) UnregisterListenKeyExpiredEvent() {
-	ch.client.handlersMu.Lock()
-	delete(ch.msgHandlers, "evt:listenKeyExpired")
-	ch.client.handlersMu.Unlock()
+	ch.mu.Lock()
+	ch.setHandlerLocked("evt:listenKeyExpired", nil)
+	connected := ch.isConnected
+	ch.mu.Unlock()
+	if connected { ch.applyHandlers() }
 }
 
 // HandleAccountUpdateEvent registers a handler for message 'Account Update Event' on userDataStream
 func (ch *UserDataStreamChannel) HandleAccountUpdateEvent(fn func(context.Context, *models.AccountUpdateEvent) error) {
 	if fn == nil { return }
-	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
-	ch.client.handlersMu.Lock()
-	ch.msgHandlers["evt:ACCOUNT_UPDATE"] = func(ctx context.Context, b []byte) error {
+	handler := func(ctx context.Context, b []byte) error {
 
 		var typ map[string]interface{}
 		if err := json.Unmarshal(b, &typ); err != nil { return err }
@@ -220,21 +273,25 @@ func (ch *UserDataStreamChannel) HandleAccountUpdateEvent(fn func(context.Contex
 		if err := json.Unmarshal(b, &v); err != nil { return err }
 		return fn(ctx, &v)
 	}
-	ch.client.handlersMu.Unlock()
+	ch.mu.Lock()
+	ch.setHandlerLocked("evt:ACCOUNT_UPDATE", handler)
+	connected := ch.isConnected
+	ch.mu.Unlock()
+	if connected { ch.applyHandlers() }
 }
 
 func (ch *UserDataStreamChannel) UnregisterAccountUpdateEvent() {
-	ch.client.handlersMu.Lock()
-	delete(ch.msgHandlers, "evt:ACCOUNT_UPDATE")
-	ch.client.handlersMu.Unlock()
+	ch.mu.Lock()
+	ch.setHandlerLocked("evt:ACCOUNT_UPDATE", nil)
+	connected := ch.isConnected
+	ch.mu.Unlock()
+	if connected { ch.applyHandlers() }
 }
 
 // HandleMarginCallEvent registers a handler for message 'Margin Call Event' on userDataStream
 func (ch *UserDataStreamChannel) HandleMarginCallEvent(fn func(context.Context, *models.MarginCallEvent) error) {
 	if fn == nil { return }
-	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
-	ch.client.handlersMu.Lock()
-	ch.msgHandlers["evt:MARGIN_CALL"] = func(ctx context.Context, b []byte) error {
+	handler := func(ctx context.Context, b []byte) error {
 
 		var typ map[string]interface{}
 		if err := json.Unmarshal(b, &typ); err != nil { return err }
@@ -245,21 +302,25 @@ func (ch *UserDataStreamChannel) HandleMarginCallEvent(fn func(context.Context, 
 		if err := json.Unmarshal(b, &v); err != nil { return err }
 		return fn(ctx, &v)
 	}
-	ch.client.handlersMu.Unlock()
+	ch.mu.Lock()
+	ch.setHandlerLocked("evt:MARGIN_CALL", handler)
+	connected := ch.isConnected
+	ch.mu.Unlock()
+	if connected { ch.applyHandlers() }
 }
 
 func (ch *UserDataStreamChannel) UnregisterMarginCallEvent() {
-	ch.client.handlersMu.Lock()
-	delete(ch.msgHandlers, "evt:MARGIN_CALL")
-	ch.client.handlersMu.Unlock()
+	ch.mu.Lock()
+	ch.setHandlerLocked("evt:MARGIN_CALL", nil)
+	connected := ch.isConnected
+	ch.mu.Unlock()
+	if connected { ch.applyHandlers() }
 }
 
 // HandleOrderTradeUpdateEvent registers a handler for message 'Order Trade Update Event' on userDataStream
 func (ch *UserDataStreamChannel) HandleOrderTradeUpdateEvent(fn func(context.Context, *models.OrderTradeUpdateEvent) error) {
 	if fn == nil { return }
-	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
-	ch.client.handlersMu.Lock()
-	ch.msgHandlers["evt:ORDER_TRADE_UPDATE"] = func(ctx context.Context, b []byte) error {
+	handler := func(ctx context.Context, b []byte) error {
 
 		var typ map[string]interface{}
 		if err := json.Unmarshal(b, &typ); err != nil { return err }
@@ -270,21 +331,25 @@ func (ch *UserDataStreamChannel) HandleOrderTradeUpdateEvent(fn func(context.Con
 		if err := json.Unmarshal(b, &v); err != nil { return err }
 		return fn(ctx, &v)
 	}
-	ch.client.handlersMu.Unlock()
+	ch.mu.Lock()
+	ch.setHandlerLocked("evt:ORDER_TRADE_UPDATE", handler)
+	connected := ch.isConnected
+	ch.mu.Unlock()
+	if connected { ch.applyHandlers() }
 }
 
 func (ch *UserDataStreamChannel) UnregisterOrderTradeUpdateEvent() {
-	ch.client.handlersMu.Lock()
-	delete(ch.msgHandlers, "evt:ORDER_TRADE_UPDATE")
-	ch.client.handlersMu.Unlock()
+	ch.mu.Lock()
+	ch.setHandlerLocked("evt:ORDER_TRADE_UPDATE", nil)
+	connected := ch.isConnected
+	ch.mu.Unlock()
+	if connected { ch.applyHandlers() }
 }
 
 // HandleTradeLiteEvent registers a handler for message 'Trade Lite Event' on userDataStream
 func (ch *UserDataStreamChannel) HandleTradeLiteEvent(fn func(context.Context, *models.TradeLiteEvent) error) {
 	if fn == nil { return }
-	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
-	ch.client.handlersMu.Lock()
-	ch.msgHandlers["evt:TRADE_LITE"] = func(ctx context.Context, b []byte) error {
+	handler := func(ctx context.Context, b []byte) error {
 
 		var typ map[string]interface{}
 		if err := json.Unmarshal(b, &typ); err != nil { return err }
@@ -295,21 +360,25 @@ func (ch *UserDataStreamChannel) HandleTradeLiteEvent(fn func(context.Context, *
 		if err := json.Unmarshal(b, &v); err != nil { return err }
 		return fn(ctx, &v)
 	}
-	ch.client.handlersMu.Unlock()
+	ch.mu.Lock()
+	ch.setHandlerLocked("evt:TRADE_LITE", handler)
+	connected := ch.isConnected
+	ch.mu.Unlock()
+	if connected { ch.applyHandlers() }
 }
 
 func (ch *UserDataStreamChannel) UnregisterTradeLiteEvent() {
-	ch.client.handlersMu.Lock()
-	delete(ch.msgHandlers, "evt:TRADE_LITE")
-	ch.client.handlersMu.Unlock()
+	ch.mu.Lock()
+	ch.setHandlerLocked("evt:TRADE_LITE", nil)
+	connected := ch.isConnected
+	ch.mu.Unlock()
+	if connected { ch.applyHandlers() }
 }
 
 // HandleAccountConfigUpdateEvent registers a handler for message 'Account Configuration Update Event' on userDataStream
 func (ch *UserDataStreamChannel) HandleAccountConfigUpdateEvent(fn func(context.Context, *models.AccountConfigUpdateEvent) error) {
 	if fn == nil { return }
-	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
-	ch.client.handlersMu.Lock()
-	ch.msgHandlers["evt:ACCOUNT_CONFIG_UPDATE"] = func(ctx context.Context, b []byte) error {
+	handler := func(ctx context.Context, b []byte) error {
 
 		var typ map[string]interface{}
 		if err := json.Unmarshal(b, &typ); err != nil { return err }
@@ -320,21 +389,25 @@ func (ch *UserDataStreamChannel) HandleAccountConfigUpdateEvent(fn func(context.
 		if err := json.Unmarshal(b, &v); err != nil { return err }
 		return fn(ctx, &v)
 	}
-	ch.client.handlersMu.Unlock()
+	ch.mu.Lock()
+	ch.setHandlerLocked("evt:ACCOUNT_CONFIG_UPDATE", handler)
+	connected := ch.isConnected
+	ch.mu.Unlock()
+	if connected { ch.applyHandlers() }
 }
 
 func (ch *UserDataStreamChannel) UnregisterAccountConfigUpdateEvent() {
-	ch.client.handlersMu.Lock()
-	delete(ch.msgHandlers, "evt:ACCOUNT_CONFIG_UPDATE")
-	ch.client.handlersMu.Unlock()
+	ch.mu.Lock()
+	ch.setHandlerLocked("evt:ACCOUNT_CONFIG_UPDATE", nil)
+	connected := ch.isConnected
+	ch.mu.Unlock()
+	if connected { ch.applyHandlers() }
 }
 
 // HandleStrategyUpdateEvent registers a handler for message 'Strategy Update Event' on userDataStream
 func (ch *UserDataStreamChannel) HandleStrategyUpdateEvent(fn func(context.Context, *models.StrategyUpdateEvent) error) {
 	if fn == nil { return }
-	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
-	ch.client.handlersMu.Lock()
-	ch.msgHandlers["evt:STRATEGY_UPDATE"] = func(ctx context.Context, b []byte) error {
+	handler := func(ctx context.Context, b []byte) error {
 
 		var typ map[string]interface{}
 		if err := json.Unmarshal(b, &typ); err != nil { return err }
@@ -345,21 +418,25 @@ func (ch *UserDataStreamChannel) HandleStrategyUpdateEvent(fn func(context.Conte
 		if err := json.Unmarshal(b, &v); err != nil { return err }
 		return fn(ctx, &v)
 	}
-	ch.client.handlersMu.Unlock()
+	ch.mu.Lock()
+	ch.setHandlerLocked("evt:STRATEGY_UPDATE", handler)
+	connected := ch.isConnected
+	ch.mu.Unlock()
+	if connected { ch.applyHandlers() }
 }
 
 func (ch *UserDataStreamChannel) UnregisterStrategyUpdateEvent() {
-	ch.client.handlersMu.Lock()
-	delete(ch.msgHandlers, "evt:STRATEGY_UPDATE")
-	ch.client.handlersMu.Unlock()
+	ch.mu.Lock()
+	ch.setHandlerLocked("evt:STRATEGY_UPDATE", nil)
+	connected := ch.isConnected
+	ch.mu.Unlock()
+	if connected { ch.applyHandlers() }
 }
 
 // HandleGridUpdateEvent registers a handler for message 'Grid Update Event' on userDataStream
 func (ch *UserDataStreamChannel) HandleGridUpdateEvent(fn func(context.Context, *models.GridUpdateEvent) error) {
 	if fn == nil { return }
-	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
-	ch.client.handlersMu.Lock()
-	ch.msgHandlers["evt:GRID_UPDATE"] = func(ctx context.Context, b []byte) error {
+	handler := func(ctx context.Context, b []byte) error {
 
 		var typ map[string]interface{}
 		if err := json.Unmarshal(b, &typ); err != nil { return err }
@@ -370,21 +447,25 @@ func (ch *UserDataStreamChannel) HandleGridUpdateEvent(fn func(context.Context, 
 		if err := json.Unmarshal(b, &v); err != nil { return err }
 		return fn(ctx, &v)
 	}
-	ch.client.handlersMu.Unlock()
+	ch.mu.Lock()
+	ch.setHandlerLocked("evt:GRID_UPDATE", handler)
+	connected := ch.isConnected
+	ch.mu.Unlock()
+	if connected { ch.applyHandlers() }
 }
 
 func (ch *UserDataStreamChannel) UnregisterGridUpdateEvent() {
-	ch.client.handlersMu.Lock()
-	delete(ch.msgHandlers, "evt:GRID_UPDATE")
-	ch.client.handlersMu.Unlock()
+	ch.mu.Lock()
+	ch.setHandlerLocked("evt:GRID_UPDATE", nil)
+	connected := ch.isConnected
+	ch.mu.Unlock()
+	if connected { ch.applyHandlers() }
 }
 
 // HandleConditionalOrderTriggerRejectEvent registers a handler for message 'Conditional Order Trigger Reject Event' on userDataStream
 func (ch *UserDataStreamChannel) HandleConditionalOrderTriggerRejectEvent(fn func(context.Context, *models.ConditionalOrderTriggerRejectEvent) error) {
 	if fn == nil { return }
-	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
-	ch.client.handlersMu.Lock()
-	ch.msgHandlers["evt:CONDITIONAL_ORDER_TRIGGER_REJECT"] = func(ctx context.Context, b []byte) error {
+	handler := func(ctx context.Context, b []byte) error {
 
 		var typ map[string]interface{}
 		if err := json.Unmarshal(b, &typ); err != nil { return err }
@@ -395,36 +476,19 @@ func (ch *UserDataStreamChannel) HandleConditionalOrderTriggerRejectEvent(fn fun
 		if err := json.Unmarshal(b, &v); err != nil { return err }
 		return fn(ctx, &v)
 	}
-	ch.client.handlersMu.Unlock()
+	ch.mu.Lock()
+	ch.setHandlerLocked("evt:CONDITIONAL_ORDER_TRIGGER_REJECT", handler)
+	connected := ch.isConnected
+	ch.mu.Unlock()
+	if connected { ch.applyHandlers() }
 }
 
 func (ch *UserDataStreamChannel) UnregisterConditionalOrderTriggerRejectEvent() {
-	ch.client.handlersMu.Lock()
-	delete(ch.msgHandlers, "evt:CONDITIONAL_ORDER_TRIGGER_REJECT")
-	ch.client.handlersMu.Unlock()
-}
-
-// HandleErrorMessage registers a handler for message 'Error Message' on userDataStream
-func (ch *UserDataStreamChannel) HandleErrorMessage(fn func(context.Context, *models.ErrorMessage) error) {
-	if fn == nil { return }
-	if ch.msgHandlers == nil { ch.msgHandlers = make(map[string]func(context.Context, []byte) error) }
-	ch.client.handlersMu.Lock()
-	ch.msgHandlers["error"] = func(ctx context.Context, b []byte) error {
-
-		var probe map[string]json.RawMessage
-		if err := json.Unmarshal(b, &probe); err != nil { return err }
-		if _, ok := probe["error"]; !ok { return fmt.Errorf("not error message") }
-		var v models.ErrorMessage
-		if err := json.Unmarshal(b, &v); err != nil { return err }
-		return fn(ctx, &v)
-	}
-	ch.client.handlersMu.Unlock()
-}
-
-func (ch *UserDataStreamChannel) UnregisterErrorMessage() {
-	ch.client.handlersMu.Lock()
-	delete(ch.msgHandlers, "error")
-	ch.client.handlersMu.Unlock()
+	ch.mu.Lock()
+	ch.setHandlerLocked("evt:CONDITIONAL_ORDER_TRIGGER_REJECT", nil)
+	connected := ch.isConnected
+	ch.mu.Unlock()
+	if connected { ch.applyHandlers() }
 }
 
 

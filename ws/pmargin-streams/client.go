@@ -1,4 +1,4 @@
-package umfuturesstreams
+package pmarginstreams
 import (
   "bytes"
   "context"
@@ -59,8 +59,7 @@ func NewClientWithOptions(opts *ClientOptions) *Client {
   }
   c.workerCount = wc
   // Preload servers from AsyncAPI spec (first becomes active by default)
-  _ = c.AddServer("mainnet", "wss://fstream.binance.com", "Binance USD-S Margined Futures Server", "WebSocket server for Binance USD-S margined futures market data streams (mainnet)")
-  _ = c.AddServer("testnet", "wss://fstream.binancefuture.com", "Binance USD-S Margined Futures Testnet Server", "WebSocket server for Binance USD-S margined futures market data streams (testnet)")
+  _ = c.AddServer("mainnet", "wss://fstream.binance.com/pm", "Binance Portfolio Margin Server", "WebSocket server for binance exchange portfolio margin API (mainnet environment)")
   return c
 }
 
@@ -339,7 +338,7 @@ func (c *Client) dispatchMessage(ctx context.Context, data []byte) {
     // Combined wrapper handlers first (spec-driven)
     // Support multiple wrapper shapes if declared in spec
     payload := data
-    if _, ok := envelope["stream"]; ok {
+    if _, hasStream := envelope["stream"]; hasStream {
       c.handlersMu.RLock()
       var callList []func(context.Context, []byte) error
       for _, hm := range c.handlers {

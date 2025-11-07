@@ -59,10 +59,10 @@ func NewClientWithOptions(opts *ClientOptions) *Client {
   }
   c.workerCount = wc
   // Preload servers from AsyncAPI spec (first becomes active by default)
-  _ = c.AddServer("mainnet", "wss://stream.binance.com:9443/", "Binance Spot Server", "WebSocket server for Binance spot market data streams (mainnet)")
-  _ = c.AddServer("mainnetAlt", "wss://stream.binance.com:443/", "Binance Spot Server (Alternative)", "Alternative WebSocket server for Binance spot market data streams (mainnet)")
-  _ = c.AddServer("mainnetData", "wss://data-stream.binance.vision/", "Binance Spot Market Data Server", "WebSocket server for Binance spot market data streams (market data only)")
-  _ = c.AddServer("testnet", "wss://stream.testnet.binance.vision/", "Binance Spot Testnet Server", "WebSocket server for Binance spot market data streams (testnet)")
+  _ = c.AddServer("mainnet", "wss://stream.binance.com:9443", "Binance Spot Server", "WebSocket server for Binance spot market data streams (mainnet)")
+  _ = c.AddServer("mainnetAlt", "wss://stream.binance.com:443", "Binance Spot Server (Alternative)", "Alternative WebSocket server for Binance spot market data streams (mainnet)")
+  _ = c.AddServer("mainnetData", "wss://data-stream.binance.vision", "Binance Spot Market Data Server", "WebSocket server for Binance spot market data streams (market data only)")
+  _ = c.AddServer("testnet", "wss://stream.testnet.binance.vision", "Binance Spot Testnet Server", "WebSocket server for Binance spot market data streams (testnet)")
   return c
 }
 
@@ -97,7 +97,10 @@ func (c *Client) SetActiveServer(name string) error { return c.serverManager.Set
 func (c *Client) GetActiveServer() *ServerInfo { return c.serverManager.GetActiveServer() }
 func (c *Client) GetServer(name string) *ServerInfo { return c.serverManager.GetServer(name) }
 func (c *Client) ListServers() map[string]*ServerInfo { return c.serverManager.ListServers() }
-func (c *Client) GetCurrentURL() string { return c.serverManager.GetActiveServerURL() }
+func (c *Client) GetCurrentURL() string {
+  base := c.serverManager.GetActiveServerURL()
+  return strings.TrimRight(base, "/")
+}
 
 // Deprecated: use GetCurrentURL
 func (c *Client) GetURL() string { return c.GetCurrentURL() }
@@ -309,18 +312,8 @@ func (c *Client) dispatchMessage(ctx context.Context, data []byte) {
   dispatched := false
   var envelope map[string]json.RawMessage
   if err := json.Unmarshal(data, &envelope); err == nil {
-    // Top-level error dispatch (spec-declared)
+    // Top-level error detection for request failures
     if _, ok := envelope["error"]; ok {
-      // collect matching handlers without holding the lock during invocation
-      c.handlersMu.RLock()
-      var callList []func(context.Context, []byte) error
-      for _, hm := range c.handlers {
-        if h, ok := hm["error"]; ok && h != nil { callList = append(callList, h) }
-      }
-      c.handlersMu.RUnlock()
-      // invoke wrapper handlers but do not mark dispatched; data-level handlers should decide
-      for _, h := range callList { _ = h(ctx, data) }
-      // If this error correlates to a request id, clear the pending one-shot handler
       if rawID, ok := envelope["id"]; ok && len(rawID) > 0 {
         dec := json.NewDecoder(bytes.NewReader(rawID))
         dec.UseNumber()
@@ -335,8 +328,13 @@ func (c *Client) dispatchMessage(ctx context.Context, data []byte) {
           default:
             idStr = fmt.Sprintf("%v", v)
           }
-          if _, ok := c.pendingByID.Load(idStr); ok {
-            c.pendingByID.Delete(idStr)
+          if pending, ok := c.pendingByID.Load(idStr); ok {
+            if fn, ok2 := pending.(func(context.Context, []byte) error); ok2 && fn != nil {
+              c.pendingByID.Delete(idStr)
+              if err := fn(ctx, data); err == nil { dispatched = true }
+            } else {
+              c.pendingByID.Delete(idStr)
+            }
           }
         }
       }
@@ -438,19 +436,6 @@ func (c *Client) dispatchMessage(ctx context.Context, data []byte) {
             } else {
               // cleanup invalid entry
               c.pendingByID.Delete(idStr)
-            }
-          }
-          if !dispatched {
-            // Fallback to legacy per-channel id: handlers
-            key := "id:" + idStr
-            c.handlersMu.RLock()
-            var idHandlers []func(context.Context, []byte) error
-            for _, hm := range c.handlers {
-              if h, ok := hm[key]; ok && h != nil { idHandlers = append(idHandlers, h) }
-            }
-            c.handlersMu.RUnlock()
-            if len(idHandlers) > 0 {
-              for _, h := range idHandlers { if err := h(ctx, data); err == nil { dispatched = true } }
             }
           }
         }

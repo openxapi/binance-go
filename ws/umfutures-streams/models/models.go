@@ -139,15 +139,14 @@ func ParseOneOfResult(data []byte) (interface{}, string, error) {
 
 // mapEventTypeToStruct maps Binance event types to Go struct types
 func mapEventTypeToStruct(eventType string) string {
-	// This function will be populated based on actual event types in the spec
-	// For APIs that don't define event types (like umfutures), this returns empty string
+	// This function is populated from event types declared in the AsyncAPI spec.
+	// When the spec omits explicit event identifiers, return empty string.
 	return ""
 }
 
 // RegisterAllEventTypes registers all known event types with the global registry
 func RegisterAllEventTypes() {
-	// Event types will be registered here based on what's actually defined in the AsyncAPI spec
-	// For APIs that don't define event types (like umfutures), this is a no-op function
+	// Event types are registered here when provided by the specification.
 }
 
 // MessageValidator interface for messages that can validate themselves

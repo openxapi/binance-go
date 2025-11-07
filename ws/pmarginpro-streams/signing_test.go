@@ -1,4 +1,4 @@
-package pmargin
+package pmarginprostreams
 import (
 	"testing"
 	"reflect"

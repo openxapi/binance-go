@@ -2,7 +2,7 @@
 
 Generated Go SDK for Binance WebSocket modules (spot, market streams, user data, etc.). It supports channel helpers from the AsyncAPI spec, typed events, and request/response helpers.
 
-Module: github.com/openxapi/binance-go/ws/spot-streams
+Module: github.com/openxapi/binance-go/ws/pmargin-streams
 Version: 0.1.0
 
 ## Features
@@ -17,7 +17,7 @@ Version: 0.1.0
 
 ## Install
 
-go get github.com/openxapi/binance-go/ws/spot-streams
+go get github.com/openxapi/binance-go/ws/pmargin-streams
 
 ## Quick Start
 
@@ -27,8 +27,8 @@ go get github.com/openxapi/binance-go/ws/spot-streams
 import (
   "context"
   "log"
-  ws "github.com/openxapi/binance-go/ws/spot-streams"
-  wsmodels "github.com/openxapi/binance-go/ws/spot-streams/models"
+  ws "github.com/openxapi/binance-go/ws/pmargin-streams"
+  wsmodels "github.com/openxapi/binance-go/ws/pmargin-streams/models"
 )
 
 func main() {
@@ -36,7 +36,7 @@ func main() {
   // Servers from the AsyncAPI spec are added automatically.
   // The first server is active by default — no setup required.
   // Optional: override or add another server
-  // _ = client.AddOrUpdateServer("alt", "wss://stream.binance.com:9443/", "Alt Server", "Optional override")
+  // _ = client.AddOrUpdateServer("alt", "wss://fstream.binance.com/pm", "Alt Server", "Optional override")
   // _ = client.SetActiveServer("alt")
 
   ctx := context.Background()
@@ -48,76 +48,39 @@ func main() {
 
 Connect using generated channels:
 
-- Market Streams (single): /ws/{streamName}
-- Combined Market Streams: /stream?streams={streams}
+- User Data Streams: /ws/{listenKey}
 
 ```go
-// Single Market Streams Connection channel
-ch := ws.NewMarketStreamChannel(client)
+// Portfolio Margin User Data Stream channel
+ch := ws.NewUserDataStreamChannel(client)
 // Register handler(s) before connect (recommended)
-ch.HandleAggregateTradeEvent(func(ctx context.Context, ev *wsmodels.AggregateTradeEvent) error {
+ch.HandleConditionalOrderTradeUpdateEvent(func(ctx context.Context, ev *wsmodels.ConditionalOrderTradeUpdateEvent) error {
   log.Printf("event: %+v", ev)
   return nil
 })
-if err := ch.Connect(ctx, "btcusdt@aggTrade"); err != nil {
+if err := ch.Connect(ctx, "<listenKey>"); err != nil {
   log.Fatalf("connect failed: %v", err)
 }
 
-// Combined Market Streams Connection channel
-comb := ws.NewCombinedMarketStreamChannel(client)
-if err := comb.Connect(ctx, "btcusdt@aggTrade/btcusdt@trade"); err != nil {
-  log.Fatalf("connect combined failed: %v", err)
+// Portfolio Margin User Data Stream channel (requires listenKey)
+uds := ws.NewUserDataStreamChannel(client)
+if err := uds.Connect(ctx, "<listenKey>"); err != nil {
+  log.Fatalf("connect user data failed: %v", err)
 }
 ```
 
-### 3) Build stream names and subscribe
+### 3) Send messages
 
-Use the generated stream builders derived from the AsyncAPI patterns:
-
-```go
-streams := []string{}
-
-// Example using AggregateTradeEvent
-if s, err := ws.BuildAggregateTradeEventStream(0, map[string]string{
-  "symbol": "btcusdt",
-}); err == nil {
-  streams = append(streams, s)
-}
-
-// Generate every permutation from supplied values
-if many, err := ws.BuildAggregateTradeEventStreams(map[string]string{
-  "symbol": "btcusdt",
-}); err == nil {
-  streams = append(streams, many...)
-}
-
-subReq := &wsmodels.SubscribeRequest{
-  Id:     wsmodels.NewMessageIDInt64(1),
-  Params: streams,
-}
-if err := comb.CombinedMarketStreamSubscribe(ctx, subReq, nil); err != nil {
-  log.Fatalf("subscribe failed: %v", err)
-}
-```
+This specification does not define stream-name patterns. Use the generated request helpers on `UserDataStream` (and other channels) to send operations directly. See the request/response example below for the typical flow.
 
 
 ### 4) One-shot request/response (example)
 
 ```go
-req := &wsmodels.ListSubscriptionsRequest{
+req := &wsmodels.ConditionalOrderTradeUpdateEvent{
   // Populate request fields here
 }
-onReply := func(ctx context.Context, res *wsmodels.ListSubscriptionsResponse, wsErr error) error {
-  if wsErr != nil {
-    if apiErr, ok := wsErr.(*wsmodels.ErrorMessage); ok {
-      log.Printf("request failed: %s", apiErr.Error())
-    }
-    return wsErr
-  }
-  log.Printf("reply: %+v", res)
-  return nil
-}
-if err := comb.CombinedMarketStreamListSubscriptions(ctx, req, &onReply); err != nil {
+if err := uds.UserDataStreamReceiveEvents(ctx, req, nil); err != nil {
   log.Fatalf("request failed: %v", err)
 }
 ```
@@ -144,70 +107,6 @@ For each event with patterns, the SDK generates:
   - `Build<Event>Streams(values map[string]string) ([]string, error)`
   - If the spec provides `x-stream-params`, typed param helpers are also generated.
 
-
-## Selected Event Metadata
-
-- AggregateTradeEvent
-  Patterns:
-  - {symbol}@aggTrade
-  Examples:
-  - btcusdt@aggTrade
-
-- TradeEvent
-  Patterns:
-  - {symbol}@trade
-  Examples:
-  - btcusdt@trade
-
-- KlineEvent
-  Patterns:
-  - {symbol}@kline_{interval}
-  - {symbol}@kline_{interval}@+08:00
-  Examples:
-  - btcusdt@kline_1m
-  Update Speeds:
-  - 1000ms
-  - 2000ms
-
-- MiniTickerEvent
-  Patterns:
-  - {symbol}@miniTicker
-  Examples:
-  - btcusdt@miniTicker
-  Update Speeds:
-  - 1000ms
-
-- AllMiniTickersEvent
-  Patterns:
-  - !miniTicker@arr
-  Examples:
-  - !miniTicker@arr
-  Update Speeds:
-  - 1000ms
-
-- TickerEvent
-  Patterns:
-  - {symbol}@ticker
-  Examples:
-  - btcusdt@ticker
-  Update Speeds:
-  - 1000ms
-
-- AllTickersEvent
-  Patterns:
-  - !ticker@arr
-  Examples:
-  - !ticker@arr
-  Update Speeds:
-  - 1000ms
-
-- RollingWindowTickerEvent
-  Patterns:
-  - {symbol}@ticker_{windowSize}
-  Examples:
-  - btcusdt@ticker_1h
-  Update Speeds:
-  - 1000ms
 
 
 

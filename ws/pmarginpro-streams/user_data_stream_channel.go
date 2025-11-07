@@ -1,4 +1,4 @@
-package optionsstreams
+package pmarginprostreams
 
 import (
 	"context"
@@ -9,7 +9,7 @@ import (
 	"time"
 	"net/url"
 	"github.com/gorilla/websocket"
-	"github.com/openxapi/binance-go/ws/options-streams/models"
+	"github.com/openxapi/binance-go/ws/pmarginpro-streams/models"
 )
 
 // UserDataStreamChannel represents connection and handlers for channel 'userDataStream'
@@ -137,64 +137,6 @@ func (ch *UserDataStreamChannel) Disconnect(ctx context.Context) error {
 	return nil
 }
 
-// HandleAccountUpdateEvent registers a handler for message 'Account Update Event' on userDataStream
-func (ch *UserDataStreamChannel) HandleAccountUpdateEvent(fn func(context.Context, *models.AccountUpdateEvent) error) {
-	if fn == nil { return }
-	handler := func(ctx context.Context, b []byte) error {
-
-		var typ map[string]interface{}
-		if err := json.Unmarshal(b, &typ); err != nil { return err }
-		var ev string
-		if v, ok := typ["e"].(string); ok { ev = v } else if evobj, ok := typ["event"].(map[string]interface{}); ok { if vv, ok2 := evobj["e"].(string); ok2 { ev = vv } }
-		if ev != "ACCOUNT_UPDATE" { return fmt.Errorf("unexpected event type") }
-		var v models.AccountUpdateEvent
-		if err := json.Unmarshal(b, &v); err != nil { return err }
-		return fn(ctx, &v)
-	}
-	ch.mu.Lock()
-	ch.setHandlerLocked("evt:ACCOUNT_UPDATE", handler)
-	connected := ch.isConnected
-	ch.mu.Unlock()
-	if connected { ch.applyHandlers() }
-}
-
-func (ch *UserDataStreamChannel) UnregisterAccountUpdateEvent() {
-	ch.mu.Lock()
-	ch.setHandlerLocked("evt:ACCOUNT_UPDATE", nil)
-	connected := ch.isConnected
-	ch.mu.Unlock()
-	if connected { ch.applyHandlers() }
-}
-
-// HandleOrderTradeUpdateEvent registers a handler for message 'Order Trade Update Event' on userDataStream
-func (ch *UserDataStreamChannel) HandleOrderTradeUpdateEvent(fn func(context.Context, *models.OrderTradeUpdateEvent) error) {
-	if fn == nil { return }
-	handler := func(ctx context.Context, b []byte) error {
-
-		var typ map[string]interface{}
-		if err := json.Unmarshal(b, &typ); err != nil { return err }
-		var ev string
-		if v, ok := typ["e"].(string); ok { ev = v } else if evobj, ok := typ["event"].(map[string]interface{}); ok { if vv, ok2 := evobj["e"].(string); ok2 { ev = vv } }
-		if ev != "ORDER_TRADE_UPDATE" { return fmt.Errorf("unexpected event type") }
-		var v models.OrderTradeUpdateEvent
-		if err := json.Unmarshal(b, &v); err != nil { return err }
-		return fn(ctx, &v)
-	}
-	ch.mu.Lock()
-	ch.setHandlerLocked("evt:ORDER_TRADE_UPDATE", handler)
-	connected := ch.isConnected
-	ch.mu.Unlock()
-	if connected { ch.applyHandlers() }
-}
-
-func (ch *UserDataStreamChannel) UnregisterOrderTradeUpdateEvent() {
-	ch.mu.Lock()
-	ch.setHandlerLocked("evt:ORDER_TRADE_UPDATE", nil)
-	connected := ch.isConnected
-	ch.mu.Unlock()
-	if connected { ch.applyHandlers() }
-}
-
 // HandleRiskLevelChangeEvent registers a handler for message 'Risk Level Change Event' on userDataStream
 func (ch *UserDataStreamChannel) HandleRiskLevelChangeEvent(fn func(context.Context, *models.RiskLevelChangeEvent) error) {
 	if fn == nil { return }
@@ -204,13 +146,13 @@ func (ch *UserDataStreamChannel) HandleRiskLevelChangeEvent(fn func(context.Cont
 		if err := json.Unmarshal(b, &typ); err != nil { return err }
 		var ev string
 		if v, ok := typ["e"].(string); ok { ev = v } else if evobj, ok := typ["event"].(map[string]interface{}); ok { if vv, ok2 := evobj["e"].(string); ok2 { ev = vv } }
-		if ev != "RISK_LEVEL_CHANGE" { return fmt.Errorf("unexpected event type") }
+		if ev != "riskLevelChange" { return fmt.Errorf("unexpected event type") }
 		var v models.RiskLevelChangeEvent
 		if err := json.Unmarshal(b, &v); err != nil { return err }
 		return fn(ctx, &v)
 	}
 	ch.mu.Lock()
-	ch.setHandlerLocked("evt:RISK_LEVEL_CHANGE", handler)
+	ch.setHandlerLocked("evt:riskLevelChange", handler)
 	connected := ch.isConnected
 	ch.mu.Unlock()
 	if connected { ch.applyHandlers() }
@@ -218,7 +160,7 @@ func (ch *UserDataStreamChannel) HandleRiskLevelChangeEvent(fn func(context.Cont
 
 func (ch *UserDataStreamChannel) UnregisterRiskLevelChangeEvent() {
 	ch.mu.Lock()
-	ch.setHandlerLocked("evt:RISK_LEVEL_CHANGE", nil)
+	ch.setHandlerLocked("evt:riskLevelChange", nil)
 	connected := ch.isConnected
 	ch.mu.Unlock()
 	if connected { ch.applyHandlers() }

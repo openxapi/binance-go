@@ -30,13 +30,13 @@ func (m *ErrorMessage) Error() string {
 	payload := m.ErrorPayload
 	switch {
 	case payload.Msg != "" && payload.Code != 0:
-		return fmt.Sprintf("%d: %s", payload.Code, payload.Msg)
+		return fmt.Sprintf("%v: %s", payload.Code, payload.Msg)
 	case payload.Msg != "":
 		return payload.Msg
 	case payload.Code != 0:
-		return fmt.Sprintf("%d", payload.Code)
+		return fmt.Sprintf("%v", payload.Code)
 	case m.Status != 0:
-		return fmt.Sprintf("status=%d", m.Status)
+		return fmt.Sprintf("status=%v", m.Status)
 	default:
 		return "unknown error"
 	}

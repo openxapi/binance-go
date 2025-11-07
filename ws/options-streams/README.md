@@ -1,16 +1,17 @@
 # Binance WebSocket Streams SDK (Go)
 
-Generated Go SDK for Binance WebSocket Streams modules (spot, futures, options, etc.). It supports connecting to single and combined streams, dynamic subscription management, typed event handlers, and helpers to build stream names from the spec-defined patterns.
+Generated Go SDK for Binance WebSocket modules (spot, market streams, user data, etc.). It supports channel helpers from the AsyncAPI spec, typed events, and request/response helpers.
 
 Module: github.com/openxapi/binance-go/ws/options-streams
 Version: 0.1.0
 
 ## Features
 
-- Single and combined connections (/ws/{streamName}, /stream)
-- Subscribe/Unsubscribe/ListSubscriptions over WebSocket
+- Channel helpers generated directly from the AsyncAPI specification
+- Subscribe/Unsubscribe/ListSubscriptions over WebSocket (when defined)
 - Typed handler registration per event
-- Combined-stream wrapper routing
+- Request/reply helpers surface server errors through the handler's `error` parameter
+- Combined-stream wrapper routing (when combined streams are available)
 - Stream-name builders from x-stream-pattern(s), examples, and speeds
 - Server management (multiple endpoints, active server switching)
 
@@ -43,43 +44,34 @@ func main() {
 }
 ```
 
-### 2) Connect (single, combined, user data)
+### 2) Connect
 
-Connect using generated channels (per AsyncAPI channel):
+Connect using generated channels:
 
 - Market Streams (single): /ws/{streamName}
 - Combined Market Streams: /stream?streams={streams}
 - User Data Streams: /ws/{listenKey}
 
 ```go
-// Single stream channel
+// Single Market Streams Connection channel
 ch := ws.NewMarketStreamChannel(client)
-
 // Register handler(s) before connect (recommended)
 ch.HandleNewSymbolInfoEvent(func(ctx context.Context, ev *wsmodels.NewSymbolInfoEvent) error {
   log.Printf("event: %+v", ev)
   return nil
 })
-
-// Connect (arguments depend on channel template)
 if err := ch.Connect(ctx, "ETH@openInterest@221125"); err != nil {
   log.Fatalf("connect failed: %v", err)
 }
 
-// Combined connection channel (connect first, then SUBSCRIBE)
+// Combined Market Streams Connection channel
 comb := ws.NewCombinedMarketStreamChannel(client)
 if err := comb.Connect(ctx, "ETH@openInterest@221125/ETH@markPrice"); err != nil {
   log.Fatalf("connect combined failed: %v", err)
 }
 
-+// User Data Streams channel (requires listenKey)
+// User Data Streams Connection channel (requires listenKey)
 uds := ws.NewUserDataStreamChannel(client)
-// Example handler
-uds.HandleAccountUpdateEvent(func(ctx context.Context, ev *wsmodels.AccountUpdateEvent) error {
-  log.Printf("account update: %+v", ev)
-  return nil
-})
-// Connect with a valid listenKey (from REST userDataStream.start)
 if err := uds.Connect(ctx, "<listenKey>"); err != nil {
   log.Fatalf("connect user data failed: %v", err)
 }
@@ -87,48 +79,53 @@ if err := uds.Connect(ctx, "<listenKey>"); err != nil {
 
 ### 3) Build stream names and subscribe
 
-Use generated builders from stream patterns and speeds. Patterns, examples, and speeds are arrays when provided in the spec.
+Use the generated stream builders derived from the AsyncAPI patterns:
 
 ```go
 streams := []string{}
 
-// Example: PartialDepthEvent has patterns like "{symbol}@depth{levels}" and "{symbol}@depth{levels}@{speed}"
-if s, err := ws.BuildPartialDepthEventStream(1, map[string]string{
-  "symbol": "BTC-210630-9000-P",
-  "levels": "10",
-  "speed":  "100ms",
+// Example using NewSymbolInfoEvent
+if s, err := ws.BuildNewSymbolInfoEventStream(0, map[string]string{
+  // No placeholder params required for this stream
 }); err == nil {
   streams = append(streams, s)
 }
 
-// Or get all satisfiable variants for a given set of values
-if many, err := ws.BuildTradeEventStreams(map[string]string{"symbol": "BTC-210630-9000-P"}); err == nil {
+// Generate every permutation from supplied values
+if many, err := ws.BuildNewSymbolInfoEventStreams(map[string]string{
+  // No placeholder params required for this stream
+}); err == nil {
   streams = append(streams, many...)
 }
 
-// Subscribe on the active connection
-if err := client.Subscribe(ctx, streams); err != nil {
+subReq := &wsmodels.SubscribeRequest{
+  Id:     wsmodels.NewMessageIDInt64(1),
+  Params: streams,
+}
+if err := comb.CombinedMarketStreamSubscribe(ctx, subReq, nil); err != nil {
   log.Fatalf("subscribe failed: %v", err)
 }
 ```
 
+
 ### 4) One-shot request/response (example)
 
-Most control actions use one-shot request/response via an id field. The SDK registers a one-time reply handler by id.
-
 ```go
-// Build request (method const set automatically by the SDK)
-req := &wsmodels.ListSubscriptionsRequest{ Id: 1 }
-
-// Define reply handler
-onReply := func(ctx context.Context, res *wsmodels.ListSubscriptionsResponse) error {
-  log.Printf("active subscriptions: %+v", res.Result)
+req := &wsmodels.ListSubscriptionsRequest{
+  // Populate request fields here
+}
+onReply := func(ctx context.Context, res *wsmodels.ListSubscriptionsResponse, wsErr error) error {
+  if wsErr != nil {
+    if apiErr, ok := wsErr.(*wsmodels.ErrorMessage); ok {
+      log.Printf("request failed: %s", apiErr.Error())
+    }
+    return wsErr
+  }
+  log.Printf("reply: %+v", res)
   return nil
 }
-
-// Send on combined channel (similar methods exist for single channel)
 if err := comb.CombinedMarketStreamListSubscriptions(ctx, req, &onReply); err != nil {
-  log.Fatalf("list subscriptions failed: %v", err)
+  log.Fatalf("request failed: %v", err)
 }
 ```
 
@@ -152,70 +149,10 @@ For each event with patterns, the SDK generates:
 - Builders:
   - `Build<Event>Stream(patternIndex int, values map[string]string) (string, error)`
   - `Build<Event>Streams(values map[string]string) ([]string, error)`
-  - If the spec provides `x-stream-params`, typed param helpers are also generated:
-    - `type <Event>StreamParams struct { ... }`
-    - `func (p <Event>StreamParams) Values() map[string]string` to convert to placeholder values
+  - If the spec provides `x-stream-params`, typed param helpers are also generated.
 
-Example (typed params and speeds where available):
-
-```go
-// Build with speed as a regular param
-s, err := ws.BuildPartialDepthEventStream(
-  1,
-  map[string]string{"symbol": "BTC-210630-9000-P", "levels": "10", "speed": "100ms"},
-)
-// Or use typed params, then convert to values
-ps := ws.PartialDepthEventStreamParams{
-  Symbol: "BTC-210630-9000-P",
-  Levels: wsmodels.DepthLevels10,
-  Speed:  wsmodels.DepthSpeed100ms, // speed is just another param when defined in x-stream-params
-}
-s2, err := ws.BuildPartialDepthEventStream(1, ps.Values())
-
-// More typed params examples (types are generated from x-stream-params):
-// - KlineEvent: Symbol (string), Interval (models.Interval)
-ks := ws.KlineEventStreamParams{
-  Symbol:   "BTC-200630-9000-P",
-  Interval: wsmodels.Interval("1m"),
-}
-ksVals := ks.Values()
-_ = ksVals
-
-// - MarkPriceEvent: UnderlyingAsset (models.UnderlyingAsset)
-mps := ws.MarkPriceEventStreamParams{UnderlyingAsset: wsmodels.UnderlyingAsset("ETH")}
-_ = mps
-```
-
-## Handler Registration
-
-- Register per-channel handlers using `Handle<Event>(func(ctx, *models.Event) error)`.
-- Combined stream wrappers are routed via alias keys; unwrapped events are dispatched by event type.
-- RegisterHandlers replaces the handler map for a channel key (subsequent calls overwrite the previous map for that channel).
-
-## Performance & Dispatch
-
-- Incoming frames are read on a dedicated loop and dispatched asynchronously to a worker pool.
-- Slow user handlers do not block `ReadMessage()`; an unbounded in-memory queue buffers messages between the reader and workers.
-- Defaults: workers = `runtime.NumCPU()`. Messages are never dropped.
-- Customize workers via `NewClientWithOptions(&ws.ClientOptions{ HandlerWorkers: N })`.
-
-```go
-client := ws.NewClientWithOptions(&ws.ClientOptions{
-  HandlerWorkers: 8,
-})
-```
-
-## Server Management
-
-The client carries a `ServerManager` to manage endpoints:
-
-- `AddServer(name, url, title, description)`
-- `AddOrUpdateServer(...)`, `UpdateServer(...)`, `RemoveServer(name)`
-- `SetActiveServer(name)`, `GetActiveServer()`, `GetActiveServerURL()`
 
 ## Selected Event Metadata
-
-Below are selected patterns/examples/speeds from this spec. Use them with the generated builders:
 
 - NewSymbolInfoEvent
   Patterns:
@@ -283,10 +220,38 @@ Below are selected patterns/examples/speeds from this spec. Use them with the ge
   Update Speeds:
   - 50ms
 
+
+
+## Error Responses
+
+Request/reply error payloads are decoded into `*wsmodels.ErrorMessage`, which implements `error`. Always check the handler's error argument before using the reply value.
+
+
+## Performance & Dispatch
+
+- Incoming frames are read on a dedicated loop and dispatched asynchronously to a worker pool.
+- Slow user handlers do not block `ReadMessage()`; an unbounded in-memory queue buffers messages between the reader and workers.
+- Defaults: workers = `runtime.NumCPU()`. Messages are never dropped.
+- Customize workers via `NewClientWithOptions(&ws.ClientOptions{ HandlerWorkers: N })`.
+
+```go
+client := ws.NewClientWithOptions(&ws.ClientOptions{
+  HandlerWorkers: 8,
+})
+```
+
+## Server Management
+
+The client carries a `ServerManager` to manage endpoints:
+
+- `AddServer(name, url, title, description)`
+- `AddOrUpdateServer(...)`, `UpdateServer(...)`, `RemoveServer(name)`
+- `SetActiveServer(name)`, `GetActiveServer()`, `GetActiveServerURL()`
+
 ## Notes
 
-- For combined connections, connect without `streams` and use `SUBSCRIBE`/`UNSUBSCRIBE` to manage streams.
-- User Data Streams use a dedicated connection (`/ws/{listenKey}`) and are not mixed into combined market streams.
+- For combined connections (when defined), connect without `streams` and use `SUBSCRIBE`/`UNSUBSCRIBE` to manage streams.
+- User Data Streams use a dedicated connection (`/ws/{listenKey}`) when present and are not mixed into combined market streams.
 - The SDK normalizes empty query parameters for connect paths (avoids "/stream?streams=").
 - Servers from the spec are preloaded and first is active; override only if needed.
 - Handlers should be registered before connect to avoid missing early messages.
