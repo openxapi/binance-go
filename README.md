@@ -7,10 +7,23 @@ Binance REST and WebSocket SDKs for Go, generated from the official OpenAPI and 
 
 ## Modules at a Glance
 
-| Module | Description | Key Packages |
-|--------|-------------|--------------|
-| `rest/` | OpenAPI-driven HTTP clients covering Spot, Margin, Futures, Options, and Portfolio Margin endpoints. | `rest/spot`, `rest/umfutures`, `rest/cmfutures`, `rest/options`, `rest/pmargin` |
-| `ws/` | AsyncAPI-driven WebSocket clients for request/response channels and market/user data streams. | `ws/spot`, `ws/spot-streams`, `ws/umfutures`, `ws/umfutures-streams`, `ws/cmfutures`, `ws/cmfutures-streams`, `ws/options-streams`, `ws/pmargin-streams`, `ws/pmarginpro-streams` |
+| Module | Description | Key Packages | Package Description |
+|--------|-------------|--------------|-------------|
+| [`rest/`](./rest/) | OpenAPI-driven HTTP clients covering Spot, Margin, Futures, Options, and Portfolio Margin endpoints. | [`rest/spot`](./rest/spot/) | Spot REST API |
+| | | [`rest/umfutures`](./rest/umfutures/) | USDS-M Futures REST API |
+| | | [`rest/cmfutures`](./rest/cmfutures/) | COIN-M Futures REST API |
+| | | [`rest/options`](./rest/options/) | Options REST API |
+| | | [`rest/pmargin`](./rest/pmargin/) | Portfolio Margin REST API |
+| [`ws/`](./ws/) | AsyncAPI-driven WebSocket clients for request/response channels and market/user data streams. | [`ws/spot`](./ws/spot/) | Spot Websocket API + User Data Streams |
+| | | [`ws/spot-streams`](./ws/spot-streams/) | Spot Market Streams |
+| | | [`ws/umfutures`](./ws/umfutures/) | USDS-M Futures Websocket API |
+| | | [`ws/umfutures-streams`](./ws/umfutures-streams/) | USDS-M Futures Market Streams + User Data Streams |
+| | | [`ws/cmfutures`](./ws/cmfutures/) | COIN-M Futures Websocket API |
+| | | [`ws/cmfutures-streams`](./ws/cmfutures-streams/) | COIN-M Futures Market Streams + User Data Streams |
+| | | [`ws/options-streams`](./ws/options-streams/) | Options User Data Streams |
+| | | [`ws/pmargin-streams`](./ws/pmargin-streams/) | Portfolio Margin User Data Streams |
+| | | [`ws/pmarginpro-streams`](./ws/pmarginpro-streams/) | Portfolio Margin Pro User Data Streams |
+
 
 Each module ships with its own `go.mod`, README, and product-specific models; import only what you need (`go get github.com/openxapi/binance-go/ws/spot`, etc.).
 
@@ -95,12 +108,6 @@ import (
 func main() {
     client := spot.NewClient()
     client.SetActiveServer("testnet1") // or mainnet1/mainnet2
-
-    if apiKey := os.Getenv("BINANCE_API_KEY"); apiKey != "" {
-        auth := spot.NewAuth(apiKey)
-        auth.SetSecretKey(os.Getenv("BINANCE_SECRET_KEY"))
-        client.SetAuth(auth)
-    }
 
     ch := spot.NewSpotChannel(client)
     ch.HandleOrderUpdateEvent(func(ctx context.Context, ev *spotmodels.OrderUpdateEvent) error {
