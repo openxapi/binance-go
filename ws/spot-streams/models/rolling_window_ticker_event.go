@@ -1,51 +1,24 @@
 package models
 
-import (
-	"encoding/json"
-)
-
-// RollingWindowTickerEvent represents RollingWindowTickerEvent
+// RollingWindowTickerEvent represents global message '#/components/messages/rollingWindowTickerEvent'
 type RollingWindowTickerEvent struct {
-	// Event type
-	EventType string `json:"e,omitempty"`
-	// Event time
-	EventTime int64 `json:"E,omitempty"`
-	// Symbol
-	Symbol string `json:"s,omitempty"`
-	// Price change
-	PriceChange string `json:"p,omitempty"`
-	// Price change percent
-	PriceChangePercent string `json:"P,omitempty"`
-	// Open price
-	OpenPrice string `json:"o,omitempty"`
-	// High price
-	HighPrice string `json:"h,omitempty"`
-	// Low price
-	LowPrice string `json:"l,omitempty"`
-	// Last price
-	LastPrice string `json:"c,omitempty"`
-	// Weighted average price
-	WeightedAveragePrice string `json:"w,omitempty"`
-	// Total traded base asset volume
-	TotalTradedBaseAssetVolume string `json:"v,omitempty"`
-	// Total traded quote asset volume
-	TotalTradedQuoteAssetVolume string `json:"q,omitempty"`
-	// Statistics open time
-	OpenTime int64 `json:"O,omitempty"`
-	// Statistics close time
-	CloseTime int64 `json:"C,omitempty"`
-	// First trade ID
-	FirstTradeId int64 `json:"F,omitempty"`
-	// Last trade ID
-	LastTradeId int64 `json:"L,omitempty"`
-	// Total number of trades
-	TotalNumberOfTrades int `json:"n,omitempty"`
-}
-
-// String returns string representation of RollingWindowTickerEvent
-func (s RollingWindowTickerEvent) String() string {
-	b, _ := json.Marshal(s)
-	return string(b)
+	EventType string `json:"e"` // Event type
+	EventTime int64 `json:"E"` // Event time
+	Symbol string `json:"s"` // Symbol
+	PriceChange string `json:"p"` // Price change
+	PriceChangePercent string `json:"P"` // Price change percent
+	OpenPrice string `json:"o"` // Open price
+	HighPrice string `json:"h"` // High price
+	LowPrice string `json:"l"` // Low price
+	LastPrice string `json:"c"` // Last price
+	WeightedAveragePrice string `json:"w"` // Weighted average price
+	TotalTradedBaseAssetVolume string `json:"v"` // Total traded base asset volume
+	TotalTradedQuoteAssetVolume string `json:"q"` // Total traded quote asset volume
+	StatisticsOpenTime int64 `json:"O"` // Statistics open time
+	StatisticsCloseTime int64 `json:"C"` // Statistics close time
+	FirstTradeID int64 `json:"F"` // First trade ID
+	LastTradeID int64 `json:"L"` // Last trade ID
+	TotalNumberOfTrades int `json:"n"` // Total number of trades
 }
 
 

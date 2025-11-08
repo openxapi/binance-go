@@ -1,108 +1,48 @@
 package models
 
-import (
-	"encoding/json"
-)
-
-// OrderListPlaceOtoResponseRateLimitsItem represents a nested object structure
-type OrderListPlaceOtoResponseRateLimitsItem struct {
-	// count property (example: 10)
-	Count int64 `json:"count,omitempty"`
-	// interval property (example: "MINUTE")
-	Interval string `json:"interval,omitempty"`
-	// intervalNum property (example: 1)
-	IntervalNum int64 `json:"intervalNum,omitempty"`
-	// limit property (example: 10000000)
-	Limit int64 `json:"limit,omitempty"`
-	// rateLimitType property (example: "ORDERS")
-	RateLimitType string `json:"rateLimitType,omitempty"`
-}
-
-// OrderListPlaceOtoResponseResult represents a nested object structure
-type OrderListPlaceOtoResponseResult struct {
-	// contingencyType property
-	ContingencyType string `json:"contingencyType,omitempty"`
-	// listClientOrderId property
-	ListClientOrderId string `json:"listClientOrderId,omitempty"`
-	// listOrderStatus property
-	ListOrderStatus string `json:"listOrderStatus,omitempty"`
-	// listStatusType property
-	ListStatusType string `json:"listStatusType,omitempty"`
-	// orderListId property
-	OrderListId int64 `json:"orderListId,omitempty"`
-	// orderReports property
-	OrderReports []OrderListPlaceOtoResponseResultOrderReportsItem `json:"orderReports,omitempty"`
-	// orders property
-	Orders []OrderListPlaceOtoResponseResultOrdersItem `json:"orders,omitempty"`
-	// symbol property
-	Symbol string `json:"symbol,omitempty"`
-	// transactionTime property
-	TransactionTime int64 `json:"transactionTime,omitempty"`
-}
-
-// OrderListPlaceOtoResponseResultOrderReportsItem represents a nested object structure
-type OrderListPlaceOtoResponseResultOrderReportsItem struct {
-	// clientOrderId property (example: "YiAUtM9yJjl1a2jXHSp9Ny")
-	ClientOrderId string `json:"clientOrderId,omitempty"`
-	// cummulativeQuoteQty property (example: "0.000000")
-	CummulativeQuoteQty string `json:"cummulativeQuoteQty,omitempty"`
-	// executedQty property (example: "0.000000")
-	ExecutedQty string `json:"executedQty,omitempty"`
-	// orderId property (example: 13)
-	OrderId int64 `json:"orderId,omitempty"`
-	// orderListId property (example: 626)
-	OrderListId int64 `json:"orderListId,omitempty"`
-	// origQty property (example: "1.000000")
-	OrigQty string `json:"origQty,omitempty"`
-	// origQuoteOrderQty property (example: "0.000000")
-	OrigQuoteOrderQty string `json:"origQuoteOrderQty,omitempty"`
-	// price property (example: "1.000000")
-	Price string `json:"price,omitempty"`
-	// selfTradePreventionMode property (example: "NONE")
-	SelfTradePreventionMode string `json:"selfTradePreventionMode,omitempty"`
-	// side property (example: "SELL")
-	Side string `json:"side,omitempty"`
-	// status property (example: "NEW")
-	Status string `json:"status,omitempty"`
-	// symbol property (example: "LTCBNB")
-	Symbol string `json:"symbol,omitempty"`
-	// timeInForce property (example: "GTC")
-	TimeInForce string `json:"timeInForce,omitempty"`
-	// transactTime property (example: 1712544395981)
-	TransactTime int64 `json:"transactTime,omitempty"`
-	// type property (example: "LIMIT")
-	Type string `json:"type,omitempty"`
-	// workingTime property (example: 1712544395981)
-	WorkingTime int64 `json:"workingTime,omitempty"`
-}
-
-// OrderListPlaceOtoResponseResultOrdersItem represents a nested object structure
-type OrderListPlaceOtoResponseResultOrdersItem struct {
-	// clientOrderId property (example: "YiAUtM9yJjl1a2jXHSp9Ny")
-	ClientOrderId string `json:"clientOrderId,omitempty"`
-	// orderId property (example: 13)
-	OrderId int64 `json:"orderId,omitempty"`
-	// symbol property (example: "LTCBNB")
-	Symbol string `json:"symbol,omitempty"`
-}
-
-// OrderListPlaceOtoResponse - Receive response from orderList.place.oto
-// Message name: Place new Order list - OTO (TRADE) Response
+// OrderListPlaceOtoResponse represents global message '#/components/messages/orderListPlaceOtoResponse'
 type OrderListPlaceOtoResponse struct {
-	// id property
-	Id string `json:"id,omitempty"`
-	// rateLimits property
-	RateLimits []OrderListPlaceOtoResponseRateLimitsItem `json:"rateLimits,omitempty"`
-	// result property
-	Result *OrderListPlaceOtoResponseResult `json:"result,omitempty"`
-	// status property
-	Status int64 `json:"status,omitempty"`
-}
-
-// String returns string representation of OrderListPlaceOtoResponse
-func (s OrderListPlaceOtoResponse) String() string {
-	b, _ := json.Marshal(s)
-	return string(b)
+	Id MessageID `json:"id,omitempty"` // id property
+	RateLimits []struct {
+		Count int `json:"count,omitempty"` // count property
+		Interval string `json:"interval,omitempty"` // interval property
+		IntervalNum int `json:"intervalNum,omitempty"` // intervalNum property
+		Limit int `json:"limit,omitempty"` // limit property
+		RateLimitType string `json:"rateLimitType,omitempty"` // rateLimitType property
+	} `json:"rateLimits,omitempty"` // rateLimits property
+	Result struct {
+		ContingencyType string `json:"contingencyType,omitempty"` // contingencyType property
+		ListClientOrderId string `json:"listClientOrderId,omitempty"` // listClientOrderId property
+		ListOrderStatus string `json:"listOrderStatus,omitempty"` // listOrderStatus property
+		ListStatusType string `json:"listStatusType,omitempty"` // listStatusType property
+		OrderListId int64 `json:"orderListId,omitempty"` // orderListId property
+		OrderReports []struct {
+			ClientOrderId string `json:"clientOrderId,omitempty"` // clientOrderId property
+			CummulativeQuoteQty string `json:"cummulativeQuoteQty,omitempty"` // cummulativeQuoteQty property
+			ExecutedQty string `json:"executedQty,omitempty"` // executedQty property
+			OrderId int64 `json:"orderId,omitempty"` // orderId property
+			OrderListId int64 `json:"orderListId,omitempty"` // orderListId property
+			OrigQty string `json:"origQty,omitempty"` // origQty property
+			OrigQuoteOrderQty string `json:"origQuoteOrderQty,omitempty"` // origQuoteOrderQty property
+			Price string `json:"price,omitempty"` // price property
+			SelfTradePreventionMode string `json:"selfTradePreventionMode,omitempty"` // selfTradePreventionMode property
+			Side string `json:"side,omitempty"` // side property
+			Status string `json:"status,omitempty"` // status property
+			Symbol string `json:"symbol,omitempty"` // symbol property
+			TimeInForce string `json:"timeInForce,omitempty"` // timeInForce property
+			TransactTime int64 `json:"transactTime,omitempty"` // transactTime property
+			Type string `json:"type,omitempty"` // type property
+			WorkingTime int64 `json:"workingTime,omitempty"` // workingTime property
+		} `json:"orderReports,omitempty"` // orderReports property
+		Orders []struct {
+			ClientOrderId string `json:"clientOrderId,omitempty"` // clientOrderId property
+			OrderId int64 `json:"orderId,omitempty"` // orderId property
+			Symbol string `json:"symbol,omitempty"` // symbol property
+		} `json:"orders,omitempty"` // orders property
+		Symbol string `json:"symbol,omitempty"` // symbol property
+		TransactionTime int64 `json:"transactionTime,omitempty"` // transactionTime property
+	} `json:"result,omitempty"` // result property
+	Status int `json:"status,omitempty"` // status property
 }
 
 

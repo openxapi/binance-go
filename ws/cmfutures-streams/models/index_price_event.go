@@ -1,25 +1,11 @@
 package models
 
-import (
-	"encoding/json"
-)
-
-// IndexPriceEvent represents IndexPriceEvent
+// IndexPriceEvent represents global message '#/components/messages/indexPriceEvent'
 type IndexPriceEvent struct {
-	// Event type
-	EventType string `json:"e,omitempty"`
-	// Event time
-	EventTime int64 `json:"E,omitempty"`
-	// Pair
-	Pair string `json:"i,omitempty"`
-	// Index price
-	IndexPrice string `json:"p,omitempty"`
-}
-
-// String returns string representation of IndexPriceEvent
-func (s IndexPriceEvent) String() string {
-	b, _ := json.Marshal(s)
-	return string(b)
+	EventType string `json:"e"` // Event type
+	EventTime int64 `json:"E"` // Event time
+	Pair string `json:"i"` // Pair
+	IndexPrice string `json:"p"` // Index price
 }
 
 

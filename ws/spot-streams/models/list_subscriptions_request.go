@@ -1,21 +1,9 @@
 package models
 
-import (
-	"encoding/json"
-)
-
-// ListSubscriptionsRequest represents ListSubscriptionsRequest
+// ListSubscriptionsRequest represents global message '#/components/messages/listSubscriptionsRequest'
 type ListSubscriptionsRequest struct {
-	// Method name
-	MethodName string `json:"method,omitempty"`
-	// Request ID
-	RequestId string `json:"id,omitempty"`
-}
-
-// String returns string representation of ListSubscriptionsRequest
-func (s ListSubscriptionsRequest) String() string {
-	b, _ := json.Marshal(s)
-	return string(b)
+	Method string `json:"method"` // Method name
+	Id MessageID `json:"id"` // The id is used as an identifier to uniquely identify the messages going back and forth. Accepted formats: - 64-bit signed integer - Alphanumeric strings; max length 36 - null 
 }
 
 

@@ -1,37 +1,18 @@
 package models
 
-import (
-	"encoding/json"
-)
-
-// AggregateTradeEvent represents AggregateTradeEvent
+// AggregateTradeEvent represents global message '#/components/messages/aggregateTradeEvent'
 type AggregateTradeEvent struct {
-	// Event type
-	EventType string `json:"e,omitempty"`
-	// Event time
-	EventTime int64 `json:"E,omitempty"`
-	// Symbol
-	Symbol string `json:"s,omitempty"`
-	// Aggregate trade ID
-	AggregateTradeId int64 `json:"a,omitempty"`
-	// Price
-	Price string `json:"p,omitempty"`
-	// Quantity
-	Quantity string `json:"q,omitempty"`
-	// First trade ID
-	FirstTradeId int64 `json:"f,omitempty"`
-	// Last trade ID
-	LastTradeId int64 `json:"l,omitempty"`
-	// Trade time
-	TradeTime int64 `json:"T,omitempty"`
-	// Is the buyer the market maker
-	IsBuyerMaker bool `json:"m,omitempty"`
-}
-
-// String returns string representation of AggregateTradeEvent
-func (s AggregateTradeEvent) String() string {
-	b, _ := json.Marshal(s)
-	return string(b)
+	EventType string `json:"e"` // Event type
+	EventTime int64 `json:"E"` // Event time
+	Symbol string `json:"s"` // Symbol
+	AggregateTradeID int64 `json:"a"` // Aggregate trade ID
+	Price string `json:"p"` // Price
+	Quantity string `json:"q"` // Quantity
+	FirstTradeID int64 `json:"f"` // First trade ID
+	LastTradeID int64 `json:"l"` // Last trade ID
+	TradeTime int64 `json:"T"` // Trade time
+	IsTheBuyerTheMarketMaker bool `json:"m"` // Is the buyer the market maker
+	Ignore bool `json:"M"` // Ignore
 }
 
 

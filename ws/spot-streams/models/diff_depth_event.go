@@ -1,31 +1,14 @@
 package models
 
-import (
-	"encoding/json"
-)
-
-// DiffDepthEvent represents DiffDepthEvent
+// DiffDepthEvent represents global message '#/components/messages/diffDepthEvent'
 type DiffDepthEvent struct {
-	// Event type
-	EventType string `json:"e,omitempty"`
-	// Event time
-	EventTime int64 `json:"E,omitempty"`
-	// Symbol
-	Symbol string `json:"s,omitempty"`
-	// First update ID in event
-	FirstUpdateId int64 `json:"U,omitempty"`
-	// Final update ID in event
-	FinalUpdateId int64 `json:"u,omitempty"`
-	// Bids to be updated
-	Bids [][]string `json:"b,omitempty"`
-	// Asks to be updated
-	Asks [][]string `json:"a,omitempty"`
-}
-
-// String returns string representation of DiffDepthEvent
-func (s DiffDepthEvent) String() string {
-	b, _ := json.Marshal(s)
-	return string(b)
+	EventType string `json:"e"` // Event type
+	EventTime int64 `json:"E"` // Event time
+	Symbol string `json:"s"` // Symbol
+	FirstUpdateIDInEvent int64 `json:"U"` // First update ID in event
+	FinalUpdateIDInEvent int64 `json:"u"` // Final update ID in event
+	BidsToBeUpdated [][]string `json:"b"` // Bids to be updated
+	AsksToBeUpdated [][]string `json:"a"` // Asks to be updated
 }
 
 

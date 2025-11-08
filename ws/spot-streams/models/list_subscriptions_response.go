@@ -1,20 +1,9 @@
 package models
 
-import (
-	"encoding/json"
-)
-
-// ListSubscriptionsResponse represents ListSubscriptionsResponse
+// ListSubscriptionsResponse represents global message '#/components/messages/listSubscriptionsResponse'
 type ListSubscriptionsResponse struct {
-	// Array of active stream names
-	ArrayOfActiveStreamNames []string `json:"result,omitempty"`
-	Id string `json:"id,omitempty"`
-}
-
-// String returns string representation of ListSubscriptionsResponse
-func (s ListSubscriptionsResponse) String() string {
-	b, _ := json.Marshal(s)
-	return string(b)
+	Result []string `json:"result,omitempty"` // Array of active stream names
+	Id MessageID `json:"id,omitempty"` // The id is used as an identifier to uniquely identify the messages going back and forth. Accepted formats: - 64-bit signed integer - Alphanumeric strings; max length 36 - null 
 }
 
 

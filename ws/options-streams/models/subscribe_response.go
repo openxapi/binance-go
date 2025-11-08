@@ -1,25 +1,9 @@
 package models
 
-import (
-	"encoding/json"
-)
-
-// SubscribeResponse represents Subscription Response
+// SubscribeResponse represents global message '#/components/messages/subscribeResponse'
 type SubscribeResponse struct {
-	// Always null for successful subscription
-	AlwaysNullForSuccessfulSubscription interface{} `json:"result,omitempty"`
-	Id int `json:"id,omitempty"`
-}
-
-// String returns string representation of SubscribeResponse
-func (s SubscribeResponse) String() string {
-	b, _ := json.Marshal(s)
-	return string(b)
-}
-
-// NewSubscribeResponse creates a new SubscribeResponse instance
-func NewSubscribeResponse() *SubscribeResponse {
-	return &SubscribeResponse{}
+	Result struct {	} `json:"result,omitempty"` // Always null for successful subscription
+	Id MessageID `json:"id,omitempty"`
 }
 
 

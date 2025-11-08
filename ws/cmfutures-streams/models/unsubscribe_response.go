@@ -1,25 +1,9 @@
 package models
 
-import (
-	"encoding/json"
-)
-
-// UnsubscribeResponse represents Subscription Response
+// UnsubscribeResponse represents global message '#/components/messages/unsubscribeResponse'
 type UnsubscribeResponse struct {
-	// Always null for successful subscription
-	AlwaysNullForSuccessfulSubscription interface{} `json:"result,omitempty"`
-	Id string `json:"id,omitempty"`
-}
-
-// String returns string representation of UnsubscribeResponse
-func (s UnsubscribeResponse) String() string {
-	b, _ := json.Marshal(s)
-	return string(b)
-}
-
-// NewUnsubscribeResponse creates a new UnsubscribeResponse instance
-func NewUnsubscribeResponse() *UnsubscribeResponse {
-	return &UnsubscribeResponse{}
+	Result interface{} `json:"result,omitempty"` // Always null for successful subscription
+	Id MessageID `json:"id,omitempty"`
 }
 
 

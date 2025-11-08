@@ -1,94 +1,43 @@
 package models
 
-import (
-	"encoding/json"
-)
-
-// OrderCancelResponseRateLimitsItem represents a nested object structure
-type OrderCancelResponseRateLimitsItem struct {
-	// count property (example: 1)
-	Count int64 `json:"count,omitempty"`
-	// interval property (example: "MINUTE")
-	Interval string `json:"interval,omitempty"`
-	// intervalNum property (example: 1)
-	IntervalNum int64 `json:"intervalNum,omitempty"`
-	// limit property (example: 2400)
-	Limit int64 `json:"limit,omitempty"`
-	// rateLimitType property (example: "REQUEST_WEIGHT")
-	RateLimitType string `json:"rateLimitType,omitempty"`
-}
-
-// OrderCancelResponseResult represents a nested object structure
-type OrderCancelResponseResult struct {
-	// activatePrice property
-	ActivatePrice string `json:"activatePrice,omitempty"`
-	// clientOrderId property
-	ClientOrderId string `json:"clientOrderId,omitempty"`
-	// closePosition property
-	ClosePosition bool `json:"closePosition,omitempty"`
-	// cumQty property
-	CumQty string `json:"cumQty,omitempty"`
-	// cumQuote property
-	CumQuote string `json:"cumQuote,omitempty"`
-	// executedQty property
-	ExecutedQty string `json:"executedQty,omitempty"`
-	// goodTillDate property
-	GoodTillDate int64 `json:"goodTillDate,omitempty"`
-	// orderId property
-	OrderId int64 `json:"orderId,omitempty"`
-	// origQty property
-	OrigQty string `json:"origQty,omitempty"`
-	// origType property
-	OrigType string `json:"origType,omitempty"`
-	// positionSide property
-	PositionSide string `json:"positionSide,omitempty"`
-	// price property
-	Price string `json:"price,omitempty"`
-	// priceMatch property
-	PriceMatch string `json:"priceMatch,omitempty"`
-	// priceProtect property
-	PriceProtect bool `json:"priceProtect,omitempty"`
-	// priceRate property
-	PriceRate string `json:"priceRate,omitempty"`
-	// reduceOnly property
-	ReduceOnly bool `json:"reduceOnly,omitempty"`
-	// selfTradePreventionMode property
-	SelfTradePreventionMode string `json:"selfTradePreventionMode,omitempty"`
-	// side property
-	Side string `json:"side,omitempty"`
-	// status property
-	Status string `json:"status,omitempty"`
-	// stopPrice property
-	StopPrice string `json:"stopPrice,omitempty"`
-	// symbol property
-	Symbol string `json:"symbol,omitempty"`
-	// timeInForce property
-	TimeInForce string `json:"timeInForce,omitempty"`
-	// type property
-	Type string `json:"type,omitempty"`
-	// updateTime property
-	UpdateTime int64 `json:"updateTime,omitempty"`
-	// workingType property
-	WorkingType string `json:"workingType,omitempty"`
-}
-
-// OrderCancelResponse - Receive response from order.cancel
-// Message name: Cancel Order (TRADE) Response
+// OrderCancelResponse represents global message '#/components/messages/orderCancelResponse'
 type OrderCancelResponse struct {
-	// id property
-	Id string `json:"id,omitempty"`
-	// rateLimits property
-	RateLimits []OrderCancelResponseRateLimitsItem `json:"rateLimits,omitempty"`
-	// result property
-	Result *OrderCancelResponseResult `json:"result,omitempty"`
-	// status property
-	Status int64 `json:"status,omitempty"`
-}
-
-// String returns string representation of OrderCancelResponse
-func (s OrderCancelResponse) String() string {
-	b, _ := json.Marshal(s)
-	return string(b)
+	Id MessageID `json:"id,omitempty"` // id property
+	RateLimits []struct {
+		Count int `json:"count,omitempty"` // count property
+		Interval string `json:"interval,omitempty"` // interval property
+		IntervalNum int `json:"intervalNum,omitempty"` // intervalNum property
+		Limit int `json:"limit,omitempty"` // limit property
+		RateLimitType string `json:"rateLimitType,omitempty"` // rateLimitType property
+	} `json:"rateLimits,omitempty"` // rateLimits property
+	Result struct {
+		ActivatePrice string `json:"activatePrice,omitempty"` // activatePrice property
+		ClientOrderId string `json:"clientOrderId,omitempty"` // clientOrderId property
+		ClosePosition bool `json:"closePosition,omitempty"` // closePosition property
+		CumQty string `json:"cumQty,omitempty"` // cumQty property
+		CumQuote string `json:"cumQuote,omitempty"` // cumQuote property
+		ExecutedQty string `json:"executedQty,omitempty"` // executedQty property
+		GoodTillDate int `json:"goodTillDate,omitempty"` // goodTillDate property
+		OrderId int64 `json:"orderId,omitempty"` // orderId property
+		OrigQty string `json:"origQty,omitempty"` // origQty property
+		OrigType string `json:"origType,omitempty"` // origType property
+		PositionSide string `json:"positionSide,omitempty"` // positionSide property
+		Price string `json:"price,omitempty"` // price property
+		PriceMatch string `json:"priceMatch,omitempty"` // priceMatch property
+		PriceProtect bool `json:"priceProtect,omitempty"` // priceProtect property
+		PriceRate string `json:"priceRate,omitempty"` // priceRate property
+		ReduceOnly bool `json:"reduceOnly,omitempty"` // reduceOnly property
+		SelfTradePreventionMode string `json:"selfTradePreventionMode,omitempty"` // selfTradePreventionMode property
+		Side string `json:"side,omitempty"` // side property
+		Status string `json:"status,omitempty"` // status property
+		StopPrice string `json:"stopPrice,omitempty"` // stopPrice property
+		Symbol string `json:"symbol,omitempty"` // symbol property
+		TimeInForce string `json:"timeInForce,omitempty"` // timeInForce property
+		Type string `json:"type,omitempty"` // type property
+		UpdateTime int64 `json:"updateTime,omitempty"` // updateTime property
+		WorkingType string `json:"workingType,omitempty"` // workingType property
+	} `json:"result,omitempty"` // result property
+	Status int `json:"status,omitempty"` // status property
 }
 
 

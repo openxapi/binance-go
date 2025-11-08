@@ -1,25 +1,19 @@
 package models
 
-import (
-	"encoding/json"
-)
-
-// AssetIndexEvent represents AssetIndexEvent
+// AssetIndexEvent represents global message '#/components/messages/assetIndexEvent'
 type AssetIndexEvent struct {
-	// Event type
-	EventType string `json:"e,omitempty"`
-	// Event time
-	EventTime int64 `json:"E,omitempty"`
-	// Asset symbol
-	Symbol string `json:"s,omitempty"`
-	// Asset index
-	AssetIndex string `json:"i,omitempty"`
-}
-
-// String returns string representation of AssetIndexEvent
-func (s AssetIndexEvent) String() string {
-	b, _ := json.Marshal(s)
-	return string(b)
+	EventType string `json:"e"` // Event type
+	EventTime int64 `json:"E"` // Event time
+	AssetIndexSymbol string `json:"s"` // asset index symbol
+	IndexPrice string `json:"i"` // index price
+	BidBuffer string `json:"b"` // bid buffer
+	AskBuffer string `json:"a"` // ask buffer
+	BidRate string `json:"B"` // bid rate
+	AskRate string `json:"A"` // ask rate
+	AutoExchangeBidBuffer string `json:"q"` // auto exchange bid buffer
+	AutoExchangeAskBuffer string `json:"g"` // auto exchange ask buffer
+	AutoExchangeBidRate string `json:"Q"` // auto exchange bid rate
+	AutoExchangeAskRate string `json:"G"` // auto exchange ask rate
 }
 
 

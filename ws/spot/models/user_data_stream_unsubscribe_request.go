@@ -1,27 +1,12 @@
 package models
 
-import (
-	"encoding/json"
-)
-
-// UserDataStreamUnsubscribeRequest - Send a userDataStream.unsubscribe request
-// Message name: Unsubscribe from User Data Stream (USER_STREAM) Request
+// UserDataStreamUnsubscribeRequest represents global message '#/components/messages/userDataStreamUnsubscribeRequest'
 type UserDataStreamUnsubscribeRequest struct {
-	// id property
-	Id string `json:"id,omitempty"`
-	// method property
-	Method string `json:"method,omitempty"`
-}
-
-// NewUserDataStreamUnsubscribeRequest creates a new UserDataStreamUnsubscribeRequest instance
-func NewUserDataStreamUnsubscribeRequest() *UserDataStreamUnsubscribeRequest {
-	return &UserDataStreamUnsubscribeRequest{}
-}
-
-// String returns string representation of UserDataStreamUnsubscribeRequest
-func (s UserDataStreamUnsubscribeRequest) String() string {
-	b, _ := json.Marshal(s)
-	return string(b)
+	Id MessageID `json:"id,omitempty"` // id property
+	Method string `json:"method,omitempty"` // method property
+	Params struct {
+		SubscriptionId int64 `json:"subscriptionId,omitempty"` // When called with no parameter, this will close all subscriptions. When called with the subscriptionId parameter, this will attempt to close the subscription with that subscription id, if it exists.
+	} `json:"params,omitempty"` // params property
 }
 
 

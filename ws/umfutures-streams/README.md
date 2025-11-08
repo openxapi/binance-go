@@ -1,901 +1,266 @@
-# Binance WebSocket API Client with Enhanced Authentication
+# Binance WebSocket Streams SDK (Go)
 
-This Go client provides comprehensive support for Binance's WebSocket API with built-in authentication for all security types, enhanced error handling, automatic JSON parsing, and high-performance event processing.
+Generated Go SDK for Binance WebSocket modules (spot, market streams, user data, etc.). It supports channel helpers from the AsyncAPI spec, typed events, and request/response helpers.
+
+Module: github.com/openxapi/binance-go/ws/umfutures-streams
+Version: 0.1.0
 
 ## Features
 
-- ✅ **Multiple Authentication Methods**: HMAC-SHA256, RSA, and Ed25519 signing
-- ✅ **Context-Based Authentication**: Per-request authentication via Go's context.Context
-- ✅ **Automatic Authentication**: Detects authentication requirements from API specifications
-- ✅ **Flexible Auth Strategy**: Client-level or per-request authentication
-- ✅ **Enhanced Error Handling**: Comprehensive API error handling with HTTP-like status codes
-- ✅ **Automatic JSON Parsing**: Response handlers receive parsed objects, not raw bytes
-- ✅ **Type-Safe**: Generated Go structs with proper types and validation
-- ✅ **High-Performance**: Optimized with sync.Map, pre-allocated buffers, and concurrent-safe operations
-- ✅ **OneOf Support**: Automatic handling of multiple response types in single endpoints
-- ✅ **Event-Driven Architecture**: Advanced event handling with global handlers and history tracking
-- ✅ **Comprehensive Testing**: Unit tests, benchmarks, and integration examples included
-- ✅ **Thread-Safe**: All operations are concurrent-safe with proper locking mechanisms
+- Channel helpers generated directly from the AsyncAPI specification
+- Subscribe/Unsubscribe/ListSubscriptions over WebSocket (when defined)
+- Typed handler registration per event
+- Request/reply helpers surface server errors through the handler's `error` parameter
+- Combined-stream wrapper routing (when combined streams are available)
+- Stream-name builders from x-stream-pattern(s), examples, and speeds
+- Server management (multiple endpoints, active server switching)
 
-## Authentication Types
+## Install
 
-Binance WebSocket API supports four authentication types:
-
-| Type | Description | Signature Required |
-|------|-------------|-------------------|
-| `NONE` | Public market data | No |
-| `USER_STREAM` | User data stream management | No |
-| `USER_DATA` | Private account information | Yes |
-| `TRADE` | Trading operations | Yes |
-
-The client automatically detects the required authentication type based on the API endpoint.
-
-## Error Handling
-
-### APIError Structure
-
-The client includes a comprehensive error handling system that automatically detects and processes API errors based on HTTP-like status codes:
-
-```go
-type APIError struct {
-    Status  int    `json:"status"`  // HTTP-like status code (400, 403, 429, etc.)
-    Code    int    `json:"code"`    // Binance-specific error code
-    Message string `json:"msg"`     // Error message
-    Id      string `json:"id"`      // Request ID that caused the error
-}
-
-// Check if an error is an APIError
-if apiErr, ok := IsAPIError(err); ok {
-    // Handle API-specific error
-    switch apiErr.Status {
-    case 400:
-        log.Printf("Bad request: %s", apiErr.Message)
-    case 403:
-        log.Printf("Forbidden - WAF blocked: %s", apiErr.Message)
-    case 409:
-        log.Printf("Partial failure: %s", apiErr.Message)
-    case 418:
-        log.Printf("Auto-banned for rate limit violation: %s", apiErr.Message)
-    case 429:
-        log.Printf("Rate limit exceeded: %s", apiErr.Message)
-    default:
-        log.Printf("API error: %s", apiErr.Error())
-    }
-}
-```
-
-### Response Handler Signature
-
-All response handlers receive parsed response objects, not raw bytes:
-
-```go
-func(response *models.SomeResponseType, err error) error
-```
-
-This provides a user-friendly API where you can directly access response fields without manual JSON unmarshaling.
+go get github.com/openxapi/binance-go/ws/umfutures-streams
 
 ## Quick Start
 
-### 1. Basic Usage (Public Endpoints)
+### 1) Create client (server preloaded)
 
 ```go
-package main
-
 import (
-    "context"
-    "log"
-    "github.com/openxapi/binance-go/ws/umfutures-streams"
+  "context"
+  "log"
+  ws "github.com/openxapi/binance-go/ws/umfutures-streams"
+  wsmodels "github.com/openxapi/binance-go/ws/umfutures-streams/models"
 )
 
 func main() {
-    // Create client for public endpoints
-    client := NewClient()
-    
-    ctx := context.Background()
-    if err := client.Connect(ctx); err != nil {
-        log.Fatalf("Failed to connect: %v", err)
-    }
-    defer client.Disconnect()
-    
-    // Use public endpoints with automatic JSON parsing
-    // Note: id and method are set automatically by the client
-    request := &models.PingRequest{}
-    err := client.SendPing(ctx, request, func(response *models.PingResponse, err error) error {
-        if err != nil {
-            if apiErr, ok := IsAPIError(err); ok {
-                log.Printf("Ping API error: Status=%d, Code=%d, Message=%s", 
-                    apiErr.Status, apiErr.Code, apiErr.Message)
-                return nil
-            }
-            return err
-        }
-        
-        // Response is automatically parsed - ready to use!
-        log.Printf("Ping successful: ID=%s, Status=%d", response.Id, response.Status)
-        return nil
-    })
-    if err != nil {
-        log.Printf("Error sending ping: %v", err)
-    }
-    
-    // Example with parameters - get order book depth
-    depthRequest := &models.DepthRequest{
-        Params: models.DepthRequestParams{
-            Symbol: "BTCUSDT",
-            Limit:  100,
-        },
-    }
-    err = client.SendDepth(ctx, depthRequest, func(response *models.DepthResponse, err error) error {
-        if err != nil {
-            if apiErr, ok := IsAPIError(err); ok {
-                log.Printf("Depth API error: %s", apiErr.Error())
-                return nil
-            }
-            return err
-        }
-        
-        log.Printf("Order book depth received for %s", "BTCUSDT")
-        return nil
-    })
-    if err != nil {
-        log.Printf("Error getting depth: %v", err)
-    }
+  client := ws.NewClient()
+  // Servers from the AsyncAPI spec are added automatically.
+  // The first server is active by default — no setup required.
+  // Optional: override or add another server
+  // _ = client.AddOrUpdateServer("alt", "wss://fstream.binance.com/", "Alt Server", "Optional override")
+  // _ = client.SetActiveServer("alt")
+
+  ctx := context.Background()
+  // ...
 }
 ```
 
-### 2. Client-Level Authentication (HMAC)
+### 2) Connect
+
+Connect using generated channels:
+
+- Market Streams (single): /ws/{streamName}
+- Combined Market Streams: /stream?streams={streams}
+- User Data Streams: /ws/{listenKey}
 
 ```go
-package main
+// Single Market Streams Connection channel
+ch := ws.NewMarketStreamChannel(client)
+// Register handler(s) before connect (recommended)
+ch.HandleCombinedStreamDataEvent(func(ctx context.Context, ev *wsmodels.CombinedStreamDataEvent) error {
+  log.Printf("event: %+v", ev)
+  return nil
+})
+if err := ch.Connect(ctx, "btcusdt@aggTrade"); err != nil {
+  log.Fatalf("connect failed: %v", err)
+}
 
-import (
-    "context"
-    "log"
-    "github.com/openxapi/binance-go/ws/umfutures-streams"
-)
+// Combined Market Streams Connection channel
+comb := ws.NewCombinedMarketStreamChannel(client)
+if err := comb.Connect(ctx, "btcusdt@aggTrade/btcusdt@markPrice"); err != nil {
+  log.Fatalf("connect combined failed: %v", err)
+}
 
-func main() {
-    // Create HMAC auth
-    auth := NewAuth("your-api-key")
-    auth.SetSecretKey("your-secret-key")
-    client := NewClientWithAuth(auth)
-    
-    ctx := context.Background()
-    if err := client.Connect(ctx); err != nil {
-        log.Fatalf("Failed to connect: %v", err)
-    }
-    defer client.Disconnect()
-    
-    // Now you can use authenticated endpoints with automatic JSON parsing
-    // Note: id and method are set automatically, but params must be provided
-    request := &models.AccountCommissionRequest{
-        Params: models.AccountCommissionRequestParams{
-            Symbol: "BTCUSDT",
-        },
-    }
-    err := client.SendAccountCommission(ctx, request, func(response *models.AccountCommissionResponse, err error) error {
-        if err != nil {
-            if apiErr, ok := IsAPIError(err); ok {
-                log.Printf("Account commission API error: %s", apiErr.Error())
-                return nil
-            }
-            return err
-        }
-        
-        // Response is automatically parsed - ready to use!
-        log.Printf("Account commission: %+v", response.Result)
-        return nil
-    })
-    if err != nil {
-        log.Printf("Error getting account commission: %v", err)
-    }
+// User Data Streams Connection channel (requires listenKey)
+uds := ws.NewUserDataStreamChannel(client)
+if err := uds.Connect(ctx, "<listenKey>"); err != nil {
+  log.Fatalf("connect user data failed: %v", err)
 }
 ```
 
-### 3. Per-Request Authentication
+### 3) Build stream names and subscribe
+
+Use the generated stream builders derived from the AsyncAPI patterns:
 
 ```go
-package main
+streams := []string{}
 
-import (
-    "context"
-    "log"
-    "github.com/openxapi/binance-go/ws/umfutures-streams"
-)
+// Example using AggregateTradeEvent
+if s, err := ws.BuildAggregateTradeEventStream(0, map[string]string{
+  "symbol": "btcusdt",
+}); err == nil {
+  streams = append(streams, s)
+}
 
-func main() {
-    // Create client without authentication
-    client := NewClient()
-    
-    ctx := context.Background()
-    if err := client.Connect(ctx); err != nil {
-        log.Fatalf("Failed to connect: %v", err)
-    }
-    defer client.Disconnect()
-    
-    // Create authentication for specific request
-    auth := NewAuth("your-api-key")
-    auth.SetSecretKey("your-secret-key")
-    authCtx, err := auth.ContextWithValue(context.Background())
-    if err != nil {
-        log.Fatalf("Failed to create auth context: %v", err)
-    }
-    
-    // Use per-request auth with automatic JSON parsing
-    // Note: Only id and method are auto-set, all params must be provided
-    request := &models.AccountCommissionRequest{
-        Params: models.AccountCommissionRequestParams{
-            Symbol: "BTCUSDT",
-        },
-    }
-    err = client.SendAccountCommission(authCtx, request, func(response *models.AccountCommissionResponse, err error) error {
-        if err != nil {
-            if apiErr, ok := IsAPIError(err); ok {
-                switch apiErr.Status {
-                case 401:
-                    log.Printf("Authentication failed: %s", apiErr.Message)
-                case 403:
-                    log.Printf("Access forbidden: %s", apiErr.Message)
-                case 429:
-                    log.Printf("Rate limit exceeded: %s", apiErr.Message)
-                default:
-                    log.Printf("API error: %s", apiErr.Error())
-                }
-                return nil
-            }
-            return err
-        }
-        
-        // Response is automatically parsed - ready to use!
-        log.Printf("Account commission: %+v", response.Result)
-        return nil
-    })
-    if err != nil {
-        log.Printf("Error getting account commission: %v", err)
-    }
+// Generate every permutation from supplied values
+if many, err := ws.BuildAggregateTradeEventStreams(map[string]string{
+  "symbol": "btcusdt",
+}); err == nil {
+  streams = append(streams, many...)
+}
+
+subReq := &wsmodels.SubscribeRequest{
+  Id:     wsmodels.NewMessageIDInt64(1),
+  Params: streams,
+}
+if err := comb.CombinedMarketStreamSubscribe(ctx, subReq, nil); err != nil {
+  log.Fatalf("subscribe failed: %v", err)
 }
 ```
 
-### 4. Different Auth for Different Requests
+
+### 4) One-shot request/response (example)
 
 ```go
-package main
-
-import (
-    "context"
-    "log"
-    "github.com/openxapi/binance-go/ws/umfutures-streams"
-)
-
-func main() {
-    client := NewClient()
-    
-    ctx := context.Background()
-    if err := client.Connect(ctx); err != nil {
-        log.Fatalf("Failed to connect: %v", err)
+req := &wsmodels.ListSubscriptionsRequest{
+  // Populate request fields here
+}
+onReply := func(ctx context.Context, res *wsmodels.ListSubscriptionsResponse, wsErr error) error {
+  if wsErr != nil {
+    if apiErr, ok := wsErr.(*wsmodels.ErrorMessage); ok {
+      log.Printf("request failed: %s", apiErr.Error())
     }
-    defer client.Disconnect()
-    
-    // Create different auth instances
-    tradingAuth := NewAuth("trading-api-key")
-    tradingAuth.SetSecretKey("trading-secret")
-    
-    readOnlyAuth := NewAuth("readonly-api-key")
-    readOnlyAuth.SetSecretKey("readonly-secret")
-    
-    // Use different auth for different operations
-    tradingCtx, _ := tradingAuth.ContextWithValue(context.Background())
-    readOnlyCtx, _ := readOnlyAuth.ContextWithValue(context.Background())
-    
-    // Trading operations use trading auth with automatic JSON parsing
-    // Note: All trading parameters must be specified in params
-    orderRequest := &models.OrderPlaceRequest{
-        Params: models.OrderPlaceRequestParams{
-            Symbol:    "BTCUSDT",
-            Side:      "BUY",
-            Type:      "LIMIT",
-            Quantity:  "0.001",
-            Price:     "50000.00",
-            TimeInForce: "GTC",
-        },
-    }
-    err := client.SendOrderPlace(tradingCtx, orderRequest, func(response *models.OrderPlaceResponse, err error) error {
-        if err != nil {
-            if apiErr, ok := IsAPIError(err); ok {
-                if apiErr.Status == 429 {
-                    log.Printf("Trading rate limit exceeded: %s", apiErr.Message)
-                    return nil
-                }
-                log.Printf("Trading error: %s", apiErr.Error())
-                return nil
-            }
-            return err
-        }
-        
-        // Response is automatically parsed - ready to use!
-        log.Printf("Order placed: %+v", response.Result)
-        return nil
-    })
-    if err != nil {
-        log.Printf("Error placing order: %v", err)
-    }
-    
-    // Account info uses read-only auth with automatic JSON parsing
-    accountRequest := &models.AccountStatusRequest{
-    }
-    err = client.SendAccountStatus(readOnlyCtx, accountRequest, func(response *models.AccountStatusResponse, err error) error {
-        if err != nil {
-            if apiErr, ok := IsAPIError(err); ok {
-                log.Printf("Account status error: %s", apiErr.Error())
-                return nil
-            }
-            return err
-        }
-        
-        // Response is automatically parsed - ready to use!
-        log.Printf("Account status: %+v", response.Result)
-        return nil
-    })
-    if err != nil {
-        log.Printf("Error getting account status: %v", err)
-    }
+    return wsErr
+  }
+  log.Printf("reply: %+v", res)
+  return nil
+}
+if err := comb.CombinedMarketStreamListSubscriptions(ctx, req, &onReply); err != nil {
+  log.Fatalf("request failed: %v", err)
 }
 ```
 
-### 5. RSA Authentication
+### 5) Wait and shutdown
 
 ```go
-package main
+// Block until read loop ends or context cancels
+_ = client.Wait(ctx)
 
-import (
-    "context"
-    "log"
-    "os"
-    "github.com/openxapi/binance-go/ws/umfutures-streams"
-)
-
-func main() {
-    // Load RSA private key from PEM file
-    pemData, err := os.ReadFile("path/to/your/private-key.pem")
-    if err != nil {
-        log.Fatalf("Failed to read PEM file: %v", err)
-    }
-    
-    // Create RSA auth
-    auth := NewAuth("your-api-key")
-    if err := auth.SetPrivateKey(pemData); err != nil {
-        log.Fatalf("Failed to set private key: %v", err)
-    }
-    client := NewClientWithAuth(auth)
-    
-    // Connect and use authenticated endpoints with automatic JSON parsing
-    ctx := context.Background()
-    if err := client.Connect(ctx); err != nil {
-        log.Fatalf("Failed to connect: %v", err)
-    }
-    defer client.Disconnect()
-    
-    // Example authenticated request with automatic JSON parsing
-    // Note: All required parameters must be provided in params
-    request := &models.AccountCommissionRequest{
-        Params: models.AccountCommissionRequestParams{
-            Symbol: "BTCUSDT",
-        },
-    }
-    err = client.SendAccountCommission(ctx, request, func(response *models.AccountCommissionResponse, err error) error {
-        if err != nil {
-            if apiErr, ok := IsAPIError(err); ok {
-                log.Printf("RSA auth error: %s", apiErr.Error())
-                return nil
-            }
-            return err
-        }
-        
-        // Response is automatically parsed - ready to use!
-        log.Printf("Account commission: %+v", response.Result)
-        return nil
-    })
-    if err != nil {
-        log.Printf("Error with RSA auth: %v", err)
-    }
-}
+// Close and remove handlers for a channel
+_ = ch.Disconnect(ctx)
 ```
 
-### 6. Ed25519 Authentication (Recommended)
+## Stream Builders and Metadata
+
+For each event with patterns, the SDK generates:
+
+- `<Event>StreamPatterns` (`[]string`)
+- `<Event>StreamExamples` (`[]string`)
+- `<Event>UpdateSpeeds` (`[]string`, when present)
+- Builders:
+  - `Build<Event>Stream(patternIndex int, values map[string]string) (string, error)`
+  - `Build<Event>Streams(values map[string]string) ([]string, error)`
+  - If the spec provides `x-stream-params`, typed param helpers are also generated.
+
+
+## Selected Event Metadata
+
+- AggregateTradeEvent
+  Patterns:
+  - {symbol}@aggTrade
+  Examples:
+  - btcusdt@aggTrade
+  Update Speeds:
+  - 100ms
+
+- MarkPriceEvent
+  Patterns:
+  - {symbol}@markPrice
+  - {symbol}@markPrice@{markPriceInterval}
+  Examples:
+  - btcusdt@markPrice
+  - btcusdt@markPrice@1s
+  Update Speeds:
+  - 1000ms
+  - 3000ms
+
+- AllMarkPricesEvent
+  Patterns:
+  - !markPrice@arr
+  - !markPrice@arr@{markPriceInterval}
+  Examples:
+  - !markPrice@arr
+  - !markPrice@arr@3s
+  Update Speeds:
+  - 1000ms
+  - 3000ms
+
+- KlineEvent
+  Patterns:
+  - {symbol}@kline_{interval}
+  Examples:
+  - btcusdt@kline_1m
+  Update Speeds:
+  - 250ms
+
+- ContinuousKlineEvent
+  Patterns:
+  - {pair}_{contractType}@continuousKline_{interval}
+  Examples:
+  - BTCUSDT_PERPETUAL@continuousKline_1m
+  Update Speeds:
+  - 250ms
+
+- MiniTickerEvent
+  Patterns:
+  - {symbol}@miniTicker
+  Examples:
+  - btcusdt@miniTicker
+  Update Speeds:
+  - 2s
+
+- AllMiniTickersEvent
+  Patterns:
+  - !miniTicker@arr
+  Examples:
+  - !miniTicker@arr
+  Update Speeds:
+  - 1000ms
+
+- TickerEvent
+  Patterns:
+  - {symbol}@ticker
+  Examples:
+  - btcusdt@ticker
+  Update Speeds:
+  - 2000ms
+
+
+
+## Error Responses
+
+Request/reply error payloads are decoded into `*wsmodels.ErrorMessage`, which implements `error`. Always check the handler's error argument before using the reply value.
+
+
+## Performance & Dispatch
+
+- Incoming frames are read on a dedicated loop and dispatched asynchronously to a worker pool.
+- Slow user handlers do not block `ReadMessage()`; an unbounded in-memory queue buffers messages between the reader and workers.
+- Defaults: workers = `runtime.NumCPU()`. Messages are never dropped.
+- Customize workers via `NewClientWithOptions(&ws.ClientOptions{ HandlerWorkers: N })`.
 
 ```go
-package main
-
-import (
-    "context"
-    "log"
-    "os"
-    "github.com/openxapi/binance-go/ws/umfutures-streams"
-)
-
-func main() {
-    // Load Ed25519 private key from PEM file
-    pemData, err := os.ReadFile("path/to/your/ed25519-key.pem")
-    if err != nil {
-        log.Fatalf("Failed to read PEM file: %v", err)
-    }
-    
-    // Create Ed25519 auth (recommended for best performance)
-    auth := NewAuth("your-api-key")
-    if err := auth.SetPrivateKey(pemData); err != nil {
-        log.Fatalf("Failed to set private key: %v", err)
-    }
-    client := NewClientWithAuth(auth)
-    
-    // Connect and use authenticated endpoints with automatic JSON parsing
-    ctx := context.Background()
-    if err := client.Connect(ctx); err != nil {
-        log.Fatalf("Failed to connect: %v", err)
-    }
-    defer client.Disconnect()
-    
-    // Example authenticated request with comprehensive error handling and automatic JSON parsing
-    // Note: All required parameters must be specified in params
-    request := &models.AccountCommissionRequest{
-        Params: models.AccountCommissionRequestParams{
-            Symbol: "BTCUSDT",
-        },
-    }
-    err = client.SendAccountCommission(ctx, request, func(response *models.AccountCommissionResponse, err error) error {
-        if err != nil {
-            if apiErr, ok := IsAPIError(err); ok {
-                switch apiErr.Status {
-                case 400:
-                    log.Printf("Bad request with Ed25519: %s", apiErr.Message)
-                case 401:
-                    log.Printf("Ed25519 authentication failed: %s", apiErr.Message)
-                case 403:
-                    log.Printf("Ed25519 access forbidden: %s", apiErr.Message)
-                case 429:
-                    log.Printf("Ed25519 rate limit: %s", apiErr.Message)
-                default:
-                    log.Printf("Ed25519 API error: %s", apiErr.Error())
-                }
-                return nil
-            }
-            return err
-        }
-        
-        // Response is automatically parsed - ready to use!
-        log.Printf("Ed25519 account commission: %+v", response.Result)
-        return nil
-    })
-    if err != nil {
-        log.Printf("Error with Ed25519 auth: %v", err)
-    }
-}
-```
-
-## Event Handling and OneOf Support
-
-### Setting Up Event Handlers
-
-```go
-package main
-
-import (
-    "context"
-    "log"
-    "github.com/openxapi/binance-go/ws/umfutures-streams"
-)
-
-func main() {
-    client := NewClient()
-    
-    ctx := context.Background()
-    if err := client.Connect(ctx); err != nil {
-        log.Fatalf("Failed to connect: %v", err)
-    }
-    defer client.Disconnect()
-    
-    // Setup individual event handlers for different event types
-    client.HandleExecutionReport(func(event *models.ExecutionReport) error {
-        log.Printf("Order update: Symbol=%s, Side=%s, Status=%s", event.S, event.Side, event.X)
-        return nil
-    })
-    
-    client.HandleBalanceUpdate(func(event *models.BalanceUpdate) error {
-        log.Printf("Balance update: Asset=%s, Delta=%s", event.A, event.D)
-        return nil
-    })
-    
-    client.HandleOutboundAccountPosition(func(event *models.OutboundAccountPosition) error {
-        log.Printf("Account position update: Event time=%d", event.E)
-        return nil
-    })
-    
-    client.HandleListenKeyExpired(func(event *models.ListenKeyExpired) error {
-        log.Printf("Listen key expired: Event time=%d", event.E)
-        return nil
-    })
-    
-    client.HandleListStatus(func(event *models.ListStatus) error {
-        log.Printf("List status update: %+v", event)
-        return nil
-    })
-    
-    client.HandleExternalLockUpdate(func(event *models.ExternalLockUpdate) error {
-        log.Printf("External lock update: %+v", event)
-        return nil
-    })
-    
-    // Subscribe to user data stream (requires authentication)
-    auth := NewAuth("your-api-key")
-    auth.SetSecretKey("your-secret-key")
-    authCtx, _ := auth.ContextWithValue(context.Background())
-    
-    request := &models.UserDataStreamSubscribeRequest{}
-    err := client.SendUserdatastreamSubscribe(authCtx, request, func(response *models.UserDataStreamSubscribeResponse, err error) error {
-        if err != nil {
-            if apiErr, ok := IsAPIError(err); ok {
-                log.Printf("UserDataStream error: %s", apiErr.Error())
-                return nil
-            }
-            return err
-        }
-        
-        log.Printf("UserDataStream subscribed: %+v", response.Result)
-        return nil
-    })
-    if err != nil {
-        log.Printf("Error subscribing to user data stream: %v", err)
-    }
-}
-```
-
-### Response History Management
-
-```go
-// Get all received responses
-history := client.GetResponseList()
-log.Printf("Received %d responses", len(history))
-
-// Clear history when needed
-client.ClearResponseList()
-
-// Access specific responses
-for i, response := range history {
-    log.Printf("Response %d: %+v", i+1, response)
-}
-```
-
-## Authentication Flow
-
-The client automatically handles authentication for you:
-
-1. **Detects Authentication Type**: Extracts the required authentication type from the API endpoint name
-2. **Resolves Authentication**: Uses context-based auth first, then falls back to client-level auth
-3. **Adds Credentials**: Automatically adds `apiKey` parameter for authenticated requests
-4. **Generates Timestamp**: Adds current timestamp for signed requests
-5. **Signs Request**: Generates and adds the required signature using your chosen method
-6. **Sends Request**: Transmits the properly authenticated request
-
-## Authentication Priority
-
-Authentication is resolved in the following priority order:
-
-1. **Context Authentication**: Authentication passed via `ContextBinanceAuth` in the request context
-2. **Client Authentication**: Authentication set on the client instance during creation
-3. **Error**: If neither is available and the operation requires authentication, an error is returned
-
-## Context Keys
-
-The client uses the following context keys for per-request configuration:
-
-- `ContextBinanceAuth`: Used to pass `Auth` instances for per-request authentication
-
-## Signing Methods Comparison
-
-| Method | Key Size | Performance | Security | Recommended |
-|--------|----------|-------------|----------|-------------|
-| HMAC-SHA256 | 32+ bytes | Fastest | High | Good for high-frequency trading |
-| RSA | 2048+ bits | Moderate | High | Standard corporate use |
-| Ed25519 | 32 bytes | Fast | Very High | **Recommended** - Best balance |
-
-## Error Handling
-
-The client provides clear error messages for authentication issues and API errors:
-
-### Authentication Errors
-
-```go
-ctx := context.Background()
-request := &models.AccountCommissionRequest{
-    Params: models.AccountCommissionRequestParams{
-        Symbol: "BTCUSDT",
-    },
-}
-err := client.SendAccountCommission(ctx, request, func(response *models.AccountCommissionResponse, err error) error {
-    if err != nil {
-        if strings.Contains(err.Error(), "authentication required") {
-            log.Println("Please set up authentication credentials")
-        } else if strings.Contains(err.Error(), "failed to sign request") {
-            log.Println("Check your API credentials")
-        } else if apiErr, ok := IsAPIError(err); ok {
-            log.Printf("API error: Status=%d, Message=%s", apiErr.Status, apiErr.Message)
-        } else {
-            log.Printf("Other error: %v", err)
-        }
-    } else {
-        // Response is automatically parsed - ready to use!
-        log.Printf("Success: %+v", response.Result)
-    }
-    return nil
+client := ws.NewClientWithOptions(&ws.ClientOptions{
+  HandlerWorkers: 8,
 })
 ```
 
-### Context Authentication Errors
+## Server Management
 
-If authentication is required but not provided in either context or client:
+The client carries a `ServerManager` to manage endpoints:
 
-```go
-// This will return an error for authenticated operations
-ctx := context.Background() // No auth in context
-client := NewClient()       // No auth on client
+- `AddServer(name, url, title, description)`
+- `AddOrUpdateServer(...)`, `UpdateServer(...)`, `RemoveServer(name)`
+- `SetActiveServer(name)`, `GetActiveServer()`, `GetActiveServerURL()`
 
-request := &models.AccountCommissionRequest{
-    Params: models.AccountCommissionRequestParams{
-        Symbol: "BTCUSDT",
-    },
-}
-err := client.SendAccountCommission(ctx, request, func(response *models.AccountCommissionResponse, err error) error {
-    if err != nil {
-        log.Printf("Error: %v", err)
-        // Returns: "authentication required for USER_DATA request but no auth provided in context or client"
-    }
-    return nil
-})
-```
+## Notes
 
-### Common API Error Status Codes
-
-| Status | Description | Typical Response |
-|--------|-------------|------------------|
-| 200 | Success | Process response normally |
-| 400 | Bad Request | Check request parameters |
-| 401 | Unauthorized | Check API key and signature |
-| 403 | Forbidden | WAF blocked or insufficient permissions |
-| 409 | Conflict | Partial success, check error details |
-| 418 | I'm a teapot | Auto-banned for rate limit violations |
-| 429 | Too Many Requests | Rate limit exceeded, slow down |
-| 5xx | Server Error | Retry with exponential backoff |
-
-### Response Handlers
-
-Response handlers work the same way regardless of authentication method, with automatic JSON parsing:
-
-```go
-responseHandler := func(response *models.AccountCommissionResponse, err error) error {
-    if err != nil {
-        if apiErr, ok := IsAPIError(err); ok {
-            log.Printf("API Error: Status=%d, Code=%d, Message=%s, ID=%s", 
-                apiErr.Status, apiErr.Code, apiErr.Message, apiErr.ID)
-            return nil // Error handled
-        }
-        log.Printf("Other error: %v", err)
-        return err
-    }
-    
-    // Response is automatically parsed - ready to use!
-    log.Printf("Received response: %+v", response.Result)
-    return nil
-}
-```
-
-## Migration Guide
-
-### From Previous Version (Adding Context Support)
-
-**Old method signatures:**
-```go
-client.SendAccountCommission(request, responseHandler)
-```
-
-**New method signatures:**
-```go
-request := &models.AccountCommissionRequest{
-    Params: models.AccountCommissionRequestParams{
-        Symbol: "BTCUSDT",
-    },
-}
-client.SendAccountCommission(ctx, request, func(response *models.AccountCommissionResponse, err error) error {
-    // Handle both success and error cases - response is automatically parsed!
-    return nil
-})
-```
-
-All client methods now require a `context.Context` as the first parameter and response handlers receive parsed response objects. This enables:
-- Per-request authentication
-- Request cancellation and timeouts
-- Request tracing and observability
-- Proper error handling
-- Automatic JSON parsing
-
-## High-Performance Features
-
-### Optimized Client Architecture
-
-The client is designed for high-performance scenarios:
-
-- **Pre-allocated Buffers**: JSON parsing uses pre-allocated buffers to reduce garbage collection
-- **sync.Map**: Response handlers use sync.Map for better concurrent performance
-- **Separate Mutexes**: Response list and client state use separate mutexes to reduce contention
-- **Capacity Pre-allocation**: Response lists are pre-allocated with capacity to minimize reallocations
-
-### Concurrent Safety
-
-All client operations are thread-safe:
-
-- Response handlers use RWMutex for concurrent access
-- Response history is protected with mutex
-- Global response registry uses locks for safe registration
-- Event handlers support concurrent registration and execution
-
-## Security Best Practices
-
-1. **Store Keys Securely**: Never hardcode API keys in your source code
-2. **Use Environment Variables**: Store credentials in environment variables
-3. **Rotate Keys Regularly**: Follow Binance's recommendations for key rotation
-4. **Use Ed25519**: Preferred for new implementations
-5. **Monitor API Usage**: Keep track of your API usage and rate limits
-6. **Use Context Timeouts**: Set appropriate timeouts for requests
-7. **Separate Auth by Purpose**: Use different API keys for trading vs. read-only operations
-8. **Handle Errors Gracefully**: Always check for API errors and handle them appropriately
-
-## Example Environment Setup
-
-```bash
-export BINANCE_API_KEY="your-api-key"
-export BINANCE_SECRET_KEY="your-secret-key"
-# Or for file-based keys:
-export BINANCE_PRIVATE_KEY_PATH="/path/to/private-key.pem"
-```
-
-```go
-// Load from environment with error handling and automatic JSON parsing
-apiKey := os.Getenv("BINANCE_API_KEY")
-secretKey := os.Getenv("BINANCE_SECRET_KEY")
-
-if apiKey == "" || secretKey == "" {
-    log.Fatal("API credentials not set in environment")
-}
-
-auth := NewAuth(apiKey)
-auth.SetSecretKey(secretKey)
-client := NewClientWithAuth(auth)
-```
-
-## Advanced Usage Examples
-
-### Using Context with Timeouts and Error Handling
-
-```go
-// Create context with timeout
-ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-defer cancel()
-
-// Use timeout context with authentication, error handling, and automatic JSON parsing
-auth := NewAuth("your-api-key")
-auth.SetSecretKey("your-secret-key")
-authCtx, err := auth.ContextWithValue(ctx)
-if err != nil {
-    log.Fatal(err)
-}
-
-request := &models.AccountCommissionRequest{
-    Params: models.AccountCommissionRequestParams{
-        Symbol: "BTCUSDT",
-    },
-}
-err = client.SendAccountCommission(authCtx, request, func(response *models.AccountCommissionResponse, err error) error {
-    if err != nil {
-        if apiErr, ok := IsAPIError(err); ok {
-            log.Printf("Timeout or API error: %s", apiErr.Error())
-            return nil
-        }
-        log.Printf("Other error: %v", err)
-        return err
-    }
-    
-    // Response is automatically parsed - ready to use!
-    log.Printf("Success within timeout: %+v", response.Result)
-    return nil
-})
-```
-
-### Multiple Clients with Different Auth
-
-```go
-// Create separate clients for different purposes
-tradingClient := NewClientWithAuth(tradingAuth)
-readOnlyClient := NewClientWithAuth(readOnlyAuth)
-
-// Or use same client with different context auth
-client := NewClient()
-tradingCtx, _ := tradingAuth.ContextWithValue(context.Background())
-readOnlyCtx, _ := readOnlyAuth.ContextWithValue(context.Background())
-```
-
-### Debugging API Errors
-
-```go
-// Debug handler for troubleshooting API errors with automatic JSON parsing
-debugHandler := func(response *models.AccountCommissionResponse, err error) error {
-    if err != nil {
-        if apiErr, ok := IsAPIError(err); ok {
-            log.Printf("=== API ERROR DEBUG ===")
-            log.Printf("Status: %d", apiErr.Status)
-            log.Printf("Code: %d", apiErr.Code)
-            log.Printf("Message: %s", apiErr.Message)
-            log.Printf("Request ID: %s", apiErr.Id)
-            log.Printf("======================")
-            return nil
-        }
-        log.Printf("Non-API error: %v", err)
-        return err
-    }
-    
-    // Response is automatically parsed - ready to use!
-    log.Printf("Success response: %+v", response.Result)
-    return nil
-}
-```
-
-## Important Notes
-
-### Request Structure
-
-When creating requests, remember that:
-
-1. **`id`** and **`method`** fields are automatically set by the client
-2. **`params`** field must contain all the required parameters for the endpoint
-3. Each request type has its own `Params` struct with specific fields
-
-### Example Request Creation Pattern
-
-```go
-// General pattern for creating requests
-request := &models.SomeRequest{
-    // Don't set Id or Method - these are handled automatically
-    Params: models.SomeRequestParams{
-        // Set all required parameters here
-        RequiredParam1: "value1",
-        RequiredParam2: "value2",
-        OptionalParam:  "optional_value", // omitempty fields can be left empty
-    },
-}
-```
-
-## Testing
-
-Run the included tests to verify everything works:
-
-```bash
-go test -v
-go test -bench=. # Run benchmarks
-```
-
-## Package Information
-
-- **Module**: github.com/openxapi/binance-go/ws/umfutures-streams
-- **Package**: umfuturesstreams
-- **Version**: 0.1.0
-- **Author**: openxapi
-
-## Support
-
-For issues or questions:
-1. Check the Binance API documentation
-2. Review the included example code
-3. Run the test suite to verify your setup
-4. Use the debugging examples above to troubleshoot API errors
+- For combined connections (when defined), connect without `streams` and use `SUBSCRIBE`/`UNSUBSCRIBE` to manage streams.
+- User Data Streams use a dedicated connection (`/ws/{listenKey}`) when present and are not mixed into combined market streams.
+- The SDK normalizes empty query parameters for connect paths (avoids "/stream?streams=").
+- Servers from the spec are preloaded and first is active; override only if needed.
+- Handlers should be registered before connect to avoid missing early messages.
 
 ## License
 
-This generated client follows MIT License.
+MIT
 

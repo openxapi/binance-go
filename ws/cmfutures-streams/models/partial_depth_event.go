@@ -1,37 +1,17 @@
 package models
 
-import (
-	"encoding/json"
-)
-
-// PartialDepthEvent represents PartialDepthEvent
+// PartialDepthEvent represents global message '#/components/messages/partialDepthEvent'
 type PartialDepthEvent struct {
-	// Event type
-	EventType string `json:"e,omitempty"`
-	// Event time
-	EventTime int64 `json:"E,omitempty"`
-	// Transaction time
-	TransactionTime int64 `json:"T,omitempty"`
-	// Symbol
-	Symbol string `json:"s,omitempty"`
-	// Pair
-	Pair string `json:"ps,omitempty"`
-	// First update ID in event
-	FirstUpdateId int64 `json:"U,omitempty"`
-	// Final update ID in event
-	FinalUpdateId int64 `json:"u,omitempty"`
-	// Final update ID in last stream
-	PrevFinalUpdateId int64 `json:"pu,omitempty"`
-	// Bids
-	Bids [][]string `json:"b,omitempty"`
-	// Asks
-	Asks [][]string `json:"a,omitempty"`
-}
-
-// String returns string representation of PartialDepthEvent
-func (s PartialDepthEvent) String() string {
-	b, _ := json.Marshal(s)
-	return string(b)
+	EventType string `json:"e"` // Event type
+	EventTime int64 `json:"E"` // Event time
+	TransactionTime int64 `json:"T"` // Transaction time
+	Symbol string `json:"s"` // Symbol
+	Pair string `json:"ps"` // Pair
+	FirstUpdateIDInEvent int64 `json:"U"` // First update ID in event
+	FinalUpdateIDInEvent int64 `json:"u"` // Final update ID in event
+	FinalUpdateIDInLastStream int64 `json:"pu"` // Final update ID in last stream
+	Bids [][]string `json:"b"` // Bids
+	Asks [][]string `json:"a"` // Asks
 }
 
 

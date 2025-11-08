@@ -1,39 +1,18 @@
 package models
 
-import (
-	"encoding/json"
-)
-
-// TradeEvent represents TradeEvent
+// TradeEvent represents global message '#/components/messages/tradeEvent'
 type TradeEvent struct {
-	// Event type
-	EventType string `json:"e,omitempty"`
-	// Event time
-	EventTime int64 `json:"E,omitempty"`
-	// Symbol
-	Symbol string `json:"s,omitempty"`
-	// Trade ID
-	TradeId int64 `json:"t,omitempty"`
-	// Price
-	Price string `json:"p,omitempty"`
-	// Quantity
-	Quantity string `json:"q,omitempty"`
-	// Buyer order ID
-	BuyerOrderId int64 `json:"b,omitempty"`
-	// Seller order ID
-	SellerOrderId int64 `json:"a,omitempty"`
-	// Trade time
-	TradeTime int64 `json:"T,omitempty"`
-	// Is the buyer the market maker
-	IsBuyerMaker bool `json:"m,omitempty"`
-	// Ignore
-	Ignore bool `json:"M,omitempty"`
-}
-
-// String returns string representation of TradeEvent
-func (s TradeEvent) String() string {
-	b, _ := json.Marshal(s)
-	return string(b)
+	EventType string `json:"e"` // Event type
+	EventTime int64 `json:"E"` // Event time
+	Symbol string `json:"s"` // Symbol
+	TradeID int64 `json:"t"` // Trade ID
+	Price string `json:"p"` // Price
+	Quantity string `json:"q"` // Quantity
+	BuyerOrderID int64 `json:"b"` // Buyer order ID
+	SellerOrderID int64 `json:"a"` // Seller order ID
+	TradeTime int64 `json:"T"` // Trade time
+	IsTheBuyerTheMarketMaker bool `json:"m"` // Is the buyer the market maker
+	Ignore bool `json:"M"` // Ignore
 }
 
 
